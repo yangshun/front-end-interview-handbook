@@ -1,11 +1,10 @@
+import { useMonaco } from '@monaco-editor/react';
 import type { editor } from 'monaco-editor';
 import themeList from 'monaco-themes/themes/themelist.json';
 import { useEffect } from 'react';
 
 import type { MonacoEditorThemeKey } from '~/components/global/CodingPreferencesProvider';
 import { useCodingPreferences } from '~/components/global/CodingPreferencesProvider';
-
-import { useMonaco } from '@monaco-editor/react';
 
 async function loadMonacoTheme(themeKey: string) {
   const themeModule = await import(

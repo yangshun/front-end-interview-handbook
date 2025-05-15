@@ -1,3 +1,5 @@
+import { zodResolver } from '@hookform/resolvers/zod';
+import type { User } from '@supabase/supabase-js';
 import clsx from 'clsx';
 import { useMemo, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
@@ -10,9 +12,6 @@ import TextInput from '~/components/ui/TextInput';
 import { themeBorderColor } from '~/components/ui/theme';
 
 import { useSupabaseClientGFE } from '~/supabase/SupabaseClientGFE';
-
-import { zodResolver } from '@hookform/resolvers/zod';
-import type { User } from '@supabase/supabase-js';
 
 function useEmailFormSchema(currentEmail: string | undefined) {
   const intl = useIntl();

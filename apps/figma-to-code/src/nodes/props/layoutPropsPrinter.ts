@@ -1,12 +1,12 @@
 import { convertSizeToTailwind } from '~/utils/tailwindConversions';
 
+import type { GFELayoutMixin } from '../types';
 import type {
   GFECSSProperties,
   GFENodeMetadata,
   GFENodePropertiesList,
   GFETailwindClasses,
 } from './types';
-import type { GFELayoutMixin } from '../types';
 
 // https://www.figma.com/plugin-docs/api/properties/nodes-layoutsizinghorizontal/
 export function processLayoutSizingHorizontal(

@@ -1,3 +1,5 @@
+import type { IntlShape } from '@formatjs/intl';
+import type { GuidebookItem } from '@prisma/client';
 import {
   RiBookOpenLine,
   RiFlowChart,
@@ -10,9 +12,6 @@ import { basePath as frontEndInterviewPlaybookBasePath } from '~/components/guid
 import { basePath as frontEndSystemDesignPlaybookBasePath } from '~/components/guides/books/front-end-system-design/FrontEndSystemDesignPlaybookNavigation';
 import { basePath as reactInterviewPlaybookBasePath } from '~/components/guides/books/react-interview-playbook/ReactInterviewPlaybookNavigation';
 import { useIntl } from '~/components/intl';
-
-import type { IntlShape } from '@formatjs/intl';
-import type { GuidebookItem } from '@prisma/client';
 
 type GuideData = Readonly<{
   description: string;

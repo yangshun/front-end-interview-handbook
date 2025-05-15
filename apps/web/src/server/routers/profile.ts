@@ -1,3 +1,5 @@
+import { Prisma } from '@prisma/client';
+import { TRPCError } from '@trpc/server';
 import { z } from 'zod';
 
 import { profileNameSchemaServer } from '~/components/profile/fields/ProfileNameSchema';
@@ -6,9 +8,6 @@ import { profileUserNameSchemaServer } from '~/components/profile/fields/Profile
 import prisma from '~/server/prisma';
 
 import { publicProcedure, router, userProcedure } from '../trpc';
-
-import { Prisma } from '@prisma/client';
-import { TRPCError } from '@trpc/server';
 
 export const profileRouter = router({
   nameUpdate: userProcedure

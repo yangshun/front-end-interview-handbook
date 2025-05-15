@@ -1,3 +1,4 @@
+import { useSandpack } from '@codesandbox/sandpack-react';
 import clsx from 'clsx';
 import type { editor } from 'monaco-editor';
 import { useIsMounted } from 'usehooks-ts';
@@ -11,15 +12,13 @@ import CodingWorkspaceThemeSelect from '~/components/workspace/common/editor/Cod
 import { useVimMode } from '~/components/workspace/common/editor/hooks/useVimMode';
 import JavaScriptCodingWorkspaceWorkingLanguageSelect from '~/components/workspace/javascript/JavaScriptCodingWorkspaceWorkingLanguageSelect';
 
-import { useJavaScriptCodingWorkspaceContext } from './JavaScriptCodingWorkspaceContext';
-import JavaScriptCodingWorkspaceCustomTestCasesBanner from './JavaScriptCodingWorkspaceCustomTestCasesBanner';
-import useJavaScriptCodingWorkspaceTilesContext from './useJavaScriptCodingWorkspaceTilesContext';
 import { useCodingWorkspaceContext } from '../common/CodingWorkspaceContext';
 import CodingWorkspaceLoadedFilesBanner from '../common/editor/CodingWorkspaceLoadedFilesBanner';
 import MonacoCodeEditor from '../common/editor/MonacoCodeEditor';
 import { codingWorkspaceTabFileId } from '../common/tabs/codingWorkspaceTabId';
-
-import { useSandpack } from '@codesandbox/sandpack-react';
+import { useJavaScriptCodingWorkspaceContext } from './JavaScriptCodingWorkspaceContext';
+import JavaScriptCodingWorkspaceCustomTestCasesBanner from './JavaScriptCodingWorkspaceCustomTestCasesBanner';
+import useJavaScriptCodingWorkspaceTilesContext from './useJavaScriptCodingWorkspaceTilesContext';
 
 export default function JavaScriptCodingWorkspaceCodeEditor({
   filePath,

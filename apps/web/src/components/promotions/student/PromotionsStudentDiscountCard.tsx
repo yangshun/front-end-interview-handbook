@@ -1,3 +1,4 @@
+import { useUser } from '@supabase/auth-helpers-react';
 import clsx from 'clsx';
 import { useState } from 'react';
 import {
@@ -25,12 +26,10 @@ import Text from '~/components/ui/Text';
 import { themeTextSubtleColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
-import { isValidStudentEmail } from './studentEmail';
-import usePromotionsStudentDiscountLabels from './usePromotionsStudentDiscountLabels';
 import PromotionCard from '../PromotionCard';
 import { PromotionsEmailUsLink } from '../PromotionsEmailUsLink';
-
-import { useUser } from '@supabase/auth-helpers-react';
+import { isValidStudentEmail } from './studentEmail';
+import usePromotionsStudentDiscountLabels from './usePromotionsStudentDiscountLabels';
 
 type Props = Readonly<{
   variant?: 'compact' | 'full';

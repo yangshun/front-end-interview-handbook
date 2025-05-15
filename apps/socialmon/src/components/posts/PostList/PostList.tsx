@@ -1,5 +1,6 @@
 'use client';
 
+import { Button, Tabs, Text, Tooltip } from '@mantine/core';
 import clsx from 'clsx';
 import { useState } from 'react';
 
@@ -9,13 +10,10 @@ import useCurrentProjectSlug from '~/hooks/useCurrentProjectSlug';
 import RelativeTimestamp from '~/components/common/datetime/RelativeTimestamp';
 
 import { NAVBAR_HEIGHT } from '~/constants';
+import type { PostTab } from '~/types';
 
 import FetchPostButton from './FetchPostButton';
 import PostItem from './PostItem';
-
-import type { PostTab } from '~/types';
-
-import { Button, Tabs, Text, Tooltip } from '@mantine/core';
 
 const LIMIT = 20;
 

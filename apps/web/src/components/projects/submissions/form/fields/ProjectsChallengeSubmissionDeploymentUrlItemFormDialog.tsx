@@ -1,3 +1,4 @@
+import { zodResolver } from '@hookform/resolvers/zod';
 import { useEffect } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
@@ -10,8 +11,6 @@ import {
   getProjectsChallengeSubmissionDeploymentUrlsAttributes,
   useProjectsChallengeSubmissionDeploymentUrlItemSchema,
 } from './ProjectsChallengeSubmissionDeploymentUrlsSchema';
-
-import { zodResolver } from '@hookform/resolvers/zod';
 
 export type DeploymentUrlDialogMode = 'add' | 'edit';
 

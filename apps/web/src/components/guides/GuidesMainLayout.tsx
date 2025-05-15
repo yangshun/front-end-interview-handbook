@@ -1,5 +1,7 @@
 'use client';
 
+import type { GuidebookItem, GuideProgress } from '@prisma/client';
+import { useUser } from '@supabase/auth-helpers-react';
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
 import React, { useRef } from 'react';
@@ -27,9 +29,6 @@ import GuidesTableOfContents from './GuidesTableOfContents';
 import type { GuideMetadata, GuideNavigation } from './types';
 import useFlattenedNavigationItems from './useFlattenedNavigationItems';
 import { useGuidesAutoMarkAsComplete } from './useGuidesAutoMarkAsComplete';
-
-import type { GuidebookItem, GuideProgress } from '@prisma/client';
-import { useUser } from '@supabase/auth-helpers-react';
 
 type MarkAsCompleteProps = Readonly<
   | {

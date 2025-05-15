@@ -1,9 +1,8 @@
+import type { RoadmapItem } from '@prisma/client';
 import { format } from 'date-fns';
 
 import { DEC, JAN, MONTH_DELTA, MONTHS } from './constants';
 import type { RoadmapProduct } from './hooks/useRoadmap';
-
-import type { RoadmapItem } from '@prisma/client';
 
 export function getYears(roadmapItems: ReadonlyArray<RoadmapItem>) {
   const yearsSet = new Set<string>();

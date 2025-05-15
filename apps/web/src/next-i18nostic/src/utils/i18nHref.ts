@@ -1,9 +1,9 @@
-import type { LinkProps } from 'next/link';
 import nextI18nosticConfig from 'next-i18nostic/config';
+import type { LinkProps } from 'next/link';
 
+import type { Locale } from '../types';
 import parseI18nPathname from './parseI18nPathname';
 import stripTrailingSlashDependingOnConfig from './stripTrailingSlashDependingOnConfig';
-import type { Locale } from '../types';
 
 export default function i18nHref(
   href: LinkProps['href'],

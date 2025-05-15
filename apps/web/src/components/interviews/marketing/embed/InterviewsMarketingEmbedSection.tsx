@@ -22,11 +22,11 @@ import FilterButton from '~/components/ui/FilterButton/FilterButton';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
+import type { InterviewsQuestionItemJavaScript } from '../../questions/common/QuestionsTypes';
 import InterviewsMarketingEmbedJavaScriptQuestion from './InterviewsMarketingEmbedJavaScriptQuestion';
 import type { EmbedUIQuestion } from './InterviewsMarketingEmbedUIQuestion';
 import InterviewsMarketingEmbedUIQuestion from './InterviewsMarketingEmbedUIQuestion';
 import InterviewsMarketingHeroBrowserWindowFrame from './InterviewsMarketingHeroBrowserWindowFrame';
-import type { InterviewsQuestionItemJavaScript } from '../../questions/common/QuestionsTypes';
 
 const MarketingEmbedSystemDesignQuestion = dynamic(
   () => import('./InterviewsMarketingEmbedSystemDesignQuestion'),

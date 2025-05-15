@@ -1,11 +1,10 @@
 'use client';
 
+import { Button } from '@mantine/core';
 import clsx from 'clsx';
 import { signIn } from 'next-auth/react';
 import type { FormEvent } from 'react';
 import { RiGoogleFill } from 'react-icons/ri';
-
-import { Button } from '@mantine/core';
 
 export default function LoginForm() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {

@@ -1,8 +1,7 @@
+import * as DialogPrimitive from '@radix-ui/react-dialog';
 import clsx from 'clsx';
 import type { ComponentPropsWithoutRef, ElementRef } from 'react';
 import { forwardRef } from 'react';
-
-import * as DialogPrimitive from '@radix-ui/react-dialog';
 
 type DialogBaseOverlayPurpose = 'dialog' | 'slideout';
 

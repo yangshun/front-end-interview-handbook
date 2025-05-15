@@ -12,8 +12,8 @@ import Avatar from '~/components/ui/Avatar';
 import Text from '~/components/ui/Text';
 import { themeBackgroundGlimmerColor } from '~/components/ui/theme';
 
-import useUserProfileWithProjectsProfile from '../../useUserProfileWithProjectsProfile';
 import ProjectsProfileDisplayNameLink from '../../../users/ProjectsProfileDisplayNameLink';
+import useUserProfileWithProjectsProfile from '../../useUserProfileWithProjectsProfile';
 
 export function ProjectsSidebarProfileHeader() {
   const { isLoading, userProfile } = useUserProfileWithProjectsProfile();

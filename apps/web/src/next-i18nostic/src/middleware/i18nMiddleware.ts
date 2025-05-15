@@ -1,6 +1,6 @@
+import nextI18nosticConfig from 'next-i18nostic/config';
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
-import nextI18nosticConfig from 'next-i18nostic/config';
 
 import i18nHref from '../utils/i18nHref';
 import inferLocale from '../utils/inferLocale';

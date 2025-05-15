@@ -2,8 +2,8 @@ import { INTERVIEWS_JS_COMMUNITY_SOLUTIONS_IS_LIVE } from '~/data/FeatureFlags';
 
 import type { TilesPanelConfig } from '~/react-tiling/types';
 
-import type { JavaScriptCodingWorkspaceTabsType } from './JavaScriptCodingWorkspaceTypes';
 import { codingWorkspaceTabFileId } from '../common/tabs/codingWorkspaceTabId';
+import type { JavaScriptCodingWorkspaceTabsType } from './JavaScriptCodingWorkspaceTypes';
 
 const descriptionTab = {
   closeable: false,

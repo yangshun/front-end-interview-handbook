@@ -1,5 +1,6 @@
 'use client';
 
+import { useWheel } from '@use-gesture/react';
 import clsx from 'clsx';
 import { clamp } from 'lodash-es';
 import { useEffect, useRef, useState } from 'react';
@@ -9,8 +10,6 @@ import { useToggle, useWindowSize } from 'usehooks-ts';
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Img from '~/components/ui/Img';
-
-import { useWheel } from '@use-gesture/react';
 
 type Props = Readonly<{
   alt: string;

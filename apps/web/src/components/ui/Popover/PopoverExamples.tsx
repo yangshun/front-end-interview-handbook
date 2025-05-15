@@ -1,6 +1,6 @@
-import Popover from './index';
 import Button from '../Button';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
+import Popover from './index';
 
 export default function PopoverExamples() {
   return (

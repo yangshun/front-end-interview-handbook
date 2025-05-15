@@ -8,7 +8,7 @@ export type PackageExportsFallback = ReadonlyArray<PackageExportsEntryPath>;
 export type PackageExportsEntryOrFallback =
   | PackageExportsEntry
   | PackageExportsFallback;
-// eslint-disable-next-line @typescript-eslint/consistent-indexed-object-style
+ 
 export type PackageExportsEntryObject = Readonly<{
   // E.g. require, import, node, default, types.
   // Because TypeScript allows specifying versions within the key,

@@ -1,5 +1,5 @@
-import isDragTab from './isDragTab';
 import type { TilesPanelDragItem, TilesPanelDragPanel } from '../types';
+import isDragTab from './isDragTab';
 
 export default function getDragId(
   item: TilesPanelDragItem<unknown> | TilesPanelDragPanel,

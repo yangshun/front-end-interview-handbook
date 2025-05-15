@@ -7,11 +7,11 @@ import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Tooltip from '~/components/ui/Tooltip';
 
-import QuestionFrameworkIcon from './QuestionFrameworkIcon';
 import type {
   QuestionFramework,
   QuestionListTypeData,
 } from '../common/QuestionsTypes';
+import QuestionFrameworkIcon from './QuestionFrameworkIcon';
 
 type Props = Readonly<{
   frameworks: ReadonlyArray<

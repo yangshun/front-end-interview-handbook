@@ -1,5 +1,6 @@
 'use client';
 
+import { useSessionContext } from '@supabase/auth-helpers-react';
 import { useCallback, useEffect, useRef } from 'react';
 import { useSessionStorage } from 'usehooks-ts';
 import { useMediaQuery } from 'usehooks-ts';
@@ -9,8 +10,6 @@ import { useToast } from '~/components/global/toasts/useToast';
 import { useI18nPathname } from '~/next-i18nostic/src';
 
 import AuthOneClickSignupCard from './AuthOneClickSignupCard';
-
-import { useSessionContext } from '@supabase/auth-helpers-react';
 
 const POPUP_DURATION = 15_000;
 const TOAST_DURATION = 60 * 60 * 1000; // 1 hour

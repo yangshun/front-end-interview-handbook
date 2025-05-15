@@ -1,7 +1,6 @@
+import * as ScrollAreaPrimitive from '@radix-ui/react-scroll-area';
 import clsx from 'clsx';
 import React from 'react';
-
-import * as ScrollAreaPrimitive from '@radix-ui/react-scroll-area';
 
 type ScrollSize = 'default' | 'thin';
 type Scrollbars = 'both' | 'horizontal' | 'vertical';

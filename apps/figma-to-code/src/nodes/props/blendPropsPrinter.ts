@@ -1,11 +1,11 @@
+import { convertOpacityToTailwind } from '../../utils/tailwindConversions';
+import type { GFEBlendMixin } from '../types';
 import type {
   GFECSSProperties,
   GFENodeMetadata,
   GFENodePropertiesList,
   GFETailwindClasses,
 } from './types';
-import type { GFEBlendMixin } from '../types';
-import { convertOpacityToTailwind } from '../../utils/tailwindConversions';
 
 export function processOpacity(
   metadata: GFENodeMetadata,

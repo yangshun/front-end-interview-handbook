@@ -3,13 +3,13 @@
 import { useQueryGuideProgress } from '~/db/guides/GuidesProgressClient';
 import { useI18nPathname } from '~/next-i18nostic/src';
 
-import { useBehavioralInterviewPlaybookNavigation } from './BehavioralInterviewPlaybookNavigation';
 import GuidesArticle from '../../GuidesArticle';
 import GuidesArticleJsonLd from '../../GuidesArticleJsonLd';
 import GuidesMainLayout from '../../GuidesMainLayout';
 import type { TableOfContents } from '../../GuidesTableOfContents';
 import type { GuideMetadata } from '../../types';
 import useFlattenedNavigationItems from '../../useFlattenedNavigationItems';
+import { useBehavioralInterviewPlaybookNavigation } from './BehavioralInterviewPlaybookNavigation';
 
 type Props = Readonly<{
   children?: React.ReactNode;

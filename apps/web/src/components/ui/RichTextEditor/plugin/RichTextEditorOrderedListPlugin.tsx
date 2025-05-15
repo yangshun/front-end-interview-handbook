@@ -1,4 +1,15 @@
 import {
+  $handleListInsertParagraph,
+  $isListNode,
+  INSERT_ORDERED_LIST_COMMAND,
+  insertList,
+  ListNode,
+  REMOVE_LIST_COMMAND,
+  removeList,
+} from '@lexical/list';
+import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
+import { $getNearestNodeOfType, mergeRegister } from '@lexical/utils';
+import {
   $getSelection,
   $isRangeSelection,
   COMMAND_PRIORITY_CRITICAL,
@@ -10,18 +21,6 @@ import { RiListOrdered2 } from 'react-icons/ri';
 
 import { useIntl } from '~/components/intl';
 import RichTextEditorToolbarActionNode from '~/components/ui/RichTextEditor/components/RichTextEditorToolbarActionNode';
-
-import {
-  $handleListInsertParagraph,
-  $isListNode,
-  INSERT_ORDERED_LIST_COMMAND,
-  insertList,
-  ListNode,
-  REMOVE_LIST_COMMAND,
-  removeList,
-} from '@lexical/list';
-import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
-import { $getNearestNodeOfType, mergeRegister } from '@lexical/utils';
 
 export default function RichTextEditorOrderedListPlugin() {
   const intl = useIntl();

@@ -70,8 +70,10 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 }
 
 export default async function Page(props: Props) {
-  const { locale } = props.params;
   const { directoryPath } = requestToPaths(props);
+  const {
+    params: { locale },
+  } = props;
 
   const code = await readMDXFileWithLocaleFallback(directoryPath, locale, {
     extractFrontmatter: true,

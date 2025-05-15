@@ -1,6 +1,6 @@
-import EmptyState from './EmptyState';
 import Button from '../Button';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
+import EmptyState from './EmptyState';
 
 export default function EmptyStateExamples() {
   return (

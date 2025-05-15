@@ -5,8 +5,8 @@ import Text from '~/components/ui/Text';
 import { themeBorderElementColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
-import ProjectsSkillChip from './ProjectsSkillChip';
 import { projectsSkillLabel } from '../data/ProjectsSkillListData';
+import ProjectsSkillChip from './ProjectsSkillChip';
 
 type Props = Readonly<{
   limit?: number;

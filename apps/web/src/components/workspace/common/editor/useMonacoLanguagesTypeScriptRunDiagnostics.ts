@@ -1,8 +1,7 @@
-import { debounce } from 'lodash-es';
-import { useEffect, useRef } from 'react';
-
 import { useSandpack } from '@codesandbox/sandpack-react';
 import type { Monaco } from '@monaco-editor/react';
+import { debounce } from 'lodash-es';
+import { useEffect, useRef } from 'react';
 
 const DEBOUNCE_INTERVAL = 300;
 

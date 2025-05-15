@@ -13,11 +13,11 @@ import Text from '~/components/ui/Text';
 
 import { hashQuestion } from '~/db/QuestionsUtils';
 
-import QuestionQuizItem from './QuestionQuizItem';
 import QuestionReportIssueButton from '../../common/QuestionReportIssueButton';
 import type { QuestionQuiz } from '../../common/QuestionsTypes';
 import useQuestionsAutoMarkAsComplete from '../../common/useQuestionsAutoMarkAsComplete';
 import InterviewsStudyListBottomBar from '../../listings/study-list/InterviewsStudyListBottomBar';
+import QuestionQuizItem from './QuestionQuizItem';
 
 type Props = Readonly<{
   listIsShownInSidebarOnDesktop: boolean;

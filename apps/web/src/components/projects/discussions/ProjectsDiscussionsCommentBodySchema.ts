@@ -1,11 +1,10 @@
+import { createHeadlessEditor } from '@lexical/headless';
 import { $getRoot } from 'lexical';
 import type { IntlShape } from 'react-intl';
 import { z } from 'zod';
 
 import { useIntl } from '~/components/intl';
 import { RichTextEditorConfig } from '~/components/ui/RichTextEditor/RichTextEditorConfig';
-
-import { createHeadlessEditor } from '@lexical/headless';
 
 const MIN_LENGTH = 6;
 const MAX_LENGTH = 40000;

@@ -2,6 +2,7 @@ import clsx from 'clsx';
 
 import type { TextSize } from '~/components/ui/Text';
 
+import type { InterviewsQuestionMetadata } from '../common/QuestionsTypes';
 import QuestionAuthor from './QuestionAuthor';
 import QuestionDifficultyLabel from './QuestionDifficultyLabel';
 import QuestionDurationLabel from './QuestionDurationLabel';
@@ -9,7 +10,6 @@ import QuestionImportanceLabel from './QuestionImportanceLabel';
 import QuestionLanguages from './QuestionLanguages';
 import QuestionTopics from './QuestionTopics';
 import QuestionUsersCompletedLabelWithFetching from './QuestionUsersCompletedLabelWithFetching';
-import type { InterviewsQuestionMetadata } from '../common/QuestionsTypes';
 
 type MetadataElement =
   | 'author'

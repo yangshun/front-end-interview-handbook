@@ -18,11 +18,11 @@ import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAv
 import Button from '~/components/ui/Button';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 
+import ProjectsPremiumPricingTableDialog from '../../../challenges/premium/ProjectsPremiumPricingTableDialog';
+import useUserProfileWithProjectsProfile from '../../useUserProfileWithProjectsProfile';
 import { ProjectsSidebarCTACard } from './ProjectsSidebarCTACard';
 import { ProjectsSidebarProfileHeader } from './ProjectsSidebarProfileHeader';
 import useProjectsSidebarLinks from './useProjectsSidebarLinks';
-import useUserProfileWithProjectsProfile from '../../useUserProfileWithProjectsProfile';
-import ProjectsPremiumPricingTableDialog from '../../../challenges/premium/ProjectsPremiumPricingTableDialog';
 
 function SettingsMenuItem() {
   const intl = useIntl();

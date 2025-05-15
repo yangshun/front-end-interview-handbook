@@ -1,6 +1,8 @@
+import { useUser } from '@supabase/auth-helpers-react';
 import clsx from 'clsx';
 
 import gtag from '~/lib/gtag';
+
 import useUserProfile from '~/hooks/user/useUserProfile';
 
 import NavColorSchemeDropdown from '~/components/global/navbar/NavColorSchemeDropdown';
@@ -10,8 +12,6 @@ import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 
 import useInterviewsLoggedInLinks from './useInterviewsLoggedInLinks';
-
-import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   variant?: 'app' | 'default';

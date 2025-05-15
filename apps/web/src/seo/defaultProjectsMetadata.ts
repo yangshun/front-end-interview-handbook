@@ -1,8 +1,8 @@
+import type { IntlShape } from '@formatjs/intl';
+
 import { cdnUrl } from '~/utils/cdnUrl';
 
 import { getSiteOrigin } from './siteUrl';
-
-import type { IntlShape } from '@formatjs/intl';
 
 type PageMetadata = Readonly<{
   absoluteTitle?: string;

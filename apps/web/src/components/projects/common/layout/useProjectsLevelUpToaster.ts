@@ -3,8 +3,8 @@ import { useCallback, useEffect, useState } from 'react';
 import { useToast } from '~/components/global/toasts/useToast';
 import { useIntl } from '~/components/intl';
 
-import useUserProfileWithProjectsProfile from '../useUserProfileWithProjectsProfile';
 import { projectsReputationLevel } from '../../reputation/projectsReputationLevelUtils';
+import useUserProfileWithProjectsProfile from '../useUserProfileWithProjectsProfile';
 
 export default function useProjectsLevelUpToaster() {
   const { showToast } = useToast();

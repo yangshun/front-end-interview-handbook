@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 
-import ProjectsChallengeCard from './ProjectsChallengeCard';
 import type { ProjectsChallengeItem } from '../types';
+import ProjectsChallengeCard from './ProjectsChallengeCard';
 
 type Props = Readonly<{
   challenges: ReadonlyArray<ProjectsChallengeItem>;

@@ -1,3 +1,4 @@
+import * as PopoverPrimitive from '@radix-ui/react-popover';
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
 import { PiPathBold } from 'react-icons/pi';
@@ -25,8 +26,6 @@ import {
 import LogoComboMark from '../logos/LogoComboMark';
 import SwagOverflowLogo from '../logos/SwagOverflowLogo';
 import { useProductMenuUnseenIndicator } from '../product-theme/useProductMenuUnseenIndicator';
-
-import * as PopoverPrimitive from '@radix-ui/react-popover';
 
 type ProductValue = 'interviews' | 'projects';
 

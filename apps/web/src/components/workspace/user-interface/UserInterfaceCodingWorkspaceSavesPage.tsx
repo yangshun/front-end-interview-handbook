@@ -1,5 +1,7 @@
 'use client';
 
+import { SandpackProvider } from '@codesandbox/sandpack-react';
+import type { QuestionUserInterfaceSave } from '@prisma/client';
 import clsx from 'clsx';
 
 import CodingPreferencesProvider from '~/components/global/CodingPreferencesProvider';
@@ -17,12 +19,9 @@ import sandpackProviderOptions from '~/components/workspace/common/sandpack/sand
 
 import { useI18nRouter } from '~/next-i18nostic/src';
 
+import SandpackErrorReporting from '../common/sandpack/SandpackErrorReporting';
 import UserInterfaceCodingWorkspace from './UserInterfaceCodingWorkspace';
 import { UserInterfaceCodingWorkspaceSavesContextProvider } from './UserInterfaceCodingWorkspaceSaveContext';
-import SandpackErrorReporting from '../common/sandpack/SandpackErrorReporting';
-
-import { SandpackProvider } from '@codesandbox/sandpack-react';
-import type { QuestionUserInterfaceSave } from '@prisma/client';
 
 type Props = Readonly<{
   canViewPremiumContent: boolean;

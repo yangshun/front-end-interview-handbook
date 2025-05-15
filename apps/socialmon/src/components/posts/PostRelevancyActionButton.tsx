@@ -1,3 +1,4 @@
+import { Button } from '@mantine/core';
 import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
 
@@ -5,8 +6,6 @@ import { trpc } from '~/hooks/trpc';
 import useCurrentProjectSlug from '~/hooks/useCurrentProjectSlug';
 
 import { PostRelevancy } from '~/prisma/client';
-
-import { Button } from '@mantine/core';
 type Props = Readonly<{
   postId: string;
   relevancy: PostRelevancy | null;

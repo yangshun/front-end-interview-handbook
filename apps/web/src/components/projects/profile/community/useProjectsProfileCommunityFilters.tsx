@@ -1,6 +1,6 @@
-import { useProjectsProfileCommunityFilterState } from './ProjectsProfileCommunityFilterContext';
-
 import type { ProjectsDiscussionComment } from '@prisma/client';
+
+import { useProjectsProfileCommunityFilterState } from './ProjectsProfileCommunityFilterContext';
 
 export default function useProjectsProfileCommunityFilters() {
   const [selectedContributionType] =

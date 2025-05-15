@@ -15,8 +15,8 @@ import {
   themeOutlineElementBrandColor_FocusVisible,
 } from '~/components/ui/theme';
 
-import ProjectsImageViewer from './ProjectsImageViewer';
 import type { ProjectsChallengeVariantImages } from '../challenges/types';
+import ProjectsImageViewer from './ProjectsImageViewer';
 
 type Props = Readonly<{
   specImagesForVariant: ProjectsChallengeVariantImages;

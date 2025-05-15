@@ -1,6 +1,6 @@
+import UIExamplesGroup from '../misc/UIExamplesGroup';
 import type { SpinnerSize } from './Spinner';
 import Spinner from './Spinner';
-import UIExamplesGroup from '../misc/UIExamplesGroup';
 
 const sizes: ReadonlyArray<SpinnerSize> = ['xs', 'sm', 'md', 'lg'];
 

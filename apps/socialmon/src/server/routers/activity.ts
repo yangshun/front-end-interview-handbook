@@ -1,9 +1,8 @@
+import { TRPCError } from '@trpc/server';
 import { z } from 'zod';
 
 import prisma from '../prisma';
 import { router, userProcedure } from '../trpc';
-
-import { TRPCError } from '@trpc/server';
 
 export const activityRouter = router({
   getAll: userProcedure
@@ -58,7 +57,7 @@ export const activityRouter = router({
       if (activities.length > limit) {
         // Remove the last item and use it as next cursor
 
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+         
         const nextItem = activities.pop()!;
 
         nextCursor = nextItem.id;

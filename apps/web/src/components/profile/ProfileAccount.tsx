@@ -1,5 +1,7 @@
 'use client';
 
+import type { User } from '@supabase/supabase-js';
+
 import { FormattedMessage } from '~/components/intl';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -8,8 +10,6 @@ import ProfileAccountDisplayName from './fields/ProfileAccountDisplayName';
 import ProfileAccountEmail from './fields/ProfileAccountEmail';
 import ProfileAccountIdentities from './fields/ProfileAccountIdentities';
 import ProfileAccountUsername from './fields/ProfileAccountUsername';
-
-import type { User } from '@supabase/supabase-js';
 
 type Props = Readonly<{
   user: User;

@@ -1,3 +1,4 @@
+import type { ProjectsChallengeSessionStatus } from '@prisma/client';
 import type {
   ProjectsChallengeAPIWriteup,
   ProjectsChallengeAppendix,
@@ -36,8 +37,6 @@ import { fetchAllProjectsCommonGuides } from '~/db/contentlayer/projects/Project
 import prisma from '~/server/prisma';
 
 import { getChallengeSolutionsOutPath } from './ProjectsChallengeSolutionConfig';
-
-import type { ProjectsChallengeSessionStatus } from '@prisma/client';
 
 export async function fetchSessionsForUserGroupedBySlug(
   userId?: string | null,

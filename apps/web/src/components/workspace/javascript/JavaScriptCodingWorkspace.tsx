@@ -1,5 +1,7 @@
 'use client';
 
+import { useSandpack } from '@codesandbox/sandpack-react';
+import { useMonaco } from '@monaco-editor/react';
 import clsx from 'clsx';
 import { useCallback, useState } from 'react';
 import { RiCodeLine } from 'react-icons/ri';
@@ -21,27 +23,7 @@ import JavaScriptCodingWorkspaceTestsCode from '~/components/workspace/javascrip
 import { TilesPanelRoot } from '~/react-tiling/components/TilesPanelRoot';
 import { TilesProvider } from '~/react-tiling/state/TilesProvider';
 
-import JavaScriptCodingWorkspaceBottomBar from './JavaScriptCodingWorkspaceBottomBar';
-import JavaScriptCodingWorkspaceCodeEditor from './JavaScriptCodingWorkspaceCodeEditor';
-import JavaScriptCodingWorkspaceCommunitySolutionCreateTab from './JavaScriptCodingWorkspaceCommunitySolutionCreateTab';
-import JavaScriptCodingWorkspaceCommunitySolutionList from './JavaScriptCodingWorkspaceCommunitySolutionList';
-import JavaScriptCodingWorkspaceCommunitySolutionTab from './JavaScriptCodingWorkspaceCommunitySolutionTab';
-import { JavaScriptCodingWorkspaceContextProvider } from './JavaScriptCodingWorkspaceContext';
-import JavaScriptCodingWorkspaceDescription from './JavaScriptCodingWorkspaceDescription';
-import { getJavaScriptCodingWorkspaceLayoutTwoColumns } from './JavaScriptCodingWorkspaceLayouts';
-import JavaScriptCodingWorkspaceNewTab from './JavaScriptCodingWorkspaceNewTab';
-import JavaScriptCodingWorkspaceTestsRunTab from './JavaScriptCodingWorkspaceRunTab';
-import JavaScriptCodingWorkspaceSolutionMobile from './JavaScriptCodingWorkspaceSolutionMobile';
-import JavaScriptCodingWorkspaceSolutionTab from './JavaScriptCodingWorkspaceSolutionTab';
-import JavaScriptCodingWorkspaceSubmissionList from './JavaScriptCodingWorkspaceSubmissionList';
-import JavaScriptCodingWorkspaceSubmissionTab from './JavaScriptCodingWorkspaceSubmissionTab';
-import JavaScriptCodingWorkspaceTestsSubmitTab from './JavaScriptCodingWorkspaceSubmitTab';
-import JavaScriptCodingWorkspaceTestsEditor from './JavaScriptCodingWorkspaceTestsEditor';
-import type {
-  JavaScriptCodingWorkspacePredefinedTabsContents,
-  JavaScriptCodingWorkspaceTabsType,
-} from './JavaScriptCodingWorkspaceTypes';
-import useJavaScriptCodingWorkspaceTilesContext from './useJavaScriptCodingWorkspaceTilesContext';
+import InterviewsPremiumBadge from '../../interviews/common/InterviewsPremiumBadge';
 import { codingFilesShouldUseTypeScript } from '../common/codingFilesShouldUseTypeScript';
 import type { CodingWorkspaceTabContents } from '../common/CodingWorkspaceContext';
 import { CodingWorkspaceProvider } from '../common/CodingWorkspaceContext';
@@ -63,10 +45,27 @@ import {
   codingWorkspaceTabSubmissionId,
   codingWorkspaceTabSubmissionPattern,
 } from '../common/tabs/codingWorkspaceTabId';
-import InterviewsPremiumBadge from '../../interviews/common/InterviewsPremiumBadge';
-
-import { useSandpack } from '@codesandbox/sandpack-react';
-import { useMonaco } from '@monaco-editor/react';
+import JavaScriptCodingWorkspaceBottomBar from './JavaScriptCodingWorkspaceBottomBar';
+import JavaScriptCodingWorkspaceCodeEditor from './JavaScriptCodingWorkspaceCodeEditor';
+import JavaScriptCodingWorkspaceCommunitySolutionCreateTab from './JavaScriptCodingWorkspaceCommunitySolutionCreateTab';
+import JavaScriptCodingWorkspaceCommunitySolutionList from './JavaScriptCodingWorkspaceCommunitySolutionList';
+import JavaScriptCodingWorkspaceCommunitySolutionTab from './JavaScriptCodingWorkspaceCommunitySolutionTab';
+import { JavaScriptCodingWorkspaceContextProvider } from './JavaScriptCodingWorkspaceContext';
+import JavaScriptCodingWorkspaceDescription from './JavaScriptCodingWorkspaceDescription';
+import { getJavaScriptCodingWorkspaceLayoutTwoColumns } from './JavaScriptCodingWorkspaceLayouts';
+import JavaScriptCodingWorkspaceNewTab from './JavaScriptCodingWorkspaceNewTab';
+import JavaScriptCodingWorkspaceTestsRunTab from './JavaScriptCodingWorkspaceRunTab';
+import JavaScriptCodingWorkspaceSolutionMobile from './JavaScriptCodingWorkspaceSolutionMobile';
+import JavaScriptCodingWorkspaceSolutionTab from './JavaScriptCodingWorkspaceSolutionTab';
+import JavaScriptCodingWorkspaceSubmissionList from './JavaScriptCodingWorkspaceSubmissionList';
+import JavaScriptCodingWorkspaceSubmissionTab from './JavaScriptCodingWorkspaceSubmissionTab';
+import JavaScriptCodingWorkspaceTestsSubmitTab from './JavaScriptCodingWorkspaceSubmitTab';
+import JavaScriptCodingWorkspaceTestsEditor from './JavaScriptCodingWorkspaceTestsEditor';
+import type {
+  JavaScriptCodingWorkspacePredefinedTabsContents,
+  JavaScriptCodingWorkspaceTabsType,
+} from './JavaScriptCodingWorkspaceTypes';
+import useJavaScriptCodingWorkspaceTilesContext from './useJavaScriptCodingWorkspaceTilesContext';
 
 const JavaScriptCodingWorkspaceTilesPanelRoot =
   TilesPanelRoot<JavaScriptCodingWorkspaceTabsType>;

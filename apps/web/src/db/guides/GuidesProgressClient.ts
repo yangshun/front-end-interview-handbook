@@ -1,12 +1,12 @@
 'use client';
 
+import { useUser } from '@supabase/auth-helpers-react';
+
 import { trpc } from '~/hooks/trpc';
 
 import { useToast } from '~/components/global/toasts/useToast';
 import type { GuideMetadata } from '~/components/guides/types';
 import { useIntl } from '~/components/intl';
-
-import { useUser } from '@supabase/auth-helpers-react';
 
 export function useQueryGuideProgress(metadata: GuideMetadata) {
   const user = useUser();

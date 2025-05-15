@@ -2,11 +2,10 @@
  * @link https://prisma.io/docs/support/help-articles/nextjs-prisma-client-dev-practices
  */
 
+import { PrismaClient } from '@prisma/client';
 import { kebabCase, lowerCase } from 'lodash-es';
 
 import type { ProjectsChallengeSubmissionDeploymentUrls } from '~/components/projects/submissions/types';
-
-import { PrismaClient } from '@prisma/client';
 
 const prismaClientSingleton = () => {
   return new PrismaClient().$extends({

@@ -1,11 +1,11 @@
 import { useState } from 'react';
 
-import type { DialogWidth } from './Dialog';
-import Dialog from './Dialog';
 import Anchor from '../Anchor';
 import Button from '../Button';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
 import Text from '../Text';
+import type { DialogWidth } from './Dialog';
+import Dialog from './Dialog';
 
 function DialogSizeExample({ width }: Readonly<{ width: DialogWidth }>) {
   const [isShown, setIsShown] = useState(false);

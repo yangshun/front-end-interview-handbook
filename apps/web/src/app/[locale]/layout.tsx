@@ -2,10 +2,9 @@ import type { Metadata } from 'next/types';
 
 import { getIntlServerOnly, getLocaleMessages } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
+import '~/styles/globals.css';
 
 import RootLayout from './RootLayout';
-
-import '~/styles/globals.css';
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;

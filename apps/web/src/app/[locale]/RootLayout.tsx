@@ -14,7 +14,6 @@ import { themeBackgroundColor } from '~/components/ui/theme';
 import SandpackCSS from '~/components/workspace/common/sandpack/SandpackCSS';
 
 import type { IntlMessages } from '~/i18n';
-
 import '~/styles/globals.css';
 
 type Props = Readonly<{

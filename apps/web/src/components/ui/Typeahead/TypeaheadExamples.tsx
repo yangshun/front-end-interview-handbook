@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import Typeahead from './Typeahead';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
+import Typeahead from './Typeahead';
 
 const options = [
   {

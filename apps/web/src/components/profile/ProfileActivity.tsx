@@ -23,8 +23,6 @@ import { themeBackgroundCardColor } from '~/components/ui/theme';
 
 import { hashQuestion } from '~/db/QuestionsUtils';
 
-import ProfileActivityDeleteAllProgressButton from './ProfileActivityDeleteAllProgressButton';
-import ProfileActivitySelectivelyDeleteProgressButton from './ProfileActivitySelectivelyDeleteProgressButton';
 import Timestamp from '../common/datetime/Timestamp';
 import type { QuestionHash } from '../interviews/questions/common/QuestionsTypes';
 import useQuestionFormatFilter from '../interviews/questions/listings/filters/hooks/useQuestionFormatFilter';
@@ -32,6 +30,8 @@ import QuestionFormatLabel from '../interviews/questions/metadata/QuestionFormat
 import CheckboxInput from '../ui/CheckboxInput';
 import EmptyState from '../ui/EmptyState';
 import FilterButton from '../ui/FilterButton/FilterButton';
+import ProfileActivityDeleteAllProgressButton from './ProfileActivityDeleteAllProgressButton';
+import ProfileActivitySelectivelyDeleteProgressButton from './ProfileActivitySelectivelyDeleteProgressButton';
 
 function NoCompletedQuestions() {
   const intl = useIntl();

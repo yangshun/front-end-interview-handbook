@@ -26,6 +26,10 @@ import {
 
 import { useI18nPathname } from '~/next-i18nostic/src';
 
+import UserProfileInformationRow from '../../profile/info/UserProfileInformationRow';
+import { useProjectsOnboardingContext } from '../onboarding/ProjectsOnboardingContext';
+import ProjectsProfileAvatar from '../users/ProjectsProfileAvatar';
+import ProjectsProfileDisplayNameLink from '../users/ProjectsProfileDisplayNameLink';
 import ProjectsDiscussionsCommentDeleteButton from './ProjectsDiscussionsCommentDeleteButton';
 import ProjectsDiscussionsCommentEditInput from './ProjectsDiscussionsCommentEditInput';
 import ProjectsDiscussionsCommentReplies from './ProjectsDiscussionsCommentReplies';
@@ -36,10 +40,6 @@ import type {
   ProjectsDiscussionsCommentAuthor,
   ProjectsDiscussionsCommentItem,
 } from './types';
-import { useProjectsOnboardingContext } from '../onboarding/ProjectsOnboardingContext';
-import ProjectsProfileAvatar from '../users/ProjectsProfileAvatar';
-import ProjectsProfileDisplayNameLink from '../users/ProjectsProfileDisplayNameLink';
-import UserProfileInformationRow from '../../profile/info/UserProfileInformationRow';
 
 type Props = Readonly<{
   className?: string;

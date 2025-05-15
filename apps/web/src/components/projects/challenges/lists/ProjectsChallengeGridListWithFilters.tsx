@@ -26,13 +26,13 @@ import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 import { themeTextColor, themeTextSecondaryColor } from '~/components/ui/theme';
 
+import type { ProjectsTrackItem } from '../../tracks/data/ProjectsTracksData';
+import type { ProjectsChallengeItem } from '../types';
 import ProjectsChallengeFilterContextProvider, {
   useProjectsChallengeFilterContext,
 } from './ProjectsChallengeFilterContext';
 import ProjectsChallengeFilterSlideOut from './ProjectsChallengeFilterSlideOut';
 import ProjectsChallengeListFilter from './ProjectsChallengeListFilter';
-import type { ProjectsChallengeItem } from '../types';
-import type { ProjectsTrackItem } from '../../tracks/data/ProjectsTracksData';
 
 const ITEMS_PER_PAGE = 18;
 
@@ -103,7 +103,8 @@ function ProjectsChallengeGridListWithFiltersImpl({
         sortField === itemField && isAscendingOrder === isItemAscendingOrder,
       label,
       onClick: () => {
-        setSortField(itemField), setIsAscendingOrder(isItemAscendingOrder);
+        setSortField(itemField);
+        setIsAscendingOrder(isItemAscendingOrder);
       },
     };
   }

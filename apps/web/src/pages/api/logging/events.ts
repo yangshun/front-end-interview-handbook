@@ -1,3 +1,4 @@
+import { Axiom } from '@axiomhq/js';
 import Cors from 'cors';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import UAParser from 'ua-parser-js';
@@ -8,8 +9,6 @@ import { shouldPersistQueryParam } from '~/components/global/analytics/useWriteS
 import { gfeFingerprintName } from '~/logging/fingerprint';
 import { gfeFirstVisitName } from '~/logging/firstVisit';
 import { parseJWTAccessToken } from '~/supabase/SupabaseServerGFE';
-
-import { Axiom } from '@axiomhq/js';
 
 const axiom = new Axiom({
   token: process.env.AXIOM_TOKEN!,
@@ -22,7 +21,7 @@ const cors = Cors({
 function runMiddleware(
   req: NextApiRequest,
   res: NextApiResponse,
-  // eslint-disable-next-line @typescript-eslint/ban-types
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
   fn: Function,
 ) {
   return new Promise((resolve, reject) => {

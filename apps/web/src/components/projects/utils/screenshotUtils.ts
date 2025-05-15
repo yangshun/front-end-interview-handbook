@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 import type { Puppeteer } from 'puppeteer-core';
 
 import {
@@ -148,9 +149,7 @@ export async function generateScreenshots(
   submissionId: string,
   deploymentUrls: ProjectsChallengeSubmissionDeploymentUrls,
 ): Promise<ProjectsChallengeSubmissionDeploymentUrls> {
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
   const chromium = require('@sparticuz/chromium');
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
   const puppeteer = require('puppeteer-core');
 
   const browser = await puppeteer.launch({

@@ -1,3 +1,4 @@
+import type { SponsorsAdFormat } from '@prisma/client';
 import clsx from 'clsx';
 
 import { useIntl } from '~/components/intl';
@@ -6,8 +7,6 @@ import Text from '~/components/ui/Text';
 import { themeDivideEmphasizeColor } from '~/components/ui/theme';
 
 import { useSponsorsAdFormatData } from '../../SponsorsAdFormatConfigs';
-
-import type { SponsorsAdFormat } from '@prisma/client';
 
 type Props = Readonly<{
   format: SponsorsAdFormat;

@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 import { RiGraduationCapLine } from 'react-icons/ri';
 
-import Alert from './Alert';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
 import { themeBorderBrandColor, themeTextInvertColor } from '../theme';
+import Alert from './Alert';
 
 export default function AlertExamples() {
   return (

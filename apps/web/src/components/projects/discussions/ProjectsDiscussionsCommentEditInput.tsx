@@ -1,3 +1,4 @@
+import { zodResolver } from '@hookform/resolvers/zod';
 import type { SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -7,14 +8,12 @@ import { trpc } from '~/hooks/trpc';
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 
+import RichTextEditor from '../../ui/RichTextEditor';
 import {
   getDiscussionsCommentBodyAttributes,
   useDiscussionsCommentBodySchema,
 } from './ProjectsDiscussionsCommentBodySchema';
 import type { ProjectsDiscussionsCommentItem } from './types';
-import RichTextEditor from '../../ui/RichTextEditor';
-
-import { zodResolver } from '@hookform/resolvers/zod';
 
 type Props = Readonly<{
   comment: ProjectsDiscussionsCommentItem;

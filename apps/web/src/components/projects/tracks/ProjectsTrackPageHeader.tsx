@@ -7,9 +7,9 @@ import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 
-import type { ProjectsTrackItem } from './data/ProjectsTracksData';
 import ProjectsChallengeProgressTag from '../challenges/metadata/ProjectsChallengeProgressTag';
 import ProjectsPremiumBadge from '../purchase/ProjectsPremiumBadge';
+import type { ProjectsTrackItem } from './data/ProjectsTracksData';
 
 type BaseProps = Readonly<{
   isViewerPremium: boolean;

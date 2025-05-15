@@ -1,5 +1,6 @@
 'use client';
 
+import { useUser } from '@supabase/auth-helpers-react';
 import { useMemo } from 'react';
 
 import { trpc } from '~/hooks/trpc';
@@ -10,8 +11,6 @@ import type {
   GuideCardMetadata,
   GuideCardMetadataWithCompletedStatus,
 } from './types';
-
-import { useUser } from '@supabase/auth-helpers-react';
 
 export default function useGuidesWithCompletionStatus<
   Q extends GuideCardMetadata,

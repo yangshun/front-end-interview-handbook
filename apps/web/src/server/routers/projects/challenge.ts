@@ -1,3 +1,4 @@
+import { TRPCError } from '@trpc/server';
 import { z } from 'zod';
 
 import ProjectsPremiumAccessControl from '~/components/projects/challenges/premium/ProjectsPremiumAccessControl';
@@ -16,8 +17,6 @@ import { publicProcedure, router } from '~/server/trpc';
 import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
 
 import { projectsUserProcedure } from './procedures';
-
-import { TRPCError } from '@trpc/server';
 
 export const projectsChallengeRouter = router({
   canAccessAllSteps: projectsUserProcedure

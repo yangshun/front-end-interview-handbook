@@ -1,5 +1,6 @@
 'use client';
 
+import type { SandpackFile } from '@codesandbox/sandpack-react';
 import clsx from 'clsx';
 import { Highlight, themes } from 'prism-react-renderer';
 import { useCallback, useEffect, useMemo, useState } from 'react';
@@ -29,8 +30,6 @@ import {
 } from '~/components/workspace/common/constants';
 import type { Payload as StoredJavaScriptCode } from '~/components/workspace/javascript/JavaScriptCodingWorkspaceCodeStorage';
 import type { PayloadV2 as StoredUICode } from '~/components/workspace/user-interface/UserInterfaceCodingWorkspaceCodeStorage';
-
-import type { SandpackFile } from '@codesandbox/sandpack-react';
 
 function getFilenameFromPath(path: string): string {
   const parts = path.split('/');

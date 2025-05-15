@@ -1,5 +1,5 @@
-import useAdminSidebarLinks from './useAdminSidebarLinks';
 import { SidebarCollapsed, SidebarExpanded } from '../global/sidebar/Sidebar';
+import useAdminSidebarLinks from './useAdminSidebarLinks';
 
 type Props = Readonly<{
   isCollapsed: boolean;

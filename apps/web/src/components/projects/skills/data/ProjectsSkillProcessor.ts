@@ -1,5 +1,5 @@
-import { skillsRoadmapConfig } from './ProjectsSkillRoadmapConfigData';
 import type { ProjectsSkillKey } from '../types';
+import { skillsRoadmapConfig } from './ProjectsSkillRoadmapConfigData';
 
 function projectsSkillsAllRoadmapSkills(): ReadonlyArray<ProjectsSkillKey> {
   const skills: Array<ProjectsSkillKey> = [];

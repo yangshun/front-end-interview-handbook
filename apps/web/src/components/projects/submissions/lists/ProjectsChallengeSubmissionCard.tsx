@@ -1,3 +1,4 @@
+import type { ProjectsChallengeSessionStatus } from '@prisma/client';
 import clsx from 'clsx';
 import type {
   ProjectsChallengeInfo,
@@ -25,9 +26,6 @@ import {
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 
-import ProjectsChallengeHoverCard from './ProjectsChallengeHoverCard';
-import ProjectsChallengeSubmissionCardPinButton from './ProjectsChallengeSubmissionCardPinButton';
-import type { ProjectsChallengeSubmissionAugmented } from '../types';
 import ProjectsStatusBadge from '../../common/status/ProjectsStatusBadge';
 import ProjectsSkillSummaryList from '../../skills/metadata/ProjectsSkillSummaryList';
 import ProjectsCommentCountTag from '../../stats/ProjectsCommentCountTag';
@@ -35,8 +33,9 @@ import ProjectsViewCountTag from '../../stats/ProjectsViewCountTag';
 import ProjectsVoteCountTag from '../../stats/ProjectsVoteCountTag';
 import ProjectsProfileDisplayNameLink from '../../users/ProjectsProfileDisplayNameLink';
 import ProjectsProfilePremiumChip from '../../users/ProjectsProfilePremiumChip';
-
-import type { ProjectsChallengeSessionStatus } from '@prisma/client';
+import type { ProjectsChallengeSubmissionAugmented } from '../types';
+import ProjectsChallengeHoverCard from './ProjectsChallengeHoverCard';
+import ProjectsChallengeSubmissionCardPinButton from './ProjectsChallengeSubmissionCardPinButton';
 
 type Props = Readonly<{
   challenge?: Readonly<{

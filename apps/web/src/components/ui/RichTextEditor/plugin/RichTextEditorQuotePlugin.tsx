@@ -1,3 +1,7 @@
+import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
+import { $createQuoteNode, $isQuoteNode } from '@lexical/rich-text';
+import { $setBlocksType } from '@lexical/selection';
+import { mergeRegister } from '@lexical/utils';
 import {
   $createParagraphNode,
   $getSelection,
@@ -10,11 +14,6 @@ import { RiQuoteText } from 'react-icons/ri';
 
 import { useIntl } from '~/components/intl';
 import RichTextEditorToolbarActionNode from '~/components/ui/RichTextEditor/components/RichTextEditorToolbarActionNode';
-
-import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
-import { $createQuoteNode, $isQuoteNode } from '@lexical/rich-text';
-import { $setBlocksType } from '@lexical/selection';
-import { mergeRegister } from '@lexical/utils';
 
 export default function RichTextEditorQuotePlugin() {
   const intl = useIntl();

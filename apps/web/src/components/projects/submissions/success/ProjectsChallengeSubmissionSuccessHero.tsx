@@ -10,10 +10,10 @@ import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 
-import ProjectsChallengeSubmissionSuccessBadge from './ProjectsChallengeSubmissionSuccessBadge';
-import type { BadgeItem } from './ProjectsChallengeSubmissionSuccessPageImpl';
 import type { ProjectsSkillGroupType } from '../../skills/data/ProjectsSkillIcons';
 import { ProjectsSkillIcons } from '../../skills/data/ProjectsSkillIcons';
+import ProjectsChallengeSubmissionSuccessBadge from './ProjectsChallengeSubmissionSuccessBadge';
+import type { BadgeItem } from './ProjectsChallengeSubmissionSuccessPageImpl';
 
 const MAX_COLS_LG = 4;
 const MAX_COLS_MD = 3;

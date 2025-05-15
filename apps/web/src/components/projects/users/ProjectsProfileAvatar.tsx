@@ -6,10 +6,10 @@ import {
   HovercardTrigger,
 } from '~/components/ui/Hovercard/Hovercard';
 
+import { projectsReputationLevel } from '../reputation/projectsReputationLevelUtils';
 import ProjectsProfileHoverCard from './ProjectsProfileHoverCard';
 import type { UserLevelWithAvatarSize } from './UserAvatarWithLevel';
 import UserAvatarWithLevel from './UserAvatarWithLevel';
-import { projectsReputationLevel } from '../reputation/projectsReputationLevelUtils';
 
 type Mode = 'hovercard' | 'inert' | 'link';
 

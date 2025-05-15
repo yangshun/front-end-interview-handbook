@@ -1,3 +1,4 @@
+import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
 import { Controller, FormProvider, useForm } from 'react-hook-form';
 import { RiArrowLeftLine, RiArrowRightLine } from 'react-icons/ri';
@@ -23,8 +24,6 @@ import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 
 import logEvent from '~/logging/logEvent';
-
-import { zodResolver } from '@hookform/resolvers/zod';
 
 function useOnboardingProfileStepSchema() {
   const intl = useIntl();

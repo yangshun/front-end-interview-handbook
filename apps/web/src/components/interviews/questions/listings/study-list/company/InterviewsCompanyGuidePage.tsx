@@ -1,5 +1,6 @@
 'use client';
 
+import { useUser } from '@supabase/auth-helpers-react';
 import clsx from 'clsx';
 import type {
   InterviewsListingBottomContent,
@@ -39,8 +40,6 @@ import {
 } from '~/db/QuestionsUtils';
 
 import useQuestionTopicLabels from '../../items/useQuestionTopicLabels';
-
-import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   bottomContent?: InterviewsListingBottomContent;

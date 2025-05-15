@@ -1,3 +1,4 @@
+import type { ProjectsDiscussionCommentDomain } from '@prisma/client';
 import clsx from 'clsx';
 import { useState } from 'react';
 import { RiQuestionnaireLine } from 'react-icons/ri';
@@ -16,8 +17,6 @@ import type {
   ProjectsDiscussionsCommentAuthor,
   ProjectsDiscussionsCommentSortField,
 } from './types';
-
-import type { ProjectsDiscussionCommentDomain } from '@prisma/client';
 
 type Props = Readonly<{
   domain: ProjectsDiscussionCommentDomain;

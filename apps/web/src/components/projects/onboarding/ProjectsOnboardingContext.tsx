@@ -9,8 +9,8 @@ import Text from '~/components/ui/Text';
 
 import { useI18nPathname, useI18nRouter } from '~/next-i18nostic/src';
 
-import useUserProfileWithProjectsProfile from '../common/useUserProfileWithProjectsProfile';
 import ConfirmationDialog from '../../common/ConfirmationDialog';
+import useUserProfileWithProjectsProfile from '../common/useUserProfileWithProjectsProfile';
 
 type ProjectsOnboardingContextType = Readonly<{
   handleActionRequiringCompletedProjectsProfile: (opts?: {

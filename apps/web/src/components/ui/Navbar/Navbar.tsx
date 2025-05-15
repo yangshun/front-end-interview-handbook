@@ -13,12 +13,12 @@ import {
   themeBorderColor,
 } from '~/components/ui/theme';
 
+import Button from '../Button';
 import NavbarEnd from './NavbarEnd';
 import NavbarHeightStyles from './NavbarHeightStyles';
 import NavbarItem from './NavbarItem';
 import NavbarSidebarItem from './NavbarSidebarItem';
 import type { NavbarTopLevelItem } from './NavTypes';
-import Button from '../Button';
 
 type Props = Readonly<{
   bottomBorder?: boolean;

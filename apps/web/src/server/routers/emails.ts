@@ -1,3 +1,4 @@
+import { TRPCError } from '@trpc/server';
 import { z } from 'zod';
 
 import { emailsVerifyHash } from '~/emails/EmailsHash';
@@ -10,8 +11,6 @@ import prisma from '~/server/prisma';
 import { publicProcedure } from '~/server/trpc';
 
 import { router, userProcedure } from '../trpc';
-
-import { TRPCError } from '@trpc/server';
 
 export const emailsRouter = router({
   checkoutInitiate: userProcedure

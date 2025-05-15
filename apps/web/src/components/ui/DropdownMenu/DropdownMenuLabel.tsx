@@ -1,9 +1,8 @@
+import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import clsx from 'clsx';
 import React from 'react';
 
 import { textVariants } from '../Text';
-
-import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
 export type Props = Readonly<{
   children: React.ReactNode;

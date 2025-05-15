@@ -5,6 +5,7 @@ import type { ReactNode } from 'react';
 
 import { fbqGFE } from '~/lib/fbq';
 import gtag from '~/lib/gtag';
+
 import { trpc } from '~/hooks/trpc';
 
 import LogoLink from '~/components/global/logos/LogoLink';
@@ -24,8 +25,8 @@ import {
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 
-import useCommonFooterLinks from './useCommonFooterLinks';
 import NavI18nDropdown from '../navbar/NavI18nDropdown';
+import useCommonFooterLinks from './useCommonFooterLinks';
 
 type FooterLink = Readonly<{
   href: string;

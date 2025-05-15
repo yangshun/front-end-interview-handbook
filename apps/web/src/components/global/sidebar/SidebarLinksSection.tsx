@@ -1,3 +1,4 @@
+import * as AccordionPrimitive from '@radix-ui/react-accordion';
 import clsx from 'clsx';
 import { type ReactNode, useEffect, useRef, useState } from 'react';
 import { RiArrowRightSLine } from 'react-icons/ri';
@@ -16,8 +17,6 @@ import {
 import Tooltip from '~/components/ui/Tooltip';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
-
-import * as AccordionPrimitive from '@radix-ui/react-accordion';
 
 type SidebarSize = 'md' | 'sm';
 

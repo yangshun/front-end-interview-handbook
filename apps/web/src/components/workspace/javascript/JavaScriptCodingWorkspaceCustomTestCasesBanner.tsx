@@ -4,9 +4,9 @@ import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
 
+import { codingWorkspaceTabFileId } from '../common/tabs/codingWorkspaceTabId';
 import { useJavaScriptCodingWorkspaceContext } from './JavaScriptCodingWorkspaceContext';
 import useJavaScriptCodingWorkspaceTilesContext from './useJavaScriptCodingWorkspaceTilesContext';
-import { codingWorkspaceTabFileId } from '../common/tabs/codingWorkspaceTabId';
 
 export default function JavaScriptCodingWorkspaceCustomTestCasesBanner() {
   const intl = useIntl();

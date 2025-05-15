@@ -1,7 +1,7 @@
 import { RiStarLine } from 'react-icons/ri';
 
-import Badge from './Badge';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
+import Badge from './Badge';
 
 export default function BadgeExamples() {
   return (

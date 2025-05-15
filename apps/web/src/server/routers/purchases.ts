@@ -1,3 +1,4 @@
+import { Redis } from '@upstash/redis';
 import Stripe from 'stripe';
 import { z } from 'zod';
 
@@ -11,8 +12,6 @@ import fetchProjectsPricingPlanPaymentConfigLocalizedRecord from '~/components/p
 import prisma from '~/server/prisma';
 
 import { publicProcedure, router, userProcedure } from '../trpc';
-
-import { Redis } from '@upstash/redis';
 
 type CountryCode = keyof typeof countryNames;
 

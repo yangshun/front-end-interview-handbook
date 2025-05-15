@@ -32,14 +32,14 @@ import {
   themeTextColor,
 } from '~/components/ui/theme';
 
-import ProjectsChallengeAssetsResponsiveBreakpointsTab from './ProjectsChallengeAssetsResponsiveBreakpointsTab';
-import ProjectsChallengeDownloadStarterFilesButton from './ProjectsChallengeDownloadStarterFilesButton';
-import useProjectsChallengeProvidedResourcesOptions from './useProjectsChallengeProvidedResourcesOptions';
+import ProjectsStartButton from '../../common/ProjectsStartButton';
+import type { ProjectsViewerProjectsProfile } from '../../types';
 import ProjectsChallengeContentPaywall from '../premium/ProjectsChallengeContentPaywall';
 import ProjectsChallengeFigmaDesignPaywall from '../premium/ProjectsChallengeFigmaDesignPaywall';
 import type { ProjectsPremiumAccessControlFields } from '../premium/ProjectsPremiumAccessControl';
-import ProjectsStartButton from '../../common/ProjectsStartButton';
-import type { ProjectsViewerProjectsProfile } from '../../types';
+import ProjectsChallengeAssetsResponsiveBreakpointsTab from './ProjectsChallengeAssetsResponsiveBreakpointsTab';
+import ProjectsChallengeDownloadStarterFilesButton from './ProjectsChallengeDownloadStarterFilesButton';
+import useProjectsChallengeProvidedResourcesOptions from './useProjectsChallengeProvidedResourcesOptions';
 
 type OnlineAssetsTabType = 'api' | 'appendix' | 'designs' | 'style-guide';
 

@@ -1,3 +1,4 @@
+import type { TestError } from '@codesandbox/sandpack-client';
 import clsx from 'clsx';
 import * as React from 'react';
 
@@ -9,8 +10,6 @@ import {
 } from '~/components/ui/theme';
 
 import { failTextClassName, passTextClassName } from './style';
-
-import type { TestError } from '@codesandbox/sandpack-client';
 
 type Props = Readonly<{
   error: TestError;

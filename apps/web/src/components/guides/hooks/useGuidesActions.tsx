@@ -1,3 +1,5 @@
+import type { GuidebookItem } from '@prisma/client';
+import { useUser } from '@supabase/auth-helpers-react';
 import { useCallback, useEffect, useState } from 'react';
 
 import { trpc } from '~/hooks/trpc';
@@ -10,9 +12,6 @@ import {
   useMutationGuideProgressAdd,
   useMutationGuideProgressDelete,
 } from '~/db/guides/GuidesProgressClient';
-
-import type { GuidebookItem } from '@prisma/client';
-import { useUser } from '@supabase/auth-helpers-react';
 
 const MARK_GUIDE_COMPLETE_ACTION = 'mark-guide-complete';
 

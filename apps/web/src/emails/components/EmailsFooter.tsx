@@ -1,11 +1,10 @@
+import { Section } from '@react-email/components';
 import url from 'url';
 
 import { getSiteOrigin } from '~/seo/siteUrl';
 
-import { EmailsLink, EmailsParagraph } from './EmailsComponents';
 import type { EmailsUnsubscribeFields } from '../EmailsTypes';
-
-import { Section } from '@react-email/components';
+import { EmailsLink, EmailsParagraph } from './EmailsComponents';
 
 type Props = Readonly<{
   unsub?: EmailsUnsubscribeFields;

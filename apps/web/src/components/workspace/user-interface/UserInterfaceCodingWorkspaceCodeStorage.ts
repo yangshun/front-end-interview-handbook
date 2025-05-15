@@ -1,3 +1,5 @@
+import type { SandpackFiles } from '@codesandbox/sandpack-react';
+
 import {
   GFE_PREFIX,
   USER_INTERFACE_TYPE,
@@ -7,8 +9,6 @@ import type {
   InterviewsQuestionItemUserInterface,
   QuestionUserInterfaceSandpackSetup,
 } from '../../interviews/questions/common/QuestionsTypes';
-
-import type { SandpackFiles } from '@codesandbox/sandpack-react';
 
 function makeQuestionKey(
   question: InterviewsQuestionItemUserInterface,

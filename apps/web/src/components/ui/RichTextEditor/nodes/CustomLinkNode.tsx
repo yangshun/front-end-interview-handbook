@@ -1,3 +1,11 @@
+import type { LinkAttributes, SerializedAutoLinkNode } from '@lexical/link';
+import {
+  $createAutoLinkNode,
+  $createLinkNode,
+  AutoLinkNode,
+  LinkNode,
+} from '@lexical/link';
+import { addClassNamesToElement } from '@lexical/utils';
 import clsx from 'clsx';
 import type { NodeKey } from 'lexical';
 import { type SerializedElementNode, type Spread } from 'lexical';
@@ -7,15 +15,6 @@ import {
   themeOutlineElement_FocusVisible,
   themeOutlineElementBrandColor_FocusVisible,
 } from '~/components/ui/theme';
-
-import type { LinkAttributes, SerializedAutoLinkNode } from '@lexical/link';
-import {
-  $createAutoLinkNode,
-  $createLinkNode,
-  AutoLinkNode,
-  LinkNode,
-} from '@lexical/link';
-import { addClassNamesToElement } from '@lexical/utils';
 
 export type SerializedCustomLinkNode = Spread<
   {

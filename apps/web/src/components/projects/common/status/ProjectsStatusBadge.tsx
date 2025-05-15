@@ -1,11 +1,11 @@
+import type { ProjectsChallengeSessionStatus } from '@prisma/client';
+
 import ProjectsStatusBadgeCompleted from './ProjectsStatusBadgeCompleted';
 import ProjectsStatusBadgeInProgress from './ProjectsStatusBadgeInProgress';
 import type {
   ProjectsStatusBadgeType,
   ProjectsStatusBadgeVariant,
 } from './types';
-
-import type { ProjectsChallengeSessionStatus } from '@prisma/client';
 
 type Props = Readonly<{
   entity: ProjectsStatusBadgeType;

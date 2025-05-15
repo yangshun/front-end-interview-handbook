@@ -1,3 +1,4 @@
+import type { LearningSession } from '@prisma/client';
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
 import { FaCheck } from 'react-icons/fa6';
@@ -32,8 +33,6 @@ import Tooltip from '~/components/ui/Tooltip';
 
 import type { GuidesProgressCount } from '~/db/guides/GuidesUtils';
 import type { QuestionsCategorizedProgress } from '~/db/QuestionsUtils';
-
-import type { LearningSession } from '@prisma/client';
 
 type PreparationStrategyItem = Readonly<{
   article?: {

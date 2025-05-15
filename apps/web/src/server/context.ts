@@ -1,8 +1,8 @@
-import parseI18nPathname from '~/next-i18nostic/src/utils/parseI18nPathname';
-import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
-
 import type { inferAsyncReturnType } from '@trpc/server';
 import type * as trpcNext from '@trpc/server/adapters/next';
+
+import parseI18nPathname from '~/next-i18nostic/src/utils/parseI18nPathname';
+import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
 export async function createContext({
   req,

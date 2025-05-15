@@ -3,11 +3,11 @@ import clsx from 'clsx';
 import { useIntl } from '~/components/intl';
 import Text from '~/components/ui/Text';
 
-import ProjectsSkillChip from './ProjectsSkillChip';
-import ProjectsSkillChipDeleteButton from './ProjectsSkillChipDeleteButton';
 import { projectsSkillLabel } from '../data/ProjectsSkillListData';
 import { skillsRoadmapConfig } from '../data/ProjectsSkillRoadmapConfigData';
 import type { ProjectsSkillKey } from '../types';
+import ProjectsSkillChip from './ProjectsSkillChip';
+import ProjectsSkillChipDeleteButton from './ProjectsSkillChipDeleteButton';
 
 type Props =
   | Readonly<{

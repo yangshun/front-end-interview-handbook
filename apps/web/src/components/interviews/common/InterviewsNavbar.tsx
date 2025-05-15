@@ -1,11 +1,13 @@
 'use client';
 
+import { useUser } from '@supabase/auth-helpers-react';
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { RiArrowRightSLine, RiMenuFill, RiStarSmileFill } from 'react-icons/ri';
 
 import gtag from '~/lib/gtag';
+
 import { useAnchorClickHandler } from '~/hooks/useAnchorClickHandler';
 import useIsSticky from '~/hooks/useIsSticky';
 import useUserProfile from '~/hooks/user/useUserProfile';
@@ -43,8 +45,6 @@ import useInterviewsLoggedInLinks from './useInterviewsLoggedInLinks';
 import useInterviewsNavItems from './useInterviewsNavItems';
 import useInterviewsNavLinks from './useInterviewsNavLinks';
 import useInterviewsSidebarLinks from './useInterviewsSidebarLinks';
-
-import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   bgClassName?: string;

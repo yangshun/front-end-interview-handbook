@@ -1,5 +1,6 @@
 'use client';
 
+import { Button } from '@mantine/core';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import type { ChangeEvent } from 'react';
@@ -12,8 +13,6 @@ import useCurrentProjectSlug from '~/hooks/useCurrentProjectSlug';
 import PostDetail from '~/components/posts/PostList/PostDetail';
 
 import type { PostExtended } from '~/types';
-
-import { Button } from '@mantine/core';
 
 type Props = Readonly<{
   post: PostExtended;

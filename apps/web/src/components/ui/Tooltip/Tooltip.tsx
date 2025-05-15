@@ -1,13 +1,12 @@
 'use client';
 
+import * as TooltipPrimitive from '@radix-ui/react-tooltip';
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
 
-import { tooltipContentClassName } from './tooltipStyles';
 import type { TextSize } from '../Text';
 import { textVariants } from '../Text';
-
-import * as TooltipPrimitive from '@radix-ui/react-tooltip';
+import { tooltipContentClassName } from './tooltipStyles';
 
 export type TooltipContentAlignment = 'center' | 'end' | 'start';
 export type TooltipContentSide = 'bottom' | 'left' | 'right' | 'top';

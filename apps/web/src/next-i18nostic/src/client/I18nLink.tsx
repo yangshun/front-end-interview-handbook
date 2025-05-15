@@ -3,9 +3,9 @@ import Link from 'next/link';
 import type { ForwardedRef } from 'react';
 import { forwardRef } from 'react';
 
-import useI18n from './useI18n';
 import type { Locale } from '../types';
 import i18nHref from '../utils/i18nHref';
+import useI18n from './useI18n';
 
 export type Props = LinkProps &
   Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, keyof LinkProps> &

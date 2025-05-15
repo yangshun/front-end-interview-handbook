@@ -1,5 +1,6 @@
 'use client';
 
+import { useUser } from '@supabase/auth-helpers-react';
 import { useMemo } from 'react';
 
 import { trpc } from '~/hooks/trpc';
@@ -10,8 +11,6 @@ import type {
 } from '~/components/interviews/questions/common/QuestionsTypes';
 
 import { hasCompletedQuestion, hashQuestion } from '~/db/QuestionsUtils';
-
-import { useUser } from '@supabase/auth-helpers-react';
 
 export default function useQuestionsWithCompletionStatus<
   Q extends InterviewsQuestionItemMinimal,

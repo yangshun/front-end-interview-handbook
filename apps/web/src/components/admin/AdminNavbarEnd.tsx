@@ -1,5 +1,6 @@
 'use client';
 
+import { useUser } from '@supabase/auth-helpers-react';
 import clsx from 'clsx';
 
 import useUserProfile from '~/hooks/user/useUserProfile';
@@ -8,12 +9,10 @@ import NavbarEnd from '~/components/ui/Navbar/NavbarEnd';
 import NavbarHeightStyles from '~/components/ui/Navbar/NavbarHeightStyles';
 import { themeBackgroundColor } from '~/components/ui/theme';
 
-import useAdminNavLinks from './useAdminNavLinks';
 import NavColorSchemeDropdown from '../global/navbar/NavColorSchemeDropdown';
 import NavProfileIcon from '../global/navbar/NavProfileIcon';
 import useInterviewsLoggedInLinks from '../interviews/common/useInterviewsLoggedInLinks';
-
-import { useUser } from '@supabase/auth-helpers-react';
+import useAdminNavLinks from './useAdminNavLinks';
 
 export default function AdminNavbarEnd() {
   const user = useUser();

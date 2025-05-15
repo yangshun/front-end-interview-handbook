@@ -1,3 +1,4 @@
+import { TRPCError } from '@trpc/server';
 import fetch from 'node-fetch';
 import type { Submission } from 'snoowrap';
 import { z } from 'zod';
@@ -12,13 +13,11 @@ import {
 import { decryptPassword } from '~/db/utils';
 import { ActivityAction, PostRelevancy } from '~/prisma/client';
 
+import AIProvider from '../../providers/AIProvider';
+import type { Comments } from '../../types';
 import prisma from '../prisma';
 import { fetchPostsFromPlatform } from '../services/getPostsFromPlatform';
 import { router, userProcedure } from '../trpc';
-import AIProvider from '../../providers/AIProvider';
-import type { Comments } from '../../types';
-
-import { TRPCError } from '@trpc/server';
 
 function getAIProvider() {
   return new AIProvider();
@@ -204,7 +203,7 @@ export const socialPostsRouter = router({
       if (posts.length > limit) {
         // Remove the last item and use it as next cursor
 
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+         
         const nextItem = posts.pop()!;
 
         nextCursor = nextItem.id;

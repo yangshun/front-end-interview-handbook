@@ -1,5 +1,6 @@
 'use client';
 
+import * as SliderPrimitive from '@radix-ui/react-slider';
 import clsx from 'clsx';
 import { useState } from 'react';
 import { FaCheck } from 'react-icons/fa6';
@@ -21,8 +22,6 @@ import {
   themeGlassyBorder,
   themeTextSubtitleColor,
 } from '~/components/ui/theme';
-
-import * as SliderPrimitive from '@radix-ui/react-slider';
 
 function useFeatures() {
   const intl = useIntl();

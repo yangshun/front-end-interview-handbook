@@ -1,3 +1,4 @@
+import { TRPCError } from '@trpc/server';
 import { z } from 'zod';
 
 import { encryptPassword } from '~/db/utils';
@@ -5,8 +6,6 @@ import { userSchema } from '~/schema';
 
 import prisma from '../prisma';
 import { router, userProcedure } from '../trpc';
-
-import { TRPCError } from '@trpc/server';
 
 export const socialUsersRouter = router({
   addPlatformUser: userProcedure

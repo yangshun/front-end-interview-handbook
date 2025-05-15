@@ -10,9 +10,9 @@ import Label from '~/components/ui/Label';
 import Text from '~/components/ui/Text';
 import { themeBackgroundInputColor } from '~/components/ui/theme';
 
-import ProjectsSkillRoadmapSelectionDialog from './ProjectsSkillRoadmapSelectionDialog';
 import ProjectsSkillRoadmapChips from '../metadata/ProjectsSkillRoadmapChips';
 import type { ProjectsSkillKey } from '../types';
+import ProjectsSkillRoadmapSelectionDialog from './ProjectsSkillRoadmapSelectionDialog';
 
 type Props = Readonly<{
   challengeDefaultSkills?: ReadonlyArray<ProjectsSkillKey>;

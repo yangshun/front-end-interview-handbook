@@ -1,9 +1,12 @@
+import 'react-advanced-cropper/dist/style.css';
+
 import clsx from 'clsx';
 import { useEffect, useRef, useState } from 'react';
 import type { CropperRef } from 'react-advanced-cropper';
 import { CircleStencil, Cropper } from 'react-advanced-cropper';
 
 import { blobToBase64 } from '~/lib/imageUtils';
+
 import { trpc } from '~/hooks/trpc';
 
 import { useIntl } from '~/components/intl';
@@ -11,8 +14,6 @@ import Button from '~/components/ui/Button';
 import Dialog from '~/components/ui/Dialog';
 import Spinner from '~/components/ui/Spinner';
 import { themeBackgroundLayerColor } from '~/components/ui/theme';
-
-import 'react-advanced-cropper/dist/style.css';
 
 type Props = Readonly<{
   image: string;

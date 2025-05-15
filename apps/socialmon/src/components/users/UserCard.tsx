@@ -1,9 +1,8 @@
+import { ActionIcon, Card, Menu, Text } from '@mantine/core';
 import toast from 'react-hot-toast';
 import { RiDeleteBinLine, RiMoreLine } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
-
-import { ActionIcon, Card, Menu, Text } from '@mantine/core';
 
 type Props = Readonly<{
   user: {

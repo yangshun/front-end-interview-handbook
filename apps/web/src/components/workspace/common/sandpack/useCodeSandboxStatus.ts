@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react';
-
 import type { SandpackMessage } from '@codesandbox/sandpack-client';
+import { useEffect, useState } from 'react';
 
 type CodeSandboxStatus = 'compiling' | 'idle' | 'initialized' | 'initializing';
 

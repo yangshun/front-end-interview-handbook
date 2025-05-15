@@ -1,5 +1,6 @@
 'use client';
 
+import { SandpackProvider } from '@codesandbox/sandpack-react';
 import clsx from 'clsx';
 
 import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
@@ -8,11 +9,9 @@ import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
 
+import sandpackProviderOptions from '../common/sandpack/sandpackProviderOptions';
 import UserInterfaceCodingWorkspacePreview from './UserInterfaceCodingWorkspacePreview';
 import useUserInterfaceCodingWorkspaceTilesContext from './useUserInterfaceCodingWorkspaceTilesContext';
-import sandpackProviderOptions from '../common/sandpack/sandpackProviderOptions';
-
-import { SandpackProvider } from '@codesandbox/sandpack-react';
 
 type Props = Readonly<{
   bundle: QuestionUserInterfaceBundle;

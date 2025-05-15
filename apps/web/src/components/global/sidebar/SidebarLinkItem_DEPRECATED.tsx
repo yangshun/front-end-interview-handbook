@@ -1,3 +1,4 @@
+import * as PopoverPrimitive from '@radix-ui/react-popover';
 import clsx from 'clsx';
 import { useState } from 'react';
 import { RiArrowRightSLine } from 'react-icons/ri';
@@ -20,8 +21,6 @@ import {
 import Tooltip from '~/components/ui/Tooltip';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
-
-import * as PopoverPrimitive from '@radix-ui/react-popover';
 
 type Props = NavbarTopLevelItem &
   Readonly<{

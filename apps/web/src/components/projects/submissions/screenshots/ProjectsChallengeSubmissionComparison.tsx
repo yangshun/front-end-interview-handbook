@@ -1,12 +1,12 @@
+import type { ProjectsChallengeSubmissionScreenshotStatus } from '@prisma/client';
+
 import { useIntl } from '~/components/intl';
 import ProjectsImageComparison from '~/components/projects/common/ProjectsImageComparison';
 import type { ProjectsChallengeSubmissionDeploymentUrls } from '~/components/projects/submissions/types';
 import Section from '~/components/ui/Heading/HeadingContext';
 
-import useProjectsChallengeSubmissionTakeScreenshotMutation from './useProjectsChallengeSubmissionTakeScreenshotMutation';
 import type { ProjectsChallengeVariantImages } from '../../challenges/types';
-
-import type { ProjectsChallengeSubmissionScreenshotStatus } from '@prisma/client';
+import useProjectsChallengeSubmissionTakeScreenshotMutation from './useProjectsChallengeSubmissionTakeScreenshotMutation';
 
 type Props = Readonly<{
   allowRetakeScreenshot?: boolean;

@@ -1,8 +1,7 @@
+import { createHeadlessEditor } from '@lexical/headless';
 import { $getRoot } from 'lexical';
 
 import { RichTextEditorConfig } from './RichTextEditorConfig';
-
-import { createHeadlessEditor } from '@lexical/headless';
 
 const editor = createHeadlessEditor(RichTextEditorConfig);
 

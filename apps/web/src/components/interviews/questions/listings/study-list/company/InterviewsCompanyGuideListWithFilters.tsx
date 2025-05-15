@@ -1,3 +1,4 @@
+import { useUser } from '@supabase/auth-helpers-react';
 import clsx from 'clsx';
 import type { InterviewsStudyList } from 'contentlayer/generated';
 import { useState } from 'react';
@@ -13,8 +14,6 @@ import {
   themeBackgroundCardColor,
   themeBorderElementColor,
 } from '~/components/ui/theme';
-
-import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   companyGuides: ReadonlyArray<

@@ -1,8 +1,8 @@
 import { Fragment } from 'react';
 
-import FilterButton from './FilterButton';
 import type { ButtonSize } from '../Button';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
+import FilterButton from './FilterButton';
 
 const sizes: ReadonlyArray<ButtonSize> = ['xs', 'sm', 'md', 'lg'];
 

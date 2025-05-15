@@ -1,14 +1,13 @@
+import { Badge, Button, Pill, Text, Tooltip } from '@mantine/core';
 import Link from 'next/link';
 import { RiArrowRightUpLine, RiCheckLine } from 'react-icons/ri';
 
 import RelativeTimestamp from '~/components/common/datetime/RelativeTimestamp';
 
-import PostStats from './PostStats';
-import { redditPermalinkToUrl } from '../utils';
-
 import type { PostExtended } from '~/types';
 
-import { Badge, Button, Pill, Text, Tooltip } from '@mantine/core';
+import { redditPermalinkToUrl } from '../utils';
+import PostStats from './PostStats';
 
 type Props = Readonly<{
   post: PostExtended;

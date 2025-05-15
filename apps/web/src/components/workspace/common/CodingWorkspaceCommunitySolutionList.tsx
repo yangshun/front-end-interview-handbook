@@ -1,5 +1,9 @@
 'use client';
 
+import type {
+  QuestionJavaScriptCommunitySolution,
+  QuestionUserInterfaceCommunitySolution,
+} from '@prisma/client';
 import clsx from 'clsx';
 
 import Timestamp from '~/components/common/datetime/Timestamp';
@@ -17,11 +21,6 @@ import {
 import { staticLowerCase } from '~/utils/typescript/stringTransform';
 
 import { useCodingWorkspaceContext } from './CodingWorkspaceContext';
-
-import type {
-  QuestionJavaScriptCommunitySolution,
-  QuestionUserInterfaceCommunitySolution,
-} from '@prisma/client';
 
 type Props =
   | {

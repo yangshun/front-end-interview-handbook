@@ -1,8 +1,7 @@
-import Negotiator from 'negotiator';
-import type { NextRequest } from 'next/server';
-import nextI18nosticConfig from 'next-i18nostic/config';
-
 import { match as matchLocale } from '@formatjs/intl-localematcher';
+import Negotiator from 'negotiator';
+import nextI18nosticConfig from 'next-i18nostic/config';
+import type { NextRequest } from 'next/server';
 
 // Taken from https://github.com/vercel/next.js/blob/canary/examples/app-dir-i18n-routing/middleware.ts
 export default function inferLocale(request: NextRequest): string | undefined {

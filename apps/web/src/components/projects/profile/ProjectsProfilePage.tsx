@@ -1,5 +1,6 @@
 'use client';
 
+import type { Profile, ProjectsProfile } from '@prisma/client';
 import clsx from 'clsx';
 
 import { trpc } from '~/hooks/trpc';
@@ -8,8 +9,6 @@ import ProjectsProfileCategoryTabs from '~/components/projects/profile/ProjectsP
 import ProjectsProfileInfo from '~/components/projects/profile/ProjectsProfileInfo';
 import ProjectsProfilePinnedSubmissions from '~/components/projects/profile/ProjectsProfilePinnedSubmissions';
 import ProjectsProfileStats from '~/components/projects/profile/ProjectsProfileStats';
-
-import type { Profile, ProjectsProfile } from '@prisma/client';
 
 type Props = Readonly<{
   children: React.ReactNode;

@@ -1,10 +1,9 @@
+import type { ProjectsSubscriptionPlan } from '@prisma/client';
 import type Stripe from 'stripe';
 
 import prisma from '~/server/prisma';
 
 import { projectsPaidPlanFeatures } from './ProjectsPricingFeaturesConfig';
-
-import type { ProjectsSubscriptionPlan } from '@prisma/client';
 
 export function projectsDetermineSubscriptionPlan(
   price: Stripe.Price | null,

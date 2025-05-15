@@ -1,6 +1,6 @@
-import countryNames from '~/data/countryCodesToNames.json';
-
 import { Body, Html } from '@react-email/components';
+
+import countryNames from '~/data/countryCodesToNames.json';
 
 type Props = Readonly<{
   countryCode: string | null;

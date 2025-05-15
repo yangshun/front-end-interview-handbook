@@ -1,9 +1,9 @@
 import Text from '~/components/ui/Text';
 
-import type { ProjectsSkillSummaryItemForSubmission } from './types';
 import ProjectsChallengeProgressTag from '../challenges/metadata/ProjectsChallengeProgressTag';
 import ProjectsChallengeReputationTag from '../challenges/metadata/ProjectsChallengeReputationTag';
 import ProjectsStatusBadgeCompleted from '../common/status/ProjectsStatusBadgeCompleted';
+import type { ProjectsSkillSummaryItemForSubmission } from './types';
 
 type Props = Readonly<{
   skill: ProjectsSkillSummaryItemForSubmission;

@@ -4,9 +4,6 @@ import clsx from 'clsx';
 
 import Card from '~/components/ui/Card';
 
-import ProjectsChallengeSubmissionSuccessLevelingProgress from './ProjectsChallengeSubmissionSuccessLevelingProgress';
-import ProjectsChallengeSubmissionSuccessSkillPlanProgress from './ProjectsChallengeSubmissionSuccessSkillPlanProgress';
-import ProjectsChallengeSubmissionSuccessTrackProgress from './ProjectsChallengeSubmissionSuccessTrackProgress';
 import type { ProjectsChallengeHistoricalStatuses } from '../../challenges/types';
 import type {
   ProjectsSkillRoadmapSectionData,
@@ -14,6 +11,9 @@ import type {
   RoadmapSkillsRep,
 } from '../../skills/types';
 import type { ProjectsTrackItem } from '../../tracks/data/ProjectsTracksData';
+import ProjectsChallengeSubmissionSuccessLevelingProgress from './ProjectsChallengeSubmissionSuccessLevelingProgress';
+import ProjectsChallengeSubmissionSuccessSkillPlanProgress from './ProjectsChallengeSubmissionSuccessSkillPlanProgress';
+import ProjectsChallengeSubmissionSuccessTrackProgress from './ProjectsChallengeSubmissionSuccessTrackProgress';
 
 type Props = Readonly<{
   challengeHistoricalStatuses: ProjectsChallengeHistoricalStatuses;

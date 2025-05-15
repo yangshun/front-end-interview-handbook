@@ -1,6 +1,5 @@
-import type { server } from 'typescript';
-
 import type { Monaco } from '@monaco-editor/react';
+import type { server } from 'typescript';
 
 export type TsConfigCompilerOptionsJSON = server.protocol.CompilerOptions;
 type TsConfigJSX =

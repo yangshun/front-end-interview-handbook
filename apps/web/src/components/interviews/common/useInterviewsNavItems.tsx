@@ -18,6 +18,7 @@ import {
 import url from 'url';
 
 import gtag from '~/lib/gtag';
+
 import { SCROLL_HASH_INTERVIEWS_FEATURES } from '~/hooks/useScrollToHash';
 
 import { useGuidesData } from '~/data/Guides';
@@ -34,8 +35,8 @@ import Badge from '~/components/ui/Badge';
 import Img from '~/components/ui/Img';
 import type { NavbarTopLevelItem } from '~/components/ui/Navbar/NavTypes';
 
-import InterviewsPremiumBadge from './InterviewsPremiumBadge';
 import { QuestionCountTotal } from '../questions/listings/stats/QuestionCount';
+import InterviewsPremiumBadge from './InterviewsPremiumBadge';
 
 export type InterviewsNavPlacement = 'nav' | 'sidebar';
 

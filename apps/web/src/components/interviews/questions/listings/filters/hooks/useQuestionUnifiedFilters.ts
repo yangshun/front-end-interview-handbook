@@ -5,6 +5,7 @@ import type {
   QuestionListTypeData,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 
+import questionMatchesTextQuery from '../questionMatchesTextQuery';
 import useQuestionCompanyFilter from './useQuestionCompanyFilter';
 import useQuestionCompletionStatusFilter from './useQuestionCompletionStatusFilter';
 import useQuestionDifficultyFilter from './useQuestionDifficultyFilter';
@@ -14,7 +15,6 @@ import useQuestionImportanceFilter from './useQuestionImportanceFilter';
 import useQuestionLanguageFilter from './useQuestionLanguageFilter';
 import useQuestionSearchFilter from './useQuestionSearchFilter';
 import useQuestionTopicFilter from './useQuestionTopicFilter';
-import questionMatchesTextQuery from '../questionMatchesTextQuery';
 
 type Props = Readonly<{
   formatFiltersFilterPredicate?: (format: QuestionFormat) => boolean;

@@ -1,3 +1,4 @@
+import { useSessionContext } from '@supabase/auth-helpers-react';
 import { useSearchParams } from 'next/navigation';
 
 import { FormattedMessage, useIntl } from '~/components/intl';
@@ -8,8 +9,6 @@ import { useSupabaseClientGFE } from '~/supabase/SupabaseClientGFE';
 
 import SupabaseAuth from './SupabaseAuth';
 import type { AuthViewType } from './SupabaseAuthTypes';
-
-import { useSessionContext } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   next?: string;

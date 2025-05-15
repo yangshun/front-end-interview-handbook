@@ -1,3 +1,12 @@
+import {
+  $createLinkNode,
+  $isAutoLinkNode,
+  $isLinkNode,
+  TOGGLE_LINK_COMMAND,
+  toggleLink,
+} from '@lexical/link';
+import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
+import { $findMatchingParent, mergeRegister } from '@lexical/utils';
 import clsx from 'clsx';
 import type { BaseSelection, LexicalEditor } from 'lexical';
 import {
@@ -34,20 +43,10 @@ import {
   themeBorderElementColor,
 } from '~/components/ui/theme';
 
+import { textVariants } from '../../Text';
 import { getSelectedNode } from '../utils/getSelectedNode';
 import { setFloatingElemPositionForLinkEditor } from '../utils/setFloatingElemPositionForLinkEditor';
 import { sanitizeUrl, validateUrl } from '../utils/url';
-import { textVariants } from '../../Text';
-
-import {
-  $createLinkNode,
-  $isAutoLinkNode,
-  $isLinkNode,
-  TOGGLE_LINK_COMMAND,
-  toggleLink,
-} from '@lexical/link';
-import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
-import { $findMatchingParent, mergeRegister } from '@lexical/utils';
 
 function FloatingLinkEditor({
   editor,

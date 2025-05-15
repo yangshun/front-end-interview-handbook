@@ -1,5 +1,6 @@
 'use client';
 
+import { useUser } from '@supabase/auth-helpers-react';
 import clsx from 'clsx';
 import { RiCheckboxCircleLine } from 'react-icons/ri';
 
@@ -10,8 +11,6 @@ import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 
 import RewardsCompletePromoCode from './RewardsCompletePromoCode';
-
-import { useUser } from '@supabase/auth-helpers-react';
 
 export default function RewardsCompletePage() {
   const user = useUser();

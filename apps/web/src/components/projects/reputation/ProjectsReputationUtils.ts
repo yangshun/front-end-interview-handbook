@@ -1,8 +1,14 @@
+import type {
+  ProjectsChallengeSubmissionVote,
+  ProjectsDiscussionCommentVote,
+} from '@prisma/client';
+import { type ProjectsDiscussionComment } from '@prisma/client';
 import { sumBy } from 'lodash-es';
 
 import type { PrismaTransactionClient } from '~/server/prisma';
 import prisma from '~/server/prisma';
 
+import { MAX_SKILLS_FOR_REP_GAINS_IN_SUBMISSION } from '../misc';
 import {
   projectsReputationDiscussionsCommentConfig,
   projectsReputationDiscussionsCommentVoteConfig,
@@ -11,13 +17,6 @@ import {
   projectsReputationSubmissionTechStackConfig,
   projectsReputationSubmissionVoteConfig,
 } from './ProjectsReputationPointsItemCalculator';
-import { MAX_SKILLS_FOR_REP_GAINS_IN_SUBMISSION } from '../misc';
-
-import type {
-  ProjectsChallengeSubmissionVote,
-  ProjectsDiscussionCommentVote,
-} from '@prisma/client';
-import { type ProjectsDiscussionComment } from '@prisma/client';
 
 export function projectsReputationConnectOrCreateShape({
   key: key,

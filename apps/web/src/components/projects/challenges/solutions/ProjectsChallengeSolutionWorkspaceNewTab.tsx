@@ -1,5 +1,6 @@
 'use client';
 
+import { useSandpack } from '@codesandbox/sandpack-react';
 import { RiCodeLine } from 'react-icons/ri';
 
 import { useIntl } from '~/components/intl';
@@ -17,8 +18,6 @@ import type {
   ProjectsChallengeSolutionWorkspacePredefinedTabsContents,
   ProjectsChallengeSolutionWorkspacePredefinedTabsType,
 } from './ProjectsChallengeSolutionWorkspaceTypes';
-
-import { useSandpack } from '@codesandbox/sandpack-react';
 
 type NewTabTypeData =
   | {

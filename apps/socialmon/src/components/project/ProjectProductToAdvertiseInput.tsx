@@ -1,8 +1,3 @@
-import type { ChangeEvent } from 'react';
-import { useState } from 'react';
-
-import { useProjectFormContext } from './ProjectForm';
-
 import {
   Button,
   CloseButton,
@@ -12,6 +7,10 @@ import {
   Textarea,
   TextInput,
 } from '@mantine/core';
+import type { ChangeEvent } from 'react';
+import { useState } from 'react';
+
+import { useProjectFormContext } from './ProjectForm';
 
 type Product = Readonly<{
   description: string;

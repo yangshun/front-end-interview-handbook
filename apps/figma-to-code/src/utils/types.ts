@@ -1,6 +1,6 @@
-import type { GFESceneNode } from '../nodes/types';
-
 import type { EventHandler } from '@create-figma-plugin/utilities';
+
+import type { GFESceneNode } from '../nodes/types';
 
 export type ResizeWindowHandler = EventHandler & {
   handler: (windowSize: { height: number; width: number }) => void;

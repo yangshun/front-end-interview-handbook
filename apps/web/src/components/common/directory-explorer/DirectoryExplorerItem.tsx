@@ -17,12 +17,12 @@ import {
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 
-import { useDirectoryExplorerContext } from './DirectoryExplorerContext';
 import { codingWorkspaceExplorerFilePathToIcon } from '../../workspace/common/explorer/codingWorkspaceExplorerFilePathToIcon';
 import type {
   FileExplorerDirectory,
   FileExplorerFile,
 } from '../../workspace/common/explorer/types';
+import { useDirectoryExplorerContext } from './DirectoryExplorerContext';
 
 export type ExplorerItemProps = PropsWithChildren<{
   className?: string;
@@ -119,7 +119,6 @@ function ExplorerItem({
             onClick={(e) => {
               e.stopPropagation();
               onRenameStart?.();
-              true;
             }}
           />
           <RiCloseLine

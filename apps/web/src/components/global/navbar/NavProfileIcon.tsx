@@ -1,3 +1,4 @@
+import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import clsx from 'clsx';
 import { RiStarSmileFill } from 'react-icons/ri';
 
@@ -17,8 +18,6 @@ import {
   themeOutlineElement_FocusVisible,
   themeOutlineElementBrandColor_FocusVisible,
 } from '~/components/ui/theme';
-
-import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
 type Props = Readonly<{
   avatarUrl?: string;

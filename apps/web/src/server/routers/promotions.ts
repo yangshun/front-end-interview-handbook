@@ -1,3 +1,5 @@
+import { Octokit } from '@octokit/core';
+import { restEndpointMethods } from '@octokit/plugin-rest-endpoint-methods';
 import Stripe from 'stripe';
 import type { ZodError } from 'zod';
 import { z } from 'zod';
@@ -25,9 +27,6 @@ import prisma from '~/server/prisma';
 import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
 
 import { publicProcedure, router, userProcedure } from '../trpc';
-
-import { Octokit } from '@octokit/core';
-import { restEndpointMethods } from '@octokit/plugin-rest-endpoint-methods';
 
 const GITHUB_USERNAME_REGEX = /^[a-zA-Z0-9-]+$/;
 const LINKEDIN_USERNAME_REGEX = /^[a-zA-Z0-9-_]+$/;
@@ -498,7 +497,7 @@ export const promotionsRouter = router({
         },
       });
 
-      if (profile == null || !profile?.stripeCustomer) {
+      if (!profile?.stripeCustomer) {
         return null;
       }
 
@@ -555,7 +554,7 @@ export const promotionsRouter = router({
       },
     });
 
-    if (profile == null || profile?.stripeCustomer == null) {
+    if (profile?.stripeCustomer == null) {
       throw 'No profile or Stripe customer found';
     }
 
@@ -604,7 +603,7 @@ export const promotionsRouter = router({
         },
       });
 
-      if (profile == null || profile?.stripeCustomer == null) {
+      if (profile?.stripeCustomer == null) {
         throw 'No profile or Stripe customer found';
       }
 

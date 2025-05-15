@@ -1,3 +1,4 @@
+import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 import { Controller, useForm } from 'react-hook-form';
@@ -19,12 +20,10 @@ import FilterButton from '~/components/ui/FilterButton/FilterButton';
 import RichTextEditor from '~/components/ui/RichTextEditor';
 import Text from '~/components/ui/Text';
 
-import type { ProjectsChallengeSubmissionAugmented } from '../types';
 import { ProjectsReputationPointsConfig } from '../../reputation/ProjectsReputationPointsConfig';
 import ProjectsProfileAvatar from '../../users/ProjectsProfileAvatar';
 import ProjectsProfileDisplayNameLink from '../../users/ProjectsProfileDisplayNameLink';
-
-import { zodResolver } from '@hookform/resolvers/zod';
+import type { ProjectsChallengeSubmissionAugmented } from '../types';
 
 type Props = Readonly<{
   submission: ProjectsChallengeSubmissionAugmented;

@@ -2,10 +2,10 @@
 
 import ProjectsDiscussionsCommentList from '~/components/projects/discussions/ProjectsDiscussionsCommentList';
 
-import ProjectsChallengeDiscussionsNewComment from './ProjectsChallengeDiscussionsNewComment';
-import type { ProjectsChallengeItem } from '../types';
 import useUserProfileWithProjectsProfile from '../../common/useUserProfileWithProjectsProfile';
 import ProjectsDiscussionsCommentCompleteProfileButton from '../../discussions/ProjectsDiscussionsCommentCompleteProfileButton';
+import type { ProjectsChallengeItem } from '../types';
+import ProjectsChallengeDiscussionsNewComment from './ProjectsChallengeDiscussionsNewComment';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;

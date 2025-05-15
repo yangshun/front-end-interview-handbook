@@ -1,3 +1,4 @@
+import { useUser } from '@supabase/auth-helpers-react';
 import clsx from 'clsx';
 import { useState } from 'react';
 import {
@@ -30,8 +31,6 @@ import {
 } from '~/components/ui/theme';
 
 import { useI18nPathname, useI18nRouter } from '~/next-i18nostic/src';
-
-import { useUser } from '@supabase/auth-helpers-react';
 
 type GuidesListProps = Readonly<{
   className: string;

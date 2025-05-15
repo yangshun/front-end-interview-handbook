@@ -19,9 +19,9 @@ import ScrollArea from '~/components/ui/ScrollArea';
 import { textVariants } from '~/components/ui/Text';
 import { themeTextSecondaryColor } from '~/components/ui/theme';
 
-import { useActiveHeadingId } from './GuidesHeadingObserver';
 import type { SideNavigationItems } from '../common/SideNavigation';
 import SideNavigation from '../common/SideNavigation';
+import { useActiveHeadingId } from './GuidesHeadingObserver';
 
 type TableOfContentsItem = Readonly<{
   children?: ReadonlyArray<TableOfContentsItem>;

@@ -1,3 +1,4 @@
+import type { GuidebookItem } from '@prisma/client';
 import { kebabCase } from 'lodash-es';
 import { useState } from 'react';
 import { RiBugLine } from 'react-icons/ri';
@@ -11,8 +12,6 @@ import Divider from '~/components/ui/Divider';
 import type { TooltipContentSide } from '~/components/ui/Tooltip';
 
 import type { QuestionFormat } from './QuestionsTypes';
-
-import type { GuidebookItem } from '@prisma/client';
 
 type CommonProps = Readonly<{
   className?: string;

@@ -1,5 +1,6 @@
 'use client';
 
+import type { GuidebookItem } from '@prisma/client';
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
@@ -18,8 +19,6 @@ import { GuidesSidebar } from './GuidesSidebar';
 import type { TableOfContents } from './GuidesTableOfContents';
 import GuidesTableOfContents from './GuidesTableOfContents';
 import type { GuideNavigation } from './types';
-
-import type { GuidebookItem } from '@prisma/client';
 
 export default function GuidesNavbar<GuideSlug extends string>({
   guide,

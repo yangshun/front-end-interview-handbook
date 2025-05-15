@@ -1,4 +1,9 @@
 import type {
+  ProjectsChallengeSessionStatus,
+  ProjectsProfile,
+} from '@prisma/client';
+import { Prisma } from '@prisma/client';
+import type {
   ProjectsChallengeInfo,
   ProjectsChallengeMetadata,
 } from 'contentlayer/generated';
@@ -6,12 +11,6 @@ import type {
 import type { PrismaClientGFE } from '~/server/prisma';
 
 import type { ProjectsImageBreakpointCategory } from '../common/ProjectsImageBreakpoints';
-
-import type {
-  ProjectsChallengeSessionStatus,
-  ProjectsProfile,
-} from '@prisma/client';
-import { Prisma } from '@prisma/client';
 
 export type ProjectsChallengeSubmissionExtended = Prisma.Result<
   PrismaClientGFE['projectsChallengeSubmission'],

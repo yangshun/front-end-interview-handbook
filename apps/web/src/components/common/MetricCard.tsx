@@ -2,9 +2,9 @@ import clsx from 'clsx';
 
 import Card from '~/components/ui/Card';
 
-import { formatBigNumber } from './formatBigNumber';
 import Text from '../ui/Text';
 import { themeBackgroundChipColor, themeTextSecondaryColor } from '../ui/theme';
+import { formatBigNumber } from './formatBigNumber';
 
 type Props = Readonly<{
   count: number;

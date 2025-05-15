@@ -16,11 +16,6 @@ import Text from '~/components/ui/Text';
 import { themeBorderElementColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
-import type { QuestionFilter } from './QuestionFilterType';
-import QuestionFrameworkLanguageTooltipLabel from './QuestionFrameworkLanguageTooltipLabel';
-import QuestionListingFilterItemCheckboxes from './QuestionListingFilterItemCheckboxes';
-import QuestionListingFilterItemLabel from './QuestionListingFilterItemLabel';
-import type { QuestionsListAttributesUnion } from './QuestionsProcessor';
 import type {
   InterviewsQuestionItemMinimal,
   InterviewsQuestionItemWithCompletedStatus,
@@ -33,6 +28,11 @@ import type {
   QuestionLanguage,
   QuestionTopic,
 } from '../../common/QuestionsTypes';
+import type { QuestionFilter } from './QuestionFilterType';
+import QuestionFrameworkLanguageTooltipLabel from './QuestionFrameworkLanguageTooltipLabel';
+import QuestionListingFilterItemCheckboxes from './QuestionListingFilterItemCheckboxes';
+import QuestionListingFilterItemLabel from './QuestionListingFilterItemLabel';
+import type { QuestionsListAttributesUnion } from './QuestionsProcessor';
 
 type Props = Readonly<{
   attributesUnion: QuestionsListAttributesUnion;

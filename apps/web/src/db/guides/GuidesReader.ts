@@ -1,3 +1,4 @@
+import type { GuidebookItem } from '@prisma/client';
 import fs from 'fs';
 import grayMatter from 'gray-matter';
 import path from 'path';
@@ -26,8 +27,6 @@ import {
   ReactInterviewPlaybookPathToFile,
 } from '~/components/guides/books/react-interview-playbook/ReactInterviewPlaybookNavigation';
 import type { GuideCardMetadata } from '~/components/guides/types';
-
-import type { GuidebookItem } from '@prisma/client';
 
 export function readGuidesContents(
   directoryPath: string,

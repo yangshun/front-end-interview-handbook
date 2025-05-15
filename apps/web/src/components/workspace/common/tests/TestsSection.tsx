@@ -1,3 +1,4 @@
+import { useSandpackClient } from '@codesandbox/sandpack-react';
 import clsx from 'clsx';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import React from 'react';
@@ -15,6 +16,7 @@ import Button from '~/components/ui/Button';
 import EmptyState from '~/components/ui/EmptyState';
 import { themeBorderColor } from '~/components/ui/theme';
 
+import { useCodingWorkspaceContext } from '../CodingWorkspaceContext';
 import SpecsInline from './SpecsInline';
 import type { TestsOutcome } from './TestsOutcomeBadge';
 import TestsOutcomeBadge from './TestsOutcomeBadge';
@@ -22,9 +24,6 @@ import type { TestsRunStatus } from './TestsRunStatusBadge';
 import TestsRunStatusBadge from './TestsRunStatusBadge';
 import type { Spec, Test } from './types';
 import { flatMap, getAllTestResults, set, splitTail } from './utils';
-import { useCodingWorkspaceContext } from '../CodingWorkspaceContext';
-
-import { useSandpackClient } from '@codesandbox/sandpack-react';
 
 type SpecMode = 'run' | 'submit';
 

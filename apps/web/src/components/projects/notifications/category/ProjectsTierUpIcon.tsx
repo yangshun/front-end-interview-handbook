@@ -40,7 +40,7 @@ export default function ProjectsTierUpIcon() {
       </g>
       <defs>
         <filter
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
           filterUnits="userSpaceOnUse"
           height="55.5"
           id="filter0_d_11876_346401"
@@ -74,7 +74,7 @@ export default function ProjectsTierUpIcon() {
           />
         </filter>
         <filter
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
           filterUnits="userSpaceOnUse"
           height="28.125"
           id="filter1_d_11876_346401"
@@ -114,8 +114,8 @@ export default function ProjectsTierUpIcon() {
           x2="32.3125"
           y1="11.4375"
           y2="34.3125">
-          <stop stop-color="#42DD52" />
-          <stop offset="1" stop-color="#217E2A" />
+          <stop stopColor="#42DD52" />
+          <stop offset="1" stopColor="#217E2A" />
         </linearGradient>
       </defs>
     </svg>

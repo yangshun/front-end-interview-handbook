@@ -1,12 +1,11 @@
+import { Banner, IconInfo32 } from '@create-figma-plugin/ui';
 import clsx from 'clsx';
 import { Fragment, h } from 'preact';
 
-import { CopyCodeSection } from './CopyCodeSection';
-import { HTMLCodeSection } from './HTMLCodeSection';
 import { visitGFENode } from '../nodes/processGFENode';
 import type { GFESceneNode } from '../nodes/types';
-
-import { Banner, IconInfo32 } from '@create-figma-plugin/ui';
+import { CopyCodeSection } from './CopyCodeSection';
+import { HTMLCodeSection } from './HTMLCodeSection';
 
 export function NodeProperties({
   node,

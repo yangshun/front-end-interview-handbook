@@ -5,13 +5,13 @@ import { RiLockLine } from 'react-icons/ri';
 
 import { themeBorderColor, themeTextSubtleColor } from '~/components/ui/theme';
 
+import type { ProjectsViewerProjectsProfile } from '../../types';
 import type { ProjectsPremiumAccessControlType } from './ProjectsPremiumAccessControl';
 import ProjectsPremiumPaywall from './ProjectsPremiumPaywall';
 import {
   useProjectsChallengePaywallSubtitle,
   useProjectsChallengePaywallTitle,
 } from './ProjectsPremiumPaywallStrings';
-import type { ProjectsViewerProjectsProfile } from '../../types';
 
 type Props = Readonly<{
   slug: string;

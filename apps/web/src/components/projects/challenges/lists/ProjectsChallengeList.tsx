@@ -3,12 +3,12 @@ import clsx from 'clsx';
 import ProjectsChallengeCardHorizontal from '~/components/projects/challenges/lists/ProjectsChallengeCardHorizontal';
 import { themeBorderElementColor } from '~/components/ui/theme';
 
+import type { ProjectsSkillKey } from '../../skills/types';
 import ProjectsChallengeStatusChip from '../metadata/ProjectsChallengeStatusChip';
 import type {
   ProjectsChallengeHistoricalStatuses,
   ProjectsChallengeItem,
 } from '../types';
-import type { ProjectsSkillKey } from '../../skills/types';
 
 type Props = Readonly<{
   challengeStatuses?: ProjectsChallengeHistoricalStatuses;

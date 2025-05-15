@@ -1,12 +1,11 @@
+import { Button, Text } from '@mantine/core';
 import Link from 'next/link';
 import { RiArrowRightUpLine } from 'react-icons/ri';
 
-import PostCommentsList from '../comments/PostCommentsList';
-import { redditPermalinkToUrl } from '../utils';
-
 import type { Comments, PostReplyExtended } from '~/types';
 
-import { Button, Text } from '@mantine/core';
+import PostCommentsList from '../comments/PostCommentsList';
+import { redditPermalinkToUrl } from '../utils';
 
 type Props = Readonly<{
   comments?: Comments | null;

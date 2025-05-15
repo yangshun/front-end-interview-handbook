@@ -1,8 +1,7 @@
+import { Column, Link, Row, Text } from '@react-email/components';
 import type { ReactNode } from 'react';
 
 import { EmailsParagraph } from './EmailsComponents';
-
-import { Column, Link, Row, Text } from '@react-email/components';
 
 type Props = Readonly<{
   href: string;

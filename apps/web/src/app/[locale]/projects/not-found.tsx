@@ -1,5 +1,5 @@
-import type { Metadata } from 'next/types';
 import nextI18nosticConfig from 'next-i18nostic/config';
+import type { Metadata } from 'next/types';
 
 import ProjectsNotFoundPage from '~/components/projects/common/ProjectsNotFoundPage';
 

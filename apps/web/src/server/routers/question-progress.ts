@@ -1,3 +1,4 @@
+import { TRPCClientError } from '@trpc/client';
 import { z } from 'zod';
 
 import { groupByDateFormatter } from '~/components/interviews/dashboard/progress/utils';
@@ -14,8 +15,6 @@ import scheduleInterviewsProgressEmail from '~/emails/items/interviews-progress/
 import prisma from '~/server/prisma';
 
 import { publicProcedure, router, userProcedure } from '../trpc';
-
-import { TRPCClientError } from '@trpc/client';
 
 const zodInterviewsQuestionFormats = z.enum([
   'javascript',

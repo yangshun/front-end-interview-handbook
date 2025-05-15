@@ -12,10 +12,10 @@ import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import { themeBorderElementColor } from '~/components/ui/theme';
 
-import ProjectsChallengeSubmissionSuccessProgressHeader from './ProjectsChallengeSubmissionSuccessProgressHeader';
-import ProjectsChallengeSubmissionSuccessSkillPlanDialog from './ProjectsChallengeSubmissionSuccessSkillPlanDialog';
 import ProjectsSkillAccordion from '../../skills/ProjectsSkillAccordion';
 import ProjectsSkillAccordionItem from '../../skills/ProjectsSkillAccordionItem';
+import ProjectsChallengeSubmissionSuccessProgressHeader from './ProjectsChallengeSubmissionSuccessProgressHeader';
+import ProjectsChallengeSubmissionSuccessSkillPlanDialog from './ProjectsChallengeSubmissionSuccessSkillPlanDialog';
 
 type Props = Readonly<{
   skills: Readonly<{

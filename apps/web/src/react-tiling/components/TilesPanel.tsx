@@ -8,9 +8,9 @@ import type {
 } from 'react-resizable-panels';
 import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels';
 
-import TilesPanelItem from './TilesPanelItem';
 import type { TilesPanelConfig } from '../types';
 import type { TilesPanelItemConfig } from '../types';
+import TilesPanelItem from './TilesPanelItem';
 
 type TilesPanelCommonProps<TabType> = Readonly<{
   defaultSize?: PanelProps['defaultSize'];

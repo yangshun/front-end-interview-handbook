@@ -1,5 +1,6 @@
 'use client';
 
+import { useUser } from '@supabase/auth-helpers-react';
 import clsx from 'clsx';
 
 import useUserProfile from '~/hooks/user/useUserProfile';
@@ -13,8 +14,6 @@ import { themeBackgroundColor } from '~/components/ui/theme';
 
 import InterviewsNavbarEndAddOnItems from './InterviewsNavbarEndAddOnItems';
 import useInterviewsNavItems from './useInterviewsNavItems';
-
-import { useUser } from '@supabase/auth-helpers-react';
 
 export default function InterviewsNavbarEnd() {
   const user = useUser();

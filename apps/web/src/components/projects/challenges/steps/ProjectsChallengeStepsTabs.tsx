@@ -4,9 +4,9 @@ import { useMemo } from 'react';
 import Text from '~/components/ui/Text';
 import { themeBorderElementColor } from '~/components/ui/theme';
 
+import type { ProjectsChallengeItem } from '../types';
 import ProjectsChallengeStepsTabItems from './ProjectsChallengeStepsTabItems';
 import type { ProjectsChallengeItemStepsTabType } from './ProjectsChallengeStepsTabsImpl';
-import type { ProjectsChallengeItem } from '../types';
 
 export type ProjectStepsTabItem = Readonly<{
   hint: string;

@@ -29,7 +29,8 @@ export default function ProjectsDiscussionsCommentSort({
         sortField === itemField && isAscendingOrder === isItemAscendingOrder,
       label,
       onClick: () => {
-        setSortField(itemField), setIsAscendingOrder(isItemAscendingOrder);
+        setSortField(itemField);
+        setIsAscendingOrder(isItemAscendingOrder);
       },
     };
   }

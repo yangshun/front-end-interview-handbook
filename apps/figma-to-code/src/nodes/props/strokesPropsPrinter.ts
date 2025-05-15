@@ -1,20 +1,20 @@
+import { convertRgbColorToHexColor } from '@create-figma-plugin/utilities';
+
+import {
+  convertBorderWidthToTailwind,
+  convertHexColorToTailwindColor,
+  convertOutlineWidthToTailwind,
+} from '../../utils/tailwindConversions';
+import type {
+  GFEIndividualStrokesMixin,
+  GFEMinimalStrokesMixin,
+} from '../types';
 import type {
   GFECSSProperties,
   GFENodeMetadata,
   GFENodePropertiesList,
   GFETailwindClasses,
 } from './types';
-import type {
-  GFEIndividualStrokesMixin,
-  GFEMinimalStrokesMixin,
-} from '../types';
-import {
-  convertBorderWidthToTailwind,
-  convertHexColorToTailwindColor,
-  convertOutlineWidthToTailwind,
-} from '../../utils/tailwindConversions';
-
-import { convertRgbColorToHexColor } from '@create-figma-plugin/utilities';
 
 export function processStrokesColor(
   metadata: GFENodeMetadata,

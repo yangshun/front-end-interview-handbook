@@ -19,15 +19,15 @@ import Divider from '~/components/ui/Divider';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import ScrollArea from '~/components/ui/ScrollArea';
 
+import NavProductDropdownMenu, {
+  NavProductPopoverLogoOnly,
+} from '../navbar/NavProductPopover';
 import SidebarAuthDropdownItem from './SidebarAuthDropdownItem';
 import type { SidebarCollapsedLinkItemProps } from './SidebarCollapsedLinkItem';
 import SidebarCollapsedLinkItem from './SidebarCollapsedLinkItem';
 import SidebarColorSchemeSubMenu from './SidebarColorSchemeSubMenu';
 import type { SidebarLinkEntity } from './SidebarLinksSection';
 import SidebarLinksSection from './SidebarLinksSection';
-import NavProductDropdownMenu, {
-  NavProductPopoverLogoOnly,
-} from '../navbar/NavProductPopover';
 
 export function SidebarDropdownMenu({
   moreMenuItems,

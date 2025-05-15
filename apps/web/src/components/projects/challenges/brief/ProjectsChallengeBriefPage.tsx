@@ -9,14 +9,14 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Prose from '~/components/ui/Prose';
 
+import MDXContent from '../../../mdx/MDXContent';
+import type { ProjectsViewerProjectsProfile } from '../../types';
+import ProjectsChallengeContentPaywall from '../premium/ProjectsChallengeContentPaywall';
+import type { ProjectsPremiumAccessControlFields } from '../premium/ProjectsPremiumAccessControl';
 import ProjectsChallengeBriefFAQSection from './ProjectsChallengeBriefFAQSection';
 import ProjectsChallengeBriefImageCarousel from './ProjectsChallengeBriefImageCarousel';
 import ProjectsChallengeBriefProvidedResources from './ProjectsChallengeBriefProvidedResources';
 import ProjectsChallengeBriefSupportSection from './ProjectsChallengeBriefSupportSection';
-import ProjectsChallengeContentPaywall from '../premium/ProjectsChallengeContentPaywall';
-import type { ProjectsPremiumAccessControlFields } from '../premium/ProjectsPremiumAccessControl';
-import type { ProjectsViewerProjectsProfile } from '../../types';
-import MDXContent from '../../../mdx/MDXContent';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;

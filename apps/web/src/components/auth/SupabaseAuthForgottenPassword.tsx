@@ -13,8 +13,8 @@ import logMessage from '~/logging/logMessage';
 import { i18nHref, useI18n, useI18nRouter } from '~/next-i18nostic/src';
 import type { SupabaseClientGFE } from '~/supabase/SupabaseServerGFE';
 
-import type { AuthViewType } from './SupabaseAuthTypes';
 import Alert from '../ui/Alert';
+import type { AuthViewType } from './SupabaseAuthTypes';
 
 type Props = Readonly<{
   next: string;

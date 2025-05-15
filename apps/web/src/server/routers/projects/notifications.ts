@@ -1,3 +1,4 @@
+import { ProjectsDiscussionCommentDomain } from '@prisma/client';
 import { z } from 'zod';
 
 import type { ProjectsNotificationAugmentedType } from '~/components/projects/notifications/types';
@@ -8,8 +9,6 @@ import prisma from '~/server/prisma';
 import { router } from '~/server/trpc';
 
 import { projectsUserProcedure } from './procedures';
-
-import { ProjectsDiscussionCommentDomain } from '@prisma/client';
 
 export const projectsNotificationsRouter = router({
   getUnreadCount: projectsUserProcedure.query(
@@ -105,7 +104,7 @@ export const projectsNotificationsRouter = router({
         if (notifications.length > pagination.limit) {
           // Remove the last item and use it as next cursor
 
-          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+           
           const nextItem = notifications.pop()!;
 
           nextCursor = nextItem.id;

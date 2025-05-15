@@ -1,11 +1,10 @@
+import type { LearningSession } from '@prisma/client';
 import type { InterviewsStudyList } from 'contentlayer/generated';
 
 import InterviewsStudyListCard from '~/components/interviews/questions/listings/study-list/InterviewsStudyListCard';
 import { useIntl } from '~/components/intl';
 
 import InterviewsDashboardLearningSection from '../InterviewsDashboardLearningSection';
-
-import type { LearningSession } from '@prisma/client';
 
 type Props = Readonly<{
   companyGuides: ReadonlyArray<

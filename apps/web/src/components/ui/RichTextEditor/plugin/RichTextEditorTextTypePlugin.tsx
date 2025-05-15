@@ -1,3 +1,7 @@
+import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
+import { $createHeadingNode, $isHeadingNode } from '@lexical/rich-text';
+import { $setBlocksType } from '@lexical/selection';
+import { mergeRegister } from '@lexical/utils';
 import {
   $createParagraphNode,
   $getSelection,
@@ -12,11 +16,6 @@ import { useIntl } from '~/components/intl';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 
 import RichTextEditorDropdownMenu from '../components/RichTextEditorDropdownMenu';
-
-import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
-import { $createHeadingNode, $isHeadingNode } from '@lexical/rich-text';
-import { $setBlocksType } from '@lexical/selection';
-import { mergeRegister } from '@lexical/utils';
 
 export type RichTextEditorTextType = 'heading' | 'paragraph';
 

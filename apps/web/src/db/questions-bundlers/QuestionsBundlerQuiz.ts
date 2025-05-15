@@ -8,6 +8,7 @@ import type {
   QuestionQuiz,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 
+import { normalizeQuestionFrontMatter } from '../QuestionsUtils';
 import { readMDXFile } from './QuestionsBundler';
 import type { QuestionsQuizSourceConfig } from './QuestionsBundlerQuizConfig';
 import {
@@ -15,7 +16,6 @@ import {
   QuestionsQuizSourceConfigNonJavaScript,
   QuestionsQuizSourceConfigReact,
 } from './QuestionsBundlerQuizConfig';
-import { normalizeQuestionFrontMatter } from '../QuestionsUtils';
 
 async function readQuestionMetadataQuiz(
   quizSourceConfig: QuestionsQuizSourceConfig,

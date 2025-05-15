@@ -1,11 +1,10 @@
+import type { Monaco } from '@monaco-editor/react';
 import { type editor as Editor } from 'monaco-editor';
 import type { Plugin } from 'prettier';
 import { useCallback, useEffect } from 'react';
 
 import { useToast } from '~/components/global/toasts/useToast';
 import { useIntl } from '~/components/intl';
-
-import type { Monaco } from '@monaco-editor/react';
 
 export default function useMonacoEditorAddFormatter(
   monaco: Monaco | null,

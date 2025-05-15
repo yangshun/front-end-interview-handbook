@@ -1,8 +1,8 @@
-import PostComment from './PostComment';
+import { Text } from '@mantine/core';
 
 import type { Comments } from '~/types';
 
-import { Text } from '@mantine/core';
+import PostComment from './PostComment';
 
 type Props = Readonly<{
   comments?: Comments | null;

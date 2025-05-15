@@ -3,10 +3,10 @@ import { RiFireFill } from 'react-icons/ri';
 
 import { useToast } from '~/components/global/toasts/useToast';
 
-import type { ToastVariant } from './Toast';
-import { ToastImpl } from './Toast';
 import Button from '../Button';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
+import type { ToastVariant } from './Toast';
+import { ToastImpl } from './Toast';
 
 const variants: ReadonlyArray<ToastVariant> = [
   'plain',

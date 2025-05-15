@@ -36,9 +36,12 @@ export default function useSponsorsAdminFeedbackListFilters() {
     onChange: (value) => {
       const newStatuses = new Set(selectedStatus);
 
-      selectedStatus.includes(value)
-        ? newStatuses.delete(value)
-        : newStatuses.add(value);
+      if (selectedStatus.includes(value)) {
+        newStatuses.delete(value);
+      } else {
+        newStatuses.add(value);
+      }
+
       setSelectedStatus(Array.from(newStatuses));
     },
     onClear: () => {

@@ -1,11 +1,11 @@
+import type { ProjectsSubscriptionPlan } from '@prisma/client';
+
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Text from '~/components/ui/Text';
 
-import type { ProjectsPremiumAccessControlType } from './ProjectsPremiumAccessControl';
 import { projectsPaidPlanFeatures } from '../../purchase/ProjectsPricingFeaturesConfig';
 import type { ProjectsViewerProjectsProfile } from '../../types';
-
-import type { ProjectsSubscriptionPlan } from '@prisma/client';
+import type { ProjectsPremiumAccessControlType } from './ProjectsPremiumAccessControl';
 
 export function useProjectsChallengePaywallTitle(
   access: ProjectsPremiumAccessControlType,

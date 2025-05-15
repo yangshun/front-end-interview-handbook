@@ -13,9 +13,9 @@ import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 
-import usePromotionsReviewCashbackLabels from './usePromotionsReviewCashbackLabels';
 import PromotionCard from '../PromotionCard';
 import { PromotionsEmailUsLink } from '../PromotionsEmailUsLink';
+import usePromotionsReviewCashbackLabels from './usePromotionsReviewCashbackLabels';
 
 type Props = Readonly<{
   variant?: 'compact' | 'full';

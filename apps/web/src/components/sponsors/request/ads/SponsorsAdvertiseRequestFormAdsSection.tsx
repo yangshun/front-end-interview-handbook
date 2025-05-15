@@ -1,3 +1,4 @@
+import type { SponsorsAdFormat } from '@prisma/client';
 import clsx from 'clsx';
 import { useState } from 'react';
 import {
@@ -28,14 +29,12 @@ import {
   themeOutlineElementBrandColor_FocusVisible,
 } from '~/components/ui/theme';
 
+import { themeBackgroundElementEmphasizedStateColor_Hover } from '../../../ui/theme';
+import { SponsorAdFormatConfigs } from '../../SponsorsAdFormatConfigs';
+import type { SponsorsAdFormatFormItem } from '../types';
 import SponsorsAdvertiseRequestFormAdsSectionGlobalBanner from './formats/SponsorsAdvertiseRequestFormAdsSectionGlobalBanner';
 import SponsorsAdvertiseRequestFormAdsSectionInContent from './formats/SponsorsAdvertiseRequestFormAdsSectionInContent';
 import SponsorsAdvertiseRequestFormAdsSectionSpotlight from './formats/SponsorsAdvertiseRequestFormAdsSectionSpotlight';
-import type { SponsorsAdFormatFormItem } from '../types';
-import { SponsorAdFormatConfigs } from '../../SponsorsAdFormatConfigs';
-import { themeBackgroundElementEmphasizedStateColor_Hover } from '../../../ui/theme';
-
-import type { SponsorsAdFormat } from '@prisma/client';
 
 type Props = Readonly<{
   ads: Array<SponsorsAdFormatFormItem>;

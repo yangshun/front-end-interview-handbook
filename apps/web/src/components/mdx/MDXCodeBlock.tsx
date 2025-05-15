@@ -123,7 +123,7 @@ export default function MDXCodeBlock({
   });
 
   if (Object.keys(allLanguages).length === 0) {
-    // eslint-disable-next-line react/jsx-no-useless-fragment
+     
     throw 'At least one language needed';
   }
 

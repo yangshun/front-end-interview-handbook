@@ -8,13 +8,13 @@ import {
   themeBorderEmphasizeColor,
 } from '~/components/ui/theme';
 
+import Text from '../Text';
 import NavbarFeatureIcon from './NavbarFeatureIcon';
 import type {
   NavPopoverChildItem,
   NavPopoverLinkItem,
   NavPopoverListItem,
 } from './NavTypes';
-import Text from '../Text';
 
 function NavbarPopoverLink({
   number,

@@ -1,11 +1,11 @@
 'use client';
 
+import { Button, Text } from '@mantine/core';
+
 import { trpc } from '~/hooks/trpc';
 import useCurrentProjectSlug from '~/hooks/useCurrentProjectSlug';
 
 import ActivityItem from './ActivityItem';
-
-import { Button, Text } from '@mantine/core';
 
 const LIMIT = 20;
 

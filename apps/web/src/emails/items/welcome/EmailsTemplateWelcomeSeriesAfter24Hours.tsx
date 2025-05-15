@@ -1,3 +1,14 @@
+import {
+  Body,
+  Column,
+  Container,
+  Head,
+  Html,
+  Img,
+  Preview,
+  Row,
+  Section,
+} from '@react-email/components';
 import type { ReactNode } from 'react';
 
 import {
@@ -12,18 +23,6 @@ import {
 import { containerStyle, mainStyle } from '~/emails/components/EmailsStyles';
 import type { EmailsUnsubscribeFields } from '~/emails/EmailsTypes';
 import { getSiteOrigin } from '~/seo/siteUrl';
-
-import {
-  Body,
-  Column,
-  Container,
-  Head,
-  Html,
-  Img,
-  Preview,
-  Row,
-  Section,
-} from '@react-email/components';
 
 function WhatYouCanDoSection({
   items,

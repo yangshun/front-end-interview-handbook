@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import RichTextEditor from './RichTextEditor';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
+import RichTextEditor from './RichTextEditor';
 
 export default function RichTextEditorExamples() {
   const [value, setValue] = useState('');

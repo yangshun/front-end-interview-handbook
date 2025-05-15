@@ -1,3 +1,4 @@
+import { zodResolver } from '@hookform/resolvers/zod';
 import { Controller, useForm } from 'react-hook-form';
 import { z } from 'zod';
 
@@ -5,7 +6,6 @@ import { useIntl } from '~/components/intl';
 import ProjectsSkillRoadmapSelectionInput from '~/components/projects/skills/form/ProjectsSkillRoadmapSelectionInput';
 import Divider from '~/components/ui/Divider';
 
-import type { ProjectsChallengeSessionSkillsFormValues } from '../types';
 import {
   getProjectsRoadmapSkillsInputAttributes,
   getProjectsTechStackInputAttributes,
@@ -13,8 +13,7 @@ import {
 } from '../../skills/form/ProjectsSkillListInputSchema';
 import ProjectsSkillTechStackInput from '../../skills/form/ProjectsSkillTechStackInput';
 import type { ProjectsSkillKey } from '../../skills/types';
-
-import { zodResolver } from '@hookform/resolvers/zod';
+import type { ProjectsChallengeSessionSkillsFormValues } from '../types';
 
 type Props = Readonly<{
   challengeDefaultSkills: ReadonlyArray<ProjectsSkillKey>;

@@ -3,9 +3,9 @@ import type { ProjectsChallengeMetadata } from 'contentlayer/generated';
 import { FormattedMessage } from '~/components/intl';
 import Text from '~/components/ui/Text';
 
+import type { ProjectsViewerProjectsProfile } from '../../types';
 import ProjectsChallengeFigmaDesignPaywall from '../premium/ProjectsChallengeFigmaDesignPaywall';
 import type { ProjectsPremiumAccessControlType } from '../premium/ProjectsPremiumAccessControl';
-import type { ProjectsViewerProjectsProfile } from '../../types';
 
 type Props = Readonly<{
   challengeMetadata: ProjectsChallengeMetadata;

@@ -1,11 +1,11 @@
-import panelClose from './panelClose';
-import panelSplit from './panelSplit';
 import type {
   TilesPanelConfig,
   TilesPanelDropAreaSection,
   TilesPanelItemTab,
 } from '../types';
 import getUniqueId from '../utils/getUniqueId';
+import panelClose from './panelClose';
+import panelSplit from './panelSplit';
 
 type PanelDropTarget<TabType> =
   | Readonly<{

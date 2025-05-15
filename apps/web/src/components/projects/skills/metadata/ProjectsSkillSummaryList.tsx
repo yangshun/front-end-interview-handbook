@@ -3,9 +3,9 @@ import clsx from 'clsx';
 import ProjectsSkillList from '~/components/projects/skills/metadata/ProjectsSkillList';
 import Text from '~/components/ui/Text';
 
-import ProjectsSkillParentSkillList from './ProjectsSkillParentSkillList';
 import { projectsSkillExtractParents } from '../data/ProjectsSkillUtils';
 import type { ProjectsSkillKey } from '../types';
+import ProjectsSkillParentSkillList from './ProjectsSkillParentSkillList';
 
 type Props = Readonly<{
   isLabelHidden?: boolean;

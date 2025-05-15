@@ -17,9 +17,9 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 
-import SponsorsAdminAdRequestStatus from './SponsorsAdminAdRequestStatus';
 import SponsorsAdvertiseRequestForm from '../request/SponsorsAdvertiseRequestForm';
 import SponsorsAdvertiseRequestReadonly from '../request/SponsorsAdvertiseRequestReadonly';
+import SponsorsAdminAdRequestStatus from './SponsorsAdminAdRequestStatus';
 
 type Props = Readonly<{
   adRequestId: string;

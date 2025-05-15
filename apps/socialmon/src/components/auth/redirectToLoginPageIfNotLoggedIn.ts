@@ -1,7 +1,7 @@
 import 'server-only';
 
-import { redirect } from 'next/navigation';
 import { getServerSession } from 'next-auth';
+import { redirect } from 'next/navigation';
 import url from 'node:url';
 
 import { authConfig } from '~/app/lib/auth';

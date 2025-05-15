@@ -11,8 +11,8 @@ import { FormattedMessage } from '~/components/intl';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
-import InterviewsPurchaseCancelLogging from './InterviewsPurchaseCancelLogging';
 import { useInterviewsMarketingTestimonials } from '../marketing/testimonials/useInterviewsMarketingTestimonials';
+import InterviewsPurchaseCancelLogging from './InterviewsPurchaseCancelLogging';
 
 type Props = Readonly<{
   countryCode: string;

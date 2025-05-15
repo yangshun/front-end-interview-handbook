@@ -1,3 +1,4 @@
+import { useSessionContext, useUser } from '@supabase/auth-helpers-react';
 import clsx from 'clsx';
 import type { ComponentProps } from 'react';
 import { useRef } from 'react';
@@ -10,6 +11,7 @@ import url from 'url';
 import { useLocalStorage } from 'usehooks-ts';
 
 import { isProhibitedCountry } from '~/lib/stripeUtils';
+
 import { trpc } from '~/hooks/trpc';
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
@@ -55,12 +57,10 @@ import Tooltip from '~/components/ui/Tooltip';
 
 import { useI18n } from '~/next-i18nostic/src';
 
-import InterviewsPaymentFailureDialog from './InterviewsPaymentFailureDialog';
 import PurchaseBlockCard from '../../purchase/PurchaseBlockCard';
 import { MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE } from '../../purchase/PurchasePricingConfig';
 import { priceRoundToNearestNiceNumber } from '../../purchase/PurchasePricingUtils';
-
-import { useSessionContext, useUser } from '@supabase/auth-helpers-react';
+import InterviewsPaymentFailureDialog from './InterviewsPaymentFailureDialog';
 
 type Props = Readonly<{
   countryCode: string;

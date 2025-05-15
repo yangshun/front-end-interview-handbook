@@ -4,6 +4,7 @@
   "css.format.newlineBetweenRules": true,
   "css.format.newlineBetweenSelectors": true,
   "css.format.preserveNewLines": true,
+  "eslint.useFlatConfig": true,
   "editor.codeActionsOnSave": {
     "source.fixAll": "explicit"
   },

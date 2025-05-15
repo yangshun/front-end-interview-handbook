@@ -1,11 +1,10 @@
 'use client';
 
+import type { RoadmapItem as RoadmapItemType } from '@prisma/client';
 import clsx from 'clsx';
 
 import RoadmapDateCard from './RoadmapDateCard';
 import RoadmapItemCard from './RoadmapItemCard';
-
-import type { RoadmapItem as RoadmapItemType } from '@prisma/client';
 
 type Props = Readonly<{
   date: string;

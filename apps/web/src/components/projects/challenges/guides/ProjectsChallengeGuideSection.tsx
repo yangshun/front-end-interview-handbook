@@ -20,9 +20,9 @@ import Heading from '~/components/ui/Heading';
 import SlideOut from '~/components/ui/SlideOut';
 import { themeBorderColor } from '~/components/ui/theme';
 
+import type { ProjectsViewerProjectsProfile } from '../../types';
 import ProjectsChallengeResourcePaywall from '../premium/ProjectsChallengeResourcePaywall';
 import type { ProjectsPremiumAccessControlType } from '../premium/ProjectsPremiumAccessControl';
-import type { ProjectsViewerProjectsProfile } from '../../types';
 
 type Props = Readonly<{
   challengeGuide: ProjectsChallengeGuide | null;

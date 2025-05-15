@@ -1,10 +1,9 @@
+import { ActionIcon, Tooltip } from '@mantine/core';
 import toast from 'react-hot-toast';
 import { RiRefreshLine } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
 import useCurrentProjectSlug from '~/hooks/useCurrentProjectSlug';
-
-import { ActionIcon, Tooltip } from '@mantine/core';
 
 export default function FetchPostButton() {
   const utils = trpc.useUtils();

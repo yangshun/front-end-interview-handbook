@@ -1,3 +1,4 @@
+import type { Monaco } from '@monaco-editor/react';
 import type { IDisposable } from 'monaco-editor';
 import { useEffect, useRef } from 'react';
 
@@ -8,8 +9,6 @@ import type {
   PackageVersion,
 } from '~/dts-fetch/types';
 import { stripBoundaryPeriodAndSlash } from '~/dts-fetch/utils';
-
-import type { Monaco } from '@monaco-editor/react';
 
 type TypeDeclarationContent = string;
 type Path = string;

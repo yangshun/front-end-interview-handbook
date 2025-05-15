@@ -1,5 +1,6 @@
 'use client';
 
+import type { GuidebookItem } from '@prisma/client';
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
 import { createContext, useContext, useEffect, useState } from 'react';
@@ -8,8 +9,6 @@ import { useToggle } from 'usehooks-ts';
 import { GuidesSidebar } from '~/components/guides/GuidesSidebar';
 
 import type { GuideNavigation } from './types';
-
-import type { GuidebookItem } from '@prisma/client';
 
 type GuidesContextType = Readonly<{
   collapsedToC: boolean;

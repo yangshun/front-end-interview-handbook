@@ -13,10 +13,10 @@ import {
   themeBackgroundColor,
 } from '~/components/ui/theme';
 
+import type { SponsorsAdFormatPayloadInContent } from '../SponsorsTypes';
 import SponsorsAdFormatInContentBodyRenderer from './SponsorsAdFormatInContentBodyRenderer';
 import { sponsorsAdTrackingHref } from './SponsorsAdHref';
 import useSponsorsAdImpressionLogging from './useSponsorsAdImpressionLogging';
-import type { SponsorsAdFormatPayloadInContent } from '../SponsorsTypes';
 
 export type SponsorsAdFormatInContentSize = 'md' | 'sm';
 

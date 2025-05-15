@@ -1,3 +1,4 @@
+import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
 import clsx from 'clsx';
 import { useId } from 'react';
 
@@ -5,8 +6,6 @@ import {
   themeBorderElementColor,
   themeOutlineElementBrandColor_FocusVisible,
 } from '../theme';
-
-import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
 
 export type RadioGroupItemProps<T extends string> = Readonly<{
   label: string;

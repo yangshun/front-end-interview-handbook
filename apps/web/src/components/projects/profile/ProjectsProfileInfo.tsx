@@ -1,3 +1,4 @@
+import type { Profile, ProjectsProfile } from '@prisma/client';
 import { RiPencilFill } from 'react-icons/ri';
 
 import { useIntl } from '~/components/intl';
@@ -10,11 +11,9 @@ import ProjectsUserReputation from '~/components/projects/users/ProjectsUserRepu
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 
+import ProjectsProfileDisplayNameLink from '../users/ProjectsProfileDisplayNameLink';
 import ProjectsProfileSocialLinks from './info/ProjectsProfileSocialLinks';
 import ProjectsProfileUsernameBadge from './info/ProjectsProfileUsernameBadge';
-import ProjectsProfileDisplayNameLink from '../users/ProjectsProfileDisplayNameLink';
-
-import type { Profile, ProjectsProfile } from '@prisma/client';
 
 type Props = Readonly<{
   isViewingOwnProfile: boolean;

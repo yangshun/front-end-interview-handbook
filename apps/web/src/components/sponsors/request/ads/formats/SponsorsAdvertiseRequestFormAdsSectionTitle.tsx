@@ -1,8 +1,8 @@
+import type { SponsorsAdFormat } from '@prisma/client';
+
 import { useIntl } from '~/components/intl';
 import { useSponsorsAdFormatData } from '~/components/sponsors/SponsorsAdFormatConfigs';
 import Text from '~/components/ui/Text';
-
-import type { SponsorsAdFormat } from '@prisma/client';
 
 type Props = Readonly<{
   format: SponsorsAdFormat;

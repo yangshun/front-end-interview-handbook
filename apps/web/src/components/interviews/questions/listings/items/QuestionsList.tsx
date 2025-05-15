@@ -19,7 +19,7 @@ import {
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 import { hashQuestion } from '~/db/QuestionsUtils';
 
-import QuestionsListItemProgressChip from './QuestionsListItemProgressChip';
+import InterviewsPremiumBadge from '../../../common/InterviewsPremiumBadge';
 import { questionHrefFrameworkSpecificAndListType } from '../../common/QuestionHrefUtils';
 import type {
   InterviewsQuestionItemMinimal,
@@ -35,7 +35,7 @@ import QuestionLanguages from '../../metadata/QuestionLanguages';
 import QuestionNewLabel from '../../metadata/QuestionNewLabel';
 import QuestionTopics from '../../metadata/QuestionTopics';
 import QuestionUsersCompletedLabel from '../../metadata/QuestionUsersCompletedLabel';
-import InterviewsPremiumBadge from '../../../common/InterviewsPremiumBadge';
+import QuestionsListItemProgressChip from './QuestionsListItemProgressChip';
 
 type Props<Q extends InterviewsQuestionItemMinimal> = Readonly<{
   checkIfCompletedQuestion: (question: Q) => boolean;

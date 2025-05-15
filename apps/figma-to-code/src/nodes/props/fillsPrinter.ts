@@ -1,9 +1,6 @@
-import type {
-  GFECSSProperties,
-  GFENodeMetadata,
-  GFENodePropertiesList,
-  GFETailwindClasses,
-} from './types';
+import { convertRgbColorToHexColor } from '@create-figma-plugin/utilities';
+
+import { convertHexColorToTailwindColor } from '../../utils/tailwindConversions';
 import type {
   GFEComponentNode,
   GFEFrameNode,
@@ -12,9 +9,12 @@ import type {
   GFETextNode,
   GFEVectorNode,
 } from '../types';
-import { convertHexColorToTailwindColor } from '../../utils/tailwindConversions';
-
-import { convertRgbColorToHexColor } from '@create-figma-plugin/utilities';
+import type {
+  GFECSSProperties,
+  GFENodeMetadata,
+  GFENodePropertiesList,
+  GFETailwindClasses,
+} from './types';
 
 export function processFills(
   metadata: GFENodeMetadata,

@@ -1,3 +1,4 @@
+import type { SandpackFiles } from '@codesandbox/sandpack-react';
 import type { ReactNode } from 'react';
 import { createContext, useCallback, useContext, useState } from 'react';
 
@@ -5,17 +6,13 @@ import { useAuthPointOnActions } from '~/components/auth/auth-points';
 
 import CodingWorkspaceBottomBarEmitter from './CodingWorkspaceBottomBarEmitter';
 
-import type { SandpackFiles } from '@codesandbox/sandpack-react';
-
 export type CodingWorkspaceTabContents<TabType extends string> = Readonly<
-  Partial<{
-    [K in TabType]: Readonly<{
+  Partial<Record<TabType, Readonly<{
       contents: ReactNode;
       icon: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
       iconSecondary?: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
       label: string;
-    }>;
-  }>
+    }>>>
 >;
 
 type Status = 'idle' | 'loading' | 'running_tests' | 'submitting';

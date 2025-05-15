@@ -1,3 +1,4 @@
+import * as PopoverPrimitive from '@radix-ui/react-popover';
 import clsx from 'clsx';
 import url from 'url';
 import { useDebounceValue } from 'usehooks-ts';
@@ -21,8 +22,6 @@ import {
 import Tooltip from '~/components/ui/Tooltip';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
-
-import * as PopoverPrimitive from '@radix-ui/react-popover';
 
 export type SidebarCollapsedLinkItemProps =
   | NavPopoverListItem

@@ -1,9 +1,8 @@
+import * as PopoverPrimitive from '@radix-ui/react-popover';
 import clsx from 'clsx';
 import React from 'react';
 
 import { popoverContentClassName } from './popoverStyles';
-
-import * as PopoverPrimitive from '@radix-ui/react-popover';
 
 export type PopoverContentAlignment = 'center' | 'end' | 'start';
 export type PopoverContentWidth = 'lg' | 'md' | 'sm';

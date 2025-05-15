@@ -4,11 +4,11 @@ import { useIntl } from '~/components/intl';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import FilterButton from '~/components/ui/FilterButton/FilterButton';
 
-import useQuestionCodingSorting from '../filters/hooks/useQuestionCodingSorting';
 import type {
   QuestionListTypeData,
   QuestionSortField,
 } from '../../common/QuestionsTypes';
+import useQuestionCodingSorting from '../filters/hooks/useQuestionCodingSorting';
 
 type Props = Readonly<{
   isLabelHidden?: boolean;
@@ -33,7 +33,8 @@ export default function QuestionsListSortButton({
         sortField === itemField && isAscendingOrder === isItemAscendingOrder,
       label,
       onClick: () => {
-        setSortField(itemField), setIsAscendingOrder(isItemAscendingOrder);
+        setSortField(itemField);
+        setIsAscendingOrder(isItemAscendingOrder);
       },
     };
   }

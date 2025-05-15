@@ -1,3 +1,4 @@
+import { GuidebookItem } from '@prisma/client';
 import { z } from 'zod';
 
 import { hashGuide } from '~/db/guides/GuidesUtils';
@@ -5,8 +6,6 @@ import scheduleInterviewsProgressEmail from '~/emails/items/interviews-progress/
 import prisma from '~/server/prisma';
 
 import { router, userProcedure } from '../trpc';
-
-import { GuidebookItem } from '@prisma/client';
 
 export const guideProgressRouter = router({
   add: userProcedure

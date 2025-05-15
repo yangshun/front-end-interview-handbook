@@ -1,6 +1,5 @@
-import type { CSSProperties } from 'react';
-
 import { Text } from '@react-email/components';
+import type { CSSProperties } from 'react';
 
 type EmailsParagraphColor = 'default' | 'secondary' | 'subtitle';
 type EmailsParagraphSize = 'body0' | 'body1' | 'body2' | 'body3';

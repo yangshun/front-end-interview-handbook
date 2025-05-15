@@ -1,5 +1,11 @@
 'use client';
 
+import type {
+  SponsorsAd,
+  SponsorsAdRequest,
+  SponsorsAdRequestStatus,
+  SponsorsAdSlot,
+} from '@prisma/client';
 import clsx from 'clsx';
 import { useQueryState } from 'nuqs';
 import { useState } from 'react';
@@ -24,13 +30,6 @@ import type {
   SponsorsCompanyDetails,
 } from './types';
 import useSponsorsAdvertiseRequestFormData from './useSponsorsAdvertiseRequestFormData';
-
-import type {
-  SponsorsAd,
-  SponsorsAdRequest,
-  SponsorsAdRequestStatus,
-  SponsorsAdSlot,
-} from '@prisma/client';
 
 type Props = Readonly<{
   adRequest: SponsorsAdRequest & {

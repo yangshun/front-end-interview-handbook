@@ -15,9 +15,9 @@ import { getOrCreateUserProfileWithProjectsProfile } from '~/components/projects
 import prisma from '~/server/prisma';
 import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
 
-import { projectsUserProcedure } from './procedures';
-import { publicProcedure, router, userProcedure } from '../../trpc';
 import { projectsProfileBioSchemaServer } from '../../../components/projects/profile/fields/ProjectsProfileBioSchema';
+import { publicProcedure, router, userProcedure } from '../../trpc';
+import { projectsUserProcedure } from './procedures';
 
 async function fetchProjectsProfileStatistics(projectsProfileId: string) {
   const [

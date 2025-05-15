@@ -2,11 +2,11 @@ import clsx from 'clsx';
 
 import FilterButton from '~/components/ui/FilterButton/FilterButton';
 
-import type { QuestionFilter } from './QuestionFilterType';
 import type {
   InterviewsQuestionItemMinimal,
   QuestionFormat,
 } from '../../common/QuestionsTypes';
+import type { QuestionFilter } from './QuestionFilterType';
 
 type Props = Readonly<{
   formatFilterOptions: QuestionFilter<

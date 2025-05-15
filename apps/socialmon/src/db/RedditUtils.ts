@@ -141,6 +141,7 @@ export async function replyToRedditPost({
   const snoowrap = await initializeRedditClient(username, password);
 
   // TODO(socialmon): Figure out how to add type here.
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let finalResponse: any = null;
 
   const replySuccess = await snoowrap

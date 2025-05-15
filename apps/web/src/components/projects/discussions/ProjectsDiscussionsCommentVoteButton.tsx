@@ -10,8 +10,8 @@ import {
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 
-import type { ProjectsDiscussionsCommentItem } from './types';
 import { useProjectsOnboardingContext } from '../onboarding/ProjectsOnboardingContext';
+import type { ProjectsDiscussionsCommentItem } from './types';
 
 type Props = Readonly<{
   comment: ProjectsDiscussionsCommentItem;

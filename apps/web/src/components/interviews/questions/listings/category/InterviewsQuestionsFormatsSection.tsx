@@ -1,3 +1,4 @@
+import type { GuideProgress } from '@prisma/client';
 import clsx from 'clsx';
 import { RiArrowRightLine, RiChat4Line } from 'react-icons/ri';
 
@@ -33,8 +34,6 @@ import {
 } from '~/db/QuestionsUtils';
 
 import QuestionTopics from '../../metadata/QuestionTopics';
-
-import type { GuideProgress } from '@prisma/client';
 
 type InterviewsQuestionFormatType = Readonly<{
   entity: React.ComponentProps<typeof InterviewsEntityProgress>['entity'];

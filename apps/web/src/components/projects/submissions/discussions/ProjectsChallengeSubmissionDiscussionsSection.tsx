@@ -9,10 +9,10 @@ import {
   themeBorderColor,
 } from '~/components/ui/theme';
 
-import ProjectsChallengeSubmissionDiscussionsNewComment from './ProjectsChallengeSubmissionDiscussionsNewComment';
-import type { ProjectsChallengeSubmissionAugmented } from '../types';
 import useUserProfileWithProjectsProfile from '../../common/useUserProfileWithProjectsProfile';
 import ProjectsDiscussionsCommentCompleteProfileButton from '../../discussions/ProjectsDiscussionsCommentCompleteProfileButton';
+import type { ProjectsChallengeSubmissionAugmented } from '../types';
+import ProjectsChallengeSubmissionDiscussionsNewComment from './ProjectsChallengeSubmissionDiscussionsNewComment';
 
 type Props = Readonly<{
   submission: ProjectsChallengeSubmissionAugmented;

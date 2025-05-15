@@ -1,5 +1,6 @@
 'use client';
 
+import type { GuidebookItem } from '@prisma/client';
 import clsx from 'clsx';
 import React from 'react';
 
@@ -8,12 +9,10 @@ import ScrollArea from '~/components/ui/ScrollArea';
 import Text from '~/components/ui/Text';
 import { themeBorderColor } from '~/components/ui/theme';
 
+import SidebarLinksSection from '../global/sidebar/SidebarLinksSection';
 import GuidesDropdownMenu from './GuidesDropdownMenu';
 import GuidesFocusModeToggle from './GuidesFocusModeToggle';
 import type { GuideNavigation } from './types';
-import SidebarLinksSection from '../global/sidebar/SidebarLinksSection';
-
-import type { GuidebookItem } from '@prisma/client';
 
 type Props<GuideSlug extends string> = Readonly<{
   guide: GuidebookItem;

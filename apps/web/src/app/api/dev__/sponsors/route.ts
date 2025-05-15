@@ -1,3 +1,4 @@
+import type { SponsorsAdFormat } from '@prisma/client';
 import {
   addWeeks,
   endOfWeek,
@@ -12,8 +13,6 @@ import { NextResponse } from 'next/server';
 
 import prisma from '~/server/prisma';
 import { getErrorMessage } from '~/utils/getErrorMessage';
-
-import type { SponsorsAdFormat } from '@prisma/client';
 
 const availabilityMaxWeeksAhead = 12;
 

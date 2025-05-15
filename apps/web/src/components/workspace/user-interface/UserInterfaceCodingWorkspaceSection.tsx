@@ -1,3 +1,4 @@
+import { SandpackProvider } from '@codesandbox/sandpack-react';
 import clsx from 'clsx';
 
 import CodingPreferencesProvider from '~/components/global/CodingPreferencesProvider';
@@ -13,8 +14,6 @@ import UserInterfaceCodingWorkspace from '~/components/workspace/user-interface/
 import { loadLocalUserInterfaceQuestionCode } from '~/components/workspace/user-interface/UserInterfaceCodingWorkspaceCodeStorage';
 
 import SandpackErrorReporting from '../common/sandpack/SandpackErrorReporting';
-
-import { SandpackProvider } from '@codesandbox/sandpack-react';
 
 type Props = Readonly<{
   activeTabScrollIntoView?: boolean;

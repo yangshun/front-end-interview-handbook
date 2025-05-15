@@ -1,12 +1,11 @@
 'use client';
 
+import { useSessionContext } from '@supabase/auth-helpers-react';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import { useGreatStorageLocal } from '~/hooks/useGreatStorageLocal';
 
 import { useAuthSignupDialogContext } from './AuthSignupDialogContext';
-
-import { useSessionContext } from '@supabase/auth-helpers-react';
 
 type EntityType = 'coding' | 'quiz' | 'system-design';
 

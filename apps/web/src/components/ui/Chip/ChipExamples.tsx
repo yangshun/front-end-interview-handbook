@@ -6,8 +6,8 @@ import {
   RiStarFill,
 } from 'react-icons/ri';
 
-import Chip from './Chip';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
+import Chip from './Chip';
 
 export default function ChipExamples() {
   return (

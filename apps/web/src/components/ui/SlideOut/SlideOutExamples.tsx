@@ -2,9 +2,9 @@ import { useState } from 'react';
 
 import Prose from '~/components/ui/Prose';
 
-import SlideOut from './SlideOut';
 import Button from '../Button';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
+import SlideOut from './SlideOut';
 
 function Contents() {
   return (

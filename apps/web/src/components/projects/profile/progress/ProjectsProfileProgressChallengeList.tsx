@@ -1,5 +1,6 @@
 'use client';
 
+import type { ProjectsChallengeSessionStatus } from '@prisma/client';
 import clsx from 'clsx';
 
 import { trpc } from '~/hooks/trpc';
@@ -8,8 +9,6 @@ import usePagination from '~/hooks/usePagination';
 import ProjectsChallengeCard from '~/components/projects/challenges/lists/ProjectsChallengeCard';
 import Pagination from '~/components/ui/Pagination';
 import Spinner from '~/components/ui/Spinner';
-
-import type { ProjectsChallengeSessionStatus } from '@prisma/client';
 
 type Props = Readonly<{
   challengeStatus: ProjectsChallengeSessionStatus;

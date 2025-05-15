@@ -5,8 +5,8 @@ import CheckboxInput from '~/components/ui/CheckboxInput';
 import { themeIconColor, themeTextSubtleColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
-import type { QuestionFilter } from './QuestionFilterType';
 import type { InterviewsQuestionItemMinimal } from '../../common/QuestionsTypes';
+import type { QuestionFilter } from './QuestionFilterType';
 
 export default function QuestionListingFilterItemCheckboxes<
   T extends string,

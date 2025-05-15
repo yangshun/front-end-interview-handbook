@@ -5,7 +5,6 @@ import { getEmptyImage } from 'react-dnd-html5-backend';
 
 import ScrollArea from '~/components/ui/ScrollArea';
 
-import TilesPanelTab from './TilesPanelTab';
 import { useDragHighlightContext } from '../state/useDragHighlightContext';
 import { useTilesContext } from '../state/useTilesContext';
 import type {
@@ -15,6 +14,7 @@ import type {
 } from '../types';
 import getDragId from '../utils/getDragId';
 import isDragTab from '../utils/isDragTab';
+import TilesPanelTab from './TilesPanelTab';
 
 type Props<TabType> = Readonly<{
   activeTabId: TabType | null;

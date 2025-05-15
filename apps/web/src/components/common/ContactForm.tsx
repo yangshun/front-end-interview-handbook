@@ -1,3 +1,4 @@
+import type { FeedbackMessageCategory } from '@prisma/client';
 import clsx from 'clsx';
 import { type ForwardedRef, forwardRef } from 'react';
 
@@ -8,8 +9,6 @@ import TextInput from '~/components/ui/TextInput';
 import { themeGlassyBorder } from '~/components/ui/theme';
 
 import logMessage from '~/logging/logMessage';
-
-import type { FeedbackMessageCategory } from '@prisma/client';
 
 const MESSAGE_MIN_LENGTH = 10;
 

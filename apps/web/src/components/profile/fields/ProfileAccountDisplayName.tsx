@@ -1,3 +1,4 @@
+import { zodResolver } from '@hookform/resolvers/zod';
 import clsx from 'clsx';
 import { useMemo } from 'react';
 import { Controller, useForm } from 'react-hook-form';
@@ -14,8 +15,6 @@ import {
 import Button from '~/components/ui/Button';
 import TextInput from '~/components/ui/TextInput';
 import { themeBorderColor } from '~/components/ui/theme';
-
-import { zodResolver } from '@hookform/resolvers/zod';
 
 type DisplayNameFormValues = Readonly<{
   name: string;

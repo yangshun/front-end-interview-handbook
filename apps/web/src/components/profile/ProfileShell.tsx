@@ -1,5 +1,6 @@
 'use client';
 
+import type { User } from '@supabase/auth-helpers-nextjs';
 import clsx from 'clsx';
 import { useSelectedLayoutSegment } from 'next/navigation';
 import {
@@ -24,8 +25,6 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Tabs from '~/components/ui/Tabs';
 import Text from '~/components/ui/Text';
 import { themeBorderColor } from '~/components/ui/theme';
-
-import type { User } from '@supabase/auth-helpers-nextjs';
 
 type Props = Readonly<{
   children: React.ReactNode;

@@ -1,3 +1,4 @@
+import type { SandpackFile } from '@codesandbox/sandpack-react';
 import assert from 'assert';
 import fs from 'fs';
 import { globby } from 'globby';
@@ -16,8 +17,6 @@ import {
   getChallengeSolutionsOutPath,
   getChallengeSolutionsSrcPath,
 } from '~/db/projects/ProjectsChallengeSolutionConfig';
-
-import type { SandpackFile } from '@codesandbox/sandpack-react';
 
 const SUPPORTED_CHALLENGE_SOLUTION_TYPE =
   new Set<ProjectsChallengeSolutionFrameworkType>(['vanilla', 'react']);

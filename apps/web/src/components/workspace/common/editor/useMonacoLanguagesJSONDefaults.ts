@@ -1,6 +1,5 @@
-import { useEffect } from 'react';
-
 import type { Monaco } from '@monaco-editor/react';
+import { useEffect } from 'react';
 
 export default function useMonacoLanguagesJSONDefaults(monaco: Monaco | null) {
   useEffect(() => {

@@ -1,3 +1,4 @@
+import * as PopoverPrimitive from '@radix-ui/react-popover';
 import clsx from 'clsx';
 import React, { useState } from 'react';
 import { RiArrowDownSLine } from 'react-icons/ri';
@@ -13,13 +14,11 @@ import {
   themeTextSecondaryInvertColor,
 } from '~/components/ui/theme';
 
+import Anchor from '../Anchor';
+import { anchorVariants } from '../Anchor/AnchorStyles';
 import NavbarPopover from './NavbarPopover';
 import NavbarPopoverTabs from './NavbarPopoverTabs';
 import type { NavbarTopLevelItem } from './NavTypes';
-import Anchor from '../Anchor';
-import { anchorVariants } from '../Anchor/AnchorStyles';
-
-import * as PopoverPrimitive from '@radix-ui/react-popover';
 
 export default function NavbarItem({
   onClick,

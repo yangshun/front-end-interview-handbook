@@ -9,9 +9,9 @@ import QuestionsQuizSidebarCollapser from '~/components/interviews/questions/con
 import Section from '~/components/ui/Heading/HeadingContext';
 import { themeBorderColor } from '~/components/ui/theme';
 
+import type { QuestionListTypeData } from '../../common/QuestionsTypes';
 import QuestionsQuizSidebarQuestionList from './QuestionQuizSidebarQuestionList';
 import useQuestionsQuizSidebarExpanded from './useQuestionsQuizSidebarExpanded';
-import type { QuestionListTypeData } from '../../common/QuestionsTypes';
 
 type Props = Readonly<{
   children: React.ReactNode;

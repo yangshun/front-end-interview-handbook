@@ -1,5 +1,6 @@
 'use client';
 
+import * as PopoverPrimitive from '@radix-ui/react-popover';
 import clsx from 'clsx';
 import { RiArrowDownSLine } from 'react-icons/ri';
 import { useDebounceValue } from 'usehooks-ts';
@@ -17,8 +18,6 @@ import {
 } from '~/components/ui/theme';
 
 import { useProductMenuUnseenIndicator } from '../product-theme/useProductMenuUnseenIndicator';
-
-import * as PopoverPrimitive from '@radix-ui/react-popover';
 
 type Props = Readonly<{
   product: 'interviews' | 'projects';

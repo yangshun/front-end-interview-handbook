@@ -1,3 +1,4 @@
+import { SandpackProvider } from '@codesandbox/sandpack-react';
 import clsx from 'clsx';
 
 import CodingPreferencesProvider from '~/components/global/CodingPreferencesProvider';
@@ -12,8 +13,6 @@ import JavaScriptCodingWorkspace from '~/components/workspace/javascript/JavaScr
 import { loadLocalJavaScriptQuestionCode } from '~/components/workspace/javascript/JavaScriptCodingWorkspaceCodeStorage';
 
 import SandpackErrorReporting from '../common/sandpack/SandpackErrorReporting';
-
-import { SandpackProvider } from '@codesandbox/sandpack-react';
 
 type Props = Readonly<{
   canViewPremiumContent: boolean;

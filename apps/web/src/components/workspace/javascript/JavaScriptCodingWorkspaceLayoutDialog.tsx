@@ -1,10 +1,13 @@
 'use client';
 
+import { useSandpack } from '@codesandbox/sandpack-react';
 import { RiLayout2Line, RiLayoutGridLine } from 'react-icons/ri';
 import { TbColumns3 } from 'react-icons/tb';
 
 import { useIntl } from '~/components/intl';
 
+import type { CodingWorkspaceLayoutItem } from '../common/CodingWorkspaceLayoutDialog';
+import CodingWorkspaceLayoutDialog from '../common/CodingWorkspaceLayoutDialog';
 import { useJavaScriptCodingWorkspaceContext } from './JavaScriptCodingWorkspaceContext';
 import {
   getJavaScriptCodingWorkspaceLayoutGrid,
@@ -12,10 +15,6 @@ import {
   getJavaScriptCodingWorkspaceLayoutTwoColumns,
 } from './JavaScriptCodingWorkspaceLayouts';
 import useJavaScriptCodingWorkspaceTilesContext from './useJavaScriptCodingWorkspaceTilesContext';
-import type { CodingWorkspaceLayoutItem } from '../common/CodingWorkspaceLayoutDialog';
-import CodingWorkspaceLayoutDialog from '../common/CodingWorkspaceLayoutDialog';
-
-import { useSandpack } from '@codesandbox/sandpack-react';
 
 type Props = Readonly<{
   isOpen: boolean;

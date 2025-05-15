@@ -1,3 +1,6 @@
+import remarkAlerts from '@gfe/remark-alerts';
+import remarkExtractToc from '@stefanprobst/remark-extract-toc';
+import remarkExtractTocExport from '@stefanprobst/remark-extract-toc/mdx';
 import fs from 'fs';
 import { bundleMDX } from 'mdx-bundler';
 import path, { dirname } from 'path';
@@ -6,10 +9,6 @@ import remarkGfm from 'remark-gfm';
 import remarkMdxCodeMeta from 'remark-mdx-code-meta';
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
 import remarkSlug from 'remark-slug';
-
-import remarkAlerts from '@gfe/remark-alerts';
-import remarkExtractToc from '@stefanprobst/remark-extract-toc';
-import remarkExtractTocExport from '@stefanprobst/remark-extract-toc/mdx';
 
 // Warning! This file will not be shipped in the client bundle.
 // Do not add anything here that will be imported by client-side code.

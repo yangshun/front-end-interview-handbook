@@ -1,5 +1,6 @@
 'use client';
 
+import { zodResolver } from '@hookform/resolvers/zod';
 import { FormProvider, useForm } from 'react-hook-form';
 import { RiArrowRightLine } from 'react-icons/ri';
 import { z } from 'zod';
@@ -13,8 +14,6 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
 import ProjectsProfileMotivationsField from '../profile/edit/ProjectsProfileMotivationsField';
-
-import { zodResolver } from '@hookform/resolvers/zod';
 
 type OnboardingProfileFormTransformedValues = {
   motivations: z.infer<ReturnType<typeof useProjectsMotivationReasonSchema>>;

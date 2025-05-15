@@ -1,3 +1,4 @@
+import NumberFlow from '@number-flow/react';
 import clsx from 'clsx';
 import { useId } from 'react';
 import { RiTimeLine } from 'react-icons/ri';
@@ -7,8 +8,6 @@ import type { TextSize } from '~/components/ui/Text';
 import Text from '~/components/ui/Text';
 import { themeIconColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
-
-import NumberFlow from '@number-flow/react';
 
 type Props = Readonly<{
   mins: number;

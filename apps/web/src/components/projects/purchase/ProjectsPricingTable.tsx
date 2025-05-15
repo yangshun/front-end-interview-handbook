@@ -1,3 +1,5 @@
+import type { ProjectsSubscriptionPlan } from '@prisma/client';
+import { useSessionContext, useUser } from '@supabase/auth-helpers-react';
 import clsx from 'clsx';
 import { useRef } from 'react';
 import { useState } from 'react';
@@ -11,6 +13,7 @@ import url from 'url';
 
 import gtag from '~/lib/gtag';
 import { isProhibitedCountry } from '~/lib/stripeUtils';
+
 import { trpc } from '~/hooks/trpc';
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
@@ -37,6 +40,7 @@ import {
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
+import useUserProfileWithProjectsProfile from '../common/useUserProfileWithProjectsProfile';
 import {
   annualPlanFeatures,
   freePlanFeatures,
@@ -51,10 +55,6 @@ import ProjectsPurchaseCancelLogging from './ProjectsPurchaseCancelLogging';
 import type { ProjectsSubscriptionPlanFeature } from './useProjectsPricingPlanFeatures';
 import useProjectsPricingPlanFeatures from './useProjectsPricingPlanFeatures';
 import useProjectsPricingPlansList from './useProjectsPricingPlansList';
-import useUserProfileWithProjectsProfile from '../common/useUserProfileWithProjectsProfile';
-
-import type { ProjectsSubscriptionPlan } from '@prisma/client';
-import { useSessionContext, useUser } from '@supabase/auth-helpers-react';
 
 function PricingButton({
   href,
@@ -298,7 +298,6 @@ function PricingButtonSection({
   }
 
   if (
-    userProfile?.projectsProfile == null ||
     !userProfile?.projectsProfile?.premium
   ) {
     if (paymentConfig == null) {

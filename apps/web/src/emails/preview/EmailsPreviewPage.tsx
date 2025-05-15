@@ -26,10 +26,10 @@ import CodingWorkspaceDivider, {
 
 import { getErrorMessage } from '~/utils/getErrorMessage';
 
-import EmailsPreviewSendSection from './EmailsPreviewSendSection';
 import type { EmailItemConfig, EmailKey } from '../EmailsTypes';
 import { EmailsItemConfigs } from '../items/EmailItemConfigs';
 import { renderEmail } from '../render/EmailsRender';
+import EmailsPreviewSendSection from './EmailsPreviewSendSection';
 
 type Props = Readonly<{
   emailKey: EmailKey;

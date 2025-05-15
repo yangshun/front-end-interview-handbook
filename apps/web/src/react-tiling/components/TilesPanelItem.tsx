@@ -26,11 +26,11 @@ import {
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 
+import { useTilesContext } from '../state/useTilesContext';
+import type { TilesPanelItemTab } from '../types';
 import TilesPanelActions from './TilesPanelActions';
 import TilesPanelBody from './TilesPanelBody';
 import TilesPanelTabsSection from './TilesPanelTabsSection';
-import { useTilesContext } from '../state/useTilesContext';
-import type { TilesPanelItemTab } from '../types';
 
 const MAXIMUM_LEVEL_FOR_SPLITTING = 2;
 

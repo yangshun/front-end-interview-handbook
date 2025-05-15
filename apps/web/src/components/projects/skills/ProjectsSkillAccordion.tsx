@@ -1,9 +1,8 @@
 'use client';
 
+import * as AccordionPrimitive from '@radix-ui/react-accordion';
 import clsx from 'clsx';
 import React from 'react';
-
-import * as AccordionPrimitive from '@radix-ui/react-accordion';
 
 type Props = Readonly<{
   children: React.ReactNode;

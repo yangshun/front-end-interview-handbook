@@ -1,3 +1,4 @@
+import type { ProjectsSubscriptionPlan } from '@prisma/client';
 import { useSearchParams } from 'next/navigation';
 import { Suspense, useEffect } from 'react';
 
@@ -6,8 +7,6 @@ import { trpc } from '~/hooks/trpc';
 import { purchaseSuccessLogging } from '~/components/purchase/PurchaseLogging';
 
 import { useI18nRouter } from '~/next-i18nostic/src';
-
-import type { ProjectsSubscriptionPlan } from '@prisma/client';
 
 export function useProjectsPurchaseSuccessLogging() {
   const searchParams = useSearchParams();

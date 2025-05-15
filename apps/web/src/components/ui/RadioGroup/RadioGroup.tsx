@@ -1,13 +1,12 @@
+import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
 import clsx from 'clsx';
 import type { ReactElement, Ref } from 'react';
 import { forwardRef, useId } from 'react';
 
-import type { RadioGroupItemProps } from './RadioGroupItem';
 import type { LabelDescriptionStyle } from '../Label';
 import Label from '../Label';
 import Text from '../Text';
-
-import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
+import type { RadioGroupItemProps } from './RadioGroupItem';
 
 type RadioGroupDirection = 'horizontal' | 'vertical';
 

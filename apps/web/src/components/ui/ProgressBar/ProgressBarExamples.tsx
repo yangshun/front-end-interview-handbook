@@ -1,10 +1,10 @@
-import ProgressBar from './index';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
 import {
   themeGradientGreenYellow,
   themeGradientPinkPurple,
   themeGradientPurpleGreen,
 } from '../theme';
+import ProgressBar from './index';
 
 export default function ProgressBarExamples() {
   return (

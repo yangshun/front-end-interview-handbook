@@ -1,15 +1,15 @@
+import { convertSizeToTailwind } from '../../utils/tailwindConversions';
+import type {
+  GFEAutoLayoutChildrenMixin,
+  GFEAutoLayoutMixin,
+  GFEDimensionAndPositionMixin,
+} from '../types';
 import type {
   GFECSSProperties,
   GFENodeMetadata,
   GFENodePropertiesList,
   GFETailwindClasses,
 } from './types';
-import type {
-  GFEAutoLayoutChildrenMixin,
-  GFEAutoLayoutMixin,
-  GFEDimensionAndPositionMixin,
-} from '../types';
-import { convertSizeToTailwind } from '../../utils/tailwindConversions';
 
 export function processLayoutMode(
   metadata: GFENodeMetadata,

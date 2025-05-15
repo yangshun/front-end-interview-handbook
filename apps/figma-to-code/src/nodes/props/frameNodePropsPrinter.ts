@@ -1,17 +1,14 @@
+import {
+  convertBorderRadiusToTailwind,
+  convertSizeToTailwind,
+} from '../../utils/tailwindConversions';
+import type { GFEBaseFrameMixin } from '../types';
 import type {
   GFECSSProperties,
   GFENodeMetadata,
   GFENodePropertiesList,
   GFETailwindClasses,
 } from './types';
-import type { GFEBaseFrameMixin } from '../types';
-import {
-  convertBorderRadiusToTailwind,
-  convertHexColorToTailwindColor,
-  convertSizeToTailwind,
-} from '../../utils/tailwindConversions';
-
-import { convertRgbColorToHexColor } from '@create-figma-plugin/utilities';
 
 export function processPadding(
   metadata: GFENodeMetadata,

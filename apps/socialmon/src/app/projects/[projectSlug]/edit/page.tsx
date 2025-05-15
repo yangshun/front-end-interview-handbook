@@ -3,10 +3,9 @@ import { notFound } from 'next/navigation';
 
 import { getUser } from '~/app/lib/auth';
 import prisma from '~/server/prisma';
+import type { ProjectTransformed } from '~/types';
 
 import ProjectEditPage from './ProjectEditPage';
-
-import type { ProjectTransformed } from '~/types';
 
 type Props = Readonly<{
   params: {

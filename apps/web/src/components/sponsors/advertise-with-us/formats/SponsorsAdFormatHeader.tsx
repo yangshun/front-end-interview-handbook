@@ -1,5 +1,6 @@
 'use client';
 
+import type { SponsorsAdFormat } from '@prisma/client';
 import clsx from 'clsx';
 
 import { trpc } from '~/hooks/trpc';
@@ -12,8 +13,6 @@ import Text from '~/components/ui/Text';
 import { themeTextSubtitleColor } from '~/components/ui/theme';
 
 import { sponsorsDateFormatter } from '../../SponsorsDatesUtils';
-
-import type { SponsorsAdFormat } from '@prisma/client';
 
 type Props = Readonly<{
   format: SponsorsAdFormat;

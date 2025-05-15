@@ -1,11 +1,10 @@
 'use client';
 
+import * as HoverCardPrimitive from '@radix-ui/react-hover-card';
 import clsx from 'clsx';
 import * as React from 'react';
 
 import { hovercardContentClassName } from './hovercardStyles';
-
-import * as HoverCardPrimitive from '@radix-ui/react-hover-card';
 
 const Hovercard = HoverCardPrimitive.Root;
 

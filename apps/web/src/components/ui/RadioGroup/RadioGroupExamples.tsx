@@ -2,8 +2,8 @@ import { useState } from 'react';
 
 import RadioGroupItem from '~/components/ui/RadioGroup/RadioGroupItem';
 
-import RadioGroup from './RadioGroup';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
+import RadioGroup from './RadioGroup';
 
 const options = [
   {

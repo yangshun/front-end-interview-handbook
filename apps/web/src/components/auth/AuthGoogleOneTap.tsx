@@ -1,5 +1,6 @@
 'use client';
 
+import { useSessionContext } from '@supabase/auth-helpers-react';
 import Script from 'next/script';
 import { useCallback, useEffect } from 'react';
 import url from 'url';
@@ -9,8 +10,6 @@ import logEvent from '~/logging/logEvent';
 import { i18nHref, useI18n, useI18nRouter } from '~/next-i18nostic/src';
 import { useSupabaseClientGFE } from '~/supabase/SupabaseClientGFE';
 import { getErrorMessage } from '~/utils/getErrorMessage';
-
-import { useSessionContext } from '@supabase/auth-helpers-react';
 
 /* eslint-disable @typescript-eslint/consistent-type-definitions */
 declare global {

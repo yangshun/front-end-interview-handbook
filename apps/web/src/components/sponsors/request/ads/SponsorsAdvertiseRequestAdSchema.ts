@@ -1,3 +1,4 @@
+import { createHeadlessEditor } from '@lexical/headless';
 import { $getRoot } from 'lexical';
 import { z } from 'zod';
 
@@ -6,8 +7,6 @@ import { urlSchema } from '~/lib/urlValidation';
 import { useIntl } from '~/components/intl';
 import { SponsorAdFormatConfigs } from '~/components/sponsors/SponsorsAdFormatConfigs';
 import { RichTextEditorConfig } from '~/components/ui/RichTextEditor/RichTextEditorConfig';
-
-import { createHeadlessEditor } from '@lexical/headless';
 
 const editor = createHeadlessEditor(RichTextEditorConfig);
 

@@ -1,11 +1,13 @@
 'use client';
 
+import { useUser } from '@supabase/auth-helpers-react';
 import clsx from 'clsx';
 import { useRef } from 'react';
 import { RiSettings3Line, RiUserLine, RiWallet3Line } from 'react-icons/ri';
 import { useMediaQuery } from 'usehooks-ts';
 
 import gtag from '~/lib/gtag';
+
 import useIsSticky from '~/hooks/useIsSticky';
 
 import { PROJECTS_NOTIFICATION_AVAILABLE } from '~/data/FeatureFlags';
@@ -33,10 +35,8 @@ import {
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
-import useProjectsNavLinks from './useProjectsNavLinks';
 import useUserProfileWithProjectsProfile from '../../useUserProfileWithProjectsProfile';
-
-import { useUser } from '@supabase/auth-helpers-react';
+import useProjectsNavLinks from './useProjectsNavLinks';
 
 function useUserNavigationLinks() {
   const intl = useIntl();

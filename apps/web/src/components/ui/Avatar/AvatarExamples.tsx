@@ -1,5 +1,5 @@
-import Avatar from './Avatar';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
+import Avatar from './Avatar';
 
 const sizes = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl'] as const;
 

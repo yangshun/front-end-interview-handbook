@@ -1,6 +1,6 @@
+import { JobPostingJsonLd } from 'next-seo';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next/types';
-import { JobPostingJsonLd } from 'next-seo';
 
 import JobPostingPage from '~/components/hiring/JobPostingPage';
 

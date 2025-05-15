@@ -1,12 +1,12 @@
+import type { SponsorsAdFormat } from '@prisma/client';
+
 import { useIntl } from '~/components/intl';
 
+import { QuestionCountTotal } from '../interviews/questions/listings/stats/QuestionCount';
 import type {
   SponsorsAdFormatConfig,
   SponsorsAdFormatDataType,
 } from './SponsorsTypes';
-import { QuestionCountTotal } from '../interviews/questions/listings/stats/QuestionCount';
-
-import type { SponsorsAdFormat } from '@prisma/client';
 
 export const SponsorAdFormatConfigs: Record<
   SponsorsAdFormat,

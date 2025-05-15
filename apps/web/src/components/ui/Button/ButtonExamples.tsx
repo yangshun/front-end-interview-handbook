@@ -1,10 +1,10 @@
 import { capitalize } from 'lodash-es';
 import { RiArrowRightLine, RiDownload2Line } from 'react-icons/ri';
 
-import type { ButtonSize, ButtonVariant } from './Button';
-import Button from './Button';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
 import type { TooltipContentSide } from '../Tooltip/Tooltip';
+import type { ButtonSize, ButtonVariant } from './Button';
+import Button from './Button';
 
 const sizes: ReadonlyArray<ButtonSize> = ['xs', 'sm', 'md', 'lg'];
 const variants: ReadonlyArray<ButtonVariant> = [

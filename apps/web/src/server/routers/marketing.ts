@@ -1,8 +1,7 @@
+import { Axiom } from '@axiomhq/js';
 import { subHours } from 'date-fns';
 
 import { publicProcedure, router } from '../trpc';
-
-import { Axiom } from '@axiomhq/js';
 
 const TIME_DIFF_IN_HOURS = 2;
 

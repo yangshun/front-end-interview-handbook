@@ -9,12 +9,12 @@ import useInterviewsQuestionsFeatures from '~/components/interviews/common/useIn
 import MDXContent from '~/components/mdx/MDXContent';
 import Divider from '~/components/ui/Divider';
 
-import InterviewsQuestionsCategoryPage from './InterviewsQuestionsCategoryPage';
-import InterviewsQuestionsCategoryPracticeFormatTabs from './InterviewsQuestionsCategoryPracticeFormatTabs';
 import type {
   InterviewsQuestionItemMinimal,
   QuestionLanguage,
 } from '../../common/QuestionsTypes';
+import InterviewsQuestionsCategoryPage from './InterviewsQuestionsCategoryPage';
+import InterviewsQuestionsCategoryPracticeFormatTabs from './InterviewsQuestionsCategoryPracticeFormatTabs';
 
 type Props = Omit<
   React.ComponentProps<typeof InterviewsQuestionsCategoryPage>,

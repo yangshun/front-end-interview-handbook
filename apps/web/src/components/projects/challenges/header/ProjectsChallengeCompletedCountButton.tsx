@@ -1,3 +1,4 @@
+import { useUser } from '@supabase/auth-helpers-react';
 import { useState } from 'react';
 
 import { trpc } from '~/hooks/trpc';
@@ -7,8 +8,6 @@ import Anchor from '~/components/ui/Anchor';
 import Text from '~/components/ui/Text';
 
 import ProjectsChallengeSubmissionsDialog from './ProjectsChallengeSubmissionsDialog';
-
-import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   challengeSlug: string;

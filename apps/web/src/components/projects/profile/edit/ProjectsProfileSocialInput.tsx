@@ -1,9 +1,9 @@
 import type { Control } from 'react-hook-form';
 
+import type { ProjectsProfileEditFormValues } from '../../types';
 import ProjectsProfileGithubInput from './ProjectsProfileGithubInput';
 import ProjectsProfileLinkedInInput from './ProjectsProfileLinkedInInput';
 import ProjectsProfileWebsiteInput from './ProjectsProfileWebsiteInput';
-import type { ProjectsProfileEditFormValues } from '../../types';
 
 type Values = ProjectsProfileEditFormValues;
 

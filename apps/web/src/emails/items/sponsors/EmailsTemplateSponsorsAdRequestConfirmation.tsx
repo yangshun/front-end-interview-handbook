@@ -1,3 +1,10 @@
+import {
+  Body,
+  Container,
+  Html,
+  Preview,
+  Section,
+} from '@react-email/components';
 import React from 'react';
 
 import {
@@ -8,14 +15,6 @@ import {
   EmailsStrong,
 } from '~/emails/components/EmailsComponents';
 import { containerStyle, mainStyle } from '~/emails/components/EmailsStyles';
-
-import {
-  Body,
-  Container,
-  Html,
-  Preview,
-  Section,
-} from '@react-email/components';
 
 type Props = Readonly<{
   name: string | null;

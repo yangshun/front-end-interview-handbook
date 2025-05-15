@@ -1,3 +1,4 @@
+import type { GuideProgress } from '@prisma/client';
 import clsx from 'clsx';
 
 import type {
@@ -13,8 +14,6 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import { themeTextColor } from '~/components/ui/theme';
-
-import type { GuideProgress } from '@prisma/client';
 
 type Props = Readonly<{
   guidesProgress: ReadonlyArray<GuideProgress>;

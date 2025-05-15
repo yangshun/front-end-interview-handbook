@@ -1,3 +1,4 @@
+import { zodResolver } from '@hookform/resolvers/zod';
 import clsx from 'clsx';
 import jsCookie from 'js-cookie';
 import { useEffect } from 'react';
@@ -17,10 +18,8 @@ import Select from '~/components/ui/Select';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 
-import { useSponsorsCompanySchema } from './SponsorsAdvertiseRequestCompanySchema';
 import type { SponsorsCompanyDetails } from '../types';
-
-import { zodResolver } from '@hookform/resolvers/zod';
+import { useSponsorsCompanySchema } from './SponsorsAdvertiseRequestCompanySchema';
 
 type Props = Readonly<{
   defaultValues: SponsorsCompanyDetails | null;

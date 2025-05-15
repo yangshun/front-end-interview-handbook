@@ -1,6 +1,5 @@
-import type { ReactNode } from 'react';
-
 import type { GuidebookItem } from '@prisma/client';
+import type { ReactNode } from 'react';
 
 export type BaseGuideNavigationLink<
   GuideSlug extends string = string,

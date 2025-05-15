@@ -1,5 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
 import nextI18nosticConfig from 'next-i18nostic/config';
+import { NextRequest, NextResponse } from 'next/server';
 import { describe, expect, test } from 'vitest';
 
 import i18nMiddleware from './i18nMiddleware';

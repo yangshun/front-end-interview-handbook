@@ -1,5 +1,5 @@
-import { skillsRoadmapConfig } from './ProjectsSkillRoadmapConfigData';
 import type { ProjectsSkillKey } from '../types';
+import { skillsRoadmapConfig } from './ProjectsSkillRoadmapConfigData';
 
 export function projectsSkillDetermineParentSkill(skillKey: ProjectsSkillKey) {
   for (const category of skillsRoadmapConfig) {

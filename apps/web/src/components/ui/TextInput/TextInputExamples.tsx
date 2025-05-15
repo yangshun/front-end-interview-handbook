@@ -1,8 +1,8 @@
 import { RiMailFill, RiPhoneFill } from 'react-icons/ri';
 
+import UIExamplesGroup from '../misc/UIExamplesGroup';
 import type { TextInputSize } from './TextInput';
 import TextInput from './TextInput';
-import UIExamplesGroup from '../misc/UIExamplesGroup';
 
 const sizes: ReadonlyArray<TextInputSize> = ['md', 'sm', 'xs'];
 

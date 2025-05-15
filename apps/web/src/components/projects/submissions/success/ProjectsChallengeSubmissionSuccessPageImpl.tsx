@@ -7,8 +7,6 @@ import type {
   ProjectsChallengeItem,
 } from '~/components/projects/challenges/types';
 
-import ProjectsChallengeSubmissionSuccessBody from './ProjectsChallengeSubmissionSuccessBody';
-import ProjectsChallengeSubmissionSuccessHero from './ProjectsChallengeSubmissionSuccessHero';
 import { projectsChallengeCountCompletedIncludingHistorical } from '../../challenges/utils/ProjectsChallengeUtils';
 import type {
   ProjectsSkillRoadmapSectionData,
@@ -17,6 +15,8 @@ import type {
   RoadmapSkillsRep,
 } from '../../skills/types';
 import type { ProjectsTrackItem } from '../../tracks/data/ProjectsTracksData';
+import ProjectsChallengeSubmissionSuccessBody from './ProjectsChallengeSubmissionSuccessBody';
+import ProjectsChallengeSubmissionSuccessHero from './ProjectsChallengeSubmissionSuccessHero';
 
 const MAX_NO_OF_BADGES = 9;
 

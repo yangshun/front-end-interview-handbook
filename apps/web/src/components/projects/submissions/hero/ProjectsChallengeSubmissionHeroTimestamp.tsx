@@ -1,8 +1,8 @@
 import { FormattedMessage } from '~/components/intl';
 import Text from '~/components/ui/Text';
 
-import type { ProjectsChallengeSubmissionAugmented } from '../types';
 import RelativeTimestamp from '../../../common/datetime/RelativeTimestamp';
+import type { ProjectsChallengeSubmissionAugmented } from '../types';
 
 type Props = Readonly<{
   submission: ProjectsChallengeSubmissionAugmented;

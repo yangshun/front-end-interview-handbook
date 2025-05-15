@@ -1,13 +1,10 @@
+import type { GFETextNode } from '../types';
 import type {
   GFECSSProperties,
   GFENodeMetadata,
   GFENodePropertiesList,
   GFETailwindClasses,
 } from './types';
-import type { GFETextNode } from '../types';
-import { convertHexColorToTailwindColor } from '../../utils/tailwindConversions';
-
-import { convertRgbColorToHexColor } from '@create-figma-plugin/utilities';
 
 export function processFontName(
   metadata: GFENodeMetadata,

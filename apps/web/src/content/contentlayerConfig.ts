@@ -1,5 +1,6 @@
 // @ts-check
 
+import remarkAlerts from '@gfe/remark-alerts';
 import { makeSource } from 'contentlayer/source-files';
 import remarkFrontmatter from 'remark-frontmatter';
 import remarkGfm from 'remark-gfm';
@@ -25,8 +26,6 @@ import { ProjectsSkillInfoDocument } from '../components/projects/contentlayer/P
 import { ProjectsSkillMetadataDocument } from '../components/projects/contentlayer/ProjectsSkillMetadataDocument';
 import { ProjectsTrackInfoDocument } from '../components/projects/contentlayer/ProjectsTrackInfoDocument';
 import { ProjectsTrackMetadataDocument } from '../components/projects/contentlayer/ProjectsTrackMetadataDocument';
-
-import remarkAlerts from '@gfe/remark-alerts';
 
 export default makeSource({
   contentDirPath: 'src/content',

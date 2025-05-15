@@ -19,9 +19,9 @@ import Divider from '~/components/ui/Divider';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import type { NavbarTopLevelItem } from '~/components/ui/Navbar/NavTypes';
 
+import NavProductPopover_DEPRECATED from '../navbar/NavProductPopover_DEPRECATED';
 import SidebarAuthDropdownItem from './SidebarAuthDropdownItem';
 import SidebarColorSchemeSubMenu from './SidebarColorSchemeSubMenu';
-import NavProductPopover_DEPRECATED from '../navbar/NavProductPopover_DEPRECATED';
 
 export type SidebarItem = NavbarTopLevelItem;
 

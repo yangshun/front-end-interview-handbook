@@ -1,3 +1,4 @@
+import { useUser } from '@supabase/auth-helpers-react';
 import { useState } from 'react';
 
 import { useGreatStorageLocal } from '~/hooks/useGreatStorageLocal';
@@ -9,8 +10,6 @@ import type {
 import { useIntl } from '~/components/intl';
 
 import type { QuestionFilter } from '../QuestionFilterType';
-
-import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   namespace?: string;

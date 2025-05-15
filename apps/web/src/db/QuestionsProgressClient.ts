@@ -1,12 +1,12 @@
 'use client';
 
+import { useUser } from '@supabase/auth-helpers-react';
+
 import { trpc } from '~/hooks/trpc';
 
 import { useToast } from '~/components/global/toasts/useToast';
 import type { InterviewsQuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import { useIntl } from '~/components/intl';
-
-import { useUser } from '@supabase/auth-helpers-react';
 
 export function useQueryQuestionProgress(
   metadata: Pick<InterviewsQuestionMetadata, 'format' | 'slug'>,

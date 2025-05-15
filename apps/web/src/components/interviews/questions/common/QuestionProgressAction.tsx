@@ -1,5 +1,6 @@
 'use client';
 
+import { useUser } from '@supabase/auth-helpers-react';
 import { usePathname } from 'next/navigation';
 import React from 'react';
 import { FaCheck } from 'react-icons/fa6';
@@ -20,11 +21,9 @@ import {
 import { hashQuestion } from '~/db/QuestionsUtils';
 import logEvent from '~/logging/logEvent';
 
+import CodingWorkspaceBottomBarEmitter from '../../../workspace/common/CodingWorkspaceBottomBarEmitter';
 import type { InterviewsQuestionMetadata } from './QuestionsTypes';
 import { MARK_AS_COMPLETE_ACTION_NAME } from './useQuestionsAutoMarkAsComplete';
-import CodingWorkspaceBottomBarEmitter from '../../../workspace/common/CodingWorkspaceBottomBarEmitter';
-
-import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   metadata: Pick<InterviewsQuestionMetadata, 'access' | 'format' | 'slug'>;

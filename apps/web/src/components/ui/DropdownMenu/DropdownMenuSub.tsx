@@ -1,6 +1,8 @@
+import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import clsx from 'clsx';
 import React from 'react';
 
+import type { TextColor } from '../Text';
 import type { Props as DropdownMenuItemProps } from './DropdownMenuItem';
 import DropdownMenuItemContent from './DropdownMenuItemContent';
 import type { Props as DropdownMenuLabelProps } from './DropdownMenuLabel';
@@ -8,9 +10,6 @@ import {
   dropdownContentClassName,
   dropdownContentItemClassName,
 } from './dropdownStyles';
-import type { TextColor } from '../Text';
-
-import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
 type ChildItem = React.ReactElement<
   DropdownMenuItemProps | DropdownMenuLabelProps

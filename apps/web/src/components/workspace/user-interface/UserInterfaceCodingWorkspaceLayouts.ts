@@ -2,8 +2,8 @@ import type { QuestionUserInterfaceMode } from '~/components/interviews/question
 
 import type { TilesPanelConfig } from '~/react-tiling/types';
 
-import type { UserInterfaceCodingWorkspaceTabsType } from './UserInterfaceCodingWorkspaceTypes';
 import { codingWorkspaceTabFileId } from '../common/tabs/codingWorkspaceTabId';
+import type { UserInterfaceCodingWorkspaceTabsType } from './UserInterfaceCodingWorkspaceTypes';
 
 export function getUserInterfaceCodingWorkspaceLayout(
   mode: QuestionUserInterfaceMode,

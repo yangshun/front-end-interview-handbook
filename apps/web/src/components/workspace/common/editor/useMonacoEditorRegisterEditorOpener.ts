@@ -1,7 +1,6 @@
+import type { Monaco } from '@monaco-editor/react';
 import type { editor, Uri } from 'monaco-editor';
 import { useEffect } from 'react';
-
-import type { Monaco } from '@monaco-editor/react';
 
 export default function useMonacoEditorRegisterEditorOpener(
   monaco: Monaco | null,

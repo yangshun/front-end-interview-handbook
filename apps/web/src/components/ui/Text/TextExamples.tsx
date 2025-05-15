@@ -2,9 +2,9 @@ import clsx from 'clsx';
 import { capitalize } from 'lodash-es';
 import { Fragment } from 'react';
 
-import Text from './Text';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
 import { themeBackgroundInvertColor } from '../theme';
+import Text from './Text';
 
 const colors = ['default', 'subtitle', 'secondary', 'subtle'] as const;
 

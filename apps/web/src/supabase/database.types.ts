@@ -3,9 +3,7 @@ export type Json =
 
 export type Database = {
   public: {
-    CompositeTypes: {
-      [_ in never]: never
-    },
+    CompositeTypes: Record<never, never>,
     Enums: {
       LearningSessionProgressStatus: "COMPLETED"
       LearningSessionStatus: "IN_PROGRESS" | "STOPPED"
@@ -14,9 +12,7 @@ export type Database = {
         "ANGULAR" | "REACT" | "SVELTE" | "VANILLA" | "VUE"
       QuestionWorkingLanguage: "JS" | "TS"
     },
-    Functions: {
-      [_ in never]: never
-    }
+    Functions: Record<never, never>
     Tables: {
       EmailSubscriber: {
         Insert: {
@@ -446,9 +442,7 @@ export type Database = {
         }
       }
     },
-    Views: {
-      [_ in never]: never
-    }
+    Views: Record<never, never>
   }
 }
 

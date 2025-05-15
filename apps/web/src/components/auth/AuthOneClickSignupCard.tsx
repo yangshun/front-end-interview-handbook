@@ -14,8 +14,8 @@ import {
 
 import { useI18nPathname } from '~/next-i18nostic/src';
 
-import { useOAuthSignIn } from './useOAuthSignIn';
 import { useToast } from '../global/toasts/useToast';
+import { useOAuthSignIn } from './useOAuthSignIn';
 
 type Props = Readonly<{
   onClose?: () => void;

@@ -5,9 +5,9 @@ import ProjectsChallengeReputationTag from '~/components/projects/challenges/met
 import ProjectsStatusBadgeCompleted from '~/components/projects/common/status/ProjectsStatusBadgeCompleted';
 import Text from '~/components/ui/Text';
 
-import type { ProjectsSkillRoadmapSectionParent } from '../types';
 import ProjectsChallengeProgressTag from '../../challenges/metadata/ProjectsChallengeProgressTag';
 import ProjectsPremiumBadge from '../../purchase/ProjectsPremiumBadge';
+import type { ProjectsSkillRoadmapSectionParent } from '../types';
 
 type Props = Readonly<{
   group: ProjectsSkillRoadmapSectionParent;

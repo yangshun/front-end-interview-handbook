@@ -1,10 +1,10 @@
 import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
 import Text from '~/components/ui/Text';
 
-import type { ProjectsTrackItem } from './data/ProjectsTracksData';
 import ProjectsChallengeProgressTag from '../challenges/metadata/ProjectsChallengeProgressTag';
 import ProjectsStatusBadgeCompleted from '../common/status/ProjectsStatusBadgeCompleted';
 import ProjectsPremiumBadge from '../purchase/ProjectsPremiumBadge';
+import type { ProjectsTrackItem } from './data/ProjectsTracksData';
 
 type Props = Readonly<{
   completedCount?: number;

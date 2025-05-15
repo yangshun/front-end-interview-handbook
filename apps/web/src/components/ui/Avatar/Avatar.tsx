@@ -1,5 +1,6 @@
 'use client';
 
+import * as AvatarPrimitive from '@radix-ui/react-avatar';
 import clsx from 'clsx';
 import type { ForwardedRef } from 'react';
 import { forwardRef } from 'react';
@@ -11,8 +12,6 @@ import { cdnUrl } from '~/utils/cdnUrl';
 
 import type { AvatarVariantProps } from './AvatarStyles';
 import { avatarVariants } from './AvatarStyles';
-
-import * as AvatarPrimitive from '@radix-ui/react-avatar';
 
 type Props = React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Image> &
   Readonly<{

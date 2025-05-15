@@ -1,5 +1,6 @@
 'use client';
 
+import { useSessionContext, useUser } from '@supabase/auth-helpers-react';
 import { useState } from 'react';
 
 import { FormattedMessage, useIntl } from '~/components/intl';
@@ -15,8 +16,6 @@ import { useI18nRouter } from '~/next-i18nostic/src';
 import { useSupabaseClientGFE } from '~/supabase/SupabaseClientGFE';
 
 import Alert from '../ui/Alert';
-
-import { useSessionContext, useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   next?: string | null;

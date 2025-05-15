@@ -1,3 +1,4 @@
+import { initTRPC, TRPCError } from '@trpc/server';
 /**
  * This is your entry point to setup the root configuration for tRPC on the server.
  * - `initTRPC` should only be used once per app.
@@ -10,8 +11,6 @@
 import superjson from 'superjson';
 
 import type { Context } from './context';
-
-import { initTRPC, TRPCError } from '@trpc/server';
 
 const t = initTRPC.context<Context>().create({
   transformer: superjson,

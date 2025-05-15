@@ -10,9 +10,9 @@ import {
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 
+import Text from '../Text';
 import NavbarFeatureIcon from './NavbarFeatureIcon';
 import type { NavPopoverLinkItem } from './NavTypes';
-import Text from '../Text';
 
 export default function NavbarPopoverLink({
   label,

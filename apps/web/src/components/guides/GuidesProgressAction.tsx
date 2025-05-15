@@ -1,3 +1,5 @@
+import type { GuideProgress } from '@prisma/client';
+import { useUser } from '@supabase/auth-helpers-react';
 import React from 'react';
 import { FaCheck } from 'react-icons/fa6';
 
@@ -13,9 +15,6 @@ import {
 import logEvent from '~/logging/logEvent';
 
 import type { GuideMetadata } from './types';
-
-import type { GuideProgress } from '@prisma/client';
-import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   guideName: string;

@@ -21,9 +21,9 @@ import {
   themeBorderColor,
 } from '~/components/ui/theme';
 
+import { InterviewsMarketingTestimonialsDict } from '../interviews/marketing/testimonials/InterviewsMarketingTestimonials';
 import AuthForm from './AuthForm';
 import AuthTestimonialSlider from './AuthTestimonialSlider';
-import { InterviewsMarketingTestimonialsDict } from '../interviews/marketing/testimonials/InterviewsMarketingTestimonials';
 
 type Props = Readonly<{
   isShown: boolean;

@@ -1,3 +1,4 @@
+import { useSandpack } from '@codesandbox/sandpack-react';
 import { useEffect, useRef } from 'react';
 import url from 'url';
 
@@ -5,8 +6,6 @@ import sandpackProviderOptions from '~/components/workspace/common/sandpack/sand
 
 import logEvent from '~/logging/logEvent';
 import { getErrorMessage } from '~/utils/getErrorMessage';
-
-import { useSandpack } from '@codesandbox/sandpack-react';
 
 type Props = Readonly<{
   // Identify which instance this happened. Should be unique within the page.

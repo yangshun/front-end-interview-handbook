@@ -9,13 +9,13 @@ import Text from '~/components/ui/Text';
 
 import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
 
-import QuestionCompanies from '../QuestionCompanies';
-import QuestionContentProse from '../QuestionContentProse';
+import InterviewsPremiumBadge from '../../../common/InterviewsPremiumBadge';
 import type { QuestionSystemDesign } from '../../common/QuestionsTypes';
 import useQuestionLogEventCopyContents from '../../common/useQuestionLogEventCopyContents';
 import useQuestionsAutoMarkAsComplete from '../../common/useQuestionsAutoMarkAsComplete';
 import QuestionMetadataSection from '../../metadata/QuestionMetadataSection';
-import InterviewsPremiumBadge from '../../../common/InterviewsPremiumBadge';
+import QuestionCompanies from '../QuestionCompanies';
+import QuestionContentProse from '../QuestionContentProse';
 
 type Props = Readonly<{
   canViewPremiumContent: boolean;

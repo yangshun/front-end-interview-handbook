@@ -2,9 +2,9 @@ import { trpc } from '~/hooks/trpc';
 
 import Spinner from '~/components/ui/Spinner';
 
-import ProjectsChallengeSubmissionSuccessPageImpl from './success/ProjectsChallengeSubmissionSuccessPageImpl';
 import type { ProjectsChallengeItem } from '../challenges/types';
 import type { RoadmapSkillsRep } from '../skills/types';
+import ProjectsChallengeSubmissionSuccessPageImpl from './success/ProjectsChallengeSubmissionSuccessPageImpl';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;

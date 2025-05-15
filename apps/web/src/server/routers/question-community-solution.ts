@@ -1,13 +1,12 @@
+import {
+  QuestionUserInterfaceFramework,
+  QuestionWorkingLanguage,
+} from '@prisma/client';
 import { z } from 'zod';
 
 import prisma from '~/server/prisma';
 
 import { publicProcedure, router, userProcedure } from '../trpc';
-
-import {
-  QuestionUserInterfaceFramework,
-  QuestionWorkingLanguage,
-} from '@prisma/client';
 
 export const questionCommunitySolutionRouter = router({
   javaScriptAdd: publicProcedure

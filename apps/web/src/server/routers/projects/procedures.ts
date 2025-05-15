@@ -1,8 +1,8 @@
+import { TRPCError } from '@trpc/server';
+
 import fetchProjectsProfileId from '~/components/projects/utils/fetchProjectsProfileId';
 
 import { isUser, middleware, publicProcedure } from '~/server/trpc';
-
-import { TRPCError } from '@trpc/server';
 
 const isProjectsUser = isUser.unstable_pipe(async (opts) => {
   const { ctx } = opts;

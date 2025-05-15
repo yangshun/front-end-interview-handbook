@@ -2,8 +2,8 @@ import clsx from 'clsx';
 import { type ReactNode } from 'react';
 import { RiAlignCenter, RiAlignLeft, RiAlignRight } from 'react-icons/ri';
 
-import Tooltip from './Tooltip';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
+import Tooltip from './Tooltip';
 
 function Box({
   children,

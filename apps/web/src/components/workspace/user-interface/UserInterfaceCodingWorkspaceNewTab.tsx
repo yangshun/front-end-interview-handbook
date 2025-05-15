@@ -1,5 +1,6 @@
 'use client';
 
+import { useSandpack } from '@codesandbox/sandpack-react';
 import { RiCodeLine } from 'react-icons/ri';
 
 import { INTERVIEWS_UI_COMMUNITY_SOLUTIONS_IS_LIVE } from '~/data/FeatureFlags';
@@ -8,19 +9,17 @@ import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 
-import type {
-  UserInterfaceCodingWorkspacePredefinedTabsContents,
-  UserInterfaceCodingWorkspacePredefinedTabsType,
-} from './UserInterfaceCodingWorkspaceTypes';
-import useUserInterfaceCodingWorkspaceTilesContext from './useUserInterfaceCodingWorkspaceTilesContext';
 import { codingWorkspaceExtractFileNameFromPath } from '../common/codingWorkspaceExtractFileNameFromPath';
 import { codingWorkspaceExplorerFilePathToIcon } from '../common/explorer/codingWorkspaceExplorerFilePathToIcon';
 import {
   codingWorkspaceTabFileId,
   codingWorkspaceTabFilePattern,
 } from '../common/tabs/codingWorkspaceTabId';
-
-import { useSandpack } from '@codesandbox/sandpack-react';
+import type {
+  UserInterfaceCodingWorkspacePredefinedTabsContents,
+  UserInterfaceCodingWorkspacePredefinedTabsType,
+} from './UserInterfaceCodingWorkspaceTypes';
+import useUserInterfaceCodingWorkspaceTilesContext from './useUserInterfaceCodingWorkspaceTilesContext';
 
 type UserInterfaceCodingNewTabTypeData =
   | {

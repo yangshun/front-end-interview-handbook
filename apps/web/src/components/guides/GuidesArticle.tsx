@@ -7,9 +7,9 @@ import QuestionAuthor from '~/components/interviews/questions/metadata/QuestionA
 import Heading from '~/components/ui/Heading';
 import { themeTextSubtitleColor } from '~/components/ui/theme';
 
-import type { GuideMetadata } from './types';
 import Prose from '../ui/Prose';
 import { themeBorderColor } from '../ui/theme';
+import type { GuideMetadata } from './types';
 
 type Props = PropsWithChildren<
   Readonly<{

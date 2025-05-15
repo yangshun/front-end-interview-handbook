@@ -1,5 +1,6 @@
 'use client';
 
+import * as TabsPrimitive from '@radix-ui/react-tabs';
 import clsx from 'clsx';
 import { useEffect, useRef, useState } from 'react';
 import {
@@ -21,8 +22,6 @@ import {
   themeOutlineElementBrandColor_FocusVisible,
   themeTextInvertColor,
 } from '~/components/ui/theme';
-
-import * as TabsPrimitive from '@radix-ui/react-tabs';
 
 function LimitedRibbon() {
   const intl = useIntl();

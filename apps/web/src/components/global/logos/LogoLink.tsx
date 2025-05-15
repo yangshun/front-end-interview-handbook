@@ -5,8 +5,8 @@ import clsx from 'clsx';
 import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 
-import LogoComboMark from './LogoComboMark';
 import { themeTextColor } from '../../ui/theme';
+import LogoComboMark from './LogoComboMark';
 
 type Props = Readonly<{
   height?: number;

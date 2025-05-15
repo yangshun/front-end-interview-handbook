@@ -1,5 +1,6 @@
 'use client';
 
+import * as AccordionPrimitive from '@radix-ui/react-accordion';
 import clsx from 'clsx';
 import * as React from 'react';
 import { RiArrowDownSLine } from 'react-icons/ri';
@@ -14,8 +15,6 @@ import {
   themeTextSecondaryInvertColor,
   themeTextSubtitleColor,
 } from '../theme';
-
-import * as AccordionPrimitive from '@radix-ui/react-accordion';
 
 const Accordion = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Root>,

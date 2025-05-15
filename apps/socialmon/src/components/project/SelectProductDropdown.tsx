@@ -1,11 +1,10 @@
 'use client';
 
+import { Select } from '@mantine/core';
 import { useRouter } from 'next/navigation';
 
 import { trpc } from '~/hooks/trpc';
 import useCurrentProjectSlug from '~/hooks/useCurrentProjectSlug';
-
-import { Select } from '@mantine/core';
 
 export default function SelectProductDropdown() {
   const router = useRouter();

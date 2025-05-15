@@ -1,16 +1,15 @@
 import type {
+  SandboxEnvironment,
+  SandpackFiles,
+} from '@codesandbox/sandpack-react';
+import type { ProjectsChallengeSessionStatus } from '@prisma/client';
+import type {
   ProjectsChallengeInfo,
   ProjectsChallengeMetadata,
 } from 'contentlayer/generated';
 
 import type { ProjectsSkillKey } from '../skills/types';
 import type { ProjectsDeviceImages } from '../types';
-
-import type {
-  SandboxEnvironment,
-  SandpackFiles,
-} from '@codesandbox/sandpack-react';
-import type { ProjectsChallengeSessionStatus } from '@prisma/client';
 
 // Sorted in order of difficulty.
 export const projectDifficultyOptions = [

@@ -3,8 +3,8 @@ import { type Control, useController } from 'react-hook-form';
 import { useIntl } from '~/components/intl';
 import TextInput from '~/components/ui/TextInput';
 
-import { getProjectsChallengeSubmissionTitleAttributes } from './ProjectsChallengeSubmissionTitleSchema';
 import type { ProjectsChallengeSubmissionFormValues } from '../ProjectsChallengeSubmissionForm';
+import { getProjectsChallengeSubmissionTitleAttributes } from './ProjectsChallengeSubmissionTitleSchema';
 
 type Props = Readonly<{
   control: Control<ProjectsChallengeSubmissionFormValues>;

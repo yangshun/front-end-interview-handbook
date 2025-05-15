@@ -3,7 +3,7 @@
 import { useInView } from 'motion/react';
 import { useRef } from 'react';
 
-import ProjectsChallengeHeader from './ProjectsChallengeHeader';
+import type { ProjectsViewerProjectsProfile } from '../../types';
 import ProjectsChallengeGetStartedDialog from '../get-started/ProjectsChallengeGetStartedDialog';
 import type { ProjectsPremiumAccessControlFields } from '../premium/ProjectsPremiumAccessControl';
 import ProjectsChallengeSessionContextProvider, {
@@ -11,7 +11,7 @@ import ProjectsChallengeSessionContextProvider, {
 } from '../session/ProjectsChallengeSessionContext';
 import ProjectsChallengeStepsTabsImpl from '../steps/ProjectsChallengeStepsTabsImpl';
 import type { ProjectsChallengeItem } from '../types';
-import type { ProjectsViewerProjectsProfile } from '../../types';
+import ProjectsChallengeHeader from './ProjectsChallengeHeader';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;

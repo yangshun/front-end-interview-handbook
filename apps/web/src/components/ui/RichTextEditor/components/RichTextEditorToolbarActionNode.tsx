@@ -1,3 +1,4 @@
+import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
 import clsx from 'clsx';
 
 import Tooltip from '~/components/ui/Tooltip';
@@ -8,8 +9,6 @@ import {
   themeBackgroundElementPressedStateColor_Active,
   themeTextBrandColor,
 } from '../../theme';
-
-import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
 
 type ActionNodeProps = Readonly<{
   icon: (props: React.ComponentProps<'svg'>) => JSX.Element;

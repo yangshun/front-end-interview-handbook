@@ -23,8 +23,8 @@ import type { TabItem } from '~/components/ui/Tabs';
 import Tabs from '~/components/ui/Tabs';
 import { themeBorderColor } from '~/components/ui/theme';
 
-import ProjectsChallengeContentPaywall from '../premium/ProjectsChallengeContentPaywall';
 import ProjectsStartButton from '../../common/ProjectsStartButton';
+import ProjectsChallengeContentPaywall from '../premium/ProjectsChallengeContentPaywall';
 
 type ProjectsChallengeResourcesDiscussionsTabType =
   | 'discussions'

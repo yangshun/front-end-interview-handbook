@@ -1,3 +1,8 @@
+import {
+  Prisma,
+  ProjectsChallengeSubmissionScreenshotStatus,
+} from '@prisma/client';
+import { TRPCError } from '@trpc/server';
 import url from 'node:url';
 import { z } from 'zod';
 
@@ -22,14 +27,8 @@ import prisma from '~/server/prisma';
 import { getErrorMessage } from '~/utils/getErrorMessage';
 import { isImageFile } from '~/utils/isImageFile';
 
-import { projectsUserProcedure } from './procedures';
 import { publicProcedure, router } from '../../trpc';
-
-import {
-  Prisma,
-  ProjectsChallengeSubmissionScreenshotStatus,
-} from '@prisma/client';
-import { TRPCError } from '@trpc/server';
+import { projectsUserProcedure } from './procedures';
 
 const projectsChallengeProcedure = projectsUserProcedure.input(
   z.object({

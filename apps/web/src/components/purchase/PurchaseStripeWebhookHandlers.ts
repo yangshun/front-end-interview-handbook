@@ -1,3 +1,4 @@
+import type { ProjectsSubscriptionPlan } from '@prisma/client';
 import type Stripe from 'stripe';
 
 import type { InterviewsProfileSubscriptionPlan } from '../global/UserProfileProvider';
@@ -11,8 +12,6 @@ import {
   projectsCustomerRemovePlan,
   projectsDetermineSubscriptionPlan,
 } from '../projects/purchase/ProjectsStripeSyncUtils';
-
-import type { ProjectsSubscriptionPlan } from '@prisma/client';
 
 export async function purchaseCustomerAddPlan(
   customerId: Stripe.Customer | Stripe.DeletedCustomer | string,

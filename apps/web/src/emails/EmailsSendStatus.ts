@@ -1,7 +1,7 @@
-import type { EmailKey } from './EmailsTypes';
-
 import type { SetCommandOptions } from '@upstash/redis';
 import { Redis } from '@upstash/redis';
+
+import type { EmailKey } from './EmailsTypes';
 
 const SENT = 'SENT';
 const SCHEDULED = 'SCHEDULED';

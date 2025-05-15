@@ -1,11 +1,9 @@
+import { google } from '@ai-sdk/google';
 import { generateObject } from 'ai';
 
 import { getSystemPrompt, getUserPrompt } from '~/app/lib/prompt';
 import { aiFilterPostSchema, aiResponseSchema } from '~/schema';
-
 import type { AIFilterPost, AIResponse } from '~/types';
-
-import { google } from '@ai-sdk/google';
 
 class AIProvider {
   private readonly model = google('gemini-2.0-flash-lite');

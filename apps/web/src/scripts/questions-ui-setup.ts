@@ -1,3 +1,4 @@
+import type { SandpackFile } from '@codesandbox/sandpack-react';
 import assert from 'assert';
 import fs from 'fs';
 import { globby } from 'globby';
@@ -27,8 +28,6 @@ import {
   getQuestionSrcPathUserInterfaceWriteupsFrameworkDirectory,
   QUESTIONS_SRC_DIR_USER_INTERFACE,
 } from '../db/questions-bundlers/QuestionsBundlerUserInterfaceConfig';
-
-import type { SandpackFile } from '@codesandbox/sandpack-react';
 
 const SUPPORTED_FRAMEWORKS = new Set<QuestionFramework>([
   'vanilla',

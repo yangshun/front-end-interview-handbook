@@ -1,3 +1,4 @@
+import NumberFlow from '@number-flow/react';
 import clsx from 'clsx';
 import type { ReactElement } from 'react';
 
@@ -5,8 +6,6 @@ import {
   themeBackgroundBrandColor,
   themeTextDarkColor,
 } from '~/components/ui/theme';
-
-import NumberFlow from '@number-flow/react';
 
 type Props = Readonly<{
   badgeClassName: string;

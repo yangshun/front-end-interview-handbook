@@ -1,11 +1,10 @@
+import type { LearningSession } from '@prisma/client';
 import type { InterviewsStudyList } from 'contentlayer/generated';
 
 import InterviewsDashboardLearningSection from '~/components/interviews/dashboard/InterviewsDashboardLearningSection';
 import { FocusAreaIcons } from '~/components/interviews/questions/content/study-list/StudyListUtils';
 import InterviewsStudyListCard from '~/components/interviews/questions/listings/study-list/InterviewsStudyListCard';
 import { useIntl } from '~/components/intl';
-
-import type { LearningSession } from '@prisma/client';
 
 type Props = Readonly<{
   focusAreas: ReadonlyArray<InterviewsStudyList>;

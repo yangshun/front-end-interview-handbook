@@ -7,9 +7,9 @@ import {
 
 import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
 
-import Tabs from './Tabs';
 import Badge from '../Badge';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
+import Tabs from './Tabs';
 
 const tabs = [
   { icon: RiAccountCircleFill, label: 'Account', value: 'account' },

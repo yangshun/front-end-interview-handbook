@@ -1,10 +1,9 @@
+import { Client } from '@upstash/qstash';
 import url from 'node:url';
 
 import EmailsSendStatus from '~/emails/EmailsSendStatus';
 import type { EmailKey } from '~/emails/EmailsTypes';
 import { getSiteOrigin } from '~/seo/siteUrl';
-
-import { Client } from '@upstash/qstash';
 
 const QStash = new Client({ token: process.env.QSTASH_TOKEN ?? '' });
 

@@ -1,3 +1,4 @@
+import type { SponsorsAdFormat } from '@prisma/client';
 import clsx from 'clsx';
 import { useEffect, useRef, useState } from 'react';
 import { RiArrowLeftLine, RiArrowRightLine } from 'react-icons/ri';
@@ -14,17 +15,15 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import { themeBorderColor } from '~/components/ui/theme';
 
-import SponsorsAdvertiseRequestAgreement from './SponsorsAdvertiseRequestAgreement';
-import type {
-  SponsorsAdFormatFormItem,
-  SponsorsCompanyDetails,
-} from '../types';
 import {
   SponsorAdFormatConfigs,
   useSponsorsAdFormatData,
 } from '../../SponsorsAdFormatConfigs';
-
-import type { SponsorsAdFormat } from '@prisma/client';
+import type {
+  SponsorsAdFormatFormItem,
+  SponsorsCompanyDetails,
+} from '../types';
+import SponsorsAdvertiseRequestAgreement from './SponsorsAdvertiseRequestAgreement';
 
 type Props = Readonly<{
   data: {

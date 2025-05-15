@@ -1,13 +1,12 @@
 'use client';
 
-import Link from 'next/link';
+import { Avatar, Menu } from '@mantine/core';
 import { signOut } from 'next-auth/react';
+import Link from 'next/link';
 import type { ReactNode } from 'react';
 import { RiLogoutBoxLine } from 'react-icons/ri';
 
 import type { User } from '~/types';
-
-import { Avatar, Menu } from '@mantine/core';
 
 type Props = Readonly<{
   menuItems?: Array<{

@@ -23,12 +23,12 @@ import {
   themeBorderElementColor,
 } from '~/components/ui/theme';
 
-import ProjectsChallengeSubmitButton from './ProjectsChallengeSubmitButton';
+import ProjectsStartButton from '../../common/ProjectsStartButton';
+import type { ProjectsViewerProjectsProfile } from '../../types';
 import ProjectsChallengeContentPaywall from '../premium/ProjectsChallengeContentPaywall';
 import type { ProjectsPremiumAccessControlFields } from '../premium/ProjectsPremiumAccessControl';
 import { useProjectsChallengeSessionContext } from '../session/ProjectsChallengeSessionContext';
-import ProjectsStartButton from '../../common/ProjectsStartButton';
-import type { ProjectsViewerProjectsProfile } from '../../types';
+import ProjectsChallengeSubmitButton from './ProjectsChallengeSubmitButton';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;

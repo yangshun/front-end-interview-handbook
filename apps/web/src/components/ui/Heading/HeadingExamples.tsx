@@ -1,7 +1,7 @@
 import { capitalize } from 'lodash-es';
 
-import Heading from './Heading';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
+import Heading from './Heading';
 
 const levels = [
   'heading1',

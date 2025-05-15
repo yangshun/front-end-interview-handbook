@@ -8,10 +8,10 @@ import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import EmptyState from '~/components/ui/EmptyState';
 
+import type { ProjectsViewerProjectsProfile } from '../../types';
 import ProjectsChallengeUnlockAccessDialog from './ProjectsChallengeUnlockAccessDialog';
 import type { ProjectsPremiumAccessControlType } from './ProjectsPremiumAccessControl';
 import ProjectsPremiumPricingTableDialog from './ProjectsPremiumPricingTableDialog';
-import type { ProjectsViewerProjectsProfile } from '../../types';
 
 function UnlockButton({
   slug,

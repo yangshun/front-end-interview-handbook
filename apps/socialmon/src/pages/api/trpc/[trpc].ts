@@ -1,9 +1,8 @@
+import * as trpcNext from '@trpc/server/adapters/next';
 import { ZodError } from 'zod';
 
 import { createContext } from '~/server/context';
 import { appRouter } from '~/server/routers/_app';
-
-import * as trpcNext from '@trpc/server/adapters/next';
 
 // Export API handler
 // @see https://trpc.io/docs/api-handler

@@ -1,9 +1,8 @@
+import type { Monaco } from '@monaco-editor/react';
 import { useEffect } from 'react';
 
 import type { TsConfigCompilerOptionsJSON } from './convertTsConfigToTsCompilerOptions';
 import { convertTsConfigToTsCompilerOptions } from './convertTsConfigToTsCompilerOptions';
-
-import type { Monaco } from '@monaco-editor/react';
 
 /**
  * This hook loads the contents of `tsconfig.json` into Monaco's TypeScript compiler worker.

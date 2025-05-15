@@ -1,3 +1,7 @@
+import '!./styles/output.css';
+
+import { render } from '@create-figma-plugin/ui';
+import { emit, on } from '@create-figma-plugin/utilities';
 import clsx from 'clsx';
 import { h } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
@@ -7,11 +11,6 @@ import { NodeProperties } from './components/NodeProperties';
 import { useWindowResizeImpl } from './hooks/useWindowResizeImpl';
 import type { GFESceneNode } from './nodes/types';
 import type { SelectionChangedHandler, UIReadyHandler } from './utils/types';
-
-import '!./styles/output.css';
-
-import { render } from '@create-figma-plugin/ui';
-import { emit, on } from '@create-figma-plugin/utilities';
 
 function Plugin() {
   const [loading, setIsLoading] = useState(true);

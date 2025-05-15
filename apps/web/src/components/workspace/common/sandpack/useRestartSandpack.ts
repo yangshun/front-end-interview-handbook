@@ -1,6 +1,5 @@
-import { useEffect } from 'react';
-
 import { useSandpack } from '@codesandbox/sandpack-react';
+import { useEffect } from 'react';
 
 export default function useRestartSandpack() {
   const { sandpack } = useSandpack();

@@ -1,20 +1,19 @@
 'use client';
 
+import { useSandpack } from '@codesandbox/sandpack-react';
 import { TbColumns3 } from 'react-icons/tb';
 import { VscDebugConsole } from 'react-icons/vsc';
 
 import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
 import { useIntl } from '~/components/intl';
 
+import type { CodingWorkspaceLayoutItem } from '../common/CodingWorkspaceLayoutDialog';
+import CodingWorkspaceLayoutDialog from '../common/CodingWorkspaceLayoutDialog';
 import {
   getUserInterfaceCodingWorkspaceLayout,
   getUserInterfaceCodingWorkspaceLayoutAdvanced,
 } from './UserInterfaceCodingWorkspaceLayouts';
 import useUserInterfaceCodingWorkspaceTilesContext from './useUserInterfaceCodingWorkspaceTilesContext';
-import type { CodingWorkspaceLayoutItem } from '../common/CodingWorkspaceLayoutDialog';
-import CodingWorkspaceLayoutDialog from '../common/CodingWorkspaceLayoutDialog';
-
-import { useSandpack } from '@codesandbox/sandpack-react';
 
 type Props = Readonly<{
   frameworkSolutionPath: string;

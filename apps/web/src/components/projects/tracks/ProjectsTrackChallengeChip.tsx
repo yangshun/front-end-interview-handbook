@@ -1,5 +1,6 @@
 'use client';
 
+import type { ProjectsChallengeSessionStatus } from '@prisma/client';
 import clsx from 'clsx';
 import { RiLock2Fill, RiLockUnlockLine } from 'react-icons/ri';
 
@@ -9,8 +10,6 @@ import Chip from '~/components/ui/Chip';
 import ProjectsChallengeStatusChip from '../challenges/metadata/ProjectsChallengeStatusChip';
 import type { ProjectsChallengeItem } from '../challenges/types';
 import ProjectsProfileAvatarWithStatus from '../users/ProjectsProfileAvatarWithStatus';
-
-import type { ProjectsChallengeSessionStatus } from '@prisma/client';
 
 type Props = Readonly<{
   challenge?: ProjectsChallengeItem;

@@ -1,5 +1,6 @@
 'use client';
 
+import { useUser } from '@supabase/auth-helpers-react';
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 import { FaCheck } from 'react-icons/fa6';
@@ -17,8 +18,6 @@ import Text from '~/components/ui/Text';
 import { themeBorderEmphasizeColor } from '~/components/ui/theme';
 
 import Ticket from '../tickets/Ticket';
-
-import { useUser } from '@supabase/auth-helpers-react';
 
 const dateFormatter = new Intl.DateTimeFormat(undefined, {
   dateStyle: 'medium',

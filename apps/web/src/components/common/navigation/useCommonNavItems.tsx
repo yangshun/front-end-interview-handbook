@@ -5,6 +5,7 @@ import {
 } from 'react-icons/ri';
 
 import gtag from '~/lib/gtag';
+
 import { useAuthLogout, useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
 import { useIntl } from '~/components/intl';

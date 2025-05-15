@@ -1,3 +1,4 @@
+import { useUser } from '@supabase/auth-helpers-react';
 import { useEffect } from 'react';
 
 import { trpc } from '~/hooks/trpc';
@@ -13,13 +14,11 @@ import {
 } from '~/db/QuestionsProgressClient';
 import { staticUpperCase } from '~/utils/typescript/stringTransform';
 
-import { useJavaScriptCodingWorkspaceContext } from './JavaScriptCodingWorkspaceContext';
-import useJavaScriptCodingWorkspaceTilesContext from './useJavaScriptCodingWorkspaceTilesContext';
 import { useCodingWorkspaceContext } from '../common/CodingWorkspaceContext';
 import type { CodingWorkspaceTabFileType } from '../common/tabs/codingWorkspaceTabId';
 import TestsSection from '../common/tests/TestsSection';
-
-import { useUser } from '@supabase/auth-helpers-react';
+import { useJavaScriptCodingWorkspaceContext } from './JavaScriptCodingWorkspaceContext';
+import useJavaScriptCodingWorkspaceTilesContext from './useJavaScriptCodingWorkspaceTilesContext';
 
 export default function JavaScriptCodingWorkspaceTestsSubmitTab({
   metadata,

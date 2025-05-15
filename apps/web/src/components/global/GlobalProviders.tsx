@@ -1,5 +1,8 @@
 'use client';
 
+import { MDXProvider } from '@mdx-js/react';
+import { createBrowserSupabaseClient } from '@supabase/auth-helpers-nextjs';
+import { SessionContextProvider } from '@supabase/auth-helpers-react';
 import nextI18nosticConfig from 'next-i18nostic/config';
 import { NuqsAdapter } from 'nuqs/adapters/next/app';
 import { useState } from 'react';
@@ -19,10 +22,6 @@ import ColorSchemePreferencesProvider from './color-scheme/ColorSchemePreference
 import TrpcClientProvider from './TrpcClientProvider';
 import UserPreferencesProvider from './UserPreferencesProvider';
 import UserProfileProvider from './UserProfileProvider';
-
-import { MDXProvider } from '@mdx-js/react';
-import { createBrowserSupabaseClient } from '@supabase/auth-helpers-nextjs';
-import { SessionContextProvider } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   children: React.ReactNode;

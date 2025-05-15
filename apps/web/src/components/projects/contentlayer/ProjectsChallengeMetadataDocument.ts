@@ -45,7 +45,7 @@ export const ProjectsChallengeMetadataDocument = defineDocumentType(() => ({
         return (
           doc.pointsBase +
           sumBy(
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+             
             // @ts-expect-error: ContentLayer uses some custom array structure.
             (doc.skills as Readonly<{ _array: Array<string> }>)._array,
             (skill) =>

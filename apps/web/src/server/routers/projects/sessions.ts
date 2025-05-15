@@ -1,3 +1,4 @@
+import { Prisma, ProjectsChallengeSessionStatus } from '@prisma/client';
 import { sumBy } from 'lodash-es';
 import { z } from 'zod';
 
@@ -12,11 +13,9 @@ import {
 } from '~/db/projects/ProjectsReader';
 import prisma from '~/server/prisma';
 
-import { projectsUserProcedure } from './procedures';
 import { publicProcedure } from '../../trpc';
 import { router } from '../../trpc';
-
-import { Prisma, ProjectsChallengeSessionStatus } from '@prisma/client';
+import { projectsUserProcedure } from './procedures';
 
 const projectsSessionProcedure = projectsUserProcedure.input(
   z.object({

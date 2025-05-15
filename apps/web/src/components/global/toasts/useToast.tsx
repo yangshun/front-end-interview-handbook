@@ -23,6 +23,7 @@ type CustomToasterToast = CustomToastProps &
     id: string;
   }>;
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const actionTypes = {
   ADD_TOAST: 'ADD_TOAST',
   DISMISS_TOAST: 'DISMISS_TOAST',

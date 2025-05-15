@@ -1,3 +1,4 @@
+import type { LearningSession } from '@prisma/client';
 import clsx from 'clsx';
 import type { InterviewsStudyList } from 'contentlayer/generated';
 
@@ -19,8 +20,6 @@ import {
 import Tooltip from '~/components/ui/Tooltip';
 
 import InterviewsEntityProgress from '../common/InterviewsEntityProgress';
-
-import type { LearningSession } from '@prisma/client';
 
 type SessionProgress = ReadonlyArray<{
   articleProgress?: {

@@ -1,5 +1,6 @@
 'use client';
 
+import NumberFlow from '@number-flow/react';
 import clsx from 'clsx';
 import type { PanInfo } from 'motion/react';
 import { AnimatePresence, motion, wrap } from 'motion/react';
@@ -23,8 +24,6 @@ import {
   themeWhiteGlowCardBackground,
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
-
-import NumberFlow from '@number-flow/react';
 
 const carouselMotionVariants = {
   center: {

@@ -27,9 +27,9 @@ import {
   themeBorderColor,
 } from '~/components/ui/theme';
 
+import type { ProjectsViewerProjectsProfile } from '../types';
 import GithubRepositoryCodeViewer from './code-viewer/GithubRepositoryCodeViewer';
 import ProjectsChallengeSubmissionDiscussionsSection from './discussions/ProjectsChallengeSubmissionDiscussionsSection';
-import type { ProjectsViewerProjectsProfile } from '../types';
 
 function parseGithubRepositoryUrl(url: string) {
   const urlObject = new URL(url);

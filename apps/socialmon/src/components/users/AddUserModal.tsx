@@ -1,10 +1,9 @@
+import { Button, Modal, TextInput } from '@mantine/core';
+import { useForm } from '@mantine/form';
 import toast from 'react-hot-toast';
 
 import { trpc } from '~/hooks/trpc';
 import useCurrentProjectSlug from '~/hooks/useCurrentProjectSlug';
-
-import { Button, Modal, TextInput } from '@mantine/core';
-import { useForm } from '@mantine/form';
 
 type Props = Readonly<{
   onClose: () => void;

@@ -1,3 +1,4 @@
+import type { UserIdentity } from '@supabase/supabase-js';
 import clsx from 'clsx';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import {
@@ -18,8 +19,6 @@ import { themeBorderColor, themeTextSuccessColor } from '~/components/ui/theme';
 
 import { useI18nRouter } from '~/next-i18nostic/src';
 import { useSupabaseClientGFE } from '~/supabase/SupabaseClientGFE';
-
-import type { UserIdentity } from '@supabase/supabase-js';
 
 type Props = Readonly<{
   userIdentities: ReadonlyArray<UserIdentity>;

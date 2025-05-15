@@ -16,8 +16,8 @@ import {
 } from '~/components/ui/Dialog';
 import Divider from '~/components/ui/Divider';
 
-import ProjectsSkillRoadmapSelection from './ProjectsSkillRoadmapSelection';
 import type { ProjectsSkillKey } from '../types';
+import ProjectsSkillRoadmapSelection from './ProjectsSkillRoadmapSelection';
 
 type Props = Readonly<{
   challengeDefaultSkills?: ReadonlyArray<ProjectsSkillKey>;

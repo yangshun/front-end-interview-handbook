@@ -3,12 +3,6 @@ import { globby } from 'globby';
 import grayMatter from 'gray-matter';
 import path from 'path';
 
-import { readMDXFile } from './QuestionsBundler';
-import {
-  getQuestionSrcPathJavaScript,
-  QUESTIONS_SRC_DIR_JAVASCRIPT,
-} from './QuestionsBundlerJavaScriptConfig';
-import { normalizeQuestionFrontMatter } from '../QuestionsUtils';
 import type {
   InterviewsQuestionInfo,
   InterviewsQuestionItemJavaScript,
@@ -16,6 +10,12 @@ import type {
   InterviewsQuestionMetadata,
   QuestionCodingWorkingLanguage,
 } from '../../components/interviews/questions/common/QuestionsTypes';
+import { normalizeQuestionFrontMatter } from '../QuestionsUtils';
+import { readMDXFile } from './QuestionsBundler';
+import {
+  getQuestionSrcPathJavaScript,
+  QUESTIONS_SRC_DIR_JAVASCRIPT,
+} from './QuestionsBundlerJavaScriptConfig';
 
 async function readQuestionJavaScriptSkeleton(
   slug: string,

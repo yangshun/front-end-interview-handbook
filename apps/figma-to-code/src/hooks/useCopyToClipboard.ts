@@ -1,8 +1,7 @@
+import { emit } from '@create-figma-plugin/utilities';
 import { useCallback, useState } from 'preact/hooks';
 
 import type { CopyHandler } from '../utils/types';
-
-import { emit } from '@create-figma-plugin/utilities';
 
 type CopiedValue = string | null;
 

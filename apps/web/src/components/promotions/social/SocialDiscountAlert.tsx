@@ -1,3 +1,4 @@
+import { useUser } from '@supabase/auth-helpers-react';
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
 import { RiArrowRightLine } from 'react-icons/ri';
@@ -17,8 +18,6 @@ import {
 import Tooltip from '~/components/ui/Tooltip';
 
 import { useSocialDiscountLabels } from './useSocialDiscountLabels';
-
-import { useUser } from '@supabase/auth-helpers-react';
 
 function SocialDiscountTicketSmall({
   title,

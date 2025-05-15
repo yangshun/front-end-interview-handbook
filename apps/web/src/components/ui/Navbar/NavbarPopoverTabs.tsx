@@ -1,3 +1,4 @@
+import * as TabsPrimitive from '@radix-ui/react-tabs';
 import clsx from 'clsx';
 import { useState } from 'react';
 
@@ -9,13 +10,11 @@ import {
   themeOutlineElement_FocusVisible,
 } from '~/components/ui/theme';
 
-import NavbarPopoverLink from './NavbarPopoverLink';
-import type { NavPopoverListItem } from './NavTypes';
 import ScrollArea from '../ScrollArea';
 import { textVariants } from '../Text';
 import { themeTextColor_Hover } from '../theme';
-
-import * as TabsPrimitive from '@radix-ui/react-tabs';
+import NavbarPopoverLink from './NavbarPopoverLink';
+import type { NavPopoverListItem } from './NavTypes';
 
 export default function NavbarPopoverTabs({
   items,

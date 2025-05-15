@@ -1,3 +1,4 @@
+import { useUser } from '@supabase/auth-helpers-react';
 import clsx from 'clsx';
 import React, { type ReactNode } from 'react';
 
@@ -8,12 +9,10 @@ import { FormattedMessage, useIntl } from '~/components/intl';
 import Badge from '~/components/ui/Badge';
 import Tooltip from '~/components/ui/Tooltip';
 
-import InterviewsRecommendedPrepStrategyPopover from './InterviewsRecommendedPrepStrategyPopover';
 import InterviewsPageHeaderActions from '../common/InterviewsPageHeaderActions';
 import type { InterviewsQuestionItemMinimal } from '../questions/common/QuestionsTypes';
 import InterviewsStudyListPageTitleSection from '../questions/listings/study-list/InterviewsStudyListPageTitleSection';
-
-import { useUser } from '@supabase/auth-helpers-react';
+import InterviewsRecommendedPrepStrategyPopover from './InterviewsRecommendedPrepStrategyPopover';
 
 type CommonProps = Readonly<{
   beforeDividerElement?: ReactNode;

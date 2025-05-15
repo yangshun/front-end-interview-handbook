@@ -1,5 +1,6 @@
 'use client';
 
+import MonacoEditor, { loader, useMonaco } from '@monaco-editor/react';
 import clsx from 'clsx';
 import type { editor } from 'monaco-editor';
 import React, { useEffect, useRef } from 'react';
@@ -16,8 +17,6 @@ import useMonacoEditorAddActions from './useMonacoEditorAddActions';
 import useMonacoEditorAddFormatter from './useMonacoEditorAddFormatter';
 import useMonacoEditorOnShown from './useMonacoEditorOnShown';
 import useMonacoEditorTheme from './useMonacoEditorTheme';
-
-import MonacoEditor, { loader, useMonaco } from '@monaco-editor/react';
 
 function monacoUrl() {
   return process.env.NODE_ENV === 'development'

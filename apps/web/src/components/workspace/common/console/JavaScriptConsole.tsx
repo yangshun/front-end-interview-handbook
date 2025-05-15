@@ -1,3 +1,4 @@
+import type { useSandpackConsole } from '@codesandbox/sandpack-react';
 import clsx from 'clsx';
 import { Console } from 'console-feed';
 import type { Variants } from 'console-feed/lib/definitions/Component';
@@ -23,8 +24,6 @@ import { themeBorderColor, themeDivideColor } from '~/components/ui/theme';
 
 import JavaScriptConsoleEmptyState from './JavaScriptConsoleEmptyState';
 import { getConsoleStyles } from './JavaScriptConsoleStyles';
-
-import type { useSandpackConsole } from '@codesandbox/sandpack-react';
 
 type Props = Readonly<{
   logs: ReturnType<typeof useSandpackConsole>['logs'];

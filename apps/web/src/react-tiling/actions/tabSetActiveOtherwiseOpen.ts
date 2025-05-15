@@ -1,9 +1,9 @@
-import type { NewTabPosition } from './tabOpen';
-import tabOpen from './tabOpen';
-import tabSetActive from './tabSetActive';
 import type { TilesPanelConfig } from '../types';
 import getTabById from '../utils/getTabById';
 import queryTabByPattern from '../utils/queryTabByPattern';
+import type { NewTabPosition } from './tabOpen';
+import tabOpen from './tabOpen';
+import tabSetActive from './tabSetActive';
 
 export type TilesActionTabSetActiveOtherwiseOpen<TabType> = Readonly<{
   payload: Readonly<{

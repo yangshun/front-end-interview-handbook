@@ -1,3 +1,4 @@
+import { Prisma, ProjectsChallengeSessionStatus } from '@prisma/client';
 import { z } from 'zod';
 
 import { yoeReplacementSchema } from '~/components/projects/misc';
@@ -12,10 +13,8 @@ import type { ProjectsYoeReplacement } from '~/components/projects/types';
 
 import prisma from '~/server/prisma';
 
-import { projectsUserProcedure, publicProjectsProcedure } from './procedures';
 import { publicProcedure, router } from '../../trpc';
-
-import { Prisma, ProjectsChallengeSessionStatus } from '@prisma/client';
+import { projectsUserProcedure, publicProjectsProcedure } from './procedures';
 
 const projectsChallengeProcedure = projectsUserProcedure.input(
   z.object({

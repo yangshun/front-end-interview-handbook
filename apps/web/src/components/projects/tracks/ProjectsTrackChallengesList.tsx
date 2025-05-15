@@ -15,10 +15,10 @@ import {
   themeTextFaintColor,
 } from '~/components/ui/theme';
 
-import ProjectsTrackChallengeChip from './ProjectsTrackChallengeChip';
 import ProjectsChallengeDifficultyTag from '../challenges/metadata/ProjectsChallengeDifficultyTag';
 import type { ProjectsChallengeItem } from '../challenges/types';
 import ProjectsPremiumBadge from '../purchase/ProjectsPremiumBadge';
+import ProjectsTrackChallengeChip from './ProjectsTrackChallengeChip';
 
 type Props = Readonly<{
   challenges: ReadonlyArray<ProjectsChallengeItem>;

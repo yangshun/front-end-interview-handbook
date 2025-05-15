@@ -1,3 +1,4 @@
+import type { GuideProgress, LearningSession } from '@prisma/client';
 import clsx from 'clsx';
 import type { InterviewsStudyList } from 'contentlayer/generated';
 
@@ -18,8 +19,6 @@ import InterviewsDashboardPracticeQuestionsSection from './InterviewsDashboardPr
 import InterviewsDashboardCompanySection from './time-savers/InterviewsDashboardCompanySection';
 import InterviewsDashboardFocusAreasSection from './time-savers/InterviewsDashboardFocusAreasSection';
 import InterviewsDashboardStudyPlansSection from './time-savers/InterviewsDashboardStudyPlansSection';
-
-import type { GuideProgress, LearningSession } from '@prisma/client';
 
 type Props = Readonly<{
   companyGuides: ReadonlyArray<

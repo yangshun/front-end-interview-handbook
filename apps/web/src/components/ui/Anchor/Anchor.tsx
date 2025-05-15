@@ -13,15 +13,15 @@ import type { I18nLinkProps } from '~/next-i18nostic/src';
 import { I18nLink, useI18n } from '~/next-i18nostic/src';
 
 import {
+  themeOutlineElement_FocusVisible,
+  themeOutlineElementBrandColor_FocusVisible,
+} from '../theme';
+import {
   type AnchorVariant,
   anchorVariants,
   type AnchorWeight,
 } from './AnchorStyles';
 import { externalLinkHref } from './ExternalLinkHref';
-import {
-  themeOutlineElement_FocusVisible,
-  themeOutlineElementBrandColor_FocusVisible,
-} from '../theme';
 
 export type Props = Omit<I18nLinkProps, 'href' | 'prefetch'> &
   Readonly<{
@@ -118,7 +118,7 @@ function Anchor(
   }
 
   return (
-    // eslint-disable-next-line react/jsx-no-target-blank
+     
     <I18nLink
       ref={ref}
       className={className}

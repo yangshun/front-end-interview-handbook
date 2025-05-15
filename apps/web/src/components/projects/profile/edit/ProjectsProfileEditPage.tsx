@@ -1,5 +1,7 @@
 'use client';
 
+import { zodResolver } from '@hookform/resolvers/zod';
+import type { Profile, ProjectsProfile } from '@prisma/client';
 import { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -35,9 +37,6 @@ import { useI18nRouter } from '~/next-i18nostic/src';
 
 import { useProjectsProfileGitHubSchema } from '../fields/ProjectsProfileGithubSchema';
 import { useProjectsProfileLinkedInSchema } from '../fields/ProjectsProfileLinkedInSchema';
-
-import { zodResolver } from '@hookform/resolvers/zod';
-import type { Profile, ProjectsProfile } from '@prisma/client';
 
 function useProjectsProfileEditSchema() {
   const motivationReasonSchema = useProjectsMotivationReasonSchema({

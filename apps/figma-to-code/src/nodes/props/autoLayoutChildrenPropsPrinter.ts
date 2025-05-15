@@ -1,10 +1,10 @@
+import type { GFEAutoLayoutChildrenMixin } from '../types';
 import type {
   GFECSSProperties,
   GFENodeMetadata,
   GFENodePropertiesList,
   GFETailwindClasses,
 } from './types';
-import type { GFEAutoLayoutChildrenMixin } from '../types';
 
 export function processLayoutAlign(
   metadata: GFENodeMetadata,

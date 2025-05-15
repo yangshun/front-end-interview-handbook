@@ -1,5 +1,6 @@
 'use client';
 
+import type { ProjectsChallengeSession } from '@prisma/client';
 import { useState } from 'react';
 import { RiArrowLeftLine, RiFireFill } from 'react-icons/ri';
 
@@ -20,13 +21,11 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import logEvent from '~/logging/logEvent';
 import { useI18nRouter } from '~/next-i18nostic/src';
 
-import ProjectsChallengeSubmissionForm from './ProjectsChallengeSubmissionForm';
-import ProjectsChallengeSubmissionSuccessPage from '../ProjectsChallengeSubmissionSuccessPage';
-import useProjectsChallengeSubmissionTakeScreenshotMutation from '../screenshots/useProjectsChallengeSubmissionTakeScreenshotMutation';
 import { projectsReputationLevel } from '../../reputation/projectsReputationLevelUtils';
 import type { RoadmapSkillsRep } from '../../skills/types';
-
-import type { ProjectsChallengeSession } from '@prisma/client';
+import ProjectsChallengeSubmissionSuccessPage from '../ProjectsChallengeSubmissionSuccessPage';
+import useProjectsChallengeSubmissionTakeScreenshotMutation from '../screenshots/useProjectsChallengeSubmissionTakeScreenshotMutation';
+import ProjectsChallengeSubmissionForm from './ProjectsChallengeSubmissionForm';
 
 type SuccessPageInformationState = Readonly<{
   gainedPoints: number;

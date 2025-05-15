@@ -1,3 +1,4 @@
+import type { GuidebookItem } from '@prisma/client';
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
 import { RiArrowDownSLine } from 'react-icons/ri';
@@ -10,8 +11,6 @@ import {
   themeOutlineElementBrandColor_FocusVisible,
   themeTextSubtleColor,
 } from '~/components/ui/theme';
-
-import type { GuidebookItem } from '@prisma/client';
 
 export default function GuidesDropdownMenu({
   guide,

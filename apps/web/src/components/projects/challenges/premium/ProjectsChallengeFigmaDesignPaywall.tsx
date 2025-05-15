@@ -19,12 +19,12 @@ import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import { themeBorderElementColor } from '~/components/ui/theme';
 
+import type { ProjectsViewerProjectsProfile } from '../../types';
+import { FIGMA_TO_CODE_PLUGIN_URL } from '../ProjectsConstants';
 import ProjectsChallengeUnlockAccessDialog from './ProjectsChallengeUnlockAccessDialog';
 import type { ProjectsPremiumAccessControlType } from './ProjectsPremiumAccessControl';
 import { useProjectsChallengePaywallSubtitle } from './ProjectsPremiumPaywallStrings';
 import ProjectsPremiumPricingTableDialog from './ProjectsPremiumPricingTableDialog';
-import { FIGMA_TO_CODE_PLUGIN_URL } from '../ProjectsConstants';
-import type { ProjectsViewerProjectsProfile } from '../../types';
 
 type Placement = 'ASSETS_PAGE' | 'GET_STARTED_DIALOG';
 

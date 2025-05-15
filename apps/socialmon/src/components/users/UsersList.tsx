@@ -1,5 +1,7 @@
 'use client';
 
+import { Button, Text, Title } from '@mantine/core';
+import { useDisclosure } from '@mantine/hooks';
 import { clsx } from 'clsx';
 
 import { trpc } from '~/hooks/trpc';
@@ -9,9 +11,6 @@ import Container from '~/components/ui/Container';
 
 import AddUserModal from './AddUserModal';
 import UserCard from './UserCard';
-
-import { Button, Text, Title } from '@mantine/core';
-import { useDisclosure } from '@mantine/hooks';
 
 export default function UsersList() {
   const projectSlug = useCurrentProjectSlug();

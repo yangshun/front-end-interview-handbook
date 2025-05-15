@@ -1,5 +1,6 @@
 'use client';
 
+import { useSessionContext } from '@supabase/auth-helpers-react';
 import {
   createContext,
   useCallback,
@@ -13,8 +14,6 @@ import { mergeWithCurrentURL } from '~/hooks/user/useAuthFns';
 import { useI18nPathname } from '~/next-i18nostic/src';
 
 import AuthDialog from './AuthDialog';
-
-import { useSessionContext } from '@supabase/auth-helpers-react';
 
 type ContextValue = Readonly<{
   hideAuthSignupDialog: () => void;

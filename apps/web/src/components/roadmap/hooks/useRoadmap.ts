@@ -1,3 +1,4 @@
+import type { RoadmapItem } from '@prisma/client';
 import { format } from 'date-fns';
 import { useEffect, useMemo, useState } from 'react';
 
@@ -9,8 +10,6 @@ import {
   getYears,
   hasCurrentYear,
 } from '../RoadmapUtils';
-
-import type { RoadmapItem } from '@prisma/client';
 
 export type RoadmapProduct = 'interviews' | 'projects';
 

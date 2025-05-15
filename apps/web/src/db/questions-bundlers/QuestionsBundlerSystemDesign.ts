@@ -9,12 +9,12 @@ import type {
   QuestionSystemDesign,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 
+import { normalizeQuestionFrontMatter } from '../QuestionsUtils';
 import { readMDXFile } from './QuestionsBundler';
 import {
   getQuestionSrcPathSystemDesign,
   QUESTIONS_SRC_DIR_SYSTEM_DESIGN,
 } from './QuestionsBundlerSystemDesignConfig';
-import { normalizeQuestionFrontMatter } from '../QuestionsUtils';
 
 export async function readQuestionMetadataSystemDesign(
   slug: string,

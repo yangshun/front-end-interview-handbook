@@ -1,11 +1,11 @@
 import { useIntl } from '~/components/intl';
 import { getProjectsTechStackInputAttributes } from '~/components/projects/skills/form/ProjectsSkillListInputSchema';
 
-import type { ProjectsChallengeSessionSkillsFormValues } from '../types';
 import { getProjectsRoadmapSkillsInputAttributes } from '../../skills/form/ProjectsSkillListInputSchema';
 import ProjectsSkillRoadmapSelectionInput from '../../skills/form/ProjectsSkillRoadmapSelectionInput';
 import ProjectsSkillTechStackInput from '../../skills/form/ProjectsSkillTechStackInput';
 import type { ProjectsSkillKey } from '../../skills/types';
+import type { ProjectsChallengeSessionSkillsFormValues } from '../types';
 
 type Props = Readonly<{
   challengeDefaultSkills: ReadonlyArray<ProjectsSkillKey>;

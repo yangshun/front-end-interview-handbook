@@ -1,18 +1,5 @@
 'use client';
 
-import { debounce } from 'lodash-es';
-import { useRouter } from 'next/navigation';
-import { useRef, useState } from 'react';
-import toast from 'react-hot-toast';
-
-import { trpc } from '~/hooks/trpc';
-
-import { projectSchema } from '~/schema';
-
-import ProjectsProductsToAdvertiseInput from './ProjectProductToAdvertiseInput';
-
-import type { ProjectFormValues, ProjectTransformed } from '~/types';
-
 import {
   Button,
   Loader,
@@ -22,6 +9,17 @@ import {
   TextInput,
 } from '@mantine/core';
 import { createFormContext, zodResolver } from '@mantine/form';
+import { debounce } from 'lodash-es';
+import { useRouter } from 'next/navigation';
+import { useRef, useState } from 'react';
+import toast from 'react-hot-toast';
+
+import { trpc } from '~/hooks/trpc';
+
+import { projectSchema } from '~/schema';
+import type { ProjectFormValues, ProjectTransformed } from '~/types';
+
+import ProjectsProductsToAdvertiseInput from './ProjectProductToAdvertiseInput';
 
 type BaseProps = Readonly<{
   data?: ProjectTransformed;

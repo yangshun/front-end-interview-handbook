@@ -1,5 +1,17 @@
 'use client';
 
+import { createHeadlessEditor } from '@lexical/headless';
+import { AutoFocusPlugin } from '@lexical/react/LexicalAutoFocusPlugin';
+import { ClearEditorPlugin } from '@lexical/react/LexicalClearEditorPlugin';
+import { LexicalComposer } from '@lexical/react/LexicalComposer';
+import { ContentEditable } from '@lexical/react/LexicalContentEditable';
+import { LexicalErrorBoundary } from '@lexical/react/LexicalErrorBoundary';
+import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin';
+import { HorizontalRulePlugin } from '@lexical/react/LexicalHorizontalRulePlugin';
+import { ListPlugin } from '@lexical/react/LexicalListPlugin';
+import { MarkdownShortcutPlugin } from '@lexical/react/LexicalMarkdownShortcutPlugin';
+import { OnChangePlugin } from '@lexical/react/LexicalOnChangePlugin';
+import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin';
 import clsx from 'clsx';
 import { $getRoot, type EditorState, type LexicalEditor } from 'lexical';
 import type { FormEventHandler, ForwardedRef } from 'react';
@@ -17,6 +29,8 @@ import {
   themeTextColor,
 } from '~/components/ui/theme';
 
+import { proseStyle } from '../Prose';
+import TextMaxLengthLabel from '../Text/TextMaxLengthLabel';
 import { PLAYGROUND_TRANSFORMERS } from './plugin/MarkdownTransformers';
 import RichTextEditorAutoLinkPlugin from './plugin/RichTextEditorAutoLinkPlugin';
 import RichTextEditorDisablePlugin from './plugin/RichTextEditorDisablePlugin';
@@ -24,21 +38,6 @@ import RichTextEditorLinkPlugin from './plugin/RichTextEditorLinkPlugin';
 import RichTextEditorRefPlugin from './plugin/RichTextEditorRefPlugin';
 import type { RichTextEditorConfigType } from './RichTextEditorConfig';
 import { RichTextEditorWithExternalLinkConfig } from './RichTextEditorConfig';
-import { proseStyle } from '../Prose';
-import TextMaxLengthLabel from '../Text/TextMaxLengthLabel';
-
-import { createHeadlessEditor } from '@lexical/headless';
-import { AutoFocusPlugin } from '@lexical/react/LexicalAutoFocusPlugin';
-import { ClearEditorPlugin } from '@lexical/react/LexicalClearEditorPlugin';
-import { LexicalComposer } from '@lexical/react/LexicalComposer';
-import { ContentEditable } from '@lexical/react/LexicalContentEditable';
-import { LexicalErrorBoundary } from '@lexical/react/LexicalErrorBoundary';
-import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin';
-import { HorizontalRulePlugin } from '@lexical/react/LexicalHorizontalRulePlugin';
-import { ListPlugin } from '@lexical/react/LexicalListPlugin';
-import { MarkdownShortcutPlugin } from '@lexical/react/LexicalMarkdownShortcutPlugin';
-import { OnChangePlugin } from '@lexical/react/LexicalOnChangePlugin';
-import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin';
 
 type Props = Readonly<{
   autoFocus?: boolean;

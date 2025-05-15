@@ -1,5 +1,6 @@
 'use client';
 
+import { useUser } from '@supabase/auth-helpers-react';
 import clsx from 'clsx';
 import { useSearchParams } from 'next/navigation';
 
@@ -8,17 +9,15 @@ import useAuthFullPageRedirectAfterLogin from '~/hooks/user/useAuthFullPageRedir
 import { useIntl } from '~/components/intl';
 import EmptyState from '~/components/ui/EmptyState';
 
-import AuthForm from './AuthForm';
-import AuthTestimonialSlider from './AuthTestimonialSlider';
-import type { AuthViewType } from './SupabaseAuthTypes';
 import ScrollArea from '../ui/ScrollArea';
 import {
   themeBackgroundCardWhiteOnLightColor,
   themeBackgroundDarkColor,
   themeBorderColor,
 } from '../ui/theme';
-
-import { useUser } from '@supabase/auth-helpers-react';
+import AuthForm from './AuthForm';
+import AuthTestimonialSlider from './AuthTestimonialSlider';
+import type { AuthViewType } from './SupabaseAuthTypes';
 
 type Props = Readonly<{
   view: AuthViewType;

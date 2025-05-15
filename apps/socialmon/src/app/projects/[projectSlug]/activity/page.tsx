@@ -1,6 +1,6 @@
-import ActivityLogList from '~/components/activity/ActivityLogList';
-
 import { Title } from '@mantine/core';
+
+import ActivityLogList from '~/components/activity/ActivityLogList';
 
 export default function Page() {
   return (

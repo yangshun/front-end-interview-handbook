@@ -3,8 +3,6 @@ import { useReducer } from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 
-import DragHighlightProvider from './DragHighlightProvider';
-import { TilesContext } from './TilesContext';
 import type { TilesAction } from '../actions/actions';
 import layoutChange from '../actions/layoutChange';
 import panelClose from '../actions/panelClose';
@@ -21,6 +19,8 @@ import tabSetActiveOtherwiseOpen from '../actions/tabSetActiveOtherwiseOpen';
 import type { TilesPanelConfig } from '../types';
 import getTabById from '../utils/getTabById';
 import queryTabByPattern from '../utils/queryTabByPattern';
+import DragHighlightProvider from './DragHighlightProvider';
+import { TilesContext } from './TilesContext';
 
 export type Props<TabType> = Readonly<{
   activeTabScrollIntoView?: boolean;

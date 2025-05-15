@@ -1,3 +1,4 @@
+import type { SponsorsAdRequestStatus } from '@prisma/client';
 import { debounce } from 'lodash-es';
 import { useRef, useState } from 'react';
 import { RiArrowDownSLine, RiSearchLine, RiSortDesc } from 'react-icons/ri';
@@ -12,8 +13,6 @@ import type {
   AdminSponsorsAdRequestSortField,
   SponsorsAdminFilter,
 } from '../types';
-
-import type { SponsorsAdRequestStatus } from '@prisma/client';
 
 type Props = Readonly<{
   isAscendingOrder: boolean;
@@ -49,7 +48,8 @@ export default function SponsorsAdminAdRequestListFilters({
         sortField === itemField && isAscendingOrder === isItemAscendingOrder,
       label,
       onClick: () => {
-        setSortField(itemField), setIsAscendingOrder(isItemAscendingOrder);
+        setSortField(itemField);
+        setIsAscendingOrder(isItemAscendingOrder);
       },
     };
   }

@@ -21,6 +21,8 @@ import {
 
 const editor = createHeadlessEditor(RichTextEditorConfig);
 
+import { zodResolver } from '@hookform/resolvers/zod';
+import { createHeadlessEditor } from '@lexical/headless';
 import { useEffect } from 'react';
 
 import { urlAddHttpsIfMissing } from '~/lib/urlValidation';
@@ -28,15 +30,12 @@ import { urlAddHttpsIfMissing } from '~/lib/urlValidation';
 import type { StepsTabItemStatus } from '~/components/common/StepsTabs';
 import Divider from '~/components/ui/Divider';
 
-import SponsorsAdvertiseRequestFormAdsSectionTitle from './SponsorsAdvertiseRequestFormAdsSectionTitle';
+import type { SponsorsAdFormatInContentItem } from '../../types';
 import { useSponsorsInContentAdSchema } from '../SponsorsAdvertiseRequestAdSchema';
 import SponsorsAdvertiseRequestFormAdsImageUpload from '../SponsorsAdvertiseRequestFormAdsImageUpload';
 import SponsorsAdvertiseRequestFormAdsSectionAvailability from '../SponsorsAdvertiseRequestFormAdsSectionAvailability';
 import useSponsorsAdvertiseRequestAdsImageUploader from '../useSponsorsAdvertiseRequestAdsImageUploader';
-import type { SponsorsAdFormatInContentItem } from '../../types';
-
-import { zodResolver } from '@hookform/resolvers/zod';
-import { createHeadlessEditor } from '@lexical/headless';
+import SponsorsAdvertiseRequestFormAdsSectionTitle from './SponsorsAdvertiseRequestFormAdsSectionTitle';
 
 type Props = Readonly<{
   defaultValues?: Omit<SponsorsAdFormatInContentItem, 'id'>;

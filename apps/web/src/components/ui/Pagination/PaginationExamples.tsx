@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-import Pagination from './index';
 import Divider from '../Divider';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
+import Pagination from './index';
 
 export default function PaginationExamples() {
   const [currentPage, setCurrentPage] = useState(1);

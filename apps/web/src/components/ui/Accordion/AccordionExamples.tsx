@@ -1,10 +1,10 @@
+import UIExamplesGroup from '../misc/UIExamplesGroup';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from './Accordion';
-import UIExamplesGroup from '../misc/UIExamplesGroup';
 
 export function AccordionDemo({
   type,

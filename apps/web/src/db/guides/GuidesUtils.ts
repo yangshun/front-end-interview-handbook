@@ -1,3 +1,4 @@
+import type { GuidebookItem, GuideProgress } from '@prisma/client';
 import { keyBy, sumBy } from 'lodash-es';
 
 import { BehavioralInterviewPlaybookPaths } from '~/components/guides/books/behavioral-interview-playbook/BehavioralInterviewPlaybookNavigation';
@@ -9,8 +10,6 @@ import type {
   GuideMetadata,
   GuideNavigation,
 } from '~/components/guides/types';
-
-import type { GuidebookItem, GuideProgress } from '@prisma/client';
 
 export function hashGuide(book: GuidebookItem, slug: string) {
   return book + ':' + slug;

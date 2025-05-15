@@ -1,5 +1,7 @@
 'use client';
 
+import type { GuidebookItem } from '@prisma/client';
+import { useUser } from '@supabase/auth-helpers-react';
 import { clsx } from 'clsx';
 import {
   RiArrowLeftSLine,
@@ -26,16 +28,13 @@ import {
 } from '~/db/guides/GuidesProgressClient';
 import { useI18nPathname } from '~/next-i18nostic/src';
 
+import QuestionReportIssueButton from '../interviews/questions/common/QuestionReportIssueButton';
+import type { InterviewsQuestionMetadata } from '../interviews/questions/common/QuestionsTypes';
 import { useGuidesContext } from './GuidesLayout';
 import GuidesProgressAction from './GuidesProgressAction';
 import type { GuideMetadata, GuideNavigation } from './types';
 import useFlattenedNavigationItems from './useFlattenedNavigationItems';
 import { useGuidesAutoMarkAsComplete } from './useGuidesAutoMarkAsComplete';
-import QuestionReportIssueButton from '../interviews/questions/common/QuestionReportIssueButton';
-import type { InterviewsQuestionMetadata } from '../interviews/questions/common/QuestionsTypes';
-
-import type { GuidebookItem } from '@prisma/client';
-import { useUser } from '@supabase/auth-helpers-react';
 
 type PaginationItem = Readonly<{
   href?: string;

@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 
+import type { Comments } from '~/types';
+
 import CommentRepliesThreadLines from './CommentRepliesThreadLines';
 import PostComments from './PostComment';
-
-import type { Comments } from '~/types';
 
 type Props = Readonly<{
   level: number;

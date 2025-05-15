@@ -1,3 +1,4 @@
+import { zodResolver } from '@hookform/resolvers/zod';
 import clsx from 'clsx';
 import { useEffect } from 'react';
 import { Controller, useForm } from 'react-hook-form';
@@ -21,14 +22,12 @@ import {
   themeBorderEmphasizeColor,
 } from '~/components/ui/theme';
 
-import SponsorsAdvertiseRequestFormAdsSectionTitle from './SponsorsAdvertiseRequestFormAdsSectionTitle';
+import type { SponsorsAdFormatSpotlightItem } from '../../types';
 import { useSponsorsSpotlightAdSchema } from '../SponsorsAdvertiseRequestAdSchema';
 import SponsorsAdvertiseRequestFormAdsImageUpload from '../SponsorsAdvertiseRequestFormAdsImageUpload';
 import SponsorsAdvertiseRequestFormAdsSectionAvailability from '../SponsorsAdvertiseRequestFormAdsSectionAvailability';
 import useSponsorsAdvertiseRequestAdsImageUploader from '../useSponsorsAdvertiseRequestAdsImageUploader';
-import type { SponsorsAdFormatSpotlightItem } from '../../types';
-
-import { zodResolver } from '@hookform/resolvers/zod';
+import SponsorsAdvertiseRequestFormAdsSectionTitle from './SponsorsAdvertiseRequestFormAdsSectionTitle';
 
 type Props = Readonly<{
   defaultValues?: Omit<SponsorsAdFormatSpotlightItem, 'id'>;

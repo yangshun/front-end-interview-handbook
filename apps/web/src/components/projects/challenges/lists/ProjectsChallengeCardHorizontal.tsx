@@ -13,11 +13,11 @@ import {
   themeGlassyBorder,
 } from '~/components/ui/theme';
 
-import type { ProjectsChallengeItem } from '../types';
 import ProjectsPremiumBadge from '../../purchase/ProjectsPremiumBadge';
 import { projectsSkillExtractParents } from '../../skills/data/ProjectsSkillUtils';
 import ProjectsSkillParentSkillList from '../../skills/metadata/ProjectsSkillParentSkillList';
 import type { ProjectsSkillKey } from '../../skills/types';
+import type { ProjectsChallengeItem } from '../types';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;

@@ -1,20 +1,5 @@
 'use client';
 
-import clsx from 'clsx';
-import { type ChangeEvent, useEffect, useState } from 'react';
-import toast from 'react-hot-toast';
-import { RiChat4Line } from 'react-icons/ri';
-
-import { trpc } from '~/hooks/trpc';
-
-import PostMetadata from './PostMetadata';
-import PostResponse from './PostResponse';
-import PostCommentsList from '../comments/PostCommentsList';
-import { parseMarkdown } from '../markdownParser';
-import PostRelevancyActionButton from '../PostRelevancyActionButton';
-
-import type { PostExtended } from '~/types';
-
 import {
   Button,
   Divider,
@@ -26,6 +11,20 @@ import {
   Title,
 } from '@mantine/core';
 import { useInputState } from '@mantine/hooks';
+import clsx from 'clsx';
+import { type ChangeEvent, useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
+import { RiChat4Line } from 'react-icons/ri';
+
+import { trpc } from '~/hooks/trpc';
+
+import type { PostExtended } from '~/types';
+
+import PostCommentsList from '../comments/PostCommentsList';
+import { parseMarkdown } from '../markdownParser';
+import PostRelevancyActionButton from '../PostRelevancyActionButton';
+import PostMetadata from './PostMetadata';
+import PostResponse from './PostResponse';
 
 type Props = Readonly<{
   generateResponse: (

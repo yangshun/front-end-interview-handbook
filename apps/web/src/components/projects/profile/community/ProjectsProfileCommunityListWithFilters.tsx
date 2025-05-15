@@ -1,3 +1,5 @@
+import type { ProjectsDiscussionCommentDomain } from '@prisma/client';
+
 import { trpc } from '~/hooks/trpc';
 
 import Spinner from '~/components/ui/Spinner';
@@ -9,8 +11,6 @@ import ProjectsProfileCommunityFilterContext, {
 import { useProjectsProfileCommunityFilterState } from './ProjectsProfileCommunityFilterContext';
 import ProjectsProfileCommunityFilterDropdown from './ProjectsProfileCommunityFilterDropdown';
 import ProjectProfileCommunityFilterSlideOut from './ProjectsProfileCommunityFilterSlideOut';
-
-import type { ProjectsDiscussionCommentDomain } from '@prisma/client';
 
 function ProjectsProfileCommunityListWithFiltersImpl({
   isViewingOwnProfile,

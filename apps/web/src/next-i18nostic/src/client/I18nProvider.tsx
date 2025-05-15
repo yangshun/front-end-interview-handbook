@@ -1,5 +1,5 @@
-import I18nContext from './I18nContext';
 import type { Locale } from '../types';
+import I18nContext from './I18nContext';
 
 type Props = Readonly<{
   children: React.ReactNode;

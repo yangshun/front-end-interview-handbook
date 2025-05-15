@@ -1,5 +1,6 @@
 'use client';
 
+import type { SponsorsAdRequestStatus } from '@prisma/client';
 import { capitalize } from 'lodash-es';
 
 import { trpc } from '~/hooks/trpc';
@@ -24,8 +25,6 @@ import { themeBackgroundLayerEmphasized } from '~/components/ui/theme';
 
 import SponsorsAdminAdRequestListFilters from './filters/SponsorsAdminAdRequestListFilters';
 import useSponsorsAdminAdRequestFilters from './hooks/useSponsorsAdminAdRequestFilters';
-
-import type { SponsorsAdRequestStatus } from '@prisma/client';
 
 const ITEMS_PER_PAGE = 20;
 

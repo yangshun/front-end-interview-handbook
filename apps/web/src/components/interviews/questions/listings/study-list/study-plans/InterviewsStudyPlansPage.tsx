@@ -1,5 +1,6 @@
 'use client';
 
+import { useUser } from '@supabase/auth-helpers-react';
 import clsx from 'clsx';
 import type {
   InterviewsListingBottomContent,
@@ -23,8 +24,6 @@ import MDXContent from '~/components/mdx/MDXContent';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-
-import { useUser } from '@supabase/auth-helpers-react';
 
 type StudyPlanSection = Readonly<{
   plans: ReadonlyArray<InterviewsStudyList>;

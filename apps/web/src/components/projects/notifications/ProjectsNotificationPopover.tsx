@@ -1,3 +1,4 @@
+import * as PopoverPrimitive from '@radix-ui/react-popover';
 import clsx from 'clsx';
 import React from 'react';
 
@@ -5,8 +6,6 @@ import {
   themeBackgroundLayerEmphasized,
   themeBorderElementColor,
 } from '~/components/ui/theme';
-
-import * as PopoverPrimitive from '@radix-ui/react-popover';
 
 export type PopoverContentAlignment = 'center' | 'end' | 'start';
 export type PopoverContentSide = 'bottom' | 'left' | 'right' | 'top';

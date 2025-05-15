@@ -1,3 +1,4 @@
+import type { ProjectsSubscriptionPlan } from '@prisma/client';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import Stripe from 'stripe';
 import url from 'url';
@@ -13,8 +14,6 @@ import fetchProjectsPricingPlanPaymentConfigLocalizedRecord from '~/components/p
 import type { PurchasePricingPlanPaymentConfigLocalized } from '~/components/purchase/PurchaseTypes';
 
 import i18nHref from '~/next-i18nostic/src/utils/i18nHref';
-
-import type { ProjectsSubscriptionPlan } from '@prisma/client';
 
 type BaseCheckoutQueryParams = Readonly<{
   // Optional cancel URL if user cancels checkout.

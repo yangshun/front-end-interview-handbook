@@ -1,3 +1,4 @@
+import { useUser } from '@supabase/auth-helpers-react';
 import clsx from 'clsx';
 import {
   RiArrowRightLine,
@@ -19,11 +20,9 @@ import Text from '~/components/ui/Text';
 import { themeTextSubtleColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
-import { useSocialDiscountLabels } from './useSocialDiscountLabels';
 import PromotionCard from '../PromotionCard';
 import { PromotionsEmailUsLink } from '../PromotionsEmailUsLink';
-
-import { useUser } from '@supabase/auth-helpers-react';
+import { useSocialDiscountLabels } from './useSocialDiscountLabels';
 
 type Props = Readonly<{
   variant?: 'compact' | 'full';

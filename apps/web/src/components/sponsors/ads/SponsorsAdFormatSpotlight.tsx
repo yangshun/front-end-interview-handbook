@@ -20,9 +20,9 @@ import {
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
+import type { SponsorsAdFormatPayloadSpotlight } from '../SponsorsTypes';
 import { sponsorsAdTrackingHref } from './SponsorsAdHref';
 import useSponsorsAdImpressionLogging from './useSponsorsAdImpressionLogging';
-import type { SponsorsAdFormatPayloadSpotlight } from '../SponsorsTypes';
 
 export type SponsorsAdFormatSpotlightPlacement =
   | 'nav_mobile'

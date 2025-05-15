@@ -3,8 +3,8 @@ import { capitalize } from 'lodash-es';
 import Divider from '~/components/ui/Divider';
 import UIExamplesGroup from '~/components/ui/misc/UIExamplesGroup';
 
-import Anchor from './Anchor';
 import Text from '../Text';
+import Anchor from './Anchor';
 
 export default function AnchorExamples() {
   return (

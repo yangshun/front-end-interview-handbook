@@ -2,11 +2,11 @@
 
 import type { ProjectsTrackItem } from '~/components/projects/tracks/data/ProjectsTracksData';
 
+import type { ProjectsChallengeHistoricalStatuses } from '../challenges/types';
+import { projectsChallengeCountCompletedIncludingHistorical } from '../challenges/utils/ProjectsChallengeUtils';
 import type ProjectsTrackChallengeChip from './ProjectsTrackChallengeChip';
 import ProjectsTrackChallengesList from './ProjectsTrackChallengesList';
 import ProjectsTrackPageHeader from './ProjectsTrackPageHeader';
-import type { ProjectsChallengeHistoricalStatuses } from '../challenges/types';
-import { projectsChallengeCountCompletedIncludingHistorical } from '../challenges/utils/ProjectsChallengeUtils';
 
 type Props = Readonly<{
   challengeHistoricalStatuses: ProjectsChallengeHistoricalStatuses;

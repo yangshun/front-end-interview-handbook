@@ -1,15 +1,4 @@
 import {
-  EmailsButton,
-  EmailsFooter,
-  EmailsHeader,
-  EmailsParagraph,
-  EmailsStrong,
-} from '~/emails/components/EmailsComponents';
-import { containerStyle, mainStyle } from '~/emails/components/EmailsStyles';
-import type { EmailsUnsubscribeFields } from '~/emails/EmailsTypes';
-import { getSiteOrigin } from '~/seo/siteUrl';
-
-import {
   Body,
   Column,
   Container,
@@ -19,6 +8,17 @@ import {
   Row,
   Section,
 } from '@react-email/components';
+
+import {
+  EmailsButton,
+  EmailsFooter,
+  EmailsHeader,
+  EmailsParagraph,
+  EmailsStrong,
+} from '~/emails/components/EmailsComponents';
+import { containerStyle, mainStyle } from '~/emails/components/EmailsStyles';
+import type { EmailsUnsubscribeFields } from '~/emails/EmailsTypes';
+import { getSiteOrigin } from '~/seo/siteUrl';
 
 type Props = Readonly<{
   coupon: Readonly<{

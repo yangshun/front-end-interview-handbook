@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import type { AlternateLinkDescriptor } from 'next/dist/lib/metadata/types/alternative-urls-types';
 import nextI18nosticConfig from 'next-i18nostic/config';
+import type { AlternateLinkDescriptor } from 'next/dist/lib/metadata/types/alternative-urls-types';
 
 import type { Locale } from '../types';
 import i18nHref from '../utils/i18nHref';

@@ -1,8 +1,7 @@
+import { useSandpack, useSandpackConsole } from '@codesandbox/sandpack-react';
 import { useRef } from 'react';
 
 import { useCodingPreferences } from '~/components/global/CodingPreferencesProvider';
-
-import { useSandpack, useSandpackConsole } from '@codesandbox/sandpack-react';
 
 const reloadableErrors = [
   'ModuleNotFoundError', // Typically "Could not find module in path: 'react/cjs/react-jsx-runtime.development.js' relative to '/node_modules/react/jsx-runtime.js'"

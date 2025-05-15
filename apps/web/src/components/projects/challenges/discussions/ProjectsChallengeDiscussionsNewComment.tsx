@@ -1,3 +1,4 @@
+import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
@@ -20,11 +21,9 @@ import CheckboxInput from '~/components/ui/CheckboxInput';
 import RichTextEditor from '~/components/ui/RichTextEditor';
 import Text from '~/components/ui/Text';
 
-import type { ProjectsChallengeItem } from '../types';
 import { ProjectsReputationPointsConfig } from '../../reputation/ProjectsReputationPointsConfig';
 import ProjectsProfileDisplayNameLink from '../../users/ProjectsProfileDisplayNameLink';
-
-import { zodResolver } from '@hookform/resolvers/zod';
+import type { ProjectsChallengeItem } from '../types';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;

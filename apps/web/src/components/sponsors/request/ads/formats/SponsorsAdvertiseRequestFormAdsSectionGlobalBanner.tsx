@@ -1,3 +1,4 @@
+import { zodResolver } from '@hookform/resolvers/zod';
 import clsx from 'clsx';
 import { useEffect } from 'react';
 import { Controller, useForm } from 'react-hook-form';
@@ -18,12 +19,10 @@ import Label from '~/components/ui/Label';
 import TextArea from '~/components/ui/TextArea';
 import TextInput from '~/components/ui/TextInput';
 
-import SponsorsAdvertiseRequestFormAdsSectionTitle from './SponsorsAdvertiseRequestFormAdsSectionTitle';
+import type { SponsorsAdFormatGlobalBannerItem } from '../../types';
 import { useSponsorsGlobalBannerAdSchema } from '../SponsorsAdvertiseRequestAdSchema';
 import SponsorsAdvertiseRequestFormAdsSectionAvailability from '../SponsorsAdvertiseRequestFormAdsSectionAvailability';
-import type { SponsorsAdFormatGlobalBannerItem } from '../../types';
-
-import { zodResolver } from '@hookform/resolvers/zod';
+import SponsorsAdvertiseRequestFormAdsSectionTitle from './SponsorsAdvertiseRequestFormAdsSectionTitle';
 
 const AD_FORMAT = 'GLOBAL_BANNER';
 

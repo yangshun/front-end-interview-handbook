@@ -1,5 +1,6 @@
 'use client';
 
+import * as DialogPrimitive from '@radix-ui/react-dialog';
 import clsx from 'clsx';
 import type { ComponentProps } from 'react';
 import { useEffect, useRef, useState } from 'react';
@@ -7,8 +8,6 @@ import { useEffect, useRef, useState } from 'react';
 import Img from '~/components/ui/Img';
 
 import DialogBaseOverlay from '../ui/Dialog/DialogBaseOverlay';
-
-import * as DialogPrimitive from '@radix-ui/react-dialog';
 
 export default function MDXImage({
   ref: _ref, // TODO(ui): merge refs

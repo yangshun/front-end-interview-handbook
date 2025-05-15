@@ -1,5 +1,8 @@
 'use client';
 
+import type { SandpackFiles } from '@codesandbox/sandpack-react';
+import { useSandpack } from '@codesandbox/sandpack-react';
+import { useMonaco } from '@monaco-editor/react';
 import clsx from 'clsx';
 import { useCallback, useEffect, useState } from 'react';
 import { RiCodeLine } from 'react-icons/ri';
@@ -31,23 +34,6 @@ import {
 import { TilesPanelRoot } from '~/react-tiling/components/TilesPanelRoot';
 import { TilesProvider } from '~/react-tiling/state/TilesProvider';
 
-import UserInterfaceCodingWorkspaceBottomBar from './UserInterfaceCodingWorkspaceBottomBar';
-import UserInterfaceCodingWorkspaceCodeEditor from './UserInterfaceCodingWorkspaceCodeEditor';
-import UserInterfaceCodingWorkspaceCommunitySolutionCreateTab from './UserInterfaceCodingWorkspaceCommunitySolutionCreateTab';
-import UserInterfaceCodingWorkspaceCommunitySolutionList from './UserInterfaceCodingWorkspaceCommunitySolutionList';
-import UserInterfaceCodingWorkspaceExplorer from './UserInterfaceCodingWorkspaceExplorer';
-import { getUserInterfaceCodingWorkspaceLayout } from './UserInterfaceCodingWorkspaceLayouts';
-import UserInterfaceCodingWorkspaceMobile from './UserInterfaceCodingWorkspaceMobile';
-import UserInterfaceCodingWorkspaceNewTab from './UserInterfaceCodingWorkspaceNewTab';
-import UserInterfaceCodingWorkspacePreview from './UserInterfaceCodingWorkspacePreview';
-import UserInterfaceCodingWorkspaceSavesList from './UserInterfaceCodingWorkspaceSavesList';
-import UserInterfaceCodingWorkspaceSolutionPreviewTab from './UserInterfaceCodingWorkspaceSolutionPreviewTab';
-import type {
-  UserInterfaceCodingWorkspacePredefinedTabsContents,
-  UserInterfaceCodingWorkspaceTabsType,
-} from './UserInterfaceCodingWorkspaceTypes';
-import UserInterfaceCodingWorkspaceWriteup from './UserInterfaceCodingWorkspaceWriteup';
-import useUserInterfaceCodingWorkspaceTilesContext from './useUserInterfaceCodingWorkspaceTilesContext';
 import { codingFilesShouldUseTypeScript } from '../common/codingFilesShouldUseTypeScript';
 import type { CodingWorkspaceTabContents } from '../common/CodingWorkspaceContext';
 import { CodingWorkspaceProvider } from '../common/CodingWorkspaceContext';
@@ -71,10 +57,23 @@ import {
   codingWorkspaceTabFileId,
   codingWorkspaceTabFilePattern,
 } from '../common/tabs/codingWorkspaceTabId';
-
-import type { SandpackFiles } from '@codesandbox/sandpack-react';
-import { useSandpack } from '@codesandbox/sandpack-react';
-import { useMonaco } from '@monaco-editor/react';
+import UserInterfaceCodingWorkspaceBottomBar from './UserInterfaceCodingWorkspaceBottomBar';
+import UserInterfaceCodingWorkspaceCodeEditor from './UserInterfaceCodingWorkspaceCodeEditor';
+import UserInterfaceCodingWorkspaceCommunitySolutionCreateTab from './UserInterfaceCodingWorkspaceCommunitySolutionCreateTab';
+import UserInterfaceCodingWorkspaceCommunitySolutionList from './UserInterfaceCodingWorkspaceCommunitySolutionList';
+import UserInterfaceCodingWorkspaceExplorer from './UserInterfaceCodingWorkspaceExplorer';
+import { getUserInterfaceCodingWorkspaceLayout } from './UserInterfaceCodingWorkspaceLayouts';
+import UserInterfaceCodingWorkspaceMobile from './UserInterfaceCodingWorkspaceMobile';
+import UserInterfaceCodingWorkspaceNewTab from './UserInterfaceCodingWorkspaceNewTab';
+import UserInterfaceCodingWorkspacePreview from './UserInterfaceCodingWorkspacePreview';
+import UserInterfaceCodingWorkspaceSavesList from './UserInterfaceCodingWorkspaceSavesList';
+import UserInterfaceCodingWorkspaceSolutionPreviewTab from './UserInterfaceCodingWorkspaceSolutionPreviewTab';
+import type {
+  UserInterfaceCodingWorkspacePredefinedTabsContents,
+  UserInterfaceCodingWorkspaceTabsType,
+} from './UserInterfaceCodingWorkspaceTypes';
+import UserInterfaceCodingWorkspaceWriteup from './UserInterfaceCodingWorkspaceWriteup';
+import useUserInterfaceCodingWorkspaceTilesContext from './useUserInterfaceCodingWorkspaceTilesContext';
 
 const UserInterfaceCodingWorkspaceTilesPanelRoot =
   TilesPanelRoot<UserInterfaceCodingWorkspaceTabsType>;

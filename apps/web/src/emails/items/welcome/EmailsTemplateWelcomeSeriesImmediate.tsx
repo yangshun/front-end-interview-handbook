@@ -1,3 +1,14 @@
+import {
+  Body,
+  Column,
+  Container,
+  Html,
+  Img,
+  Link,
+  Preview,
+  Row,
+  Section,
+} from '@react-email/components';
 import React from 'react';
 
 import {
@@ -12,18 +23,6 @@ import EmailsParagraph from '~/emails/components/EmailsParagraph';
 import { containerStyle, mainStyle } from '~/emails/components/EmailsStyles';
 import type { EmailsUnsubscribeFields } from '~/emails/EmailsTypes';
 import { getSiteOrigin } from '~/seo/siteUrl';
-
-import {
-  Body,
-  Column,
-  Container,
-  Html,
-  Img,
-  Link,
-  Preview,
-  Row,
-  Section,
-} from '@react-email/components';
 
 type Props = Readonly<{
   unsub: EmailsUnsubscribeFields;

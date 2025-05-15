@@ -1,10 +1,9 @@
+import { Prisma } from '@prisma/client';
+import { FeedbackMessageCategory } from '@prisma/client';
 import { z } from 'zod';
 
 import prisma from '../prisma';
 import { adminProcedure, publicProcedure, router } from '../trpc';
-
-import { Prisma } from '@prisma/client';
-import { FeedbackMessageCategory } from '@prisma/client';
 
 export const feedbackRouter = router({
   getFeedbacks: adminProcedure

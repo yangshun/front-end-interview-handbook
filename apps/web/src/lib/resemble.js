@@ -1,9 +1,9 @@
 /* eslint-disable no-undef */
-/* eslint-disable @typescript-eslint/prefer-optional-chain */
+
 /* eslint-disable no-prototype-builtins */
 /* eslint-disable func-names */
 /* eslint-disable prefer-destructuring */
-/* eslint-disable @typescript-eslint/restrict-plus-operands */
+
 /* eslint-disable init-declarations */
 /* eslint-disable func-style */
 /*
@@ -40,12 +40,11 @@ var getGlobalThis = function () {
     return naiveFallback();
   }
   try {
-    // eslint-disable-next-line no-undef
     if (!__global__) {
       return naiveFallback();
     }
 
-    return __global__; // eslint-disable-line no-undef
+    return __global__;
   } finally {
     delete Object.prototype.__global__;
   }

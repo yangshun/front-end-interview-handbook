@@ -4,8 +4,8 @@ import { useController } from 'react-hook-form';
 import { useIntl } from '~/components/intl';
 import RichTextEditor from '~/components/ui/RichTextEditor';
 
-import { getProjectsChallengeSubmissionImplementationAttributes } from './ProjectsChallengeSubmissionImplementationSchema';
 import type { ProjectsChallengeSubmissionFormValues } from '../ProjectsChallengeSubmissionForm';
+import { getProjectsChallengeSubmissionImplementationAttributes } from './ProjectsChallengeSubmissionImplementationSchema';
 
 type Props = Readonly<{
   control: Control<ProjectsChallengeSubmissionFormValues>;

@@ -1,3 +1,9 @@
+import type { CODE_LANGUAGE_MAP } from '@lexical/code';
+import { CODE_LANGUAGE_FRIENDLY_NAME_MAP } from '@lexical/code';
+import { $createCodeNode, $isCodeNode } from '@lexical/code';
+import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
+import { $setBlocksType } from '@lexical/selection';
+import { mergeRegister } from '@lexical/utils';
 import {
   $createParagraphNode,
   $getNodeByKey,
@@ -12,13 +18,6 @@ import { RiCodeSSlashLine } from 'react-icons/ri';
 import { useIntl } from '~/components/intl';
 import RichTextEditorToolbarActionNode from '~/components/ui/RichTextEditor/components/RichTextEditorToolbarActionNode';
 import Select from '~/components/ui/Select';
-
-import type { CODE_LANGUAGE_MAP } from '@lexical/code';
-import { CODE_LANGUAGE_FRIENDLY_NAME_MAP } from '@lexical/code';
-import { $createCodeNode, $isCodeNode } from '@lexical/code';
-import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
-import { $setBlocksType } from '@lexical/selection';
-import { mergeRegister } from '@lexical/utils';
 
 type Props = Readonly<{
   codeLanguage: string;

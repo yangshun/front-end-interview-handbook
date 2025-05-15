@@ -1,3 +1,4 @@
+import UIExamplesGroup from '../misc/UIExamplesGroup';
 import {
   Table,
   TableBody,
@@ -7,7 +8,6 @@ import {
   TableHeader,
   TableRow,
 } from './Table';
-import UIExamplesGroup from '../misc/UIExamplesGroup';
 
 export default function TableExamples() {
   const invoices = [

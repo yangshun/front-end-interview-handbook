@@ -1,6 +1,6 @@
-import Alert, { type AlertVariant } from '../ui/Alert';
-
 import type { RemarkAlertVariants } from '@gfe/remark-alerts';
+
+import Alert, { type AlertVariant } from '../ui/Alert';
 
 const variantMap: Record<RemarkAlertVariants, AlertVariant> = {
   caution: 'danger',

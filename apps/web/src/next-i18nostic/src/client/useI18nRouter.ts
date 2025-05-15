@@ -9,9 +9,9 @@ import type { LinkProps } from 'next/link';
 import { useRouter } from 'next/navigation';
 import url from 'url';
 
-import useI18n from './useI18n';
 import type { Locale } from '../types';
 import i18nHref from '../utils/i18nHref';
+import useI18n from './useI18n';
 
 type I18nNavigateOptions = NavigateOptions & {
   locale?: Locale;

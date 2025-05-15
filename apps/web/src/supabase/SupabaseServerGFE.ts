@@ -2,14 +2,13 @@
 // The last time I tried the logging routes failed, saying that this can only be used in server components.
 // import 'server-only';
 
+import { createServerSupabaseClient } from '@supabase/auth-helpers-nextjs';
+import type { SupabaseClient, User } from '@supabase/supabase-js';
+import { createClient } from '@supabase/supabase-js';
 import { jwtVerify } from 'jose';
 import { cookies } from 'next/headers';
 
 import type { Database } from './database.types';
-
-import { createServerSupabaseClient } from '@supabase/auth-helpers-nextjs';
-import type { SupabaseClient, User } from '@supabase/supabase-js';
-import { createClient } from '@supabase/supabase-js';
 
 export type SupabaseClientGFE = SupabaseClient<Database>;
 
@@ -62,7 +61,7 @@ export async function fetchUser_DO_NOT_USE_IF_ONLY_USER_ID_OR_EMAIL_NEEDED(
 
     const tokens = decodeSupabaseAuthTokens(supabaseAuthToken);
 
-    if (tokens == null || tokens.accessToken == null) {
+    if (tokens?.accessToken == null) {
       return null;
     }
 
@@ -147,9 +146,7 @@ type SupabaseJwtPayload = Readonly<{
   sub: string; // User ID.
 }>;
 
-const encodedSecret = new TextEncoder().encode(
-  process.env.SUPABASE_JWT_SECRET!,
-);
+const encodedSecret = new TextEncoder().encode(process.env.SUPABASE_JWT_SECRET);
 
 export async function parseJWTAccessToken(
   token: string,

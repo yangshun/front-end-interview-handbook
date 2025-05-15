@@ -7,11 +7,11 @@ import Anchor from '~/components/ui/Anchor';
 import RichText from '~/components/ui/RichTextEditor/RichText';
 import Text from '~/components/ui/Text';
 
+import ProjectsProfileAvatar from '../../users/ProjectsProfileAvatar';
 import type {
   ProjectsNotificationChallengeDiscussionItemType,
   ProjectsNotificationSubmissionDiscussionItemType,
 } from '../types';
-import ProjectsProfileAvatar from '../../users/ProjectsProfileAvatar';
 
 type Props = Readonly<{
   data:

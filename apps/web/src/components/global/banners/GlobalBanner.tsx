@@ -17,9 +17,9 @@ import useUserProfileWithProjectsProfile from '~/components/projects/common/useU
 import SponsorsAdFormatGlobalBanner from '~/components/sponsors/ads/SponsorsAdFormatGlobalBanner';
 import Text from '~/components/ui/Text';
 
-import GlobalBannerShell from './GlobalBannerShell';
 import SwagOverflowLogo from '../logos/SwagOverflowLogo';
 import { useUserPreferences } from '../UserPreferencesProvider';
+import GlobalBannerShell from './GlobalBannerShell';
 
 type BannerType = 'ad' | 'projects' | 'social' | 'swag';
 

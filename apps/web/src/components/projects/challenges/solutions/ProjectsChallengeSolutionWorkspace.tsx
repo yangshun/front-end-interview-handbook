@@ -1,5 +1,8 @@
 'use client';
 
+import type { SandpackFiles } from '@codesandbox/sandpack-react';
+import { useSandpack } from '@codesandbox/sandpack-react';
+import { useMonaco } from '@monaco-editor/react';
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 import { RiCodeLine } from 'react-icons/ri';
@@ -42,10 +45,6 @@ import type {
   ProjectsChallengeSolutionWorkspacePredefinedTabsContents,
   ProjectsChallengeSolutionWorkspaceTabsType,
 } from './ProjectsChallengeSolutionWorkspaceTypes';
-
-import type { SandpackFiles } from '@codesandbox/sandpack-react';
-import { useSandpack } from '@codesandbox/sandpack-react';
-import { useMonaco } from '@monaco-editor/react';
 
 const UserInterfaceCodingWorkspaceTilesPanelRoot =
   TilesPanelRoot<ProjectsChallengeSolutionWorkspaceTabsType>;

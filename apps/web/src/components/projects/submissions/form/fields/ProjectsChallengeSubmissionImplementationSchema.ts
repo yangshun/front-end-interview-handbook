@@ -1,3 +1,5 @@
+import { createHeadlessEditor } from '@lexical/headless';
+import { $createHeadingNode } from '@lexical/rich-text';
 import {
   $createParagraphNode,
   $createTextNode,
@@ -9,9 +11,6 @@ import { z } from 'zod';
 
 import { useIntl } from '~/components/intl';
 import { RichTextEditorConfig } from '~/components/ui/RichTextEditor/RichTextEditorConfig';
-
-import { createHeadlessEditor } from '@lexical/headless';
-import { $createHeadingNode } from '@lexical/rich-text';
 
 const MIN_LENGTH = 80;
 const MAX_LENGTH = 20_000;

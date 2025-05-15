@@ -9,8 +9,6 @@ import {
 import QuestionLanguages from '~/components/interviews/questions/metadata/QuestionLanguages';
 import QuestionUsersCompletedLabel from '~/components/interviews/questions/metadata/QuestionUsersCompletedLabel';
 
-import Card from './Card';
-import CardContainer from './CardContainer';
 import Anchor from '../Anchor';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
 import Text from '../Text';
@@ -19,6 +17,8 @@ import {
   themeTextFaintColor,
   themeTextSubtleColor,
 } from '../theme';
+import Card from './Card';
+import CardContainer from './CardContainer';
 
 export default function CardExamples() {
   return (

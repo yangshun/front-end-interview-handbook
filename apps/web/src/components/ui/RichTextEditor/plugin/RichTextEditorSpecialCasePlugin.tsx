@@ -1,3 +1,5 @@
+import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
+import { mergeRegister } from '@lexical/utils';
 import {
   $getSelection,
   $isRangeSelection,
@@ -17,9 +19,6 @@ import { useIntl } from '~/components/intl';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 
 import RichTextEditorDropdownMenu from '../components/RichTextEditorDropdownMenu';
-
-import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
-import { mergeRegister } from '@lexical/utils';
 
 type RichTextEditorSpecialCase = 'strikethrough' | 'subscript' | 'superscript';
 

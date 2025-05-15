@@ -20,14 +20,12 @@
     "shiki": "^1.6.0"
   },
   "devDependencies": {
+    "@gfe/eslint-config": "workspace:*",
     "@create-figma-plugin/build": "^3.2.0",
     "@create-figma-plugin/tsconfig": "^3.2.0",
     "@figma/plugin-typings": "1.90.0",
-    "@gfe/eslint-config-gfe-core": "workspace:0.0.0",
-    "@typescript-eslint/eslint-plugin": "^5.53.0",
-    "@typescript-eslint/parser": "^5.53.0",
     "concurrently": ">=8",
-    "eslint": "8.34.0",
+    "eslint": "9.26.0",
     "prettier": "^3.1.1",
     "prettier-plugin-tailwindcss": "^0.5.9",
     "tailwindcss": "^3.4.1",

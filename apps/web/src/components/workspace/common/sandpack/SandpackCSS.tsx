@@ -1,8 +1,7 @@
 'use client';
 
-import { useServerInsertedHTML } from 'next/navigation';
-
 import { getSandpackCssText } from '@codesandbox/sandpack-react';
+import { useServerInsertedHTML } from 'next/navigation';
 
 // Ideally we import this only where we use Sandpack... but
 // the <style> tag gets injected multiple times on the page.

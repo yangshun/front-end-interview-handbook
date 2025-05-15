@@ -5,8 +5,8 @@ import type {
   InterviewsQuestionItemMinimal,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 
-import JavaScriptCodingWorkspaceSection from './JavaScriptCodingWorkspaceSection';
 import useCodingWorkspaceWorkingLanguage from '../common/useCodingWorkspaceWorkingLanguage';
+import JavaScriptCodingWorkspaceSection from './JavaScriptCodingWorkspaceSection';
 
 type Props = Readonly<{
   canViewPremiumContent: boolean;

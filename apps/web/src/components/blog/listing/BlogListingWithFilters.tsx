@@ -88,7 +88,8 @@ export default function BlogListingWithFilters({
         sortField === itemField && isAscendingOrder === isItemAscendingOrder,
       label,
       onClick: () => {
-        setSortField(itemField), setIsAscendingOrder(isItemAscendingOrder);
+        setSortField(itemField);
+        setIsAscendingOrder(isItemAscendingOrder);
       },
     };
   }

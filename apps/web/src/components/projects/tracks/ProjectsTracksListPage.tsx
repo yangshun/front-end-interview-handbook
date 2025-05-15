@@ -6,8 +6,8 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
-import ProjectsTrackSection from './ProjectsTrackSection';
 import type { ProjectsChallengeHistoricalStatuses } from '../challenges/types';
+import ProjectsTrackSection from './ProjectsTrackSection';
 
 type Props = Readonly<{
   challengeHistoricalStatuses: ProjectsChallengeHistoricalStatuses;

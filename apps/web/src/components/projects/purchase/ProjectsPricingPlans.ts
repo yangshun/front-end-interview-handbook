@@ -1,9 +1,9 @@
+import type { ProjectsSubscriptionPlan } from '@prisma/client';
+
 import type {
   PurchasePrice,
   PurchasePricingPlanPaymentConfigBase,
 } from '~/components/purchase/PurchaseTypes';
-
-import type { ProjectsSubscriptionPlan } from '@prisma/client';
 
 export type ProjectsSubscriptionPlanIncludingFree =
   | ProjectsSubscriptionPlan

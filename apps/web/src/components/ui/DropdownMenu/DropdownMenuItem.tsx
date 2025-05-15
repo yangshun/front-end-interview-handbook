@@ -1,12 +1,11 @@
+import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import React from 'react';
 
-import DropdownMenuItemContent from './DropdownMenuItemContent';
-import { dropdownContentItemClassName } from './dropdownStyles';
 import type { Props as AnchorProps } from '../Anchor';
 import Anchor from '../Anchor';
 import type { TextColor } from '../Text';
-
-import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
+import DropdownMenuItemContent from './DropdownMenuItemContent';
+import { dropdownContentItemClassName } from './dropdownStyles';
 
 export type Props = Readonly<{
   color?: TextColor;

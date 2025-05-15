@@ -12,17 +12,17 @@ import Divider from '~/components/ui/Divider';
 import Text from '~/components/ui/Text';
 import { themeBorderElementColor } from '~/components/ui/theme';
 
-import ProjectsChallengeGetStartedDownloadFigmaDesign from './ProjectsChallengeGetStartedDownloadFigmaDesign';
-import ProjectsChallengeGetStartedDownloadStarterFiles from './ProjectsChallengeGetStartedDownloadStarterFiles';
-import ProjectsChallengeGetStartedImportantInfoGuide from './ProjectsChallengeGetStartedImportantInfoGuide';
-import ProjectsChallengeGetStartedSkillSelection from './ProjectsChallengeGetStartedSkillSelection';
-import ProjectsChallengeGetStartedStartCoding from './ProjectsChallengeGetStartedStartCoding';
+import type { ProjectsViewerProjectsProfile } from '../../types';
 import type { ProjectsPremiumAccessControlType } from '../premium/ProjectsPremiumAccessControl';
 import type {
   ProjectsChallengeItem,
   ProjectsChallengeSessionSkillsFormValues,
 } from '../types';
-import type { ProjectsViewerProjectsProfile } from '../../types';
+import ProjectsChallengeGetStartedDownloadFigmaDesign from './ProjectsChallengeGetStartedDownloadFigmaDesign';
+import ProjectsChallengeGetStartedDownloadStarterFiles from './ProjectsChallengeGetStartedDownloadStarterFiles';
+import ProjectsChallengeGetStartedImportantInfoGuide from './ProjectsChallengeGetStartedImportantInfoGuide';
+import ProjectsChallengeGetStartedSkillSelection from './ProjectsChallengeGetStartedSkillSelection';
+import ProjectsChallengeGetStartedStartCoding from './ProjectsChallengeGetStartedStartCoding';
 
 type DialogStep = Readonly<{
   content: React.ReactNode;

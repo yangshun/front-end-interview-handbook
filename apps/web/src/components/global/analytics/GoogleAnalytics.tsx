@@ -1,13 +1,12 @@
 'use client';
 
+import { useUser } from '@supabase/auth-helpers-react';
 import Script from 'next/script';
 import { useEffect } from 'react';
 
 import gtag from '~/lib/gtag';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
-
-import { useUser } from '@supabase/auth-helpers-react';
 
 export default function GoogleAnalytics() {
   const { pathname } = useI18nPathname();

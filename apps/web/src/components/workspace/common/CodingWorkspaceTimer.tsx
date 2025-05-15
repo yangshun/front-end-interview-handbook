@@ -1,5 +1,6 @@
 'use client';
 
+import NumberFlow, { NumberFlowGroup } from '@number-flow/react';
 import clsx from 'clsx';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { RiArrowGoBackLine } from 'react-icons/ri';
@@ -20,8 +21,6 @@ import {
 import { hashQuestion } from '~/db/QuestionsUtils';
 
 import CodingWorkspaceBottomBarEmitter from './CodingWorkspaceBottomBarEmitter';
-
-import NumberFlow, { NumberFlowGroup } from '@number-flow/react';
 
 type Props = Readonly<{
   qnMetadata: InterviewsQuestionMetadata;
@@ -131,7 +130,11 @@ export default function CodingWorkspaceTimer({ qnMetadata }: Props) {
         title={timerRef.current === null ? 'Start' : 'Pause'}
         type="button"
         onClick={() => {
-          timerRef.current === null ? startTimer() : pauseTimer();
+          if (timerRef.current === null) {
+            startTimer();
+          } else {
+            pauseTimer();
+          }
         }}
         onMouseEnter={() => setIsTimerHovered(true)}
         onMouseLeave={() => setIsTimerHovered(false)}>

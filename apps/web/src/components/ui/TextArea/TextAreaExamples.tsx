@@ -1,6 +1,6 @@
+import UIExamplesGroup from '../misc/UIExamplesGroup';
 import type { TextAreaSize } from './TextArea';
 import TextArea from './TextArea';
-import UIExamplesGroup from '../misc/UIExamplesGroup';
 
 const sizes: ReadonlyArray<TextAreaSize> = ['md', 'sm', 'xs'];
 

@@ -1,3 +1,4 @@
+import { ActionIcon, Avatar, Button, Text } from '@mantine/core';
 import clsx from 'clsx';
 import { useState } from 'react';
 import {
@@ -8,14 +9,12 @@ import {
 
 import RelativeTimestamp from '~/components/common/datetime/RelativeTimestamp';
 
-import CommentRepliesThreadLines from './CommentRepliesThreadLines';
-import PostCommentReplies from './PostCommentReplies';
-import { parseMarkdown } from '../markdownParser';
-import { isRedditComments } from '../utils';
-
 import type { Comment } from '~/types';
 
-import { ActionIcon, Avatar, Button, Text } from '@mantine/core';
+import { parseMarkdown } from '../markdownParser';
+import { isRedditComments } from '../utils';
+import CommentRepliesThreadLines from './CommentRepliesThreadLines';
+import PostCommentReplies from './PostCommentReplies';
 
 type Props = Readonly<{
   className?: string;

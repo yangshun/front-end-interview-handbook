@@ -1,3 +1,5 @@
+import * as TabsPrimitive from '@radix-ui/react-tabs';
+import { useUser } from '@supabase/auth-helpers-react';
 import clsx from 'clsx';
 import { useEffect, useRef, useState } from 'react';
 import url from 'url';
@@ -15,9 +17,6 @@ import {
   themeOutlineElement_FocusVisible,
   themeOutlineElementBrandColor_FocusVisible,
 } from '~/components/ui/theme';
-
-import * as TabsPrimitive from '@radix-ui/react-tabs';
-import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   frameworkOrLanguage?: QuestionFrameworkOrLanguage;

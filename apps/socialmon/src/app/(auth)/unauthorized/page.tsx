@@ -1,7 +1,6 @@
+import { Button } from '@mantine/core';
 import clsx from 'clsx';
 import Link from 'next/link';
-
-import { Button } from '@mantine/core';
 
 export default function Page() {
   return (

@@ -1,6 +1,8 @@
+import { useUser } from '@supabase/auth-helpers-react';
 import { useState } from 'react';
 
 import gtag from '~/lib/gtag';
+
 import { trpc } from '~/hooks/trpc';
 
 import { FormattedMessage, useIntl } from '~/components/intl';
@@ -14,8 +16,6 @@ import logEvent from '~/logging/logEvent';
 import logMessage from '~/logging/logMessage';
 
 import useMarketingContactPlatformsConfig from '../../marketing/contact/MarketingContactPlatformsConfig';
-
-import { useUser } from '@supabase/auth-helpers-react';
 type FeedbackState = 'email' | 'message' | 'success';
 
 function SocialPlatform() {

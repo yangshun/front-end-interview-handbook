@@ -1,3 +1,4 @@
+import { useUser } from '@supabase/auth-helpers-react';
 import clsx from 'clsx';
 import { last, reduce } from 'lodash-es';
 
@@ -9,12 +10,10 @@ import { themeTextColor } from '~/components/ui/theme';
 
 import { useI18nPathname, useI18nRouter } from '~/next-i18nostic/src';
 
+import useGuidesActions from '../hooks/useGuidesActions';
 import GuidesCountLabel from './GuidesCountLabel';
 import GuidesList from './GuidesList';
 import GuideReadingTimeLabel from './GuidesReadingTimeLabel';
-import useGuidesActions from '../hooks/useGuidesActions';
-
-import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   guideItems: ReadonlyArray<{

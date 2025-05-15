@@ -1,3 +1,4 @@
+import { useUser } from '@supabase/auth-helpers-react';
 import clsx from 'clsx';
 import { RiArrowRightLine } from 'react-icons/ri';
 
@@ -9,10 +10,8 @@ import Anchor from '~/components/ui/Anchor';
 import Text from '~/components/ui/Text';
 import { themeWhiteGlowTicketBackground } from '~/components/ui/theme';
 
-import { useSocialDiscountLabels } from './useSocialDiscountLabels';
 import Ticket from '../tickets/Ticket';
-
-import { useUser } from '@supabase/auth-helpers-react';
+import { useSocialDiscountLabels } from './useSocialDiscountLabels';
 
 function SocialDiscountSidebarMentionImpl({
   className,

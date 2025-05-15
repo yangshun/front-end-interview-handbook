@@ -1,8 +1,8 @@
+import type { TilesPanelConfig, TilesPanelDropAreaSection } from '../types';
+import prune from '../utils/prune';
 import panelSplit from './panelSplit';
 import tabClose from './tabClose';
 import tabOpen from './tabOpen';
-import type { TilesPanelConfig, TilesPanelDropAreaSection } from '../types';
-import prune from '../utils/prune';
 
 type PanelTab<TabType> = Readonly<{
   panelId: string;

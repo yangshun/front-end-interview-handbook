@@ -1,3 +1,4 @@
+import type { ProjectsSubscriptionPlan } from '@prisma/client';
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 import Stripe from 'stripe';
@@ -17,8 +18,6 @@ import type {
   CheckoutProductDomain,
   CheckoutQueryParams,
 } from './checkout_session_internal_and_called_on_server_only__';
-
-import type { ProjectsSubscriptionPlan } from '@prisma/client';
 
 export const config = {
   // We have to use edge runtime because we need the geo data.

@@ -1,5 +1,6 @@
 'use client';
 
+import * as DialogPrimitive from '@radix-ui/react-dialog';
 import clsx from 'clsx';
 import * as React from 'react';
 import { RiCloseLine } from 'react-icons/ri';
@@ -11,8 +12,6 @@ import Heading from '../Heading';
 import Section from '../Heading/HeadingContext';
 import Text from '../Text';
 import { themeBackgroundLayerColor, themeBorderColor } from '../theme';
-
-import * as DialogPrimitive from '@radix-ui/react-dialog';
 
 type SlideOutSize = 'lg' | 'md' | 'sm' | 'xl' | 'xs';
 type SlideOutEnterFrom = 'end' | 'start';

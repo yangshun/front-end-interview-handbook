@@ -1,3 +1,4 @@
+import type { SponsorsAdRequestStatus } from '@prisma/client';
 import { useState } from 'react';
 
 import { trpc } from '~/hooks/trpc';
@@ -7,8 +8,6 @@ import { useToast } from '~/components/global/toasts/useToast';
 import Alert from '~/components/ui/Alert';
 import Button from '~/components/ui/Button';
 import TextArea from '~/components/ui/TextArea';
-
-import type { SponsorsAdRequestStatus } from '@prisma/client';
 
 type Props = Readonly<{
   adRequestId: string;

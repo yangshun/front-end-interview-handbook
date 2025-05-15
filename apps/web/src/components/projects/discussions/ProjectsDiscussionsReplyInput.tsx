@@ -1,3 +1,4 @@
+import { zodResolver } from '@hookform/resolvers/zod';
 import clsx from 'clsx';
 import type { SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
@@ -12,6 +13,8 @@ import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAv
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 
+import RichTextEditor from '../../ui/RichTextEditor';
+import { ProjectsReputationPointsConfig } from '../reputation/ProjectsReputationPointsConfig';
 import {
   getDiscussionsCommentBodyAttributes,
   useDiscussionsCommentBodySchema,
@@ -21,10 +24,6 @@ import type {
   ProjectsDiscussionsCommentAuthor,
   ProjectsDiscussionsCommentItem,
 } from './types';
-import { ProjectsReputationPointsConfig } from '../reputation/ProjectsReputationPointsConfig';
-import RichTextEditor from '../../ui/RichTextEditor';
-
-import { zodResolver } from '@hookform/resolvers/zod';
 
 type Props = Readonly<{
   hasNext: boolean;

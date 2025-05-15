@@ -1,3 +1,4 @@
+import * as AccordionPrimitive from '@radix-ui/react-accordion';
 import clsx from 'clsx';
 import { RiArrowDownSLine } from 'react-icons/ri';
 
@@ -7,12 +8,10 @@ import {
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
+import type { ProjectsChallengeItem } from '../challenges/types';
 import ProjectsSkillAccordionHeader from './ProjectsSkillAccordionHeader';
 import ProjectsSkillChallengesList from './ProjectsSkillChallengesList';
 import type { ProjectsSkillSummaryItemForSubmission } from './types';
-import type { ProjectsChallengeItem } from '../challenges/types';
-
-import * as AccordionPrimitive from '@radix-ui/react-accordion';
 
 type Props = Readonly<{
   challenges: ReadonlyArray<ProjectsChallengeItem>;

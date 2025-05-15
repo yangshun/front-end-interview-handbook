@@ -1,16 +1,15 @@
-import type { EditorThemeClasses, LexicalNode } from 'lexical';
-import type { CreateEditorArgs, Klass, LexicalNodeReplacement } from 'lexical';
-
-import { CustomAutoLinkNode, CustomLinkNode } from './nodes/CustomLinkNode';
-import RichTextEditorTheme from './theme/RichTextEditorTheme';
-import { externalLinkHref } from '../Anchor/ExternalLinkHref';
-
 import { CodeHighlightNode, CodeNode } from '@lexical/code';
 import { AutoLinkNode } from '@lexical/link';
 import { LinkNode } from '@lexical/link';
 import { ListItemNode, ListNode } from '@lexical/list';
 import { HorizontalRuleNode } from '@lexical/react/LexicalHorizontalRuleNode';
 import { HeadingNode, QuoteNode } from '@lexical/rich-text';
+import type { EditorThemeClasses, LexicalNode } from 'lexical';
+import type { CreateEditorArgs, Klass, LexicalNodeReplacement } from 'lexical';
+
+import { externalLinkHref } from '../Anchor/ExternalLinkHref';
+import { CustomAutoLinkNode, CustomLinkNode } from './nodes/CustomLinkNode';
+import RichTextEditorTheme from './theme/RichTextEditorTheme';
 
 export type RichTextEditorConfigType = Readonly<{
   namespace: string;

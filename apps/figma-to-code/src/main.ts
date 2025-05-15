@@ -1,3 +1,5 @@
+import { emit, on, once, showUI } from '@create-figma-plugin/utilities';
+
 import { convertFigmaNodeToGFENode } from './nodes/convertFigmaNodeToGFENode';
 import { heightConfig, widthConfig } from './utils/constants';
 import type {
@@ -7,8 +9,6 @@ import type {
   SelectionChangedHandler,
   UIReadyHandler,
 } from './utils/types';
-
-import { emit, on, once, showUI } from '@create-figma-plugin/utilities';
 
 export default function main() {
   on<ResizeWindowHandler>(

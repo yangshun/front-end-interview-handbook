@@ -1,3 +1,4 @@
+import type { ProjectsChallengeSessionStatus } from '@prisma/client';
 import type {
   ProjectsSkillInfo,
   ProjectsSkillMetadata,
@@ -14,14 +15,12 @@ import {
 } from '~/db/projects/ProjectsReader';
 import prisma from '~/server/prisma';
 
-import { skillsRoadmapConfig } from './ProjectsSkillRoadmapConfigData';
+import type { ProjectsChallengeItem } from '../../challenges/types';
 import type {
   ProjectsSkillKey,
   ProjectsSkillRoadmapSectionData,
 } from '../types';
-import type { ProjectsChallengeItem } from '../../challenges/types';
-
-import type { ProjectsChallengeSessionStatus } from '@prisma/client';
+import { skillsRoadmapConfig } from './ProjectsSkillRoadmapConfigData';
 
 export async function fetchProjectsSkillsRoadmapSectionData(
   targetUserId?: string,

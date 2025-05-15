@@ -1,3 +1,10 @@
+import {
+  Body,
+  Container,
+  Html,
+  Preview,
+  Section,
+} from '@react-email/components';
 import { lowerCase, startCase } from 'lodash-es';
 import React from 'react';
 
@@ -16,14 +23,6 @@ import {
   EmailsStrong,
 } from '~/emails/components/EmailsComponents';
 import { containerStyle, mainStyle } from '~/emails/components/EmailsStyles';
-
-import {
-  Body,
-  Container,
-  Html,
-  Preview,
-  Section,
-} from '@react-email/components';
 
 type Props = Readonly<{
   ads: Array<SponsorsAdFormatFormItem>;

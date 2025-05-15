@@ -1,5 +1,6 @@
 'use client';
 
+import { useUser } from '@supabase/auth-helpers-react';
 import clsx from 'clsx';
 import { useRef } from 'react';
 import { RiArrowRightSLine, RiStarSmileFill } from 'react-icons/ri';
@@ -19,13 +20,11 @@ import ScrollArea from '~/components/ui/ScrollArea';
 import Text, { textVariants } from '~/components/ui/Text';
 import { themeBackgroundLayerEmphasized_Hover } from '~/components/ui/theme';
 
-import useAdminNavLinks from './useAdminNavLinks';
-import useAdminSidebarLinks from './useAdminSidebarLinks';
 import NavProfileIcon from '../global/navbar/NavProfileIcon';
 import SidebarLinksSection from '../global/sidebar/SidebarLinksSection';
 import useInterviewsLoggedInLinks from '../interviews/common/useInterviewsLoggedInLinks';
-
-import { useUser } from '@supabase/auth-helpers-react';
+import useAdminNavLinks from './useAdminNavLinks';
+import useAdminSidebarLinks from './useAdminSidebarLinks';
 
 type Props = Readonly<{
   hideOnDesktop?: boolean;

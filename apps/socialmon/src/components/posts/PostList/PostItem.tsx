@@ -1,13 +1,12 @@
+import { Box, Title } from '@mantine/core';
 import clsx from 'clsx';
 import Link from 'next/link';
 
 import useCurrentProjectSlug from '~/hooks/useCurrentProjectSlug';
 
-import PostMetadata from './PostMetadata';
-
 import type { PostExtended } from '~/types';
 
-import { Box, Title } from '@mantine/core';
+import PostMetadata from './PostMetadata';
 
 type Props = Readonly<{
   post: Readonly<{

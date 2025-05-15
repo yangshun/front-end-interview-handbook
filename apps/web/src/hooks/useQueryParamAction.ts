@@ -4,9 +4,7 @@ import url from 'url';
 
 export const queryParamActionKey = 'action';
 
-type StrictObject<T extends string> = {
-  [K in T]: string;
-};
+type StrictObject<T extends string> = Record<T, string>;
 
 export default function useQueryParamAction<T extends string>(
   actionName: string,

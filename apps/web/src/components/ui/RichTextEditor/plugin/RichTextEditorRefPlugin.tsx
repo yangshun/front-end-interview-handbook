@@ -1,7 +1,6 @@
+import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
 import type { LexicalEditor } from 'lexical';
 import type { MutableRefObject } from 'react';
-
-import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
 
 export default function RichTextEditorRefPlugin({
   editorRef,

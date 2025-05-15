@@ -1,3 +1,4 @@
+import { useUser } from '@supabase/auth-helpers-react';
 import clsx from 'clsx';
 import { useMediaQuery } from 'usehooks-ts';
 
@@ -11,13 +12,11 @@ import Img from '~/components/ui/Img';
 import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 
+import useProjectsProfileStats from '../hooks/useProjectsProfileStats';
+import ProjectsProfileSocialLinks from '../profile/info/ProjectsProfileSocialLinks';
 import ProjectsProfileDisplayNameLink from './ProjectsProfileDisplayNameLink';
 import ProjectsProfilePremiumChip from './ProjectsProfilePremiumChip';
 import ProjectsUserReputation from './ProjectsUserReputation';
-import useProjectsProfileStats from '../hooks/useProjectsProfileStats';
-import ProjectsProfileSocialLinks from '../profile/info/ProjectsProfileSocialLinks';
-
-import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   userId: string;

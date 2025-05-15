@@ -1,11 +1,10 @@
+import type { SponsorsAdRequestStatus } from '@prisma/client';
 import { useQueryState } from 'nuqs';
 
 import type {
   AdminSponsorsAdRequestSortField,
   SponsorsAdminFilter,
 } from '../types';
-
-import type { SponsorsAdRequestStatus } from '@prisma/client';
 
 export default function useSponsorsAdminAdRequestFilters() {
   const [query, setQuery] = useQueryState('query', { defaultValue: '' });
@@ -39,9 +38,11 @@ export default function useSponsorsAdminAdRequestFilters() {
     onChange: (value) => {
       const newStatuses = new Set(selectedStatus);
 
-      selectedStatus.includes(value)
-        ? newStatuses.delete(value)
-        : newStatuses.add(value);
+      if (selectedStatus.includes(value)) {
+        newStatuses.delete(value);
+      } else {
+        newStatuses.add(value);
+      }
       setSelectedStatus(Array.from(newStatuses));
     },
     onClear: () => {

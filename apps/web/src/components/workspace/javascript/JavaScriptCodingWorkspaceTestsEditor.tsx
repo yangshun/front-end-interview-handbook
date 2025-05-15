@@ -1,3 +1,4 @@
+import { useMonaco } from '@monaco-editor/react';
 import clsx from 'clsx';
 import type { editor } from 'monaco-editor';
 import { useEffect, useState } from 'react';
@@ -5,8 +6,6 @@ import { useEffect, useState } from 'react';
 import JavaScriptTestCodesEmitter from '~/components/workspace/javascript/JavaScriptTestCodesEmitter';
 
 import JavaScriptCodingWorkspaceCodeEditor from './JavaScriptCodingWorkspaceCodeEditor';
-
-import { useMonaco } from '@monaco-editor/react';
 
 type Props = Readonly<{
   specPath: string;

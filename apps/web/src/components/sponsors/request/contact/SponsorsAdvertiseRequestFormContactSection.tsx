@@ -1,3 +1,4 @@
+import { zodResolver } from '@hookform/resolvers/zod';
 import clsx from 'clsx';
 import { useEffect } from 'react';
 import { Controller, useFieldArray, useForm, useWatch } from 'react-hook-form';
@@ -13,8 +14,6 @@ import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 
 import { useSponsorsAdvertiseRequestContactSchema } from './SponsorsAdvertiseRequestContactSchema';
-
-import { zodResolver } from '@hookform/resolvers/zod';
 
 type Props = Readonly<{
   defaultValues: ReadonlyArray<string>;

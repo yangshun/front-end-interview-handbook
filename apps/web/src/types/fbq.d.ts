@@ -1,6 +1,6 @@
 // Modified from https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/facebook-pixel/index.d.ts
 
-/* eslint-disable init-declarations */
+ 
 /* eslint-disable no-var */
 /* eslint-disable @typescript-eslint/consistent-type-definitions */
 
@@ -20,7 +20,7 @@ type ParamStatus = boolean;
 type ParamValue = number;
 
 declare namespace facebook.Pixel {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+   
   interface Event {
     (eventType: 'init', initialAppId: string): void;
     (

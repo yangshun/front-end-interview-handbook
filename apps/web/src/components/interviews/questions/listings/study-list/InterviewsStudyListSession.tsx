@@ -1,3 +1,4 @@
+import { useUser } from '@supabase/auth-helpers-react';
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
 import { parseAsBoolean, useQueryState } from 'nuqs';
@@ -28,11 +29,9 @@ import Text from '~/components/ui/Text';
 import type { QuestionProgress } from '~/db/QuestionsProgressTypes';
 import { questionsForImportProgress } from '~/db/QuestionsUtils';
 
+import QuestionsProgressFraction from '../../common/QuestionsProgressFraction';
 import InterviewsStudyListImportProgressDialog from './InterviewsStudyListImportProgressDialog';
 import { useStartLearningSessionMutation } from './InterviewsStudyListSessionUtils';
-import QuestionsProgressFraction from '../../common/QuestionsProgressFraction';
-
-import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   overallProgress: ReadonlyArray<QuestionProgress>;

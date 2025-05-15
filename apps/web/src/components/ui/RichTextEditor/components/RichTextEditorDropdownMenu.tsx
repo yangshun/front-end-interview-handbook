@@ -1,6 +1,6 @@
-import DropdownMenu from '~/components/ui/DropdownMenu';
-
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
+
+import DropdownMenu from '~/components/ui/DropdownMenu';
 
 type Props = Readonly<{
   children: React.ComponentProps<typeof DropdownMenu>['children'];

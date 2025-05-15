@@ -1,3 +1,4 @@
+import { Prisma, ProjectsDiscussionCommentDomain } from '@prisma/client';
 import { z } from 'zod';
 
 import { discussionsCommentBodySchemaServer } from '~/components/projects/discussions/ProjectsDiscussionsCommentBodySchema';
@@ -16,10 +17,8 @@ import { fetchProjectsChallengeMetadata } from '~/db/contentlayer/projects/Proje
 import { readProjectsChallengeInfo } from '~/db/projects/ProjectsReader';
 import prisma from '~/server/prisma';
 
-import { projectsUserProcedure } from './procedures';
 import { publicProcedure, router, userProcedure } from '../../trpc';
-
-import { Prisma, ProjectsDiscussionCommentDomain } from '@prisma/client';
+import { projectsUserProcedure } from './procedures';
 
 export const projectsCommentsRouter = router({
   create: projectsUserProcedure

@@ -1,11 +1,10 @@
+import * as Switch from '@radix-ui/react-switch';
 import clsx from 'clsx';
 
 import { useIntl } from '~/components/intl';
 import Text from '~/components/ui/Text';
 import { themeOutlineElementBrandColor_FocusVisible } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
-
-import * as Switch from '@radix-ui/react-switch';
 
 type Props = Readonly<{
   isFocusMode: boolean;

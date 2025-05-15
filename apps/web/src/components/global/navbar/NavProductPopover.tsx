@@ -1,5 +1,6 @@
 'use client';
 
+import * as PopoverPrimitive from '@radix-ui/react-popover';
 import clsx from 'clsx';
 import React from 'react';
 import { RiArrowDownSLine } from 'react-icons/ri';
@@ -21,8 +22,6 @@ import {
 
 import LogoComboMark from '../logos/LogoComboMark';
 import { useProductMenuUnseenIndicator } from '../product-theme/useProductMenuUnseenIndicator';
-
-import * as PopoverPrimitive from '@radix-ui/react-popover';
 
 type ProductValue = 'interviews' | 'projects';
 

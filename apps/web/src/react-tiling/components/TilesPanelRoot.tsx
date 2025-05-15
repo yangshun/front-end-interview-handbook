@@ -3,9 +3,9 @@ import type { CSSProperties, ReactNode } from 'react';
 import { useEffect, useState } from 'react';
 import type { PanelGroupProps } from 'react-resizable-panels';
 
-import TilesPanel from './TilesPanel';
 import { useDragHighlightContext } from '../state/useDragHighlightContext';
 import { useTilesContext } from '../state/useTilesContext';
+import TilesPanel from './TilesPanel';
 
 export type Props<TabType> = Readonly<{
   disablePointerEventsDuringResize?: boolean;

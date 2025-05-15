@@ -1,9 +1,8 @@
+import type { Monaco } from '@monaco-editor/react';
 import { useEffect } from 'react';
 
-import getLanguageFromFilePath from './getLanguageFromFilePath';
 import type { SandpackBundlerFiles } from '../explorer/types';
-
-import type { Monaco } from '@monaco-editor/react';
+import getLanguageFromFilePath from './getLanguageFromFilePath';
 
 // This hook should be run on the project level, and not for individual files.
 export default function useMonacoEditorModels(

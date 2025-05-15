@@ -1,3 +1,4 @@
+import type { ProjectsChallengeSubmissionScreenshotStatus } from '@prisma/client';
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 import { RiImageLine, RiInformationLine } from 'react-icons/ri';
@@ -26,11 +27,9 @@ import {
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
-import ProjectsImageViewer from './ProjectsImageViewer';
 import type { ProjectsChallengeVariantImages } from '../challenges/types';
 import ProjectsChallengeSubmissionImageMatchScore from '../submissions/screenshots/ProjectsChallengeSubmissionImageMatchScore';
-
-import type { ProjectsChallengeSubmissionScreenshotStatus } from '@prisma/client';
+import ProjectsImageViewer from './ProjectsImageViewer';
 
 type RetakeScreenshotStatus = 'error' | 'idle' | 'loading' | 'success';
 type Props = Readonly<{

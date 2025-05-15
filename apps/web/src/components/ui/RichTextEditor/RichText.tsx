@@ -1,15 +1,14 @@
-import clsx from 'clsx';
-
-import type { RichTextEditorConfigType } from './RichTextEditorConfig';
-import { RichTextEditorWithExternalLinkConfig } from './RichTextEditorConfig';
-import type { ProseTextSize } from '../Prose';
-import { proseStyle } from '../Prose';
-import { themeTextColor } from '../theme';
-
 import { LexicalComposer } from '@lexical/react/LexicalComposer';
 import { ContentEditable } from '@lexical/react/LexicalContentEditable';
 import { LexicalErrorBoundary } from '@lexical/react/LexicalErrorBoundary';
 import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin';
+import clsx from 'clsx';
+
+import type { ProseTextSize } from '../Prose';
+import { proseStyle } from '../Prose';
+import { themeTextColor } from '../theme';
+import type { RichTextEditorConfigType } from './RichTextEditorConfig';
+import { RichTextEditorWithExternalLinkConfig } from './RichTextEditorConfig';
 
 type RichTextColor = 'body' | 'default';
 

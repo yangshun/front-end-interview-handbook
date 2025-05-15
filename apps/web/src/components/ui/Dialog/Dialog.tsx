@@ -1,17 +1,16 @@
+import * as DialogPrimitive from '@radix-ui/react-dialog';
 import clsx from 'clsx';
 import * as React from 'react';
 import { RiCloseLine } from 'react-icons/ri';
 
 import { useIntl } from '~/components/intl';
 
-import DialogBaseOverlay from './DialogBaseOverlay';
 import Button from '../Button';
 import Section from '../Heading/HeadingContext';
 import { headingCVA } from '../Heading/HeadingStyles';
 import { textVariants } from '../Text/TextStyles';
 import { themeBackgroundLayerEmphasized } from '../theme';
-
-import * as DialogPrimitive from '@radix-ui/react-dialog';
+import DialogBaseOverlay from './DialogBaseOverlay';
 
 export type DialogWidth =
   | 'custom'

@@ -3,9 +3,9 @@ import clsx from 'clsx';
 import { useIntl } from '~/components/intl';
 import Text from '~/components/ui/Text';
 
-import ProjectsSkillChipDeleteButton from './ProjectsSkillChipDeleteButton';
 import { projectsSkillLabel } from '../data/ProjectsSkillListData';
 import type { ProjectsSkillKey } from '../types';
+import ProjectsSkillChipDeleteButton from './ProjectsSkillChipDeleteButton';
 
 type Props =
   | Readonly<{

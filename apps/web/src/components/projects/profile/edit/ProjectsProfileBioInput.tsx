@@ -8,8 +8,8 @@ import ProjectsChallengeReputationBadge from '~/components/projects/challenges/m
 import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
 import TextArea from '~/components/ui/TextArea';
 
-import { getProjectsProfileBioAttrs } from '../fields/ProjectsProfileBioSchema';
 import { ProjectsReputationPointsConfig } from '../../reputation/ProjectsReputationPointsConfig';
+import { getProjectsProfileBioAttrs } from '../fields/ProjectsProfileBioSchema';
 
 type Values = ProjectsProfileEditFormValues;
 

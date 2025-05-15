@@ -1,10 +1,9 @@
+import type { SponsorsAdFormat } from '@prisma/client';
 import { useInView } from 'motion/react';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef } from 'react';
 
 import gtag from '~/lib/gtag';
-
-import type { SponsorsAdFormat } from '@prisma/client';
 
 export default function useSponsorsAdImpressionLogging<T extends HTMLElement>(
   adFormat: SponsorsAdFormat,

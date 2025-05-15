@@ -1,9 +1,8 @@
+import type { Monaco } from '@monaco-editor/react';
 import type { editor as Editor } from 'monaco-editor';
 import { useEffect } from 'react';
 
 import { useCodingWorkspaceContext } from '../CodingWorkspaceContext';
-
-import type { Monaco } from '@monaco-editor/react';
 
 export default function useMonacoEditorAddActions(
   monaco: Monaco | null,

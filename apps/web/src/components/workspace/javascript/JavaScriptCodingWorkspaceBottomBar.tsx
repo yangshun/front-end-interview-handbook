@@ -15,10 +15,10 @@ import { useVimMode } from '~/components/workspace/common/editor/hooks/useVimMod
 
 import logEvent from '~/logging/logEvent';
 
-import JavaScriptCodingWorkspaceLayoutDialog from './JavaScriptCodingWorkspaceLayoutDialog';
 import CodingWorkspaceBottomBar from '../common/CodingWorkspaceBottomBar';
 import { useCodingWorkspaceContext } from '../common/CodingWorkspaceContext';
 import CodingWorkspaceTimer from '../common/CodingWorkspaceTimer';
+import JavaScriptCodingWorkspaceLayoutDialog from './JavaScriptCodingWorkspaceLayoutDialog';
 
 type Props = Readonly<{
   layout: 'full' | 'minimal';

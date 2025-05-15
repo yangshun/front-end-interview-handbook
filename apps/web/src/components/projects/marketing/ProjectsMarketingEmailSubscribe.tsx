@@ -3,6 +3,7 @@ import { useId } from 'react';
 import { RiArrowRightLine } from 'react-icons/ri';
 
 import { fbqGFE } from '~/lib/fbq';
+
 import { trpc } from '~/hooks/trpc';
 
 import { SocialLinks } from '~/data/SocialLinks';

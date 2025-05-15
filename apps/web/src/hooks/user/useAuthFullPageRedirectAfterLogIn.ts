@@ -1,3 +1,4 @@
+import { useUser } from '@supabase/auth-helpers-react';
 import { useEffect, useRef } from 'react';
 import url from 'url';
 
@@ -6,8 +7,6 @@ import { trpc } from '~/hooks/trpc';
 import { useAuthSignedInBefore } from '~/components/auth/useAuthSignedInBefore';
 
 import { i18nHref, useI18n } from '~/next-i18nostic/src';
-
-import { useUser } from '@supabase/auth-helpers-react';
 
 export default function useAuthFullPageRedirectAfterLogin(
   next: string | null | undefined,

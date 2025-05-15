@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
-import RootLayout from './RootLayout';
-
 import '~/styles/globals.css';
+
+import RootLayout from './RootLayout';
 
 type Props = Readonly<{
   children: React.ReactNode;

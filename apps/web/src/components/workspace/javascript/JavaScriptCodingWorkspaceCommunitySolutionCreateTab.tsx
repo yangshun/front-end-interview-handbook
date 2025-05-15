@@ -17,9 +17,9 @@ import Text from '~/components/ui/Text';
 import TextArea from '~/components/ui/TextArea';
 import TextInput from '~/components/ui/TextInput';
 
-import JavaScriptCodingWorkspaceWorkingLanguageSelect from './JavaScriptCodingWorkspaceWorkingLanguageSelect';
 import { useVimMode } from '../common/editor/hooks/useVimMode';
 import MonacoCodeEditor from '../common/editor/MonacoCodeEditor';
+import JavaScriptCodingWorkspaceWorkingLanguageSelect from './JavaScriptCodingWorkspaceWorkingLanguageSelect';
 
 type Props = Readonly<{
   metadata: InterviewsQuestionMetadata;

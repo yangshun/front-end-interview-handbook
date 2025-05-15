@@ -1,13 +1,11 @@
+import { Pill, Text, Title } from '@mantine/core';
 import clsx from 'clsx';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
 import prisma from '~/server/prisma';
-
 import type { ProjectTransformed } from '~/types';
-
-import { Pill, Text, Title } from '@mantine/core';
 
 type Props = Readonly<{
   params: {

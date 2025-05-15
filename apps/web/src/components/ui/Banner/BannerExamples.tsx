@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import Banner from './Banner';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
+import Banner from './Banner';
 
 export default function BannerExamples() {
   const [isShown, setIsShown] = useState(true);

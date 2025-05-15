@@ -2,10 +2,10 @@ import { useEffect } from 'react';
 
 import JavaScriptTestCodesEmitter from '~/components/workspace/javascript/JavaScriptTestCodesEmitter';
 
-import useJavaScriptCodingWorkspaceTilesContext from './useJavaScriptCodingWorkspaceTilesContext';
 import { useCodingWorkspaceContext } from '../common/CodingWorkspaceContext';
 import { codingWorkspaceTabFileId } from '../common/tabs/codingWorkspaceTabId';
 import TestsSection from '../common/tests/TestsSection';
+import useJavaScriptCodingWorkspaceTilesContext from './useJavaScriptCodingWorkspaceTilesContext';
 
 export default function JavaScriptCodingWorkspaceTestsRunTab({
   specPath,

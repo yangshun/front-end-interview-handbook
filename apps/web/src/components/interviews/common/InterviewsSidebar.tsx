@@ -1,5 +1,6 @@
 'use client';
 
+import { useUser } from '@supabase/auth-helpers-react';
 import clsx from 'clsx';
 
 import useUserProfile from '~/hooks/user/useUserProfile';
@@ -35,8 +36,6 @@ import { useI18nPathname } from '~/next-i18nostic/src';
 
 import useInterviewsNavItems from './useInterviewsNavItems';
 import useInterviewsSidebarLinks from './useInterviewsSidebarLinks';
-
-import { useUser } from '@supabase/auth-helpers-react';
 
 export function InterviewsSidebarExpanded({
   sidebarItems,

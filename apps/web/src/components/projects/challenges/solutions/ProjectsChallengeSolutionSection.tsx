@@ -1,5 +1,7 @@
 'use client';
 
+import type { SandboxEnvironment } from '@codesandbox/sandpack-react';
+import { SandpackProvider } from '@codesandbox/sandpack-react';
 import clsx from 'clsx';
 
 import CodingPreferencesProvider from '~/components/global/CodingPreferencesProvider';
@@ -9,9 +11,6 @@ import SandpackErrorReporting from '~/components/workspace/common/sandpack/Sandp
 import sandpackProviderOptions from '~/components/workspace/common/sandpack/sandpackProviderOptions';
 
 import ProjectsChallengeSolutionWorkspace from './ProjectsChallengeSolutionWorkspace';
-
-import type { SandboxEnvironment } from '@codesandbox/sandpack-react';
-import { SandpackProvider } from '@codesandbox/sandpack-react';
 
 type Props = Readonly<{
   solution: ProjectsChallengeSolutionBundle;

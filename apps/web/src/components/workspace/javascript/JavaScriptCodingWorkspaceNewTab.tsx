@@ -4,11 +4,11 @@ import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 
+import { INTERVIEWS_JS_COMMUNITY_SOLUTIONS_IS_LIVE } from '../../../data/FeatureFlags';
 import type {
   JavaScriptCodingWorkspacePredefinedTabsContents,
   JavaScriptCodingWorkspacePredefinedTabsType,
 } from './JavaScriptCodingWorkspaceTypes';
-import { INTERVIEWS_JS_COMMUNITY_SOLUTIONS_IS_LIVE } from '../../../data/FeatureFlags';
 
 export default function JavaScriptCodingWorkspaceNewTab({
   predefinedTabs,

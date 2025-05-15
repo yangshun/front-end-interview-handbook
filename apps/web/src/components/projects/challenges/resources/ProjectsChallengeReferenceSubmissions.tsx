@@ -8,8 +8,8 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 
-import type { ProjectsChallengeItem } from '../types';
 import ProjectsChallengeSubmissionList from '../../submissions/lists/ProjectsChallengeSubmissionList';
+import type { ProjectsChallengeItem } from '../types';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;

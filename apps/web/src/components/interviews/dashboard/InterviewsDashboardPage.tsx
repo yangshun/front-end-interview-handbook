@@ -1,5 +1,6 @@
 'use client';
 
+import { useUser } from '@supabase/auth-helpers-react';
 import clsx from 'clsx';
 import type {
   InterviewsListingBottomContent,
@@ -27,15 +28,13 @@ import {
 } from '~/db/guides/GuidesUtils';
 import { categorizeQuestionsProgress } from '~/db/QuestionsUtils';
 
+import { createStudyListMapFromArray } from '../questions/content/study-list/StudyListUtils';
 import InterviewsDashboardContinueLearningSection from './InterviewsDashboardContinueLearningSection';
 import InterviewsDashboardMoreLearningSection from './InterviewsDashboardMoreLearningSection';
 import InterviewsDashboardPageHeader from './InterviewsDashboardPageHeader';
 import InterviewsDashboardRecommendedPreparationStrategy from './InterviewsDashboardRecommendedPreparationStrategy';
 import InterviewsDashboardProgressSection from './progress/InterviewsDashboardProgressSection';
 import { getDateRangeFromToday } from './progress/utils';
-import { createStudyListMapFromArray } from '../questions/content/study-list/StudyListUtils';
-
-import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   bottomContent?: InterviewsListingBottomContent;

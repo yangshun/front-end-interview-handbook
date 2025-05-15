@@ -1,9 +1,8 @@
+import { useUser } from '@supabase/auth-helpers-react';
 import clsx from 'clsx';
 
 import SponsorsAdvertiseWithUsBadge from '~/components/sponsors/SponsorsAdvertiseWithUsBadge';
 import NavbarEnd from '~/components/ui/Navbar/NavbarEnd';
-
-import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Omit<React.ComponentProps<typeof NavbarEnd>, 'className'> &
   Readonly<{

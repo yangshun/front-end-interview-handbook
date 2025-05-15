@@ -1,10 +1,10 @@
+import type { ProjectsViewerProjectsProfile } from '../../types';
 import type { ProjectsPremiumAccessControlType } from './ProjectsPremiumAccessControl';
 import ProjectsPremiumPaywall from './ProjectsPremiumPaywall';
 import {
   useProjectsChallengeSubmissionPaywallSubtitle,
   useProjectsChallengeSubmissionPaywallTitle,
 } from './ProjectsPremiumPaywallStrings';
-import type { ProjectsViewerProjectsProfile } from '../../types';
 
 type Props = Readonly<{
   slug: string;

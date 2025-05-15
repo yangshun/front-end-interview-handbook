@@ -1,7 +1,7 @@
 import { useLocalStorage } from 'usehooks-ts';
 
-import type { ProjectsChallengeItemStepsTabType } from './ProjectsChallengeStepsTabsImpl';
 import type { ProjectsChallengeItem } from '../types';
+import type { ProjectsChallengeItemStepsTabType } from './ProjectsChallengeStepsTabsImpl';
 
 export default function useProjectsChallengeStepsReadStatus(
   challenge: ProjectsChallengeItem,

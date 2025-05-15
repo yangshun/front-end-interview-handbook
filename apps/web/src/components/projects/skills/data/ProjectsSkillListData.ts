@@ -1,8 +1,8 @@
 import { startCase } from 'lodash-es';
 
+import type { ProjectsSkillKey } from '../types';
 import { allRoadmapSkillsSet } from './ProjectsSkillProcessor';
 import { projectsSkillRoadmapItemLabelsDict } from './ProjectsSkillUtils';
-import type { ProjectsSkillKey } from '../types';
 
 const ProjectsSkillLabels: Record<ProjectsSkillKey, string> = {
   '@11ty/eleventy': 'Eleventy',

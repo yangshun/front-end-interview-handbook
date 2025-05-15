@@ -6,8 +6,8 @@ import { useIntl } from '~/components/intl';
 import EmptyState from '~/components/ui/EmptyState';
 import { themeBorderColor } from '~/components/ui/theme';
 
-import ProjectsChallengeSubmissionCard from './ProjectsChallengeSubmissionCard';
 import type { ProjectsChallengeSubmissionAugmented } from '../types';
+import ProjectsChallengeSubmissionCard from './ProjectsChallengeSubmissionCard';
 
 type Props = Readonly<{
   submissions: ReadonlyArray<ProjectsChallengeSubmissionAugmented>;

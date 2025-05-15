@@ -6,8 +6,8 @@ import { useIntl } from '~/components/intl';
 import { themeIconColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
-import QuestionTopicLabel from './QuestionTopicLabel';
 import type { QuestionTopic } from '../common/QuestionsTypes';
+import QuestionTopicLabel from './QuestionTopicLabel';
 
 type Props = Readonly<{
   showIcon?: boolean;

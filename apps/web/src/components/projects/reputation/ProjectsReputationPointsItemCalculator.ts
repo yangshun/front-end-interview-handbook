@@ -1,8 +1,8 @@
 import { readProjectsChallengeMetadata } from '~/db/projects/ProjectsReader';
 
-import { ProjectsReputationPointsConfig } from './ProjectsReputationPointsConfig';
 import { projectsSkillDetermineParentSkill } from '../skills/data/ProjectsSkillUtils';
 import type { ProjectsSkillKey } from '../skills/types';
+import { ProjectsReputationPointsConfig } from './ProjectsReputationPointsConfig';
 
 // Profile.
 export const projectsReputationProfileSignUpConfig = () => ({

@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/consistent-type-definitions */
-/* eslint-disable @typescript-eslint/no-empty-interface */
 
 export interface GFEBaseNodeMixin {
   readonly id: string;
@@ -120,6 +119,7 @@ export interface GFEBaseFrameMixin
   clipsContent: boolean;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface GFEDefaultFrameMixin extends GFEBaseFrameMixin {}
 
 export interface GFEFrameNode extends GFEDefaultFrameMixin {

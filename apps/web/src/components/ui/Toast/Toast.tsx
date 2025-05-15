@@ -1,3 +1,4 @@
+import * as ToastPrimitive from '@radix-ui/react-toast';
 import clsx from 'clsx';
 import * as React from 'react';
 import {
@@ -14,8 +15,6 @@ import { FormattedMessage } from '~/components/intl';
 import type { TextColor } from '../Text';
 import Text from '../Text';
 import { themeTextColor, themeTextInvertColor } from '../theme';
-
-import * as ToastPrimitive from '@radix-ui/react-toast';
 
 export type ToastVariant =
   | 'danger'

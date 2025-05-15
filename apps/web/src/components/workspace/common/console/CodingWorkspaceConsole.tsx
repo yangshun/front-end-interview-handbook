@@ -1,7 +1,7 @@
+import { useSandpackConsole } from '@codesandbox/sandpack-react';
+
 import { useCodingPreferences } from '~/components/global/CodingPreferencesProvider';
 import JavaScriptConsole from '~/components/workspace/common/console/JavaScriptConsole';
-
-import { useSandpackConsole } from '@codesandbox/sandpack-react';
 
 export default function CodingWorkspaceConsole() {
   const { consoleShouldPreserveLogs, setConsoleShouldPreserveLogs } =

@@ -1,13 +1,13 @@
 import { RiEyeLine, RiHome2Line, RiSunLine } from 'react-icons/ri';
 
+import UIExamplesGroup from '../misc/UIExamplesGroup';
+import Text from '../Text';
 import {
   Hovercard,
   HovercardContent,
   HovercardPortal,
   HovercardTrigger,
 } from './Hovercard';
-import UIExamplesGroup from '../misc/UIExamplesGroup';
-import Text from '../Text';
 
 const items = [
   {

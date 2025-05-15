@@ -15,12 +15,12 @@ import {
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
-import useUserProfileWithProjectsProfile from '../../useUserProfileWithProjectsProfile';
 import ProjectsPremiumPricingTableDialog from '../../../challenges/premium/ProjectsPremiumPricingTableDialog';
 import {
   annualPlanFeatures,
   monthlyPlanFeatures,
 } from '../../../purchase/ProjectsPricingFeaturesConfig';
+import useUserProfileWithProjectsProfile from '../../useUserProfileWithProjectsProfile';
 
 function UnlockCreditsTooltip({ children }: Readonly<{ children: ReactNode }>) {
   return (

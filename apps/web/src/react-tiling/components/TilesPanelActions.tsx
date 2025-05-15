@@ -14,8 +14,8 @@ import type { PanelGroupProps } from 'react-resizable-panels';
 import Button from '~/components/ui/Button';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 
-import type { TilesPanelItemMode } from './TilesPanelItem';
 import { useTilesContext } from '../state/useTilesContext';
+import type { TilesPanelItemMode } from './TilesPanelItem';
 
 type Props = Readonly<{
   closeable: boolean;

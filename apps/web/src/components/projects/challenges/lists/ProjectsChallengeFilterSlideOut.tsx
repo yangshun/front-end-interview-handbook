@@ -15,6 +15,8 @@ import FilterButton from '~/components/ui/FilterButton/FilterButton';
 import SlideOut from '~/components/ui/SlideOut';
 import Text from '~/components/ui/Text';
 
+import { getProjectsRoadmapSkillsInputAttributes } from '../../skills/form/ProjectsSkillListInputSchema';
+import ProjectsSkillRoadmapSelectionInput from '../../skills/form/ProjectsSkillRoadmapSelectionInput';
 import type {
   ProjectsChallengeFilterKey,
   ProjectsChallengeFilterOption,
@@ -24,8 +26,6 @@ import {
   useProjectsChallengeFilterContext,
   useProjectsChallengeFilterState,
 } from './ProjectsChallengeFilterContext';
-import { getProjectsRoadmapSkillsInputAttributes } from '../../skills/form/ProjectsSkillListInputSchema';
-import ProjectsSkillRoadmapSelectionInput from '../../skills/form/ProjectsSkillRoadmapSelectionInput';
 
 function FilterSection({
   longLabel,

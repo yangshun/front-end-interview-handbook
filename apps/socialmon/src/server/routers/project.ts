@@ -1,15 +1,13 @@
+import { TRPCError } from '@trpc/server';
 import fetch from 'node-fetch';
 import { z } from 'zod';
 
 import { getAccessToken } from '~/db/RedditUtils';
 import { projectSchema } from '~/schema';
+import type { ProjectTransformed } from '~/types';
 
 import prisma from '../prisma';
 import { router, userProcedure } from '../trpc';
-
-import type { ProjectTransformed } from '~/types';
-
-import { TRPCError } from '@trpc/server';
 
 export const projectRouter = router({
   create: userProcedure

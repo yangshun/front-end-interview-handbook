@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import Select from './Select';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
+import Select from './Select';
 
 const options = [
   {

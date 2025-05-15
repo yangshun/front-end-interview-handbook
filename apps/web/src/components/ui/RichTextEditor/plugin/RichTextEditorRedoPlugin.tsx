@@ -1,3 +1,4 @@
+import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
 import {
   CAN_REDO_COMMAND,
   COMMAND_PRIORITY_CRITICAL,
@@ -8,8 +9,6 @@ import { RiArrowGoForwardLine } from 'react-icons/ri';
 
 import { useIntl } from '~/components/intl';
 import RichTextEditorToolbarActionNode from '~/components/ui/RichTextEditor/components/RichTextEditorToolbarActionNode';
-
-import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
 
 export default function RichTextEditorRedoPlugin() {
   const intl = useIntl();

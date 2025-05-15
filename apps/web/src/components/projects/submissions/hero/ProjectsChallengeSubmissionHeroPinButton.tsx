@@ -1,3 +1,4 @@
+import type { ProjectsProfile } from '@prisma/client';
 import { useState } from 'react';
 import { RiPushpinLine, RiUnpinLine } from 'react-icons/ri';
 
@@ -10,8 +11,6 @@ import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 
 import ProjectsChallengeSubmissionPinned from './ProjectsChallengeSubmissionPinned';
-
-import type { ProjectsProfile } from '@prisma/client';
 
 type Props = Readonly<{
   projectsProfile:

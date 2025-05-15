@@ -1,5 +1,6 @@
 'use client';
 
+import type { SponsorsAdFormat } from '@prisma/client';
 import { RiArrowRightLine } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
@@ -7,15 +8,13 @@ import { trpc } from '~/hooks/trpc';
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 
-import SponsorsAdFormatAvailableSlotsDialog from './SponsorsAdFormatAvailableSlotsDialog';
-import SponsorsAdFormatInfo from './SponsorsAdFormatInfo';
 import {
   sponsorsDateFormatterWithDayAndYear,
   sponsorsDateFormatterWithoutYear,
   sponsorsDateFormatterWithYear,
 } from '../../SponsorsDatesUtils';
-
-import type { SponsorsAdFormat } from '@prisma/client';
+import SponsorsAdFormatAvailableSlotsDialog from './SponsorsAdFormatAvailableSlotsDialog';
+import SponsorsAdFormatInfo from './SponsorsAdFormatInfo';
 
 type Props = Readonly<{
   format: SponsorsAdFormat;

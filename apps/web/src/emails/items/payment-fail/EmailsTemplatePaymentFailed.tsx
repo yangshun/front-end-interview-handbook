@@ -1,3 +1,12 @@
+import {
+  Body,
+  Column,
+  Container,
+  Html,
+  Preview,
+  Row,
+  Section,
+} from '@react-email/components';
 import React from 'react';
 
 import {
@@ -10,16 +19,6 @@ import {
   EmailsStrong,
 } from '~/emails/components/EmailsComponents';
 import { containerStyle, mainStyle } from '~/emails/components/EmailsStyles';
-
-import {
-  Body,
-  Column,
-  Container,
-  Html,
-  Preview,
-  Row,
-  Section,
-} from '@react-email/components';
 
 type Props = Readonly<{
   billingPortalUrl: string;

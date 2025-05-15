@@ -17,8 +17,8 @@ import {
 
 import GuidesDropdownMenu from '~/components/guides/GuidesDropdownMenu';
 
-import DropdownMenu from './DropdownMenu';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
+import DropdownMenu from './DropdownMenu';
 
 const menuItems = [
   {

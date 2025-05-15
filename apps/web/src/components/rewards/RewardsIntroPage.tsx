@@ -1,5 +1,6 @@
 'use client';
 
+import { useUser } from '@supabase/auth-helpers-react';
 import clsx from 'clsx';
 
 import { trpc } from '~/hooks/trpc';
@@ -12,8 +13,6 @@ import Text from '~/components/ui/Text';
 
 import RewardsCompletePromoCode from './complete/RewardsCompletePromoCode';
 import { useRewardsTasks } from './tasks/useRewardsTasks';
-
-import { useUser } from '@supabase/auth-helpers-react';
 
 export default function RewardsIntroPage() {
   const user = useUser();

@@ -6,8 +6,8 @@ import { useIntl } from '~/components/intl';
 import { themeIconColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
-import QuestionLanguageIcon from './QuestionLanguageIcon';
 import type { QuestionLanguage } from '../common/QuestionsTypes';
+import QuestionLanguageIcon from './QuestionLanguageIcon';
 
 type Props = Readonly<{
   languages: ReadonlyArray<QuestionLanguage>;

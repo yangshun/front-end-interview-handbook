@@ -1,11 +1,11 @@
 import { useIntl } from '~/components/intl';
 
+import type { ProjectsChallengeItem } from '../types';
 import type {
   ProjectStepsTabItem,
   Props as ProjectsChallengeStepsTabsProps,
 } from './ProjectsChallengeStepsTabs';
 import ProjectsChallengeStepsTabs from './ProjectsChallengeStepsTabs';
-import type { ProjectsChallengeItem } from '../types';
 
 export type ProjectsChallengeItemStepsTabType =
   | 'assets'

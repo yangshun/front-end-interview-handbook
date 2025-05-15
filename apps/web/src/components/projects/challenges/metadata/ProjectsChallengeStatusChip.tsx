@@ -1,8 +1,8 @@
+import type { ProjectsChallengeSessionStatus } from '@prisma/client';
+
 import ProjectsStatusBadgeCompleted from '~/components/projects/common/status/ProjectsStatusBadgeCompleted';
 import ProjectsStatusBadgeInProgress from '~/components/projects/common/status/ProjectsStatusBadgeInProgress';
 import Chip from '~/components/ui/Chip';
-
-import type { ProjectsChallengeSessionStatus } from '@prisma/client';
 
 type Props = Readonly<{
   label: number;

@@ -1,5 +1,6 @@
 'use client';
 
+import { useSandpack } from '@codesandbox/sandpack-react';
 import { Controller, useForm } from 'react-hook-form';
 
 import { trpc } from '~/hooks/trpc';
@@ -17,8 +18,6 @@ import TextArea from '~/components/ui/TextArea';
 import TextInput from '~/components/ui/TextInput';
 
 import { staticUpperCase } from '~/utils/typescript/stringTransform';
-
-import { useSandpack } from '@codesandbox/sandpack-react';
 
 type Props = Readonly<{
   framework: QuestionFramework;

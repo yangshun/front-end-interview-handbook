@@ -1,11 +1,10 @@
+import { Text, Tooltip } from '@mantine/core';
 import clsx from 'clsx';
 import { RiChat4Fill, RiThumbUpFill } from 'react-icons/ri';
 
 import { getRelativeTimestamp } from '~/components/common/datetime/relativeTimestampValues';
 
 import type { PostExtended } from '~/types';
-
-import { Text, Tooltip } from '@mantine/core';
 
 type Props = Readonly<{
   post: PostExtended;

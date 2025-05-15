@@ -1,6 +1,5 @@
-import type { CSSProperties } from 'react';
-
 import { Heading } from '@react-email/components';
+import type { CSSProperties } from 'react';
 
 type EmailsHeadingLevel = 'heading1' | 'heading2';
 type Props = React.ComponentProps<typeof Heading> &

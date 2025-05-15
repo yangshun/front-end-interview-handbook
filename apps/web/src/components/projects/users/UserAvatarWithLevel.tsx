@@ -1,9 +1,9 @@
+import 'react-circular-progressbar/dist/styles.css';
+
 import clsx from 'clsx';
 import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
 
 import UserAvatar from '~/components/ui/Avatar/UserAvatar';
-
-import 'react-circular-progressbar/dist/styles.css';
 
 type Props = Readonly<{
   className?: string;

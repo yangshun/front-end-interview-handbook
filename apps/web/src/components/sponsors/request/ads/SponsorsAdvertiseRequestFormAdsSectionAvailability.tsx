@@ -1,3 +1,4 @@
+import type { SponsorsAdFormat } from '@prisma/client';
 import clsx from 'clsx';
 import { FaCheck } from 'react-icons/fa6';
 
@@ -23,8 +24,6 @@ import {
   sponsorsDateFormatterShort,
   sponsorsDateFormatterWithDayAndYear,
 } from '../../SponsorsDatesUtils';
-
-import type { SponsorsAdFormat } from '@prisma/client';
 
 type Props = Readonly<{
   adFormat: SponsorsAdFormat;

@@ -1,3 +1,4 @@
+import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
 import clsx from 'clsx';
 
 import type { ColorSchemePreference } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
@@ -12,8 +13,6 @@ import {
   themeBackgroundCardColor,
   themeGlassyBorder,
 } from '~/components/ui/theme';
-
-import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
 
 export default function ProjectsSettingsExperienceThemeSelector() {
   const { colorSchemePreference, setColorSchemePreference, systemColorScheme } =

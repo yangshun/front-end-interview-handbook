@@ -1,5 +1,5 @@
-import type { Metadata } from 'next/types';
 import nextI18nosticConfig from 'next-i18nostic/config';
+import type { Metadata } from 'next/types';
 
 import InterviewsNotFoundPage from '~/components/interviews/common/InterviewsNotFoundPage';
 

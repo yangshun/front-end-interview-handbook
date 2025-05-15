@@ -1,3 +1,4 @@
+import type { Provider } from '@supabase/supabase-js';
 import clsx from 'clsx';
 import { RiGithubFill, RiGoogleFill } from 'react-icons/ri';
 
@@ -6,10 +7,8 @@ import Button from '~/components/ui/Button';
 
 import logEvent from '~/logging/logEvent';
 
-import { useOAuthSignIn } from './useOAuthSignIn';
 import Alert from '../ui/Alert';
-
-import type { Provider } from '@supabase/supabase-js';
+import { useOAuthSignIn } from './useOAuthSignIn';
 
 export type SupabaseProviderGFE = 'github' | 'google';
 

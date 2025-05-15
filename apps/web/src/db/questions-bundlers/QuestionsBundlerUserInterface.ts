@@ -8,12 +8,12 @@ import type {
   InterviewsQuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 
+import { normalizeQuestionFrontMatter } from '../QuestionsUtils';
 import {
   getQuestionSrcPathUserInterface,
   getQuestionSrcPathUserInterfaceWriteups,
   QUESTIONS_SRC_DIR_USER_INTERFACE,
 } from './QuestionsBundlerUserInterfaceConfig';
-import { normalizeQuestionFrontMatter } from '../QuestionsUtils';
 
 export async function readQuestionMetadataUserInterface(
   slug: string,

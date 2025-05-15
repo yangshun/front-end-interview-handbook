@@ -1,3 +1,4 @@
+import type { ProjectsChallengeSession } from '@prisma/client';
 import clsx from 'clsx';
 import { useState } from 'react';
 import {
@@ -21,12 +22,10 @@ import {
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
-import ProjectsChallengeCurrentSessionSkillsForm from './ProjectsChallengeCurrentSessionSkillsForm';
-import { useProjectsChallengeSessionContext } from './ProjectsChallengeSessionContext';
 import ProjectsChallengeSubmitButton from '../completion/ProjectsChallengeSubmitButton';
 import type { ProjectsChallengeItem } from '../types';
-
-import type { ProjectsChallengeSession } from '@prisma/client';
+import ProjectsChallengeCurrentSessionSkillsForm from './ProjectsChallengeCurrentSessionSkillsForm';
+import { useProjectsChallengeSessionContext } from './ProjectsChallengeSessionContext';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;

@@ -17,10 +17,10 @@ import { useIntl } from '~/components/intl';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import { useVimMode } from '~/components/workspace/common/editor/hooks/useVimMode';
 
-import UserInterfaceCodingWorkspaceLayoutDialog from './UserInterfaceCodingWorkspaceLayoutDialog';
-import UserInterfaceCodingWorkspaceSaveButton from './UserInterfaceCodingWorkspaceSaveButton';
 import CodingWorkspaceBottomBar from '../common/CodingWorkspaceBottomBar';
 import CodingWorkspaceTimer from '../common/CodingWorkspaceTimer';
+import UserInterfaceCodingWorkspaceLayoutDialog from './UserInterfaceCodingWorkspaceLayoutDialog';
+import UserInterfaceCodingWorkspaceSaveButton from './UserInterfaceCodingWorkspaceSaveButton';
 
 type Props = Readonly<{
   framework: QuestionFramework;

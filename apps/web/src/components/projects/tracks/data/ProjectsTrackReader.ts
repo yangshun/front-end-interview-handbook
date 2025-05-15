@@ -12,8 +12,8 @@ import {
 import { readProjectsChallengeList } from '~/db/projects/ProjectsReader';
 import prisma from '~/server/prisma';
 
-import type { ProjectsTrackItem } from './ProjectsTracksData';
 import type { ProjectsChallengeHistoricalStatuses } from '../../challenges/types';
+import type { ProjectsTrackItem } from './ProjectsTracksData';
 
 export async function fetchProjectsTrackChallengeHistoricalStatuses(
   userId?: string,

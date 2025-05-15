@@ -11,9 +11,9 @@ import Text from '~/components/ui/Text';
 import TextArea from '~/components/ui/TextArea';
 import TextInput from '~/components/ui/TextInput';
 
-import { getProjectsProfileJobStatusOthersFieldAttributes } from '../fields/ProjectsProfileJobSchema';
 import useProjectsYOEReplacementOptions from '../../hooks/useProjectsYOEReplacementOptions';
 import { ProjectsReputationPointsConfig } from '../../reputation/ProjectsReputationPointsConfig';
+import { getProjectsProfileJobStatusOthersFieldAttributes } from '../fields/ProjectsProfileJobSchema';
 
 type Values =
   | ProjectsProfileEditFormValues

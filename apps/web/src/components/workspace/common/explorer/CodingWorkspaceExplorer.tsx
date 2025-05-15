@@ -1,3 +1,4 @@
+import { useSandpack } from '@codesandbox/sandpack-react';
 import clsx from 'clsx';
 import { cloneDeep } from 'lodash-es';
 import { useMemo, useState } from 'react';
@@ -12,8 +13,6 @@ import {
   createDirectoriesFromFilePaths,
   getAllFilesInDirectory,
 } from './utils';
-
-import { useSandpack } from '@codesandbox/sandpack-react';
 
 type Props = Readonly<{
   bottomAddOn?: React.ReactNode;

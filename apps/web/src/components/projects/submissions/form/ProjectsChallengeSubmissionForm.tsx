@@ -1,3 +1,4 @@
+import { zodResolver } from '@hookform/resolvers/zod';
 import { FormProvider, useForm } from 'react-hook-form';
 import { RiDeleteBinLine } from 'react-icons/ri';
 import { z } from 'zod';
@@ -6,6 +7,9 @@ import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
 
+import { useProjectsSkillListInputSchema } from '../../skills/form/ProjectsSkillListInputSchema';
+import type { ProjectsSkillKey } from '../../skills/types';
+import type { ProjectsChallengeSubmissionDeploymentUrls } from '../types';
 import ProjectsChallengeSubmissionDeploymentUrlsField from './fields/ProjectsChallengeSubmissionDeploymentUrlsField';
 import { useProjectsChallengeSubmissionDeploymentUrlsSchema } from './fields/ProjectsChallengeSubmissionDeploymentUrlsSchema';
 import ProjectsChallengeSubmissionImplementationField from './fields/ProjectsChallengeSubmissionImplementationField';
@@ -21,11 +25,6 @@ import { useProjectsChallengeSubmissionSummarySchema } from './fields/ProjectsCh
 import ProjectsChallengeSubmissionTechStackField from './fields/ProjectsChallengeSubmissionTechStackField';
 import ProjectsChallengeSubmissionTitleField from './fields/ProjectsChallengeSubmissionTitleField';
 import { useProjectsChallengeSubmissionTitleSchema } from './fields/ProjectsChallengeSubmissionTitleSchema';
-import type { ProjectsChallengeSubmissionDeploymentUrls } from '../types';
-import { useProjectsSkillListInputSchema } from '../../skills/form/ProjectsSkillListInputSchema';
-import type { ProjectsSkillKey } from '../../skills/types';
-
-import { zodResolver } from '@hookform/resolvers/zod';
 
 export type ProjectsChallengeSubmissionFormValues = Readonly<{
   deploymentUrls: ProjectsChallengeSubmissionDeploymentUrls;

@@ -16,8 +16,9 @@ import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 import { themeBackgroundColor, themeBorderColor } from '~/components/ui/theme';
 
-import ProjectsChallengeCompletedCountButton from './ProjectsChallengeCompletedCountButton';
-import ProjectsChallengeHowItWorksDialog from './ProjectsChallengeHowItWorksDialog';
+import ProjectsStartButton from '../../common/ProjectsStartButton';
+import ProjectsPremiumBadge from '../../purchase/ProjectsPremiumBadge';
+import type { ProjectsViewerProjectsProfile } from '../../types';
 import ProjectsChallengeSubmitButton from '../completion/ProjectsChallengeSubmitButton';
 import ProjectsChallengeSkillsTag from '../metadata/ProjectsChallengeSkillsTag';
 import type { ProjectsPremiumAccessControlFields } from '../premium/ProjectsPremiumAccessControl';
@@ -26,9 +27,8 @@ import ProjectsChallengeCurrentProjectSessionCard from '../session/ProjectsChall
 import { useProjectsChallengeSessionContext } from '../session/ProjectsChallengeSessionContext';
 import ProjectsChallengeStepsTabItems from '../steps/ProjectsChallengeStepsTabItems';
 import { useProjectDetailsStepsTabs } from '../steps/ProjectsChallengeStepsTabsImpl';
-import ProjectsStartButton from '../../common/ProjectsStartButton';
-import ProjectsPremiumBadge from '../../purchase/ProjectsPremiumBadge';
-import type { ProjectsViewerProjectsProfile } from '../../types';
+import ProjectsChallengeCompletedCountButton from './ProjectsChallengeCompletedCountButton';
+import ProjectsChallengeHowItWorksDialog from './ProjectsChallengeHowItWorksDialog';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;

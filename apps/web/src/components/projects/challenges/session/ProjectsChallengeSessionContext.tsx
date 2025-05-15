@@ -1,3 +1,4 @@
+import type { ProjectsChallengeSession } from '@prisma/client';
 import { createContext, useCallback, useContext, useState } from 'react';
 import { RiFireFill } from 'react-icons/ri';
 
@@ -9,11 +10,9 @@ import Anchor from '~/components/ui/Anchor';
 
 import logEvent from '~/logging/logEvent';
 
-import type { ProjectsChallengeSessionSkillsFormValues } from '../types';
 import { useProjectsOnboardingContext } from '../../onboarding/ProjectsOnboardingContext';
 import { ProjectsReputationPointsConfig } from '../../reputation/ProjectsReputationPointsConfig';
-
-import type { ProjectsChallengeSession } from '@prisma/client';
+import type { ProjectsChallengeSessionSkillsFormValues } from '../types';
 
 type ProjectsChallengeSessionContextType = Readonly<{
   accessAllSteps: boolean;

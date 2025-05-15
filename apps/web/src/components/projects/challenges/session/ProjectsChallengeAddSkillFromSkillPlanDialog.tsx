@@ -1,3 +1,5 @@
+import type { ProjectsChallengeSession } from '@prisma/client';
+
 import { trpc } from '~/hooks/trpc';
 
 import ConfirmationDialog from '~/components/common/ConfirmationDialog';
@@ -7,8 +9,6 @@ import Text from '~/components/ui/Text';
 import { projectsSkillLabel } from '../../skills/data/ProjectsSkillListData';
 import { projectsSkillDetermineParentSkill } from '../../skills/data/ProjectsSkillUtils';
 import type { ProjectsSkillKey } from '../../skills/types';
-
-import type { ProjectsChallengeSession } from '@prisma/client';
 
 type Props = Readonly<{
   isShown: boolean;

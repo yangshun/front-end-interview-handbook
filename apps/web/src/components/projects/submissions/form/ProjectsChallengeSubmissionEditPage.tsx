@@ -14,13 +14,13 @@ import Section from '~/components/ui/Heading/HeadingContext';
 
 import { useI18nRouter } from '~/next-i18nostic/src';
 
-import ProjectsChallengeSubmissionForm from './ProjectsChallengeSubmissionForm';
-import useProjectsChallengeSubmissionTakeScreenshotMutation from '../screenshots/useProjectsChallengeSubmissionTakeScreenshotMutation';
-import type { ProjectsChallengeSubmissionExtended } from '../types';
 import type {
   ProjectsChallengeItem,
   ProjectsChallengeVariantImages,
 } from '../../challenges/types';
+import useProjectsChallengeSubmissionTakeScreenshotMutation from '../screenshots/useProjectsChallengeSubmissionTakeScreenshotMutation';
+import type { ProjectsChallengeSubmissionExtended } from '../types';
+import ProjectsChallengeSubmissionForm from './ProjectsChallengeSubmissionForm';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;

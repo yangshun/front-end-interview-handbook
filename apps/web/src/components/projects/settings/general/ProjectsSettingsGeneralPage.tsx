@@ -1,5 +1,6 @@
 'use client';
 
+import { useUser } from '@supabase/auth-helpers-react';
 import clsx from 'clsx';
 
 import useUserProfile from '~/hooks/user/useUserProfile';
@@ -12,8 +13,6 @@ import Heading from '~/components/ui/Heading';
 import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 import { themeBorderColor } from '~/components/ui/theme';
-
-import { useUser } from '@supabase/auth-helpers-react';
 
 export default function ProjectsSettingsGeneralPage() {
   const intl = useIntl();

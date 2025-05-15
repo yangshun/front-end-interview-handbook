@@ -1,5 +1,6 @@
 'use client';
 
+import NumberFlow from '@number-flow/react';
 import clsx from 'clsx';
 import { useInView } from 'motion/react';
 import { useEffect, useMemo, useRef, useState } from 'react';
@@ -25,8 +26,6 @@ import {
 } from '~/components/ui/theme';
 
 import logEvent from '~/logging/logEvent';
-
-import NumberFlow from '@number-flow/react';
 
 export default function MarketingCommunitySection() {
   const socialLinks = useMemo(

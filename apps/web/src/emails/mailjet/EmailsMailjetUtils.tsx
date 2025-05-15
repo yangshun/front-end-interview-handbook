@@ -1,3 +1,4 @@
+import type { SetCommandOptions } from '@upstash/redis';
 import type { Contact, ContactSubscription } from 'node-mailjet';
 import { type LibraryResponse, type SendEmailV3_1 } from 'node-mailjet';
 import React from 'react';
@@ -5,14 +6,12 @@ import React from 'react';
 import EmailsSendStatus from '~/emails/EmailsSendStatus';
 import { getErrorMessage } from '~/utils/getErrorMessage';
 
-import { emailsContactListKeyToId } from './EmailsMailjetContactLists';
-import MailjetClient from './MailjetClient';
 import { emailsGenerateHash } from '../EmailsHash';
 import type { EmailContactListKey } from '../EmailsTypes';
 import type { EmailItemConfig } from '../EmailsTypes';
 import { renderEmail } from '../render/EmailsRender';
-
-import type { SetCommandOptions } from '@upstash/redis';
+import { emailsContactListKeyToId } from './EmailsMailjetContactLists';
+import MailjetClient from './MailjetClient';
 
 /**
  * Sends an email based on an email item config
