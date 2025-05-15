@@ -31,6 +31,6 @@
     "@types/lodash-es": "^4.17.6",
     "rimraf": "^6.0.1",
     "tsup": "^8.3.6",
-    "typescript": "^5.8.3"
+    "typescript": "5.8.3"
   }
 }

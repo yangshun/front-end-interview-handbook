@@ -41,7 +41,7 @@ importers:
     devDependencies:
       '@create-figma-plugin/build':
         specifier: ^3.2.0
-        version: 3.2.0(@figma/plugin-typings@1.90.0)(typescript@5.3.3)
+        version: 3.2.0(@figma/plugin-typings@1.90.0)(typescript@5.8.3)
       '@create-figma-plugin/tsconfig':
         specifier: ^3.2.0
         version: 3.2.0
@@ -67,8 +67,8 @@ importers:
         specifier: ^3.4.1
         version: 3.4.1
       typescript:
-        specifier: ^5.3.3
-        version: 5.3.3
+        specifier: 5.8.3
+        version: 5.8.3
 
   apps/i18n-test:
     devDependencies:
@@ -236,7 +236,7 @@ importers:
         specifier: ^4.7.1
         version: 4.7.1
       typescript:
-        specifier: ^5.3.3
+        specifier: 5.3.3
         version: 5.3.3
 
   apps/web:
@@ -674,9 +674,6 @@ importers:
       '@types/uuid':
         specifier: ^10.0.0
         version: 10.0.0
-      '@types/webpack-env':
-        specifier: ^1.18.0
-        version: 1.18.4
       '@vitejs/plugin-react':
         specifier: ^4.4.1
         version: 4.4.1(vite@6.3.2)
@@ -744,7 +741,7 @@ importers:
         specifier: ^4.19.3
         version: 4.19.3
       typescript:
-        specifier: ^5.8.3
+        specifier: 5.8.3
         version: 5.8.3
       vite-tsconfig-paths:
         specifier: ^5.1.4
@@ -789,7 +786,7 @@ importers:
         specifier: ^16.0.0
         version: 16.1.0
       typescript:
-        specifier: ^5.8.3
+        specifier: 5.8.3
         version: 5.8.3
       typescript-eslint:
         specifier: ^8.32.0
@@ -817,7 +814,7 @@ importers:
         version: 5.3.0
       cosmiconfig:
         specifier: ^9.0.0
-        version: 9.0.0(typescript@5.7.3)
+        version: 9.0.0(typescript@5.8.3)
       dotenv:
         specifier: ^16.3.1
         version: 16.3.1
@@ -872,10 +869,10 @@ importers:
         version: 6.0.1
       tsup:
         specifier: ^8.3.6
-        version: 8.3.6(typescript@5.7.3)
+        version: 8.3.6(typescript@5.8.3)
       typescript:
-        specifier: ^5.7.3
-        version: 5.7.3
+        specifier: 5.8.3
+        version: 5.8.3
       vitest:
         specifier: ^3.0.2
         version: 3.0.4(@types/node@18.19.99)
@@ -905,7 +902,7 @@ importers:
         specifier: ^8.3.6
         version: 8.3.6(typescript@5.8.3)
       typescript:
-        specifier: ^5.8.3
+        specifier: 5.8.3
         version: 5.8.3
 
   packages/typescript-config: {}
@@ -2380,7 +2377,7 @@ packages:
     resolution: {integrity: sha512-N8uEMrMPL0cu/bdboEWpQYb/0i2K5Qn8eCsxzOmxSggJbbQte7ljMRoXm917AbntqTGOzdTu+vP3KOOzoC70HQ==}
     dev: true
 
-  /@create-figma-plugin/build@3.2.0(@figma/plugin-typings@1.90.0)(typescript@5.3.3):
+  /@create-figma-plugin/build@3.2.0(@figma/plugin-typings@1.90.0)(typescript@5.8.3):
     resolution: {integrity: sha512-OX2XImYDhSMgtJ5Rqr077miQqautDUNEm2E3nLof8l4wxEo5QaMC4RBewnBe4yPt6pWIbJjuzhjyhLytH/aLiw==}
     engines: {node: '>=20'}
     hasBin: true
@@ -2405,7 +2402,7 @@ packages:
       temp-write: 5.0.0
       tempy: 3.1.0
       typed-css-modules: 0.9.1
-      typescript: 5.3.3
+      typescript: 5.8.3
     dev: true
 
   /@create-figma-plugin/common@3.2.0:
@@ -7776,10 +7773,6 @@ packages:
     resolution: {integrity: sha512-7gqG38EyHgyP1S+7+xomFtL+ZNHcKv6DwNaCZmJmo1vgMugyF3TCnXVg4t1uk89mLNwnLtnY3TpOpCOyp1/xHQ==}
     dev: true
 
-  /@types/webpack-env@1.18.4:
-    resolution: {integrity: sha512-I6e+9+HtWADAWeeJWDFQtdk4EVSAbj6Rtz4q8fJ7mSr1M0jzlFcs8/HZ+Xb5SHzVm1dxH7aUiI+A8kA8Gcrm0A==}
-    dev: true
-
   /@types/ws@8.5.12:
     resolution: {integrity: sha512-3tPRkv1EtkDpzlgyKyI8pGsGZAGPEaXeu0DOj5DI25Ja91bdAYddYHbADRYVrZMRbfW+1l5YwXVDKohDJNQxkQ==}
     dependencies:
@@ -9377,7 +9370,7 @@ packages:
       yaml: 1.10.2
     dev: false
 
-  /cosmiconfig@9.0.0(typescript@5.7.3):
+  /cosmiconfig@9.0.0(typescript@5.8.3):
     resolution: {integrity: sha512-itvL5h8RETACmOTFc4UfIyB2RfEHi71Ax6E/PivVxq9NseKbOWpeyHEOIbmAw1rs8Ak0VursQNww7lf7YtUwzg==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -9390,7 +9383,7 @@ packages:
       import-fresh: 3.3.0
       js-yaml: 4.1.0
       parse-json: 5.2.0
-      typescript: 5.7.3
+      typescript: 5.8.3
     dev: false
 
   /crelt@1.0.6:
@@ -17698,49 +17691,6 @@ packages:
   /tslib@2.8.1:
     resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
 
-  /tsup@8.3.6(typescript@5.7.3):
-    resolution: {integrity: sha512-XkVtlDV/58S9Ye0JxUUTcrQk4S+EqlOHKzg6Roa62rdjL1nGWNUstG0xgI4vanHdfIpjP448J8vlN0oK6XOJ5g==}
-    engines: {node: '>=18'}
-    hasBin: true
-    peerDependencies:
-      '@microsoft/api-extractor': ^7.36.0
-      '@swc/core': ^1
-      postcss: ^8.4.12
-      typescript: '>=4.5.0'
-    peerDependenciesMeta:
-      '@microsoft/api-extractor':
-        optional: true
-      '@swc/core':
-        optional: true
-      postcss:
-        optional: true
-      typescript:
-        optional: true
-    dependencies:
-      bundle-require: 5.1.0(esbuild@0.24.2)
-      cac: 6.7.14
-      chokidar: 4.0.3
-      consola: 3.4.0
-      debug: 4.4.0
-      esbuild: 0.24.2
-      joycon: 3.1.1
-      picocolors: 1.1.1
-      postcss-load-config: 6.0.1
-      resolve-from: 5.0.0
-      rollup: 4.32.1
-      source-map: 0.8.0-beta.0
-      sucrase: 3.35.0
-      tinyexec: 0.3.2
-      tinyglobby: 0.2.10
-      tree-kill: 1.2.2
-      typescript: 5.7.3
-    transitivePeerDependencies:
-      - jiti
-      - supports-color
-      - tsx
-      - yaml
-    dev: true
-
   /tsup@8.3.6(typescript@5.8.3):
     resolution: {integrity: sha512-XkVtlDV/58S9Ye0JxUUTcrQk4S+EqlOHKzg6Roa62rdjL1nGWNUstG0xgI4vanHdfIpjP448J8vlN0oK6XOJ5g==}
     engines: {node: '>=18'}
@@ -18052,11 +18002,6 @@ packages:
 
   /typescript@5.3.3:
     resolution: {integrity: sha512-pXWcraxM0uxAS+tN0AG/BF2TyqmHO014Z070UsJ+pFvYuRSq8KH8DmWpnbXe0pEPDHXZV3FcAbJkijJ5oNEnWw==}
-    engines: {node: '>=14.17'}
-    hasBin: true
-
-  /typescript@5.7.3:
-    resolution: {integrity: sha512-84MVSjMEHP+FQRPy3pX9sTVV/INIex71s9TL2Gm5FG/WG1SqXeKyZ0k7/blY/4FdOzI12CBy1vGc4og/eus0fw==}
     engines: {node: '>=14.17'}
     hasBin: true
 
