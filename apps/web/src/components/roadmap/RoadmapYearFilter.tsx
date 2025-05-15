@@ -11,7 +11,7 @@ type Props = Readonly<{
   years: ReadonlyArray<string>;
 }>;
 
-function RoadmapYearFilter({ onYearChange, years, selectedYear }: Props) {
+function RoadmapYearFilter({ onYearChange, selectedYear, years }: Props) {
   return (
     <Card
       className={clsx('space-y-1', 'w-40 p-3')}

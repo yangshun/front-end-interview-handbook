@@ -32,7 +32,7 @@ export default function SponsorsAdminInquiryListPage() {
     inquiry.emails.join(', ').toLowerCase().includes(searchQuery.toLowerCase()),
   );
   // Pagination
-  const { setCurrentPage, currentPage, totalPages, currentPageItems } =
+  const { currentPage, currentPageItems, setCurrentPage, totalPages } =
     usePagination({
       deps: [searchQuery],
       itemsPerPage: ITEMS_PER_PAGE,

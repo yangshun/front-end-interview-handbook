@@ -14,8 +14,8 @@ type Props = Readonly<{
 }>;
 
 export function purchaseInitiateLoggingNonSignedIn({
-  product,
   plan,
+  product,
   purchasePrice,
 }: Props) {
   gtag.event({
@@ -40,8 +40,8 @@ export function purchaseInitiateLoggingNonSignedIn({
 }
 
 export function purchaseInitiateLogging({
-  product,
   plan,
+  product,
   purchasePrice,
 }: Props) {
   gtag.event({
@@ -79,10 +79,10 @@ export function purchaseInitiateLogging({
 }
 
 export function purchaseFailureLogging({
-  product,
-  plan,
-  purchasePrice,
   error,
+  plan,
+  product,
+  purchasePrice,
 }: Props & Readonly<{ error: unknown }>) {
   gtag.event({
     action: 'checkout.failure',
@@ -103,7 +103,7 @@ export function purchaseFailureLogging({
   });
 }
 
-export function purchaseCancelLogging({ product, plan, purchasePrice }: Props) {
+export function purchaseCancelLogging({ plan, product, purchasePrice }: Props) {
   gtag.event({
     action: `checkout.cancel`,
     category: 'ecommerce',
@@ -129,10 +129,10 @@ export function purchaseCancelLogging({ product, plan, purchasePrice }: Props) {
 }
 
 export function purchaseSuccessLogging({
-  product,
-  plan,
   amount,
   currency: currencyLowerCase,
+  plan,
+  product,
 }: Readonly<{
   amount: number;
   currency: string;

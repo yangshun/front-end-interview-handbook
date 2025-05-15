@@ -62,9 +62,9 @@ function PricingButton({
   isDisabled,
   isLoading,
   label,
+  onClick,
   tooltip,
   variant,
-  onClick,
 }: Readonly<{
   href?: AnchorProps['href'];
   icon?: React.ComponentProps<typeof Button>['icon'];
@@ -142,8 +142,8 @@ function PricingButtonNonLoggedIn({
 }
 
 function PricingButtonNonPremium({
-  planType,
   paymentConfig,
+  planType,
   useCurrentPageAsCancelUrl,
 }: Readonly<{
   paymentConfig: ProjectsPricingPlanPaymentConfigLocalized;
@@ -275,7 +275,7 @@ function PricingButtonSection({
   const intl = useIntl();
   const user = useUser();
   const { isLoading: isUserLoading } = useSessionContext();
-  const { userProfile, isLoading: isUserProfileLoading } =
+  const { isLoading: isUserProfileLoading, userProfile } =
     useUserProfileWithProjectsProfile();
   const billingPortalMutation =
     trpc.purchases.billingPortalSessionUrl.useMutation();
@@ -350,8 +350,8 @@ function PricingButtonSection({
 }
 
 function PricingPlanComparisonDiscount({
-  planType,
   paymentConfig,
+  planType,
 }: Readonly<{
   paymentConfig: ProjectsPricingPlanPaymentConfigLocalized;
   planType: ProjectsSubscriptionPlanIncludingFree;
@@ -369,7 +369,7 @@ function PricingPlanComparisonDiscount({
 function FeatureItem({
   feature,
 }: Readonly<{ feature: ProjectsSubscriptionPlanFeature }>) {
-  const { title, description } = feature;
+  const { description, title } = feature;
 
   return (
     <div className="flex gap-3 py-3">
@@ -399,11 +399,11 @@ function ProjectsPricingPriceCell({
   className,
   countryCode,
   currency,
-  symbol,
-  showPPPMessage,
+  numberOfMonths,
   paymentConfig,
   planType,
-  numberOfMonths,
+  showPPPMessage,
+  symbol,
   useCurrentPageAsCancelUrl,
 }: Readonly<{
   amountAfterPPP: number;
@@ -622,7 +622,7 @@ export default function ProjectsPricingTable({
                   })}
                 </span>
               </th>
-              {planList.map(({ name, paymentConfig, numberOfMonths, type }) => (
+              {planList.map(({ name, numberOfMonths, paymentConfig, type }) => (
                 <td key={name} className="px-4 py-5 align-top">
                   {type === 'FREE' ? (
                     <ProjectsPricingPriceCell
@@ -699,7 +699,7 @@ export default function ProjectsPricingTable({
                     )}
                   </span>
                 </th>
-                {planList.map(({ type, name, features: planFeatures }) => (
+                {planList.map(({ features: planFeatures, name, type }) => (
                   <td
                     key={name}
                     className={clsx(
@@ -747,8 +747,8 @@ export default function ProjectsPricingTable({
           ({
             features: planFeatures,
             name,
-            paymentConfig,
             numberOfMonths,
+            paymentConfig,
             type: planType,
           }) => {
             return (

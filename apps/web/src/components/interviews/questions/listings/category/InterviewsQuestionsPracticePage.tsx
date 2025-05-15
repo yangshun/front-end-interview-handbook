@@ -41,8 +41,8 @@ type Props = Readonly<{
 }>;
 
 export default function InterviewsQuestionsPracticePage({
-  questions,
   bottomContent,
+  questions,
 }: Props) {
   const intl = useIntl();
 

@@ -155,8 +155,8 @@ export default function Ticket({
   height,
   padding = 'lg',
   ratio = 'normal',
-  width,
   variant = 'gradient',
+  width,
 }: Readonly<{
   children: ReactNode;
   height?: number;

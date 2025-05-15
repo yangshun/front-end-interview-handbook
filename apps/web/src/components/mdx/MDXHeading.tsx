@@ -18,7 +18,7 @@ type Props = ComponentProps<'h1'> &
     as: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   }>;
 
-export default function MDXHeading({ as: Tag, id, children, ...props }: Props) {
+export default function MDXHeading({ as: Tag, children, id, ...props }: Props) {
   const intl = useIntl();
   const [isCopied, onCopy] = useCopyToClipboardWithRevert(1000);
   const { showToast } = useToast();

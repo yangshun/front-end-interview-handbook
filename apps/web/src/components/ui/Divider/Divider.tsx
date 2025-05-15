@@ -20,8 +20,8 @@ const dividerDirectionClass: Record<DividerDirection, string> = {
 };
 
 export default function Divider({
-  color = 'default',
   className,
+  color = 'default',
   direction = 'horizontal',
 }: Props) {
   return (

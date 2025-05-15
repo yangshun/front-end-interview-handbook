@@ -162,11 +162,11 @@ export default function Typeahead<T>({
   isLabelHidden = false,
   label,
   name,
+  onChange,
   options,
   placeholder,
   required,
   value,
-  onChange,
   ...props
 }: Props<T>) {
   const hasError = !!errorMessage;

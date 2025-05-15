@@ -86,11 +86,11 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsChallengeUnlockAccessDialog({
-  viewerProjectsProfile,
   isShown,
+  onClose,
   slug,
   trigger,
-  onClose,
+  viewerProjectsProfile,
 }: Props) {
   const plan = viewerProjectsProfile?.plan;
   const credits = viewerProjectsProfile?.credits ?? 0;

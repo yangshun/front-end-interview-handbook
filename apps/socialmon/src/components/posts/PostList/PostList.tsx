@@ -30,7 +30,7 @@ const timestampFormatter = new Intl.DateTimeFormat('en-US', {
 export default function PostList() {
   const projectSlug = useCurrentProjectSlug();
   const [activeTab, setActiveTab] = useState<PostTab>('all');
-  const { isLoading, data, hasNextPage, fetchNextPage, isFetchingNextPage } =
+  const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading } =
     trpc.socialPosts.getPosts.useInfiniteQuery(
       {
         filter: {

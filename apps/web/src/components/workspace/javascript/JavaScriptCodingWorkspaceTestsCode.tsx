@@ -72,8 +72,8 @@ export default function JavaScriptCodingWorkspaceTestsCode({
 
   useEffect(() => {
     function highlight({
-      index,
       filePath,
+      index,
       specParts,
     }: Readonly<{
       filePath: string;

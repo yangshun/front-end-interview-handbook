@@ -18,11 +18,11 @@ import {
 } from '~/components/ui/theme';
 
 function StepsTabItem({
-  status,
-  title,
   isSelected,
-  subtitle,
   onSelect,
+  status,
+  subtitle,
+  title,
 }: Readonly<{
   isSelected: boolean;
   onSelect: () => void;
@@ -94,11 +94,11 @@ type Props<T> = Readonly<{
 }>;
 
 export default function StepsTabItems<T>({
-  label,
-  tabs,
-  onSelect,
-  value,
   className,
+  label,
+  onSelect,
+  tabs,
+  value,
 }: Props<T>) {
   return (
     <nav

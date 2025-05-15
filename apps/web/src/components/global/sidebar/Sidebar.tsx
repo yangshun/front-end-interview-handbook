@@ -30,8 +30,8 @@ import type { SidebarLinkEntity } from './SidebarLinksSection';
 import SidebarLinksSection from './SidebarLinksSection';
 
 export function SidebarDropdownMenu({
-  moreMenuItems,
   moreEndMenuItems,
+  moreMenuItems,
 }: Readonly<{
   moreEndMenuItems?: React.ReactElement | false | null | undefined;
   moreMenuItems?: React.ReactElement | false | null | undefined;
@@ -121,14 +121,14 @@ export function SidebarDropdownMenu({
 }
 
 export function SidebarCollapsed({
-  moreMenuItems,
   bottomAddonElements,
-  topAddonElements,
-  sidebarItems,
-  onCollapseClick,
-  showPremiumDiscord,
-  product,
+  moreMenuItems,
   notificationItem,
+  onCollapseClick,
+  product,
+  showPremiumDiscord,
+  sidebarItems,
+  topAddonElements,
 }: Readonly<{
   bottomAddonElements?: React.ReactNode;
   moreMenuItems: React.ReactElement | false | null | undefined;
@@ -241,17 +241,17 @@ export function SidebarCollapsed({
 }
 
 export function SidebarExpanded({
+  bottomBarItems,
   defaultOpenSections,
-  renderTopAddonElements,
-  renderBottomAddonElements,
   isLoading,
   isViewerPremium,
   moreMenuItems,
-  sidebarItems,
-  onCollapseClick,
-  bottomBarItems,
   notificationItem,
+  onCollapseClick,
   product,
+  renderBottomAddonElements,
+  renderTopAddonElements,
+  sidebarItems,
 }: Readonly<{
   bottomBarItems?: React.ReactElement | false | null | undefined;
   defaultOpenSections?: ReadonlyArray<string>;

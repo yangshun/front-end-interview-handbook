@@ -75,8 +75,8 @@ export default function ProfileActivity() {
 
   const {
     data: questionProgressWithMetadata,
-    isLoading: isFetchingQuestionProgress,
     isError: isErrorQuestionProgress,
+    isLoading: isFetchingQuestionProgress,
   } = trpc.questionProgress.getAllIncludingMetadata.useQuery();
 
   const [formatFilters, formatFilterOptions] = useQuestionFormatFilter({
@@ -157,7 +157,7 @@ export default function ProfileActivity() {
           themeBorderColor,
         )}>
         {formatFilterOptions.options.map(
-          ({ value, label, icon: Icon, tooltip }) => (
+          ({ icon: Icon, label, tooltip, value }) => (
             <FilterButton
               key={value}
               icon={Icon}
@@ -227,7 +227,7 @@ export default function ProfileActivity() {
             )}
             role="list">
             {filteredQuestionProgressWithMetadata.map(
-              ({ createdAt, id, metadata, info }) => {
+              ({ createdAt, id, info, metadata }) => {
                 const qnHash = metadata ? hashQuestion(metadata) : '';
 
                 return (

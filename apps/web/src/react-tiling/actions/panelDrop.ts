@@ -30,7 +30,7 @@ export default function panelDrop<TabType>(
   tiles: TilesPanelConfig<TabType>,
   payload: TilesActionPanelDrop<TabType>['payload'],
 ) {
-  const { srcPanelId, dst } = payload;
+  const { dst, srcPanelId } = payload;
   const newTiles = panelDropImpl(tiles, srcPanelId, dst);
 
   return newTiles;

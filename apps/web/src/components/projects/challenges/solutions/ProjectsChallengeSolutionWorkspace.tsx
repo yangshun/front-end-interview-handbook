@@ -58,7 +58,7 @@ function ProjectsChallengeSolutionWorkspaceImpl({
   const copyRef = useQuestionLogEventCopyContents<HTMLDivElement>();
   const { dispatch } = useUserInterfaceCodingWorkspaceTilesContext();
   const { sandpack } = useSandpack();
-  const { activeFile, visibleFiles, files } = sandpack;
+  const { activeFile, files, visibleFiles } = sandpack;
 
   useRestartSandpack();
 

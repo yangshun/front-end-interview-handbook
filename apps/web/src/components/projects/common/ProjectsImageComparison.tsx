@@ -73,14 +73,14 @@ const mapScreenshotStatusToImageComparisonStatus = (
 
 export default function ProjectsImageComparison({
   allowRetakeScreenshot,
+  deploymentUrls,
+  onTakeScreenshot,
+  retakeScreenshotStatus,
   screenshotStatus,
-  title,
+  specImagesForVariant,
   specLabels,
   specShowGridLayoutButton,
-  specImagesForVariant,
-  onTakeScreenshot,
-  deploymentUrls,
-  retakeScreenshotStatus,
+  title,
 }: Props) {
   const intl = useIntl();
   const [selectedBreakpoint, setSelectedBreakpoint] =

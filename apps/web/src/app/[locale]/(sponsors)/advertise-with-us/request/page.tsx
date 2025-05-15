@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-export default async function Page({ searchParams, params }: Props) {
+export default async function Page({ params, searchParams }: Props) {
   const { locale } = params;
 
   // On page reload take the user to the starting to make the user start from the beginning and revalidate the form again

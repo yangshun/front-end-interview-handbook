@@ -250,7 +250,7 @@ export const ProjectsChallengeFilterContext =
 export function useProjectsChallengeFilterState(
   key: ProjectsChallengeFilterKey,
 ) {
-  const { value, setFilterValue } = useContext(ProjectsChallengeFilterContext);
+  const { setFilterValue, value } = useContext(ProjectsChallengeFilterContext);
 
   return useMemo(
     () =>
@@ -276,10 +276,10 @@ export default function ProjectsChallengeFilterContextProvider({
   tracks,
 }: Props) {
   const {
-    updateSearchParams,
     getArrayTypeSearchParams,
     getStringTypeSearchParams,
     updateMultipleSearchParams,
+    updateSearchParams,
   } = useFilterSearchParams();
 
   const initialComponentTrack = getArrayTypeSearchParams('component-track');

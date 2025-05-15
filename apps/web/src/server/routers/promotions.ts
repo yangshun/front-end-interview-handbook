@@ -93,7 +93,7 @@ export const promotionsRouter = router({
         username: gitHubUsernameSchema,
       }),
     )
-    .mutation(async ({ input: { username }, ctx: { viewer } }) => {
+    .mutation(async ({ ctx: { viewer }, input: { username } }) => {
       const { status } = await fetch(
         `https://api.github.com/users/${username}/following/${GITHUB_ORG_NAME}`,
         {
@@ -132,7 +132,7 @@ export const promotionsRouter = router({
         username: gitHubUsernameSchema,
       }),
     )
-    .mutation(async ({ input: { action, username }, ctx: { viewer } }) => {
+    .mutation(async ({ ctx: { viewer }, input: { action, username } }) => {
       const MyOctokit = Octokit.plugin(restEndpointMethods);
       const octokit = new MyOctokit({
         auth: process.env.GITHUB_TOKEN,
@@ -238,7 +238,7 @@ export const promotionsRouter = router({
         username: instagramUsernameSchema,
       }),
     )
-    .mutation(async ({ input: { username }, ctx: { viewer } }) => {
+    .mutation(async ({ ctx: { viewer }, input: { username } }) => {
       await delay(1000);
 
       const campaign = PROMO_SOCIAL_DISCOUNT_CAMPAIGN;
@@ -264,7 +264,7 @@ export const promotionsRouter = router({
         username: linkedInUsernameSchema,
       }),
     )
-    .mutation(async ({ input: { username }, ctx: { viewer } }) => {
+    .mutation(async ({ ctx: { viewer }, input: { username } }) => {
       await delay(1000);
 
       const campaign = PROMO_SOCIAL_DISCOUNT_CAMPAIGN;
@@ -290,7 +290,7 @@ export const promotionsRouter = router({
         username: twitterUsernameSchema,
       }),
     )
-    .mutation(async ({ input: { username }, ctx: { viewer } }) => {
+    .mutation(async ({ ctx: { viewer }, input: { username } }) => {
       await delay(1000);
 
       const campaign = PROMO_SOCIAL_DISCOUNT_CAMPAIGN;
@@ -682,9 +682,9 @@ export const promotionsRouter = router({
       async ({
         input: {
           gitHubUsername,
+          instagramUsername,
           linkedInUsername,
           twitterUsername,
-          instagramUsername,
         },
       }) => {
         const results = await Promise.allSettled([

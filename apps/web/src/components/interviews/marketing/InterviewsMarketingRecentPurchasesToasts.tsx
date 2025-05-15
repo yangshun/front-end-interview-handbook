@@ -26,8 +26,8 @@ const ONE_WEEK_IN_SECONDS = 7 * ONE_DAY_IN_SECONDS;
 const MARKETING_TOAST_INDEX = 'gfe:marketing.purchases.toast.index';
 
 function RecentPurchaseToastComponent({
-  onClose,
   country,
+  onClose,
 }: Readonly<{ country: string; onClose: () => void }>) {
   const intl = useIntl();
 
@@ -92,7 +92,7 @@ function MarketingRecentPurchasesImpl({
 }: Readonly<{
   setLastShown: (lastShown: number) => void;
 }>) {
-  const { showToast, dismissToast } = useToast();
+  const { dismissToast, showToast } = useToast();
   const lastToastId = useRef<string | null>(null);
   const { data } = trpc.purchases.recent.useQuery();
 

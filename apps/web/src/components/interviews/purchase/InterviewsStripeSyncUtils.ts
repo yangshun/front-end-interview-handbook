@@ -11,7 +11,7 @@ export function interviewsDetermineSubscriptionPlan(
     throw new Error('Price is not found');
   }
 
-  const { type, recurring } = price;
+  const { recurring, type } = price;
 
   if (type === 'one_time') {
     return 'lifetime';

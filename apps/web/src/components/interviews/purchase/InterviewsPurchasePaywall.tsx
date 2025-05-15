@@ -56,11 +56,11 @@ export default function InterviewsPurchasePaywall(props: Props) {
 }
 
 function InterviewsPurchasePaywallImpl({
-  title: titleProp,
-  subtitle: subtitleProp,
-  variant = 'not_subscribed',
   background = 'solid',
   premiumFeature = 'premium-questions',
+  subtitle: subtitleProp,
+  title: titleProp,
+  variant = 'not_subscribed',
 }: Props) {
   const intl = useIntl();
   const featuresData = usePremiumFeaturesData();
@@ -69,7 +69,7 @@ function InterviewsPurchasePaywallImpl({
     parseAsBoolean.withDefault(false),
   );
 
-  const { title: featureTitle, subtitle: featuresSubtitle } =
+  const { subtitle: featuresSubtitle, title: featureTitle } =
     featuresData[premiumFeature];
   const title = titleProp ?? featureTitle;
   const subtitle = subtitleProp ?? featuresSubtitle;

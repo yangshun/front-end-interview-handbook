@@ -18,8 +18,8 @@ type Props = Readonly<{
 
 export default function QuestionFormatLabel({
   showIcon = false,
-  value,
   size = 'body3',
+  value,
 }: Props) {
   const questionFormatsData = useQuestionFormatsData();
   const id = useId();

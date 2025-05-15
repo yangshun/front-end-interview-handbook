@@ -56,9 +56,9 @@ function GFE75Logo() {
 
 export default function InterviewsStudyPlanGFE75Page({
   bottomContent,
-  studyList,
   questions,
   questionsSlugs,
+  studyList,
 }: Props) {
   const user = useUser();
 

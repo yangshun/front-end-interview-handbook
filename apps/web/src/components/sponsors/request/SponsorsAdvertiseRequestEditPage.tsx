@@ -250,9 +250,9 @@ export default function SponsorsAdvertiseRequestEditPage({ adRequest }: Props) {
 }
 
 function RequestAlertMessage({
-  status,
   onModify,
   reviewComments,
+  status,
 }: Readonly<{
   onModify: () => void;
   reviewComments?: string | null;

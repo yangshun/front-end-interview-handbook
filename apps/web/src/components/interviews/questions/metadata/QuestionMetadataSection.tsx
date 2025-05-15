@@ -36,9 +36,9 @@ const DEFAULT_ELEMENTS: ReadonlyArray<MetadataElement> = [
 ];
 
 export default function QuestionMetadataSection({
-  metadata,
-  justify = 'start',
   elements = DEFAULT_ELEMENTS,
+  justify = 'start',
+  metadata,
   size = 'body3',
 }: Props) {
   return (

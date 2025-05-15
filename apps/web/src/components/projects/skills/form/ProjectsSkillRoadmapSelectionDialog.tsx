@@ -31,10 +31,10 @@ type Props = Readonly<{
 export default function ProjectsSkillRoadmapSelectionDialog({
   challengeDefaultSkills,
   defaultSkills,
-  onComplete,
+  footerInfoContent,
   isShown,
   onClose,
-  footerInfoContent,
+  onComplete,
 }: Props) {
   const intl = useIntl();
   const [skills, setSkills] = useState(defaultSkills);

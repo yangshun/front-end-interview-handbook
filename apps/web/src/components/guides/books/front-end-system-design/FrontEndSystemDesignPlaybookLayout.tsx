@@ -29,10 +29,10 @@ const guide = 'FRONT_END_SYSTEM_DESIGN_PLAYBOOK';
 export default function FrontEndSystemDesignPlaybookLayout({
   children,
   description,
-  tableOfContents,
-  title,
   isAccessibleForFree = true,
   questions,
+  tableOfContents,
+  title,
 }: Props) {
   const intl = useIntl();
   const navigation = useFrontEndSystemDesignPlaybookNavigation(questions);

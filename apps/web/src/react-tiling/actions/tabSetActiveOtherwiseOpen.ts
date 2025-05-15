@@ -28,8 +28,8 @@ export default function tabSetActiveOtherwiseOpen<TabType>(
     fallbackNeighborTabId,
     newTabConfig,
     openBesideTabId,
-    tabId,
     tabCategoryPattern,
+    tabId,
   }: TilesActionTabSetActiveOtherwiseOpen<TabType>['payload'],
 ) {
   const existingTab = getTabById(tiles, tabId);

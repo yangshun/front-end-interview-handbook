@@ -7,8 +7,8 @@ import { useHover } from '../hooks/useHover';
 
 export function CopyCodeSection({
   code,
-  codeToCopy,
   codeHtml,
+  codeToCopy,
   lang,
   title,
 }: Readonly<{

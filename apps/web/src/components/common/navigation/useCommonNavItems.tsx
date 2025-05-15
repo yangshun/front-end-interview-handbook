@@ -14,8 +14,8 @@ import type { NavbarTopLevelItem } from '~/components/ui/Navbar/NavTypes';
 export default function useCommonNavItems() {
   const intl = useIntl();
 
-  const { signInUpLabel, signInUpHref } = useAuthSignInUp();
-  const { logoutLabel, logoutHref } = useAuthLogout();
+  const { signInUpHref, signInUpLabel } = useAuthSignInUp();
+  const { logoutHref, logoutLabel } = useAuthLogout();
 
   const login: NavbarTopLevelItem = {
     href: signInUpHref(),

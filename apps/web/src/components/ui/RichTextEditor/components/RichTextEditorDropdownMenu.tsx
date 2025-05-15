@@ -11,8 +11,8 @@ type Props = Readonly<{
 
 export default function RichTextEditorDropdownMenu({
   children,
-  isLabelHidden,
   icon,
+  isLabelHidden,
   label,
 }: Props) {
   const [editor] = useLexicalComposerContext();

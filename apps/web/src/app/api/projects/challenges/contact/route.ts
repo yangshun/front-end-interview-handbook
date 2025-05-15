@@ -11,7 +11,7 @@ export async function OPTIONS() {
 }
 
 export async function POST(req: NextRequest) {
-  const { name, email, message }: FormBody = await req.json();
+  const { email, message, name }: FormBody = await req.json();
 
   // Perform simple field validations, as long as they are not empty.
   if (!name) {

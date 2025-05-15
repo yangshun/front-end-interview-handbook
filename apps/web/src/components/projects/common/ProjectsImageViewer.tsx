@@ -31,10 +31,10 @@ const MAX_ZOOM_LEVEL = 200;
 export default function ProjectsImageViewer({
   alt,
   aspectRatioClass,
+  grid,
   specShowGridLayoutButton,
   src,
   width,
-  grid,
 }: Props) {
   const intl = useIntl();
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -86,7 +86,7 @@ export default function ProjectsImageViewer({
     { eventOptions: { passive: false }, target: wrapperRef },
   );
 
-  const { columnGap, sidePadding, columns, containerWidth } = grid;
+  const { columnGap, columns, containerWidth, sidePadding } = grid;
 
   return (
     <div className="relative isolate max-h-full">

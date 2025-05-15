@@ -31,7 +31,7 @@ export const purchasesRouter = router({
         domain: z.enum(['INTERVIEWS', 'PROJECTS']),
       }),
     )
-    .query(async ({ input: { domain }, ctx: { viewer } }) => {
+    .query(async ({ ctx: { viewer }, input: { domain } }) => {
       const { stripeCustomer: stripeCustomerId } =
         await prisma.profile.findFirstOrThrow({
           select: {
@@ -69,7 +69,7 @@ export const purchasesRouter = router({
         returnUrl: z.string().url(),
       }),
     )
-    .mutation(async ({ input: { returnUrl }, ctx: { viewer } }) => {
+    .mutation(async ({ ctx: { viewer }, input: { returnUrl } }) => {
       const { stripeCustomer: stripeCustomerId } =
         await prisma.profile.findFirstOrThrow({
           select: {
@@ -89,7 +89,7 @@ export const purchasesRouter = router({
     }),
   interviewsPlans: publicProcedure
     .input(z.string().optional())
-    .query(async ({ input: country, ctx: { req } }) => {
+    .query(async ({ ctx: { req }, input: country }) => {
       const countryCode = (country ??
         req.cookies.country ??
         'US') as CountryCode;
@@ -243,7 +243,7 @@ export const purchasesRouter = router({
   }),
   projectsPlans: publicProcedure
     .input(z.string().optional())
-    .query(async ({ input: country, ctx: { req } }) => {
+    .query(async ({ ctx: { req }, input: country }) => {
       const countryCode = (country ??
         req.cookies.country ??
         'US') as CountryCode;

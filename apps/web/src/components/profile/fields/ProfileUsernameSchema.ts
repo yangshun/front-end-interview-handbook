@@ -12,7 +12,7 @@ function profileUsernameSchema(options?: {
   minMessage: string;
   regexMessage: string;
 }) {
-  const { minMessage, maxMessage, regexMessage } = options ?? {};
+  const { maxMessage, minMessage, regexMessage } = options ?? {};
 
   return z
     .string()

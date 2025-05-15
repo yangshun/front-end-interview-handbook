@@ -1,4 +1,4 @@
-import {
+import type {
   Plugin,
   TranslationFileMetadata,
   TranslationStringArg,
@@ -22,12 +22,6 @@ export default function JsonPlugin(): Plugin {
   const files: Array<TranslationFileMetadata> = [];
 
   return {
-    type: 'json',
-    stringsPerRequest: 50,
-    async trackFiles(filesMetadata) {
-      // Start tracking files
-      files.push(...filesMetadata);
-    },
     async getInstructions() {
       return [
         'The strings are in ICU syntax which can contain HTML/XML tags and template values (wrapped in curly braces).',
@@ -45,6 +39,7 @@ export default function JsonPlugin(): Plugin {
     },
     async getTranslationStrings() {
       const translationStrings: Array<TranslationStringArg> = [];
+
       for (const file of files) {
         // Process file to get keys that need to be translated
         const keysToTranslate = await processFileForChanges(file);
@@ -59,6 +54,7 @@ export default function JsonPlugin(): Plugin {
           ...buildTranslationStrings(sourceJson, keysToTranslate, file),
         );
       }
+
       return translationStrings;
     },
     async onTranslationBatchComplete(translatedStrings) {
@@ -67,7 +63,7 @@ export default function JsonPlugin(): Plugin {
       }
 
       const file = files.find(
-        (file) => file.source.path === translatedStrings[0].batchId,
+        (f) => f.source.path === translatedStrings[0].batchId,
       );
 
       if (file == null) {
@@ -88,6 +84,12 @@ export default function JsonPlugin(): Plugin {
         ),
       );
     },
+    stringsPerRequest: 50,
+    async trackFiles(filesMetadata) {
+      // Start tracking files
+      files.push(...filesMetadata);
+    },
+    type: 'json',
   };
 }
 
@@ -122,6 +124,7 @@ async function readJson(
 ): Promise<Record<string, TranslationEntry> | null> {
   try {
     const content = await readFile(path);
+
     return JSON.parse(content);
   } catch {
     return null;
@@ -133,7 +136,7 @@ async function writeJson(path: string, data: Record<string, TranslationEntry>) {
 }
 
 async function processTargetFile(
-  target: { path: string; locale: string },
+  target: { locale: string; path: string },
   translatedContentMap: Map<string, Record<string, string>>,
   sourceJson: Record<string, TranslationEntry>,
 ) {
@@ -148,5 +151,6 @@ async function processTargetFile(
     translatedContent,
     sourceJson,
   );
+
   await writeJson(target.path, mergedContent);
 }

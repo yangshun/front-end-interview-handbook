@@ -29,8 +29,8 @@ type Props = Readonly<{
 export default function useQuestionUnifiedFilters({
   formatFiltersFilterPredicate,
   formatFiltersOrderComparator,
-  listType,
   initialFormat,
+  listType,
 }: Props) {
   const namespaceListLevel = questionListFilterNamespace(listType, 'list');
   const namespaceTabLevel = questionListFilterNamespace(listType, 'tab');

@@ -41,8 +41,8 @@ export type Props = Readonly<{
 }>;
 
 export default function BlogListingWithFilters({
-  layout = 'full',
   filterNamespace,
+  layout = 'full',
   posts,
   showFilters = true,
   type = 'articles',
@@ -54,13 +54,13 @@ export default function BlogListingWithFilters({
 
   // Filtering.
   const {
+    filters,
+    levelFilterOptions,
+    levelFilters,
     query,
     setQuery,
-    levelFilters,
-    levelFilterOptions,
-    tagFilters,
     tagFilterOptions,
-    filters,
+    tagFilters,
   } = useBlogPostFilters({ namespace: filterNamespace });
 
   // Processing.

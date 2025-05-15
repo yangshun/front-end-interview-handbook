@@ -57,7 +57,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   const { directoryPath, pathname } = requestToPaths(props);
 
   const { data } = grayMatter(readGuidesContents(directoryPath, locale));
-  const { description, title, seo_title, seo_description, social_title } = data;
+  const { description, seo_description, seo_title, social_title, title } = data;
 
   return defaultMetadata({
     description: seo_description || description,
@@ -81,10 +81,10 @@ export default async function Page(props: Props) {
     loadJSFilesAsText: false,
   });
   const {
-    title,
+    default: Markdown,
     description,
     tableOfContents,
-    default: Markdown,
+    title,
   } = getMDXExport(code ?? '', {
     MDXCodeBlock,
   });

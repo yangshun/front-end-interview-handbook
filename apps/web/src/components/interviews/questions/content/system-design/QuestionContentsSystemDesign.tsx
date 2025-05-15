@@ -26,9 +26,9 @@ type Props = Readonly<{
 
 export default function QuestionContentsSystemDesign({
   canViewPremiumContent,
-  studyListKey,
   isQuestionLocked,
   question,
+  studyListKey,
 }: Props) {
   const intl = useIntl();
   const { data } = useQueryQuestionProgress(
@@ -44,7 +44,7 @@ export default function QuestionContentsSystemDesign({
 
   const copyRef = useQuestionLogEventCopyContents<HTMLElement>();
 
-  const { description, metadata, solution, info } = question;
+  const { description, info, metadata, solution } = question;
 
   return (
     <article ref={copyRef} className="flex flex-col gap-y-8">

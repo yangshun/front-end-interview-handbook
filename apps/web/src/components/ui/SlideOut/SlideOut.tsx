@@ -64,7 +64,7 @@ type SlideOutContentProps = React.ComponentPropsWithoutRef<
 export const SlideOutContent = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Content>,
   SlideOutContentProps
->(({ enterFrom = 'end', size, className, children, ...props }, ref) => (
+>(({ children, className, enterFrom = 'end', size, ...props }, ref) => (
   <SlideOutPortal>
     <SlideOutOverlay />
     <DialogPrimitive.Content
@@ -93,8 +93,8 @@ export const SlideOutContent = React.forwardRef<
 SlideOutContent.displayName = DialogPrimitive.Content.displayName;
 
 export function SlideOutHeader({
-  className,
   children,
+  className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) {
   return (
@@ -123,7 +123,7 @@ SlideOutHeader.displayName = 'SlideOutHeader';
 export const SlideOutTitle = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Title>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title>
->(({ className, children, ...props }, ref) => (
+>(({ children, className, ...props }, ref) => (
   <DialogPrimitive.Title
     ref={ref}
     className={clsx('flex items-center justify-between gap-x-4', className)}
@@ -192,19 +192,19 @@ type Props = Readonly<{
 
 export default function SlideOut({
   asChild = true,
-  className,
-  children,
   bodyClassName,
-  headerClassName,
+  children,
+  className,
   enterFrom = 'end',
+  headerClassName,
   isShown,
-  size,
-  primaryButton,
-  title,
-  trigger,
-  secondaryButton,
   onClose,
   padding = true,
+  primaryButton,
+  secondaryButton,
+  size,
+  title,
+  trigger,
 }: Props) {
   return (
     <SlideOutRoot

@@ -14,7 +14,7 @@ function flattenNavigationItems<
   GuideSlug extends string,
   Link extends BaseGuideNavigationLink = BaseGuideNavigationLink<GuideSlug>,
 >({ navigation }: GuideNavigation<GuideSlug, Link>) {
-  const { title, items } = navigation;
+  const { items, title } = navigation;
   const flatItems: Array<GuideNavigationLinkFlat<Link>> = [];
   const crumbs: Array<string> = [title];
 

@@ -116,17 +116,17 @@ const iconSizeClasses: Record<BadgeSize, string> = {
 function Badge(
   {
     className,
-    label,
     icon: Icon,
+    iconClassName,
+    label,
+    labelClassName,
     size = 'md',
     variant,
-    iconClassName,
-    labelClassName,
     ...props
   }: Props,
   ref: ForwardedRef<HTMLSpanElement>,
 ) {
-  const { backgroundClass, borderClass, textClass, iconClass, paddingClass } =
+  const { backgroundClass, borderClass, iconClass, paddingClass, textClass } =
     variantClasses[variant];
 
   return (

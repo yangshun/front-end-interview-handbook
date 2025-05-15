@@ -24,11 +24,11 @@ type Props = Readonly<{
 
 export default function PostComment({ className, comment, level }: Props) {
   const {
-    id: commentId,
-    body,
-    replies,
-    created_utc,
     author,
+    body,
+    created_utc,
+    id: commentId,
+    replies,
     ups: upvoteCount,
   } = comment;
   const replyCount = isRedditComments(replies)

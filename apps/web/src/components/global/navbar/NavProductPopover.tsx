@@ -48,11 +48,11 @@ type Props = Readonly<{
 }>;
 
 export default function NavProductPopover({
-  variant,
+  label,
+  onClick,
   product,
   triggerClassname,
-  onClick,
-  label,
+  variant,
 }: Props) {
   const { label: productLabel } = labels[product];
   const [showUnseenIndicator] = useProductMenuUnseenIndicator();

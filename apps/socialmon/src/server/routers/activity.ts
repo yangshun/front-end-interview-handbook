@@ -15,7 +15,7 @@ export const activityRouter = router({
         projectSlug: z.string(),
       }),
     )
-    .query(async ({ input: { projectSlug, cursor, pagination } }) => {
+    .query(async ({ input: { cursor, pagination, projectSlug } }) => {
       const project = await prisma.project.findUnique({
         select: { id: true },
         where: {

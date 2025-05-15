@@ -7,7 +7,7 @@ type Props = Readonly<{
   params: Readonly<{ locale: string }>;
 }>;
 
-export default async function Layout({ params, children }: Props) {
+export default async function Layout({ children, params }: Props) {
   const { locale } = params;
   const { questions } = await fetchQuestionsList(
     { type: 'format', value: 'system-design' },

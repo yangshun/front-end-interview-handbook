@@ -16,9 +16,9 @@ type Props = Readonly<{
 }>;
 
 export default function QuestionStudyAllocationLabel({
-  showIcon = false,
-  hours,
   frequency,
+  hours,
+  showIcon = false,
   size = 'body3',
 }: Props) {
   const id = useId();

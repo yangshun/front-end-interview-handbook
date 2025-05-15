@@ -34,12 +34,12 @@ export default function Popover({
   align = 'start',
   asChild = true,
   children,
-  side = 'bottom',
-  trigger,
-  open,
-  width = 'md',
   className,
   onOpenChange,
+  open,
+  side = 'bottom',
+  trigger,
+  width = 'md',
 }: Props) {
   return (
     <PopoverPrimitive.Root open={open} onOpenChange={onOpenChange}>

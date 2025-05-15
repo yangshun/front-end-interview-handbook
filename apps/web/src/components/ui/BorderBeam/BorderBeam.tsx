@@ -12,14 +12,14 @@ type BorderBeamProps = Readonly<{
 }>;
 
 export default function BorderBeam({
-  className,
-  size = 200,
-  duration = 15,
   anchor = 90,
   borderWidth = 1.5,
+  className,
   colorFrom = '#ffaa40',
   colorTo = '#e4fe71',
   delay = 0,
+  duration = 15,
+  size = 200,
 }: BorderBeamProps) {
   return (
     <div

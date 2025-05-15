@@ -29,17 +29,17 @@ type Props = Readonly<{
 export default function JavaScriptCodingWorkspaceSection({
   canViewPremiumContent,
   embed = false,
-  question,
-  nextQuestions,
-  similarQuestions,
-  onLanguageChange,
   language,
+  nextQuestions,
+  onLanguageChange,
+  question,
+  similarQuestions,
   studyListKey,
   timeoutLoggerInstance,
 }: Props) {
   const { colorScheme } = useColorSchemePreferences();
 
-  const { workspace, files, skeleton } = question;
+  const { files, skeleton, workspace } = question;
   const loadedCode = loadLocalJavaScriptQuestionCode(
     question.metadata,
     language,

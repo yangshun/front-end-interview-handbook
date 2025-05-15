@@ -9,11 +9,11 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import type { QuestionsCategorizedProgress } from '~/db/QuestionsUtils';
 
 export default function InterviewsStudyListQuestions({
-  studyListKey,
   overallProgress,
   questions,
   showCount_TEMPORARY,
   sideColumnAddOn,
+  studyListKey,
 }: Readonly<{
   overallProgress: QuestionsCategorizedProgress;
   questions: ReadonlyArray<InterviewsQuestionItemMinimal>;

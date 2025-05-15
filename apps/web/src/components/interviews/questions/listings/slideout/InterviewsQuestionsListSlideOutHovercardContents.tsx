@@ -27,7 +27,7 @@ export default function InterviewsQuestionsListSlideOutHovercardContents({
   question,
   size = 'body3',
 }: Props) {
-  const { metadata, info } = question;
+  const { info, metadata } = question;
 
   return (
     <div

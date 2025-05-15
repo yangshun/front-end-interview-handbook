@@ -1,11 +1,11 @@
 import grayMatter from 'gray-matter';
-import {
+
+import type {
   Registry,
   TranslationFileItem,
   TranslationFileMetadata,
 } from '../../core/types';
 import { fileExists, readFile, writeFile } from '../../lib/file-service';
-import registryManager from '../registry-manager';
 import {
   buildTargetMDXContent,
   buildTargetMDXFrontmatter,
@@ -13,11 +13,12 @@ import {
   generateMDXContentHashList,
   getFrontmatterWithoutExcludedKeys,
 } from '../../lib/mdx-file';
-import { PluginOptions } from './mdx-plugin';
+import registryManager from '../registry-manager';
+import type { PluginOptions } from './mdx-plugin';
 
 type DiffResult = Readonly<{
-  keysToTranslate: ReadonlyArray<string>;
   isReorderOrRemoval: boolean;
+  keysToTranslate: ReadonlyArray<string>;
 }>;
 
 function isSubset(
@@ -25,6 +26,7 @@ function isSubset(
   target: ReadonlyArray<string>,
 ) {
   const targetSet = new Set(target);
+
   return source.every((item) => targetSet.has(item));
 }
 
@@ -42,8 +44,10 @@ function findMissingOrUpdatedFrontmatterKeys(
 ): ReadonlyArray<string> {
   return Object.keys(sourceFrontmatter).filter((key) => {
     // If key is not present in target frontmatter, it needs translation
-    if (!(key in targetFrontmatter)) return true;
+    if (!(key in targetFrontmatter)) {return true;}
+
     const sourceHash = generateHash(sourceFrontmatter[key]);
+
     // If hash value is different, it needs translation
     return sourceHash !== registryFrontmatter[key];
   });
@@ -84,7 +88,7 @@ function detectFrontmatterDiff(
     Object.keys(sourceFrontmatter).length <
       Object.keys(registryFrontmatter).length;
 
-  return { keysToTranslate, isReorderOrRemoval };
+  return { isReorderOrRemoval, keysToTranslate };
 }
 
 function findMissingOrUpdatedContentKeys(
@@ -96,6 +100,7 @@ function findMissingOrUpdatedContentKeys(
   if (targetHashList.length !== registryTargetHashList.length) {
     return sourceHashList;
   }
+
   return sourceHashList.filter((key) => !registryTargetHashList.includes(key));
 }
 
@@ -114,31 +119,31 @@ function detectContentDiff(
     : sourceHashList;
 
   if (keysToTranslate.length > 0) {
-    return { keysToTranslate, isReorderOrRemoval: false };
+    return { isReorderOrRemoval: false, keysToTranslate };
   }
 
   const isSourceSubset = isSubset(sourceHashList, registryHashList);
   const isReorderOrRemoval =
     isSourceSubset && !areArraysEqual(sourceHashList, registryHashList);
 
-  return { keysToTranslate, isReorderOrRemoval };
+  return { isReorderOrRemoval, keysToTranslate };
 }
 
 export async function processFileForChanges(
   file: TranslationFileMetadata,
   options?: PluginOptions,
 ): Promise<{
-  frontmatter: Record<Locale, ReadonlyArray<string>>;
   content: Record<Locale, ReadonlyArray<string>>;
+  frontmatter: Record<Locale, ReadonlyArray<string>>;
 }> {
   const { frontmatterExcludedKeys } = options || {};
   const registry = registryManager();
   const registryData = await registry.load(file.source.path);
 
   const result: {
-    frontmatter: Record<Locale, ReadonlyArray<string>>;
     content: Record<Locale, ReadonlyArray<string>>;
-  } = { frontmatter: {}, content: {} };
+    frontmatter: Record<Locale, ReadonlyArray<string>>;
+  } = { content: {}, frontmatter: {} };
 
   const registryUpdatedMDXContent: Record<Locale, Array<string>> = {};
   let registryUpdatedFrontmatter: Record<string, string> | null = null;
@@ -161,8 +166,8 @@ export async function processFileForChanges(
         const targetExists = await fileExists(target.path);
         const targetContent = targetExists ? await readFile(target.path) : null;
 
-        const { data: targetFrontmatter, content: targetMDXContent } =
-          targetContent ? grayMatter(targetContent) : { data: {}, content: '' };
+        const { content: targetMDXContent, data: targetFrontmatter } =
+          targetContent ? grayMatter(targetContent) : { content: '', data: {} };
 
         const contentDiff = detectContentDiff(
           sourceHashList,
@@ -179,15 +184,15 @@ export async function processFileForChanges(
         );
 
         await rebuildTargetContent({
-          sourceMDXContent,
-          sourceFrontmatter,
-          target,
-          targetMDXContent,
-          targetFrontmatter,
-          frontmatterDiff,
           contentDiff,
+          frontmatterDiff,
           frontmatterExcludedKeys,
           registryData,
+          sourceFrontmatter,
+          sourceMDXContent,
+          target,
+          targetFrontmatter,
+          targetMDXContent,
         });
 
         // Update registry state
@@ -197,7 +202,8 @@ export async function processFileForChanges(
           ).reduce(
             (acc, key) => {
               if (registryData.frontmatter[key])
-                acc[key] = registryData.frontmatter[key];
+                {acc[key] = registryData.frontmatter[key];}
+
               return acc;
             },
             {} as Record<string, string>,
@@ -219,7 +225,6 @@ export async function processFileForChanges(
     Object.keys(registryUpdatedMDXContent).length > 0
   ) {
     await registry.save(file.source.path, {
-      frontmatter: registryUpdatedFrontmatter || registryData.frontmatter,
       content: {
         source: {
           ...registryData.content.source,
@@ -233,6 +238,7 @@ export async function processFileForChanges(
           ...registryUpdatedMDXContent,
         },
       },
+      frontmatter: registryUpdatedFrontmatter || registryData.frontmatter,
     });
   }
 
@@ -246,25 +252,25 @@ export async function processFileForChanges(
  * 3. Changes to excluded frontmatter keys.
  */
 async function rebuildTargetContent({
-  sourceMDXContent,
-  sourceFrontmatter,
-  targetMDXContent,
-  targetFrontmatter,
-  target,
-  registryData,
-  frontmatterDiff,
   contentDiff,
+  frontmatterDiff,
   frontmatterExcludedKeys,
+  registryData,
+  sourceFrontmatter,
+  sourceMDXContent,
+  target,
+  targetFrontmatter,
+  targetMDXContent,
 }: {
-  sourceMDXContent: string;
-  sourceFrontmatter: Record<string, string>;
-  targetMDXContent: string;
-  targetFrontmatter: Record<string, string>;
-  target: TranslationFileItem;
-  registryData: Registry;
-  frontmatterDiff: DiffResult;
   contentDiff: DiffResult;
+  frontmatterDiff: DiffResult;
   frontmatterExcludedKeys?: ReadonlyArray<string>;
+  registryData: Registry;
+  sourceFrontmatter: Record<string, string>;
+  sourceMDXContent: string;
+  target: TranslationFileItem;
+  targetFrontmatter: Record<string, string>;
+  targetMDXContent: string;
 }) {
   const excludedFrontmatterKeysToUpdate = findFrontmatterExcludedKeysToUpdate(
     frontmatterExcludedKeys ?? [],
@@ -277,7 +283,7 @@ async function rebuildTargetContent({
     contentDiff.isReorderOrRemoval ||
     excludedFrontmatterKeysToUpdate.length > 0;
 
-  if (!needsRebuild) return;
+  if (!needsRebuild) {return;}
 
   // Rebuild content
   const updatedTargetMDXContent = contentDiff.isReorderOrRemoval
@@ -304,16 +310,17 @@ async function rebuildTargetContent({
     updatedTargetMDXContent,
     updatedTargetFrontmatter,
   );
+
   await writeFile(target.path, updatedTargetContent);
 }
 
 // Test exports
 export const __test__ = {
-  isSubset,
   areArraysEqual,
-  detectFrontmatterDiff,
   detectContentDiff,
+  detectFrontmatterDiff,
+  findFrontmatterExcludedKeysToUpdate,
   findMissingOrUpdatedContentKeys,
   findMissingOrUpdatedFrontmatterKeys,
-  findFrontmatterExcludedKeysToUpdate,
+  isSubset,
 };

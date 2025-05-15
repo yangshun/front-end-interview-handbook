@@ -15,9 +15,9 @@ type Props = Readonly<{
 export default function ProjectsProfileStats({
   codeReviews,
   completedChallenges,
+  isViewingOwnProfile,
   submissionViews,
   upvotes,
-  isViewingOwnProfile,
 }: Props) {
   const stats = useProjectsProfileStats({
     codeReviews,
@@ -30,7 +30,7 @@ export default function ProjectsProfileStats({
   return (
     <Section>
       <CardContainer className="grid grid-cols-2 gap-4 lg:gap-6 xl:grid-cols-4">
-        {stats.map(({ title, count, icon: Icon }) => (
+        {stats.map(({ count, icon: Icon, title }) => (
           <MetricCard key={title} count={count} icon={Icon} label={title} />
         ))}
       </CardContainer>

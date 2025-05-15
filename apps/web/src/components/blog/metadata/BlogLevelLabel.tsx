@@ -24,8 +24,8 @@ const DifficultyLabelClasses: Record<BlogLevel, string> = {
 
 export default function BlogLevelLabel({
   showIcon = false,
-  value,
   size = 'body3',
+  value,
 }: Props) {
   const intl = useIntl();
   const id = useId();

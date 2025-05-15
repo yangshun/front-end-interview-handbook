@@ -58,9 +58,9 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsChallengeSubmissionPage({
-  viewerId,
   challenge,
   submission,
+  viewerId,
   viewerProjectsProfile,
 }: Props) {
   const intl = useIntl();
@@ -76,12 +76,12 @@ export default function ProjectsChallengeSubmissionPage({
     trpc.projects.submission.incrementView.useMutation();
 
   const {
-    id: submissionId,
     deploymentUrls,
+    id: submissionId,
     repositoryUrl,
     roadmapSkills,
-    techStackSkills,
     screenshotStatus,
+    techStackSkills,
   } = submission;
 
   useEffect(() => {

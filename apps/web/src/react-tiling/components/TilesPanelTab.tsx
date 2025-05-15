@@ -80,11 +80,11 @@ export default function TilesPanelTab<TabType extends string>({
   index,
   isActive,
   label,
-  panelId,
-  tabId,
   onClick,
   onPanelDrop,
   onTabDrop,
+  panelId,
+  tabId,
 }: Readonly<{
   closeable: boolean;
   href?: string;
@@ -105,8 +105,8 @@ export default function TilesPanelTab<TabType extends string>({
   panelId: string;
   tabId: TabType;
 }>) {
-  const { dispatch, activeTabScrollIntoView } = useTilesContext();
-  const { setDraggedItemId, setPosition, draggedItemId, parentRect } =
+  const { activeTabScrollIntoView, dispatch } = useTilesContext();
+  const { draggedItemId, parentRect, setDraggedItemId, setPosition } =
     useDragHighlightContext();
   const tabRef = useRef<HTMLDivElement>(null);
   const [{ isOver }, drop] = useDrop<

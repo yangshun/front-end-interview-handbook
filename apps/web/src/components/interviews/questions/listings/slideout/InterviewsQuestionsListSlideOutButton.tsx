@@ -51,8 +51,8 @@ export default function InterviewsQuestionsListSlideOutButton(props: Props) {
 }
 
 function InterviewsQuestionsListSlideOutButtonWithLoader({
-  framework,
   currentQuestionHash,
+  framework,
   initialListType,
   listIsShownInSidebarOnDesktop,
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE,
@@ -62,7 +62,7 @@ function InterviewsQuestionsListSlideOutButtonWithLoader({
     useQuestionsListTypeCurrent(studyListKey, framework) ??
     initialListType ??
     QuestionListTypeDefault;
-  const { isLoading, data } = useQuestionsListDataForType(listType);
+  const { data, isLoading } = useQuestionsListDataForType(listType);
 
   const questionsWithCompletionStatus = useQuestionsWithCompletionStatus(
     data?.questions ?? [],
@@ -102,8 +102,8 @@ function InterviewsQuestionsListSlideOutButtonWithLoader({
 function InterviewsQuestionsListSlideOutButtonImpl({
   currentQuestionHash,
   framework,
-  listType,
   listIsShownInSidebarOnDesktop,
+  listType,
   questions,
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE,
 }: Omit<Props, 'studyListKey'> &

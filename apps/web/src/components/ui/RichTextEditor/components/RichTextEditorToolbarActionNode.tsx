@@ -20,10 +20,10 @@ type ActionNodeProps = Readonly<{
 
 export default function RichTextEditorToolbarActionNode({
   icon: Icon,
+  isActive,
+  isDisabled,
   onClick,
   tooltipLabel,
-  isDisabled,
-  isActive,
 }: ActionNodeProps) {
   const [editor] = useLexicalComposerContext();
 

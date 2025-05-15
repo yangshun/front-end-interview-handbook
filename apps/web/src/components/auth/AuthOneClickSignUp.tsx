@@ -18,7 +18,7 @@ export default function AuthOneClickSignup() {
   const isMobile = useMediaQuery('(max-width: 640px)');
   const { pathname } = useI18nPathname();
   const lastToastId = useRef<string | null>(null);
-  const { showToast, dismissToast } = useToast();
+  const { dismissToast, showToast } = useToast();
 
   const { isLoading: isUserLoading, session } = useSessionContext();
   const [dismissedSignUpPrompt, setDismissedSignUpPrompt] =

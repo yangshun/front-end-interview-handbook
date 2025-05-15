@@ -101,7 +101,7 @@ export default function SponsorsStepsToStartAdvertisingSection() {
           'flex flex-col justify-between sm:flex-row',
           'gap-x-4 gap-y-6 md:gap-x-6',
         )}>
-        {data.map(({ key, title, description, image: ImageSVG }, index) => (
+        {data.map(({ description, image: ImageSVG, key, title }, index) => (
           <Card
             key={key}
             brandColorSpotlight={false}

@@ -47,19 +47,19 @@ function ProjectsChallengeGridListWithFiltersImpl({
   const [searchQuery, setSearchQuery] = useState('');
   const {
     filterItems,
-    value: selectedFilters,
-    updateSearchParams,
     getStringTypeSearchParams,
+    updateSearchParams,
+    value: selectedFilters,
   } = useProjectsChallengeFilterContext();
   // Filtering.
   const {
-    query,
-    onChangeQuery,
     filters: filtersChallengesOpts,
+    onChangeQuery,
+    query,
   } = useProjectsChallengesFilters();
 
   // Sorting.
-  const { isAscendingOrder, setIsAscendingOrder, sortField, setSortField } =
+  const { isAscendingOrder, setIsAscendingOrder, setSortField, sortField } =
     useProjectsChallengesSorting();
 
   // Processing.
@@ -76,10 +76,10 @@ function ProjectsChallengeGridListWithFiltersImpl({
 
   // Pagination
   const {
-    currentPageItems: currentPageChallenges,
-    totalPages,
-    setCurrentPage,
     currentPage,
+    currentPageItems: currentPageChallenges,
+    setCurrentPage,
+    totalPages,
   } = usePagination({
     deps: [selectedFilters, query, sortField, isAscendingOrder],
     itemsPerPage: ITEMS_PER_PAGE,

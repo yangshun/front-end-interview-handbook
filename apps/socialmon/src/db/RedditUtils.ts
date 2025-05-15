@@ -37,8 +37,8 @@ export async function createRedditPost({
     content: post.selftext,
     keywords: matchedKeywords,
     permalink: post.permalink,
-    postId: post.id,
     postedAt: new Date(post.created_utc * 1000),
+    postId: post.id,
     statsUpdatedAt: new Date(),
     subreddit: post.subreddit_name_prefixed,
     title: post.title,
@@ -48,8 +48,8 @@ export async function createRedditPost({
 
 export async function getPostsFromReddit({
   keywords,
-  subreddits,
   postFilteringPrompt,
+  subreddits,
 }: {
   keywords: ReadonlyArray<string>;
   postFilteringPrompt: string;
@@ -129,15 +129,15 @@ export async function getPostsFromReddit({
 }
 
 export async function replyToRedditPost({
-  user,
   postId,
   response,
+  user,
 }: {
   postId: string;
   response: string;
   user: Readonly<{ password: string; username: string }>;
 }) {
-  const { username, password } = user;
+  const { password, username } = user;
   const snoowrap = await initializeRedditClient(username, password);
 
   // TODO(socialmon): Figure out how to add type here.

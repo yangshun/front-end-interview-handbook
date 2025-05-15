@@ -42,17 +42,17 @@ const stateClasses: Record<State, string> = {
 function ProjectsSkillRoadmapSelectionInput(
   {
     challengeDefaultSkills,
-    descriptionStyle = 'tooltip',
     description,
+    descriptionStyle = 'tooltip',
     errorMessage,
+    footerInfoContent,
     isLabelHidden,
     label,
-    required,
-    value,
     onBlur,
     onChange,
     placeholder,
-    footerInfoContent,
+    required,
+    value,
   }: Props,
   ref: ForwardedRef<HTMLDivElement>,
 ) {

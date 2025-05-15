@@ -46,11 +46,11 @@ type Props = WithIconProps | WithLogoProps;
 
 export default function InterviewsRecommendedPrepStrategyPageTitleSection({
   description,
-  title,
   features,
   longDescription,
   metadata,
   questions,
+  title,
   ...props
 }: Props) {
   const intl = useIntl();

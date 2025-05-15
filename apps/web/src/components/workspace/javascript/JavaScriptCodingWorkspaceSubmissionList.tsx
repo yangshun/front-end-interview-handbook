@@ -87,7 +87,7 @@ function JavaScriptCodingWorkspaceSubmissionListImpl({ metadata }: Props) {
               ['divide-y', themeDivideEmphasizeColor],
               'overflow-hidden',
             )}>
-            {submissions?.map(({ id, createdAt, language, result }) => (
+            {submissions?.map(({ createdAt, id, language, result }) => (
               <div
                 key={id}
                 className={clsx(

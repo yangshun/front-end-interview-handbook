@@ -42,17 +42,17 @@ export default function ProjectsChallengeSubmissionListWithFilters({
 }: Props) {
   // Filtering.
   const {
-    query,
-    onChangeQuery,
     filters: filtersChallengesOpts,
     filterSize,
-    profileStatus,
-    yoeExperience,
     hasClientFilterApplied,
+    onChangeQuery,
+    profileStatus,
+    query,
+    yoeExperience,
   } = useProjectsChallengeSubmissionFilters();
 
   // Sorting.
-  const { isAscendingOrder, setIsAscendingOrder, sortField, setSortField } =
+  const { isAscendingOrder, setIsAscendingOrder, setSortField, sortField } =
     useProjectsChallengesSorting();
 
   const allChallengesMetadata = getAllProjectsChallengeMetadata();
@@ -64,13 +64,13 @@ export default function ProjectsChallengeSubmissionListWithFilters({
   );
   const {
     filters,
-    value: selectedFilters,
-    updateSearchParams,
     getStringTypeSearchParams,
+    updateSearchParams,
+    value: selectedFilters,
   } = useProjectsChallengeSubmissionFilterContext();
 
   // Pagination
-  const { setCurrentPage, currentPage } = usePagination({
+  const { currentPage, setCurrentPage } = usePagination({
     deps: [selectedFilters, query, sortField, isAscendingOrder],
     itemsPerPage: ITEMS_PER_PAGE,
     page: Number(getStringTypeSearchParams('page')) || 1,
@@ -82,9 +82,9 @@ export default function ProjectsChallengeSubmissionListWithFilters({
     trpc.projects.submissions.list.useQuery(
       {
         filter: {
+          challenges: processedChallenges.map((item) => item.slug),
           challengeSessionStatus:
             selectedFilters.status as Array<ProjectsChallengeSubmissionStatusFilter>,
-          challenges: processedChallenges.map((item) => item.slug),
           hasClientFilterApplied,
           profileStatus,
           query,

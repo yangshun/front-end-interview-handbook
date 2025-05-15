@@ -45,20 +45,20 @@ const formatter = new Intl.DateTimeFormat(undefined, {
 
 export default function SponsorsAdminAdRequestListPage() {
   // Pagination
-  const { setCurrentPage, currentPage } = usePagination({
+  const { currentPage, setCurrentPage } = usePagination({
     deps: [],
     itemsPerPage: ITEMS_PER_PAGE,
     page: 1,
   });
   const {
-    query,
+    isAscendingOrder,
     onChangeQuery,
-    statusFilterOptions,
+    query,
     selectedStatus,
+    setIsAscendingOrder,
     setSortField,
     sortField,
-    isAscendingOrder,
-    setIsAscendingOrder,
+    statusFilterOptions,
   } = useSponsorsAdminAdRequestFilters();
   const { data: { requests, totalCount } = {}, isLoading } =
     trpc.sponsors.adRequests.useQuery(

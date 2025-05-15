@@ -56,8 +56,8 @@ function FilterSection<
   Q extends InterviewsQuestionItemMinimal,
 >({
   coveredValues,
-  filters,
   filterOptions,
+  filters,
 }: Readonly<{
   coveredValues?: Set<T>;
   filterOptions: QuestionFilter<T, Q>;
@@ -95,12 +95,12 @@ function FilterSection<
 function FrameworkAndLanguageFilterSection<
   Q extends InterviewsQuestionItemMinimal,
 >({
-  languageCoveredValues,
   frameworkCoveredValues,
-  frameworkFilters,
   frameworkFilterOptions,
-  languageFilters,
+  frameworkFilters,
+  languageCoveredValues,
   languageFilterOptions,
+  languageFilters,
   listType,
 }: Readonly<{
   frameworkCoveredValues?: Set<QuestionFramework>;
@@ -203,17 +203,17 @@ type Props = Readonly<{
 }>;
 
 export default function InterviewsQuestionsListSlideOutContents({
-  framework,
-  listType,
-  onListTabChange,
-  isDifferentListFromInitial,
   currentQuestionHash,
+  framework,
+  isDifferentListFromInitial,
+  listType,
   mode,
+  onCancelSwitchStudyList,
+  onClickQuestion,
+  onCloseSwitchQuestionListDialog,
+  onListTabChange,
   setFirstQuestionHref,
   showSwitchQuestionListDialog,
-  onCancelSwitchStudyList,
-  onCloseSwitchQuestionListDialog,
-  onClickQuestion,
 }: Props) {
   const intl = useIntl();
   const router = useI18nRouter();
@@ -227,7 +227,7 @@ export default function InterviewsQuestionsListSlideOutContents({
       : undefined;
 
   // To fetch the list-specific question when user change the study list
-  const { isLoading, data } = useQuestionsListDataForType(listType ?? null);
+  const { data, isLoading } = useQuestionsListDataForType(listType ?? null);
 
   const questionsWithCompletionStatus = useQuestionsWithCompletionStatus(
     data?.questions ?? [],
@@ -243,26 +243,26 @@ export default function InterviewsQuestionsListSlideOutContents({
 
   // Filtering
   const {
+    clearAllFilters,
+    companyFilterOptions,
+    companyFilters,
+    completionStatusFilterOptions,
+    completionStatusFilters,
+    difficultyFilterOptions,
+    difficultyFilters,
+    filters,
+    formatFilterOptions,
+    formatFilters,
+    frameworkFilterOptions,
+    frameworkFilters,
+    importanceFilterOptions,
+    importanceFilters,
+    languageFilterOptions,
+    languageFilters,
     query,
     setQuery,
-    difficultyFilters,
-    difficultyFilterOptions,
-    companyFilters,
-    companyFilterOptions,
-    frameworkFilters,
-    frameworkFilterOptions,
-    languageFilters,
-    languageFilterOptions,
-    completionStatusFilters,
-    completionStatusFilterOptions,
-    importanceFilters,
-    importanceFilterOptions,
-    formatFilters,
-    formatFilterOptions,
     topicFilterOptions,
     topicFilters,
-    filters,
-    clearAllFilters,
   } = useQuestionUnifiedFilters({
     listType,
   });

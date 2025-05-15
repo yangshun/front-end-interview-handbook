@@ -33,10 +33,10 @@ function ProjectsChallengeStepsTabItem({
     (useSelectedLayoutSegment() as ProjectsChallengeItemStepsTabType) ||
     'brief';
   const {
-    title: tabItemTitle,
-    subtitle: tabItemSubtitle,
-    value: tabItemValue,
     href,
+    subtitle: tabItemSubtitle,
+    title: tabItemTitle,
+    value: tabItemValue,
   } = item;
   const [hasRead, setHasRead] = useProjectsChallengeStepsReadStatus(
     challenge,
@@ -97,12 +97,12 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsChallengeStepsTabItems({
+  challenge,
+  className,
   compact,
   label,
-  tabs,
-  challenge,
   onSelect,
-  className,
+  tabs,
 }: Props) {
   return (
     <nav

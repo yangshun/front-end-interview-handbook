@@ -42,16 +42,16 @@ export default function ProjectsChallengeCard({
   ...props
 }: Props) {
   const intl = useIntl();
-  const { metadata, status, track, userUnlocked, info } = challenge;
+  const { info, metadata, status, track, userUnlocked } = challenge;
   const {
-    difficulty,
-    skills,
-    coverImage,
-    points,
-    href,
     access: challengeAccess,
+    coverImage,
+    difficulty,
+    href,
+    points,
+    skills,
   } = metadata;
-  const { title, description } = info;
+  const { description, title } = info;
 
   return (
     <div

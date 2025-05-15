@@ -54,10 +54,10 @@ type Props = Readonly<{
 }>;
 
 export default function InterviewsNavbar({
-  bottomBorder = true,
-  hideOnDesktop = false,
-  hideAdvertiseWithUsBadge,
   bgClassName = 'bg-white dark:bg-neutral-900/60',
+  bottomBorder = true,
+  hideAdvertiseWithUsBadge,
+  hideOnDesktop = false,
 }: Props) {
   const user = useUser();
   const isLoggedIn = user != null;

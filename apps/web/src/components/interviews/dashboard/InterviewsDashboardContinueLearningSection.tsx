@@ -51,23 +51,23 @@ type Props = Readonly<{
 const SHOW_MAX_PROGRESS = 8;
 
 export default function InterviewsDashboardContinueLearningSection({
+  hideHeading = false,
+  playbookProgress,
   questionListSessions,
   studyListsMap,
-  playbookProgress,
   variant = 'normal',
-  hideHeading = false,
 }: Props) {
   const intl = useIntl();
 
   const items: SessionProgress = questionListSessions
-    .filter(({ key, _count }) => {
+    .filter(({ _count, key }) => {
       const studyList = studyListsMap[key];
 
       if (!studyList) {
         return false;
       }
 
-      const { questionHashes, questionCount } = studyList;
+      const { questionCount, questionHashes } = studyList;
 
       // Remove completed session
       return (
@@ -75,8 +75,8 @@ export default function InterviewsDashboardContinueLearningSection({
         questionHashes?.length
       );
     })
-    .map(({ key, _count, updatedAt }) => {
-      const { href, longName, questionHashes, questionCount } =
+    .map(({ _count, key, updatedAt }) => {
+      const { href, longName, questionCount, questionHashes } =
         studyListsMap[key];
 
       return {
@@ -122,7 +122,7 @@ export default function InterviewsDashboardContinueLearningSection({
               ],
         )}>
         {sessionsProgress.map(
-          ({ href, title, questionProgress, articleProgress }) => {
+          ({ articleProgress, href, questionProgress, title }) => {
             const totalCount =
               (questionProgress?.total ?? 0) + (articleProgress?.total ?? 0);
             const completedCount =

@@ -104,7 +104,7 @@ export default function RichTextEditorSpecialCasePlugin() {
         description: 'Special case action for richtext editor toolbar',
         id: '/CfHhU',
       })}>
-      {caseOptions.map(({ label, value, icon }) => (
+      {caseOptions.map(({ icon, label, value }) => (
         <DropdownMenu.Item
           key={value}
           icon={icon}

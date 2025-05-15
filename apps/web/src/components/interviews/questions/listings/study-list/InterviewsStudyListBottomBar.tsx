@@ -23,8 +23,8 @@ type Props = Readonly<{
 export default function InterviewsStudyListBottomBar({
   allowMarkComplete = true,
   initialListType,
-  metadata,
   listIsShownInSidebarOnDesktop,
+  metadata,
   studyListKey,
 }: Props) {
   return (

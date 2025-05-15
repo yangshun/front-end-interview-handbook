@@ -67,10 +67,10 @@ export function useAuthPointOnActions(
   const { isLoading: isUserLoading, session } = useSessionContext();
   const { showAuthSignupDialog } = useAuthSignupDialogContext();
   const {
-    maxAuthPointsReached,
-    setAuthPointEntities,
     authPointEntities,
     authPoints,
+    maxAuthPointsReached,
+    setAuthPointEntities,
   } = useAuthPoints();
 
   const increaseAuthPoints = useCallback(
@@ -138,7 +138,7 @@ export function useAuthActiveEngagementPoints(
     entityType: EntityType;
   }>,
 ) {
-  const { durationInSeconds = 30, entityType, entityId } = opts || {};
+  const { durationInSeconds = 30, entityId, entityType } = opts || {};
   const { isLoading: isUserLoading, session } = useSessionContext();
   const { increaseAuthPoints } = useAuthPointOnActions();
 

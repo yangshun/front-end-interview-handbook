@@ -17,11 +17,11 @@ type Props = Readonly<{
 }>;
 
 export default function BlogListingFilters({
+  itemGap,
   levelFilterOptions,
   levelFilters,
   tagFilterOptions,
   tagFilters,
-  itemGap,
 }: Props) {
   return (
     <form>

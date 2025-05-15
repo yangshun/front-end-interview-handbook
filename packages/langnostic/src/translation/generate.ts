@@ -2,15 +2,16 @@ import { generateObject } from 'ai';
 import path from 'path';
 import { z } from 'zod';
 
-import {
+import { RUNS_PATH } from '../core/constants';
+import type {
   TranslationGroupBatchId,
   TranslationRequestJob,
   TranslationStringResult,
 } from '../core/types';
-import { providerModel, TranslationAI } from './providers';
 import { writeFile } from '../lib/file-service';
-import { RUNS_PATH } from '../core/constants';
 import { getPromptTemplate } from './prompt';
+import type { TranslationAI } from './providers';
+import { providerModel } from './providers';
 
 function hashStringItem(batchId: TranslationGroupBatchId, id: string): string {
   return `${batchId}#${id}`;
@@ -24,13 +25,14 @@ export async function generate(
     instructions?: string;
   }>,
 ): Promise<ReadonlyArray<TranslationStringResult>> {
-  const { runId, jobId, strings } = job;
+  const { jobId, runId, strings } = job;
   const { ai, debug, instructions } = options;
   const filePathPrefix = [RUNS_PATH, runId, jobId];
 
   try {
     if (strings.length === 0) {
       console.info('No strings to translate');
+
       return [];
     }
 
@@ -46,12 +48,12 @@ export async function generate(
 
     const result = await generateObject({
       model,
-      temperature: ai.temperature || 0,
+      prompt,
       schema: z.object({
         data: z.array(
           z.object({
-            id: z.string(),
             batchId: z.string(),
+            id: z.string(),
             translations: z.array(
               z.object({
                 locale: z.string(),
@@ -61,7 +63,7 @@ export async function generate(
           }),
         ),
       }),
-      prompt,
+      temperature: ai.temperature || 0,
     });
 
     if (debug) {
@@ -72,10 +74,11 @@ export async function generate(
     }
 
     const translationStringsMap = new Map<string, Record<Locale, string>>();
-    result.object.data.forEach((result) => {
+
+    result.object.data.forEach((r) => {
       translationStringsMap.set(
-        hashStringItem(result.batchId, result.id),
-        result.translations.reduce(
+        hashStringItem(r.batchId, r.id),
+        r.translations.reduce(
           (acc, { locale, string }) => ({
             ...acc,
             [locale]: string,

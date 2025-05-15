@@ -17,7 +17,7 @@ export const socialUsersRouter = router({
     )
     .mutation(async (opts) => {
       const { input } = opts;
-      const { user, projectSlug } = input;
+      const { projectSlug, user } = input;
       const project = await prisma.project.findUnique({
         select: { id: true },
         where: {

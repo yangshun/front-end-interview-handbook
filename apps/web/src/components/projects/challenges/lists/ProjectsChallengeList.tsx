@@ -11,15 +11,15 @@ import type {
 } from '../types';
 
 type Props = Readonly<{
-  challengeStatuses?: ProjectsChallengeHistoricalStatuses;
   challenges: ReadonlyArray<ProjectsChallengeItem>;
+  challengeStatuses?: ProjectsChallengeHistoricalStatuses;
   className?: string;
   skillRoadmapKey?: ProjectsSkillKey;
 }>;
 
 export default function ProjectsChallengeList({
-  className,
   challenges,
+  className,
   skillRoadmapKey,
 }: Props) {
   const singleCardHeight = 100 / challenges.length;

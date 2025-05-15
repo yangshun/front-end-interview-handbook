@@ -7,8 +7,8 @@ import Text from '~/components/ui/Text';
 import { themeBorderColor } from '~/components/ui/theme';
 
 export default function InterviewsPurchasePaywallSmall({
-  title: titleProp,
   subtitle: subtitleProp,
+  title: titleProp,
 }: Readonly<{
   subtitle?: string;
   title?: string;

@@ -32,12 +32,12 @@ type Props = Readonly<{
 }>;
 
 function SpecsInline({
-  specs,
-  showSpecFile = false,
-  openSpec,
-  runStatus,
   onFocusConsole,
   onShowTestCase,
+  openSpec,
+  runStatus,
+  showSpecFile = false,
+  specs,
 }: Props) {
   const intl = useIntl();
 

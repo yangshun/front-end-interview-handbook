@@ -47,13 +47,13 @@ type Props = Readonly<{
 }>;
 
 export default function SponsorsAdvertiseRequestFormAdsSection({
-  onSubmit,
-  onPrevious,
   ads,
-  updateAds,
-  sessionId,
-  updateStepStatus,
   mode,
+  onPrevious,
+  onSubmit,
+  sessionId,
+  updateAds,
+  updateStepStatus,
 }: Props) {
   const intl = useIntl();
   const isReadonly = mode === 'readonly';
@@ -303,7 +303,7 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                       price: SponsorAdFormatConfigs.IN_CONTENT.pricePerWeekUSD,
                     },
                   ] as const
-                ).map(({ description, label, format, price }) => {
+                ).map(({ description, format, label, price }) => {
                   const selected = selectedFormat === format;
 
                   return (
@@ -372,7 +372,7 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                         }
                       : undefined
                   }
-                  onSubmit={({ text, url, weeks, sponsorName }) => {
+                  onSubmit={({ sponsorName, text, url, weeks }) => {
                     if (isEditFlow) {
                       const updatedAds = ads.map((ad) => {
                         if (ad.id === editAdData.id) {
@@ -429,12 +429,12 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                       : undefined
                   }
                   onSubmit={({
+                    body,
+                    imageUrl,
+                    sponsorName,
                     text,
                     url,
                     weeks,
-                    imageUrl,
-                    body,
-                    sponsorName,
                   }) => {
                     if (isEditFlow) {
                       const updatedAds = ads.map((ad) => {
@@ -495,7 +495,7 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                         }
                       : undefined
                   }
-                  onSubmit={({ text, url, weeks, imageUrl, sponsorName }) => {
+                  onSubmit={({ imageUrl, sponsorName, text, url, weeks }) => {
                     if (isEditFlow) {
                       const updatedAds = ads.map((ad) => {
                         if (ad.id === editAdData.id) {

@@ -36,14 +36,14 @@ type Props = Readonly<{
 
 export default function UserInterfaceCodingWorkspaceBottomBar({
   framework,
-  isViewingSave,
   frameworkSolutionPath,
+  isViewingSave,
   metadata,
-  question,
   mode,
+  question,
   resetToDefaultCode,
-  studyListKey,
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE,
+  studyListKey,
 }: Props) {
   const intl = useIntl();
 
@@ -124,7 +124,7 @@ export default function UserInterfaceCodingWorkspaceBottomBar({
             },
             value: 'reset',
           },
-        ].map(({ onClick, icon, label, value }) => (
+        ].map(({ icon, label, onClick, value }) => (
           <DropdownMenu.Item
             key={value}
             icon={icon}

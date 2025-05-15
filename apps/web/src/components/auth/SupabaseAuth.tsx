@@ -39,14 +39,14 @@ export type Props = Readonly<{
 }>;
 
 export default function SupabaseAuth({
-  supabaseClient,
   className,
-  socialLayout = 'vertical',
-  preBodyContents,
-  providers,
   initialView = 'sign_in',
   next,
   onlyThirdPartyProviders = false,
+  preBodyContents,
+  providers,
+  socialLayout = 'vertical',
+  supabaseClient,
   variant = 'full',
 }: Props): JSX.Element | null {
   const searchParams = useSearchParams();

@@ -138,7 +138,7 @@ export const ProjectsProfileCommunityFilterContext =
 export function useProjectsProfileCommunityFilterState(
   key: ProjectsProfileCommunityFilterKey,
 ) {
-  const { value, setFilterValue } = useContext(
+  const { setFilterValue, value } = useContext(
     ProjectsProfileCommunityFilterContext,
   );
 

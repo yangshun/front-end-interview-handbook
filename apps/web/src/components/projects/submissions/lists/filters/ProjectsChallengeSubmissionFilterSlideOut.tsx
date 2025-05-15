@@ -34,12 +34,12 @@ import { themeTextFaintColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
 function FilterSection({
-  longLabel,
-  label,
   id,
+  label,
+  longLabel,
   options,
-  type,
   tooltip,
+  type,
 }: ProjectsChallengeSubmissionFilterOption) {
   const [selectedOptions, setSelectedOptions] =
     useProjectsChallengeSubmissionFilterState(id);
@@ -137,11 +137,11 @@ export default function ProjectsChallengeSubmissionFilterSlideOut({
 
   const {
     filters: initialFilters,
-    value: initialSelectedFilters,
     getArrayTypeSearchParams,
     getStringTypeSearchParams,
-    updateSearchParams,
     setSelectedFilters: setInitialSelectedFilters,
+    updateSearchParams,
+    value: initialSelectedFilters,
   } = useProjectsChallengeSubmissionFilterContext();
   const [selectedFilters, setSelectedFilters] = useState<
     Record<ProjectsChallengeSubmissionFilterKey, Array<string>>

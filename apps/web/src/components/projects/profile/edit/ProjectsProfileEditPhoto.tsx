@@ -17,8 +17,8 @@ const MAX_SIZE = 1024;
 
 export default function ProjectsProfileEditPhoto({
   hasProfilePhoto,
-  setImageSizeExceeded,
   onChange,
+  setImageSizeExceeded,
 }: Props) {
   const intl = useIntl();
   const photoInputRef = useRef<HTMLInputElement>(null);
@@ -82,7 +82,7 @@ export default function ProjectsProfileEditPhoto({
             })}>
             {menuItems
               .filter((item) => item.show)
-              .map(({ label, value, onClick }) => (
+              .map(({ label, onClick, value }) => (
                 <DropdownMenu.Item
                   key={value}
                   label={label}

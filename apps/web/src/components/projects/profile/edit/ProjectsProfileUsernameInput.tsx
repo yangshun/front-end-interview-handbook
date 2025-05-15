@@ -13,11 +13,10 @@ import TextInput from '~/components/ui/TextInput';
 type Props = Readonly<{
   errorMessage: string | undefined;
   field:
-    | ControllerRenderProps<ProjectsProfileEditFormValues, 'username'>
-    | ControllerRenderProps<
+    ControllerRenderProps<
         ProjectsProfileOnboardingStepFormValues,
         'username'
-      >;
+      > | ControllerRenderProps<ProjectsProfileEditFormValues, 'username'>;
   setUsernameExistsError: (hasError: boolean) => void;
 }>;
 

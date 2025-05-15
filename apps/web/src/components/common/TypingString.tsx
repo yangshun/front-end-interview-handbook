@@ -15,7 +15,7 @@ export default function TypingString({
     amount: 'all',
     once: true,
   });
-  const { value, start } = useTypingString(characters, interval);
+  const { start, value } = useTypingString(characters, interval);
 
   useEffect(() => {
     if (startTyping) {

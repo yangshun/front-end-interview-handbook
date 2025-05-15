@@ -41,8 +41,8 @@ async function customerHasFailedRecentFailedPayment(
 
 export async function sendInitiateCheckoutFirstTimeEmail({
   countryCode,
-  name,
   email,
+  name,
   userId,
 }: Readonly<{
   countryCode: string | null;
@@ -103,8 +103,8 @@ export async function sendInitiateCheckoutFirstTimeEmail({
 }
 
 export async function sendInitiateCheckoutMultipleTimesEmail({
-  name,
   email,
+  name,
   userId,
 }: Readonly<{
   email: string;

@@ -18,9 +18,9 @@ type Props = Readonly<{
 }>;
 
 export default function SponsorsAdFormatAvailableSlotsDialog({
-  trigger,
   format,
   slots,
+  trigger,
 }: Props) {
   const adsData = useSponsorsAdFormatData();
   const intl = useIntl();

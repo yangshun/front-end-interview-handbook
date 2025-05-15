@@ -47,9 +47,9 @@ export const useProjectFormContext = useFormContext;
 
 export default function ProjectForm({
   data,
-  onSubmit,
-  isSaving,
   isDisabled,
+  isSaving,
+  onSubmit,
   ...props
 }: Props) {
   const router = useRouter();

@@ -56,7 +56,7 @@ export default function SponsorsFooter() {
           <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
             <LogoComboMark height={20} />
             <div className="flex gap-x-5">
-              {commonLinks.social.map(({ key, href, name, icon: Icon }) => (
+              {commonLinks.social.map(({ href, icon: Icon, key, name }) => (
                 <Anchor key={key} href={href} variant="secondary">
                   <span className="sr-only">{name}</span>
                   {Icon && (

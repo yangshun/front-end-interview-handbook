@@ -74,12 +74,12 @@ function JavaScriptCodingWorkspaceImpl({
   canViewPremiumContent,
   defaultFiles,
   embed,
+  language,
   loadedFilesFromLocalStorage,
   nextQuestions,
-  language,
   onLanguageChange,
-  similarQuestions,
   question,
+  similarQuestions,
   skeleton,
   studyListKey,
   workspace,
@@ -98,7 +98,7 @@ function JavaScriptCodingWorkspaceImpl({
   workspace: QuestionJavaScriptWorkspace;
 }>) {
   const intl = useIntl();
-  const { description, metadata, solution, info } = question;
+  const { description, info, metadata, solution } = question;
   const { dispatch } = useJavaScriptCodingWorkspaceTilesContext();
 
   const { sandpack } = useSandpack();
@@ -490,16 +490,16 @@ function JavaScriptCodingWorkspaceImpl({
 export default function JavaScriptCodingWorkspace({
   canViewPremiumContent,
   defaultFiles,
+  embed,
+  language,
   loadedFilesFromLocalStorage,
   nextQuestions,
+  onLanguageChange,
   question,
   similarQuestions,
   skeleton,
-  workspace,
-  embed,
-  language,
-  onLanguageChange,
   studyListKey,
+  workspace,
 }: Readonly<{
   canViewPremiumContent: boolean;
   defaultFiles: Record<string, string>;

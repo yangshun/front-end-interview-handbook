@@ -73,9 +73,9 @@ function reducer<TabType extends string>(
 }
 
 function TilesProviderImpl<TabType extends string>({
+  activeTabScrollIntoView = true,
   children,
   defaultValue,
-  activeTabScrollIntoView = true,
 }: Props<TabType>) {
   const [tiles, dispatch] = useReducer<
     Reducer<TilesPanelConfig<TabType>, TilesAction<TabType>>

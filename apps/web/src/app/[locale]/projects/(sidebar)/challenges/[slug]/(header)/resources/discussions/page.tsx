@@ -48,7 +48,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
-  const { slug, locale } = params;
+  const { locale, slug } = params;
 
   const { challenge } = await readProjectsChallengeItem(slug, locale);
 

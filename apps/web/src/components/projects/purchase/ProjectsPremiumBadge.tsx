@@ -8,7 +8,7 @@ type Props = Readonly<{
   unlocked: boolean | null;
 }>;
 
-export default function ProjectsPremiumBadge({ unlocked, size }: Props) {
+export default function ProjectsPremiumBadge({ size, unlocked }: Props) {
   const intl = useIntl();
 
   return (

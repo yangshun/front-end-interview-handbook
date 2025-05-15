@@ -26,7 +26,7 @@ export async function POST(req: NextRequest) {
       | typeof EmailsTemplateSponsorsAdRequestConfirmation
       | typeof EmailsTemplateSponsorsAdRequestReview
     > = await req.json();
-    const { emailKey, email, name, props, cc } = request;
+    const { cc, email, emailKey, name, props } = request;
 
     const emailItemConfig = EmailsItemSponsorsConfig.find(
       (itemConfig) => itemConfig.id === emailKey,

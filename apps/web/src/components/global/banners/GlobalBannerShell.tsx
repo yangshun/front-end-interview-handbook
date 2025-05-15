@@ -9,8 +9,8 @@ export default function GlobalBannerShell({
   className,
   isLoading,
   onHide,
-  variant,
   theme,
+  variant,
 }: Readonly<{
   children: ReactNode;
   className?: string;

@@ -11,10 +11,10 @@ type Props = Readonly<{
 }>;
 
 export default function NavbarEnd({
+  addOnItems,
   className,
   isLoading,
   links,
-  addOnItems,
 }: Props) {
   return (
     <div

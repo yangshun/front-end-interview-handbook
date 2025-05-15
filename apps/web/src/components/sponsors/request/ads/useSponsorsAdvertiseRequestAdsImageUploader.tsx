@@ -36,9 +36,9 @@ export default function useSponsorsAdvertiseRequestAdsImageUploader({
         const blob = await objectUrlToFile(url);
 
         const {
-          url: signedUrl,
           path: imagePath,
           success,
+          url: signedUrl,
         } = await uploadAssetUrl.mutateAsync(
           { format, sessionId },
           {

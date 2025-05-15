@@ -49,7 +49,7 @@ function SocialDiscountTicketSmall({
 function SocialDiscountAlertImpl() {
   const socialDiscountLabels = useSocialDiscountLabels();
   const user = useUser();
-  const { isLoading, data: promoCodes } =
+  const { data: promoCodes, isLoading } =
     trpc.promotions.userPromoCodes.useQuery(undefined, {
       enabled: !!user,
     });

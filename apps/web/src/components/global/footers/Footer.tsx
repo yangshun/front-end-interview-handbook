@@ -43,8 +43,8 @@ type FooterLinkSection = {
 };
 
 function FooterSection({
-  title,
   links,
+  title,
 }: Readonly<{
   links: FooterLinks;
   title: string;
@@ -108,8 +108,8 @@ export default function Footer({ navigation }: Props) {
 
   const {
     data: submitMessage,
-    isLoading,
     failureReason,
+    isLoading,
     mutate: signUpForNewsletter,
   } = trpc.emails.signUpForNewsletter.useMutation();
 
@@ -270,7 +270,7 @@ export default function Footer({ navigation }: Props) {
                 'md:col-span-8 lg:col-span-4',
               )}>
               <div className="flex gap-x-5">
-                {commonLinks.social.map(({ key, href, name, icon: Icon }) => (
+                {commonLinks.social.map(({ href, icon: Icon, key, name }) => (
                   <Anchor key={key} href={href} variant="secondary">
                     <span className="sr-only">{name}</span>
                     {Icon && (

@@ -56,7 +56,7 @@ export default function QuestionsSubnav({ items }: Props) {
               'bg-gradient-to-r from-transparent to-neutral-200 dark:to-neutral-800',
             )}
           />
-          {items.map(({ href, label, value, icon: Icon }) => {
+          {items.map(({ href, icon: Icon, label, value }) => {
             const isActive = href === pathname || pathname?.startsWith(href);
 
             return (

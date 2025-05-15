@@ -7,7 +7,7 @@ import DropdownMenu from '~/components/ui/DropdownMenu';
 
 export default function SidebarAuthDropdownItem() {
   const { userProfile } = useUserProfile();
-  const { signInUpLabel, navigateToSignInUpPage } = useAuthSignInUp();
+  const { navigateToSignInUpPage, signInUpLabel } = useAuthSignInUp();
   const { logoutLabel, navigateToLogoutPage } = useAuthLogout();
 
   return userProfile == null ? (

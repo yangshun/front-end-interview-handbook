@@ -36,11 +36,11 @@ type Props = Readonly<{
 export default function JavaScriptCodingWorkspaceDescription({
   canViewPremiumContent,
   description,
+  info,
   metadata,
   nextQuestions,
-  similarQuestions,
   showAd,
-  info,
+  similarQuestions,
   studyListKey,
 }: Props) {
   const copyRef = useQuestionLogEventCopyContents<HTMLDivElement>();

@@ -25,8 +25,8 @@ type Props = Readonly<{
 
 export default function PostItem({
   post,
-  showRepliedBadge,
   showMarkedAsIrrelevant,
+  showRepliedBadge,
 }: Props) {
   const projectSlug = useCurrentProjectSlug();
 

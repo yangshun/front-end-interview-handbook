@@ -30,7 +30,7 @@ export default function QuestionListFilterFormats({
             ? true
             : formatFiltersUnion?.has(option.value),
         )
-        .map(({ value, label, icon: Icon, tooltip }) => (
+        .map(({ icon: Icon, label, tooltip, value }) => (
           <FilterButton
             key={value}
             icon={Icon}

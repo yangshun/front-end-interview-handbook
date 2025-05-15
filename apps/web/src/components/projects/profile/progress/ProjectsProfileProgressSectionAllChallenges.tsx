@@ -21,8 +21,8 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsProfileProgressSectionAllChallenges({
-  isViewingOwnProfile,
   isViewerPremium,
+  isViewingOwnProfile,
   targetUserId,
 }: Props) {
   const intl = useIntl();

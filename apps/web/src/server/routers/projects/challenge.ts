@@ -25,7 +25,7 @@ export const projectsChallengeRouter = router({
         slug: z.string(),
       }),
     )
-    .query(async ({ input: { slug }, ctx: { projectsProfileId } }) => {
+    .query(async ({ ctx: { projectsProfileId }, input: { slug } }) => {
       const sessions = await prisma.projectsChallengeSession.count({
         where: {
           profileId: projectsProfileId,
@@ -44,7 +44,7 @@ export const projectsChallengeRouter = router({
         slug: z.string(),
       }),
     )
-    .mutation(async ({ input: { slug }, ctx: { viewer } }) => {
+    .mutation(async ({ ctx: { viewer }, input: { slug } }) => {
       const challengeMetadata = await readProjectsChallengeMetadata(slug);
       const [{ viewerProjectsProfile }, viewerUnlockedAccess] =
         await Promise.all([
@@ -109,7 +109,7 @@ export const projectsChallengeRouter = router({
         slug: z.string(),
       }),
     )
-    .mutation(async ({ input: { slug }, ctx: { viewer } }) => {
+    .mutation(async ({ ctx: { viewer }, input: { slug } }) => {
       const challengeMetadata = await readProjectsChallengeMetadata(slug);
       const [{ viewerProjectsProfile }, viewerUnlockedAccess] =
         await Promise.all([
@@ -160,7 +160,7 @@ export const projectsChallengeRouter = router({
         slug: z.string(),
       }),
     )
-    .query(async ({ input: { locale, slug }, ctx: { viewer } }) => {
+    .query(async ({ ctx: { viewer }, input: { locale, slug } }) => {
       const { challenge } = await readProjectsChallengeItem(
         slug,
         locale,
@@ -180,7 +180,7 @@ export const projectsChallengeRouter = router({
       }),
     )
     .mutation(
-      async ({ input: { slug }, ctx: { projectsProfileId, viewer } }) => {
+      async ({ ctx: { projectsProfileId, viewer }, input: { slug } }) => {
         const projectsProfile = await prisma.projectsProfile.findFirstOrThrow({
           select: {
             credits: true,
@@ -198,7 +198,7 @@ export const projectsChallengeRouter = router({
           });
         }
 
-        const [challengeMetadataDict, { creditsRequired, challengesToUnlock }] =
+        const [challengeMetadataDict, { challengesToUnlock, creditsRequired }] =
           await Promise.all([
             readProjectsChallengeMetadataDict(),
             projectsChallengeCalculateTotalCreditsNeededForChallenge(
@@ -239,7 +239,7 @@ export const projectsChallengeRouter = router({
         slug: z.string(),
       }),
     )
-    .query(async ({ input: { slug }, ctx: { viewer } }) => {
+    .query(async ({ ctx: { viewer }, input: { slug } }) => {
       const data =
         await projectsChallengeCalculateTotalCreditsNeededForChallenge(
           slug,

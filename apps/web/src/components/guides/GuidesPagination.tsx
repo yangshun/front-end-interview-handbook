@@ -50,9 +50,9 @@ type Props<GuideSlug extends string> = Readonly<{
 }>;
 
 export default function GuidesPagination<GuideSlug extends string>({
+  guide,
   navigation,
   questionMetadata,
-  guide,
   studyListKey,
 }: Props<GuideSlug>) {
   const intl = useIntl();

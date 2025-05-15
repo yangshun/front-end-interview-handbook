@@ -32,12 +32,12 @@ export type BadgeItem = Readonly<{
 }>;
 
 function getBadgeList({
-  isLeveledUp,
-  level,
-  gainedPoints,
+  challengeHistoricalStatuses,
   completedSkills,
   currentTrack,
-  challengeHistoricalStatuses,
+  gainedPoints,
+  isLeveledUp,
+  level,
 }: {
   challengeHistoricalStatuses: ProjectsChallengeHistoricalStatuses;
   completedSkills: ReadonlyArray<ProjectsSkillSummaryItem>;
@@ -108,8 +108,8 @@ function getBadgeList({
 }
 
 function getSkillPlans({
-  skillsRoadmap,
   isViewerPremium,
+  skillsRoadmap,
 }: {
   isViewerPremium: boolean;
   skillsRoadmap: ProjectsSkillRoadmapSectionData;
@@ -146,8 +146,8 @@ function getSkillPlans({
 }
 
 function getRelevantSkills({
-  skillPlans,
   roadmapSkillsUsed,
+  skillPlans,
   slug,
 }: Readonly<{
   roadmapSkillsUsed: ReadonlyArray<string>;
@@ -211,20 +211,20 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsChallengeSubmissionSuccessPageImpl({
-  submissionUrl,
-  isLeveledUp,
-  level,
-  gainedPoints,
-  skillsRoadmap,
-  projectTracks,
+  challenge,
   challengeHistoricalStatuses,
   completedChallenges,
-  roadmapSkillsRepRecords,
+  gainedPoints,
+  isLeveledUp,
   isViewerPremium,
-  challenge,
+  level,
+  projectTracks,
+  roadmapSkillsRepRecords,
   roadmapSkillsUsed,
+  skillsRoadmap,
+  submissionUrl,
 }: Props) {
-  const { track, slug } = challenge.metadata;
+  const { slug, track } = challenge.metadata;
 
   const skillPlans = getSkillPlans({ isViewerPremium, skillsRoadmap });
   const skills = getRelevantSkills({ roadmapSkillsUsed, skillPlans, slug });

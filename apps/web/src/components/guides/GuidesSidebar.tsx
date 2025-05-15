@@ -26,12 +26,12 @@ type Props<GuideSlug extends string> = Readonly<{
 
 export function GuidesSidebar<GuideSlug extends string>({
   guide,
-  sticky = false,
-  navigation,
-  mode = 'sidebar',
   isFocusMode = false,
-  toggleFocusMode,
+  mode = 'sidebar',
+  navigation,
   onClose,
+  sticky = false,
+  toggleFocusMode,
 }: Props<GuideSlug>) {
   const isSidebar = mode === 'sidebar';
 

@@ -27,9 +27,9 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsImageDisplay({
-  specShowGridLayoutButton,
   specImagesForVariant,
   specLabels,
+  specShowGridLayoutButton,
 }: Props) {
   const [selectedBreakpoint, setSelectedBreakpoint] =
     useState<ProjectsImageBreakpointCategory>('desktop');
@@ -42,7 +42,7 @@ export default function ProjectsImageDisplay({
     }),
   );
 
-  const { width, height } =
+  const { height, width } =
     ProjectsImageBreakpointDimensions[selectedBreakpoint];
 
   return (

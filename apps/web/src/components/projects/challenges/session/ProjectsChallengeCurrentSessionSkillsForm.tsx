@@ -50,7 +50,7 @@ export default function ProjectsChallengeCurrentSessionSkillsForm({
   );
   const techStackSkillsAttrs = getProjectsTechStackInputAttributes(intl, false);
 
-  const { control, handleSubmit, getValues, formState } =
+  const { control, formState, getValues, handleSubmit } =
     useForm<ProjectsChallengeSessionSkillsFormValues>({
       defaultValues,
       mode: 'all',

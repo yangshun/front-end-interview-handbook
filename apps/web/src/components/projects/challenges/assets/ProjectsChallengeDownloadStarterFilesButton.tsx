@@ -14,8 +14,8 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsChallengeDownloadStarterFilesButton({
-  slug,
   size,
+  slug,
 }: Props) {
   const { showToast } = useToast();
   const intl = useIntl();

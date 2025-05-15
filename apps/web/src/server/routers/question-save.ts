@@ -16,7 +16,7 @@ export const questionSaveRouter = router({
       }),
     )
     .mutation(
-      async ({ input: { files, name, slug, framework }, ctx: { viewer } }) => {
+      async ({ ctx: { viewer }, input: { files, framework, name, slug } }) => {
         return await prisma.questionUserInterfaceSave.create({
           data: {
             files,
@@ -34,7 +34,7 @@ export const questionSaveRouter = router({
         saveId: z.string(),
       }),
     )
-    .mutation(async ({ input: { saveId }, ctx: { viewer } }) => {
+    .mutation(async ({ ctx: { viewer }, input: { saveId } }) => {
       return await prisma.questionUserInterfaceSave.delete({
         where: {
           id: saveId,
@@ -48,7 +48,7 @@ export const questionSaveRouter = router({
         saveId: z.string(),
       }),
     )
-    .query(async ({ input: { saveId }, ctx: { viewer } }) => {
+    .query(async ({ ctx: { viewer }, input: { saveId } }) => {
       return await prisma.questionUserInterfaceSave.findFirst({
         orderBy: {
           createdAt: 'desc',
@@ -65,7 +65,7 @@ export const questionSaveRouter = router({
         slug: z.string(),
       }),
     )
-    .query(async ({ input: { slug }, ctx: { viewer } }) => {
+    .query(async ({ ctx: { viewer }, input: { slug } }) => {
       return await prisma.questionUserInterfaceSave.findMany({
         orderBy: {
           createdAt: 'desc',
@@ -90,7 +90,7 @@ export const questionSaveRouter = router({
         saveId: z.string(),
       }),
     )
-    .mutation(async ({ input: { files, name, saveId }, ctx: { viewer } }) => {
+    .mutation(async ({ ctx: { viewer }, input: { files, name, saveId } }) => {
       return await prisma.questionUserInterfaceSave.update({
         data: {
           files,

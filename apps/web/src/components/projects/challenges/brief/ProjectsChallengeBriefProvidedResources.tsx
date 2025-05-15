@@ -15,7 +15,7 @@ export default function ProjectsChallengeBriefProvidedResources({
     <div className="flex flex-col items-stretch gap-4">
       {resources
         .map((resource) => resourceOptions[resource])
-        .map(({ id, icon, label }) => (
+        .map(({ icon, id, label }) => (
           <ProjectsChallengeProvidedResourceCard
             key={id}
             icon={icon}

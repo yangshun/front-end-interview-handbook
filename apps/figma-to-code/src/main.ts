@@ -14,7 +14,7 @@ export default function main() {
   on<ResizeWindowHandler>(
     'RESIZE_WINDOW',
     (windowSize: { height: number; width: number }) => {
-      const { width, height } = windowSize;
+      const { height, width } = windowSize;
 
       figma.ui.resize(width, height);
     },

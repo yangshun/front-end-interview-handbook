@@ -9,8 +9,8 @@ type Props = Readonly<{
 
 export default function ProjectsProfileSkillsList({
   heading,
-  tooltipMessage,
   skills,
+  tooltipMessage,
 }: Props) {
   return (
     <ProjectsProfileInfoSectionLayout

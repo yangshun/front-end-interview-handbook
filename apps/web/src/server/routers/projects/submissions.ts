@@ -240,13 +240,13 @@ export const projectsChallengeSubmissionListRouter = router({
     .input(
       z.object({
         filter: z.object({
+          challenges: z.array(z.string()),
           challengeSessionStatus: z.array(
             z.nativeEnum({
               ...ProjectsChallengeSessionStatus,
               NOT_STARTED: 'NOT_STARTED',
             }),
           ),
-          challenges: z.array(z.string()),
           hasClientFilterApplied: z.boolean(),
           profileStatus: z.array(yoeReplacementSchema),
           query: z.string().nullable(),
@@ -271,19 +271,19 @@ export const projectsChallengeSubmissionListRouter = router({
     )
     .query(
       async ({
+        ctx: { projectsProfileId, viewer },
         input: { filter, pagination, sort },
-        ctx: { viewer, projectsProfileId },
       }) => {
         const {
           challenges,
           challengeSessionStatus,
+          hasClientFilterApplied,
           profileStatus,
-          yoeExperience,
           query,
           roadmapSkills,
-          techSkills,
           submissionType,
-          hasClientFilterApplied,
+          techSkills,
+          yoeExperience,
         } = filter;
         const { limit, page } = pagination;
 
@@ -482,8 +482,8 @@ export const projectsChallengeSubmissionListRouter = router({
     )
     .query(
       async ({
-        input: { challengeSlug, orderBy, userId },
         ctx: { viewer },
+        input: { challengeSlug, orderBy, userId },
       }) => {
         const submissions = await prisma.projectsChallengeSubmission.findMany({
           include: {
@@ -519,7 +519,7 @@ export const projectsChallengeSubmissionListRouter = router({
         challengeSlug: z.string(),
       }),
     )
-    .query(async ({ input: { challengeSlug }, ctx: { viewer } }) => {
+    .query(async ({ ctx: { viewer }, input: { challengeSlug } }) => {
       const submissions = await prisma.projectsChallengeSubmission.findMany({
         include: {
           _count: {
@@ -559,7 +559,7 @@ export const projectsChallengeSubmissionListRouter = router({
           .transform((val) => Math.min(30, val)),
       }),
     )
-    .query(async ({ input: { limit }, ctx: { projectsProfileId } }) => {
+    .query(async ({ ctx: { projectsProfileId }, input: { limit } }) => {
       const submissions = await prisma.projectsChallengeSubmission.findMany({
         include: {
           _count: {

@@ -268,7 +268,7 @@ export default function useInterviewsNavItems(
                 imgSrc: '/img/company-logos/microsoft-logomark.svg',
                 label: 'Microsoft',
               },
-            ].map(({ label, imgSrc }) => (
+            ].map(({ imgSrc, label }) => (
               <Img
                 key={label}
                 alt={label}

@@ -51,7 +51,7 @@ export default function ProjectsChallengeDiscussionsNewComment({
   const attrs = getDiscussionsCommentBodyAttributes(intl);
   const discussionsCommentBodySchema = useDiscussionsCommentBodySchema();
 
-  const { register, setValue, getValues, handleSubmit, formState, reset } =
+  const { formState, getValues, handleSubmit, register, reset, setValue } =
     useForm<CommentFormInput>({
       defaultValues: {
         body: '',

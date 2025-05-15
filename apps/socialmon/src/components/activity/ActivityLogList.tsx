@@ -12,7 +12,7 @@ const LIMIT = 20;
 export default function ActivityLogList() {
   const projectSlug = useCurrentProjectSlug();
 
-  const { isLoading, data, hasNextPage, fetchNextPage, isFetchingNextPage } =
+  const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading } =
     trpc.activity.getAll.useInfiniteQuery(
       {
         pagination: {

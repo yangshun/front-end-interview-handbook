@@ -20,8 +20,8 @@ import {
 
 export function projectsReputationConnectOrCreateShape({
   key: key,
-  profileId: profileId,
   points: points,
+  profileId: profileId,
 }: Readonly<{ key: string; points: number; profileId: string }>) {
   return {
     create: {
@@ -112,9 +112,9 @@ export async function projectsReputationSubmissionAwardPoints(
   }>,
 ) {
   const {
-    slug,
     profileId: projectsProfileId,
     roadmapSkills,
+    slug,
     techStackSkills,
   } = submission;
 
@@ -183,7 +183,7 @@ export async function projectsReputationSubmissionAwardPoints(
 export async function projectsReputationSubmissionVoteAwardPoints(
   vote: ProjectsChallengeSubmissionVote,
 ) {
-  const { submissionId, profileId: voterId } = vote;
+  const { profileId: voterId, submissionId } = vote;
   const submission = await prisma.projectsChallengeSubmission.findFirst({
     where: {
       id: submissionId,

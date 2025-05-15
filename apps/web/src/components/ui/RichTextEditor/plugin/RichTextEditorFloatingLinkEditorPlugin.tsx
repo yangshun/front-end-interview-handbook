@@ -49,12 +49,12 @@ import { setFloatingElemPositionForLinkEditor } from '../utils/setFloatingElemPo
 import { sanitizeUrl, validateUrl } from '../utils/url';
 
 function FloatingLinkEditor({
-  editor,
-  isOpenLinkEditor,
-  setIsOpenLinkEditor,
   anchorElem,
+  editor,
   isLinkEditMode,
+  isOpenLinkEditor,
   setIsLinkEditMode,
+  setIsOpenLinkEditor,
 }: {
   anchorElem: HTMLElement;
   editor: LexicalEditor;
@@ -496,8 +496,8 @@ function useFloatingLinkEditorToolbar(
 export default function RichTextEditorFloatingLinkEditorPlugin({
   anchorElem = document.body,
   isLinkEditMode,
-  setIsLinkEditMode,
   isOpenLinkEditor,
+  setIsLinkEditMode,
   setIsOpenLinkEditor,
 }: {
   anchorElem?: HTMLElement;

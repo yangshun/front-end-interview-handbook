@@ -18,9 +18,9 @@ type Props = Readonly<{
 export default function ArticlePagination({
   activeItem,
   items,
-  onSelect,
   onNext,
   onPrev,
+  onSelect,
 }: Props) {
   let prevArticle: PaginationItem | null = null;
   let nextArticle: PaginationItem | null = null;

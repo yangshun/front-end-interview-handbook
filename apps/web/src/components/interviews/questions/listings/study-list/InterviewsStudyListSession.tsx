@@ -54,12 +54,12 @@ export default function InterviewsStudyListSession(props: Props) {
 }
 
 function InterviewsStudyListSessionImpl({
-  progressTrackingAvailableToNonPremiumUsers,
-  questionCount,
-  questions,
   overallProgress,
   premiumFeature,
   pricingDialogSearchParam_MUST_BE_UNIQUE_ON_PAGE,
+  progressTrackingAvailableToNonPremiumUsers,
+  questionCount,
+  questions,
   studyListKey,
   studyListTitle,
 }: Props) {
@@ -67,7 +67,7 @@ function InterviewsStudyListSessionImpl({
   const pathname = usePathname();
 
   const trpcUtils = trpc.useUtils();
-  const { userProfile, isUserProfileLoading } = useUserProfile();
+  const { isUserProfileLoading, userProfile } = useUserProfile();
   const user = useUser();
   const { signInUpHref } = useAuthSignInUp();
 

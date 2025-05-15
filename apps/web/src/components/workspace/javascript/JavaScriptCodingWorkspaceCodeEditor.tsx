@@ -29,10 +29,10 @@ export default function JavaScriptCodingWorkspaceCodeEditor({
 }>) {
   const { dispatch } = useJavaScriptCodingWorkspaceTilesContext();
   const {
-    showLoadedFilesFromLocalStorageMessage,
     setShowLoadedFilesFromLocalStorageMessage,
+    showLoadedFilesFromLocalStorageMessage,
   } = useCodingWorkspaceContext();
-  const { resetFile, language, setLanguage, workspace } =
+  const { language, resetFile, setLanguage, workspace } =
     useJavaScriptCodingWorkspaceContext();
   const { sandpack } = useSandpack();
   const intl = useIntl();

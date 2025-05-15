@@ -21,7 +21,7 @@ type Values =
 
 export default function ProjectsProfileJobSection() {
   const intl = useIntl();
-  const { control, watch, formState, setValue } = useFormContext<Values>();
+  const { control, formState, setValue, watch } = useFormContext<Values>();
   const statusAttrs = getProjectsProfileJobStatusOthersFieldAttributes(intl);
 
   const jobStatusOptions = [

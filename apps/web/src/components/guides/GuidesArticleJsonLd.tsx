@@ -10,10 +10,10 @@ type Props = Readonly<{
 }>;
 
 export default function GuidesArticleJsonLd({
-  title,
   description,
-  pathname,
   isAccessibleForFree = true,
+  pathname,
+  title,
 }: Props) {
   return (
     <ArticleJsonLd

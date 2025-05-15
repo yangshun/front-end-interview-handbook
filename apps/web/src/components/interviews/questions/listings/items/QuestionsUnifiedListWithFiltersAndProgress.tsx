@@ -39,8 +39,8 @@ type Props = Omit<
 const MARK_QN_COMPLETE_ACTION = 'mark-question-complete';
 
 export default function QuestionsUnifiedListWithFiltersAndProgress({
-  questions,
   listType,
+  questions,
   ...props
 }: Props) {
   const trpcUtils = trpc.useUtils();
@@ -81,8 +81,8 @@ export default function QuestionsUnifiedListWithFiltersAndProgress({
 
   const markQuestionAsCompleted = useCallback(
     ({
-      metadata: { slug, format },
       info: { title },
+      metadata: { format, slug },
     }: Readonly<{
       info: { title: string };
       metadata: { format: QuestionFormat; slug: string };

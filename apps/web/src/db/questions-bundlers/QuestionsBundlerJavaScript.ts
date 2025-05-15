@@ -135,7 +135,7 @@ async function readQuestionJavaScriptFiles(
       filePath,
     }))
     .reduce(
-      (prev, { filePath, contents }) => ({
+      (prev, { contents, filePath }) => ({
         ...prev,
         [filePath]: contents,
       }),

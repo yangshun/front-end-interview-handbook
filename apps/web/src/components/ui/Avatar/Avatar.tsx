@@ -22,7 +22,7 @@ type Props = React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Image> &
   }>;
 
 function Avatar(
-  { src: srcParam, alt, className, size, ...props }: Props,
+  { alt, className, size, src: srcParam, ...props }: Props,
   ref: ForwardedRef<HTMLImageElement>,
 ) {
   const emptyAvatar = (

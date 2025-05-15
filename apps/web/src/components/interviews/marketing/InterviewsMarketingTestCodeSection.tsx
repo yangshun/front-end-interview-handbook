@@ -251,7 +251,7 @@ export default function InterviewsMarketingTestCodeSection() {
     },
   ];
 
-  const { value, start } = useTypingString(remainingCode, 20);
+  const { start, value } = useTypingString(remainingCode, 20);
   const code = getCode(value);
 
   useEffect(() => {

@@ -16,7 +16,7 @@ export const projectRouter = router({
         data: projectSchema,
       }),
     )
-    .mutation(async ({ input: { data }, ctx: { session } }) => {
+    .mutation(async ({ ctx: { session }, input: { data } }) => {
       if (!session.user.isAdmin) {
         throw new TRPCError({
           code: 'UNAUTHORIZED',
@@ -33,7 +33,7 @@ export const projectRouter = router({
         projectId: z.string().uuid(),
       }),
     )
-    .mutation(async ({ input: { projectId }, ctx: { session } }) => {
+    .mutation(async ({ ctx: { session }, input: { projectId } }) => {
       if (!session.user.isAdmin) {
         throw new TRPCError({
           code: 'UNAUTHORIZED',
@@ -53,7 +53,7 @@ export const projectRouter = router({
         projectId: z.string().uuid(),
       }),
     )
-    .mutation(async ({ input: { projectId, data }, ctx: { session } }) => {
+    .mutation(async ({ ctx: { session }, input: { data, projectId } }) => {
       if (!session.user.isAdmin) {
         throw new TRPCError({
           code: 'UNAUTHORIZED',

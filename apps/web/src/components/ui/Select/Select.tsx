@@ -66,15 +66,15 @@ const roundedClasses: Record<SelectRounded, string> = {
 function Select<T>(
   {
     display,
-    label,
-    isLabelHidden,
-    name,
-    options,
-    size = 'md',
-    rounded = 'full',
-    value,
-    onChange,
     isDisabled,
+    isLabelHidden,
+    label,
+    name,
+    onChange,
+    options,
+    rounded = 'full',
+    size = 'md',
+    value,
   }: Props<T>,
   ref?: ForwardedRef<HTMLSelectElement>,
 ) {

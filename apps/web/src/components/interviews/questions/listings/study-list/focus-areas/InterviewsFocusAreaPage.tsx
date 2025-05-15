@@ -41,9 +41,9 @@ type Props = Readonly<{
 
 export default function InterviewsFocusAreaPage({
   bottomContent,
-  studyList,
   questions,
   questionsSlugs,
+  studyList,
 }: Props) {
   const user = useUser();
   const { userProfile } = useUserProfile();

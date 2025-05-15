@@ -255,12 +255,12 @@ function Button(
     isLabelHidden = false,
     isLoading = false,
     label,
+    onClick,
     size = 'sm',
     tooltip,
     tooltipAlign,
     tooltipSide,
     variant,
-    onClick,
     ...props
   }: Props,
   ref: ForwardedRef<HTMLAnchorElement | HTMLButtonElement>,

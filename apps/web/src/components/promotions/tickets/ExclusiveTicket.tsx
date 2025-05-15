@@ -42,9 +42,9 @@ export default function ExclusiveTicket({
   height,
   padding = 'lg',
   ratio = 'normal',
+  subtitle,
   title,
   tooltip,
-  subtitle,
   width,
 }: Readonly<{
   addOnElement?: ReactNode;

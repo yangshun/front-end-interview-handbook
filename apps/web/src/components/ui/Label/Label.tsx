@@ -21,9 +21,9 @@ export default function Label({
   description,
   descriptionId,
   descriptionStyle = 'under',
-  label,
-  isLabelHidden,
   htmlFor,
+  isLabelHidden,
+  label,
   required,
 }: Props) {
   return (

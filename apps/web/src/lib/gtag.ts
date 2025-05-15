@@ -20,9 +20,9 @@ function pageview(url: string) {
 function event({
   action,
   category,
+  extra = {},
   label,
   value,
-  extra = {},
 }: {
   action: string;
   category?: 'ecommerce' | 'engagement' | 'pageview';

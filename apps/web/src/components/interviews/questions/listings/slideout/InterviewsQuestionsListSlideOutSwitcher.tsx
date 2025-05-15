@@ -29,9 +29,9 @@ export type QuestionListTypeWithLabel = QuestionListTypeData &
   Readonly<{ label: string }>;
 
 function DropdownContent({
+  listType,
   onChangeListType,
   openPricingDialog,
-  listType,
 }: Readonly<{
   listType: QuestionListTypeWithLabel;
   onChangeListType: (value: QuestionListTypeWithLabel) => void;

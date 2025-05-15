@@ -11,7 +11,7 @@ type Props = Readonly<{
 }>;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale, slug, framework } = params;
+  const { framework, locale, slug } = params;
   const [intl, { challengeInfo }] = await Promise.all([
     getIntlServerOnly(locale),
     readProjectsChallengeInfo(slug, locale),

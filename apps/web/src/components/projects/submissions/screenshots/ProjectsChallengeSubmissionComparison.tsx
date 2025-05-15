@@ -22,12 +22,12 @@ type Props = Readonly<{
 
 export default function ProjectsChallengeSubmissionComparison({
   allowRetakeScreenshot,
+  deploymentUrls,
+  screenshotStatus,
   specImagesForVariant,
   specLabels,
-  deploymentUrls,
   specShowGridLayoutButton,
   submissionId,
-  screenshotStatus,
 }: Props) {
   const intl = useIntl();
 

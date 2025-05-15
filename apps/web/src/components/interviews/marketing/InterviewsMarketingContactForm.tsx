@@ -13,8 +13,8 @@ export default function InterviewsMarketingContactForm() {
   const { showToast } = useToast();
 
   const {
-    isLoading: isSubmitLoading,
     failureReason: submitFailureReason,
+    isLoading: isSubmitLoading,
     mutate: submitFeedback,
   } = trpc.feedback.submitFeedback.useMutation({
     onError: () => {

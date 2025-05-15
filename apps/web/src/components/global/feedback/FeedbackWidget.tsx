@@ -64,7 +64,7 @@ export default function FeedbackWidget({
   bottomClassname = 'bottom-6',
 }: Props) {
   const intl = useIntl();
-  const { showFeedbackWidget, setShowFeedbackWidget } = useUserPreferences();
+  const { setShowFeedbackWidget, showFeedbackWidget } = useUserPreferences();
   const [isOpen, setIsOpen] = useState(false);
   const { data: count, isLoading } = trpc.marketing.getOnlineUsers.useQuery();
 

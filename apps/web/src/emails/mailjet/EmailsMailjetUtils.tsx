@@ -52,7 +52,7 @@ export async function sendEmailItemWithChecks<
       return { reason: 'SENT_BEFORE', sent: false };
     }
 
-    const { props, config } = emailItemConfig;
+    const { config, props } = emailItemConfig;
 
     const canBeUnsubscribed = config.contactListKey != null;
 
@@ -129,12 +129,12 @@ export async function sendReactEmail({
  * At the moment there's no use case for exposing this outside of the module.
  */
 async function sendEmail_NO_CHECKS({
-  to,
+  body,
   cc,
   from,
-  subject,
   replyTo,
-  body,
+  subject,
+  to,
 }: Readonly<{
   body: {
     html: string;

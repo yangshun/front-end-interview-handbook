@@ -53,9 +53,9 @@ export default async function handler(
   const {
     level,
     message,
+    sha,
     title,
     user_identifier: userIdentifier,
-    sha,
   } = req.body;
 
   const messageRows: ReadonlyArray<{ key: string; value: string }> = [

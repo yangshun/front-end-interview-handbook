@@ -47,7 +47,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
-  const [intl, { title, description, href, socialTitle, ogImageTitle }] =
+  const [intl, { description, href, ogImageTitle, socialTitle, title }] =
     await Promise.all([getIntlServerOnly(locale), getPageSEOMetadata(params)]);
 
   return defaultMetadata({

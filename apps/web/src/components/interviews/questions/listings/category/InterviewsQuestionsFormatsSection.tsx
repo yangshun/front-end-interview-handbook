@@ -50,14 +50,14 @@ type InterviewsQuestionFormatType = Readonly<{
 }>;
 
 function InterviewsQuestionFormatCard({
-  listingDescription: description,
+  entity,
   href,
   icon: Icon,
-  progress,
+  listingDescription: description,
   listingName: title,
+  progress,
   topics,
   variant = 'full',
-  entity,
 }: InterviewsQuestionFormatType) {
   const { completed, total } = progress;
   const isFull = variant === 'full';
@@ -147,9 +147,9 @@ type Props = Readonly<{
 }>;
 
 export default function InterviewsQuestionsFormatsSection({
+  guidesProgress,
   questions,
   questionsProgress,
-  guidesProgress,
   variant = 'full',
 }: Props) {
   const intl = useIntl();
@@ -157,7 +157,7 @@ export default function InterviewsQuestionsFormatsSection({
     useBehavioralInterviewPlaybookNavigation();
   const questionsProgressAll = categorizeQuestionsProgress(questionsProgress);
 
-  const { quizQuestions, systemDesignQuestions, codingQuestions } = questions;
+  const { codingQuestions, quizQuestions, systemDesignQuestions } = questions;
 
   const codingQuestionsProgressAll =
     categorizeQuestionsProgressByCodingFormat(questionsProgress);

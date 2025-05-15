@@ -53,9 +53,9 @@ export function parseCanonical(
 }
 
 function generateLanguageUrl({
+  canonical,
   pathname,
   type,
-  canonical,
 }: UrlType): Array<AlternateLinkDescriptor> | URL | string {
   switch (type) {
     case 'url': {
@@ -92,7 +92,7 @@ function generateLanguageUrl({
 function createLanguages(
   canonicalParam: AlternateLinkDescriptor | URL | string,
 ) {
-  const { pathname, type, canonical } = parseCanonical(canonicalParam);
+  const { canonical, pathname, type } = parseCanonical(canonicalParam);
 
   if (!pathname.startsWith('/')) {
     throw new Error(

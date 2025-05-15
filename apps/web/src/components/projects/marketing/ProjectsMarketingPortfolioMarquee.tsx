@@ -32,7 +32,7 @@ export default function ProjectsMarketingPortfolioMarquee() {
         periodSeconds={PORTFOLIOS.length * 10}
         startEndGap={24}>
         <div className="flex gap-x-6">
-          {PORTFOLIOS.map(({ src, alt, id }) => (
+          {PORTFOLIOS.map(({ alt, id, src }) => (
             <div
               key={id}
               className={clsx(

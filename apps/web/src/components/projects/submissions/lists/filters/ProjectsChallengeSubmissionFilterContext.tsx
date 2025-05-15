@@ -289,7 +289,7 @@ export const ProjectsChallengeSubmissionFilterContext =
 export function useProjectsChallengeSubmissionFilterState(
   key: ProjectsChallengeSubmissionFilterKey,
 ) {
-  const { value, setFilterValue } = useContext(
+  const { setFilterValue, value } = useContext(
     ProjectsChallengeSubmissionFilterContext,
   );
 
@@ -317,10 +317,10 @@ export default function ProjectsChallengeSubmissionFilterContextProvider({
   tracks,
 }: Props) {
   const {
-    updateSearchParams,
     getArrayTypeSearchParams,
     getStringTypeSearchParams,
     updateMultipleSearchParams,
+    updateSearchParams,
   } = useFilterSearchParams();
 
   const initialComponentTrack = getArrayTypeSearchParams('component-track');

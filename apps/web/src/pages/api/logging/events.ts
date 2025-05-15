@@ -55,7 +55,7 @@ export default async function handler(
 
   try {
     if (req.cookies['supabase-auth-token']) {
-      const { id, email } = await parseJWTAccessToken(
+      const { email, id } = await parseJWTAccessToken(
         req.cookies['supabase-auth-token'],
       );
 

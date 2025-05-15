@@ -25,10 +25,10 @@ type Props = Readonly<{
 const emailRegex = /^\S+@\S+\.\S+$/;
 
 export default function SponsorsAdvertiseRequestFormContactSection({
-  onSubmit,
   defaultValues,
-  updateStepStatus,
   mode,
+  onSubmit,
+  updateStepStatus,
 }: Props) {
   const isReadonly = mode === 'readonly';
   const contactDetailsSchema = useSponsorsAdvertiseRequestContactSchema();
@@ -48,11 +48,11 @@ export default function SponsorsAdvertiseRequestFormContactSection({
   });
   const {
     control,
-    formState: { isValid, isDirty },
+    formState: { isDirty, isValid },
     handleSubmit,
   } = methods;
   const intl = useIntl();
-  const { fields, append } = useFieldArray({
+  const { append, fields } = useFieldArray({
     control,
     name: 'emails',
   });

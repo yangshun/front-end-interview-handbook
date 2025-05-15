@@ -9,8 +9,8 @@ type Props = Readonly<{
 }>;
 
 export default function QuestionUsersCompletedLabelWithFetching({
-  showIcon = false,
   metadata,
+  showIcon = false,
 }: Props) {
   const { data: count, isLoading } =
     trpc.questionProgress.globalCompleted.useQuery({

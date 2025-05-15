@@ -15,9 +15,9 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsChallengeSubmissionAuthorProfile({
-  userProfile,
   points,
   premium,
+  userProfile,
 }: Props) {
   return (
     <div className="flex items-center gap-4">

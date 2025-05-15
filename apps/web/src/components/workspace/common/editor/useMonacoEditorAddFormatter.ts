@@ -102,7 +102,7 @@ export default function useMonacoEditorAddFormatter(
     }
 
     try {
-      const { formatted, cursorOffset: newOffset } = await formatWithCursor(
+      const { cursorOffset: newOffset, formatted } = await formatWithCursor(
         value || '',
         options,
       );
@@ -156,7 +156,7 @@ export default function useMonacoEditorAddFormatter(
       return;
     }
 
-    const { html, css, typescript } = monaco.languages;
+    const { css, html, typescript } = monaco.languages;
 
     html.htmlDefaults.setModeConfiguration({
       ...html.htmlDefaults.modeConfiguration,

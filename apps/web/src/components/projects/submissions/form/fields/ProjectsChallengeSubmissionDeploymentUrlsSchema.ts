@@ -14,7 +14,7 @@ function projectsChallengeSubmissionDeploymentUrlItemSchema(options?: {
   urlMessage: string;
   urlMessageLocalhost: string;
 }) {
-  const { urlMessage, maxMessage, minMessage, urlMessageLocalhost } =
+  const { maxMessage, minMessage, urlMessage, urlMessageLocalhost } =
     options ?? {};
 
   return z.object({
@@ -38,10 +38,10 @@ function projectsChallengeSubmissionDeploymentUrlsSchema(options?: {
   urlMessageLocalhost: string;
 }) {
   const {
-    urlMessage,
     maxMessage,
-    minMessage,
     minItemMessage,
+    minMessage,
+    urlMessage,
     urlMessageLocalhost,
   } = options ?? {};
 

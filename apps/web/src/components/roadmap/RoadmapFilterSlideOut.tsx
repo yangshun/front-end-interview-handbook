@@ -69,10 +69,10 @@ function getInitialFilters(
 
 function FilterSection({
   label,
-  type,
+  onFilterChange,
   options,
   selectedOptions,
-  onFilterChange,
+  type,
 }: FilterSectionOptions) {
   const handleFilterChange = (option: string) => {
     if (type === 'years') {
@@ -153,9 +153,9 @@ type Props = Readonly<{
 
 function RoadmapFilterSlideOut({
   onApplyFilter,
-  years,
-  selectedYear,
   selectedMonths,
+  selectedYear,
+  years,
 }: Props) {
   const intl = useIntl();
   const [isFiltersShown, setIsFiltersShown] = useState(false);

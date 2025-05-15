@@ -70,11 +70,11 @@ export default function DropdownMenu({
   align = 'start',
   asChild = true,
   children,
-  side = 'bottom',
   modal = false,
-  triggerClassName,
   onClose,
   onCloseAutoFocus,
+  side = 'bottom',
+  triggerClassName,
   ...props
 }: Props) {
   return (

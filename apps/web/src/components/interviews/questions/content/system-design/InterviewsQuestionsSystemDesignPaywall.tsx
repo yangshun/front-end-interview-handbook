@@ -15,8 +15,8 @@ type Props = PropsWithChildren<
 
 export default function InterviewsQuestionsSystemDesignPaywall({
   children,
-  isPremium,
   isComingSoon = false,
+  isPremium,
   shouldCheckPremium = true,
 }: Props) {
   const intl = useIntl();

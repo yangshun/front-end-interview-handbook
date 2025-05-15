@@ -81,7 +81,7 @@ export default function i18nMiddleware(
   }
 
   // Find the rawPathname and check if it matches rewrites.
-  const { pathname: rawPathname, locale } = parseI18nPathname(pathname);
+  const { locale, pathname: rawPathname } = parseI18nPathname(pathname);
 
   if (Object.hasOwn(rewrites, rawPathname)) {
     return NextResponse.rewrite(

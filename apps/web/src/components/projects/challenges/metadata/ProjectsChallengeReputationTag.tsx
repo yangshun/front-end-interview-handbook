@@ -21,11 +21,11 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsChallengeReputationTag({
-  points,
   className,
   labelVariant = 'default',
-  variant = 'flat',
+  points,
   tooltip,
+  variant = 'flat',
 }: Props) {
   const intl = useIntl();
   const showToolReputationFullNumberTooltip = points >= 1000;

@@ -74,10 +74,10 @@ export function localizePlanPaymentConfig(
   plan: PurchasePricingPlanPaymentConfigBase,
   ppp: PurchasingPowerParity,
 ): PurchasePricingPlanPaymentConfigLocalized {
-  const { currency, conversionFactor: pppConversionFactor } = ppp;
+  const { conversionFactor: pppConversionFactor, currency } = ppp;
 
   const shouldUseCountryCurrencyValue = shouldUseCountryCurrency(currency.code);
-  const { before: unitCostBeforeDiscountInUSD, after: unitCostInUSD } =
+  const { after: unitCostInUSD, before: unitCostBeforeDiscountInUSD } =
     plan.basePriceInUSD;
 
   const conversionFactor = clamp(

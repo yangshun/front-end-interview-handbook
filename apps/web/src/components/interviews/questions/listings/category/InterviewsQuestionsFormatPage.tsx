@@ -37,13 +37,13 @@ type Props = Readonly<{
 }>;
 
 export default function InterviewsQuestionsFormatPage({
-  title,
+  bottomContent,
   description,
   format,
-  questions,
-  questionCompletionCount,
-  bottomContent,
   guides,
+  questionCompletionCount,
+  questions,
+  title,
 }: Props) {
   const intl = useIntl();
   const features = useInterviewsQuestionFormatFeatures(questions.length);

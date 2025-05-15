@@ -18,9 +18,9 @@ type Props = Readonly<{
 
 export default function ProjectsChallengeSubmissionSuccessSkillPlanDialog({
   challenges,
+  currentSkill,
   isShown,
   onClose,
-  currentSkill,
 }: Props) {
   if (!challenges) {
     return null;

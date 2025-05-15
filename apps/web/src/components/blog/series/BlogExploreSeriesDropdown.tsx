@@ -12,9 +12,9 @@ type Props = Readonly<{
 }>;
 
 export default function BlogExploreSeriesDropdown({
+  activeItem,
   navigation,
   onChange,
-  activeItem,
 }: Props) {
   const intl = useIntl();
   const seriesOptions: ReadonlyArray<{

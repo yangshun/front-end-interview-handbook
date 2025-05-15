@@ -14,9 +14,9 @@ type Props = Readonly<{
 }>;
 
 export default function PostResponse({
-  reply,
   comments,
   isFetchingComments,
+  reply,
 }: Props) {
   return (
     <div className="flex flex-col gap-2">

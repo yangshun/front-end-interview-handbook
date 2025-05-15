@@ -19,9 +19,9 @@ type Props = Omit<
   }>;
 
 export default function InterviewsStudyListPageTitleSection({
-  purchaseFeature: feature,
   overallProgress,
   progressTrackingAvailableToNonPremiumUsers = false,
+  purchaseFeature: feature,
   questions,
   studyListKey,
   ...props

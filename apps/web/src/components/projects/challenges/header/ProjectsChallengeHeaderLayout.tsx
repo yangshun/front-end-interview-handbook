@@ -28,9 +28,9 @@ export function ProjectsChallengeHeaderLayoutImpl({
 }: Props) {
   const {
     isGetStartedDialogShown,
+    isStartSessionLoading,
     setIsGetStartedDialogShown,
     startSession,
-    isStartSessionLoading,
   } = useProjectsChallengeSessionContext();
   const tabsRef = useRef(null);
   const isTabsInView = useInView(tabsRef);

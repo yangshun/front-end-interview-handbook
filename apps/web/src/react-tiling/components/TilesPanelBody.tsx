@@ -45,16 +45,16 @@ export default function TilesPanelBody<TabType>({
   allowDropping = true,
   children,
   hidden = false,
-  panelId,
-  tabs,
   onPanelDrop,
   onTabDrop,
+  panelId,
+  tabs,
 }: Props<TabType>) {
-  const { parentRect, setPosition, position } = useDragHighlightContext();
+  const { parentRect, position, setPosition } = useDragHighlightContext();
   const [dropAreaSection, setDropAreaSection] =
     useState<TilesPanelBodyDropAreaSection>('center');
   const tabPanelBodyRef = useRef<HTMLDivElement>(null);
-  const [{ isOver, canDrop }, drop] = useDrop<
+  const [{ canDrop, isOver }, drop] = useDrop<
     TilesPanelDragItem<TabType> | TilesPanelDragPanel,
     void,
     { canDrop: boolean; isOver: boolean }
@@ -136,7 +136,7 @@ export default function TilesPanelBody<TabType>({
 
       const top = hoverBoundingRect.top - parentRect.top;
       const left = hoverBoundingRect.left - parentRect.left;
-      const { width, height } = hoverBoundingRect;
+      const { height, width } = hoverBoundingRect;
 
       switch (dropAreaSection) {
         case 'center':

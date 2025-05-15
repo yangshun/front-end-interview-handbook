@@ -18,8 +18,8 @@ type RankNavigationItemProps = Readonly<{
 
 export default function RankNavigationItem({
   href,
-  title,
   rank,
+  title,
 }: RankNavigationItemProps) {
   return (
     <div

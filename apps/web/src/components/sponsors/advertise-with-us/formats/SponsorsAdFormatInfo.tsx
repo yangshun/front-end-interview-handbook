@@ -19,11 +19,11 @@ type Props = Readonly<{
 }>;
 
 export default function SponsorsAdFormatInfo({
+  addOnItem,
+  className,
   items,
   title,
-  className,
   type,
-  addOnItem,
 }: Props) {
   const subtitle =
     type === 'impressions' ? (

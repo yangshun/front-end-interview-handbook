@@ -38,8 +38,8 @@ const CHALLENGE_GUIDE_SLUG = 'challenge-guide';
 export default function ProjectsChallengeGuideSection({
   challengeGuide,
   commonGuides,
-  slug,
   relevantGuides,
+  slug,
   viewerGuidesAccess,
   viewerProjectsProfile,
 }: Props) {

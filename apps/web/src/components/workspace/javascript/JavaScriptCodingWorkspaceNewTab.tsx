@@ -11,8 +11,8 @@ import type {
 } from './JavaScriptCodingWorkspaceTypes';
 
 export default function JavaScriptCodingWorkspaceNewTab({
-  predefinedTabs,
   onSelectTabType,
+  predefinedTabs,
 }: Readonly<{
   onSelectTabType: (
     tabType: JavaScriptCodingWorkspacePredefinedTabsType,

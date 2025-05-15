@@ -19,8 +19,8 @@ type Props = Readonly<{
   isSubmitting?: boolean;
   onSubmit: ({
     category,
-    message,
     email,
+    message,
   }: Readonly<{
     category?: FeedbackMessageCategory;
     email?: string;
@@ -31,10 +31,10 @@ type Props = Readonly<{
 function ContactForm(
   {
     defaultCategory,
-    isEmailRequired,
-    onSubmit,
     errorMessage,
+    isEmailRequired,
     isSubmitting,
+    onSubmit,
   }: Props,
   ref: ForwardedRef<HTMLFormElement>,
 ) {

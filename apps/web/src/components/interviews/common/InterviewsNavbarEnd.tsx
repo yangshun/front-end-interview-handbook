@@ -18,7 +18,7 @@ import useInterviewsNavItems from './useInterviewsNavItems';
 export default function InterviewsNavbarEnd() {
   const user = useUser();
   const isLoggedIn = user != null;
-  const { userProfile, isLoading: isUserProfileLoading } = useUserProfile();
+  const { isLoading: isUserProfileLoading, userProfile } = useUserProfile();
   const isPremium = userProfile?.premium ?? false;
   const commonNavItems = useCommonNavItems();
   const interviewsNavItems = useInterviewsNavItems('nav');

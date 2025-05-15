@@ -13,7 +13,7 @@ import type { ProjectsChallengeSubmissionYOEFilter } from '~/components/projects
 import type { ProjectsYoeReplacement } from '~/components/projects/types';
 
 export default function useProjectsChallengeSubmissionFilters() {
-  const { updateSearchParams, getStringTypeSearchParams } =
+  const { getStringTypeSearchParams, updateSearchParams } =
     useProjectsChallengeSubmissionFilterContext();
   // Filtering.
   const [query, setQuery] = useState(getStringTypeSearchParams('search'));
@@ -93,8 +93,8 @@ export default function useProjectsChallengeSubmissionFilters() {
   };
 
   return {
-    filterSize,
     filters,
+    filterSize,
     hasClientFilterApplied,
     onChangeQuery,
     profileStatus,

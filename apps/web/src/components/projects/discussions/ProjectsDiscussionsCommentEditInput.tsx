@@ -40,7 +40,7 @@ export default function ProjectsDiscussionsCommentEditInput({
   const attrs = getDiscussionsCommentBodyAttributes(intl);
   const discussionsCommentBodySchema = useDiscussionsCommentBodySchema();
 
-  const { handleSubmit, getValues, setValue, formState } =
+  const { formState, getValues, handleSubmit, setValue } =
     useForm<CommentFormInput>({
       defaultValues: {
         body: comment.body,

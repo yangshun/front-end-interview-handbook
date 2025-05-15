@@ -60,7 +60,7 @@ export default function GuidesDropdownMenu({
         </button>
       }>
       {Object.values(guides).map(
-        ({ key, firstPageHref, shortName, icon: ItemIcon }) => {
+        ({ firstPageHref, icon: ItemIcon, key, shortName }) => {
           const isSelected = key === guide;
 
           return (

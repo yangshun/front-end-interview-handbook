@@ -15,8 +15,8 @@ import UserCard from './UserCard';
 export default function UsersList() {
   const projectSlug = useCurrentProjectSlug();
 
-  const [opened, { open, close }] = useDisclosure(false);
-  const { isLoading, data } = trpc.socialUsers.getPlatformUsers.useQuery({
+  const [opened, { close, open }] = useDisclosure(false);
+  const { data, isLoading } = trpc.socialUsers.getPlatformUsers.useQuery({
     projectSlug: projectSlug ?? '',
   });
 

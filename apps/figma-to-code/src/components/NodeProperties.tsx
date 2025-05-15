@@ -16,7 +16,7 @@ export function NodeProperties({
     return <div>Loading</div>;
   }
 
-  const { metadata, cssProperties, tailwindClasses } = visitGFENode(node);
+  const { cssProperties, metadata, tailwindClasses } = visitGFENode(node);
 
   return (
     <div className={clsx('flex flex-col h-full')}>

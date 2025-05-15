@@ -84,17 +84,17 @@ let pingSent = false;
 export default function MonacoCodeEditor({
   className,
   filePath,
-  language,
   height,
-  value,
-  onMount,
+  isVimModeEnabled = false,
+  keepCurrentModel = true,
+  language,
   onChange,
   onFocus,
-  wordWrap = false,
-  readOnly = false,
-  keepCurrentModel = true,
-  isVimModeEnabled = false,
+  onMount,
   options,
+  readOnly = false,
+  value,
+  wordWrap = false,
 }: Props) {
   const intl = useIntl();
   const monaco = useMonaco();

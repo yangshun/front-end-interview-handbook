@@ -20,12 +20,12 @@ type Props = Readonly<{
 }>;
 
 export default function InterviewsEntityProgress({
-  total,
   completed,
   entity,
-  title,
   showProgress = true,
   showProgressBar = true,
+  title,
+  total,
 }: Props) {
   const Icon = entity === 'question' ? RiQuestionnaireLine : RiBookOpenLine;
 

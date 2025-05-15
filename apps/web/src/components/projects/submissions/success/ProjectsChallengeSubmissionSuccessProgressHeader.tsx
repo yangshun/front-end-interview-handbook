@@ -17,12 +17,12 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsChallengeSubmissionSuccessProgressHeader({
-  title,
   completedCount,
-  totalCount,
+  entity,
   icon: Icon,
   iconWrapperClassName,
-  entity,
+  title,
+  totalCount,
 }: Props) {
   const isCompleted = completedCount === totalCount;
 

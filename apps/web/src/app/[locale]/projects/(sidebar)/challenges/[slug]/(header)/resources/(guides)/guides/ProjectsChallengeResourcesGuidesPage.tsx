@@ -16,7 +16,7 @@ type Props = Readonly<{
 export default async function ProjectsChallengeResourcesGuidesPage({
   params,
 }: Props) {
-  const { slug, locale } = params;
+  const { locale, slug } = params;
 
   const [
     { viewerProjectsProfile },

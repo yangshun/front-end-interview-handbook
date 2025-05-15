@@ -19,7 +19,7 @@ export default function defaultProjectsMetadata(
   intl: IntlShape<string>,
   params: PageMetadata,
 ) {
-  const { description, pathname, locale, title, absoluteTitle } = params;
+  const { absoluteTitle, description, locale, pathname, title } = params;
 
   return {
     alternates: {

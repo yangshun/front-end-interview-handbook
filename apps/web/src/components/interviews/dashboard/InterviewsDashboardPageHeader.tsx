@@ -26,8 +26,8 @@ type Props = Readonly<{
 
 export default function InterviewsDashboardPageHeader({
   contributions,
-  isLoggedIn,
   isContributionsLoading,
+  isLoggedIn,
   studyListsMap,
 }: Props) {
   const intl = useIntl();

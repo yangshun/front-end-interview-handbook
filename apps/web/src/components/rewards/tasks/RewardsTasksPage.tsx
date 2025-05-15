@@ -39,8 +39,8 @@ import { useRewardsTasks } from './useRewardsTasks';
 
 function RewardsStepLabel({
   label,
-  step,
   status,
+  step,
 }: Readonly<{
   label: ReactNode;
   status: 'active' | 'completed' | 'pending';
@@ -317,7 +317,7 @@ export default function RewardsTasksPage() {
             />
           ) : (
             <div className="flex flex-wrap gap-4">
-              {handles.map(({ type, field, icon: Icon }) => (
+              {handles.map(({ field, icon: Icon, type }) => (
                 <div key={type} className="flex items-center gap-2">
                   <Icon className={clsx('size-5 shrink-0', themeIconColor)} />
                   <Text size="body2">{handlesData?.[field]}</Text>

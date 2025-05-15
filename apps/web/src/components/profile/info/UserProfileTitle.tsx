@@ -25,8 +25,8 @@ const gap: Record<Size, string> = {
 };
 
 export default function UserProfileTitle({
-  userProfile,
   size = 'body2',
+  userProfile,
 }: Props) {
   const { company, title } = userProfile;
 

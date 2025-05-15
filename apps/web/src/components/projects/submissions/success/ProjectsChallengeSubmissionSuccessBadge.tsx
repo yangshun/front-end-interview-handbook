@@ -57,8 +57,8 @@ type Props = Readonly<{
 
 export default function ProjectsChallengeSubmissionSuccessBadge({
   icon: Icon,
-  title,
   subTitle,
+  title,
 }: Props) {
   return (
     <div

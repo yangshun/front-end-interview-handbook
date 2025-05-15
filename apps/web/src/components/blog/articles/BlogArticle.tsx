@@ -19,9 +19,9 @@ type Props = PropsWithChildren<
 >;
 
 export default function BlogArticle({
+  children,
   metadata,
   view = 'default',
-  children,
 }: Props) {
   return (
     <div className="flex flex-col gap-12">

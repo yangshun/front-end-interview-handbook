@@ -368,7 +368,7 @@ export const generalBuying: FAQItem = {
                       href: '/interviews/focus-areas/data-structures-algorithms',
                       name: 'Data structures and algorithms',
                     },
-                  ].map(({ name, href }) => (
+                  ].map(({ href, name }) => (
                     <li key={name}>
                       <Anchor href={href}>{name}</Anchor>
                     </li>

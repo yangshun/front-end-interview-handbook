@@ -33,8 +33,8 @@ export const projectsCommentsRouter = router({
     )
     .mutation(
       async ({
-        input: { entityId, domain, category, body, entityOwnerId },
         ctx: { projectsProfileId },
+        input: { body, category, domain, entityId, entityOwnerId },
       }) => {
         const comment = await prisma.projectsDiscussionComment.create({
           data: {
@@ -69,7 +69,7 @@ export const projectsCommentsRouter = router({
         commentId: z.string().uuid(),
       }),
     )
-    .mutation(async ({ input: { commentId }, ctx: { projectsProfileId } }) => {
+    .mutation(async ({ ctx: { projectsProfileId }, input: { commentId } }) => {
       const deletedComment = await prisma.projectsDiscussionComment.delete({
         where: {
           id: commentId,
@@ -88,7 +88,7 @@ export const projectsCommentsRouter = router({
         entityId: z.string(),
       }),
     )
-    .query(async ({ input: { domain, entityId }, ctx: { viewer } }) => {
+    .query(async ({ ctx: { viewer }, input: { domain, entityId } }) => {
       const likedComments = await prisma.projectsDiscussionCommentVote.findMany(
         {
           select: {
@@ -193,8 +193,8 @@ export const projectsCommentsRouter = router({
     )
     .query(
       async ({
-        input: { contributionType, domainList, forumType, userId },
         ctx: { viewer },
+        input: { contributionType, domainList, forumType, userId },
       }) => {
         const categoryWhere = contributionType.includes('OTHER')
           ? [
@@ -230,9 +230,9 @@ export const projectsCommentsRouter = router({
                 domain: domainWhere,
               }
             : {
-                OR: categoryWhere,
                 author: authorWhere,
                 domain: domainWhere,
+                OR: categoryWhere,
               };
 
         const comments = await prisma.projectsDiscussionComment.findMany({
@@ -365,8 +365,8 @@ export const projectsCommentsRouter = router({
     )
     .mutation(
       async ({
-        input: { entityId, domain, body, parentCommentId },
         ctx: { projectsProfileId },
+        input: { body, domain, entityId, parentCommentId },
       }) => {
         const comment = await prisma.projectsDiscussionComment.create({
           data: {
@@ -397,7 +397,7 @@ export const projectsCommentsRouter = router({
         commentId: z.string().uuid(),
       }),
     )
-    .mutation(async ({ input: { commentId }, ctx: { projectsProfileId } }) => {
+    .mutation(async ({ ctx: { projectsProfileId }, input: { commentId } }) => {
       const deletedVote = await prisma.projectsDiscussionCommentVote.delete({
         where: {
           commentId_profileId: {
@@ -417,7 +417,7 @@ export const projectsCommentsRouter = router({
       }),
     )
     .mutation(
-      async ({ input: { commentId, body }, ctx: { projectsProfileId } }) => {
+      async ({ ctx: { projectsProfileId }, input: { body, commentId } }) => {
         return await prisma.projectsDiscussionComment.update({
           data: {
             body,
@@ -435,7 +435,7 @@ export const projectsCommentsRouter = router({
         commentId: z.string().uuid(),
       }),
     )
-    .mutation(async ({ input: { commentId }, ctx: { projectsProfileId } }) => {
+    .mutation(async ({ ctx: { projectsProfileId }, input: { commentId } }) => {
       try {
         const vote = await prisma.projectsDiscussionCommentVote.create({
           data: {

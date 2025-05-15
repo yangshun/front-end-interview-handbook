@@ -219,7 +219,7 @@ async function processParams(params: Props['params']) {
 
   const questionFormat = QuestionFormatSEOToRawMapping[questionFormatSEO];
 
-  const { seoDescription, socialTitle, pageTitle, description, ogImageTitle } =
+  const { description, ogImageTitle, pageTitle, seoDescription, socialTitle } =
     QuestionFormatStrings[questionFormat];
   let seoTitle = QuestionFormatStrings[questionFormat].seoTitle(0);
   const { questions } = await fetchQuestionsList(
@@ -243,10 +243,10 @@ async function processParams(params: Props['params']) {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale, format } = params;
+  const { format, locale } = params;
 
   try {
-    const [intl, { seoTitle, socialTitle, seoDescription, ogImageTitle }] =
+    const [intl, { ogImageTitle, seoDescription, seoTitle, socialTitle }] =
       await Promise.all([getIntlServerOnly(locale), processParams(params)]);
 
     return defaultMetadata({
@@ -289,7 +289,7 @@ export default async function Page({ params }: Props) {
   const questionFormat = QuestionFormatSEOToRawMapping[questionFormatSEO];
 
   const [
-    { pageTitle, description, questions },
+    { description, pageTitle, questions },
     questionCompletionCount,
     bottomContent,
     guides,

@@ -39,9 +39,9 @@ type Props = Readonly<{
 }>;
 
 export default function InterviewsRibbonBadge({
+  className,
   label,
   variant = 'info',
-  className,
 }: Props) {
   const { badgeClassName, svgClassName } = classes[variant];
 

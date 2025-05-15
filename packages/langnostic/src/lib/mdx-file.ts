@@ -23,8 +23,9 @@ export function generateMDXContentSegments(content: string) {
     unified()
       .use(remarkStringify)
       .use(remarkMdx)
-      .stringify({ type: 'root', children: [node] }),
+      .stringify({ children: [node], type: 'root' }),
   );
+
   return stringifiedBlocks;
 }
 
@@ -33,10 +34,13 @@ export function generateMDXContentSegments(content: string) {
  */
 export function generateSourceMDXContentHashMap(content: string) {
   const segments = generateMDXContentSegments(content);
+
   return segments.reduce(
     (acc, segment) => {
       const hashValue = generateHash(segment);
+
       acc[hashValue] = segment;
+
       return acc;
     },
     {} as Record<string, string>,
@@ -48,6 +52,7 @@ export function generateSourceMDXContentHashMap(content: string) {
  */
 export function generateMDXContentHashList(content: string) {
   const segments = generateMDXContentSegments(content);
+
   return segments.map((segment) => generateHash(segment));
 }
 
@@ -56,9 +61,11 @@ export function generateTargetMDXContentHashMap(
   registryHashList: Array<string>,
 ) {
   const segments = generateMDXContentSegments(content);
+
   return segments.reduce(
     (acc, segment, index) => {
       acc[registryHashList[index]] = segment;
+
       return acc;
     },
     {} as Record<string, string>,
@@ -72,6 +79,7 @@ export function buildTargetMDXFrontmatter(
   excludedKeys?: ReadonlyArray<string>,
 ) {
   const updatedFrontmatter: Record<string, string> = {};
+
   Object.keys(sourceFrontmatter).forEach((key) => {
     updatedFrontmatter[key] = translatedContent?.[key]
       ? translatedContent[key]
@@ -88,8 +96,10 @@ function joinSegmentedMDXContent(contents: ReadonlyArray<string>) {
     if (index === 0) {
       return curr;
     }
+
     const prev = contents[index - 1];
     const separator = prev.endsWith('\n') ? '\n' : '\n\n';
+
     return acc + separator + curr;
   }, '');
 }
@@ -115,8 +125,10 @@ export function buildTargetMDXContent(
     if (targetHashMap[hash]) {
       return targetHashMap[hash];
     }
+
     return translatedContent?.[hash] || '';
   });
+
   return '\n' + joinSegmentedMDXContent(newContent);
 }
 
@@ -126,9 +138,9 @@ export function buildTargetMDX(
   registryTargetHashList: Array<string>,
   translatedContent?: Record<string, string>,
 ) {
-  const { data: sourceFrontmatter, content: sourceMDXContent } =
+  const { content: sourceMDXContent, data: sourceFrontmatter } =
     matter(sourceContent);
-  const { data: targetFrontmatter, content: targetMDXContent } =
+  const { content: targetMDXContent, data: targetFrontmatter } =
     matter(targetContent);
 
   const updatedFrontmatter = buildTargetMDXFrontmatter(

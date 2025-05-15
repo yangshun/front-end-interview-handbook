@@ -31,11 +31,11 @@ type Props = Readonly<{
 
 export default function ProjectsChallengeSubmissionHero({
   challenge,
-  submission,
-  isViewingOwnSubmission = false,
   isParentInView,
   isViewerPremium,
+  isViewingOwnSubmission = false,
   onScrollToDiscussionsButtonClick,
+  submission,
 }: Props) {
   const intl = useIntl();
   const isMobileAndBelow = useMediaQuery('(max-width: 768px)');

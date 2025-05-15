@@ -10,7 +10,7 @@ type Props = React.ImgHTMLAttributes<HTMLImageElement> &
   }>;
 
 function Img(
-  { src: srcParam, alt, ...rest }: Props,
+  { alt, src: srcParam, ...rest }: Props,
   ref: ForwardedRef<HTMLImageElement>,
 ) {
   const src = srcParam?.startsWith('/') ? cdnUrl(srcParam) : srcParam;

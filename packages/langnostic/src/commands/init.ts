@@ -8,6 +8,7 @@ export async function init() {
   intro(`${chalk.blue.bold('Langnostic Config Setup')}`);
 
   const s = spinner();
+
   s.start('Creating default configuration...');
 
   const initResult = Config.initializeConfig();
@@ -33,7 +34,9 @@ export async function init() {
       break;
     }
     default: {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const _: never = initResult;
+
       break;
     }
   }

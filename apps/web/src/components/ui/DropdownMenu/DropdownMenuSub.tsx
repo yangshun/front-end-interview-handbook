@@ -29,8 +29,8 @@ export type Props = Readonly<{
 
 export default function DropdownMenuSub({
   __forceDark = false,
-  color,
   children,
+  color,
   endAddOn,
   icon: Icon,
   isSelected = false,

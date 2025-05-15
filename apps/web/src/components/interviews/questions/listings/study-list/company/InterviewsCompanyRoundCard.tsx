@@ -15,9 +15,9 @@ type Props = Readonly<{
 }>;
 
 export default function InterviewsCompanyRoundCard({
+  description,
   icon: Icon,
   title,
-  description,
 }: Props) {
   return (
     <Card

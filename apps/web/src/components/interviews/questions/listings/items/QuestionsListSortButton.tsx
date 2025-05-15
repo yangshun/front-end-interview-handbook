@@ -16,11 +16,11 @@ type Props = Readonly<{
 }>;
 
 export default function QuestionsListSortButton({
-  listType,
   isLabelHidden,
+  listType,
 }: Props) {
   const intl = useIntl();
-  const { isAscendingOrder, setIsAscendingOrder, sortField, setSortField } =
+  const { isAscendingOrder, setIsAscendingOrder, setSortField, sortField } =
     useQuestionCodingSorting({ listType });
 
   function makeDropdownItemProps(

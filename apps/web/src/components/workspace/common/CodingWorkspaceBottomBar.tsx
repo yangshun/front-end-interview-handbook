@@ -29,8 +29,8 @@ export default function CodingWorkspaceBottomBar({
   metadata,
   rightElements,
   showQuestionsListButton = true,
-  studyListKey,
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE,
+  studyListKey,
 }: Props) {
   return (
     <div

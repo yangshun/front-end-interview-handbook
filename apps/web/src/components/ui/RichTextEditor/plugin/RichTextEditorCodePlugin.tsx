@@ -29,12 +29,12 @@ type Props = Readonly<{
 }>;
 
 export default function RichTextEditorCodePlugin({
-  isCode,
-  setIsCode,
   codeLanguage,
-  setCodeLanguage,
-  setSelectedElementKey,
+  isCode,
   selectedElementKey,
+  setCodeLanguage,
+  setIsCode,
+  setSelectedElementKey,
 }: Props) {
   const intl = useIntl();
   const [editor] = useLexicalComposerContext();

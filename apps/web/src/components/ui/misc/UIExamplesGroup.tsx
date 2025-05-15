@@ -22,8 +22,8 @@ const gapClasses: Record<GapSize, string> = {
 
 export default function UIExamplesGroup({
   children,
-  gapSize = 'md',
   darkMode = 'vertical',
+  gapSize = 'md',
   title,
 }: Props) {
   return (

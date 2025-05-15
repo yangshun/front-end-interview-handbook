@@ -65,7 +65,7 @@ export default function EmailsTemplateWelcomeSeriesImmediate({ unsub }: Props) {
               Hone in specific topics you need the most practice
             </EmailsParagraph>
             <Section>
-              {FOCUS_AREAS.map(({ name, logo, href }) => (
+              {FOCUS_AREAS.map(({ href, logo, name }) => (
                 <Section
                   key={name}
                   style={{
@@ -104,7 +104,7 @@ export default function EmailsTemplateWelcomeSeriesImmediate({ unsub }: Props) {
               Revise your fundamentals with knowledge quizzes
             </EmailsParagraph>
             <Section>
-              {QUIZ_TOPICS.map(({ name, logo, href }) => (
+              {QUIZ_TOPICS.map(({ href, logo, name }) => (
                 <Section
                   key={name}
                   style={{
@@ -171,7 +171,7 @@ export default function EmailsTemplateWelcomeSeriesImmediate({ unsub }: Props) {
                 style={{
                   marginBottom: 16,
                 }}>
-                {items.map(({ name, logo, href }) => (
+                {items.map(({ href, logo, name }) => (
                   <Column key={name} style={{ width: '50%' }}>
                     <Link href={href}>
                       <Row>

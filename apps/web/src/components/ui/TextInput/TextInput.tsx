@@ -109,12 +109,12 @@ function TextInput(
     isLabelHidden = false,
     label,
     maxLength,
+    onChange,
     required,
     size = 'md',
     startIcon: StartIcon,
     type = 'text',
     value,
-    onChange,
     ...props
   }: Props,
   ref: ForwardedRef<HTMLInputElement>,

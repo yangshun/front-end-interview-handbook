@@ -108,7 +108,7 @@ async function generateSetupForChallengesSolutions(slug: string) {
   );
 
   await Promise.all([
-    ...setups.map(async ({ solutionFrameworkType, files, workspace }) => {
+    ...setups.map(async ({ files, solutionFrameworkType, workspace }) => {
       workspace?.visibleFiles?.forEach((file) => {
         if (!(file in files)) {
           throw Error(

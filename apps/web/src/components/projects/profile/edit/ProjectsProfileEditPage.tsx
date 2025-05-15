@@ -147,9 +147,9 @@ export default function ProjectsProfileEditPage({ userProfile }: Props) {
     resolver: zodResolver(projectsProfileEditSchema),
   });
   const {
+    formState: { isDirty, isSubmitting },
     handleSubmit,
     reset,
-    formState: { isSubmitting, isDirty },
   } = methods;
   const [usernameExistsError, setUsernameExistsError] = useState(false);
 

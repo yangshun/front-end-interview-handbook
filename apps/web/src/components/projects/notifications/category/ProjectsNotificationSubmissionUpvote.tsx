@@ -15,7 +15,7 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsNotificationSubmissionUpvote({ data }: Props) {
-  const { data: upvoteData, submission, createdAt } = data;
+  const { createdAt, data: upvoteData, submission } = data;
   const [showImageFallback, setShowImageFallback] = useState<boolean>(
     !submission?.imgSrc,
   );

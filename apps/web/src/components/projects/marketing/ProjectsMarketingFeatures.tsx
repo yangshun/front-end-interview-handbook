@@ -14,8 +14,8 @@ import {
 } from '~/components/ui/theme';
 
 function FeatureSectionHeader({
-  title,
   description,
+  title,
 }: {
   description: React.ReactNode;
   title: React.ReactNode;

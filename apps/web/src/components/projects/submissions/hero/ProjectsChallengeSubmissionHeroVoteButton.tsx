@@ -16,8 +16,8 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsChallengeSubmissionHeroVoteButton({
-  votes,
   submissionId,
+  votes,
 }: Props) {
   const { showToast } = useToast();
   const intl = useIntl();

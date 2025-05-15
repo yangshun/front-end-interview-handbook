@@ -22,7 +22,7 @@ export default function UserInterfaceCodingWorkspaceSolutionPreviewTab({
 }: Props) {
   const intl = useIntl();
   const { colorScheme } = useColorSchemePreferences();
-  const { workspace, files } = bundle;
+  const { files, workspace } = bundle;
   const { dispatch, getTabById } =
     useUserInterfaceCodingWorkspaceTilesContext();
 

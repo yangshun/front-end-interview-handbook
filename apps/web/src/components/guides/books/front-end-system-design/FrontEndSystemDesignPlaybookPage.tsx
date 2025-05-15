@@ -42,9 +42,9 @@ type Props = Readonly<{
 export default function FrontEndSystemDesignPlaybookPage({
   allGuides,
   listType,
-  questions,
-  questionCompletionCount,
   metadata,
+  questionCompletionCount,
+  questions,
 }: Props) {
   const intl = useIntl();
 

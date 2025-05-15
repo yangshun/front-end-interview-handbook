@@ -32,11 +32,11 @@ type SideNavigationItem<T> = Readonly<{
 export type SideNavigationItems<T> = ReadonlyArray<SideNavigationItem<T>>;
 
 function NavigationItem<T>({
-  activeValue,
   activeLinkRef,
+  activeValue,
   level,
-  section,
   onClick,
+  section,
 }: Readonly<{
   activeLinkRef?: Ref<HTMLAnchorElement>;
   activeValue: T | null;
@@ -124,10 +124,10 @@ type Props<T> = Readonly<{
 }>;
 
 export default function SideNavigation<T>({
-  activeValue,
   activeLinkRef,
-  items,
+  activeValue,
   fontSize = 'normal',
+  items,
   onClick,
 }: Props<T>) {
   const flatItems = flattenNavigationItems(items);

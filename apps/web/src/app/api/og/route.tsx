@@ -9,7 +9,7 @@ const PRODUCTS = {
 
 export async function GET(request: Request) {
   try {
-    const { searchParams, origin } = new URL(request.url);
+    const { origin, searchParams } = new URL(request.url);
     const hasTitle = searchParams.has('title');
     const title = hasTitle
       ? searchParams.get('title')

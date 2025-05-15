@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-export default async function Page({ searchParams, params }: Props) {
+export default async function Page({ params, searchParams }: Props) {
   const { locale } = params;
 
   if (searchParams.error) {

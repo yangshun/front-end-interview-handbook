@@ -24,8 +24,8 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsProfileInfo({
-  userProfile,
   isViewingOwnProfile,
+  userProfile,
 }: Props) {
   const intl = useIntl();
   const { projectsProfile } = userProfile;

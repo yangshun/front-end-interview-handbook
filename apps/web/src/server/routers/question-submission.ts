@@ -19,7 +19,7 @@ export const questionSubmissionRouter = router({
       }),
     )
     .mutation(
-      async ({ input: { code, slug, language, result }, ctx: { viewer } }) => {
+      async ({ ctx: { viewer }, input: { code, language, result, slug } }) => {
         return await prisma.questionJavaScriptSubmission.create({
           data: {
             code,
@@ -37,7 +37,7 @@ export const questionSubmissionRouter = router({
         submissionId: z.string(),
       }),
     )
-    .query(async ({ input: { submissionId }, ctx: { viewer } }) => {
+    .query(async ({ ctx: { viewer }, input: { submissionId } }) => {
       return await prisma.questionJavaScriptSubmission.findFirst({
         orderBy: {
           createdAt: 'desc',
@@ -54,7 +54,7 @@ export const questionSubmissionRouter = router({
         slug: z.string(),
       }),
     )
-    .query(async ({ input: { slug }, ctx: { viewer } }) => {
+    .query(async ({ ctx: { viewer }, input: { slug } }) => {
       return await prisma.questionJavaScriptSubmission.findMany({
         orderBy: {
           createdAt: 'desc',

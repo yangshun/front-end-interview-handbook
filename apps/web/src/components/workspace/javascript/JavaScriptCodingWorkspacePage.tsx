@@ -18,8 +18,8 @@ type Props = Readonly<{
 
 export default function JavaScriptCodingWorkspacePage({
   canViewPremiumContent,
-  question,
   nextQuestions,
+  question,
   similarQuestions,
   studyListKey,
 }: Props) {

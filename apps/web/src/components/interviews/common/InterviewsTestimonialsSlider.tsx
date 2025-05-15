@@ -62,12 +62,12 @@ type TestimonialCardProps = Readonly<{
 }>;
 
 function TestimonialCard({
-  testimonial,
   authorThumbnailUrl,
-  name,
   authorUrl,
-  title,
   location,
+  name,
+  testimonial,
+  title,
 }: TestimonialCardProps) {
   const maskClasses = clsx(
     'motion-safe:[mask-image:linear-gradient(0deg,_rgba(0,_0,_0,_0)_0%,_#000000_20%,_#000000_100%,_rgba(0,_0,_0,_0)_100%)]',
@@ -307,7 +307,7 @@ export default function InterviewsTestimonialsSlider({ data }: Props) {
           )}>
           {overview
             .flatMap((item) => (item != null ? [item] : []))
-            .map(({ id, subtitle, logos, label }) => {
+            .map(({ id, label, logos, subtitle }) => {
               const isString = typeof label === 'string';
 
               const numeralPrefixString = label.toString().match(/^\d+/)?.[0];

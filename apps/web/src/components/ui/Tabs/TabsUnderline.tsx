@@ -78,14 +78,14 @@ function TabsUnderline<T>(
     alignment = 'start',
     display = 'block',
     label,
-    tabs,
-    size = 'md',
-    value,
     onSelect,
+    size = 'md',
+    tabs,
+    value,
   }: Props<T>,
   ref: ForwardedRef<HTMLDivElement>,
 ) {
-  const { iconSize, tabItemSize, tabInternalGapSize, tabGapSize, textSize } =
+  const { iconSize, tabGapSize, tabInternalGapSize, tabItemSize, textSize } =
     sizeClasses[size];
 
   return (
@@ -100,10 +100,10 @@ function TabsUnderline<T>(
           {tabs.map((tabItem) => {
             const {
               addOn,
+              href,
               icon: Icon,
               label: tabItemLabel,
               value: tabItemValue,
-              href,
             } = tabItem;
             const isSelected = tabItemValue === value;
             const commonProps = {

@@ -20,10 +20,10 @@ type Props = Readonly<{
 }>;
 
 function RoadmapItemCard({
-  title,
   description,
-  tags,
   launched = false,
+  tags,
+  title,
   url = '',
 }: Props) {
   const intl = useIntl();

@@ -1,8 +1,8 @@
-import {
+import type {
   TranslationGroupBatchId,
   TranslationGroupBatchStatus,
-  TranslationStringResult,
   TranslationStringArg,
+  TranslationStringResult,
 } from '../types';
 
 export class TranslationGroupBatch {
@@ -10,8 +10,8 @@ export class TranslationGroupBatch {
   #status: TranslationGroupBatchStatus;
   #errors: Array<Error>;
   #time: {
-    start: null | number;
-    end: null | number;
+    end: number | null;
+    start: number | null;
   };
   #translations: Array<TranslationStringResult>;
   #strings: ReadonlyArray<TranslationStringArg>;
@@ -23,7 +23,7 @@ export class TranslationGroupBatch {
     this.#batchId = batchId;
     this.#status = 'queued';
     this.#errors = [];
-    this.#time = { start: null, end: null };
+    this.#time = { end: null, start: null };
     this.#translations = [];
     this.#strings = strings;
   }

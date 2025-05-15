@@ -19,9 +19,9 @@ type Props = Readonly<{
 
 export default function ProjectsChallengeAddSkillFromSkillPlanDialog({
   isShown,
+  onClose,
   session,
   skillToAdd,
-  onClose,
 }: Props) {
   const intl = useIntl();
   const trpcUtils = trpc.useUtils();

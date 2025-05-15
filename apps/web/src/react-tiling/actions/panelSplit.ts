@@ -24,12 +24,12 @@ export default function panelSplit<TabType>(
 ) {
   const {
     direction,
-    panelId,
     newPanelId,
     newPanelOrder,
-    newTabId = null,
     newTabCloseable = true,
+    newTabId = null,
     onTabsOpen,
+    panelId,
   } = payload;
   const addedTabs: Array<TabType> = [];
   const newTiles = panelSplitImpl(

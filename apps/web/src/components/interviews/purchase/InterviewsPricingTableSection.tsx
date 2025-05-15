@@ -76,9 +76,9 @@ function PricingButton({
   href,
   isDisabled,
   isLoading,
-  variant,
   label,
   onClick,
+  variant,
 }: Readonly<{
   'aria-describedby': string;
   href?: AnchorProps['href'];
@@ -161,7 +161,7 @@ function PricingButtonNonPremium({
   const intl = useIntl();
   const user = useUser();
   const { locale } = useI18n();
-  const { userProfile, isUserProfileLoading } = useUserProfile();
+  const { isUserProfileLoading, userProfile } = useUserProfile();
   const checkoutInitiateEmailMutation =
     trpc.emails.checkoutInitiate.useMutation();
   const [checkoutSessionHref, setCheckoutSessionHref] = useState<string | null>(
@@ -312,7 +312,7 @@ function PricingButtonSection({
 }>) {
   const intl = useIntl();
   const { isLoading: isUserLoading } = useSessionContext();
-  const { userProfile, isUserProfileLoading } = useUserProfile();
+  const { isUserProfileLoading, userProfile } = useUserProfile();
 
   const isPending = isUserLoading || isUserProfileLoading;
 
@@ -452,13 +452,13 @@ export default function InterviewsPricingTableSection({
   countryName,
   plans,
   titleEl,
-  view = 'default',
   useCurrentPageAsCancelUrl = false,
+  view = 'default',
 }: Props) {
   const intl = useIntl();
   const featuredPlanId = useId();
   const user = useUser();
-  const { userProfile, isUserProfileLoading } = useUserProfile();
+  const { isUserProfileLoading, userProfile } = useUserProfile();
   const { data: lastPaymentError } = trpc.purchases.lastPaymentError.useQuery(
     undefined,
     {
@@ -485,10 +485,10 @@ export default function InterviewsPricingTableSection({
   const isDialogView = view === 'dialog';
 
   const {
+    annual: annualPlan,
+    lifetime: lifetimePlan,
     monthly: monthlyPlan,
     quarterly: quarterlyPlan,
-    lifetime: lifetimePlan,
-    annual: annualPlan,
   } = plans;
 
   const featureAllAccess = (
@@ -555,7 +555,7 @@ export default function InterviewsPricingTableSection({
                   />
                 ),
               },
-            ].map(({ label, key }) => (
+            ].map(({ key, label }) => (
               <li key={key} className="flex items-center gap-2">
                 <FaCheck
                   aria-hidden="true"
@@ -885,7 +885,7 @@ export default function InterviewsPricingTableSection({
               !isDialogView && 'mx-auto w-full max-w-lg md:max-w-none',
             )}>
             {planList.map(
-              ({ numberOfMonths, paymentConfig, includedFeatures, name }) => {
+              ({ includedFeatures, name, numberOfMonths, paymentConfig }) => {
                 const id = `tier-${paymentConfig.planType}`;
                 const recommendedPlan = paymentConfig.planType === 'annual';
 

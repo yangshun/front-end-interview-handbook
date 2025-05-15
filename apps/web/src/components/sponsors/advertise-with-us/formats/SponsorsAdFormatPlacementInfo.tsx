@@ -30,8 +30,8 @@ export default function SponsorsAdFormatPlacementInfo({
   badgeLabel,
   className,
   img,
-  title,
   placementPages,
+  title,
 }: Props) {
   const intl = useIntl();
   const [showPlacementList, setShowPlacementList] = useState(false);

@@ -31,8 +31,8 @@ type Props = Readonly<{
 }>;
 
 export default function EmailsTemplateCheckoutMultipleTimes({
-  name,
   coupon,
+  name,
   unsub,
 }: Props) {
   return (

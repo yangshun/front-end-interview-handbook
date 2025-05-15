@@ -114,7 +114,7 @@ export default function ProjectsChallengeGetStartedImportantInfoGuideBanner() {
                 'border-t',
                 themeBorderElementColor,
               ])}>
-              {tabs.map(({ subtitle, value, title }) => (
+              {tabs.map(({ subtitle, title, value }) => (
                 <div
                   key={value}
                   className={clsx(

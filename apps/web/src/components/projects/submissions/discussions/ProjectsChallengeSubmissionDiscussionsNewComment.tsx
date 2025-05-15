@@ -51,7 +51,7 @@ export default function ProjectsChallengeSubmissionDiscussionsNewComment({
   const attrs = getDiscussionsCommentBodyAttributes(intl);
   const discussionsCommentBodySchema = useDiscussionsCommentBodySchema();
 
-  const { handleSubmit, setValue, getValues, formState, reset, control } =
+  const { control, formState, getValues, handleSubmit, reset, setValue } =
     useForm<CommentFormInput>({
       defaultValues: {
         body: '',
@@ -148,7 +148,7 @@ export default function ProjectsChallengeSubmissionDiscussionsNewComment({
                   }),
                   value: 'QUESTION',
                 },
-              ].map(({ value, label }) => (
+              ].map(({ label, value }) => (
                 <FilterButton
                   key={value}
                   label={label}

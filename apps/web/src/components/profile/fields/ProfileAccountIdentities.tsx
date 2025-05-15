@@ -318,7 +318,7 @@ export default function ProfileAccountIdentities({ userIdentities }: Props) {
         })}
       />
       <div className="flex flex-col gap-2.5">
-        {providers.map(({ icon: Icon, label, connected, provider }) => (
+        {providers.map(({ connected, icon: Icon, label, provider }) => (
           <div
             key={provider}
             className="flex items-center justify-between gap-4">

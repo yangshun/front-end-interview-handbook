@@ -23,9 +23,9 @@ type Props = Readonly<{
 }>;
 
 export default function UserInterfaceCodingWorkspaceLayoutButton({
-  mode,
   frameworkSolutionPath,
   isOpen,
+  mode,
   onClose,
 }: Props) {
   const intl = useIntl();

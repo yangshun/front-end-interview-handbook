@@ -12,7 +12,7 @@ type Props = Readonly<{
   tasks: ReadonlyArray<RewardsTaskProps>;
 }>;
 
-export default function RewardsTaskList({ tasks, isDisabled }: Props) {
+export default function RewardsTaskList({ isDisabled, tasks }: Props) {
   return (
     <div className={clsx(['divide-y', themeDivideColor])}>
       {tasks?.map((task) => (

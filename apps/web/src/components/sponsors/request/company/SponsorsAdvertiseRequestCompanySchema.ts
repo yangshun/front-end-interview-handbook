@@ -19,8 +19,8 @@ function addressSchema(options?: {
 }) {
   const {
     countryRequiredMessage = 'Country is required',
-    postalCodeRequiredMessage = 'Postal code is required',
     line1RequiredMessage = 'Street is required',
+    postalCodeRequiredMessage = 'Postal code is required',
   } = options ?? {};
 
   return z.object({

@@ -28,8 +28,8 @@ type Props = Readonly<{
 export default function ProjectsChallengeBriefPage({
   challenge,
   challengeBrief,
-  viewerProjectsProfile,
   viewerAccess,
+  viewerProjectsProfile,
 }: Props) {
   const showPaywall =
     viewerAccess.viewChallenge !== 'UNLOCKED' &&

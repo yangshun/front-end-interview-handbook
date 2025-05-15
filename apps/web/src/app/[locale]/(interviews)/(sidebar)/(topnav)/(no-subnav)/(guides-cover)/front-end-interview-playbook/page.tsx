@@ -38,7 +38,7 @@ async function getPageSEOMetadata({ locale }: Props['params']) {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
 
-  const { title, description, socialTitle, href, ogImageTitle } =
+  const { description, href, ogImageTitle, socialTitle, title } =
     await getPageSEOMetadata(params);
 
   return defaultMetadata({
@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const { locale } = params;
-  const [allGuides, { title, description, socialTitle, href }] =
+  const [allGuides, { description, href, socialTitle, title }] =
     await Promise.all([
       readFrontEndInterviewPlaybookGuides({ locale }),
       getPageSEOMetadata(params),

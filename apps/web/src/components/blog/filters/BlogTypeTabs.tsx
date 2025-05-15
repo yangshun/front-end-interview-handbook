@@ -10,7 +10,7 @@ type Props = Readonly<{
 
 const DEFAULT_TABS: ReadonlyArray<BlogFilterTab> = ['articles', 'series'];
 
-export default function BlogTypeTabs({ value, onSelect }: Props) {
+export default function BlogTypeTabs({ onSelect, value }: Props) {
   const intl = useIntl();
 
   function getLabelForTab(value_: BlogFilterTab) {

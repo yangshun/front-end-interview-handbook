@@ -44,12 +44,12 @@ export type SocialAuthProps = {
 };
 
 export default function SupabaseAuthSocial({
-  providers,
   layout,
   next,
+  providers,
 }: SocialAuthProps) {
   const intl = useIntl();
-  const { loading, signInWithProvider, errorMessage } = useOAuthSignIn({
+  const { errorMessage, loading, signInWithProvider } = useOAuthSignIn({
     next,
   });
 

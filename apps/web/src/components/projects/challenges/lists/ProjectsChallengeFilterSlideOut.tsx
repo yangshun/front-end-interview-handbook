@@ -28,9 +28,9 @@ import {
 } from './ProjectsChallengeFilterContext';
 
 function FilterSection({
-  longLabel,
-  label,
   id,
+  label,
+  longLabel,
   options,
   type,
 }: ProjectsChallengeFilterOption) {
@@ -102,11 +102,11 @@ export default function ProjectsChallengeFilterSlideOut({
 
   const {
     filterItems: initialFilters,
-    value: initialSelectedFilters,
     getArrayTypeSearchParams,
     getStringTypeSearchParams,
-    updateSearchParams,
     setSelectedFilters: setInitialSelectedFilters,
+    updateSearchParams,
+    value: initialSelectedFilters,
   } = useProjectsChallengeFilterContext();
   const [selectedFilters, setSelectedFilters] = useState<
     Record<ProjectsChallengeFilterKey, Array<string>>

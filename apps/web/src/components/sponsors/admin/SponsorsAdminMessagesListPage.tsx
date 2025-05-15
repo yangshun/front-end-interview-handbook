@@ -35,20 +35,20 @@ export default function SponsorsAdminMessagesListPage() {
   const markFeedbackStatusMutation =
     trpc.feedback.markFeedbackStatus.useMutation();
   // Pagination
-  const { setCurrentPage, currentPage } = usePagination({
+  const { currentPage, setCurrentPage } = usePagination({
     deps: [],
     itemsPerPage: ITEMS_PER_PAGE,
     page: 1,
   });
   const {
-    query,
+    isAscendingOrder,
     onChangeQuery,
-    statusFilterOptions,
+    query,
     selectedStatus,
+    setIsAscendingOrder,
     setSortField,
     sortField,
-    isAscendingOrder,
-    setIsAscendingOrder,
+    statusFilterOptions,
   } = useSponsorsAdminFeedbackListFilters();
   const { data: { feedbacks, totalCount } = {}, isLoading } =
     trpc.feedback.getFeedbacks.useQuery(

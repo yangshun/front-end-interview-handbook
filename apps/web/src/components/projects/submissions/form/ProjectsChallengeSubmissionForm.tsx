@@ -106,8 +106,8 @@ function getDefaultValues(challengeDefaultPages: ReadonlyArray<string>) {
 export default function ProjectsChallengeSubmissionForm({
   cancelButtonHref,
   challengeDefaultSkills,
-  challengeDefaultSpecPages,
   challengeDefaultSpecPageLabels,
+  challengeDefaultSpecPages,
   defaultValues: defaultValuesParam,
   isDisabled,
   isSaving,

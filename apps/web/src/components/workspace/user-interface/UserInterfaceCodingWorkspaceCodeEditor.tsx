@@ -23,8 +23,8 @@ import useUserInterfaceCodingWorkspaceTilesContext from './useUserInterfaceCodin
 
 export default function UserInterfaceCodingWorkspaceCodeEditor({
   filePath,
-  showNotSavedBanner,
   isViewingSave = false,
+  showNotSavedBanner,
 }: Readonly<{
   filePath: string;
   isViewingSave?: boolean;
@@ -32,14 +32,14 @@ export default function UserInterfaceCodingWorkspaceCodeEditor({
 }>) {
   const { sandpack } = useSandpack();
   const intl = useIntl();
-  const { files, updateFile, setActiveFile } = sandpack;
+  const { files, setActiveFile, updateFile } = sandpack;
   const { save } = useUserInterfaceCodingWorkspaceSavesContext();
   const { dispatch } = useUserInterfaceCodingWorkspaceTilesContext();
   const {
     defaultFiles,
-    showLoadedFilesFromLocalStorageMessage,
-    setShowLoadedFilesFromLocalStorageMessage,
     resetToDefaultCode,
+    setShowLoadedFilesFromLocalStorageMessage,
+    showLoadedFilesFromLocalStorageMessage,
   } = useCodingWorkspaceContext();
   const { isVimModeEnabled } = useVimMode();
   const isMounted = useIsMounted();

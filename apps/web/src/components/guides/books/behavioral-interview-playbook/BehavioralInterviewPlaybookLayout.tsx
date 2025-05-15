@@ -23,8 +23,8 @@ const guide = 'BEHAVIORAL_INTERVIEW_PLAYBOOK';
 export default function BehavioralInterviewPlaybookLayout({
   children,
   description,
-  title,
   tableOfContents,
+  title,
 }: Props) {
   const navigation = useBehavioralInterviewPlaybookNavigation();
   const { pathname } = useI18nPathname();

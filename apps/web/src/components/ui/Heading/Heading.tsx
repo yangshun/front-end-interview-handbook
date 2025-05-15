@@ -21,7 +21,7 @@ type Props = HTMLAttributes<HTMLHeadingElement> &
   }>;
 
 function Heading(
-  { level: visualLevel, color, className, tag, weight, ...props }: Props,
+  { className, color, level: visualLevel, tag, weight, ...props }: Props,
   ref: ForwardedRef<HTMLHeadingElement>,
 ) {
   const { level } = useHeadingLevel();

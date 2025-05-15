@@ -109,8 +109,8 @@ type UserNavigationLinkItemProps = Readonly<{
 }>;
 
 function UserNavigationLinkItem({
-  data,
   closeMobileNav,
+  data,
 }: UserNavigationLinkItemProps) {
   return (
     <Anchor

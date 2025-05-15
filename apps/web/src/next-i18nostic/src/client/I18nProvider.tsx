@@ -6,7 +6,7 @@ type Props = Readonly<{
   locale: Locale;
 }>;
 
-export default function I18nProvider({ locale, children }: Props) {
+export default function I18nProvider({ children, locale }: Props) {
   return (
     <I18nContext.Provider value={{ locale }}>{children}</I18nContext.Provider>
   );

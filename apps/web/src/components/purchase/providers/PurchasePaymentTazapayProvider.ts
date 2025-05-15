@@ -8,10 +8,10 @@ const TAZAPAY_TOKEN = Buffer.from(
 
 export const PurchasePaymentTazapayProvider = {
   async createCustomer({
-    id,
-    email,
-    name,
     countryCode,
+    email,
+    id,
+    name,
   }: Readonly<{
     countryCode: string;
     email: string;
@@ -46,16 +46,16 @@ export const PurchasePaymentTazapayProvider = {
     return { id: customerId };
   },
   async createOneTimePlanCheckoutSession({
-    currency,
     cancelUrl,
-    successUrl,
+    currency,
     customerId,
-    metadata,
     firstPromoterTrackingId,
-    unitAmountInCurrency,
     items,
-    transactionDescription,
+    metadata,
     removePaymentMethods,
+    successUrl,
+    transactionDescription,
+    unitAmountInCurrency,
   }: Readonly<{
     cancelUrl: string;
     currency: string;
@@ -94,8 +94,8 @@ export const PurchasePaymentTazapayProvider = {
 };
 
 async function fetchFromTazapay<T>({
-  endpoint,
   body,
+  endpoint,
 }: Readonly<{
   body: AnyIntentional;
   endpoint: string;

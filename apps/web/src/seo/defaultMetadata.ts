@@ -24,18 +24,18 @@ type PageMetadata = Readonly<{
 }>;
 
 export default function defaultMetadata({
-  description,
-  locale,
-  pathname,
-  siteName,
-  template,
-  title,
   absoluteTitle,
-  socialTitle,
+  description,
   imageUrl,
-  ogImageTitle,
+  locale,
   ogImagePageType,
   ogImageProduct = 'INTERVIEWS',
+  ogImageTitle,
+  pathname,
+  siteName,
+  socialTitle,
+  template,
+  title,
 }: PageMetadata): Metadata {
   const ogImageUrl = ogImageTitle
     ? url.format({

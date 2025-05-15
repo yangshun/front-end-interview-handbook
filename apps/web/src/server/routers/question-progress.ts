@@ -37,11 +37,11 @@ export const questionProgressRouter = router({
     )
     .mutation(
       async ({
+        ctx: { locale, viewer },
         input: {
           question: { format, slug },
           studyListKey,
         },
-        ctx: { viewer, locale },
       }) => {
         if (!viewer) {
           return null;
@@ -153,7 +153,7 @@ export const questionProgressRouter = router({
       }),
     )
     .mutation(
-      async ({ input: { qnHashes, studyListKey }, ctx: { viewer } }) => {
+      async ({ ctx: { viewer }, input: { qnHashes, studyListKey } }) => {
         // Remove EITHER overall progress or learning session progress but not both.
         if (studyListKey) {
           const session = await prisma.learningSession.findFirst({
@@ -208,8 +208,8 @@ export const questionProgressRouter = router({
     )
     .query(
       async ({
-        input: { question: questionParam, studyListKey },
         ctx: { locale, viewer },
+        input: { question: questionParam, studyListKey },
       }) => {
         const [userProfile, { question }] = await Promise.all([
           prisma.profile.findFirstOrThrow({
@@ -365,7 +365,7 @@ export const questionProgressRouter = router({
       );
 
       const metadataMap = new Map(
-        questionProgressMetadata.map(({ metadata, info }) => [
+        questionProgressMetadata.map(({ info, metadata }) => [
           hashQuestion(metadata),
           { info, metadata },
         ]),
@@ -400,7 +400,7 @@ export const questionProgressRouter = router({
         startTime: z.date(),
       }),
     )
-    .query(async ({ ctx: { viewer }, input: { startTime, endTime } }) => {
+    .query(async ({ ctx: { viewer }, input: { endTime, startTime } }) => {
       const [questionProgress, guideProgress] = await Promise.all([
         prisma.questionProgress.groupBy({
           _count: {
@@ -434,7 +434,7 @@ export const questionProgressRouter = router({
       const addCounts = (
         progressData: Array<{ _count: { id: number }; createdAt: Date }>,
       ) => {
-        progressData.forEach(({ createdAt, _count }) => {
+        progressData.forEach(({ _count, createdAt }) => {
           const dateStr = groupByDateFormatter.format(new Date(createdAt));
 
           formattedResults[dateStr] =
@@ -454,7 +454,7 @@ export const questionProgressRouter = router({
         studyListKey: z.string(),
       }),
     )
-    .query(async ({ input: { studyListKey }, ctx: { viewer } }) => {
+    .query(async ({ ctx: { viewer }, input: { studyListKey } }) => {
       const session = await prisma.learningSession.findFirst({
         where: {
           key: studyListKey,
@@ -503,7 +503,7 @@ export const questionProgressRouter = router({
       }),
     )
     .mutation(
-      async ({ input: { questions, studyListKey }, ctx: { viewer } }) => {
+      async ({ ctx: { viewer }, input: { questions, studyListKey } }) => {
         if (!viewer) {
           return null;
         }
@@ -551,7 +551,7 @@ export const questionProgressRouter = router({
         sessionId: z.string(),
       }),
     )
-    .mutation(async ({ input: { sessionId }, ctx: { viewer } }) => {
+    .mutation(async ({ ctx: { viewer }, input: { sessionId } }) => {
       // Make sure the session is active.
       const session = await prisma.learningSession.findFirst({
         where: {

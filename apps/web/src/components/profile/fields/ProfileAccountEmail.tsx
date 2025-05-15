@@ -56,7 +56,7 @@ export default function ProfileAccountEmail({ user }: Props) {
 
   const [message, setMessage] = useState('');
 
-  const { control, setError, formState, handleSubmit } =
+  const { control, formState, handleSubmit, setError } =
     useForm<EmailFormValues>({
       defaultValues: {
         email: user?.email ?? '',

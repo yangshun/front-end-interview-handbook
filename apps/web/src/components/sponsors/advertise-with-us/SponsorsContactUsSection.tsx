@@ -26,8 +26,8 @@ export default function SponsorsContactUsSection() {
   const contactMutation = trpc.sponsors.contact.useMutation();
 
   const {
-    isLoading: isSubmitLoading,
     failureReason: submitFailureReason,
+    isLoading: isSubmitLoading,
     mutate: submitFeedback,
   } = trpc.feedback.submitFeedback.useMutation({
     onError: () => {

@@ -41,9 +41,9 @@ export async function readMDXFileWithLocaleFallback(
 export async function readMDXFile(
   filePath: string,
   {
+    extractFrontmatter = false,
     extractHeadings = false,
     loadJSFilesAsText = true,
-    extractFrontmatter = false,
   }: Options,
 ): Promise<string | null> {
   const source = fs.readFileSync(filePath).toString().trim();

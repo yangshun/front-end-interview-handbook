@@ -97,12 +97,12 @@ export function convertContentToCode(
 // this file along with the mdxBundler global deps.
 export default function MDXCodeBlock({
   children,
-  showCopyButton = true,
-  showLineNumbers,
-  renderExtraButtons,
   language = 'jsx',
   languages = {},
+  renderExtraButtons,
   renderLineContents,
+  showCopyButton = true,
+  showLineNumbers,
 }: Props): JSX.Element {
   const allLanguages: Partial<Record<Language, string>> = {};
 
@@ -164,7 +164,7 @@ export default function MDXCodeBlock({
           code={selectedCode.trim()}
           language={selectedLanguage}
           theme={themes.dracula}>
-          {({ className, style, tokens, getLineProps, getTokenProps }) => {
+          {({ className, getLineProps, getTokenProps, style, tokens }) => {
             const showLineNumbersValue =
               showLineNumbers == null
                 ? tokens.length >= MIN_LINES_TO_SHOW_LINE_NUMBERS

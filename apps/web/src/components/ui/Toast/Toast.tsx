@@ -149,7 +149,7 @@ ToastClose.displayName = ToastPrimitive.Close.displayName;
 const ToastTitle = React.forwardRef<
   React.ElementRef<typeof ToastPrimitive.Title>,
   React.ComponentPropsWithoutRef<typeof ToastPrimitive.Title>
->(({ className, children, ...props }, ref) => {
+>(({ children, className, ...props }, ref) => {
   return (
     <ToastPrimitive.Title ref={ref} asChild={true} {...props}>
       <Text
@@ -169,7 +169,7 @@ const ToastDescription = React.forwardRef<
   React.ElementRef<typeof ToastPrimitive.Description>,
   React.ComponentPropsWithoutRef<typeof ToastPrimitive.Description> &
     Readonly<{ textColor: TextColor }>
->(({ className, children, textColor, ...props }, ref) => (
+>(({ children, className, textColor, ...props }, ref) => (
   <ToastPrimitive.Description ref={ref} asChild={true} {...props}>
     <Text className={clsx('block', className)} color={textColor} size="body3">
       {children}
@@ -217,23 +217,23 @@ export const ToastImpl = React.forwardRef<
   }
 
   const {
-    title,
-    className,
     addOnIcon: AddOnIcon,
     addOnLabel,
-    variant,
-    maxWidth,
+    className,
     description,
     icon: IconProp,
+    maxWidth,
     onClose,
+    title,
+    variant,
     ...remainingProps
   } = props;
 
   const {
-    borderClass,
-    backgroundClass,
-    icon: VariantIcon,
     addOnClass,
+    backgroundClass,
+    borderClass,
+    icon: VariantIcon,
     iconClass,
     textColor,
   } = classes[variant];
@@ -329,11 +329,11 @@ const Toast = React.forwardRef<
 >((props, ref) => {
   if (props.variant === 'custom') {
     const {
-      customComponent,
-      variant,
-      className,
-      side,
       animateFrom = 'left',
+      className,
+      customComponent,
+      side,
+      variant,
       ...remainingProps
     } = props;
 
@@ -351,17 +351,17 @@ const Toast = React.forwardRef<
   }
 
   const {
-    className,
-    maxWidth,
-    description,
-    icon,
-    title,
     addOnIcon,
     addOnLabel,
-    variant,
+    animateFrom = 'left',
+    className,
+    description,
+    icon,
+    maxWidth,
     onClose,
     side = 'start',
-    animateFrom = 'left',
+    title,
+    variant,
     ...remainingProps
   } = props;
 

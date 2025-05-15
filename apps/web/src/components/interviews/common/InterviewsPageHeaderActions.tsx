@@ -14,8 +14,8 @@ type Props = Readonly<{
 }>;
 
 export default function InterviewsPageHeaderActions({
-  metadata,
   className,
+  metadata,
 }: Props) {
   const copyLinkTooltip = (
     <FormattedMessage

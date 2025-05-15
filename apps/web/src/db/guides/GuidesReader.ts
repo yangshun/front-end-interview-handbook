@@ -67,7 +67,7 @@ export function guidesRequestToFilePath<T extends GuidebookItem>(
   guideBook: T,
   route: keyof (typeof guideDirectoryData)[T]['pathToFile'],
 ) {
-  const { pathToFile, guideDirectory } = guideDirectoryData[guideBook];
+  const { guideDirectory, pathToFile } = guideDirectoryData[guideBook];
 
   return path.join(
     process.cwd(),
@@ -91,7 +91,7 @@ export async function readFrontEndInterviewPlaybookGuides(
     slugs?: ReadonlyArray<FrontEndInterviewPlaybookPathType>;
   }>,
 ): Promise<ReadonlyArray<GuideCardMetadata>> {
-  const { slugs, locale } = options ?? {};
+  const { locale, slugs } = options ?? {};
   const book = 'FRONT_END_INTERVIEW_PLAYBOOK';
 
   return (slugs ?? FrontEndInterviewPlaybookPaths).map((slug) => {
@@ -144,7 +144,7 @@ export async function readReactInterviewPlaybookGuides(
     slugs?: ReadonlyArray<ReactInterviewPlaybookPathType>;
   }>,
 ): Promise<ReadonlyArray<GuideCardMetadata>> {
-  const { slugs, locale } = options ?? {};
+  const { locale, slugs } = options ?? {};
   const book = 'REACT_INTERVIEW_PLAYBOOK';
 
   return (slugs ?? ReactInterviewPlaybookPaths).map((slug) => {

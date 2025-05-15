@@ -52,9 +52,9 @@ function GitHubEditButton({
 }
 
 export default function QuestionQuizContents({
+  listIsShownInSidebarOnDesktop,
   question,
   studyListKey,
-  listIsShownInSidebarOnDesktop,
 }: Props) {
   useQuestionsAutoMarkAsComplete(question.metadata, studyListKey);
   useAuthActiveEngagementPoints({

@@ -29,8 +29,8 @@ export type SidebarCollapsedLinkItemProps =
 
 export default function SidebarCollapsedLinkItem({
   currentMatchRegex,
-  label,
   icon: Icon,
+  label,
   onClick,
   ...props
 }: SidebarCollapsedLinkItemProps) {

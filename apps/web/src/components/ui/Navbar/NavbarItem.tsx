@@ -21,8 +21,8 @@ import NavbarPopoverTabs from './NavbarPopoverTabs';
 import type { NavbarTopLevelItem } from './NavTypes';
 
 export default function NavbarItem({
-  onClick,
   label,
+  onClick,
   ...props
 }: NavbarTopLevelItem) {
   const [debouncedOpen, setOpen] = useDebounceValue(false, 100);

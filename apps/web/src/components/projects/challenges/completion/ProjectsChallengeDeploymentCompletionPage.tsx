@@ -37,8 +37,8 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsChallengeDeploymentCompletionPage({
-  viewerAccess,
   challenge,
+  viewerAccess,
   viewerProjectsProfile,
 }: Props) {
   const { metadata } = challenge;

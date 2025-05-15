@@ -1,7 +1,8 @@
 import { groupBy, mapValues } from 'lodash-es';
-import {
-  TranslationStringArg,
+
+import type {
   TranslationFileMetadata,
+  TranslationStringArg,
   TranslationStringResult,
 } from '../core/types';
 
@@ -13,7 +14,7 @@ export function buildTranslatedContentMap(
 ): Map<Locale, Record<string, string>> {
   const grouped = groupBy(
     translatedStrings.flatMap(({ id, targets }) =>
-      targets.map(({ locale, string }) => ({ locale, id, string })),
+      targets.map(({ locale, string }) => ({ id, locale, string })),
     ),
     'locale',
   );
@@ -24,6 +25,7 @@ export function buildTranslatedContentMap(
       ),
     ),
   );
+
   return contentMap;
 }
 
@@ -39,7 +41,7 @@ export function buildTranslationStrings(
   changes: Record<Locale, ReadonlyArray<string>>,
   file: TranslationFileMetadata,
 ): ReadonlyArray<TranslationStringArg> {
-  return Object.entries(content).reduce<TranslationStringArg[]>(
+  return Object.entries(content).reduce<Array<TranslationStringArg>>(
     (acc, [key, value]) => {
       const missingInTargets = file.targets
         .filter((target) => changes[target.locale]?.includes(key))
@@ -47,12 +49,13 @@ export function buildTranslationStrings(
 
       if (missingInTargets.length > 0) {
         acc.push({
-          id: key,
           batchId: file.source.path,
+          id: key,
           source: getTranslationSource(value, file.source.locale),
           targets: missingInTargets,
         });
       }
+
       return acc;
     },
     [],
@@ -62,8 +65,8 @@ export function buildTranslationStrings(
 function getTranslationSource(
   value: string | { defaultMessage: string; description: string },
   locale: Locale,
-): { string: string; locale: Locale; description?: string } {
+): { description?: string; locale: Locale; string: string; } {
   return typeof value === 'object'
-    ? { string: value.defaultMessage, description: value.description, locale }
-    : { string: value, locale };
+    ? { description: value.description, locale, string: value.defaultMessage }
+    : { locale, string: value };
 }

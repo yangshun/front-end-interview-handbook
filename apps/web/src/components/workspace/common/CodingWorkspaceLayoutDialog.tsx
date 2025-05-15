@@ -30,8 +30,8 @@ export type CodingWorkspaceLayoutItem = Readonly<{
 
 export default function CodingWorkspaceLayoutDialog({
   isShown,
-  onClose,
   layouts,
+  onClose,
 }: Props) {
   const intl = useIntl();
 

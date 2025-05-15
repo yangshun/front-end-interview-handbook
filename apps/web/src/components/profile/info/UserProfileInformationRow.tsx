@@ -21,8 +21,8 @@ const gapClasses: Record<Size, string> = {
 };
 
 export default function UserProfileInformationRow({
-  userProfile,
   size = 'body2',
+  userProfile,
 }: Props) {
   if (
     userProfile.currentStatus == null &&

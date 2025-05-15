@@ -13,13 +13,13 @@ type Props = Readonly<{
 }>;
 
 export default function BlurOverlay({
-  children,
   align = 'top',
-  showOverlay = false,
-  overlay,
-  height = 500,
   blurClassName = 'blur',
+  children,
+  height = 500,
   opacity = 0.3,
+  overlay,
+  showOverlay = false,
 }: Props) {
   if (!showOverlay) {
     // eslint-disable-next-line react/jsx-no-useless-fragment

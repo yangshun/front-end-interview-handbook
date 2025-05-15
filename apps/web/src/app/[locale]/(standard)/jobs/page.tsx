@@ -41,10 +41,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 function JobPostingItem({
-  title,
   department,
-  location,
   href,
+  location,
+  title,
 }: Readonly<{
   department: string;
   href: string;
@@ -95,7 +95,7 @@ function JobPostingItem({
   );
 }
 
-export default async function Page({ searchParams, params }: Props) {
+export default async function Page({ params, searchParams }: Props) {
   const cookieStore = cookies();
   // 1. Read from query param (for overrides, useful for testing).
   // 2. Read from cookie set during middleware.

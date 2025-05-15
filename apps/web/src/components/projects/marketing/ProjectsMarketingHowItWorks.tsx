@@ -111,11 +111,11 @@ function HowItWorksStepContainer({
 }
 
 function HowItWorksStep({
-  label,
   index,
-  selected,
+  label,
   onClick,
   onHover,
+  selected,
 }: {
   index: number;
   label: string;
@@ -149,8 +149,8 @@ function HowItWorksStep({
 }
 
 function CardStackCard({
-  className,
   children,
+  className,
   shadow,
 }: {
   children?: React.ReactNode;

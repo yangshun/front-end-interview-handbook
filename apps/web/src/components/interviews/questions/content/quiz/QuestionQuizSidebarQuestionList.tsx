@@ -45,7 +45,7 @@ function QuestionQuizSidebarQuestionListLoader({
     useQuestionsListTypeCurrent(studyListKey, framework) ??
     initialListTypeParam ??
     QuestionListTypeDefault;
-  const { isLoading, data } = useQuestionsListDataForType(listType);
+  const { data, isLoading } = useQuestionsListDataForType(listType);
 
   const hidden = isLoading || data == null;
 

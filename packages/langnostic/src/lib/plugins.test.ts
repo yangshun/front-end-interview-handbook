@@ -4,15 +4,16 @@ describe('buildTranslatedContentMap', () => {
   it('single locale translated content map', () => {
     const translatedStrings = [
       {
-        id: 'id',
         batchId: 'path',
+        id: 'id',
         source: {
-          string: 'Hello',
           locale: 'en-US',
+          string: 'Hello',
         },
         targets: [{ locale: 'pt-BR', string: 'Bonjour' }],
       },
     ];
+
     expect(buildTranslatedContentMap(translatedStrings)).toEqual(
       new Map([['pt-BR', { id: 'Bonjour' }]]),
     );
@@ -21,11 +22,11 @@ describe('buildTranslatedContentMap', () => {
   test('multiple locales translated content map', () => {
     const translatedStrings = [
       {
-        id: 'greeting',
         batchId: 'path',
+        id: 'greeting',
         source: {
-          string: 'Hello',
           locale: 'en-US',
+          string: 'Hello',
         },
         targets: [
           { locale: 'pt-BR', string: 'Bonjour' },
@@ -33,11 +34,11 @@ describe('buildTranslatedContentMap', () => {
         ],
       },
       {
-        id: 'farewell',
         batchId: 'path',
+        id: 'farewell',
         source: {
-          string: 'Farewell',
           locale: 'en-US',
+          string: 'Farewell',
         },
         targets: [
           { locale: 'pt-BR', string: 'Au revoir' },
@@ -45,10 +46,11 @@ describe('buildTranslatedContentMap', () => {
         ],
       },
     ];
+
     expect(buildTranslatedContentMap(translatedStrings)).toEqual(
       new Map([
-        ['pt-BR', { greeting: 'Bonjour', farewell: 'Au revoir' }],
-        ['es-ES', { greeting: 'Hola', farewell: 'Adiós' }],
+        ['pt-BR', { farewell: 'Au revoir', greeting: 'Bonjour' }],
+        ['es-ES', { farewell: 'Adiós', greeting: 'Hola' }],
       ]),
     );
   });
@@ -56,7 +58,7 @@ describe('buildTranslatedContentMap', () => {
 
 describe('buildTranslationStrings', () => {
   const fileMock = {
-    source: { path: 'translations.json', locale: 'en-US' },
+    source: { locale: 'en-US', path: 'translations.json' },
     targets: [
       { locale: 'pt-BR', path: 'target.json' },
       { locale: 'zh-CN', path: 'target.json' },
@@ -66,26 +68,28 @@ describe('buildTranslationStrings', () => {
   test('keys to translate is empty', () => {
     const content = { greeting: 'Hello' };
     const changes = { 'pt-BR': [], 'zh-CN': [] };
+
     expect(buildTranslationStrings(content, changes, fileMock)).toEqual([]);
   });
 
   test('keys to translate is not empty', () => {
-    const content = { greeting: 'Hello', farewell: 'Goodbye' };
+    const content = { farewell: 'Goodbye', greeting: 'Hello' };
     const changes = {
       'pt-BR': ['greeting'],
       'zh-CN': ['greeting', 'farewell'],
     };
+
     expect(buildTranslationStrings(content, changes, fileMock)).toEqual([
       {
-        id: 'greeting',
         batchId: 'translations.json',
-        source: { string: 'Hello', locale: 'en-US' },
+        id: 'greeting',
+        source: { locale: 'en-US', string: 'Hello' },
         targets: ['pt-BR', 'zh-CN'],
       },
       {
-        id: 'farewell',
         batchId: 'translations.json',
-        source: { string: 'Goodbye', locale: 'en-US' },
+        id: 'farewell',
+        source: { locale: 'en-US', string: 'Goodbye' },
         targets: ['zh-CN'],
       },
     ]);
@@ -96,14 +100,15 @@ describe('buildTranslationStrings', () => {
       greeting: { defaultMessage: 'Hello', description: 'A common greeting' },
     };
     const changes = { 'pt-BR': ['greeting'] };
+
     expect(buildTranslationStrings(content, changes, fileMock)).toEqual([
       {
-        id: 'greeting',
         batchId: 'translations.json',
+        id: 'greeting',
         source: {
-          string: 'Hello',
-          locale: 'en-US',
           description: 'A common greeting',
+          locale: 'en-US',
+          string: 'Hello',
         },
         targets: ['pt-BR'],
       },

@@ -18,8 +18,8 @@ const sizeClasses: Record<LabelSize, string> = {
 
 export default function BlogMoreTagLabel({
   count,
-  size = 'sm',
   moreTags = [],
+  size = 'sm',
 }: Props) {
   return (
     <Tooltip className="inline-flex" label={moreTags.join(', ')}>

@@ -49,7 +49,7 @@ function frameworkAgnosticLinks(
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale, slug: rawSlug, rest } = params;
+  const { locale, rest, slug: rawSlug } = params;
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(rawSlug)
     .replaceAll(/[^\da-zA-Z-]/g, '')
@@ -57,9 +57,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const intl = await getIntlServerOnly(locale);
   const {
+    codeId,
     framework: parsedFramework,
     mode,
-    codeId,
   } = determineFrameworkAndMode(rest);
 
   try {
@@ -166,15 +166,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
-  const { slug: rawSlug, rest, locale, studyListKey } = params;
+  const { locale, rest, slug: rawSlug, studyListKey } = params;
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(rawSlug)
     .replaceAll(/[^\da-zA-Z-]/g, '')
     .toLowerCase();
   const {
-    mode,
-    framework: parsedFramework,
     codeId,
+    framework: parsedFramework,
+    mode,
   } = determineFrameworkAndMode(rest);
 
   const isViewerPremium: boolean = await (async () => {

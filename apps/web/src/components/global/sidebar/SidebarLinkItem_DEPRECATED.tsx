@@ -29,9 +29,9 @@ type Props = NavbarTopLevelItem &
 
 export default function SidebarLinkItem({
   currentMatchRegex,
+  icon: Icon,
   isLabelHidden = false,
   label,
-  icon: Icon,
   onClick,
   ...props
 }: Props) {

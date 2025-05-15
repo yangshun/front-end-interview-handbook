@@ -15,7 +15,7 @@ import Text from '~/components/ui/Text';
 export default function BlackFridayToast() {
   const { showToast } = useToast();
   const intl = useIntl();
-  const { userProfile, isUserProfileLoading } = useUserProfile();
+  const { isUserProfileLoading, userProfile } = useUserProfile();
 
   useEffect(() => {
     if (isUserProfileLoading || userProfile?.isInterviewsPremium) {

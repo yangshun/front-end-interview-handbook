@@ -16,8 +16,8 @@ type Props = Readonly<{
 }>;
 
 export default function QuestionDurationLabel({
-  showIcon = false,
   mins,
+  showIcon = false,
   size = 'body3',
 }: Props) {
   const id = useId();

@@ -18,8 +18,8 @@ type Props = Readonly<{
 }>;
 
 export default function QuestionUsersCompletedLabel({
-  isLoading,
   count,
+  isLoading,
   showIcon = false,
 }: Props) {
   const id = useId();

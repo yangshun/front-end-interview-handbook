@@ -18,10 +18,10 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectChallengeSubmissionTrackDialog({
-  track,
+  completedChallengesCount,
   isShown,
   onClose,
-  completedChallengesCount,
+  track,
 }: Props) {
   const intl = useIntl();
   const { challenges, points } = track;

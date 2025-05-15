@@ -57,16 +57,16 @@ export default function QuestionsList<Q extends InterviewsQuestionItemMinimal>({
   checkIfCompletedQuestion,
   checkIfCompletedQuestionBefore,
   framework,
-  primaryLabel = 'difficulty',
   listType,
-  questions,
-  questionCompletionCount,
-  showProgress = true,
+  mode = 'default',
   onMarkAsCompleted,
   onMarkAsNotCompleted,
-  showOverlayAtLastItem,
+  primaryLabel = 'difficulty',
+  questionCompletionCount,
+  questions,
   showArrowRight = true,
-  mode = 'default',
+  showOverlayAtLastItem,
+  showProgress = true,
 }: Props<Q>) {
   const { userProfile } = useUserProfile();
   const intl = useIntl();
@@ -102,7 +102,7 @@ export default function QuestionsList<Q extends InterviewsQuestionItemMinimal>({
       )}>
       {questions.map((question, index) => {
         const hasCompletedQuestion = checkIfCompletedQuestion(question);
-        const { metadata, info } = question;
+        const { info, metadata } = question;
         const hasCompletedQuestionBefore = checkIfCompletedQuestionBefore
           ? checkIfCompletedQuestionBefore(question)
           : false;

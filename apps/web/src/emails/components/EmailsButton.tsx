@@ -11,7 +11,7 @@ const backgroundColors: Record<EmailsButtonVariant, string> = {
   projects: '#6bd08d',
 };
 
-export default function EmailsButton({ variant, style, ...props }: Props) {
+export default function EmailsButton({ style, variant, ...props }: Props) {
   return (
     <Button
       style={{

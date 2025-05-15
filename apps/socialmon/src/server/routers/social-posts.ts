@@ -137,7 +137,7 @@ export const socialPostsRouter = router({
       }),
     )
     .query(async ({ input }) => {
-      const { pagination, filter, cursor, projectSlug } = input;
+      const { cursor, filter, pagination, projectSlug } = input;
       const { limit } = pagination;
       const { tab } = filter;
 
@@ -232,8 +232,8 @@ export const socialPostsRouter = router({
     )
     .mutation(
       async ({
-        input: { relevancy, postId, projectSlug },
         ctx: { session },
+        input: { postId, projectSlug, relevancy },
       }) => {
         const activityAction =
           relevancy === 'RELEVANT'
@@ -284,8 +284,8 @@ export const socialPostsRouter = router({
         response: z.string(),
       }),
     )
-    .mutation(async ({ input, ctx: { session } }) => {
-      const { id, response, redditUserId, projectSlug } = input;
+    .mutation(async ({ ctx: { session }, input }) => {
+      const { id, projectSlug, redditUserId, response } = input;
       const [post, user, project] = await prisma.$transaction([
         prisma.redditPost.findUnique({ where: { id } }),
         prisma.redditUser.findUnique({ where: { id: redditUserId } }),
@@ -301,7 +301,7 @@ export const socialPostsRouter = router({
 
       const decryptedPassword = decryptPassword(user.password, user.username);
 
-      const { success, response: redditResponse } = await replyToRedditPost({
+      const { response: redditResponse, success } = await replyToRedditPost({
         postId: post.postId,
         response,
         user: { password: decryptedPassword, username: user.username },

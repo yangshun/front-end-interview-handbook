@@ -38,8 +38,8 @@ const buttonBaseClassname = clsx(
 );
 
 export default function NavProductPopover_DEPRECATED({
-  variant,
   product,
+  variant,
 }: Props) {
   const intl = useIntl();
 

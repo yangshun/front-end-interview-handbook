@@ -34,9 +34,9 @@ type Props = Readonly<{
 }>;
 
 export default function InterviewsDashboardSolvedByQuestionType({
+  isQuestionsProgressLoading,
   questions,
   questionsProgress,
-  isQuestionsProgressLoading,
 }: Props) {
   const intl = useIntl();
 

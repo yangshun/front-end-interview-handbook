@@ -12,10 +12,10 @@ type Props = Readonly<{
 }>;
 
 export default function MDXContent({
-  mdxCode,
   components,
-  proseClassName,
   fontSize = 'sm',
+  mdxCode,
+  proseClassName,
 }: Props) {
   const Content = useMDXComponent(mdxCode);
 

@@ -23,8 +23,8 @@ const guide = 'REACT_INTERVIEW_PLAYBOOK';
 export default function ReactInterviewPlaybookLayout({
   children,
   description,
-  title,
   tableOfContents,
+  title,
 }: Props) {
   const navigation = useReactInterviewPlaybookNavigation();
   const { pathname } = useI18nPathname();

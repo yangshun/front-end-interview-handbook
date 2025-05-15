@@ -98,7 +98,7 @@ export default function InterviewsMarketingSimulateRealInterviews() {
             'flex flex-col justify-between sm:flex-row',
             'gap-x-4 gap-y-6 lg:gap-x-6',
           )}>
-          {data.map(({ key, label, image: ImageSVG }) => (
+          {data.map(({ image: ImageSVG, key, label }) => (
             <Card
               key={key}
               brandColorSpotlight={false}

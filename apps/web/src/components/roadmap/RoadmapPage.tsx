@@ -21,18 +21,18 @@ export type Product = 'interviews' | 'projects';
 function RoadmapPage() {
   const intl = useIntl();
   const {
-    isLoading,
     data,
-    years,
+    error,
+    isLoading,
     months,
+    onApplyFilter,
     onMonthChange,
-    selectedProducts,
     onProductFilterChange,
     onYearChange,
-    error,
+    selectedProducts,
     selectedYear,
-    onApplyFilter,
     showDefaultMonths,
+    years,
   } = useRoadmap();
 
   const hasError = !isLoading && !!error;

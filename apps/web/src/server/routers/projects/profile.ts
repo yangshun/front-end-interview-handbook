@@ -146,7 +146,7 @@ export const projectsProfileRouter = router({
       );
 
       // TODO(projects): see how we can integrate into the Promise.all().
-      const { completedChallenges, upvotes, submissionViews, codeReviews } =
+      const { codeReviews, completedChallenges, submissionViews, upvotes } =
         await fetchProjectsProfileStatistics(
           profile?.projectsProfile?.id ?? '',
         );
@@ -180,17 +180,17 @@ export const projectsProfileRouter = router({
     )
     .mutation(
       async ({
-        input: {
-          currentStatus,
-          name,
-          title,
-          startWorkDate,
-          avatarUrl,
-          motivations,
-          username,
-          company,
-        },
         ctx: { viewer },
+        input: {
+          avatarUrl,
+          company,
+          currentStatus,
+          motivations,
+          name,
+          startWorkDate,
+          title,
+          username,
+        },
       }) => {
         const projectsProfileFields = {
           motivations,
@@ -253,8 +253,11 @@ export const projectsProfileRouter = router({
     )
     .mutation(
       async ({
+        ctx: { viewer },
         input: {
+          avatarUrl,
           bio,
+          company,
           currentStatus,
           githubUsername,
           linkedInUsername,
@@ -264,12 +267,9 @@ export const projectsProfileRouter = router({
           skillsToGrow,
           startWorkDate,
           title,
-          website,
-          avatarUrl,
           username,
-          company,
+          website,
         },
-        ctx: { viewer },
       }) => {
         const projectsProfileFields = {
           motivations,
@@ -325,7 +325,7 @@ export const projectsProfileRouter = router({
         imageFile: z.string(),
       }),
     )
-    .mutation(async ({ input: { imageFile }, ctx: { viewer } }) => {
+    .mutation(async ({ ctx: { viewer }, input: { imageFile } }) => {
       const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
 
       const blob = base64toBlob(imageFile);
@@ -354,7 +354,7 @@ export const projectsProfileRouter = router({
         username: z.string(),
       }),
     )
-    .query(async ({ input: { username }, ctx: { viewer } }) => {
+    .query(async ({ ctx: { viewer }, input: { username } }) => {
       const profile = await prisma.profile.findUnique({
         where: {
           username,

@@ -58,17 +58,17 @@ export const questionListsRouter = router({
     )
     .query(
       async ({
+        ctx: { locale },
         input: {
-          practice,
+          filters: filtersInput,
           format,
           framework,
           language,
-          title,
+          practice,
           studyList,
           tab: tabInput,
-          filters: filtersInput,
+          title,
         },
-        ctx: { locale },
       }) => {
         const intl = await getIntlClientOnly(locale);
         const tab =

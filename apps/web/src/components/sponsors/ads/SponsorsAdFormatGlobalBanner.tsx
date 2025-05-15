@@ -36,11 +36,11 @@ const adFormat = 'GLOBAL_BANNER';
 export default function SponsorsAdFormatGlobalBanner({
   adId,
   className = themeBackgroundInvertColor,
-  url,
-  theme,
   isLoading,
   onHide,
+  theme,
   tracking = true,
+  url,
   variant = 'neutral',
   ...props
 }: Props) {

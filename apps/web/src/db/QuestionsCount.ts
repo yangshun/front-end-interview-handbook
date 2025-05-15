@@ -24,7 +24,7 @@ export async function fetchQuestionsCompletionCount(
 
   const counts: QuestionCompletionCount = {};
 
-  questionProgresses.forEach(({ slug, format: formatParam, _count }) => {
+  questionProgresses.forEach(({ _count, format: formatParam, slug }) => {
     const format = formatParam as QuestionFormat;
 
     if (!counts[format]) {

@@ -11,9 +11,9 @@ type Props = Omit<React.ComponentProps<typeof NavbarEnd>, 'className'> &
   }>;
 
 export default function NavbarEndWithAdvertiseWithUsBadge({
-  isPremium,
-  isLoading,
   hideAdvertiseWithUsBadge,
+  isLoading,
+  isPremium,
   ...props
 }: Props) {
   const user = useUser();

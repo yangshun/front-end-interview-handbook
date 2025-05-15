@@ -21,7 +21,7 @@ type Props = Readonly<{
 export default function SponsorsAdFormatHeader({ format }: Props) {
   const intl = useIntl();
   const placementData = useSponsorsAdFormatData();
-  const { name, description, config } = placementData[format];
+  const { config, description, name } = placementData[format];
 
   const { data } = trpc.sponsors.availability.useQuery({
     format,

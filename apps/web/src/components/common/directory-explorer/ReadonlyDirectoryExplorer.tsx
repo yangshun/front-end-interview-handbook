@@ -12,8 +12,8 @@ type Props = Readonly<{
 
 export default function ReadonlyDirectoryExplorer({
   activeFile,
-  onActiveFileChange,
   filePaths,
+  onActiveFileChange,
 }: Props) {
   const { rootDirectory } = useMemo(() => {
     return createDirectoriesFromFilePaths(filePaths);

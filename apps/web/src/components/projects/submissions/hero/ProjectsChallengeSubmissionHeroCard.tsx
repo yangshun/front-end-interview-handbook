@@ -29,9 +29,9 @@ export default function ProjectsChallengeSubmissionHeroCard({
   isViewerPremium,
 }: Props) {
   const intl = useIntl();
-  const { metadata, info, status, track, userUnlocked } = challenge;
+  const { info, metadata, status, track, userUnlocked } = challenge;
   const { access: challengeAccess, difficulty, href } = metadata;
-  const { title, description } = info;
+  const { description, title } = info;
   const isMobileAndBelow = useMediaQuery('(max-width: 768px)');
 
   return (

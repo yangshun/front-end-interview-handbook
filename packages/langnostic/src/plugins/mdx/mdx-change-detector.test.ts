@@ -1,5 +1,5 @@
-import { __test__ } from './mdx-change-detector';
 import { generateHash } from '../../lib/mdx-file';
+import { __test__ } from './mdx-change-detector';
 
 describe('isSubset()', () => {
   const { isSubset } = __test__;
@@ -29,7 +29,7 @@ describe('findMissingOrUpdatedFrontmatterKeys', () => {
   const { findMissingOrUpdatedFrontmatterKeys } = __test__;
 
   test('returns keys missing in target frontmatter', () => {
-    const sourceFrontmatter = { title: 'Hello', description: 'World' };
+    const sourceFrontmatter = { description: 'World', title: 'Hello' };
     const targetFrontmatter = { title: 'Hello' };
     const registryFrontmatter = {
       title: generateHash('Hello'),
@@ -39,6 +39,7 @@ describe('findMissingOrUpdatedFrontmatterKeys', () => {
       targetFrontmatter,
       registryFrontmatter,
     );
+
     expect(result).toEqual(['description']);
   });
 
@@ -51,11 +52,12 @@ describe('findMissingOrUpdatedFrontmatterKeys', () => {
       targetFrontmatter,
       registryFrontmatter,
     );
+
     expect(result).toEqual(['title']);
   });
 
   test('combines missing and changed keys', () => {
-    const sourceFrontmatter = { title: 'New', description: 'Updated' };
+    const sourceFrontmatter = { description: 'Updated', title: 'New' };
     const targetFrontmatter = { title: 'Old' };
     const registryFrontmatter = {
       title: generateHash('Old'),
@@ -65,6 +67,7 @@ describe('findMissingOrUpdatedFrontmatterKeys', () => {
       targetFrontmatter,
       registryFrontmatter,
     );
+
     expect(result).toEqual(['title', 'description']);
   });
 
@@ -77,6 +80,7 @@ describe('findMissingOrUpdatedFrontmatterKeys', () => {
       targetFrontmatter,
       registryFrontmatter,
     );
+
     expect(result).toEqual([]);
   });
 });
@@ -93,6 +97,7 @@ describe('findMissingOrUpdatedContentKeys', () => {
       targetHashes,
       registryTargetHashes,
     );
+
     expect(result).toEqual(sourceHashes);
   });
 
@@ -105,6 +110,7 @@ describe('findMissingOrUpdatedContentKeys', () => {
       targetHashes,
       registryHashes,
     );
+
     expect(result).toEqual(['hash3']);
   });
 
@@ -117,6 +123,7 @@ describe('findMissingOrUpdatedContentKeys', () => {
       targetHashes,
       registryHashes,
     );
+
     expect(result).toEqual([]);
   });
 });
@@ -125,109 +132,118 @@ describe('findFrontmatterExcludedKeysToUpdate', () => {
   const { findFrontmatterExcludedKeysToUpdate } = __test__;
 
   test('excluded keys is empty', () => {
-    const sourceFrontmatter = { title: 'Hello', description: 'World' };
-    const targetFrontmatter = { title: 'Hello', description: 'World' };
+    const sourceFrontmatter = { description: 'World', title: 'Hello' };
+    const targetFrontmatter = { description: 'World', title: 'Hello' };
     const excludedFrontmatterKeysToUpdate = findFrontmatterExcludedKeysToUpdate(
       [],
       sourceFrontmatter,
       targetFrontmatter,
     );
+
     expect(excludedFrontmatterKeysToUpdate).toEqual([]);
   });
   test('excluded keys is not empty and is missing in target frontmatter', () => {
     const excludedKeys = ['author'];
     const sourceFrontmatter = {
-      title: 'Hello',
-      description: 'World',
       author: 'John',
+      description: 'World',
+      title: 'Hello',
     };
-    const targetFrontmatter = { title: 'Hello', description: 'World' };
+    const targetFrontmatter = { description: 'World', title: 'Hello' };
     const excludedFrontmatterKeysToUpdate = findFrontmatterExcludedKeysToUpdate(
       excludedKeys,
       sourceFrontmatter,
       targetFrontmatter,
     );
+
     expect(excludedFrontmatterKeysToUpdate).toEqual(['author']);
   });
   test('excluded keys is not empty and present in both source and target frontmatter and is same', () => {
     const excludedKeys = ['author'];
     const sourceFrontmatter = {
-      title: 'Hello',
-      description: 'World',
       author: 'John',
+      description: 'World',
+      title: 'Hello',
     };
     const targetFrontmatter = {
-      title: 'Hello',
-      description: 'World',
       author: 'John',
+      description: 'World',
+      title: 'Hello',
     };
     const excludedFrontmatterKeysToUpdate = findFrontmatterExcludedKeysToUpdate(
       excludedKeys,
       sourceFrontmatter,
       targetFrontmatter,
     );
+
     expect(excludedFrontmatterKeysToUpdate).toEqual([]);
   });
   test('excluded keys is not empty and but missing in source', () => {
     const excludedKeys = ['published'];
     const sourceFrontmatter = {
-      title: 'Hello',
       description: 'World',
+      title: 'Hello',
     };
     const targetFrontmatter = {
-      title: 'Hello',
       description: 'World',
+      title: 'Hello',
     };
     const excludedFrontmatterKeysToUpdate = findFrontmatterExcludedKeysToUpdate(
       excludedKeys,
       sourceFrontmatter,
       targetFrontmatter,
     );
+
     expect(excludedFrontmatterKeysToUpdate).toEqual([]);
   });
   test('excluded keys is not empty and but missing in source but present in target', () => {
     const excludedKeys = ['published'];
     const sourceFrontmatter = {
-      title: 'Hello',
       description: 'World',
+      title: 'Hello',
     };
     const targetFrontmatter = {
-      title: 'Hello',
       description: 'World',
       published: 'true',
+      title: 'Hello',
     };
     const excludedFrontmatterKeysToUpdate = findFrontmatterExcludedKeysToUpdate(
       excludedKeys,
       sourceFrontmatter,
       targetFrontmatter,
     );
+
     expect(excludedFrontmatterKeysToUpdate).toEqual(['published']);
   });
 });
 
 describe('detectFrontmatterDiff', () => {
   const { detectFrontmatterDiff } = __test__;
+
   test('target is missing', () => {
-    const source = { title: 'Hello', desc: 'World' };
+    const source = { desc: 'World', title: 'Hello' };
     const result = detectFrontmatterDiff(source, undefined, {});
+
     expect(result.keysToTranslate).toEqual(['title', 'desc']);
     expect(result.isReorderOrRemoval).toBe(false);
   });
   test('new and updated frontmatter to translate', () => {
-    const source = { title: 'New', desc: 'Updated' };
+    const source = { desc: 'Updated', title: 'New' };
     const target = { title: 'Old' };
     const registry = { title: generateHash('Old') };
     const result = detectFrontmatterDiff(source, target, registry);
+
     expect(result.keysToTranslate).toEqual(['title', 'desc']);
   });
   test('frontmatter removed from source', () => {
     const source = { title: 'Hello' };
-    const target = { title: 'Hello', desc: 'World' };
+    const target = { desc: 'World', title: 'Hello' };
     const registry = {
-      title: generateHash('Hello'),
       desc: generateHash('World'),
+      title: generateHash('Hello'),
     };
     const result = detectFrontmatterDiff(source, target, registry);
+
     expect(result.isReorderOrRemoval).toBe(true);
     expect(result.keysToTranslate).toEqual([]);
   });
@@ -238,6 +254,7 @@ describe('detectFrontmatterDiff', () => {
       title: generateHash('Hello'),
     };
     const result = detectFrontmatterDiff(source, target, registry);
+
     expect(result.isReorderOrRemoval).toBe(false);
     expect(result.keysToTranslate).toEqual([]);
   });
@@ -249,6 +266,7 @@ describe('detectContentDiff', () => {
   test('target is missing', () => {
     const sourceHashes = ['hash1', 'hash2'];
     const result = detectContentDiff(sourceHashes, undefined, []);
+
     expect(result.keysToTranslate).toEqual(sourceHashes);
     expect(result.isReorderOrRemoval).toBe(false);
   });
@@ -257,6 +275,7 @@ describe('detectContentDiff', () => {
     const target = ['hash1'];
     const registry = ['hash1'];
     const result = detectContentDiff(source, target, registry);
+
     expect(result.keysToTranslate).toEqual(['hash2']);
   });
   test('content removed from source', () => {
@@ -264,6 +283,7 @@ describe('detectContentDiff', () => {
     const target = ['hash1', 'hash2', 'hash3'];
     const registry = ['hash1', 'hash2', 'hash3'];
     const result = detectContentDiff(source, target, registry);
+
     expect(result.isReorderOrRemoval).toBe(true);
     expect(result.keysToTranslate).toEqual([]);
   });
@@ -272,6 +292,7 @@ describe('detectContentDiff', () => {
     const target = ['hash1', 'hash2'];
     const registry = ['hash1', 'hash2'];
     const result = detectContentDiff(source, target, registry);
+
     expect(result.isReorderOrRemoval).toBe(true);
     expect(result.keysToTranslate).toEqual([]);
   });

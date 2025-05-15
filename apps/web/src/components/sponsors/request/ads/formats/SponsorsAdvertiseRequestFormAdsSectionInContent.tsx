@@ -42,11 +42,11 @@ type Props = Readonly<{
   mode: 'create' | 'edit' | 'readonly';
   onCancel?: () => void;
   onSubmit: ({
+    body,
+    imageUrl,
     text,
     url,
     weeks,
-    imageUrl,
-    body,
   }: Omit<SponsorsAdFormatInContentItem, 'format' | 'id'>) => void;
   sessionId: string;
   unavailableWeeks: ReadonlyArray<string>;
@@ -56,17 +56,17 @@ type Props = Readonly<{
 const AD_FORMAT = 'IN_CONTENT';
 
 export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
+  defaultValues,
+  mode,
   onCancel,
   onSubmit,
   sessionId,
-  updateStepStatus,
   unavailableWeeks,
-  defaultValues,
-  mode,
+  updateStepStatus,
 }: Props) {
   const intl = useIntl();
   const isReadonly = mode === 'readonly';
-  const { uploadAdAsset, loading: uploadingAsset } =
+  const { loading: uploadingAsset, uploadAdAsset } =
     useSponsorsAdvertiseRequestAdsImageUploader({
       format: AD_FORMAT,
       sessionId,
@@ -84,10 +84,10 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
   });
   const {
     control,
-    watch,
-    setValue,
+    formState: { isDirty, isValid },
     setError,
-    formState: { isValid, isDirty },
+    setValue,
+    watch,
   } = methods;
 
   const selectedWeeks = watch('weeks');
@@ -105,7 +105,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
 
     // If not blob url, don't reupload the asset
     if (data.imageUrl.startsWith('blob:')) {
-      const { imageUrl: storageImagePath, error } = await uploadAdAsset(
+      const { error, imageUrl: storageImagePath } = await uploadAdAsset(
         data.imageUrl,
       );
 

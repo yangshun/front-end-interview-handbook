@@ -21,7 +21,7 @@ function RoadmapItem({ date, roadmapItems }: Props) {
       </div>
       <div className="flex flex-1 flex-col gap-4">
         {roadmapItems.map((item) => {
-          const { title, description, launched, tags, url, id } = item;
+          const { description, id, launched, tags, title, url } = item;
 
           return (
             <RoadmapItemCard

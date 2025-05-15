@@ -30,14 +30,14 @@ type Props<TabType> = Readonly<{
 
 export default function TilesPanelTabsSection<TabType extends string>({
   activeTabId,
-  tabs,
-  panelId,
   collapsed,
   getTabLabel,
+  panelId,
+  tabs,
 }: Props<TabType>) {
   const mode = collapsed ? 'readonly' : 'interactive';
   const { dispatch } = useTilesContext();
-  const { parentRect, setPosition, draggedItemId, setDraggedItemId } =
+  const { draggedItemId, parentRect, setDraggedItemId, setPosition } =
     useDragHighlightContext();
   const tabListRef = useRef<HTMLDivElement>(null);
   const tabRightEmptySpaceRef = useRef<HTMLDivElement>(null);
@@ -188,7 +188,7 @@ export default function TilesPanelTabsSection<TabType extends string>({
             const isActive =
               mode === 'interactive' && activeTabId === tabItem.id;
             const key = String(tabItem.id) + ' ' + String(index);
-            const { icon, label, iconSecondary } = getTabLabel(tabItem.id);
+            const { icon, iconSecondary, label } = getTabLabel(tabItem.id);
 
             return (
               <div key={key} className={clsx('flex h-8 flex-col')}>

@@ -30,8 +30,8 @@ type CommunitySolutionDraft = Readonly<{
 }>;
 
 function UserInterfaceCodingWorkspaceCommunitySolutionCreateTabImpl({
-  metadata: { slug },
   framework,
+  metadata: { slug },
 }: Props) {
   const intl = useIntl();
   const { showToast } = useToast();
@@ -167,8 +167,8 @@ function UserInterfaceCodingWorkspaceCommunitySolutionCreateTabImpl({
 }
 
 export default function UserInterfaceCodingWorkspaceCommunitySolutionCreateTab({
-  metadata,
   framework,
+  metadata,
 }: Props) {
   const intl = useIntl();
   const { userProfile } = useUserProfile();

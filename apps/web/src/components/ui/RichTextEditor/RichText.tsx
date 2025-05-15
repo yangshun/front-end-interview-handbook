@@ -28,9 +28,9 @@ const textColorClasses: Record<RichTextColor, string> = {
 export default function RichText({
   className,
   color = 'default',
+  editorConfig,
   size,
   value,
-  editorConfig,
 }: Props) {
   return (
     <LexicalComposer

@@ -11,11 +11,11 @@ export default function GuidesListItemProgressChip<
   Q extends GuideCardMetadata,
 >({
   className,
+  guide,
   hasCompleted,
   index,
   onMarkAsCompleted,
   onMarkAsNotCompleted,
-  guide,
   size,
 }: Readonly<{
   className: string;

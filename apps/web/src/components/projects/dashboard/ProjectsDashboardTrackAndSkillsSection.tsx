@@ -29,7 +29,7 @@ const limit = 2;
 export default function ProjectsDashboardTrackAndSkillsSection() {
   const intl = useIntl();
 
-  const { isLoading, data: tracks } =
+  const { data: tracks, isLoading } =
     trpc.projects.sessions.tracksWithMostProgress.useQuery({ limit });
 
   if (isLoading) {

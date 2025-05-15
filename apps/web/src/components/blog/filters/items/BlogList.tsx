@@ -19,9 +19,9 @@ type Props = Readonly<{
 
 export default function BlogList({
   posts,
-  view = 'list',
-  type = 'articles',
   showSeriesTag = true,
+  type = 'articles',
+  view = 'list',
 }: Props) {
   const intl = useIntl();
 

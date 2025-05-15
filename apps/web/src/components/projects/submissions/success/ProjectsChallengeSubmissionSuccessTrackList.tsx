@@ -10,9 +10,9 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsChallengeSubmissionSuccessTrackList({
-  tracks,
   challengeStatuses,
   isViewerPremium,
+  tracks,
 }: Props) {
   return (
     <div className="flex flex-col gap-4">

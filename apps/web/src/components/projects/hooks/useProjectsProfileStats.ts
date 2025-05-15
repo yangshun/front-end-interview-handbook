@@ -16,11 +16,11 @@ type Props = Readonly<{
 }>;
 
 export default function useProjectsProfileStats({
-  completedChallenges,
-  upvotes,
   codeReviews,
-  submissionViews,
+  completedChallenges,
   isViewingOwnProfile,
+  submissionViews,
+  upvotes,
 }: Props) {
   const intl = useIntl();
   const stats = [

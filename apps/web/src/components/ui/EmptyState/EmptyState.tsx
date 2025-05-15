@@ -92,14 +92,14 @@ export default function EmptyState({
   action,
   icon,
   iconClassName,
-  subtitle,
   size = 'md',
+  subtitle,
   title,
   variant = 'empty',
   verticalPadding = true,
 }: Props) {
   const Icon = icon ?? icons[variant];
-  const { title: titleSize, subtitle: subtitleSize } = sizes[size];
+  const { subtitle: subtitleSize, title: titleSize } = sizes[size];
 
   return (
     <div

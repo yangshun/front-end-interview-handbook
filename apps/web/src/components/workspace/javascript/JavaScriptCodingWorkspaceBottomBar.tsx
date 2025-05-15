@@ -28,13 +28,13 @@ type Props = Readonly<{
 }>;
 
 export default function JavaScriptCodingWorkspaceBottomBar({
-  metadata,
   layout,
-  studyListKey,
+  metadata,
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE,
+  studyListKey,
 }: Props) {
   const intl = useIntl();
-  const { status, runTests, submit, resetToDefaultCode } =
+  const { resetToDefaultCode, runTests, status, submit } =
     useCodingWorkspaceContext();
   const [isLayoutDialogOpen, setIsLayoutDialogOpen] = useState(false);
   const { isVimModeEnabled, toggleVimMode } = useVimMode();
@@ -203,7 +203,7 @@ export default function JavaScriptCodingWorkspaceBottomBar({
                   },
                   value: 'reset',
                 },
-              ].map(({ onClick, icon, label, value }) => (
+              ].map(({ icon, label, onClick, value }) => (
                 <DropdownMenu.Item
                   key={value}
                   icon={icon}

@@ -33,9 +33,9 @@ type Props = Readonly<{
 }>;
 
 export default function PurchasePaymentSuccessSection({
+  actions,
   crossSellSection,
   title,
-  actions,
 }: Props): JSX.Element {
   const intl = useIntl();
 

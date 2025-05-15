@@ -25,8 +25,8 @@ const ImportanceLabelClasses: Record<QuestionImportance, string> = {
 export default function QuestionImportanceLabel({
   children,
   showIcon = false,
-  value,
   size = 'body3',
+  value,
 }: Props) {
   const id = useId();
   const intl = useIntl();

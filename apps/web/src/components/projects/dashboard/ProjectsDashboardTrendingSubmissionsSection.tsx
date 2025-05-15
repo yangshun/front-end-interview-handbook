@@ -30,7 +30,7 @@ const limit = 4;
 export default function ProjectsDashboardTrendingSubmissionsSection() {
   const intl = useIntl();
 
-  const { isLoading, data: submissions } =
+  const { data: submissions, isLoading } =
     trpc.projects.submissions.listLatest.useQuery({
       limit,
     });

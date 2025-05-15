@@ -11,13 +11,13 @@ type Props = Omit<React.ComponentProps<typeof Ticket>, 'children'> &
   }>;
 
 export default function RewardsTicket({
+  height,
   padding = 'lg',
   ratio = 'normal',
-  width,
-  height,
-  variant = 'gradient',
-  title,
   subtitle,
+  title,
+  variant = 'gradient',
+  width,
 }: Props) {
   return (
     <Ticket

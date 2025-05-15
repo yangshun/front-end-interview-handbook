@@ -57,13 +57,13 @@ function isAllowedBrowser() {
 }
 
 export default function Card({
-  children,
-  classNameOuter,
-  className: classNameInner,
   border = true,
+  brandColorSpotlight = true,
+  children,
+  className: classNameInner,
+  classNameOuter,
   disableBackground = false,
   disableSpotlight = false,
-  brandColorSpotlight = true,
   padding = true,
   pattern = true,
 }: Props) {

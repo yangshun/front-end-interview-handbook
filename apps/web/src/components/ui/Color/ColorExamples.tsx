@@ -68,8 +68,8 @@ const warning = [
 ];
 
 function ColorSwatch({
-  title,
   colors,
+  title,
 }: Readonly<{ colors: ReadonlyArray<string>; title: string }>) {
   return (
     <div className="grid gap-y-1">

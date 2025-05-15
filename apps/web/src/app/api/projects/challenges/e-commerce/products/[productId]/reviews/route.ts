@@ -67,7 +67,7 @@ export async function GET(
     },
     data: filteredReviews
       .slice((page - 1) * perPage, page * perPage)
-      .map(({ user_id, product_id: _productId, ...review }) => ({
+      .map(({ product_id: _productId, user_id, ...review }) => ({
         ...review,
         user: users.find((user) => user.user_id === user_id),
       })),

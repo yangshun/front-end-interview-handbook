@@ -24,9 +24,9 @@ type Props = Readonly<{
 
 export default function ProjectsSkillChallengesList({
   challenges,
+  showMax,
   userProfile,
   view = 'skills',
-  showMax,
 }: Props) {
   const intl = useIntl();
 

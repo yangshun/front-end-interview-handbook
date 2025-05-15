@@ -167,7 +167,7 @@ function CodeViewerDialog({
             code={displayCode.trim()}
             language={language}
             theme={themes.dracula}>
-            {({ className, style, tokens, getLineProps, getTokenProps }) => (
+            {({ className, getLineProps, getTokenProps, style, tokens }) => (
               <pre
                 className={clsx(
                   className,

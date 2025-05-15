@@ -73,20 +73,20 @@ type Props = Readonly<{
 }>;
 
 export default function FeedbackDialog({
-  preBodyContents,
-  showHideWidgetForSessionButton,
-  title: titleParam,
   isShown,
   onClose,
   onHideWidgetForSession,
+  preBodyContents,
+  showHideWidgetForSessionButton,
+  title: titleParam,
 }: Props) {
   const [feedbackState, setFeedbackState] = useState<FeedbackState>('message');
   const user = useUser();
   const intl = useIntl();
   const {
     data: feedbackId,
-    isLoading: isSubmitLoading,
     failureReason: submitFailureReason,
+    isLoading: isSubmitLoading,
     mutate: submitFeedback,
   } = trpc.feedback.submitFeedback.useMutation({
     onSuccess: () => {
@@ -94,8 +94,8 @@ export default function FeedbackDialog({
     },
   });
   const {
-    isLoading: isUpdateLoading,
     failureReason: updateFailureReason,
+    isLoading: isUpdateLoading,
     mutate: updateFeedback,
   } = trpc.feedback.updateFeedback.useMutation({
     onSuccess: () => {

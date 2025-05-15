@@ -8,7 +8,7 @@ export default function useMonacoEditorAddActions(
   monaco: Monaco | null,
   editor: Editor.IStandaloneCodeEditor | null,
 ) {
-  const { submit, runTests } = useCodingWorkspaceContext();
+  const { runTests, submit } = useCodingWorkspaceContext();
 
   useEffect(() => {
     if (!monaco || !editor) {

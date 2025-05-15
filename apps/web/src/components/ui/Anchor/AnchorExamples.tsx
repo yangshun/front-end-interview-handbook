@@ -31,7 +31,7 @@ export default function AnchorExamples() {
                 variant: 'unstyled',
               },
             ] as const
-          ).map(({ variant, description }) => (
+          ).map(({ description, variant }) => (
             <div key={variant}>
               <div>
                 <Anchor variant={variant}>{capitalize(variant)}</Anchor>

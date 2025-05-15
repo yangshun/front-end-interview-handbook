@@ -83,10 +83,10 @@ function openPopup(url: string, title: string, w: number, h: number) {
 
 export default function RewardsTaskItem({
   icon: Icon,
-  label,
-  taskHref,
-  status,
   isDisabled,
+  label,
+  status,
+  taskHref,
 }: Props) {
   const intl = useIntl();
 

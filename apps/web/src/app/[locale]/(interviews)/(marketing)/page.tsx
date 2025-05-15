@@ -123,10 +123,10 @@ function getQuestionBankSectionData(
   >,
 ): QuestionBankDataType {
   const {
-    javascript: javaScriptQuestions,
     algo: algoQuestions,
-    'system-design': systemDesignQuestions,
+    javascript: javaScriptQuestions,
     quiz: quizQuestions,
+    'system-design': systemDesignQuestions,
     'user-interface': userInterfaceQuestions,
   } = questions;
 

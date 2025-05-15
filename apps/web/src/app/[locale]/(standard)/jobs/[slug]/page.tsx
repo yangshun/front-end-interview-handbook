@@ -26,7 +26,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug, locale } = params;
+  const { locale, slug } = params;
   const job = await fetchJobPosting(slug);
 
   if (!job) {

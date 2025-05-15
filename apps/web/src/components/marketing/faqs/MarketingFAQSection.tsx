@@ -22,10 +22,10 @@ type Props = Readonly<{
 }>;
 
 export default function MarketingFAQSection({
-  faqs,
-  title,
-  hideTitle = false,
   accordionTriggerClassName,
+  faqs,
+  hideTitle = false,
+  title,
 }: Props) {
   return (
     <div className="flex flex-col gap-y-2">

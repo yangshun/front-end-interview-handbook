@@ -19,7 +19,7 @@ export const emailsRouter = router({
         countryCode: z.string().nullable(),
       }),
     )
-    .mutation(async ({ input: { countryCode }, ctx: { viewer } }) => {
+    .mutation(async ({ ctx: { viewer }, input: { countryCode } }) => {
       await scheduleCheckoutInitiateEmail({
         countryCode: countryCode ?? null,
         userId: viewer.id,
@@ -33,7 +33,7 @@ export const emailsRouter = router({
         hash: z.string(),
       }),
     )
-    .mutation(async ({ input: { email, hash, contactListKey } }) => {
+    .mutation(async ({ input: { contactListKey, email, hash } }) => {
       const contactListId = emailsContactListKeyToId(contactListKey);
 
       if (!emailsVerifyHash(email, hash)) {
@@ -134,7 +134,7 @@ export const emailsRouter = router({
         hash: z.string(),
       }),
     )
-    .mutation(async ({ input: { email, hash, contactListKey } }) => {
+    .mutation(async ({ input: { contactListKey, email, hash } }) => {
       const contactListId = emailsContactListKeyToId(contactListKey);
 
       if (!emailsVerifyHash(email, hash)) {

@@ -26,14 +26,14 @@ const ScrollArea = React.forwardRef<
   (
     {
       asChild,
-      className,
       children,
-      size = 'default',
+      className,
+      heightClass = 'h-full',
       radius = 'rounded',
       scrollbars = 'vertical',
-      heightClass = 'h-full',
-      widthClass = 'w-full',
+      size = 'default',
       viewportClass,
+      widthClass = 'w-full',
       ...props
     },
     ref,
@@ -81,7 +81,7 @@ const borderRadiusMap: Record<ScrollRadius, string> = {
   rounded: 'rounded-full',
 };
 
-function ScrollBar({ size, radius, scrollbars }: ScrollBarProps) {
+function ScrollBar({ radius, scrollbars, size }: ScrollBarProps) {
   const horizontalScrollSize = scrollSizeMap.horizontal[size];
   const verticalScrollSize = scrollSizeMap.vertical[size];
   const borderRadius = borderRadiusMap[radius];

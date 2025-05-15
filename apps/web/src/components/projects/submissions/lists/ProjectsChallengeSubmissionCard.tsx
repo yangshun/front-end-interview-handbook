@@ -50,23 +50,23 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsChallengeSubmissionCard({
-  isPinned = false,
   challenge,
-  submission,
-  showPinButton = false,
+  isPinned = false,
   onUnpin,
+  showPinButton = false,
+  submission,
 }: Props) {
   const intl = useIntl();
   const {
-    hrefs,
-    title,
-    roadmapSkills,
-    techStackSkills,
-    summary,
     comments,
-    views,
+    hrefs,
     imgSrc,
     projectsProfile,
+    roadmapSkills,
+    summary,
+    techStackSkills,
+    title,
+    views,
   } = submission;
   const author = projectsProfile?.userProfile;
   const { votes } = submission._count;

@@ -16,8 +16,8 @@ type Props = Readonly<{
 export default function ProjectsChallengeSubmissionImageComparisonSlider({
   aspectRatioClass,
   image,
-  originalImage,
   maxWidth,
+  originalImage,
 }: Props) {
   const parentRef = useRef<HTMLDivElement>(null);
   const handleRef = useRef<HTMLDivElement>(null);

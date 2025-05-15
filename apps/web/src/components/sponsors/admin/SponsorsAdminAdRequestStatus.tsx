@@ -23,9 +23,9 @@ type Props = Readonly<{
 }>;
 
 export default function SponsorsAdminAdRequestStatus({
-  status,
-  review,
   adRequestId,
+  review,
+  status,
 }: Props) {
   const { showToast } = useToast();
   const trpcUtils = trpc.useUtils();

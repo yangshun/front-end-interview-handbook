@@ -10,8 +10,8 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsChallengeGridList({
-  className,
   challenges,
+  className,
   isViewerPremium,
 }: Props) {
   return (

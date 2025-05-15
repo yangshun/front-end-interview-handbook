@@ -17,7 +17,7 @@ export default function NavColorSchemeDropdown({
   size,
 }: Props) {
   const intl = useIntl();
-  const { colorSchemePreference, colorScheme, setColorSchemePreference } =
+  const { colorScheme, colorSchemePreference, setColorSchemePreference } =
     useColorSchemePreferences();
   const [isMounted, setIsMounted] = useState(false);
 
@@ -49,7 +49,7 @@ export default function NavColorSchemeDropdown({
       })}>
       {colorSchemeOptions
         .filter(({ value }) => value !== 'system' || includeSystem)
-        .map(({ label, value, icon }) => (
+        .map(({ icon, label, value }) => (
           <DropdownMenu.Item
             key={value}
             icon={icon}

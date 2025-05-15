@@ -23,9 +23,9 @@ type Props = Readonly<{
 
 export default function SponsorsAdFormatPlacementListDialog({
   isShown,
-  title,
   onClose,
   placementPages,
+  title,
 }: Props) {
   const intl = useIntl();
 
@@ -42,7 +42,7 @@ export default function SponsorsAdFormatPlacementListDialog({
             'divide-y',
             themeDivideEmphasizeColor,
           ])}>
-          {placementPages.map(({ key, name, href }) => (
+          {placementPages.map(({ href, key, name }) => (
             <div
               key={key}
               className={clsx(

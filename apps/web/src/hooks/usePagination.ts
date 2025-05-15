@@ -38,8 +38,8 @@ const usePagination = <T>(opts: Options<T>): PaginatedList<T> => {
     itemsPerPage,
     page,
     totalList = [],
-    updateSearchParamsRequired,
     updateSearchParams,
+    updateSearchParamsRequired,
   } = opts;
   const isMounted = useRef(false);
   const [currentPage, setCurrentPage] = useState<number>(page || 1);

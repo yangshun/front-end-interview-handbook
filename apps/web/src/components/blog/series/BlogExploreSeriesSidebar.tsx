@@ -22,8 +22,8 @@ type BlogExploreSeriesSidebar = Readonly<{
 }>;
 
 export function BlogExploreSeriesSidebar({
-  navigation,
   activeItem,
+  navigation,
   onChange,
 }: BlogExploreSeriesSidebar) {
   return (

@@ -19,8 +19,8 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsSkillAccordionItem({
-  skill,
   challenges,
+  skill,
 }: Props) {
   return (
     <AccordionPrimitive.Item value={skill.key}>

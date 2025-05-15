@@ -23,7 +23,7 @@ const t = initTRPC.context<Context>().create({
  **/
 export const publicProcedure = t.procedure;
 
-export const { router, middleware } = t;
+export const { middleware, router } = t;
 
 export const isUser = middleware(async (opts) => {
   const { ctx } = opts;

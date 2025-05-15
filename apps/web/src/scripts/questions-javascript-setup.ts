@@ -28,7 +28,7 @@ async function generateSetupForQuestion(slug: string) {
     // Files are named after their locales.
     .map((filePath) => parse(filePath).name);
 
-  const { metadata, files, skeleton, workspace } =
+  const { files, metadata, skeleton, workspace } =
     await readQuestionJavaScriptLocaleAgnostic(slug);
 
   const outDir = getQuestionOutPathJavaScript(slug);

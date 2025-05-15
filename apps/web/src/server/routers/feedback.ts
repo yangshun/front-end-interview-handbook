@@ -31,9 +31,9 @@ export const feedbackRouter = router({
         }),
       }),
     )
-    .query(async ({ input: { pagination, filter, sort } }) => {
+    .query(async ({ input: { filter, pagination, sort } }) => {
       const { limit, page } = pagination;
-      const { query, status, category } = filter;
+      const { category, query, status } = filter;
 
       const orderBy = {
         [sort.field]: sort.isAscendingOrder ? 'asc' : 'desc',
@@ -90,7 +90,7 @@ export const feedbackRouter = router({
       }),
     )
     .mutation(
-      async ({ input: { category, message, email }, ctx: { viewer, req } }) => {
+      async ({ ctx: { req, viewer }, input: { category, email, message } }) => {
         const feedbackMessage = await prisma.feedbackMessage.create({
           data: {
             category,

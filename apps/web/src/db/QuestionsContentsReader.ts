@@ -301,11 +301,11 @@ export function readQuestionSystemDesignContents(
 }
 
 export async function readQuestionUserInterface({
-  slug,
+  codeId,
+  frameworkParam,
   isViewerPremium,
   requestedLocale = 'en-US',
-  frameworkParam,
-  codeId,
+  slug,
 }: Readonly<{
   codeId?: string;
   frameworkParam?: QuestionFramework | null;

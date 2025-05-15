@@ -15,7 +15,7 @@ type Props = Readonly<{
 
 export default function SidebarI18nSubMenu({ type }: Props) {
   const intl = useIntl();
-  const { pathname, locale } = useI18nPathname();
+  const { locale, pathname } = useI18nPathname();
 
   const DropdownElement = type === 'menu' ? DropdownMenu : DropdownMenu.Sub;
 

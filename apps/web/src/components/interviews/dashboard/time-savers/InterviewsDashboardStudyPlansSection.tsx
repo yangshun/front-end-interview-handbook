@@ -18,8 +18,8 @@ type Props = Readonly<{
 }>;
 
 export default function InterviewsDashboardStudyPlansSection({
-  studyPlans,
   questionListSessions,
+  studyPlans,
 }: Props) {
   const intl = useIntl();
 

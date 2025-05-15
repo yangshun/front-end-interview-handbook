@@ -11,8 +11,8 @@ type Props = Readonly<{
 
 export default function QuestionListingAccessSummary({
   free,
-  standard,
   premium,
+  standard,
 }: Props) {
   const { userProfile } = useUserProfile();
 

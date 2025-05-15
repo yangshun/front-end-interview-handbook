@@ -107,7 +107,7 @@ export default function ProjectsOnboardingProfileForm({
       ...experienceInitialValues,
     },
   });
-  const { control, handleSubmit, formState } = methods;
+  const { control, formState, handleSubmit } = methods;
 
   return (
     <Container

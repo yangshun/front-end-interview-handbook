@@ -13,8 +13,8 @@ type Props = Readonly<{
 }>;
 
 export default function FrontEndSystemDesignPlaybookSidebar({
-  questions,
   children,
+  questions,
 }: Props) {
   const navigation = useFrontEndSystemDesignPlaybookNavigation(questions);
 

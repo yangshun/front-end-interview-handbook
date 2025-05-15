@@ -98,14 +98,14 @@ export function getGuideCompletionCount(
   );
 
   const {
+    behavioralPlaybookCompletionCount,
+    behavioralPlaybookLatestDate,
     frontEndInterviewPlaybookCompletionCount,
     frontEndInterviewPlaybookLatestDate,
     reactInterviewPlaybookCompletionCount,
     reactInterviewPlaybookLatestDate,
     systemDesignPlaybookCompletionCount,
     systemDesignPlaybookLatestDate,
-    behavioralPlaybookCompletionCount,
-    behavioralPlaybookLatestDate,
   } = Array.from(completedGuides).reduce(
     (counts, item) => {
       const [book, slug] = unhashGuide(item);

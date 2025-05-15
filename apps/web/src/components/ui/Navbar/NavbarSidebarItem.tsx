@@ -165,8 +165,8 @@ function NavbarSidebarAccordion({
 }
 
 export default function NavbarSidebarItem({
-  onClick,
   label,
+  onClick,
   ...props
 }: NavbarTopLevelItem) {
   const isCurrent = false; // TODO: Read from router.

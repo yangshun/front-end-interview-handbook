@@ -45,7 +45,7 @@ async function getPageSEOMetadata({ locale }: Props['params']) {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
 
-  const { title, description, socialTitle, href, ogImageTitle } =
+  const { description, href, ogImageTitle, socialTitle, title } =
     await getPageSEOMetadata(params);
 
   return defaultMetadata({
@@ -65,7 +65,7 @@ export default async function Page({ params }: Props) {
     allGuides,
     { questions },
     questionCompletionCount,
-    { title, description, socialTitle, href },
+    { description, href, socialTitle, title },
   ] = await Promise.all([
     readFrontEndSystemDesignGuides(params.locale),
     fetchQuestionsList(listType, locale),

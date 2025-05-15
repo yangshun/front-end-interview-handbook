@@ -233,10 +233,10 @@ type ProductCardProps = Readonly<{
 
 function ProductCard({
   className,
-  title,
   description,
   href,
   image,
+  title,
 }: ProductCardProps) {
   const intl = useIntl();
 

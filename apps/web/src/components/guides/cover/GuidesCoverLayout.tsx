@@ -21,13 +21,13 @@ type Props = Readonly<{
 }>;
 
 export default function GuidesCoverLayout({
+  children,
   description,
-  title,
   features,
   icon,
   longDescription,
   metadata,
-  children,
+  title,
 }: Props) {
   return (
     <div className={clsx('flex flex-col', 'gap-y-10', 'relative')}>

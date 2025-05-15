@@ -4,8 +4,8 @@ import { EmailsItemConfigWelcomeSeriesAfter24Hours } from './EmailsItemConfigWel
 import { EmailsItemConfigWelcomeSeriesImmediate } from './EmailsItemConfigWelcomeSeriesImmediate';
 
 export async function sendWelcomeEmailImmediate({
-  name,
   email,
+  name,
   userId,
 }: Readonly<{
   email: string;
@@ -28,8 +28,8 @@ export async function sendWelcomeEmailImmediate({
 }
 
 export async function sendWelcomeEmailAfter24Hours({
-  name,
   email,
+  name,
   userId,
 }: Readonly<{
   email: string;

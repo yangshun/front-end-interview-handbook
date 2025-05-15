@@ -16,9 +16,9 @@ export async function OPTIONS() {
 
 export async function POST(req: NextRequest) {
   const {
-    user_id: userId,
-    password,
     new_password,
+    password,
+    user_id: userId,
   }: FormBody = await req.json();
 
   if (!userId) {
@@ -55,7 +55,7 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const { valid, error } = validatePassword(new_password);
+  const { error, valid } = validatePassword(new_password);
 
   if (!valid) {
     return NextResponse.json({ error }, { status: 401 });

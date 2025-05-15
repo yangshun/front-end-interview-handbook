@@ -15,9 +15,9 @@ export type RoadmapProduct = 'interviews' | 'projects';
 
 export const useRoadmap = () => {
   const {
-    isLoading,
     data: roadmapItems,
     error,
+    isLoading,
   } = trpc.roadmap.getRoadmapItems.useQuery();
   const [filteredData, setFilteredData] = useState<
     Map<string, ReadonlyArray<RoadmapItem>>

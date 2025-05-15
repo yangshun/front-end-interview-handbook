@@ -5,7 +5,7 @@ type Props = Readonly<{
   valueLength: number;
 }>;
 
-export default function TextMaxLengthLabel({ valueLength, maxLength }: Props) {
+export default function TextMaxLengthLabel({ maxLength, valueLength }: Props) {
   return (
     <Text size="body3">
       <Text color={valueLength > maxLength ? 'error' : 'subtle'} size="inherit">

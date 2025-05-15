@@ -21,9 +21,9 @@ import {
 } from './ProjectsProfileCommunityFilterContext';
 
 function FilterSection({
-  longLabel,
-  label,
   id,
+  label,
+  longLabel,
   options,
 }: ProjectsProfileCommunityFilter) {
   const [selectedOptions, setSelectedOptions] =

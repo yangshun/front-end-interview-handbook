@@ -13,9 +13,9 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsChallengeContentPaywall({
+  slug,
   viewerContentAccess,
   viewerProjectsProfile,
-  slug,
 }: Props) {
   const title = useProjectsChallengePaywallTitle(viewerContentAccess);
   const subtitle = useProjectsChallengePaywallSubtitle(

@@ -13,8 +13,8 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsProfileInfoSectionLayout({
-  heading,
   children,
+  heading,
   showTooltip = false,
   tooltipMessage = '',
 }: Props) {

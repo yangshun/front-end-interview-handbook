@@ -59,15 +59,15 @@ type Props = Omit<SponsorsAdFormatPayloadInContent, 'format'> &
 const adFormat = 'IN_CONTENT';
 
 export default function SponsorsAdFormatInContent({
-  adPlacement,
   adId,
-  title,
-  url,
+  adPlacement,
   body,
-  sponsorName,
   imageUrl,
   size,
+  sponsorName,
+  title,
   tracking = true,
+  url,
 }: Props) {
   const ref = useSponsorsAdImpressionLogging<HTMLDivElement>(
     adFormat,

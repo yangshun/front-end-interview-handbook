@@ -1,8 +1,8 @@
-import { TranslationGroupBatch } from './runner/TranslationGroupBatch';
+import type { TranslationGroupBatch } from './runner/TranslationGroupBatch';
 
 export type TranslationFileItem = Readonly<{
-  path: string;
   locale: Locale;
+  path: string;
 }>;
 
 export type TranslationFileMetadata = Readonly<{
@@ -15,59 +15,41 @@ export type TranslationGroupBatchId = string;
 export type TranslationJobId = string;
 export type TranslationRunId = string;
 
-export interface TranslationGroup {
+export type TranslationGroup = {
+  batches: Map<TranslationGroupBatchId, TranslationGroupBatch>;
   groupId: TranslationGroupId;
   plugin: Plugin;
   stringsPerRequest: number;
-  batches: Map<TranslationGroupBatchId, TranslationGroupBatch>;
 }
 
 export type TranslationGroups = Map<TranslationGroupId, TranslationGroup>;
 export type TranslationGroupBatchStatus =
-  | 'queued'
-  | 'translating'
-  | 'success'
-  | 'error';
+  'error' | 'queued' | 'success' | 'translating';
 
 export type TranslationString = Readonly<{
-  string: string;
   locale: Locale;
+  string: string;
 }>;
 
 export type TranslationStringResult = Readonly<{
-  id: string;
   batchId: TranslationGroupBatchId;
+  id: string;
   source: TranslationString;
   targets: ReadonlyArray<TranslationString>;
 }>;
 
 export type TranslationStringArg = Readonly<{
-  id: string;
   batchId: TranslationGroupBatchId;
-  source: TranslationString &
-    Readonly<{
+  id: string;
+  source: Readonly<{
       description?: string; // Optional context for the translation
-    }>;
+    }> & TranslationString;
   // Let plugin decide which locales to translate to because
   // only it knows what hasn't been translated
   targets: ReadonlyArray<Locale>;
 }>;
 
-export interface Plugin {
-  /**
-   * Unique identifier for the plugin type
-   */
-  type: string;
-  /**
-   * Strings per request
-   */
-  stringsPerRequest: number;
-  /**
-   * The plugin that should start tracking these files
-   */
-  trackFiles: (
-    filesMetadata: ReadonlyArray<TranslationFileMetadata>,
-  ) => Promise<void>;
+export type Plugin = {
   /**
    * Plugin-specific prompt
    */
@@ -82,23 +64,37 @@ export interface Plugin {
   onTranslationBatchComplete: (
     translatedStrings: ReadonlyArray<TranslationStringResult>,
   ) => Promise<void>;
+  /**
+   * Strings per request
+   */
+  stringsPerRequest: number;
+  /**
+   * The plugin that should start tracking these files
+   */
+  trackFiles: (
+    filesMetadata: ReadonlyArray<TranslationFileMetadata>,
+  ) => Promise<void>;
+  /**
+   * Unique identifier for the plugin type
+   */
+  type: string;
 }
 
 export type TranslationRequestJob = Readonly<{
-  runId: TranslationRunId;
-  jobId: TranslationJobId;
-  group: TranslationGroupId;
   batch: TranslationGroupBatchId;
+  group: TranslationGroupId;
+  jobId: TranslationJobId;
+  runId: TranslationRunId;
   strings: ReadonlyArray<TranslationStringArg>;
 }>;
 
-export interface Registry {
-  frontmatter: Record<string, string>;
+export type Registry = {
   content: {
     source: {
-      locale: Locale;
       hashes: Array<string>;
+      locale: Locale;
     };
     targets: Record<Locale, Array<string>>;
   };
+  frontmatter: Record<string, string>;
 }

@@ -26,7 +26,7 @@ type Props = Readonly<{
 }>;
 
 function JavaScriptCodingWorkspaceWorkingLanguageSelect(
-  { value, onChange }: Props,
+  { onChange, value }: Props,
   ref?: ForwardedRef<HTMLSelectElement>,
 ) {
   const intl = useIntl();

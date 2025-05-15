@@ -17,7 +17,7 @@ type Props = Readonly<{
   user?: User | null;
 }>;
 
-export default function NavbarUserAvatar({ user, menuItems }: Props) {
+export default function NavbarUserAvatar({ menuItems, user }: Props) {
   if (!user) {
     return null;
   }
@@ -40,7 +40,7 @@ export default function NavbarUserAvatar({ user, menuItems }: Props) {
         <Menu.Label>{displayName}</Menu.Label>
 
         <Menu.Divider />
-        {menuItems?.map(({ href, label, icon }) => (
+        {menuItems?.map(({ href, icon, label }) => (
           <Link key={href} href={href}>
             <Menu.Item leftSection={icon}>{label}</Menu.Item>
           </Link>

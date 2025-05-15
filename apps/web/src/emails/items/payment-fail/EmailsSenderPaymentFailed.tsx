@@ -32,10 +32,10 @@ function productHrefs(product: Product) {
 }
 
 export default async function sendPaymentFailedEmail({
-  name,
   email,
-  userId,
+  name,
   product,
+  userId,
 }: Readonly<{
   email: string;
   name: string | null;

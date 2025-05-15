@@ -23,8 +23,8 @@ type Props = Readonly<{
 
 export default function InterviewsQuestionsCategoryPreparePage({
   bottomContent,
-  questions,
   listType,
+  questions,
 }: Props) {
   const intl = useIntl();
   const questionFeatures = useInterviewsQuestionsFeatures();
@@ -92,7 +92,7 @@ export default function InterviewsQuestionsCategoryPreparePage({
               QuestionsCount: () => <>{QuestionCountTotal}</>,
               QuestionsList: () => (
                 <ul>
-                  {questions.map(({ metadata, info }) => (
+                  {questions.map(({ info, metadata }) => (
                     <li key={metadata.slug}>
                       <Anchor href={metadata.href}>{info.title}</Anchor>
                     </li>

@@ -51,15 +51,15 @@ type Props = Readonly<{
 
 export function JavaScriptCodingWorkspaceContextProvider({
   children,
+  language,
   metadata,
+  onLanguageChange,
   skeleton,
   workspace,
-  language,
-  onLanguageChange,
 }: Props) {
   const { deleteCodeFromLocalStorage } = useCodingWorkspaceContext();
   const { sandpack } = useSandpack();
-  const { updateFile, resetFile, files } = sandpack;
+  const { files, resetFile, updateFile } = sandpack;
 
   const mainFile = files[workspace.main];
   const mainFileCode = mainFile.code;

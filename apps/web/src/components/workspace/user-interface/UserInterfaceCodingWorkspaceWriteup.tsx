@@ -63,15 +63,15 @@ export default function UserInterfaceCodingWorkspaceWriteup({
   contentType,
   environment = 'workspace',
   framework,
-  onFrameworkChange,
+  info,
   metadata,
-  nextQuestions,
-  similarQuestions,
-  showAd,
   mode,
+  nextQuestions,
+  onFrameworkChange,
+  showAd,
+  similarQuestions,
   studyListKey,
   writeup,
-  info,
 }: Props) {
   const copyRef = useQuestionLogEventCopyContents<HTMLDivElement>();
   const listType =

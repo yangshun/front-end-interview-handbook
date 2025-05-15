@@ -10,8 +10,8 @@ import Img from '~/components/ui/Img';
 import DialogBaseOverlay from '../ui/Dialog/DialogBaseOverlay';
 
 export default function MDXImage({
-  ref: _ref, // TODO(ui): merge refs
   alt,
+  ref: _ref, // TODO(ui): merge refs
   ...props
 }: ComponentProps<'img'>) {
   const [canExpand, setCanExpand] = useState(false);

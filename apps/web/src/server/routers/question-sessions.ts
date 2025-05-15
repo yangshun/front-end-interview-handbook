@@ -11,7 +11,7 @@ export const questionSessionRouter = router({
         studyListKey: z.string(),
       }),
     )
-    .query(async ({ input: { studyListKey }, ctx: { viewer } }) => {
+    .query(async ({ ctx: { viewer }, input: { studyListKey } }) => {
       const session = await prisma.learningSession.findFirst({
         include: {
           progress: true,
@@ -49,7 +49,7 @@ export const questionSessionRouter = router({
         studyListKey: z.string(),
       }),
     )
-    .mutation(async ({ input: { studyListKey }, ctx: { viewer } }) => {
+    .mutation(async ({ ctx: { viewer }, input: { studyListKey } }) => {
       const existingSession = await prisma.learningSession.findFirst({
         where: {
           key: studyListKey,
@@ -79,7 +79,7 @@ export const questionSessionRouter = router({
         sessionId: z.string(),
       }),
     )
-    .mutation(async ({ input: { sessionId }, ctx: { viewer } }) => {
+    .mutation(async ({ ctx: { viewer }, input: { sessionId } }) => {
       // Make sure the session is active.
       const session = await prisma.learningSession.findFirst({
         where: {

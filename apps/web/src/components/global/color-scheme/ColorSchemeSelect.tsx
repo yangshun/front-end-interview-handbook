@@ -12,8 +12,8 @@ type Props = Readonly<{
 }>;
 
 export default function ColorSchemeSelect({
-  display,
   colorScheme,
+  display,
   onChange,
 }: Props) {
   const intl = useIntl();

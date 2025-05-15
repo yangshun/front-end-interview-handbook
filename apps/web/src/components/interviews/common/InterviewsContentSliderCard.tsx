@@ -22,12 +22,12 @@ type Props = Readonly<{
 }>;
 
 export default function InterviewsContentSliderCard({
-  title,
+  className,
+  count,
   description,
   href,
-  count,
+  title,
   type,
-  className,
 }: Props) {
   const backgroundColorClass = 'bg-white dark:bg-neutral-900';
   const tagCommonClass = clsx(

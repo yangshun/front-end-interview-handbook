@@ -55,12 +55,12 @@ type Props = Readonly<{
 }>;
 
 export default function SponsorsAdvertiseRequestReadonly({
+  alertMessage,
   data,
   onEdit,
-  alertMessage,
 }: Props) {
   const intl = useIntl();
-  const { ads, company, emails, agreement, createdAt, review, updatedAt } =
+  const { ads, agreement, company, createdAt, emails, review, updatedAt } =
     data;
   const { address, signatoryName, signatoryTitle } = company!;
   const addressString = [
@@ -422,7 +422,7 @@ function AdFormatCard({ ad }: Readonly<{ ad: SponsorsAdFormatFormItem }>) {
                 {ad.weeks.map((week) => {
                   const parts = week.split('/').map(Number);
 
-                  const { start, end } = sponsorsWeekDateRange(
+                  const { end, start } = sponsorsWeekDateRange(
                     parts[0],
                     parts[1],
                   );
@@ -527,8 +527,8 @@ function AdFormatCard({ ad }: Readonly<{ ad: SponsorsAdFormatFormItem }>) {
 }
 
 function AdDetailRow({
-  label,
   children,
+  label,
 }: {
   children: React.ReactNode;
   label: string;

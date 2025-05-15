@@ -39,8 +39,8 @@ type CommentFormInput = Readonly<{
 export default function ProjectsDiscussionsReplyInput({
   hasNext,
   onCancel,
-  viewer,
   parentComment,
+  viewer,
 }: Props) {
   const intl = useIntl();
   const trpcUtils = trpc.useUtils();
@@ -53,7 +53,7 @@ export default function ProjectsDiscussionsReplyInput({
   const attrs = getDiscussionsCommentBodyAttributes(intl);
   const discussionsCommentBodySchema = useDiscussionsCommentBodySchema();
 
-  const { handleSubmit, setValue, getValues, formState } =
+  const { formState, getValues, handleSubmit, setValue } =
     useForm<CommentFormInput>({
       defaultValues: {
         body: '',

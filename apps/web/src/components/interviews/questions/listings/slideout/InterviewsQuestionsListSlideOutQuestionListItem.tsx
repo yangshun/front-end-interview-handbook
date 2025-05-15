@@ -46,15 +46,15 @@ export default function InterviewsQuestionsListSlideOutQuestionListItem<
   checkIfCompletedQuestion,
   hasCompletedQuestion,
   href,
-  mode,
-  listType,
-  onClick,
   isActiveQuestion,
+  listType,
+  mode,
+  onClick,
   question,
 }: Props<Q>) {
   const ref = useRef<HTMLDivElement>(null);
   const { userProfile } = useUserProfile();
-  const { metadata, info } = question;
+  const { info, metadata } = question;
 
   useEffect(() => {
     if (!isActiveQuestion) {

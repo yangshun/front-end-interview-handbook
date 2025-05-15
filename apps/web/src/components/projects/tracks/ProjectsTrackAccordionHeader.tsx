@@ -19,7 +19,7 @@ export default function ProjectsTrackAccordionHeader({
   isViewingOwnProfile,
   track,
 }: Props) {
-  const { points, metadata, challenges, info } = track;
+  const { challenges, info, metadata, points } = track;
   const { description, title } = info;
   const completed = completedCount === challenges.length;
 

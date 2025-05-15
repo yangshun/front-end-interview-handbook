@@ -20,7 +20,7 @@ export default function ProjectsSkillRoadmapParentHeading({
 }: Props) {
   const intl = useIntl();
 
-  const { title, points, premium, totalChallenges, completedChallenges } =
+  const { completedChallenges, points, premium, title, totalChallenges } =
     group;
   const completedAll =
     totalChallenges === completedChallenges && completedChallenges > 0;

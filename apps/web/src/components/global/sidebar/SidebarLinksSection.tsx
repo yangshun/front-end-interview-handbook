@@ -43,8 +43,8 @@ export type SidebarLinkEntity = SidebarItemList | SidebarLink;
 
 function isItemActive(
   {
-    href,
     currentMatchRegex,
+    href,
   }: Readonly<{ currentMatchRegex?: RegExp; href: string }>,
   pathname: string | null,
 ) {
@@ -64,13 +64,13 @@ function itemTextSizeClass(size: SidebarSize) {
 
 function SidebarLinkItem({
   addOnElement,
+  currentMatchRegex,
   href,
   icon: Icon,
   label,
-  showIcon = false,
-  currentMatchRegex,
-  size,
   onItemClick,
+  showIcon = false,
+  size,
 }: Readonly<{ onItemClick?: () => void; size: SidebarSize }> & SidebarLink) {
   const { pathname } = useI18nPathname();
   const isActive = isItemActive({ currentMatchRegex, href }, pathname);
@@ -130,9 +130,9 @@ function SidebarLinkItem({
 function SidebarLinks({
   comeIntoFocus,
   item,
+  onItemClick,
   onToggle,
   size,
-  onItemClick,
 }: Readonly<{
   comeIntoFocus?: boolean;
   item: SidebarLinkEntity;
@@ -233,9 +233,9 @@ function SidebarLinks({
 export default function SidebarLinksSection({
   defaultOpenSections = [],
   items,
+  onItemClick,
   size = 'sm',
   type,
-  onItemClick,
 }: Readonly<{
   defaultOpenSections?: ReadonlyArray<string>;
   items: ReadonlyArray<SidebarLinkEntity>;

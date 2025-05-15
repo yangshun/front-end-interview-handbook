@@ -10,8 +10,8 @@ type Props = Readonly<{
   params: Readonly<{ locale: string; slug: string }>;
 }>;
 
-export default async function Layout({ params, children }: Props) {
-  const { slug, locale } = params;
+export default async function Layout({ children, params }: Props) {
+  const { locale, slug } = params;
 
   const [{ viewerProjectsProfile }, viewerUnlockedAccess, { challenge }] =
     await Promise.all([

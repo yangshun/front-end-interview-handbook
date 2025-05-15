@@ -14,10 +14,10 @@ type Props = Readonly<{
 }>;
 
 export default function InterviewsDashboardLearningSection({
-  title,
-  description,
   children,
   className,
+  description,
+  title,
 }: Props) {
   return (
     <div className={clsx('flex flex-col gap-6', className)}>

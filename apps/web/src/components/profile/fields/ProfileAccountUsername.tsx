@@ -48,7 +48,7 @@ export default function ProfileAccountUsername() {
     },
   });
 
-  const { control, handleSubmit, reset, setError, formState } =
+  const { control, formState, handleSubmit, reset, setError } =
     useForm<UserNameFormValues>({
       defaultValues: {
         username: '',

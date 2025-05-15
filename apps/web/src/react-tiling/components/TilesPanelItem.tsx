@@ -38,19 +38,19 @@ export type TilesPanelItemMode = 'collapsed' | 'default' | 'maximized';
 
 export default function TilesPanelItem<TabType extends string>({
   activeTabId,
-  id: panelId,
   collapsed = false,
   collapsedTitle,
   collapsible,
   defaultSize = 100,
   fullScreen,
-  tabs,
+  getTabLabel,
+  id: panelId,
   level,
   order,
-  getTabLabel,
   parentDirection,
   renderTab,
   sizeAfterExpansion,
+  tabs,
 }: Readonly<{
   activeTabId: TabType | null;
   collapsed?: boolean;

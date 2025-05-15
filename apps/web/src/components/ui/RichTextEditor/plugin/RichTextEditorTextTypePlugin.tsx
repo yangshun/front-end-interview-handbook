@@ -114,7 +114,7 @@ export default function RichTextEditorTextTypePlugin() {
     <RichTextEditorDropdownMenu
       icon={selectedValue.icon}
       label={selectedValue.label}>
-      {typeOptions.map(({ label, value, icon }) => (
+      {typeOptions.map(({ icon, label, value }) => (
         <DropdownMenu.Item
           key={value}
           icon={icon}

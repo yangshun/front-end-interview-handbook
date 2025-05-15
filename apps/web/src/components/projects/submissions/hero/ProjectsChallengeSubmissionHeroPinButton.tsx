@@ -23,8 +23,8 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsChallengeSubmissionHeroPinButton({
-  submissionId,
   projectsProfile,
+  submissionId,
 }: Props) {
   const trpcUtils = trpc.useUtils();
   const intl = useIntl();
@@ -35,7 +35,7 @@ export default function ProjectsChallengeSubmissionHeroPinButton({
 
   const has3Pinned = pinnedSubmissionsCount >= 3;
 
-  const { isLoading, data: pinnedSubmissions } =
+  const { data: pinnedSubmissions, isLoading } =
     trpc.projects.submissions.listPinned.useQuery(
       { projectsProfileId: projectsProfile?.id ?? '' },
       {

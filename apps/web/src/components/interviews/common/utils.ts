@@ -5,8 +5,8 @@ import type {
 } from '~/components/ui/theme';
 
 export default function getProgressBarGradient({
-  value,
   total,
+  value,
 }: Readonly<{
   total: number;
   value: number;

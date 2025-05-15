@@ -20,12 +20,12 @@ type Props = Readonly<{
 }>;
 
 export default function QuestionCountLabel({
-  count,
   color = 'default',
+  count,
   icon,
   label: labelProp,
-  showQuestionsLabel = true,
   showIcon = false,
+  showQuestionsLabel = true,
   size = 'body3',
 }: Props) {
   const id = useId();

@@ -74,9 +74,9 @@ function CheckboxInput(
     errorMessage,
     isLabelHidden = false,
     name,
+    onChange,
     size = 'md',
     value,
-    onChange,
     ...props
   }: Props,
   ref: ForwardedRef<HTMLInputElement>,

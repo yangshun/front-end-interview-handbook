@@ -35,14 +35,14 @@ type Props = Readonly<{
 export default function InterviewsPageHeader({
   beforeDividerElement,
   children,
+  className,
   description,
   features,
+  headingAddOnElement,
   logoImgSrc,
   metadata,
   sideElement,
-  headingAddOnElement,
   title,
-  className,
   ...props
 }: Props) {
   const iconEl =

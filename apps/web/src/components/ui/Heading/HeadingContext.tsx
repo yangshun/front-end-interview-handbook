@@ -22,8 +22,8 @@ type Props = Readonly<{
 
 export default function Section({
   children,
-  level: levelProp,
   increment = true,
+  level: levelProp,
 }: Props) {
   const { level } = useHeadingLevel();
 

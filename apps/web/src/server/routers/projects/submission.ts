@@ -87,17 +87,17 @@ export const projectsChallengeSubmissionItemRouter = router({
     .input(projectsChallengeSubmissionFormSchema)
     .mutation(
       async ({
-        input: {
-          slug,
-          title,
-          summary,
-          roadmapSkills,
-          techStackSkills,
-          deploymentUrls,
-          repositoryUrl,
-          implementation,
-        },
         ctx: { projectsProfileId },
+        input: {
+          deploymentUrls,
+          implementation,
+          repositoryUrl,
+          roadmapSkills,
+          slug,
+          summary,
+          techStackSkills,
+          title,
+        },
       }) => {
         const existingSession = await prisma.projectsChallengeSession.findFirst(
           {
@@ -174,7 +174,7 @@ export const projectsChallengeSubmissionItemRouter = router({
       }),
     )
     .mutation(
-      async ({ input: { submissionId }, ctx: { projectsProfileId } }) => {
+      async ({ ctx: { projectsProfileId }, input: { submissionId } }) => {
         await prisma.projectsChallengeSubmission.delete({
           where: {
             id: submissionId,
@@ -282,7 +282,7 @@ export const projectsChallengeSubmissionItemRouter = router({
         submissionId: z.string().uuid(),
       }),
     )
-    .query(async ({ input: { submissionId }, ctx: { projectsProfileId } }) => {
+    .query(async ({ ctx: { projectsProfileId }, input: { submissionId } }) => {
       // Check if the user has already voted for this submission
       const existingVote =
         await prisma.projectsChallengeSubmissionVote.findFirst({
@@ -321,7 +321,7 @@ export const projectsChallengeSubmissionItemRouter = router({
       }),
     )
     .mutation(
-      async ({ input: { submissionId }, ctx: { projectsProfileId } }) => {
+      async ({ ctx: { projectsProfileId }, input: { submissionId } }) => {
         const existingPins =
           await prisma.projectsChallengeSubmissionPin.findMany({
             where: {
@@ -355,7 +355,7 @@ export const projectsChallengeSubmissionItemRouter = router({
       }),
     )
     .mutation(
-      async ({ input: { submissionId }, ctx: { projectsProfileId } }) => {
+      async ({ ctx: { projectsProfileId }, input: { submissionId } }) => {
         const submission = await prisma.projectsChallengeSubmission.findUnique({
           where: {
             id: submissionId,
@@ -438,7 +438,7 @@ export const projectsChallengeSubmissionItemRouter = router({
       }),
     )
     .mutation(
-      async ({ input: { submissionIds }, ctx: { projectsProfileId } }) => {
+      async ({ ctx: { projectsProfileId }, input: { submissionIds } }) => {
         await prisma.projectsChallengeSubmissionPin.deleteMany({
           where: {
             profileId: projectsProfileId,
@@ -456,7 +456,7 @@ export const projectsChallengeSubmissionItemRouter = router({
       }),
     )
     .mutation(
-      async ({ input: { submissionId }, ctx: { projectsProfileId } }) => {
+      async ({ ctx: { projectsProfileId }, input: { submissionId } }) => {
         const deletedVote = await prisma.projectsChallengeSubmissionVote.delete(
           {
             where: {
@@ -481,17 +481,17 @@ export const projectsChallengeSubmissionItemRouter = router({
     )
     .mutation(
       async ({
-        input: {
-          submissionId,
-          title,
-          roadmapSkills,
-          techStackSkills,
-          summary,
-          deploymentUrls,
-          repositoryUrl,
-          implementation,
-        },
         ctx: { projectsProfileId },
+        input: {
+          deploymentUrls,
+          implementation,
+          repositoryUrl,
+          roadmapSkills,
+          submissionId,
+          summary,
+          techStackSkills,
+          title,
+        },
       }) => {
         return await prisma.$transaction(
           async (tx) => {
@@ -529,7 +529,7 @@ export const projectsChallengeSubmissionItemRouter = router({
       },
     ),
   userCompletedTimes: projectsChallengeProcedure.query(
-    async ({ input: { slug }, ctx: { projectsProfileId } }) => {
+    async ({ ctx: { projectsProfileId }, input: { slug } }) => {
       return await prisma.projectsChallengeSubmission.count({
         where: {
           profileId: projectsProfileId,
@@ -545,7 +545,7 @@ export const projectsChallengeSubmissionItemRouter = router({
       }),
     )
     .mutation(
-      async ({ input: { submissionId }, ctx: { projectsProfileId } }) => {
+      async ({ ctx: { projectsProfileId }, input: { submissionId } }) => {
         try {
           // Create a new vote for the submission.
           const vote = await prisma.projectsChallengeSubmissionVote.create({

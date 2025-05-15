@@ -25,13 +25,13 @@ type Props = Readonly<{
 }>;
 
 export default function Timer({
+  className,
   color,
   days,
   hours,
   minutes,
   seconds,
   variant = 'default',
-  className,
 }: Props) {
   return (
     <div

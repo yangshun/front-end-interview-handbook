@@ -43,16 +43,16 @@ type Props = Readonly<{
 export default function InterviewsQuestionsCategoryPage({
   categoryTabs,
   description,
-  guideCardTitle,
-  guideCardDescription,
-  longDescription,
   features,
+  guideCardDescription,
+  guideCardTitle,
+  guides,
+  listType,
+  longDescription,
   questionCompletionCount,
   questionList,
   searchPlaceholder,
-  listType,
   title,
-  guides,
 }: Props) {
   const intl = useIntl();
   const [isSidebarCollapsed] = useInterviewsSidebarCollapsed();

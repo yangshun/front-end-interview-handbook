@@ -8,7 +8,7 @@ import Select from '~/components/ui/Select';
 
 export default function CodingWorkspaceThemeSelect() {
   const intl = useIntl();
-  const { themeKey, setThemeKey } = useCodingPreferences();
+  const { setThemeKey, themeKey } = useCodingPreferences();
 
   return (
     <Select

@@ -1,6 +1,6 @@
 export async function sendGoogleChatMessage({
-  projectName,
   additionalInfo,
+  projectName,
   subreddits,
 }: {
   additionalInfo: string;

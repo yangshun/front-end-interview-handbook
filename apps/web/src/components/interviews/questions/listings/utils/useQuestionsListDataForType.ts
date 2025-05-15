@@ -83,7 +83,7 @@ export function useQuestionsListTypeCurrent(
 export function useQuestionsListDataForType(
   listType: QuestionListTypeData | null,
 ) {
-  const { isLoading, data } = trpc.questionLists.getQuestions.useQuery(
+  const { data, isLoading } = trpc.questionLists.getQuestions.useQuery(
     (() => {
       switch (listType?.type) {
         case 'practice':

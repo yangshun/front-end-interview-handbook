@@ -35,7 +35,7 @@ function getIncompleteTracks(
   challengeHistoricalStatuses: ProjectsChallengeHistoricalStatuses,
 ): ReadonlyArray<ProjectsTrackItem> {
   return projectTracks.filter((track) => {
-    const { metadata, challenges } = track;
+    const { challenges, metadata } = track;
     const completedChallengesCount =
       projectsChallengeCountCompletedIncludingHistorical(
         challengeHistoricalStatuses ?? {},
@@ -52,10 +52,10 @@ function getIncompleteTracks(
 }
 
 export default function ProjectsChallengeSubmissionSuccessTrackProgress({
-  currentTrack,
   challengeHistoricalStatuses,
-  projectTracks,
+  currentTrack,
   isViewerPremium,
+  projectTracks,
 }: Props) {
   const intl = useIntl();
   const [showTrackDialog, setShowTrackDialog] = useState(false);
@@ -73,7 +73,7 @@ export default function ProjectsChallengeSubmissionSuccessTrackProgress({
       challengeHistoricalStatuses ?? {},
       currentTrack.challenges,
     );
-  const { info, challenges } = currentTrack;
+  const { challenges, info } = currentTrack;
 
   const notStartedChallenges = challenges.filter(
     (challenge) => challenge.status == null,

@@ -32,11 +32,11 @@ type ProductValue = 'interviews' | 'projects';
 function NavProductMenuItem({
   beta = false,
   href,
+  isLabelHidden,
   label,
+  logo,
   product,
   showNewIndicator,
-  logo,
-  isLabelHidden,
 }: Readonly<{
   beta?: boolean;
   href: string;
@@ -119,8 +119,8 @@ const roadmapLinks: Record<ProductValue, string> = {
 };
 
 export default function NavProductPopoverContent({
-  product,
   onClose,
+  product,
   ...props
 }: Props) {
   const intl = useIntl();
@@ -242,7 +242,7 @@ export default function NavProductPopoverContent({
                 id: '0Rkn1f',
               }),
             },
-          ].map(({ label, href, icon: Icon, labelAddOn }) => (
+          ].map(({ href, icon: Icon, label, labelAddOn }) => (
             <div key={href} className="inline-flex items-center gap-2">
               <Anchor
                 className={clsx(

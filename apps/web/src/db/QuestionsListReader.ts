@@ -254,8 +254,8 @@ async function fetchQuestionsListSystemDesign(
 
 async function fetchQuestionsListForFramework(
   {
-    framework,
     format,
+    framework,
   }: { format?: QuestionPracticeFormat; framework: QuestionFramework },
   locale: string,
 ): Promise<
@@ -321,8 +321,8 @@ async function fetchQuestionsListQuizForFramework(
 
 async function fetchQuestionsListForLanguage(
   {
-    language,
     format,
+    language,
   }: { format?: QuestionPracticeFormat; language: QuestionLanguage },
   locale: string,
 ): Promise<
@@ -533,13 +533,13 @@ export async function fetchQuestion(
   requestedLocale: string,
 ): Promise<{ loadedLocale: string; question: InterviewsQuestionItemMinimal }> {
   const [
-    { questions: quizQuestions, loadedLocale: quizLoadedLocale },
-    { questions: algoQuestions, loadedLocale: algoLoadedLocale },
-    { questions: jsQuestions, loadedLocale: jsLoadedLocale },
-    { questions: uiQuestions, loadedLocale: uiLoadedLocale },
+    { loadedLocale: quizLoadedLocale, questions: quizQuestions },
+    { loadedLocale: algoLoadedLocale, questions: algoQuestions },
+    { loadedLocale: jsLoadedLocale, questions: jsQuestions },
+    { loadedLocale: uiLoadedLocale, questions: uiQuestions },
     {
-      questions: systemDesignQuestions,
       loadedLocale: systemDesignLoadedLocale,
+      questions: systemDesignQuestions,
     },
   ] = await Promise.all([
     fetchQuestionsListQuiz(requestedLocale),

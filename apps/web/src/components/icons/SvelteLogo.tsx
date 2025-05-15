@@ -4,8 +4,8 @@ type Props = React.ComponentProps<'svg'> &
   Readonly<{ colorClassName?: string }>;
 
 export default function SvelteLogo({
-  colorClassName = 'text-[#ff3e00]',
   className,
+  colorClassName = 'text-[#ff3e00]',
   ...props
 }: Props) {
   return (

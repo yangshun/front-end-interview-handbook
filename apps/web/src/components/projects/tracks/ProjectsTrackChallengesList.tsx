@@ -31,9 +31,9 @@ type Props = Readonly<{
 
 export default function ProjectsTrackChallengesList({
   challenges,
+  showEndProgressLine = false,
   userProfile,
   view = 'tracks',
-  showEndProgressLine = false,
 }: Props) {
   const isSubmissionView = view === 'submission';
 

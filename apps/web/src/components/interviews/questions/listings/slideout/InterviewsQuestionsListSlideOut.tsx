@@ -50,13 +50,13 @@ export default function InterviewsQuestionsListSlideOut(props: Props) {
 }
 
 function InterviewsQuestionsListSlideOutImpl({
-  framework,
-  isLoading,
-  initialListType,
-  listIsShownInSidebarOnDesktop,
-  currentQuestionPosition,
-  processedQuestions,
   currentQuestionHash,
+  currentQuestionPosition,
+  framework,
+  initialListType,
+  isLoading,
+  listIsShownInSidebarOnDesktop,
+  processedQuestions,
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE,
 }: Props) {
   const intl = useIntl();

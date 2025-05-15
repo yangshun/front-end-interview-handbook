@@ -50,12 +50,12 @@ type Props = Readonly<{
 
 export default function InterviewsDashboardMoreLearningSection({
   companyGuides,
-  studyPlans,
+  focusAreas,
+  guidesProgress,
   questionListSessions,
   questions,
   questionsProgress,
-  guidesProgress,
-  focusAreas,
+  studyPlans,
 }: Props) {
   return (
     <>

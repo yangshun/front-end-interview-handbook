@@ -22,24 +22,24 @@ type Props = Readonly<{
 
 export default function CodingWorkspaceExplorer({
   bottomAddOn,
-  readOnly = true,
   onOpenFile,
+  readOnly = true,
 }: Props) {
   const {
     sandpack: {
-      files,
-      setActiveFile,
       activeFile,
       addFile,
-      openFile,
       closeFile,
       deleteFile,
+      files,
+      openFile,
+      setActiveFile,
       visibleFiles,
     },
   } = useSandpack();
   const { formatMessage } = useIntl();
 
-  const { rootDirectory, directoryPaths } = useMemo(() => {
+  const { directoryPaths, rootDirectory } = useMemo(() => {
     return createDirectoriesFromFilePaths(Object.keys(files));
   }, [files]);
 
@@ -73,7 +73,7 @@ export default function CodingWorkspaceExplorer({
   };
 
   const handleRename = (item: FileExplorerItem, newPath: string) => {
-    const { isDirectory, fullPath: oldPath } = item;
+    const { fullPath: oldPath, isDirectory } = item;
 
     setRenamingItem(null);
     if (oldPath === newPath) {
@@ -223,7 +223,7 @@ export default function CodingWorkspaceExplorer({
       return false;
     }
 
-    const { type, path } = creatingNewItem;
+    const { path, type } = creatingNewItem;
 
     if (!name.trim()) {
       setCreatingNewItem(null);

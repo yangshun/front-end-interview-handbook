@@ -52,7 +52,7 @@ export const projectsNotificationsRouter = router({
       }),
     )
     .query(
-      async ({ ctx: { projectsProfileId }, input: { pagination, cursor } }) => {
+      async ({ ctx: { projectsProfileId }, input: { cursor, pagination } }) => {
         const notifications = await prisma.projectsNotification.findMany({
           cursor: cursor ? { id: cursor } : undefined,
           include: {

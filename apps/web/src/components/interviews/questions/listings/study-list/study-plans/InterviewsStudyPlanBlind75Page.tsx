@@ -41,9 +41,9 @@ type Props = Readonly<{
 
 export default function InterviewsStudyPlanBlind75Page({
   bottomContent,
-  studyList,
   questions,
   questionsSlugs,
+  studyList,
 }: Props) {
   const intl = useIntl();
   const user = useUser();

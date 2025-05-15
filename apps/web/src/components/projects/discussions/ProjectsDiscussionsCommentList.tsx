@@ -25,8 +25,8 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsDiscussionsCommentList({
-  entityId,
   domain,
+  entityId,
   viewer,
 }: Props) {
   const intl = useIntl();
@@ -50,7 +50,7 @@ export default function ProjectsDiscussionsCommentList({
     );
   }
 
-  const { count, comments } = data ?? {};
+  const { comments, count } = data ?? {};
 
   if (comments?.length === 0) {
     return (

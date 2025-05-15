@@ -28,8 +28,8 @@ export default function ProjectsChallengeStepsTabs({
   challenge,
   className,
   label,
-  tabs,
   onSelect,
+  tabs,
 }: Props) {
   // Merge hints of the same value, and calculate the column span for each hint
   const mergedHints = useMemo(() => {
@@ -74,7 +74,7 @@ export default function ProjectsChallengeStepsTabs({
           style={{
             gridTemplateColumns: `repeat(${tabs.length}, minmax(0, 1fr))`,
           }}>
-          {mergedHints.map(({ hint, columnSpan }) => (
+          {mergedHints.map(({ columnSpan, hint }) => (
             <div
               key={hint}
               className="flex flex-col gap-3"

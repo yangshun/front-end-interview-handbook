@@ -24,10 +24,10 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsChallengeSubmissionLockedPage({
-  viewerId,
   challenge,
   submission,
   viewerAccess,
+  viewerId,
   viewerProjectsProfile,
 }: Props) {
   const parentRef = useRef(null);

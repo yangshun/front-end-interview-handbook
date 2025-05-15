@@ -14,7 +14,7 @@ export default function tabClose<TabType>(
   payload: TilesActionTabClose<TabType>['payload'],
   shouldPrune = true,
 ): TilesPanelConfig<TabType> {
-  const { tabId, onTabsClose } = payload;
+  const { onTabsClose, tabId } = payload;
   const closedTabs: Array<TabType> = [];
   let newTiles = tabCloseImpl(tiles, tabId, {
     onTabsClose: (...tabIds) => {

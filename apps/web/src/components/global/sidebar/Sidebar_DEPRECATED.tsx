@@ -28,8 +28,8 @@ export type SidebarItem = NavbarTopLevelItem;
 export type SidebarItems = ReadonlyArray<NavbarTopLevelItem>;
 
 export function SidebarDropdownMenu({
-  moreMenuItems,
   moreEndMenuItems,
+  moreMenuItems,
 }: Readonly<{
   moreEndMenuItems?: React.ReactElement | false | null | undefined;
   moreMenuItems?: React.ReactElement | false | null | undefined;
@@ -119,12 +119,12 @@ export function SidebarDropdownMenu({
 
 export function SidebarCollapsed({
   moreMenuItems,
-  topAddonElements,
-  sidebarItems,
-  onCollapseClick,
-  showPremiumDiscord,
-  product,
   notificationItem,
+  onCollapseClick,
+  product,
+  showPremiumDiscord,
+  sidebarItems,
+  topAddonElements,
 }: Readonly<{
   moreMenuItems: React.ReactElement | false | null | undefined;
   notificationItem?: React.ReactElement | false | null | undefined;
@@ -226,16 +226,16 @@ export function SidebarCollapsed({
 }
 
 export function SidebarExpanded({
-  renderTopAddonElements,
-  renderBottomAddonElements,
+  bottomBarItems,
   isLoading,
   isViewerPremium,
   moreMenuItems,
-  sidebarItems,
-  onCollapseClick,
-  bottomBarItems,
   notificationItem,
+  onCollapseClick,
   product,
+  renderBottomAddonElements,
+  renderTopAddonElements,
+  sidebarItems,
 }: Readonly<{
   bottomBarItems?: React.ReactElement | false | null | undefined;
   isLoading: boolean;

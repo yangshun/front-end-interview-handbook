@@ -15,8 +15,8 @@ type Props = Readonly<{
 
 export default function ProjectsChallengeGetStartedSkillSelection({
   challengeDefaultSkills,
-  skills,
   onChangeSkills,
+  skills,
 }: Props) {
   const intl = useIntl();
   const roadmapSkillsAttrs = getProjectsRoadmapSkillsInputAttributes(

@@ -27,11 +27,11 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsProfileAvatar({
-  points = 0,
-  userProfile,
   className,
-  size = 'lg',
   mode = 'hovercard',
+  points = 0,
+  size = 'lg',
+  userProfile,
 }: Props) {
   const { level, progress } = projectsReputationLevel(points ?? 0);
   const avatar = (

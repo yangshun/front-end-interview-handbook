@@ -32,14 +32,14 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsChallengeSubmissionSuccessBody({
-  isLeveledUp,
-  level,
-  gainedPoints,
-  roadmapSkillsRepRecords,
-  currentTrack,
   challengeHistoricalStatuses,
-  projectTracks,
+  currentTrack,
+  gainedPoints,
+  isLeveledUp,
   isViewerPremium,
+  level,
+  projectTracks,
+  roadmapSkillsRepRecords,
   skills,
 }: Props) {
   return (

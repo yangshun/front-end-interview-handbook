@@ -12,7 +12,7 @@ export default function MDXTestExamples({ testCases }: Props) {
   return (
     <div>
       <h2>Examples</h2>
-      {testCases.map(({ input, output, explanation }, index) => (
+      {testCases.map(({ explanation, input, output }, index) => (
         // eslint-disable-next-line react/no-array-index-key
         <pre key={index}>
           <ScrollArea

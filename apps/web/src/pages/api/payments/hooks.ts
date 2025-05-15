@@ -52,7 +52,7 @@ export default async function handler(
         return res.send('Missing customerId');
       }
 
-      const { productDomain, plan } = await purchaseCustomerAddPlan(
+      const { plan, productDomain } = await purchaseCustomerAddPlan(
         customerId,
         invoice,
       );
@@ -63,7 +63,7 @@ export default async function handler(
     }
 
     case 'customer.subscription.deleted': {
-      const { productDomain, plan, customerId } =
+      const { customerId, plan, productDomain } =
         await purchaseCustomerRemovePlan(event.data.object);
 
       return res.send(
@@ -73,7 +73,7 @@ export default async function handler(
 
     case 'payment_intent.payment_failed': {
       const paymentIntent = event.data.object as Stripe.PaymentIntent;
-      const { last_payment_error: error, customer: customerId } = paymentIntent;
+      const { customer: customerId, last_payment_error: error } = paymentIntent;
 
       if (error == null) {
         return res.send(`No payment error found for ${customerId}`);
@@ -85,7 +85,7 @@ export default async function handler(
         return res.send(`No payment method found for error for ${customerId}`);
       }
 
-      const { name, email } = paymentMethod.billing_details;
+      const { email, name } = paymentMethod.billing_details;
 
       if (customerId == null) {
         return res.send(`No customerId found for payment error`);

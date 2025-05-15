@@ -14,9 +14,9 @@ export default function QuestionListingFilterItem<
   T extends string,
   Q extends InterviewsQuestionItemMinimal,
 >({
+  coveredValues,
   section,
   values,
-  coveredValues,
 }: Readonly<{
   coveredValues?: Set<T>;
   section: QuestionFilter<T, Q>;

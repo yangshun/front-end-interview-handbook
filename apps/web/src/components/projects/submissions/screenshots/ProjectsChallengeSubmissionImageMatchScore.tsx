@@ -34,8 +34,8 @@ type Props = Readonly<{
 
 export default function ProjectsChallengeSubmissionImageMatchScore({
   baseImage,
-  userSubmittedImage,
   breakpoint,
+  userSubmittedImage,
 }: Props) {
   const intl = useIntl();
   const [isCalculating, setIsCalculating] = useState(false);

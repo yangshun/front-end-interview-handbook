@@ -23,12 +23,12 @@ export default function DropdownMenuItem({
   color,
   endAddOn,
   href,
-  locale,
-  refresh,
   icon: Icon,
   isSelected = false,
   label,
+  locale,
   onClick,
+  refresh,
 }: Props) {
   const props = {
     children: (

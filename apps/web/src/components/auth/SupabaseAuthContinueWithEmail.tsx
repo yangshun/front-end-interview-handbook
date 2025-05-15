@@ -12,8 +12,8 @@ type Props = Readonly<{
 }>;
 
 export default function SupabaseAuthContinueWithEmail({
-  setAuthView,
   authView,
+  setAuthView,
 }: Props) {
   const intl = useIntl();
 

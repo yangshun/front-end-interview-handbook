@@ -103,7 +103,7 @@ function getBlogContent(slug: string) {
 
 export default function Page({ params }: Props) {
   const { slug } = params;
-  const { subseriesData, metadata, posts } = getBlogContent(slug || '');
+  const { metadata, posts, subseriesData } = getBlogContent(slug || '');
 
   return (
     <BlogSeriesLayout metadata={metadata}>

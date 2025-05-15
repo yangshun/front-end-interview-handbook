@@ -15,14 +15,14 @@ import NavbarFeatureIcon from './NavbarFeatureIcon';
 import type { NavPopoverLinkItem } from './NavTypes';
 
 export default function NavbarPopoverLink({
-  label,
+  bottomEl,
   href,
+  label,
+  labelAddon,
   number,
   onClick,
-  sublabel,
   showAsNumber,
-  labelAddon,
-  bottomEl,
+  sublabel,
   ...props
 }: NavPopoverLinkItem & Readonly<{ number: number }>) {
   const el = (

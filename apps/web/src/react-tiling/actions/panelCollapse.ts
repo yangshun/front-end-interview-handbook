@@ -12,7 +12,7 @@ export default function panelCollapse<TabType>(
   tiles: TilesPanelConfig<TabType>,
   payload: TilesActionPanelCollapse['payload'],
 ): TilesPanelConfig<TabType> {
-  const { panelId, collapsed } = payload;
+  const { collapsed, panelId } = payload;
 
   return panelCollapseImpl(tiles, panelId, collapsed);
 }

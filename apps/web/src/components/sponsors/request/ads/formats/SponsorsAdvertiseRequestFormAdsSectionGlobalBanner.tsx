@@ -40,12 +40,12 @@ type Props = Readonly<{
 }>;
 
 export default function SponsorsAdvertiseRequestFormAdsSectionGlobalBanner({
-  onCancel,
-  onSubmit,
-  updateStepStatus,
-  unavailableWeeks,
   defaultValues,
   mode,
+  onCancel,
+  onSubmit,
+  unavailableWeeks,
+  updateStepStatus,
 }: Props) {
   const intl = useIntl();
   const adSchema = useSponsorsGlobalBannerAdSchema();
@@ -63,9 +63,9 @@ export default function SponsorsAdvertiseRequestFormAdsSectionGlobalBanner({
   });
   const {
     control,
-    watch,
+    formState: { isDirty, isValid },
     setValue,
-    formState: { isValid, isDirty },
+    watch,
   } = methods;
 
   const selectedWeeks = watch('weeks');

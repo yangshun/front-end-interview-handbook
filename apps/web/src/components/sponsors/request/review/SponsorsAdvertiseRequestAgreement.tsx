@@ -31,13 +31,13 @@ const forceMajeureDays = 7;
 const paymentDueDays = 5;
 
 export default function SponsorsAdvertiseRequestAgreement({
-  contactEmails,
-  advertiserFullLegalName,
-  authorizedSignatoryName,
   address,
   ads,
-  totalAmount,
+  advertiserFullLegalName,
+  authorizedSignatoryName,
   authorizedSignatoryTitle,
+  contactEmails,
+  totalAmount,
 }: Props) {
   const adsFormatData = useSponsorsAdFormatData();
 
@@ -149,7 +149,7 @@ export default function SponsorsAdvertiseRequestAgreement({
               {ad.weeks.map((week) => {
                 const parts = week.split('/').map(Number);
 
-                const { start, end } = sponsorsWeekDateRange(
+                const { end, start } = sponsorsWeekDateRange(
                   parts[0],
                   parts[1],
                 );

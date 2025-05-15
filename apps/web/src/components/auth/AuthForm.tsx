@@ -16,7 +16,7 @@ type Props = Readonly<{
   view: AuthViewType;
 }>;
 
-export default function AuthForm({ view, variant = 'full', next }: Props) {
+export default function AuthForm({ next, variant = 'full', view }: Props) {
   const intl = useIntl();
   const { error } = useSessionContext();
   const supabaseClient = useSupabaseClientGFE();

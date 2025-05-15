@@ -31,8 +31,8 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsSkillRoadmapItemRow({
-  isViewingOwnProfile,
   isViewerPremium,
+  isViewingOwnProfile,
   premium,
   skillSummary,
   userProfile,

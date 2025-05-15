@@ -49,11 +49,11 @@ type FrameworkCardProps = Readonly<{
 
 function FrameworkCard({
   completedQuestions,
+  href,
   icon,
   title,
   titleAddOnText,
   totalQuestions,
-  href,
 }: FrameworkCardProps) {
   return (
     <div

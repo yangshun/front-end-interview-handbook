@@ -18,9 +18,9 @@ type Props = Readonly<{
 
 function PostMetadata({
   post,
-  showViewPost,
-  showRepliedBadge,
   showMarkedAsIrrelevant,
+  showRepliedBadge,
+  showViewPost,
 }: Props) {
   return (
     <div className="flex flex-col gap-2">

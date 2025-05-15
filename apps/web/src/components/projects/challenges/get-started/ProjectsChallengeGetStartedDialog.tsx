@@ -32,10 +32,10 @@ type DialogStep = Readonly<{
 
 function useDialogSteps({
   challenge,
-  onStartClick,
   isLoading,
-  skills,
+  onStartClick,
   setSkills,
+  skills,
   viewerFigmaAccess,
   viewerProjectsProfile,
 }: {
@@ -140,11 +140,11 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsChallengeGetStartedDialog({
-  isShown,
   challenge,
+  isLoading = false,
+  isShown,
   onClose,
   onStart,
-  isLoading = false,
   viewerFigmaAccess,
   viewerProjectsProfile,
 }: Props) {

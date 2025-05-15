@@ -28,10 +28,10 @@ export default function ProjectsProfileProgressSubmissionList({
     });
 
   const {
-    currentPageItems: currentPageItemsSubmissions,
-    totalPages: totalPagesSubmissions,
-    setCurrentPage: setCurrentPageSubmissions,
     currentPage: currentPageSubmissions,
+    currentPageItems: currentPageItemsSubmissions,
+    setCurrentPage: setCurrentPageSubmissions,
+    totalPages: totalPagesSubmissions,
   } = usePagination({
     deps: [],
     itemsPerPage: ITEMS_PER_PAGE,

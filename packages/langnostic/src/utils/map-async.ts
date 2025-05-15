@@ -10,6 +10,7 @@ export default function mapAsync<T, U>(
 
     if (iterable.length === 0) {
       resolve(results);
+
       return;
     }
 
@@ -17,11 +18,13 @@ export default function mapAsync<T, U>(
       nextIndex++;
       try {
         const result = await callbackFn(iterable[index]);
+
         results[index] = result;
         resolved++;
 
         if (resolved === iterable.length) {
           resolve(results);
+
           return;
         }
 

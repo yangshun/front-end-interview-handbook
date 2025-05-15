@@ -39,12 +39,12 @@ const variantClasses: Record<
 };
 
 export default function Banner({
-  className,
   children,
-  size = 'md',
-  variant = 'primary',
-  truncate,
+  className,
   onHide,
+  size = 'md',
+  truncate,
+  variant = 'primary',
   ...props
 }: Props) {
   const { backgroundColorClass, textColorClass } = variantClasses[variant];

@@ -45,12 +45,12 @@ const adFormats: Record<SponsorsAdFormat, SponsorsAdFormat> = {
 };
 
 export default function SponsorsAdvertiseRequestFormReviewSection({
-  onPrevious,
-  updateStepStatus,
   data,
-  onSubmit,
   isSubmitting,
   mode = 'create',
+  onPrevious,
+  onSubmit,
+  updateStepStatus,
 }: Props) {
   const intl = useIntl();
   const agreementRef = useRef<HTMLDivElement>(null);
@@ -62,8 +62,8 @@ export default function SponsorsAdvertiseRequestFormReviewSection({
     mode === 'create' ? false : true,
   );
 
-  const { emails, ads, company } = data;
-  const { address, legalName, taxNumber, signatoryName, signatoryTitle } =
+  const { ads, company, emails } = data;
+  const { address, legalName, signatoryName, signatoryTitle, taxNumber } =
     company;
   const addressString = [
     [address.line1, address.line2].filter(Boolean).join(', '),

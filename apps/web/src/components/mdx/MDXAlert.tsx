@@ -16,7 +16,7 @@ type Props = {
   variant: RemarkAlertVariants;
 };
 
-export default function MDXAlert({ title, variant, children }: Props) {
+export default function MDXAlert({ children, title, variant }: Props) {
   return (
     <Alert title={title} variant={variantMap[variant]}>
       {children}

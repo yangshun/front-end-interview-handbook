@@ -43,8 +43,8 @@ type Props = Readonly<{
 export default function InterviewsPricingTableDialog({
   isShown,
   onClose,
-  trigger,
   premiumFeature = 'premium-questions',
+  trigger,
 }: Props) {
   const intl = useIntl();
 

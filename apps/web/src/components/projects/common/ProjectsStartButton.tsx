@@ -58,9 +58,9 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsStartButton({
+  slug,
   viewerContentAccess,
   viewerProjectsProfile,
-  slug,
 }: Props) {
   const intl = useIntl();
   const { startProject } = useProjectsChallengeSessionContext();

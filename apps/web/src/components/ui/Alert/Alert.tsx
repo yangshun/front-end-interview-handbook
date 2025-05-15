@@ -97,10 +97,10 @@ const classes: Record<
 };
 
 export default function Alert({
+  bodySize = 'body2',
   borderClass: borderClassProp,
   children,
   className,
-  bodySize = 'body2',
   icon: IconProp,
   title,
   variant,
@@ -108,9 +108,9 @@ export default function Alert({
   const {
     backgroundClass,
     borderClass: variantBorderClass,
+    icon: VariantIcon,
     iconClass,
     titleClass,
-    icon: VariantIcon,
   } = classes[variant];
 
   const borderClass = borderClassProp || variantBorderClass;

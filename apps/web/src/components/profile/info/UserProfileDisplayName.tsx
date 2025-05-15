@@ -7,7 +7,7 @@ type Props = Readonly<{
 }>;
 
 export default function UserProfileDisplayName({ userProfile }: Props) {
-  const { username, name } = userProfile;
+  const { name, username } = userProfile;
 
   // eslint-disable-next-line react/jsx-no-useless-fragment
   return <>{name ?? username}</>;

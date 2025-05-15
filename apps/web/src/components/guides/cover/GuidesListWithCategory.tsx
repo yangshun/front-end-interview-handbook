@@ -51,7 +51,7 @@ export default function GuidesListWithCategory({ guideItems }: Props) {
           'flex flex-col gap-10',
           'lg:col-span-10 xl:col-span-9',
         )}>
-        {guideItems.map(({ title, totalReadingTime, articles }, index) => (
+        {guideItems.map(({ articles, title, totalReadingTime }, index) => (
           <div key={title}>
             <Heading className={themeTextColor} color="custom" level="heading6">
               {title}

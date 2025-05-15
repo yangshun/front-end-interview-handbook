@@ -77,10 +77,10 @@ const colorStyles: Record<EmailsParagraphColor, CSSProperties> = {
 
 export default function EmailsParagraph({
   color = 'default',
+  defaultMargins = false,
   size = 'body1',
   style,
   weight = 'normal',
-  defaultMargins = false,
   ...props
 }: Props) {
   return (

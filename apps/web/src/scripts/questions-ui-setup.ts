@@ -212,7 +212,7 @@ async function generateSetupForQuestion(slug: string) {
       fs.mkdirSync(path.dirname(outPath), { recursive: true });
       fs.writeFileSync(outPath, JSON.stringify(info, null, 2));
     }),
-    ...setups.map(async ({ framework, setupType, files, workspace }) => {
+    ...setups.map(async ({ files, framework, setupType, workspace }) => {
       workspace?.visibleFiles?.forEach((file) => {
         if (!(file in files)) {
           throw Error(

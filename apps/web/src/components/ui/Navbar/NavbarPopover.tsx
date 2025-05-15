@@ -17,13 +17,13 @@ import type {
 } from './NavTypes';
 
 function NavbarPopoverLink({
-  number,
-  label,
   href,
-  onClick,
-  sublabel,
+  label,
   labelAddon,
+  number,
+  onClick,
   showAsNumber,
+  sublabel,
   ...props
 }: NavPopoverLinkItem & Readonly<{ number: number }>) {
   const el =
@@ -75,7 +75,7 @@ function NavbarPopoverLink({
   );
 }
 
-function NavbarPopoverGroup({ label, items, onClick }: NavPopoverListItem) {
+function NavbarPopoverGroup({ items, label, onClick }: NavPopoverListItem) {
   return (
     <div>
       <span className="sr-only">{label}</span>

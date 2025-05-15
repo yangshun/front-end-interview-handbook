@@ -180,7 +180,7 @@ export const sponsorsRouter = router({
         sessionId: z.string(),
       }),
     )
-    .mutation(async ({ input: { sessionId, format } }) => {
+    .mutation(async ({ input: { format, sessionId } }) => {
       const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
 
       const fileName = kebabCase(format);
@@ -245,7 +245,7 @@ export const sponsorsRouter = router({
         id: z.string(),
       }),
     )
-    .mutation(async ({ input: { id }, ctx: { viewer } }) => {
+    .mutation(async ({ ctx: { viewer }, input: { id } }) => {
       return await prisma.$transaction(async (tx) => {
         await Promise.all([
           tx.sponsorsAdRequest.update({
@@ -278,8 +278,8 @@ export const sponsorsRouter = router({
         emails: z.array(z.string().email()),
       }),
     )
-    .mutation(async ({ input: { ads, company, emails, agreement } }) => {
-      const { legalName, taxNumber, address, signatoryName, signatoryTitle } =
+    .mutation(async ({ input: { ads, agreement, company, emails } }) => {
+      const { address, legalName, signatoryName, signatoryTitle, taxNumber } =
         company;
 
       const adRequest = await prisma.sponsorsAdRequest.create({
@@ -419,7 +419,7 @@ export const sponsorsRouter = router({
         id: z.string(),
       }),
     )
-    .mutation(async ({ input: { id, comments }, ctx: { viewer } }) => {
+    .mutation(async ({ ctx: { viewer }, input: { comments, id } }) => {
       return await prisma.$transaction(async (tx) => {
         await Promise.all([
           tx.sponsorsAdRequest.update({
@@ -437,6 +437,71 @@ export const sponsorsRouter = router({
           }),
         ]);
       });
+    }),
+  adRequests: adminProcedure
+    .input(
+      z.object({
+        filter: z.object({
+          query: z.string().nullable(),
+          status: z.array(z.nativeEnum(SponsorsAdRequestStatus)),
+        }),
+        pagination: z.object({
+          limit: z
+            .number()
+            .int()
+            .positive()
+            .transform((val) => Math.min(30, val)),
+          page: z.number().int().positive(),
+        }),
+        sort: z.object({
+          field: z.enum([
+            Prisma.SponsorsAdRequestScalarFieldEnum.createdAt,
+            Prisma.SponsorsAdRequestScalarFieldEnum.signatoryName,
+          ]),
+          isAscendingOrder: z.boolean(),
+        }),
+      }),
+    )
+    .query(async ({ input: { filter, pagination, sort } }) => {
+      const { limit, page } = pagination;
+      const { query, status } = filter;
+
+      const orderBy = {
+        [sort.field]: sort.isAscendingOrder ? 'asc' : 'desc',
+      } as const;
+
+      const where: Prisma.SponsorsAdRequestWhereInput = {
+        OR: [
+          {
+            signatoryName: {
+              contains: query ?? '',
+              mode: 'insensitive', // Case-insensitive search
+            },
+          },
+          {
+            legalName: {
+              contains: query ?? '',
+              mode: 'insensitive',
+            },
+          },
+        ],
+        ...(status.length > 0 ? { status: { in: status } } : {}),
+      };
+
+      const [totalCount, requests] = await Promise.all([
+        prisma.sponsorsAdRequest.count({ where }),
+        prisma.sponsorsAdRequest.findMany({
+          orderBy,
+          skip: (page - 1) * limit,
+          take: limit,
+          where,
+        }),
+      ]);
+
+      return {
+        requests,
+        totalCount,
+      };
     }),
   adRequestUpdate: publicProcedure
     .input(
@@ -457,8 +522,8 @@ export const sponsorsRouter = router({
     )
     .mutation(
       async ({
-        input: { id, ads, company, emails, agreement, advertiserEmail },
         ctx: { viewer },
+        input: { ads, advertiserEmail, agreement, company, emails, id },
       }) => {
         // If not admin, check if the user is authorized to update the request
         if (!(viewer && ADMIN_EMAILS.includes(viewer.email))) {
@@ -477,7 +542,7 @@ export const sponsorsRouter = router({
           }
         }
 
-        const { legalName, taxNumber, address, signatoryName, signatoryTitle } =
+        const { address, legalName, signatoryName, signatoryTitle, taxNumber } =
           company;
 
         return await prisma.$transaction(async (tx) => {
@@ -526,71 +591,6 @@ export const sponsorsRouter = router({
         });
       },
     ),
-  adRequests: adminProcedure
-    .input(
-      z.object({
-        filter: z.object({
-          query: z.string().nullable(),
-          status: z.array(z.nativeEnum(SponsorsAdRequestStatus)),
-        }),
-        pagination: z.object({
-          limit: z
-            .number()
-            .int()
-            .positive()
-            .transform((val) => Math.min(30, val)),
-          page: z.number().int().positive(),
-        }),
-        sort: z.object({
-          field: z.enum([
-            Prisma.SponsorsAdRequestScalarFieldEnum.createdAt,
-            Prisma.SponsorsAdRequestScalarFieldEnum.signatoryName,
-          ]),
-          isAscendingOrder: z.boolean(),
-        }),
-      }),
-    )
-    .query(async ({ input: { pagination, filter, sort } }) => {
-      const { limit, page } = pagination;
-      const { query, status } = filter;
-
-      const orderBy = {
-        [sort.field]: sort.isAscendingOrder ? 'asc' : 'desc',
-      } as const;
-
-      const where: Prisma.SponsorsAdRequestWhereInput = {
-        OR: [
-          {
-            signatoryName: {
-              contains: query ?? '',
-              mode: 'insensitive', // Case-insensitive search
-            },
-          },
-          {
-            legalName: {
-              contains: query ?? '',
-              mode: 'insensitive',
-            },
-          },
-        ],
-        ...(status.length > 0 ? { status: { in: status } } : {}),
-      };
-
-      const [totalCount, requests] = await Promise.all([
-        prisma.sponsorsAdRequest.count({ where }),
-        prisma.sponsorsAdRequest.findMany({
-          orderBy,
-          skip: (page - 1) * limit,
-          take: limit,
-          where,
-        }),
-      ]);
-
-      return {
-        requests,
-        totalCount,
-      };
-    }),
   availability: publicProcedure
     .input(
       z.object({
@@ -672,7 +672,7 @@ export const sponsorsRouter = router({
         message: z.string(),
       }),
     )
-    .mutation(async ({ input: { email, message }, ctx: { req } }) => {
+    .mutation(async ({ ctx: { req }, input: { email, message } }) => {
       await sendReactEmail({
         cc: [{ email: SPONSORS_GREATFRONTEND_ADMIN_EMAIL }],
         emailElement: (
@@ -775,7 +775,7 @@ export const sponsorsRouter = router({
     const NO_OF_FORMATS = 3;
     const bookedSlots = new Map<string, Set<string>>();
 
-    for (const { year, week, ad } of allSlots) {
+    for (const { ad, week, year } of allSlots) {
       const key = `${year}-${week}`;
 
       if (!bookedSlots.has(key)) {

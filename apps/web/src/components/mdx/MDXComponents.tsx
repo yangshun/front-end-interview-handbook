@@ -11,7 +11,6 @@ import MDXLink from './MDXLink';
 import MDXTable from './MDXTable';
 
 const MDXComponents = Object.freeze({
-  MDXAlert,
   a: MDXLink,
   h1: (props: ComponentProps<'h1'>) => <MDXHeading as="h1" {...props} />,
   h2: (props: ComponentProps<'h2'>) => <MDXHeading as="h2" {...props} />,
@@ -20,6 +19,7 @@ const MDXComponents = Object.freeze({
   h5: (props: ComponentProps<'h5'>) => <MDXHeading as="h5" {...props} />,
   h6: (props: ComponentProps<'h6'>) => <MDXHeading as="h6" {...props} />,
   img: MDXImage,
+  MDXAlert,
   pre: MDXCodeBlock,
   table: MDXTable,
 });

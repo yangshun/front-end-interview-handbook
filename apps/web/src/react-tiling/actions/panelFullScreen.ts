@@ -12,7 +12,7 @@ export default function panelFullScreen<TabType>(
   tiles: TilesPanelConfig<TabType>,
   payload: TilesActionPanelFullScreen['payload'],
 ): TilesPanelConfig<TabType> {
-  const { panelId, fullScreen } = payload;
+  const { fullScreen, panelId } = payload;
 
   return panelFullScreenImpl(tiles, panelId, fullScreen);
 }

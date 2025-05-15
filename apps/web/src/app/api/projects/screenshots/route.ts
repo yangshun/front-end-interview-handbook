@@ -16,7 +16,7 @@ export async function POST(req: NextRequest) {
   }
   try {
     const request = await req.json();
-    const { submissionId, deploymentUrls } = request;
+    const { deploymentUrls, submissionId } = request;
     const deploymentUrlsWithScreenshots = await generateScreenshots(
       submissionId,
       deploymentUrls,

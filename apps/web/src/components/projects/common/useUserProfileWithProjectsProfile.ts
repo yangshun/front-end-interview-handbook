@@ -7,7 +7,7 @@ import { trpc } from '~/hooks/trpc';
 export default function useUserProfileWithProjectsProfile(
   createProjectsProfileIfNotFound = true,
 ) {
-  const { isLoading, data } = trpc.projects.profile.viewer.useQuery({
+  const { data, isLoading } = trpc.projects.profile.viewer.useQuery({
     createProjectsProfileIfNotFound,
   });
 

@@ -11,9 +11,9 @@ type Props = Readonly<{
 }>;
 
 export default function MarketingSectionHeader({
-  title,
-  heading,
   description,
+  heading,
+  title,
 }: Props) {
   return (
     <div className="flex flex-col gap-y-6">

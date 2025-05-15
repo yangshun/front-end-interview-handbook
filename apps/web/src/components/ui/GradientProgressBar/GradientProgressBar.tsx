@@ -21,12 +21,12 @@ type GradientSVGProps = Readonly<{
 }>;
 
 function GradientSVG({
-  startColor,
   endColor,
-  secondColor,
-  thirdColor,
   idCSS,
   rotation,
+  secondColor,
+  startColor,
+  thirdColor,
 }: GradientSVGProps) {
   const gradientTransform = `rotate(${rotation})`;
 
@@ -59,11 +59,11 @@ type GradientProgressBarProps = Readonly<{
 }>;
 
 export default function GradientProgressBar({
+  children,
   className,
   gradient,
   progressPercentage,
   reverseGradient,
-  children,
 }: GradientProgressBarProps) {
   const intl = useIntl();
   const gradientId = useId();

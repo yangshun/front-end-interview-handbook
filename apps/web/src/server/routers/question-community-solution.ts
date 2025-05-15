@@ -21,8 +21,8 @@ export const questionCommunitySolutionRouter = router({
     )
     .mutation(
       async ({
-        input: { code, language, slug, title, writeup },
         ctx: { viewer },
+        input: { code, language, slug, title, writeup },
       }) => {
         if (!viewer) {
           return null;
@@ -84,8 +84,8 @@ export const questionCommunitySolutionRouter = router({
     )
     .mutation(
       async ({
-        input: { files, framework, slug, title, writeup },
         ctx: { viewer },
+        input: { files, framework, slug, title, writeup },
       }) => {
         return await prisma.questionUserInterfaceCommunitySolution.create({
           data: {

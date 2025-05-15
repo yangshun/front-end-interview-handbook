@@ -63,15 +63,15 @@ function PreparationStrategyCard({
   const intl = useIntl();
 
   const {
-    title,
-    description,
-    icon: Icon,
-    customIcon,
-    question,
     article,
+    customIcon,
+    description,
     href,
+    icon: Icon,
+    question,
     tagLabel,
     tagTooltip,
+    title,
     variant,
   } = data;
 
@@ -189,9 +189,9 @@ type Props = Readonly<{
 }>;
 
 export default function InterviewsDashboardRecommendedPreparationStrategy({
-  questionListSessions,
   categorizedQuestionsProgress,
   guidesProgressCount,
+  questionListSessions,
 }: Props) {
   const intl = useIntl();
   const guidesData = useGuidesData();

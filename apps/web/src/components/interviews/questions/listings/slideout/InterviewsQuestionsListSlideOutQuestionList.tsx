@@ -36,13 +36,13 @@ export default function InterviewsQuestionsListSlideOutQuestionList<
   Q extends InterviewsQuestionItemMinimal,
 >({
   checkIfCompletedQuestion,
-  isDifferentListFromInitial,
+  currentQuestionHash,
   framework,
+  isDifferentListFromInitial,
   listType,
   mode,
-  questions,
-  currentQuestionHash,
   onClickQuestion,
+  questions,
   showCompanyPaywall,
 }: Props<Q>) {
   const intl = useIntl();

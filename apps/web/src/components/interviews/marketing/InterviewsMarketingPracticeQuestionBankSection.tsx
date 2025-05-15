@@ -161,7 +161,7 @@ export default function InterviewsMarketingPracticeQuestionBankSection({
 
   const filterNavigation = navigation[selectedFilter];
 
-  const { framework, language, format, topic } = questions;
+  const { format, framework, language, topic } = questions;
   const frameworksData = useQuestionFrameworksData();
   const languagesData = useQuestionLanguagesData();
   const formatsData = useQuestionFormatsData();
@@ -201,9 +201,9 @@ export default function InterviewsMarketingPracticeQuestionBankSection({
   }
 
   const {
-    questions: processedQuestions,
     count: questionsCount,
     duration,
+    questions: processedQuestions,
   } = processQuestions();
 
   const questionsWithCompletionStatus = processedQuestions.map((question) => ({
@@ -274,7 +274,7 @@ export default function InterviewsMarketingPracticeQuestionBankSection({
                 'flex flex-col justify-between gap-8 lg:flex-row lg:items-center',
               )}>
               <div className="flex gap-x-2">
-                {filterTabs.map(({ value, label }) => (
+                {filterTabs.map(({ label, value }) => (
                   <FilterButton
                     key={value}
                     label={label}

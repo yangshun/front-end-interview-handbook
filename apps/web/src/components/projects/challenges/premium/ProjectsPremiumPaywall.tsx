@@ -61,11 +61,11 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsPremiumPaywall({
-  viewerProjectsProfile,
   slug,
   subtitle,
   title,
   viewerContentAccess,
+  viewerProjectsProfile,
 }: Props) {
   const intl = useIntl();
 

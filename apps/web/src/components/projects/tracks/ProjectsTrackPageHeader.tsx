@@ -32,9 +32,9 @@ type Props =
 
 export default function ProjectsTrackPageHeader({
   isViewerPremium,
-  track,
   points,
   showProgress,
+  track,
   ...props
 }: Props) {
   const intl = useIntl();

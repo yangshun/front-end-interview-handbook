@@ -283,9 +283,9 @@ function getAnnotationData(
 function CodeAnnotationContents({
   className,
   contents,
-  name,
   icon: Icon,
   jobTitle,
+  name,
 }: Readonly<{
   className: string;
   contents: string;
@@ -493,7 +493,7 @@ export default function InterviewsMarketingSolutionsByExInterviewersSection() {
               />
               <div className="m-0.5 overflow-hidden rounded-[inherit]">
                 <MDXCodeBlock
-                  renderLineContents={({ line, getTokenProps }) => {
+                  renderLineContents={({ getTokenProps, line }) => {
                     const lineContents = [];
 
                     for (let index_ = 0; index_ < line.length; index_++) {

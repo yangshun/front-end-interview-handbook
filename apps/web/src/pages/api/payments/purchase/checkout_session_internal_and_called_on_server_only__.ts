@@ -67,12 +67,12 @@ export default async function handler(
 ) {
   const {
     country_code: countryCode,
-    first_promoter_tid,
     customer_id: customerId,
-    receipt_email: receiptEmail,
-    product_domain: productDomain,
-    plan_type: planType,
+    first_promoter_tid,
     locale,
+    plan_type: planType,
+    product_domain: productDomain,
+    receipt_email: receiptEmail,
   } = req.query as CheckoutQueryParams;
   const firstPromoterTrackingId =
     first_promoter_tid === 'undefined' ? undefined : first_promoter_tid;
@@ -162,7 +162,7 @@ async function processSubscriptionPlan(
   locale: string,
   firstPromoterTrackingId?: string,
 ) {
-  const { recurring, urls, productId } = planPaymentConfig;
+  const { productId, recurring, urls } = planPaymentConfig;
   const queryParams = req.query as CheckoutQueryParams;
 
   const priceObject = await stripe.prices.create({
@@ -247,7 +247,7 @@ async function processOneTimePlan(
 ) {
   const { origin } = absoluteUrl(req);
   const queryParams = req.query as CheckoutQueryParams;
-  const { urls, productId } = planPaymentConfig;
+  const { productId, urls } = planPaymentConfig;
 
   const cancelUrl = (() => {
     const baseCancelUrl = new URL(

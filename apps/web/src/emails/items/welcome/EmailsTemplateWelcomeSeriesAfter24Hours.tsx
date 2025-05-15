@@ -48,9 +48,9 @@ function WhatYouCanDoSection({
 }
 
 function Card({
-  title,
-  subtitle,
   logos,
+  subtitle,
+  title,
 }: Readonly<{
   logos?: ReadonlyArray<{
     logoUrl: string;

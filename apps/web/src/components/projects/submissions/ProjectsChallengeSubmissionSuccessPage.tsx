@@ -19,15 +19,15 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsChallengeSubmissionSuccessPage({
-  isViewerPremium,
-  locale,
-  submissionUrl,
-  level,
-  isLeveledUp,
+  challenge,
   gainedPoints,
+  isLeveledUp,
+  isViewerPremium,
+  level,
+  locale,
   roadmapSkillsRepRecords,
   roadmapSkillsUsed,
-  challenge,
+  submissionUrl,
 }: Props) {
   const { data: progressData, isLoading } =
     trpc.projects.challenges.progress.useQuery({
@@ -46,9 +46,9 @@ export default function ProjectsChallengeSubmissionSuccessPage({
 
   const {
     challengeHistoricalStatuses,
+    completedChallenges,
     projectTracks,
     skillsRoadmap,
-    completedChallenges,
   } = progressData!;
 
   return (

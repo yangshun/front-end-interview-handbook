@@ -24,7 +24,7 @@ export default function useProjectsPricingPlansList(
   plansPaymentConfig: ProjectsPricingPlanPaymentConfigLocalizedRecord,
 ): ReadonlyArray<ProjectsPricingPlanItem> {
   const intl = useIntl();
-  const { MONTH: monthlyPlan, ANNUAL: annualPlan } = plansPaymentConfig;
+  const { ANNUAL: annualPlan, MONTH: monthlyPlan } = plansPaymentConfig;
 
   const freePlanDetails: ProjectsPricingPlanItem = {
     features: freePlanFeatures,

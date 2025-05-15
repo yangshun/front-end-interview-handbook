@@ -3,10 +3,10 @@ import clsx from 'clsx';
 import type { ColorScheme } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
 
 function Shape({
-  width,
-  height,
   className,
+  height,
   theme,
+  width,
 }: {
   className?: string;
   height?: number;

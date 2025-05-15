@@ -72,7 +72,7 @@ export default function CodingWorkspaceCommunitySolutionList({
               'overflow-hidden',
             )}>
             {solutions?.map((solution) => {
-              const { id, createdAt, title } = solution;
+              const { createdAt, id, title } = solution;
 
               return (
                 <div

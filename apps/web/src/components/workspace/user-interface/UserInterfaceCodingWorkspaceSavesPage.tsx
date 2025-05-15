@@ -35,12 +35,12 @@ type Props = Readonly<{
 
 export default function UserInterfaceCodingWorkspaceSavesPage({
   canViewPremiumContent,
+  embed = false,
+  isViewingSave,
   nextQuestions,
   question,
   save,
-  isViewingSave,
   similarQuestions,
-  embed = false,
 }: Props) {
   const router = useI18nRouter();
   const { metadata, skeletonBundle } = question;

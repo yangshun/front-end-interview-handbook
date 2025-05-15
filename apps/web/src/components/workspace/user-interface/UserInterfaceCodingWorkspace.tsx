@@ -98,17 +98,17 @@ const getNonDefaultFiles = (
 
 function UserInterfaceCodingWorkspaceImpl({
   canViewPremiumContent,
-  isViewingSave,
-  saveFilesToLocalStorage,
   defaultFiles,
   embed,
   frameworkSolutionPath,
+  isViewingSave,
   loadedFilesFromLocalStorage,
   mode,
-  question,
   nextQuestions,
-  similarQuestions,
   onFrameworkChange,
+  question,
+  saveFilesToLocalStorage,
+  similarQuestions,
   studyListKey,
 }: Readonly<{
   canViewPremiumContent: boolean;
@@ -130,11 +130,11 @@ function UserInterfaceCodingWorkspaceImpl({
 }>) {
   const intl = useIntl();
   const {
-    framework,
-    metadata: rawMetadata,
     description,
-    solution,
+    framework,
     info,
+    metadata: rawMetadata,
+    solution,
   } = question;
 
   const metadata = {
@@ -147,7 +147,7 @@ function UserInterfaceCodingWorkspaceImpl({
 
   const { dispatch } = useUserInterfaceCodingWorkspaceTilesContext();
   const { sandpack } = useSandpack();
-  const { activeFile, visibleFiles, files } = sandpack;
+  const { activeFile, files, visibleFiles } = sandpack;
 
   useRestartSandpack();
   useSandpackModuleErrorRefreshBrowser();
@@ -633,17 +633,17 @@ function UserInterfaceCodingWorkspaceImpl({
 
 export default function UserInterfaceCodingWorkspace({
   activeTabScrollIntoView = true,
-  isViewingSave = false,
   canViewPremiumContent,
-  embed,
   defaultFiles,
+  embed,
+  isViewingSave = false,
   loadedFilesFromLocalStorage,
-  saveFilesToLocalStorage = true,
   mode,
-  question,
   nextQuestions,
-  similarQuestions,
   onFrameworkChange,
+  question,
+  saveFilesToLocalStorage = true,
+  similarQuestions,
   studyListKey,
 }: Readonly<{
   activeTabScrollIntoView?: boolean;
@@ -665,7 +665,7 @@ export default function UserInterfaceCodingWorkspace({
 }>) {
   const { sandpack } = useSandpack();
   const { activeFile, visibleFiles } = sandpack;
-  const { metadata, framework } = question;
+  const { framework, metadata } = question;
 
   const listType =
     useQuestionsListTypeCurrent(studyListKey, framework) ??

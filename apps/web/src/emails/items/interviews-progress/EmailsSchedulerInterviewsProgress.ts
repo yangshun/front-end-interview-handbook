@@ -20,8 +20,8 @@ const interestPointMap: Record<InterviewsInterestEntity, number> = {
 };
 
 export default async function scheduleInterviewsProgressEmail({
-  userId,
   entity,
+  userId,
 }: Readonly<{
   entity: InterviewsInterestEntity;
   userId: string;

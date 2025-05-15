@@ -31,7 +31,7 @@ type Props = Readonly<{
   onClose?: () => void;
 }>;
 
-export default function AuthDialog({ isShown, onClose, next }: Props) {
+export default function AuthDialog({ isShown, next, onClose }: Props) {
   const intl = useIntl();
   const testimonialsObjects = InterviewsMarketingTestimonialsDict(intl);
   const users = [

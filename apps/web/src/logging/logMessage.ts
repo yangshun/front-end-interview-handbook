@@ -17,8 +17,8 @@ export type Props = Readonly<{
 // Logs to Telegram.
 export default async function logMessage({
   level,
-  title,
   message,
+  title,
   userIdentifier,
 }: Props) {
   console.info('[message]', level, message);

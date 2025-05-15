@@ -119,9 +119,9 @@ export function CompletedChip({
 
 function CompletedBeforeChip({
   canShowHoverState,
+  number,
   onClick,
   size = 'md',
-  number,
 }: Readonly<{
   canShowHoverState: boolean;
   number?: number;
@@ -176,8 +176,8 @@ function CompletedBeforeChip({
 }
 
 export function NotCompleted({
-  number,
   canShowHoverState,
+  number,
   onClick,
   size = 'md',
 }: Readonly<{
@@ -237,13 +237,13 @@ export default function QuestionsListItemProgressChip<
   Q extends InterviewsQuestionItemMinimal,
 >({
   className,
-  question: questionMetadata,
-  premiumUser,
   hasCompletedQuestion,
   hasCompletedQuestionBefore,
+  index,
   onMarkAsCompleted,
   onMarkAsNotCompleted,
-  index,
+  premiumUser,
+  question: questionMetadata,
   size = 'md',
 }: Readonly<{
   className: string;

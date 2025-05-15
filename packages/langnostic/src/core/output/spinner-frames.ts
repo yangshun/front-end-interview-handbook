@@ -1,10 +1,11 @@
 import chalk from 'chalk';
 
-import { TranslationGroupBatchStatus } from '../types';
+import type { TranslationGroupBatchStatus } from '../types';
 
 const spinnerFrames = ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'];
 
 let index = 0;
+
 setInterval(() => {
   index = (index + 1) % spinnerFrames.length;
 }, 80);

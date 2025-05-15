@@ -26,14 +26,14 @@ type Props = Readonly<{
 }>;
 
 export default function SponsorsAdminFeedbacksListFilters({
-  query,
-  setQuery,
-  statusFilterOptions,
-  selectedStatus,
-  sortField,
-  setSortField,
   isAscendingOrder,
+  query,
+  selectedStatus,
   setIsAscendingOrder,
+  setQuery,
+  setSortField,
+  sortField,
+  statusFilterOptions,
 }: Props) {
   const [searchQuery, setSearchQuery] = useState(query);
   const debouncedSearch = useRef(debounce((q) => setQuery(q), 500)).current;

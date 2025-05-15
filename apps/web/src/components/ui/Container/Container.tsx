@@ -51,8 +51,8 @@ const widthStyles: Record<ContainerWidth, string> = {
 export default function Container({
   children,
   className,
-  width = '6xl',
   tag: ContainerTag = 'div',
+  width = '6xl',
   ...props
 }: Props) {
   return (

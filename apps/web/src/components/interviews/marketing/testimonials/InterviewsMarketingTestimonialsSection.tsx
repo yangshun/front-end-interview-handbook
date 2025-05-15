@@ -24,10 +24,10 @@ type Props = Readonly<{
 }>;
 
 export default function InterviewsMarketingTestimonialsSection({
-  width,
   columns = 3,
   showSeeAllLink = true,
   testimonials,
+  width,
 }: Props) {
   const intl = useIntl();
 

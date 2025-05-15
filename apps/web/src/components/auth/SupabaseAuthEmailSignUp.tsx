@@ -75,7 +75,7 @@ export default function SupabaseAuthEmailSignUp({
 
     setLoading(false);
 
-    const { user: signUpUser, session: signUpSession } = data;
+    const { session: signUpSession, user: signUpUser } = data;
 
     if (signUpError) {
       if (signUpError.status === 429) {

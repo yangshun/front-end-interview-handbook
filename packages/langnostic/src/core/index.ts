@@ -1,7 +1,7 @@
 import { globby } from 'globby';
 
-import { ConfigGroupPathItem, LocaleConfig } from '../config/types';
-import { TranslationFileItem, TranslationFileMetadata } from './types';
+import type { ConfigGroupPathItem, LocaleConfig } from '../config/types';
+import type { TranslationFileItem, TranslationFileMetadata } from './types';
 
 // Helper: escape RegExp special characters in a literal string.
 function escapeRegExp(str: string) {
@@ -18,12 +18,13 @@ export function generateTargetPaths(
   // We'll split the pattern by the wildcard tokens **/ and *
   const srcTokens = srcPattern.split(/(\*\*\/|\*)/);
   let regexStr = '^';
+
   for (const token of srcTokens) {
     if (token === '**/') {
-      // ** can match multiple directories (including slashes)
+      // ** Can match multiple directories (including slashes)
       regexStr += '(.*/)?';
     } else if (token === '*') {
-      // * matches anything except a slash
+      // * Matches anything except a slash
       regexStr += '([^/]+)';
     } else {
       regexStr += escapeRegExp(token);
@@ -33,9 +34,11 @@ export function generateTargetPaths(
 
   const srcRegex = new RegExp(regexStr);
   const match = srcRegex.exec(srcFile);
+
   if (!match) {
     throw new Error('Source file does not match source pattern');
   }
+
   // The capture groups (starting at index 1) correspond to wildcards in order.
   const captures = match.slice(1).map((capture) => capture || '');
 

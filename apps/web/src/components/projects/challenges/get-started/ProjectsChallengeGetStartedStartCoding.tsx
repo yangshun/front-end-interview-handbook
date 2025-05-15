@@ -10,8 +10,8 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsChallengeGetStartedStartCoding({
-  onStartClick,
   isLoading,
+  onStartClick,
 }: Props) {
   const intl = useIntl();
 

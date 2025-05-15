@@ -26,9 +26,9 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsChallengeSubmissionSuccessHero({
-  submissionUrl,
   badgeList,
   challengeNumber,
+  submissionUrl,
 }: Props) {
   const intl = useIntl();
 
@@ -49,7 +49,7 @@ export default function ProjectsChallengeSubmissionSuccessHero({
           `grid-cols-${smCols} md:grid-cols-${mdCols} lg:grid-cols-${lgCols}`,
         )}>
         {badgeList
-          .map(({ type, data: { parentKey, key, label } }) => {
+          .map(({ data: { key, label, parentKey }, type }) => {
             if (type === 'leveled-up') {
               return (
                 <ProjectsChallengeSubmissionSuccessBadge

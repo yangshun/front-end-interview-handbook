@@ -1,33 +1,34 @@
-import { TranslationAI } from '../translation/providers';
+import type { TranslationAI } from '../translation/providers';
 
-export interface ConfigType {
+export type ConfigType = {
   ai: TranslationAI;
-  localeConfig: LocaleConfig;
-  groups: ConfigGroup[];
   concurrencyLimit?: number;
-}
+  groups: Array<ConfigGroup>;
+  localeConfig: LocaleConfig;
+};
 
-export interface LocaleConfig {
+export type LocaleConfig = {
   source: string; // Source locale
-  target: string[]; // Target locales
-}
+  target: Array<string>; // Target locales
+};
 
-export interface ConfigGroupPathItem {
+export type ConfigGroupPathItem = {
   source: string; // Source paths for source locale file
   target: string; // Target paths for translated locale file
-}
+};
 
 type ConfigPluginType = 'json' | 'mdx' | 'string';
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type ConfigPluginOptions = Record<string, any>;
 type ConfigPlugin =
   | ConfigPluginType
-  | [ConfigPluginType]
-  | [ConfigPluginType, ConfigPluginOptions]; // Either just the type or the type and options
+  | [ConfigPluginType, ConfigPluginOptions]
+  | [ConfigPluginType]; // Either just the type or the type and options
 
-export interface ConfigGroup {
+export type ConfigGroup = {
   localeConfig?: LocaleConfig; // Optional, group-specific locale config
   name: string; // Unique identifier for a group
+  paths: Array<ConfigGroupPathItem>;
   plugin: ConfigPlugin; // Plugin to use for the group
-  paths: ConfigGroupPathItem[];
   stringsPerRequest?: number; // Optional, maximum number of strings per request
-}
+};

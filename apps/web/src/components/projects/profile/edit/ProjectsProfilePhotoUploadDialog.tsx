@@ -23,10 +23,10 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsProfilePhotoUploadDialog({
-  isShown,
-  onClose,
   image,
+  isShown,
   onChange,
+  onClose,
 }: Props) {
   const intl = useIntl();
   const cropperRef = useRef<CropperRef>(null);

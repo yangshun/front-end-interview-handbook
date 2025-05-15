@@ -11,7 +11,7 @@ type Props = Omit<React.ComponentProps<typeof Button>, 'variant'> &
   }>;
 
 function FilterButton(
-  { selected, className, ...props }: Props,
+  { className, selected, ...props }: Props,
   ref: ForwardedRef<HTMLAnchorElement | HTMLButtonElement>,
 ) {
   return (

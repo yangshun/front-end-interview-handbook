@@ -115,7 +115,7 @@ export default function useMonacoLanguagesFetchTypeDeclarations(
 
         const disposables: Array<IDisposable> = [];
 
-        packageDeclarations?.forEach(({ moduleName, contents }) => {
+        packageDeclarations?.forEach(({ contents, moduleName }) => {
           const filePath = [
             'file:///node_modules',
             packageName,

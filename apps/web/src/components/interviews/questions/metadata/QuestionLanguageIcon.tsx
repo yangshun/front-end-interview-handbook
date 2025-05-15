@@ -26,7 +26,7 @@ type Props = Readonly<{
   language: QuestionLanguage;
 }>;
 
-export default function QuestionLanguageIcon({ language, className }: Props) {
+export default function QuestionLanguageIcon({ className, language }: Props) {
   const { icon: Icon, style: iconStyle } = languageIcons[language];
 
   return <Icon className={clsx('size-5', className)} style={iconStyle} />;

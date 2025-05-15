@@ -22,11 +22,11 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsTrackChallengeChip({
+  challenge,
   index,
   status,
   userProfile,
   view = 'tracks',
-  challenge,
 }: Props) {
   const intl = useIntl();
   const isSubmissionView = view === 'submission';

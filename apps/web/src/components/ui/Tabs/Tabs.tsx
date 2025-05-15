@@ -73,20 +73,20 @@ function Tabs<T>(
     endAddOn,
     hasBorder = true,
     label,
-    tabs,
+    onSelect,
     scroll,
     size = 'md',
+    tabs,
     value,
-    onSelect,
   }: Props<T>,
   ref: ForwardedRef<HTMLDivElement>,
 ) {
   const {
     borderRadius,
     iconSize,
-    tabItemSize,
-    tabInternalGapSize,
     tabGapSize,
+    tabInternalGapSize,
+    tabItemSize,
     textSize,
   } = sizeClasses[size];
 
@@ -105,10 +105,10 @@ function Tabs<T>(
           <nav aria-label={label} className={clsx('flex grow', tabGapSize)}>
             {tabs.map((tabItem) => {
               const {
+                href,
                 icon: Icon,
                 label: tabItemLabel,
                 value: tabItemValue,
-                href,
               } = tabItem;
               const isSelected = tabItemValue === value;
               const commonProps = {

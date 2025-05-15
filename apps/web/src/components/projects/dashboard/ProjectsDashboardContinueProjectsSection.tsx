@@ -30,7 +30,7 @@ const limit = 2;
 
 export default function ProjectsDashboardContinueProjectsSection() {
   const intl = useIntl();
-  const { isLoading, data: recentSessions } =
+  const { data: recentSessions, isLoading } =
     trpc.projects.sessions.listRecent.useQuery({ limit });
 
   if (isLoading || recentSessions?.length === 0) {

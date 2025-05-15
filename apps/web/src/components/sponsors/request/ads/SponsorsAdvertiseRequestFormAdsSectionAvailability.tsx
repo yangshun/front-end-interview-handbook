@@ -36,15 +36,15 @@ type Props = Readonly<{
 
 export default function SponsorsAdvertiseRequestFormAdsSectionAvailability({
   adFormat,
-  selectedWeeks,
+  mode = 'create',
   onAddWeek,
   onRemoveWeek,
+  selectedWeeks,
   unavailableWeeks,
-  mode = 'create',
 }: Props) {
   const intl = useIntl();
   const isReadonly = mode === 'readonly';
-  const { isLoading, data } = trpc.sponsors.availability.useQuery({
+  const { data, isLoading } = trpc.sponsors.availability.useQuery({
     format: adFormat,
   });
 
@@ -81,7 +81,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionAvailability({
         </div>
       ) : (
         <div className="mt-3 grid gap-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {availableWeeks.map(({ start, end, available, year, week }) => {
+          {availableWeeks.map(({ available, end, start, week, year }) => {
             const weekHash = `${year}/${week}`;
             const selected = selectedWeeks.includes(weekHash);
 

@@ -34,14 +34,14 @@ type Props = Readonly<{
 export default function UserInterfaceCodingWorkspaceSection({
   activeTabScrollIntoView,
   canViewPremiumContent,
+  embed = false,
   mode,
   nextQuestions,
+  onFrameworkChange,
   question,
   similarQuestions,
-  embed = false,
-  timeoutLoggerInstance,
-  onFrameworkChange,
   studyListKey,
+  timeoutLoggerInstance,
 }: Props) {
   const { colorScheme } = useColorSchemePreferences();
 

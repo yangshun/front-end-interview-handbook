@@ -39,18 +39,18 @@ type Props = Readonly<{
 
 function ProjectsChallengeHeaderImpl({
   challenge,
+  isTabsInView,
   viewerAccess,
   viewerProjectsProfile,
-  isTabsInView,
 }: Props) {
   const intl = useIntl();
   const isMounted = useIsMounted();
   const tabs = useProjectDetailsStepsTabs(challenge);
-  const { metadata, info, track } = challenge;
+  const { info, metadata, track } = challenge;
   const { access, difficulty, points, skills, submitHref } = metadata;
-  const { title, description } = info;
+  const { description, title } = info;
 
-  const { session, isGetLatestSessionFetched } =
+  const { isGetLatestSessionFetched, session } =
     useProjectsChallengeSessionContext();
   const [isHowItWorksDialogShown, setIsHowItWorksDialogShown] = useState(false);
   const [

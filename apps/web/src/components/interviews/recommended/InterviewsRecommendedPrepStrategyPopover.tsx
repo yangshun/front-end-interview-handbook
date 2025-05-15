@@ -109,7 +109,7 @@ function InterviewsRecommendedPrepStrategyPopoverContents({
         />
       </Text>
       <div className="flex flex-col gap-6">
-        {items.map(({ label, href, isCompleted }, index) => {
+        {items.map(({ href, isCompleted, label }, index) => {
           const isSelected = pathname ? href.startsWith(pathname) : false;
 
           return (

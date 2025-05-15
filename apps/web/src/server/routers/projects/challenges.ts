@@ -42,7 +42,7 @@ export const projectsChallengesRouter = router({
         skillSlug: z.string(),
       }),
     )
-    .query(async ({ input: { skillSlug, locale }, ctx: { viewer } }) => {
+    .query(async ({ ctx: { viewer }, input: { locale, skillSlug } }) => {
       return readProjectsChallengeItemsForSkill(skillSlug, locale, viewer?.id);
     }),
   progress: publicProcedure
@@ -51,7 +51,7 @@ export const projectsChallengesRouter = router({
         locale: z.string(),
       }),
     )
-    .query(async ({ input: { locale }, ctx: { viewer } }) => {
+    .query(async ({ ctx: { viewer }, input: { locale } }) => {
       const [
         skillsRoadmap,
         { tracks },

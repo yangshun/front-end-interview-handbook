@@ -12,8 +12,8 @@ import TextInput from '~/components/ui/TextInput';
 import type { ProjectsChallengeSubmissionSortField } from '../../types';
 
 type Props = Readonly<{
-  filterSize: number;
   filters: ReadonlyArray<ProjectsChallengeSubmissionFilterOption>;
+  filterSize: number;
   isAscendingOrder: boolean;
   isViewerPremium: boolean;
   query: string;
@@ -24,15 +24,15 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsChallengeSubmissionFilters({
-  isViewerPremium,
-  query,
-  setQuery,
   filters,
   filterSize,
-  sortField,
   isAscendingOrder,
+  isViewerPremium,
+  query,
   setIsAscendingOrder,
+  setQuery,
   setSortField,
+  sortField,
 }: Props) {
   const intl = useIntl();
   const [searchQuery, setSearchQuery] = useState(query);

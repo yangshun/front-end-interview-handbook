@@ -31,13 +31,13 @@ export default function ProjectsChallengeCard({
   const intl = useIntl();
   const { info, metadata, userUnlocked } = challenge;
   const {
-    difficulty,
-    skills,
-    coverImage,
-    href,
     access: challengeAccess,
+    coverImage,
+    difficulty,
+    href,
+    skills,
   } = metadata;
-  const { title, description } = info;
+  const { description, title } = info;
 
   // For users going to the challenge from the roadmap page,
   // we append the skill to the URL so that challenge completion

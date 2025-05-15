@@ -23,8 +23,8 @@ const DifficultyLabelClasses: Record<QuestionDifficulty, string> = {
 
 export default function QuestionDifficultyLabel({
   showIcon = false,
-  value,
   size = 'body3',
+  value,
 }: Props) {
   const intl = useIntl();
   const id = useId();

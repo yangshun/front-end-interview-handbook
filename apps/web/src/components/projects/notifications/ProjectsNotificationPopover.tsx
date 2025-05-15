@@ -37,11 +37,11 @@ export default function ProjectsNotificationPopover({
   align = 'end',
   asChild = true,
   children,
-  side = 'right',
-  trigger,
   className,
   isShown,
   onClose,
+  side = 'right',
+  trigger,
 }: Props) {
   return (
     <div className="relative">

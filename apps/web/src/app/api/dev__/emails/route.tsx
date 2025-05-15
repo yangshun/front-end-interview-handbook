@@ -20,7 +20,7 @@ export async function POST(req: NextRequest) {
 
   try {
     const request = await req.json();
-    const { checks, emailKey, email, name, props, userId } = request;
+    const { checks, email, emailKey, name, props, userId } = request;
 
     const emailItemConfig = EmailsItemConfigs.find(
       (itemConfig) => itemConfig.id === emailKey,

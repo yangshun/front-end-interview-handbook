@@ -49,7 +49,7 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const { valid, error } = validatePassword(password);
+  const { error, valid } = validatePassword(password);
 
   if (!valid) {
     return NextResponse.json({ error }, { status: 401 });

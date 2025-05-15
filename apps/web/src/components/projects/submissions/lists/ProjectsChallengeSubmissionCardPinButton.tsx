@@ -5,8 +5,8 @@ import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 
 export default function ProjectsChallengeSubmissionCardPinButton({
-  onUnpin,
   isPinned,
+  onUnpin,
 }: {
   isPinned: boolean;
   onUnpin?: () => void;

@@ -19,7 +19,7 @@ type Props = Readonly<{
 export default function ProjectsChallengeSolutionSection({ solution }: Props) {
   const { colorScheme } = useColorSchemePreferences();
 
-  const { workspace, files } = solution;
+  const { files, workspace } = solution;
 
   return (
     <CodingPreferencesProvider>

@@ -137,7 +137,7 @@ async function readQuestionAlgoFiles(
       filePath,
     }))
     .reduce(
-      (prev, { filePath, contents }) => ({
+      (prev, { contents, filePath }) => ({
         ...prev,
         [filePath]: contents,
       }),

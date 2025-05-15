@@ -15,7 +15,7 @@ export type Props = LinkProps &
   }>;
 
 function I18nLink(
-  { locale: localeParam, href, ...props }: Props,
+  { href, locale: localeParam, ...props }: Props,
   ref: ForwardedRef<HTMLAnchorElement>,
 ) {
   const { locale: currentLocale } = useI18n();

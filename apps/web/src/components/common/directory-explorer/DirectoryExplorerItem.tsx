@@ -41,11 +41,11 @@ export type ExplorerItemProps = PropsWithChildren<{
 function ExplorerItem({
   children,
   className,
-  name,
   icon,
   indent = -1,
   isActive = false,
   isRenaming,
+  name,
   onClick,
   onDelete,
   onRename,
@@ -139,10 +139,10 @@ export type ExplorerPassdownProps = Readonly<{
 }>;
 
 export function ExplorerFile({
-  name,
   fullPath,
-  isDirectory,
   indent,
+  isDirectory,
+  name,
 }: ExplorerPassdownProps & FileExplorerFile) {
   const file: FileExplorerFile = {
     fullPath,
@@ -192,11 +192,11 @@ export function ExplorerFile({
 }
 
 export function ExplorerDirectory({
-  name,
-  fullPath,
-  isDirectory,
   contents,
+  fullPath,
   indent = -1,
+  isDirectory,
+  name,
 }: ExplorerPassdownProps & FileExplorerDirectory) {
   const folder: FileExplorerDirectory = {
     contents,

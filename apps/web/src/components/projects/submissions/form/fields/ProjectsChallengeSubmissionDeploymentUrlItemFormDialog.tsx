@@ -31,8 +31,8 @@ export default function ProjectsChallengeSubmissionDeploymentUrlItemFormDialog({
   isShown,
   mode,
   onClose,
-  values,
   onSubmit,
+  values,
 }: Props) {
   const intl = useIntl();
   const attrs = getProjectsChallengeSubmissionDeploymentUrlsAttributes(intl);
@@ -44,7 +44,7 @@ export default function ProjectsChallengeSubmissionDeploymentUrlItemFormDialog({
     values,
   });
 
-  const { control, handleSubmit, formState, reset } = formMethods;
+  const { control, formState, handleSubmit, reset } = formMethods;
 
   useEffect(() => {
     reset();

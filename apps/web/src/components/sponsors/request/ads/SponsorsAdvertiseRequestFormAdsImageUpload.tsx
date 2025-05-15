@@ -34,13 +34,13 @@ const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2MB
 
 export default function SponsorsAdvertiseRequestFormAdsImageUpload({
   className,
-  widthConstraint,
-  heightConstraint,
-  setImageUrl,
-  imageUrl,
   errorMessage,
-  setError,
+  heightConstraint,
+  imageUrl,
   mode = 'create',
+  setError,
+  setImageUrl,
+  widthConstraint,
 }: Props) {
   const intl = useIntl();
   const messageId = useId();
@@ -72,7 +72,7 @@ export default function SponsorsAdvertiseRequestFormAdsImageUpload({
     }
   }
 
-  const { getRootProps, getInputProps, isFocused, isDragAccept, isDragReject } =
+  const { getInputProps, getRootProps, isDragAccept, isDragReject, isFocused } =
     useDropzone({
       accept: { 'image/*': [] },
       multiple: false,

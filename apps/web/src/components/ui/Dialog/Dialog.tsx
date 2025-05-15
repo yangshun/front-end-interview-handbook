@@ -68,9 +68,9 @@ export const DialogContent = React.forwardRef<
 >(
   (
     {
+      children,
       className,
       contentClassName,
-      children,
       scrollable,
       wrapChildren,
       ...props
@@ -117,8 +117,8 @@ export const DialogContent = React.forwardRef<
 DialogContent.displayName = DialogPrimitive.Content.displayName;
 
 export function DialogHeader({
-  className,
   children,
+  className,
   onClose,
   ...props
 }: Pick<Props, 'onClose'> & React.HTMLAttributes<HTMLDivElement>) {
@@ -151,7 +151,7 @@ DialogHeader.displayName = 'DialogHeader';
 export const DialogTitle = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Title>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title>
->(({ className, children, ...props }, ref) => (
+>(({ children, className, ...props }, ref) => (
   <DialogPrimitive.Title
     ref={ref}
     className={clsx(
@@ -239,18 +239,18 @@ export default function Dialog({
   asChild = true,
   bottomContents,
   centered = true,
-  className,
   children,
+  className,
   isShown,
-  primaryButton,
+  onClose,
   previousButton,
+  primaryButton,
   scrollable = false,
   secondaryButton,
   title,
   trigger,
   width = 'sm',
   wrapChildren,
-  onClose,
   ...props
 }: Props) {
   return (

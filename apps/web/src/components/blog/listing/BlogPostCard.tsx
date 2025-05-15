@@ -27,10 +27,10 @@ type Props = Readonly<{
 
 export default function BlogPostCard({
   metadata,
-  type = 'default',
   showArrow = true,
-  titleLines = 1,
   showSeriesTag = true,
+  titleLines = 1,
+  type = 'default',
 }: Props) {
   return (
     <div

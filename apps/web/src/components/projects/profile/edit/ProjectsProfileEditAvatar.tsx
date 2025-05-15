@@ -11,7 +11,7 @@ type Props = Readonly<{
   src: string;
 }>;
 
-export default function ProjectsProfileEditAvatar({ src, onChange }: Props) {
+export default function ProjectsProfileEditAvatar({ onChange, src }: Props) {
   const intl = useIntl();
   const [imageSizeExceeded, setImageSizeExceeded] = useState(false);
 

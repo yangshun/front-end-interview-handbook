@@ -4,7 +4,7 @@ import { useProjectsChallengeFilterContext } from '~/components/projects/challen
 import type { ProjectsSortField } from '~/components/projects/types';
 
 export default function useProjectsChallengesSorting() {
-  const { updateSearchParams, getStringTypeSearchParams } =
+  const { getStringTypeSearchParams, updateSearchParams } =
     useProjectsChallengeFilterContext();
   const [isAscendingOrder, setIsAscendingOrder] = useState(
     getStringTypeSearchParams('sortOrder') === 'ASC',

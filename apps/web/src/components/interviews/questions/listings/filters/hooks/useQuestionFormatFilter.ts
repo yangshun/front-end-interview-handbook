@@ -17,8 +17,8 @@ type Props = Readonly<{
 }>;
 
 export default function useQuestionFormatFilter({
-  initialValue = [],
   filter,
+  initialValue = [],
   namespace,
   order,
 }: Props): [Set<QuestionFormat>, QuestionFilter<QuestionFormat>] {

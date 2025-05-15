@@ -5,8 +5,8 @@ import { getErrorMessage } from '~/utils/getErrorMessage';
 import { EmailsItemConfigInterviewsProgress } from './EmailsItemConfigInterviewsProgress';
 
 export async function sendInterviewsProgressEmail({
-  name,
   email,
+  name,
   userId,
 }: Readonly<{
   email: string;

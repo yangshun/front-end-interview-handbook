@@ -59,15 +59,15 @@ export type Props = Readonly<{
 }>;
 
 function TestsSection({
-  specMode,
-  specPath,
   onComplete,
   onFocusConsole,
-  onShowTestsCases,
   onShowTestCase,
+  onShowTestsCases,
+  specMode,
+  specPath,
 }: Props) {
   const intl = useIntl();
-  const { status, executionComplete, runTests, submit } =
+  const { executionComplete, runTests, status, submit } =
     useCodingWorkspaceContext();
   const { getClient, iframe, listen, sandpack } = useSandpackClient();
 

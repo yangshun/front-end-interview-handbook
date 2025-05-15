@@ -174,7 +174,7 @@ export default function InterviewsMarketingContactSection() {
               'gap-0 sm:gap-x-6 lg:gap-0',
               '-mt-5',
             )}>
-            {data.map(({ key, label, icon: Icon, href, tooltip }) => (
+            {data.map(({ href, icon: Icon, key, label, tooltip }) => (
               <div
                 key={key}
                 className={clsx(

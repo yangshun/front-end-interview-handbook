@@ -1,10 +1,10 @@
 import chalk from 'chalk';
 import logUpdate from 'log-update';
 
-import { TranslationGroupId, TranslationGroups } from '../types';
+import type { TranslationGroupId, TranslationGroups } from '../types';
 import { batchStatusSymbol } from './spinner-frames';
 
-let timeStart = Date.now();
+const timeStart = Date.now();
 
 export function formatDuration(duration: number | null) {
   return duration == null ? '' : `${(duration / 1000).toFixed(1)}s`;

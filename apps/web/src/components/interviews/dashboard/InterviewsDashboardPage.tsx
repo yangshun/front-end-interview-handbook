@@ -60,12 +60,12 @@ type Props = Readonly<{
 }>;
 
 export default function InterviewsDashboardPage({
+  bottomContent,
   companyGuides,
   defaultLoggedIn,
-  studyPlans,
-  questions,
-  bottomContent,
   focusAreas,
+  questions,
+  studyPlans,
 }: Props) {
   const user = useUser();
   const isLoggedIn = defaultLoggedIn || !!user;
@@ -85,7 +85,7 @@ export default function InterviewsDashboardPage({
       enabled: isLoggedIn,
     },
   );
-  const { startTime, endTime } = useMemo(() => getDateRangeFromToday(), []);
+  const { endTime, startTime } = useMemo(() => getDateRangeFromToday(), []);
   const { data: contributions, isLoading: isContributionsLoading } =
     trpc.questionProgress.getContributionsCount.useQuery(
       {
@@ -243,7 +243,7 @@ export default function InterviewsDashboardPage({
                 QuestionsSystemDesignList: () => (
                   <ul>
                     {questions.systemDesignQuestions.map(
-                      ({ metadata, info }) => (
+                      ({ info, metadata }) => (
                         <li key={metadata.slug}>
                           <Anchor href={metadata.href}>{info.title}</Anchor>
                         </li>

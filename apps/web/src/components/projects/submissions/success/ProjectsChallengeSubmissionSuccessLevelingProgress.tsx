@@ -74,10 +74,10 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsChallengeSubmissionSuccessLevelingProgress({
-  isLeveledUp,
-  roadmapSkillsRepRecords,
   gainedPoints,
+  isLeveledUp,
   level,
+  roadmapSkillsRepRecords,
 }: Props) {
   const intl = useIntl();
   const [showSkillGainedDialog, setShowSkillGainedDialog] = useState(false);

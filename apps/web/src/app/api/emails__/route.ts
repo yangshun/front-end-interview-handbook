@@ -31,7 +31,7 @@ export async function POST(req: NextRequest) {
 
   try {
     const request = await req.json();
-    const { emailKey, userId, countryCode } = request;
+    const { countryCode, emailKey, userId } = request;
 
     const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
     const [

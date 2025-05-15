@@ -2,9 +2,9 @@ import { FormattedNumberParts } from '~/components/intl';
 
 export default function PurchasePriceLabel({
   amount,
-  symbol,
-  currency,
   children,
+  currency,
+  symbol,
 }: Readonly<{
   amount: number;
   children?: (val: Array<Intl.NumberFormatPart>) => React.ReactElement | null;

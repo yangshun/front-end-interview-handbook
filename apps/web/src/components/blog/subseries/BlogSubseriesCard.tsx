@@ -23,8 +23,8 @@ type Props = Readonly<{
 }>;
 
 export default function BlogSubseriesCard({
-  subseries,
   initialItemsToShow = 3,
+  subseries,
 }: Props) {
   const intl = useIntl();
   const [showAll, setShowAll] = useState(false);

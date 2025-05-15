@@ -23,8 +23,8 @@ import type { GuideNavigation } from './types';
 export default function GuidesNavbar<GuideSlug extends string>({
   guide,
   navigation,
-  tableOfContents,
   showMenu = true,
+  tableOfContents,
 }: Readonly<{
   guide: GuidebookItem;
   navigation: GuideNavigation<GuideSlug>;

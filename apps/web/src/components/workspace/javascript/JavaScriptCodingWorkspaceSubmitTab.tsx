@@ -22,9 +22,9 @@ import useJavaScriptCodingWorkspaceTilesContext from './useJavaScriptCodingWorks
 
 export default function JavaScriptCodingWorkspaceTestsSubmitTab({
   metadata,
-  studyListKey,
   openBesideTabId,
   specPath,
+  studyListKey,
 }: Readonly<{
   metadata: InterviewsQuestionMetadata;
   openBesideTabId: CodingWorkspaceTabFileType;

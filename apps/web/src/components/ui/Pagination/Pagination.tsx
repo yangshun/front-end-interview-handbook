@@ -5,9 +5,9 @@ import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 
 function getVisiblePageNumbers({
+  adjacentPageCount,
   currentPageNumber,
   lastPageNumber,
-  adjacentPageCount,
   terminalPageDisplayCount,
 }: {
   adjacentPageCount: number;
@@ -94,7 +94,7 @@ type Props = Readonly<{
   page: number;
 }>;
 
-export default function Pagination({ page, count, onPageChange }: Props) {
+export default function Pagination({ count, onPageChange, page }: Props) {
   const intl = useIntl();
   const visiblePageNumbers = useMemo(
     () =>

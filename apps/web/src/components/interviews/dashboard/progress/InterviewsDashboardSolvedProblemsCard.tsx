@@ -35,13 +35,13 @@ type Props = Readonly<{
 }>;
 
 export default function InterviewsDashboardSolvedProblemsCard({
+  isQuestionsProgressLoading,
   questions,
   questionsProgress,
-  isQuestionsProgressLoading,
 }: Props) {
   const intl = useIntl();
 
-  const { easy, medium, hard } = useMemo(
+  const { easy, hard, medium } = useMemo(
     () =>
       countQuestionsCompletionByDifficulty(
         [
@@ -209,7 +209,7 @@ export default function InterviewsDashboardSolvedProblemsCard({
             difficultyItems.easy,
             difficultyItems.medium,
             difficultyItems.hard,
-          ].map(({ label, total, completed, tooltip }) => (
+          ].map(({ completed, label, tooltip, total }) => (
             <div key={label} className="flex flex-col gap-1.5">
               <div className="flex items-center gap-2">
                 <Text size="body3" weight="medium">

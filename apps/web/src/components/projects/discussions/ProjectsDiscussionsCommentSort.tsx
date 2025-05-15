@@ -12,10 +12,10 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsDiscussionsCommentSort({
-  sortField,
   isAscendingOrder,
-  setSortField,
   setIsAscendingOrder,
+  setSortField,
+  sortField,
 }: Props) {
   const intl = useIntl();
 

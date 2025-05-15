@@ -13,7 +13,7 @@ type Props = Readonly<{
 
 export default function ActivityItem({ activity }: Props) {
   const projectSlug = useCurrentProjectSlug();
-  const { action, user, post, createdAt } = activity;
+  const { action, createdAt, post, user } = activity;
   const userLabel = <span className="font-bold">{user.name}</span>;
   const postLabel = (
     <Text

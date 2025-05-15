@@ -52,7 +52,7 @@ export default function RewardsSocialHandlesForm({
   onNextStage,
 }: Props) {
   const intl = useIntl();
-  const { mutate: verifySocialHandles, isLoading } =
+  const { isLoading, mutate: verifySocialHandles } =
     trpc.promotions.verifySocialHandles.useMutation();
   const [validationErrors, setValidationErrors] =
     useState<RewardsHandlesValidation | null>(null);

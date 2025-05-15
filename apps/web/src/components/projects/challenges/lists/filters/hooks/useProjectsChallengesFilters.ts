@@ -5,7 +5,7 @@ import { useProjectsChallengeFilterContext } from '~/components/projects/challen
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
 
 export default function useProjectsChallengesFilters() {
-  const { updateSearchParams, getStringTypeSearchParams } =
+  const { getStringTypeSearchParams, updateSearchParams } =
     useProjectsChallengeFilterContext();
   // Filtering.
   const [query, setQuery] = useState(getStringTypeSearchParams('search') ?? '');

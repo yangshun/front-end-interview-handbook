@@ -31,8 +31,8 @@ type Props = Readonly<{
 }>;
 
 export default function InterviewsRevampFocusAreaListPage({
-  focusAreas,
   bottomContent,
+  focusAreas,
 }: Props) {
   const intl = useIntl();
   const user = useUser();
@@ -111,7 +111,7 @@ export default function InterviewsRevampFocusAreaListPage({
       </InterviewsPageHeader>
       <Section>
         <div className="flex flex-col gap-12">
-          {focusAreasCategories.map(({ title, items }) => (
+          {focusAreasCategories.map(({ items, title }) => (
             <div key={title} className="flex flex-col gap-6">
               <Heading level="heading6">{title}</Heading>
               <div className="flex flex-col gap-4">

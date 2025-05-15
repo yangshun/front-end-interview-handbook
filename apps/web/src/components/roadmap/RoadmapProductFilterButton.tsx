@@ -19,7 +19,7 @@ type Props = Omit<ButtonProps, 'variant'> &
   }>;
 
 function RoadmapProductFilterButton(
-  { selected, className, ...props }: Props,
+  { className, selected, ...props }: Props,
   ref: ForwardedRef<HTMLAnchorElement | HTMLButtonElement>,
 ) {
   return (

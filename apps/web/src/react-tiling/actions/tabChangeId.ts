@@ -12,7 +12,7 @@ export default function tabChangeId<TabType>(
   tiles: TilesPanelConfig<TabType>,
   payload: TilesActionTabChangeId<TabType>['payload'],
 ): TilesPanelConfig<TabType> {
-  const { oldTabId, newTabId } = payload;
+  const { newTabId, oldTabId } = payload;
 
   return tabChangeIdImpl(tiles, oldTabId, newTabId);
 }

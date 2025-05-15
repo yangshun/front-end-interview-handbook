@@ -46,7 +46,7 @@ function tabDropImpl<TabType>(
   tiles: TilesPanelConfig<TabType>,
   payload: TilesActionTabDrop<TabType>['payload'],
 ): TilesPanelConfig<TabType> {
-  const { src, dst } = payload;
+  const { dst, src } = payload;
 
   // Dropped on a tab item.
   if (dst.dropAreaSection === 'tab') {
@@ -114,7 +114,7 @@ function tabReorder<TabType>(
   src: PanelTabCloseable<TabType>,
   dst: PanelTab<TabType>,
 ): TilesPanelConfig<TabType> {
-  const { tabId: srcTabId, panelId: srcPanelId } = src;
+  const { panelId: srcPanelId, tabId: srcTabId } = src;
   const { tabId: dstTabId } = dst;
 
   if (panel.type === 'item') {

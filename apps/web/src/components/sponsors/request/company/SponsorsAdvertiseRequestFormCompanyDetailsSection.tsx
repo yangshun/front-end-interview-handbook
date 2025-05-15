@@ -37,11 +37,11 @@ const countryOptionsSorted = countryOptions.sort((a, b) =>
 );
 
 export default function SponsorsAdvertiseRequestFormCompanyDetailsSection({
-  onSubmit,
-  onPrevious,
   defaultValues,
-  updateStepStatus,
   mode = 'create',
+  onPrevious,
+  onSubmit,
+  updateStepStatus,
 }: Props) {
   const intl = useIntl();
   const companySchema = useSponsorsCompanySchema();
@@ -68,8 +68,8 @@ export default function SponsorsAdvertiseRequestFormCompanyDetailsSection({
   });
   const {
     control,
+    formState: { isDirty, isValid },
     handleSubmit,
-    formState: { isValid, isDirty },
   } = methods;
 
   useEffect(() => {

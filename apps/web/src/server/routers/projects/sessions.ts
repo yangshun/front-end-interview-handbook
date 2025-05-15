@@ -25,7 +25,7 @@ const projectsSessionProcedure = projectsUserProcedure.input(
 
 export const projectsSessionsRouter = router({
   end: projectsSessionProcedure.mutation(
-    async ({ input: { slug }, ctx: { projectsProfileId } }) => {
+    async ({ ctx: { projectsProfileId }, input: { slug } }) => {
       return await prisma.projectsChallengeSession.updateMany({
         data: {
           status: 'STOPPED',
@@ -40,7 +40,7 @@ export const projectsSessionsRouter = router({
     },
   ),
   latestInProgress: projectsSessionProcedure.query(
-    async ({ input: { slug }, ctx: { projectsProfileId } }) => {
+    async ({ ctx: { projectsProfileId }, input: { slug } }) => {
       return await prisma.projectsChallengeSession.findFirst({
         where: {
           profileId: projectsProfileId,
@@ -62,7 +62,7 @@ export const projectsSessionsRouter = router({
       }),
     )
     .query(
-      async ({ input: { orderBy, statuses, userId }, ctx: { viewer } }) => {
+      async ({ ctx: { viewer }, input: { orderBy, statuses, userId } }) => {
         const sessions = await prisma.projectsChallengeSession.findMany({
           orderBy: {
             createdAt: orderBy,
@@ -100,7 +100,7 @@ export const projectsSessionsRouter = router({
         limit: z.number().int().positive(),
       }),
     )
-    .query(async ({ input: { limit }, ctx: { projectsProfileId } }) => {
+    .query(async ({ ctx: { projectsProfileId }, input: { limit } }) => {
       const sessions = await prisma.projectsChallengeSession.findMany({
         orderBy: {
           updatedAt: 'desc',
@@ -142,8 +142,8 @@ export const projectsSessionsRouter = router({
     )
     .mutation(
       async ({
-        input: { sessionId, roadmapSkills, techStackSkills, slug },
         ctx: { projectsProfileId },
+        input: { roadmapSkills, sessionId, slug, techStackSkills },
       }) => {
         return await prisma.projectsChallengeSession.update({
           data: {
@@ -167,8 +167,8 @@ export const projectsSessionsRouter = router({
     )
     .mutation(
       async ({
-        input: { slug, roadmapSkills, techStackSkills },
         ctx: { projectsProfileId },
+        input: { roadmapSkills, slug, techStackSkills },
       }) => {
         // Don't allow creating multiple sessions.
         const existingSession = await prisma.projectsChallengeSession.findFirst(
@@ -244,7 +244,7 @@ export const projectsSessionsRouter = router({
         limit: z.number().int().positive(),
       }),
     )
-    .query(async ({ input: { limit }, ctx: { projectsProfileId } }) => {
+    .query(async ({ ctx: { projectsProfileId }, input: { limit } }) => {
       const { tracks } = await readProjectsTrackList();
       const completedSessions = await prisma.projectsChallengeSession.findMany({
         where: {

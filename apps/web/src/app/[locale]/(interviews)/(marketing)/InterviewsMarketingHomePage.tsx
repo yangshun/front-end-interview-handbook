@@ -24,10 +24,10 @@ type Props = Readonly<{
 }>;
 
 export default function InterviewsMarketingHomePage({
-  uiCodingQuestion,
+  companyGuides,
   javaScriptEmbedExample,
   questions,
-  companyGuides,
+  uiCodingQuestion,
 }: Props) {
   return (
     <main>

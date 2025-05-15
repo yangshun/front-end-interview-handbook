@@ -50,10 +50,10 @@ type Props = Readonly<{
 }>;
 
 export default function GuidesTableOfContents({
-  tableOfContents,
   collapsed,
   isCollapsible,
   setCollapsedToC,
+  tableOfContents,
 }: Props) {
   const intl = useIntl();
   const titleId = useId();

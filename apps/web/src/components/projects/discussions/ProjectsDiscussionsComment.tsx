@@ -51,9 +51,9 @@ type Props = Readonly<{
 const MAX_LEVEL_TO_ALLOW_REPLIES = 2;
 
 export default function ProjectsDiscussionsComment({
+  className,
   comment,
   level,
-  className,
   viewer,
 }: Props) {
   const params = useParams();
@@ -61,10 +61,10 @@ export default function ProjectsDiscussionsComment({
   const [highlightComment, setHighlightComment] = useState<boolean>(false);
   const {
     _count: { votes: votesCount },
-    id: commentId,
     author,
     body,
     category,
+    id: commentId,
     replies,
     updatedAt,
   } = comment;

@@ -246,7 +246,7 @@ export default function CodingWorkspaceEditorShortcutsButton() {
           </Text>
           <Divider />
           <div className="space-y-2">
-            {shortcuts.map(({ label, keys, key }) => (
+            {shortcuts.map(({ key, keys, label }) => (
               <div key={key} className="flex items-center justify-between">
                 <Text color="secondary" size="body3">
                   {label}

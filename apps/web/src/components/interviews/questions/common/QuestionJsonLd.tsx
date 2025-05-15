@@ -13,7 +13,7 @@ type Props = Readonly<{
   metadata: InterviewsQuestionMetadata;
 }>;
 
-export default function QuestionJsonLd({ metadata, info }: Props) {
+export default function QuestionJsonLd({ info, metadata }: Props) {
   return (
     <ArticleJsonLd
       authorName={GFEArticleAuthor}

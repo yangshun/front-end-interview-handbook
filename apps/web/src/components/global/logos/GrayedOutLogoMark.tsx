@@ -5,7 +5,7 @@ type Props = Readonly<{
   width?: number;
 }>;
 
-function GrayedOutLogoMark({ height = 20, width = 26, className }: Props) {
+function GrayedOutLogoMark({ className, height = 20, width = 26 }: Props) {
   const linearGradientId1 = useId();
   const linearGradientId2 = useId();
   const linearGradientId3 = useId();

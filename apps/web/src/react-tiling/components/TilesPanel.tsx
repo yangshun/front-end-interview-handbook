@@ -45,15 +45,15 @@ type TilesPanelGroupTypeProps<TabType> = Readonly<{
   TilesPanelConfig<TabType>;
 
 export default function TilesPanel<TabType extends string>({
-  level,
-  order,
-  id,
-  getTabLabel,
-  renderTab,
-  parentDirection,
   defaultSize = 100,
-  minSize = 10,
   getResizeHandlerProps,
+  getTabLabel,
+  id,
+  level,
+  minSize = 10,
+  order,
+  parentDirection,
+  renderTab,
   ...props
 }: TilesPanelGroupTypeProps<TabType> | TilesPanelItemTypeProps<TabType>) {
   const panelGroupRef = useRef<ImperativePanelGroupHandle>(null);

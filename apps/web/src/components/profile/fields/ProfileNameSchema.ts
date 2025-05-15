@@ -10,7 +10,7 @@ function profileNameSchema(options?: {
   maxMessage: string;
   minMessage: string;
 }) {
-  const { minMessage, maxMessage } = options ?? {};
+  const { maxMessage, minMessage } = options ?? {};
 
   return z
     .string()

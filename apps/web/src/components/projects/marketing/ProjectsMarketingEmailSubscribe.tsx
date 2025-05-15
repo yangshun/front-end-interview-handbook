@@ -116,8 +116,8 @@ export default function ProjectsMarketingEmailSubscribe() {
 
   const {
     data: submitMessage,
-    isLoading,
     failureReason,
+    isLoading,
     mutate: signUpForNewsletter,
   } = trpc.emails.signUpForNewsletter.useMutation();
 

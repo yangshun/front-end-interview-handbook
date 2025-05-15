@@ -19,7 +19,7 @@ export const guideProgressRouter = router({
       }),
     )
     .mutation(
-      async ({ input: { book, slug, studyListKey }, ctx: { viewer } }) => {
+      async ({ ctx: { viewer }, input: { book, slug, studyListKey } }) => {
         if (!viewer) {
           return null;
         }
@@ -86,7 +86,7 @@ export const guideProgressRouter = router({
         slug: z.string(),
       }),
     )
-    .mutation(async ({ input: { slug, book }, ctx: { viewer } }) => {
+    .mutation(async ({ ctx: { viewer }, input: { book, slug } }) => {
       await prisma.guideProgress.deleteMany({
         where: {
           book,
@@ -111,7 +111,7 @@ export const guideProgressRouter = router({
         }),
       }),
     )
-    .query(async ({ input: { guide }, ctx: { viewer } }) => {
+    .query(async ({ ctx: { viewer }, input: { guide } }) => {
       const guideProgress = await prisma.guideProgress.findFirst({
         orderBy: {
           createdAt: 'desc',

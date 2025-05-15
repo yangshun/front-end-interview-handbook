@@ -24,7 +24,7 @@ export default function InterviewsDashboardContributionsHeatmapCard({
   contributions,
   isContributionsLoading,
 }: Props) {
-  const { startTime, endTime } = useMemo(() => getDateRangeFromToday(), []);
+  const { endTime, startTime } = useMemo(() => getDateRangeFromToday(), []);
   const maxConsecutiveDays = findMaxConsecutiveDays(contributions);
   const totalActiveDays = Object.keys(contributions ?? {}).length;
   const totalContributions = sum(values(contributions));

@@ -21,8 +21,8 @@ type Props = Readonly<{
 
 export default function ProjectsProfilePage({
   children,
-  userProfile,
   isViewingOwnProfile,
+  userProfile,
 }: Props) {
   const projectsProfileId = userProfile.projectsProfile.id;
   const { data: profileStatistics } =

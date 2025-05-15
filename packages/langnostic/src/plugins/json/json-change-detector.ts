@@ -1,12 +1,12 @@
-import { TranslationFileMetadata } from '../../core/types';
+import type { TranslationFileMetadata } from '../../core/types';
 import { fileExists, readFile, writeFile } from '../../lib/file-service';
 
 function compareJsonData(
   sourceJson: Record<string, string>,
   targetJson: Record<string, string> | null,
 ): Readonly<{
-  keysToTranslate: string[];
-  removedKeys: string[];
+  keysToTranslate: Array<string>;
+  removedKeys: Array<string>;
 }> {
   if (!targetJson) {
     return {
@@ -14,6 +14,7 @@ function compareJsonData(
       removedKeys: [],
     };
   }
+
   return {
     keysToTranslate: Object.keys(sourceJson).filter(
       (key) => !(key in targetJson),
@@ -38,6 +39,7 @@ export async function processFileForChanges(
       sourceJson,
       targetJson,
     );
+
     result[target.locale] = keysToTranslate;
 
     // Remove keys that are no longer present in the source JSON from the target file

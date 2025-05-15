@@ -29,12 +29,12 @@ type TestimonialCardProps = Readonly<{
 }>;
 
 function TestimonialCard({
-  testimonial,
   authorThumbnailUrl,
-  name,
   authorUrl,
-  title,
   location,
+  name,
+  testimonial,
+  title,
   variant = 'full',
 }: TestimonialCardProps) {
   return (

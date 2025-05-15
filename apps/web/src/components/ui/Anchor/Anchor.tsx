@@ -41,6 +41,7 @@ function Anchor(
     children,
     className: classNameProp,
     href = '#',
+    onClick,
     prefetch = 'hover',
     refresh = false,
     rel: relProp,
@@ -49,7 +50,6 @@ function Anchor(
     variant,
     warnAboutExternalLink = false,
     weight,
-    onClick,
     ...props
   }: Props,
   ref: ForwardedRef<HTMLAnchorElement>,

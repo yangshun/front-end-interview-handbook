@@ -28,10 +28,10 @@ type Props = Readonly<{
 export default function ProjectsPricingSection({
   countryCode,
   countryName,
-  plansPaymentConfig,
-  heading,
-  title,
   description,
+  heading,
+  plansPaymentConfig,
+  title,
   useCurrentPageAsCancelUrl,
 }: Props) {
   const annualPlan = plansPaymentConfig.ANNUAL;

@@ -46,14 +46,14 @@ const defaultFeatures: ReadonlyArray<QuestionListFeature> = [
 ];
 
 export default function InterviewsQuestionsCategoryLanguagePage({
-  title,
+  bottomContent,
   description,
   features = defaultFeatures,
   language,
-  questions,
   listType,
+  questions,
   showCategoryTabs = true,
-  bottomContent,
+  title,
   totalQuestionsCount,
   ...props
 }: Props) {

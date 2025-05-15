@@ -46,10 +46,10 @@ type Props = Readonly<{
 
 export default function ProjectsChallengeSubmitPage({
   challenge,
-  session,
   isViewerPremium,
   locale,
   points: initialPoints,
+  session,
 }: Props) {
   const trpcUtils = trpc.useUtils();
   const intl = useIntl();
@@ -67,12 +67,12 @@ export default function ProjectsChallengeSubmitPage({
     });
 
   const {
-    showSuccess,
+    gainedPoints,
     isLeveledUp,
     level,
-    submissionUrl,
-    gainedPoints,
     roadmapSkillsRepRecords,
+    showSuccess,
+    submissionUrl,
   } = successPageInfo;
 
   const takeScreenshotMutation =
@@ -94,9 +94,9 @@ export default function ProjectsChallengeSubmitPage({
       });
     },
     onSuccess: ({
-      submission,
       points,
       roadmapSkillsRepRecords: skillRepRecord,
+      submission,
     }) => {
       takeScreenshotMutation.mutate({ submissionId: submission.id });
       trpcUtils.projects.profile.invalidate();

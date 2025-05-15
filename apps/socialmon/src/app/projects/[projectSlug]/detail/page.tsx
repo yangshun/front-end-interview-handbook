@@ -31,11 +31,11 @@ export default async function Page({ params }: Props) {
   }
 
   const {
-    name,
     keywords,
-    subreddits,
-    productsToAdvertise,
+    name,
     postFilteringPrompt,
+    productsToAdvertise,
+    subreddits,
   } = project as ProjectTransformed;
 
   return (

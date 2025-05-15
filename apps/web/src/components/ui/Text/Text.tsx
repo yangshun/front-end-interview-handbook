@@ -15,7 +15,7 @@ type Props = HTMLAttributes<HTMLSpanElement> &
   }>;
 
 function Text(
-  { children, color, className, size, weight, ...props }: Props,
+  { children, className, color, size, weight, ...props }: Props,
   ref: ForwardedRef<HTMLSpanElement>,
 ) {
   return (

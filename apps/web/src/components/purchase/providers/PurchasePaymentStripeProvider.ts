@@ -7,7 +7,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 });
 
 export const PurchasePaymentStripeProvider = {
-  async createCustomer({ id, email }: Readonly<{ email: string; id: string }>) {
+  async createCustomer({ email, id }: Readonly<{ email: string; id: string }>) {
     console.info(`No Stripe customer found for ${id}, creating one`);
 
     // This happens when Supabase's webhooks don't fire during user signup
@@ -35,15 +35,15 @@ export const PurchasePaymentStripeProvider = {
     return { id: customer.id };
   },
   async createOneTimePlanCheckoutSession({
-    productId,
-    currency,
-    cancelUrl,
-    successUrl,
-    customerId,
     allowPromoCode,
-    receiptEmail,
-    metadata,
+    cancelUrl,
+    currency,
+    customerId,
     firstPromoterTrackingId,
+    metadata,
+    productId,
+    receiptEmail,
+    successUrl,
     unitAmountInCurrency,
   }: Readonly<{
     allowPromoCode?: boolean;

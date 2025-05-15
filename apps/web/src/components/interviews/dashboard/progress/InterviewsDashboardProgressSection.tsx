@@ -25,11 +25,11 @@ type Props = Readonly<{
 }>;
 
 export default function InterviewsDashboardProgressSection({
-  questionsProgress,
-  questions,
   contributions,
   isContributionsLoading,
   isQuestionsProgressLoading,
+  questions,
+  questionsProgress,
 }: Props) {
   return (
     <div className="flex flex-col gap-6">

@@ -16,8 +16,8 @@ type Props = Readonly<{
 }>;
 
 export default function ProfileActivitySelectivelyDeleteProgressButton({
-  qnHashes,
   clearSelectedQuestions,
+  qnHashes,
 }: Props) {
   const intl = useIntl();
 

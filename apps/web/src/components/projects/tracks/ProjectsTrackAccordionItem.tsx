@@ -44,7 +44,7 @@ export default function ProjectsTrackAccordionItem({
 }: Props) {
   const intl = useIntl();
 
-  const { metadata, challenges } = track;
+  const { challenges, metadata } = track;
   const { href, slug } = metadata;
 
   return (

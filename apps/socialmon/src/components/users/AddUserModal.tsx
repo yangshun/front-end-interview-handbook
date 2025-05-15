@@ -10,7 +10,7 @@ type Props = Readonly<{
   opened: boolean;
 }>;
 
-export default function AddUserModal({ opened, onClose }: Props) {
+export default function AddUserModal({ onClose, opened }: Props) {
   const utils = trpc.useUtils();
   const projectSlug = useCurrentProjectSlug();
   const addAccountForm = useForm({

@@ -47,7 +47,7 @@ async function getPageSEOMetadata({ locale }: Props['params']) {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
 
-  const { title, description, socialTitle, href, ogImagePageType } =
+  const { description, href, ogImagePageType, socialTitle, title } =
     await getPageSEOMetadata(params);
 
   return defaultMetadata({

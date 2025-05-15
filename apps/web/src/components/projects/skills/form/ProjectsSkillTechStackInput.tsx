@@ -27,13 +27,13 @@ export default function ProjectsSkillTechStackInput({
   errorMessage,
   excludeRoadmapSkills,
   isDisabled,
+  isLabelHidden,
   label,
+  onBlur,
+  onChange,
   placeholder,
   required,
   value,
-  isLabelHidden,
-  onChange,
-  onBlur,
 }: Props) {
   const options = projectsSkillTypeaheadOptions(excludeRoadmapSkills);
   const intl = useIntl();

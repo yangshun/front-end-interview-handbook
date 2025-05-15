@@ -18,8 +18,8 @@ type Props = Readonly<{
 export async function scheduleEmailWithChecks({
   countryCode,
   delayInSeconds,
-  userId,
   emailKey,
+  userId,
 }: Props) {
   const sendStatus = new EmailsSendStatus(emailKey, userId);
 
@@ -42,8 +42,8 @@ export async function scheduleEmailWithChecks({
 export async function scheduleEmail({
   countryCode,
   delayInSeconds,
-  userId,
   emailKey,
+  userId,
 }: Props) {
   return await QStash.publishJSON({
     body: { countryCode, emailKey, userId },

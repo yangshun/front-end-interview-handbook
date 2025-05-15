@@ -112,7 +112,7 @@ export default function MarketingCommunitySection() {
             ref={socialStatsDivRef}
             className="grid w-full grid-cols-2 gap-4 sm:grid-cols-4 lg:gap-6">
             {socialLinks.map((platform: SocialLinkMetadata) => {
-              const { icon: Icon, name, key, href } = platform;
+              const { href, icon: Icon, key, name } = platform;
               const count = socialUserCounts[key] ?? 0;
 
               return (

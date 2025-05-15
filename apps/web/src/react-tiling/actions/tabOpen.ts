@@ -21,12 +21,12 @@ export default function tabOpen<TabType>(
   payload: TilesActionTabOpen<TabType>['payload'],
 ): TilesPanelConfig<TabType> {
   const {
-    panelId,
-    tabId,
-    newTabId = null,
     newTabCloseable = true,
+    newTabId = null,
     newTabPosition = 'before',
     onTabsOpen,
+    panelId,
+    tabId,
   } = payload;
   const addedTabs: Array<TabType> = [];
   const newTiles = tabOpenImpl(
@@ -55,8 +55,8 @@ function tabOpenImpl<TabType>(
   panelId: string,
   tabId: TabType | null,
   {
-    newTabId,
     newTabCloseable,
+    newTabId,
     newTabPosition,
   }: {
     newTabCloseable: boolean;

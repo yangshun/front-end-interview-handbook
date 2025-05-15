@@ -3,8 +3,8 @@ import url from 'url';
 import { i18nHref } from '~/next-i18nostic/src';
 
 export function externalLinkHref({
-  url: urlParam,
   locale,
+  url: urlParam,
 }: Readonly<{
   locale?: string;
   url: string;

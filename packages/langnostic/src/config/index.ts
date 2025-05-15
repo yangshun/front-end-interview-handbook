@@ -1,9 +1,9 @@
+import { cosmiconfigSync } from 'cosmiconfig';
 import fs from 'fs';
 import path from 'path';
-import { cosmiconfigSync } from 'cosmiconfig';
 
-import { ConfigType } from './types';
 import { configDefault } from './config-default';
+import type { ConfigType } from './types';
 
 const moduleName = 'langnostic';
 const configExplorerSync = cosmiconfigSync(moduleName, {
@@ -38,14 +38,12 @@ export default class Config {
   public static initializeConfig(
     searchPath?: string,
   ): Readonly<
-    | { result: 'created'; filepath: string }
-    | { result: 'exists'; filepath: string }
-    | { result: 'error'; filepath: null }
+    { filepath: null; result: 'error'; } | { filepath: string; result: 'created'; } | { filepath: string; result: 'exists'; }
   > {
     const result = configExplorerSync.search(searchPath);
 
     if (result != null) {
-      return { result: 'exists', filepath: result.filepath };
+      return { filepath: result.filepath, result: 'exists' };
     }
 
     try {
@@ -53,15 +51,17 @@ export default class Config {
         searchPath ?? process.cwd(),
         'langnostic.config.cjs',
       );
+
       fs.writeFileSync(
         configPath,
         `module.exports = ${JSON.stringify(configDefault, null, 2)}`,
       );
-      return { result: 'created', filepath: configPath };
+
+      return { filepath: configPath, result: 'created' };
     } catch (error) {
       console.error(error);
     }
 
-    return { result: 'error', filepath: null };
+    return { filepath: null, result: 'error' };
   }
 }

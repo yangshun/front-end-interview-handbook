@@ -39,10 +39,10 @@ type Props = Readonly<{
 
 export default function PostDetail({
   generateResponse,
-  post,
-  replyToPost,
   isGeneratingResponse,
   isReplying,
+  post,
+  replyToPost,
   users,
 }: Props) {
   const [response, setResponse] = useInputState<string | null>(post.response);

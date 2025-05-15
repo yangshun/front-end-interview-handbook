@@ -18,9 +18,9 @@ type Props = Readonly<{
 export default function ProjectsTrackSection({
   challengeHistoricalStatuses,
   defaultOpen,
-  projectTracks,
   isViewerPremium,
   isViewingOwnProfile,
+  projectTracks,
   userProfile,
 }: Props) {
   return (

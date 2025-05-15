@@ -25,7 +25,7 @@ type Props = Readonly<{
 }>;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale, slug, saveId } = params;
+  const { locale, saveId, slug } = params;
 
   try {
     const [question, save] = await Promise.all([
@@ -59,7 +59,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
-  const { locale, slug, saveId } = params;
+  const { locale, saveId, slug } = params;
 
   const [intl, viewer, save] = await Promise.all([
     getIntlServerOnly(locale),

@@ -2,8 +2,8 @@ import { useIntl } from '~/components/intl';
 
 import type { ProjectsChallengeItem } from '../types';
 import type {
-  ProjectStepsTabItem,
   Props as ProjectsChallengeStepsTabsProps,
+  ProjectStepsTabItem,
 } from './ProjectsChallengeStepsTabs';
 import ProjectsChallengeStepsTabs from './ProjectsChallengeStepsTabs';
 

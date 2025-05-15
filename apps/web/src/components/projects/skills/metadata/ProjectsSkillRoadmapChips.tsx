@@ -21,8 +21,8 @@ type Props =
     }>;
 
 function ProjectsSkillParentChip({
-  parentSkill,
   childSkills,
+  parentSkill,
   ...props
 }:
   | Readonly<{

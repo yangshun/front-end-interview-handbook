@@ -20,7 +20,7 @@ type Props = PropsWithChildren<
 >;
 
 const GuidesArticle = forwardRef<HTMLDivElement, Props>(
-  ({ title, description, children, metadata }: Props, ref) => {
+  ({ children, description, metadata, title }: Props, ref) => {
     return (
       <article className="flex flex-col gap-y-6">
         <div className="flex flex-col">

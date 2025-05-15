@@ -9,7 +9,7 @@ type Props = Readonly<{
   viewField: BlogViewField;
 }>;
 
-export default function BlogViewDropdown({ viewField, onChange }: Props) {
+export default function BlogViewDropdown({ onChange, viewField }: Props) {
   const intl = useIntl();
   const viewOptions: ReadonlyArray<{
     icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
@@ -54,7 +54,7 @@ export default function BlogViewDropdown({ viewField, onChange }: Props) {
       }
       showChevron={false}
       size="sm">
-      {viewOptions.map(({ label, value, icon }) => (
+      {viewOptions.map(({ icon, label, value }) => (
         <DropdownMenu.Item
           key={value}
           icon={icon}

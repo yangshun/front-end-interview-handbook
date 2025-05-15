@@ -50,17 +50,17 @@ const defaultFeatures: ReadonlyArray<QuestionListFeature> = [
 ];
 
 export default function InterviewsQuestionsCategoryFrameworkPage({
-  title,
+  bottomContent,
   description,
   features = defaultFeatures,
   framework,
-  questions,
-  guideCardTitle,
   guideCardDescription,
-  showCategoryTabs = true,
-  bottomContent,
-  totalQuestionsCount,
+  guideCardTitle,
   listType,
+  questions,
+  showCategoryTabs = true,
+  title,
+  totalQuestionsCount,
   ...props
 }: Props) {
   const frameworks = useQuestionFrameworksData();

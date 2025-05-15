@@ -48,7 +48,7 @@ function InterviewsGuideList({
   return (
     <ul className={clsx('isolate flex flex-col gap-2', className)}>
       {guideMetadataItems.map((guideMetadata) => {
-        const { title, description, isCompleted, href } = guideMetadata;
+        const { description, href, isCompleted, title } = guideMetadata;
 
         return (
           <li
@@ -107,9 +107,9 @@ type Props = Readonly<{
 }>;
 
 export default function InterviewsGuideCard({
-  title,
   description,
   items,
+  title,
 }: Props) {
   const intl = useIntl();
   const [isOpen, setIsOpen] = useState(false);

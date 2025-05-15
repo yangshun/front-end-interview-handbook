@@ -23,10 +23,10 @@ type Props = Readonly<{
 }>;
 
 export default function InterviewsStudyListImportProgressDialog({
-  questions,
-  studyListKey,
   isShown,
   onClose,
+  questions,
+  studyListKey,
 }: Props) {
   const intl = useIntl();
   const trpcUtils = trpc.useUtils();

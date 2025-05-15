@@ -23,8 +23,8 @@ type Props = Readonly<{
 }>;
 
 export default function InterviewsMarketingFeaturesRow({
-  title,
   features,
+  title,
 }: Props) {
   return (
     <div>
@@ -37,7 +37,7 @@ export default function InterviewsMarketingFeaturesRow({
             'grid gap-x-8 gap-y-12 md:grid-cols-2 lg:grid-cols-3',
             'mx-auto max-w-sm md:max-w-xl lg:max-w-full',
           )}>
-          {features.map(({ description, key, icon: Icon, name }) => (
+          {features.map(({ description, icon: Icon, key, name }) => (
             <div
               key={key}
               className="flex flex-row items-start gap-6 lg:flex-col">

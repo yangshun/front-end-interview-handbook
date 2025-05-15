@@ -12,7 +12,7 @@ type Props = Readonly<{
   label: string;
 }>;
 
-export default function MetricCard({ icon: Icon, label, count }: Props) {
+export default function MetricCard({ count, icon: Icon, label }: Props) {
   return (
     <Card
       className={clsx(

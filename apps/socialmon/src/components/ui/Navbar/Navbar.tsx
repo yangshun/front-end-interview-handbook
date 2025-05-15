@@ -11,7 +11,7 @@ type Props = Readonly<{
   navUser?: ReactNode;
 }>;
 
-export default function Navbar({ navUser, navItems }: Props) {
+export default function Navbar({ navItems, navUser }: Props) {
   return (
     <header
       className={clsx(

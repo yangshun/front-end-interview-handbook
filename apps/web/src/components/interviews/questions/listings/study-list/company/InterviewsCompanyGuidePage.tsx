@@ -49,10 +49,10 @@ type Props = Readonly<{
 }>;
 
 export default function InterviewsCompanyGuidePage({
-  studyList,
+  bottomContent,
   questions,
   questionsSlugs,
-  bottomContent,
+  studyList,
 }: Props) {
   const intl = useIntl();
   const { userProfile } = useUserProfile();

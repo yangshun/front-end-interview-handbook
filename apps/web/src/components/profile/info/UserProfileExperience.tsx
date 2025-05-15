@@ -29,8 +29,8 @@ const gap: Record<Size, string> = {
 };
 
 export default function UserProfileExperience({
-  userProfile,
   size = 'body2',
+  userProfile,
 }: Props) {
   const { yoeOptionMap } = useProjectsYOEReplacementOptions();
 

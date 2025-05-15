@@ -38,9 +38,9 @@ const icons: Record<
 };
 
 export default function QuestionListingAccessCount({
-  variant,
   count,
   totalCount,
+  variant,
 }: Props) {
   const intl = useIntl();
   const Icon = icons[variant];

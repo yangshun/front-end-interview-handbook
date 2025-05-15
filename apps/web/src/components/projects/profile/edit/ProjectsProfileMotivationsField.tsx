@@ -62,7 +62,7 @@ export default function ProjectsProfileMotivationsField({
               'grid items-stretch gap-6 md:grid-cols-2',
               view === 'onboarding' && 'lg:grid-cols-3',
             )}>
-            {reasonOptions.map(({ id, icon: Icon, label }) => {
+            {reasonOptions.map(({ icon: Icon, id, label }) => {
               const selected = field.value
                 .map(({ value }) => value)
                 .includes(id);

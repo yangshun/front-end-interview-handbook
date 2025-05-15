@@ -11,11 +11,11 @@ type Props = Readonly<{
 
 export default function ProgressBar({
   backgroundClass = 'bg-neutral-200/70 dark:bg-neutral-800',
-  progressClass = 'bg-green',
   heightClass = 'h-2',
-  value,
   label,
+  progressClass = 'bg-green',
   total,
+  value,
 }: Props) {
   const widthPercentage = Math.min(value / Math.max(total, 1), 1);
 

@@ -26,9 +26,9 @@ type Props = Readonly<{
 
 export default function InterviewsDashboardContributionsChart({
   contributions,
-  startTime,
   endTime,
   isContributionsLoading,
+  startTime,
 }: Props) {
   const intl = useIntl();
   const months = useMemo(
@@ -48,7 +48,7 @@ export default function InterviewsDashboardContributionsChart({
             'gap-x-0.5 gap-y-2',
           )}>
           {months.map((item) => {
-            const { month, days } = item;
+            const { days, month } = item;
             const iteratingDate = new Date(days[0].date);
             const iteratingYear = iteratingDate.getFullYear();
             const iteratingMonth = iteratingDate.getMonth();

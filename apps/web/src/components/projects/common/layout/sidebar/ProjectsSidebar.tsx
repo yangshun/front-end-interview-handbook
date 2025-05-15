@@ -133,8 +133,8 @@ export function ProjectsSidebarExpanded({
 }
 
 function ProjectsSidebarCollapsed({
-  sidebarItems,
   onCollapseClick,
+  sidebarItems,
 }: Readonly<{
   onCollapseClick: () => void;
   sidebarItems: SidebarItems;

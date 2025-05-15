@@ -50,12 +50,12 @@ export default function Tooltip({
   hyphenated = false,
   invert = false,
   label,
+  onOpenChange,
+  open,
   side = 'top',
   size = 'sm',
   triggerClassName,
   triggerType = 'button', // To prevent clicking on tooltip from submitting if it is within a form.
-  open,
-  onOpenChange,
 }: Props) {
   const tooltipBackgroundColor = invert
     ? 'bg-neutral-200 dark:bg-neutral-900'

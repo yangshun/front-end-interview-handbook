@@ -39,7 +39,7 @@ export default function ProfileAccountDisplayName() {
 
   const toast = useToast();
   const displayNameFormSchema = useDisplayNameFormSchema();
-  const { control, handleSubmit, reset, formState } =
+  const { control, formState, handleSubmit, reset } =
     useForm<DisplayNameFormValues>({
       mode: 'all',
       resolver: zodResolver(displayNameFormSchema),

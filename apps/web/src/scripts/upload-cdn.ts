@@ -54,7 +54,7 @@ async function walkFolder(
 
 async function shouldUploadFile(
   key: string,
-  { eTag, contentType }: Readonly<{ contentType: string; eTag: string }>,
+  { contentType, eTag }: Readonly<{ contentType: string; eTag: string }>,
 ) {
   try {
     const headOutput = await client.send(

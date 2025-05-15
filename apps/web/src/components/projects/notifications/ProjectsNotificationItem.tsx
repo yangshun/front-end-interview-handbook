@@ -20,10 +20,10 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsNotificationItem({
-  item,
+  className,
   closeNotification,
   handleVisibleLongEnough,
-  className,
+  item,
 }: Props) {
   const trcUtils = trpc.useUtils();
   const { elementRef, visibleDuration } = useVisibleDuration();

@@ -1,5 +1,6 @@
 import grayMatter from 'gray-matter';
-import {
+
+import type {
   Plugin,
   TranslationFileMetadata,
   TranslationStringArg,
@@ -13,15 +14,15 @@ import {
   buildTargetMDX,
   generateSourceMDXContentHashMap,
 } from '../../lib/mdx-file';
-import registryManager from '../registry-manager';
 import {
   buildTranslatedContentMap,
   buildTranslationStrings,
 } from '../../lib/plugins';
+import registryManager from '../registry-manager';
 import { processFileForChanges } from './mdx-change-detector';
 
 export type PluginOptions = Readonly<{
-  frontmatterExcludedKeys?: string[];
+  frontmatterExcludedKeys?: Array<string>;
 }>;
 
 export default function mdxPlugin(options: PluginOptions): Plugin {
@@ -29,12 +30,6 @@ export default function mdxPlugin(options: PluginOptions): Plugin {
   const registry = registryManager();
 
   return {
-    type: 'mdx',
-    stringsPerRequest: 20,
-    async trackFiles(filesMetadata) {
-      // Start tracking files
-      files.push(...filesMetadata);
-    },
     async getInstructions() {
       return [
         'These strings are part of an MDX file, which can contain both markdown and JSX.',
@@ -56,7 +51,7 @@ export default function mdxPlugin(options: PluginOptions): Plugin {
         const changes = await processFileForChanges(file, options);
 
         const sourceContent = await readFile(file.source.path);
-        const { data: sourceFrontmatter, content } = grayMatter(sourceContent);
+        const { content, data: sourceFrontmatter } = grayMatter(sourceContent);
         const sourceHashMap = generateSourceMDXContentHashMap(content);
 
         const frontmatterTranslationStrings = buildTranslationStrings(
@@ -83,7 +78,7 @@ export default function mdxPlugin(options: PluginOptions): Plugin {
       }
 
       const file = files.find(
-        (file) => file.source.path === translatedStrings[0].batchId,
+        (f) => f.source.path === translatedStrings[0].batchId,
       );
 
       if (file == null) {
@@ -121,5 +116,11 @@ export default function mdxPlugin(options: PluginOptions): Plugin {
 
       await registry.updateFileRegistry(file, options);
     },
+    stringsPerRequest: 20,
+    async trackFiles(filesMetadata) {
+      // Start tracking files
+      files.push(...filesMetadata);
+    },
+    type: 'mdx',
   };
 }

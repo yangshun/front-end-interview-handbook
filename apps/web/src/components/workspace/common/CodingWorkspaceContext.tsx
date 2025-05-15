@@ -71,10 +71,10 @@ CodingWorkspaceContext.displayName = 'CodingWorkspaceContext';
 
 export function CodingWorkspaceProvider({
   children,
-  value,
-  loadedFilesFromLocalStorage = false,
   embed,
+  loadedFilesFromLocalStorage = false,
   metadata,
+  value,
 }: Props) {
   const { increaseAuthPoints } = useAuthPointOnActions({
     showAuthSignupDialogOnMaxPoints: !embed,

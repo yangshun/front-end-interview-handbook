@@ -49,15 +49,15 @@ function formatDate(
 export default function InterviewsMarketingTestimonialCard({
   authorThumbnailUrl,
   authorUrl,
+  companyLogoUrl,
   createdAt,
-  testimonial,
+  disableSpotlight = false,
   featuredOffer,
   location,
-  companyLogoUrl,
   name,
   offers,
+  testimonial,
   title,
-  disableSpotlight = false,
 }: InterviewsMarketingTestimonial & Readonly<{ disableSpotlight?: boolean }>) {
   const intl = useIntl();
 

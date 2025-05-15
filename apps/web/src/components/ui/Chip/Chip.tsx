@@ -103,16 +103,16 @@ const textSizeClasses: Record<ChipSize, string> = {
 };
 
 export default function Chip({
-  label,
   'aria-hidden': ariaHidden,
-  icon: Icon,
-  variant,
-  isLabelHidden,
-  size = 'md',
   className,
+  icon: Icon,
   iconClassName,
+  isLabelHidden,
+  label,
+  size = 'md',
+  variant,
 }: Props) {
-  const { backgroundClass, borderClass, textClass, iconClass } =
+  const { backgroundClass, borderClass, iconClass, textClass } =
     variantClasses[variant];
 
   return (

@@ -21,7 +21,7 @@ function SocialDiscountSidebarMentionImpl({
   const socialDiscountLabels = useSocialDiscountLabels();
   const user = useUser();
   const intl = useIntl();
-  const { isLoading, data: promoCodes } =
+  const { data: promoCodes, isLoading } =
     trpc.promotions.userPromoCodes.useQuery(undefined, {
       enabled: !!user,
     });

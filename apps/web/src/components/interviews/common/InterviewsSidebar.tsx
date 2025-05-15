@@ -38,8 +38,8 @@ import useInterviewsNavItems from './useInterviewsNavItems';
 import useInterviewsSidebarLinks from './useInterviewsSidebarLinks';
 
 export function InterviewsSidebarExpanded({
-  sidebarItems,
   onCollapseClick,
+  sidebarItems,
 }: Readonly<{
   onCollapseClick?: () => void;
   sidebarItems: React.ComponentProps<typeof SidebarExpanded>['sidebarItems'];
@@ -79,7 +79,7 @@ export function InterviewsSidebarExpanded({
     <SidebarExpanded
       bottomBarItems={
         <>
-          {[SocialLinks.linkedin].map(({ href, icon, name, key }) => (
+          {[SocialLinks.linkedin].map(({ href, icon, key, name }) => (
             <Button
               key={key}
               href={href}
@@ -137,14 +137,14 @@ export function InterviewsSidebarExpanded({
 }
 
 function InterviewsSidebarCollapsed({
-  sidebarItems,
   onCollapseClick,
+  sidebarItems,
 }: Readonly<{
   onCollapseClick: () => void;
   sidebarItems: React.ComponentProps<typeof SidebarCollapsed>['sidebarItems'];
 }>) {
   const socialDiscountLabels = useSocialDiscountLabels();
-  const { userProfile, isLoading } = useUserProfile();
+  const { isLoading, userProfile } = useUserProfile();
   const interviewsNavItems = useInterviewsNavItems('sidebar');
 
   return (

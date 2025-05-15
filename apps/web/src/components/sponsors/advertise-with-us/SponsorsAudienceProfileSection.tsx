@@ -83,8 +83,8 @@ export default function SponsorsAudienceProfileSection() {
 }
 
 function AssetColumn({
-  className,
   children,
+  className,
 }: PropsWithChildren<{ className?: string }>) {
   return (
     <div
@@ -427,7 +427,7 @@ function Asset() {
               ),
               value: 'other',
             },
-          ].map(({ value, label }) => (
+          ].map(({ label, value }) => (
             <div key={value} className="flex items-center gap-1.5">
               <div
                 className={clsx(

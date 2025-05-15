@@ -29,13 +29,13 @@ async function restructureQuestion(dirPath: string, slug: string) {
     path.join(newSetupPath, 'package.json'),
     JSON.stringify(
       {
-        name: `@gfe-questions/${slug}`,
-        version: '0.0.1',
-        main: `/src/${slug}.ts`,
         devDependencies: {
           '@types/jest': '29.5.0',
           typescript: '5.0.2',
         },
+        main: `/src/${slug}.ts`,
+        name: `@gfe-questions/${slug}`,
+        version: '0.0.1',
       },
       null,
       2,
@@ -47,11 +47,11 @@ async function restructureQuestion(dirPath: string, slug: string) {
     JSON.stringify(
       {
         run: `/src/${slug}.run.test.ts`,
-        submit: `/src/${slug}.submit.test.ts`,
         skeleton: {
           js: `/src/${slug}.skeleton.js`,
           ts: `/src/${slug}.skeleton.ts`,
         },
+        submit: `/src/${slug}.submit.test.ts`,
       },
       null,
       2,
@@ -62,13 +62,13 @@ async function restructureQuestion(dirPath: string, slug: string) {
     path.join(newSetupPath, 'tsconfig.json'),
     JSON.stringify(
       {
-        include: ['./**/*'],
         compilerOptions: {
-          strict: true,
           esModuleInterop: true,
-          lib: ['dom', 'esnext'],
           jsx: 'react-jsx',
+          lib: ['dom', 'esnext'],
+          strict: true,
         },
+        include: ['./**/*'],
       },
       null,
       2,

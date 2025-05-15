@@ -18,8 +18,8 @@ const hooks = [
 
 export default function EmailsTemplateCheckoutFirstTime({
   countryCode,
-  name,
   hook,
+  name,
 }: Props) {
   const hookString = hooks[(hook + hooks.length) % hooks.length];
 

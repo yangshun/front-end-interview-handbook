@@ -37,13 +37,13 @@ type LogLevelFilter = Methods | 'all';
 export default function JavaScriptConsole({
   logs,
   onClear,
-  shouldPreserveLogs,
   onShouldPreserveLogsChange,
+  shouldPreserveLogs,
 }: Props) {
   const intl = useIntl();
   const consoleRef = useRef<HTMLDivElement>(null);
 
-  const { consoleTheme, setConsoleTheme, consoleFontSize, setConsoleFontSize } =
+  const { consoleFontSize, consoleTheme, setConsoleFontSize, setConsoleTheme } =
     useCodingPreferences();
 
   const [query, setQuery] = useState('');

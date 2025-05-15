@@ -59,9 +59,9 @@ export type UserLevelWithAvatarSize = '2xl' | '3xl' | 'lg' | 'xl';
 export default function UserAvatarWithLevel({
   className,
   level,
-  userProfile,
   progress,
   size = 'lg',
+  userProfile,
 }: Props) {
   const { innerSize, outerSize, sizePixels } = sizeClasses[size];
 

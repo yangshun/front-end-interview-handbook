@@ -90,7 +90,7 @@ export default function ProjectsChallengeBriefSupportSection() {
       <Section>
         <div className="grid grid-cols-1 gap-x-6 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
           {supportItems.map(
-            ({ key, title: itemTitle, description: itemDescription, card }) => (
+            ({ card, description: itemDescription, key, title: itemTitle }) => (
               <div key={key} className="flex flex-col gap-3">
                 <Text
                   className="truncate whitespace-nowrap"

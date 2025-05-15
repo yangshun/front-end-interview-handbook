@@ -36,8 +36,8 @@ type Props = Readonly<{
 }>;
 
 export default function InterviewsStudyPlansPage({
-  studyPlans,
   bottomContent,
+  studyPlans,
 }: Props) {
   const intl = useIntl();
   const user = useUser();

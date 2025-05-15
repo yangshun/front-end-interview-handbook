@@ -2,7 +2,9 @@ import { chunk, groupBy } from 'lodash-es';
 
 import Config from '../config';
 import { expandTargetPaths } from '../core';
-import {
+import { printGroupStatus } from '../core/output/print';
+import { TranslationGroupBatch } from '../core/runner/TranslationGroupBatch';
+import type {
   Plugin,
   TranslationGroup,
   TranslationGroupId,
@@ -12,9 +14,8 @@ import jsonPlugin from '../plugins/json/json-plugin';
 import mdxPlugin from '../plugins/mdx/mdx-plugin';
 import { generate } from '../translation/generate';
 import mapAsync from '../utils/map-async';
-import { printGroupStatus } from '../core/output/print';
-import { TranslationGroupBatch } from '../core/runner/TranslationGroupBatch';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const DEFAULTS_PLUGINS: Record<string, (options?: any) => Plugin> = {
   json: jsonPlugin,
   mdx: mdxPlugin,
@@ -29,7 +30,7 @@ export async function translate({
   debug?: boolean;
   dryRun?: boolean;
 }>) {
-  const config = new Config().config;
+  const { config } = new Config();
   const groups = new Map<TranslationGroupId, TranslationGroup>();
   const runId = new Date().toISOString();
 
@@ -55,11 +56,11 @@ export async function translate({
       await pluginInstance.trackFiles(groupFiles.flat());
 
       groups.set(group.name, {
+        batches: new Map(),
         groupId: group.name,
         plugin: pluginInstance,
         stringsPerRequest:
           group.stringsPerRequest ?? pluginInstance.stringsPerRequest,
-        batches: new Map(),
       });
     }),
   );
@@ -87,17 +88,18 @@ export async function translate({
     for (const batch of group.batches.values()) {
       // Split up into multiple jobs
       const chunks = chunk(batch.strings, group.stringsPerRequest);
-      chunks.forEach((chunk, chunkIndex) => {
+
+      chunks.forEach((ch, chunkIndex) => {
         jobQueue.push({
-          runId,
+          batch: batch.batchId,
+          group: group.groupId,
           jobId: [
             group.groupId,
             batch.batchId.replace(/^\.\//, '').replace(/\//g, '#'),
             chunkIndex,
           ].join('-'),
-          group: group.groupId,
-          batch: batch.batchId,
-          strings: chunk,
+          runId,
+          strings: ch,
         });
       });
     }
@@ -125,6 +127,7 @@ export async function translate({
     jobQueue,
     async (job) => {
       const group = groups.get(job.group);
+
       if (!group) {
         throw Error(`Group ${job.group} not found.`);
       }
@@ -135,14 +138,15 @@ export async function translate({
       }
 
       const batch = groups.get(job.group)!.batches.get(job.batch)!;
+
       batch.startTranslating();
 
       try {
         const instructions = (await group.plugin.getInstructions?.()) || '';
         const translatedStrings = await generate(job, {
           ai: config.ai,
-          instructions,
           debug,
+          instructions,
         });
 
         batch.addTranslations(translatedStrings);

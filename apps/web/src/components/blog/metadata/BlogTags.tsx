@@ -13,10 +13,10 @@ type Props = Readonly<{
 }>;
 
 export default function BlogTags({
-  tags,
-  showMultiple = false,
   showAll = false,
+  showMultiple = false,
   showTagCount = 3,
+  tags,
 }: Props) {
   const id = useId();
 

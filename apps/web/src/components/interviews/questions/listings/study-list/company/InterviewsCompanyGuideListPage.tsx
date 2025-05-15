@@ -28,8 +28,8 @@ type Props = Readonly<{
 }>;
 
 export default function InterviewsStudyListListPage({
-  companyGuides,
   bottomContent,
+  companyGuides,
 }: Props) {
   const intl = useIntl();
 

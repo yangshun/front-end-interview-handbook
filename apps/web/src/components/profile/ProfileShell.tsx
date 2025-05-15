@@ -45,7 +45,7 @@ type ProfileTabItemData = Readonly<{
   value: ProfileTabItem;
 }>;
 
-export default function ProfileShell({ user, children }: Props) {
+export default function ProfileShell({ children, user }: Props) {
   const intl = useIntl();
   const segment: ProfileTabItem =
     (useSelectedLayoutSegment() as ProfileTabItem) ?? 'activity';

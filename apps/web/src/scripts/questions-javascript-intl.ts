@@ -13,7 +13,7 @@ async function restructureQuestion(dirPath: string, slug: string) {
   const parsed = grayMatter(contents);
   const frontMatter = parsed.data;
 
-  const { title, excerpt } = frontMatter;
+  const { excerpt, title } = frontMatter;
 
   delete frontMatter.title;
   delete frontMatter.excerpt;

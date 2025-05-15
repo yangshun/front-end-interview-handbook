@@ -18,7 +18,7 @@ type Props = Readonly<{
 export default async function ProjectsChallengeResourcesSolutionsPage({
   params,
 }: Props) {
-  const { slug, locale, framework } = params;
+  const { framework, locale, slug } = params;
 
   const [{ viewerProjectsProfile }, viewerUnlockedAccess, { challenge }] =
     await Promise.all([

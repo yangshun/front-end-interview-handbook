@@ -38,9 +38,9 @@ const statusClasses: Record<
 };
 
 export default function ProjectsProfileAvatarWithStatus({
+  size,
   status,
   userProfile,
-  size,
 }: Props) {
   const intl = useIntl();
 

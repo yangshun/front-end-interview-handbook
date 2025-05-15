@@ -16,7 +16,7 @@ export const profileRouter = router({
         name: profileNameSchemaServer,
       }),
     )
-    .mutation(async ({ input: { name }, ctx: { viewer } }) => {
+    .mutation(async ({ ctx: { viewer }, input: { name } }) => {
       return await prisma.profile.update({
         data: {
           name,
@@ -33,7 +33,7 @@ export const profileRouter = router({
         username: profileUserNameSchemaServer,
       }),
     )
-    .mutation(async ({ input: { username }, ctx: { viewer } }) => {
+    .mutation(async ({ ctx: { viewer }, input: { username } }) => {
       try {
         return await prisma.profile.update({
           data: {

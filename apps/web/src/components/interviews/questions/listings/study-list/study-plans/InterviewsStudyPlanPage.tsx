@@ -40,9 +40,9 @@ type Props = Readonly<{
 
 export default function InterviewsStudyPlanPage({
   bottomContent,
-  studyList,
   questions,
   questionsSlugs,
+  studyList,
 }: Props) {
   const { userProfile } = useUserProfile();
   const user = useUser();

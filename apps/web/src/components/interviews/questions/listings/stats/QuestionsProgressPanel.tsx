@@ -13,11 +13,11 @@ type Props = Readonly<{
 }>;
 
 export default function QuestionsProgressPanel({
-  title,
   completedQuestions,
   progressBarClassName,
-  variant,
+  title,
   totalQuestions,
+  variant,
 }: Props) {
   const intl = useIntl();
 

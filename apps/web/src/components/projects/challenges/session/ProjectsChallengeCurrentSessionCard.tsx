@@ -44,7 +44,7 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
   const { endSession, isEndSessionLoading } =
     useProjectsChallengeSessionContext();
 
-  const { submitHref, slug } = challenge.metadata;
+  const { slug, submitHref } = challenge.metadata;
   const { createdAt, roadmapSkills, techStackSkills } = session;
   const updateSessionSkillsMutation =
     trpc.projects.sessions.skillsUpdate.useMutation({

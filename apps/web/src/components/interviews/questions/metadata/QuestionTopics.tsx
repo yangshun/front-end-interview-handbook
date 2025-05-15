@@ -14,7 +14,7 @@ type Props = Readonly<{
   topics: ReadonlyArray<QuestionTopic>;
 }>;
 
-export default function QuestionTopics({ topics, showIcon = false }: Props) {
+export default function QuestionTopics({ showIcon = false, topics }: Props) {
   const id = useId();
   const intl = useIntl();
   const label = intl.formatMessage({

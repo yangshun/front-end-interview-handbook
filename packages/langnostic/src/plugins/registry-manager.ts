@@ -1,14 +1,14 @@
 import grayMatter from 'gray-matter';
 import path from 'path';
 
+import type { Registry, TranslationFileMetadata } from '../core/types';
 import { readFile, writeFile } from '../lib/file-service';
-import { Registry, TranslationFileMetadata } from '../core/types';
 import {
   generateHash,
   generateMDXContentHashList,
   getFrontmatterWithoutExcludedKeys,
 } from '../lib/mdx-file';
-import { PluginOptions } from './mdx/mdx-plugin';
+import type { PluginOptions } from './mdx/mdx-plugin';
 
 export default function registryManager() {
   function getRegistryPath(sourceFilePath: string): string {
@@ -17,8 +17,10 @@ export default function registryManager() {
       sourceFilePath,
       path.extname(sourceFilePath),
     );
+
     return path.join(dir, `${filename}.langnostic.json`);
   }
+
   return {
     async load(sourceFilePath: string): Promise<Registry> {
       try {
@@ -29,20 +31,21 @@ export default function registryManager() {
       } catch (error) {
         // If file doesn't exist, return empty registry
         return {
-          frontmatter: {},
           content: {
             source: {
-              locale: '',
               hashes: [],
+              locale: '',
             },
             targets: {},
           },
+          frontmatter: {},
         };
       }
     },
     async save(sourceFilePath: string, registry: Registry): Promise<void> {
       const registryPath = getRegistryPath(sourceFilePath);
       const data = JSON.stringify(registry, null, 2);
+
       await writeFile(registryPath, data);
     },
     async updateFileRegistry(
@@ -53,7 +56,7 @@ export default function registryManager() {
       const oldRegistryData = await this.load(file.source.path);
 
       const sourceContent = await readFile(file.source.path);
-      const { data: sourceFrontmatter, content } = grayMatter(sourceContent);
+      const { content, data: sourceFrontmatter } = grayMatter(sourceContent);
 
       // Get source frontmatter without excluded keys because we don't want to consider them for translation
       const sourceFrontmatterWithoutExcludedKeys =
@@ -69,6 +72,7 @@ export default function registryManager() {
       ).reduce(
         (acc, key) => {
           acc[key] = generateHash(sourceFrontmatter[key]);
+
           return acc;
         },
         {} as Record<string, string>,
@@ -77,23 +81,24 @@ export default function registryManager() {
       const sourceContentHashList = generateMDXContentHashList(content);
 
       await this.save(file.source.path, {
-        frontmatter: frontmatterHashValues,
         content: {
           source: {
-            locale: file.source.locale,
             hashes: sourceContentHashList,
+            locale: file.source.locale,
           },
           targets: {
             ...(oldRegistryData?.content?.targets ?? {}),
             ...file.targets.reduce(
               (acc, target) => {
                 acc[target.locale] = sourceContentHashList;
+
                 return acc;
               },
               {} as Record<string, Array<string>>,
             ),
           },
         },
+        frontmatter: frontmatterHashValues,
       });
     },
   };

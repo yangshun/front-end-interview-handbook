@@ -26,9 +26,9 @@ type Props = Readonly<{
 
 export default function CopyLinkButton({
   href,
+  iconOnly,
   size,
   variant,
-  iconOnly,
   ...props
 }: Props) {
   const intl = useIntl();

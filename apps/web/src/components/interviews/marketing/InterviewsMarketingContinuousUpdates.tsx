@@ -36,12 +36,12 @@ const chartExtraLines = 2;
 
 function Chart({
   activePointIndex,
-  onChangeActivePointIndex,
   gridSize,
-  width: totalWidth,
   height: totalHeight,
+  onChangeActivePointIndex,
   paddingX = 0,
   paddingY = 0,
+  width: totalWidth,
 }: Readonly<{
   activePointIndex: number | null;
   gridSize: number;
@@ -256,8 +256,8 @@ type Props = Readonly<{
 }>;
 
 export default function InterviewsMarketingContinuousUpdates({
-  title,
   children,
+  title,
 }: Props) {
   const [activePointIndex, setActivePointIndex] = useState<number | null>(null);
 

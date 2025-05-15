@@ -12,9 +12,9 @@ type Props = Readonly<{
 
 export default function EmailsNumberedPairText({
   href,
-  title,
-  subtitle,
   index,
+  subtitle,
+  title,
 }: Props) {
   return (
     <Link href={href}>

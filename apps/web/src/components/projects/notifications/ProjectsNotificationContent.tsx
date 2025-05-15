@@ -55,7 +55,7 @@ export default function ProjectsNotificationContent({
     }, 1000),
   ).current;
 
-  const { data, isLoading, hasNextPage, fetchNextPage, isFetchingNextPage } =
+  const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading } =
     trpc.projects.notifications.list.useInfiniteQuery(
       {
         pagination: { limit: LIMIT },

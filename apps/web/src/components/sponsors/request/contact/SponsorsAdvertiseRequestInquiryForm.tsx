@@ -23,8 +23,8 @@ type Props = Readonly<{
 }>;
 
 export default function SponsorsAdvertiseRequestInquiryForm({
-  onSubmit,
   defaultValues,
+  onSubmit,
   sessionId,
 }: Props) {
   const intl = useIntl();
@@ -48,7 +48,7 @@ export default function SponsorsAdvertiseRequestInquiryForm({
     formState: { isValid },
     handleSubmit,
   } = methods;
-  const { fields, append } = useFieldArray({
+  const { append, fields } = useFieldArray({
     control,
     name: 'emails',
   });

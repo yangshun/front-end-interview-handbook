@@ -33,9 +33,9 @@ type Props = Readonly<{
 // Somehow the default browser behavior doesn't work, maybe due to Next.js messing w the page? :/
 export default function useScrollToHash(props?: Props) {
   const {
+    delay = DEFAULT_SCROLL_DELAY,
     onScrolledToItem,
     topOffset = 80, // Rough value to counter the navbar height and banner height
-    delay = DEFAULT_SCROLL_DELAY,
   } = props || {};
   // Listening for `hashchange` event doesn't work too,
   // best alternative now is to listen for path changes. :/

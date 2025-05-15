@@ -35,8 +35,8 @@ export type NavigationType = {
 };
 
 function LinksListItem({
-  items,
   activeItem,
+  items,
   onSelect,
 }: Readonly<{
   activeItem?: string;
@@ -106,10 +106,10 @@ type SidebarLinksList_DEPRECATEDProps = Readonly<{
 
 // TODO: deprecate this component and use SidebarLinksSection.
 export function SidebarLinksList_DEPRECATED({
-  navigation,
-  className,
-  onSelect,
   activeItem,
+  className,
+  navigation,
+  onSelect,
 }: SidebarLinksList_DEPRECATEDProps) {
   return (
     <nav className={clsx('flex w-[280px] shrink-0 flex-col gap-4', className)}>

@@ -10,7 +10,7 @@ import useColorSchemeOptions from '../color-scheme/useColorSchemeOptions';
 
 export default function SidebarColorSchemeSubMenu() {
   const intl = useIntl();
-  const { colorSchemePreference, colorScheme, setColorSchemePreference } =
+  const { colorScheme, colorSchemePreference, setColorSchemePreference } =
     useColorSchemePreferences();
 
   const colorSchemeOptions = useColorSchemeOptions();

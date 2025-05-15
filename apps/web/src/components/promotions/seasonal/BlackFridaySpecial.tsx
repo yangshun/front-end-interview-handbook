@@ -96,7 +96,7 @@ export function BlackFridayExclusiveTicket({
 
 export function BlackFridaySpecial() {
   const intl = useIntl();
-  const { userProfile, isUserProfileLoading } = useUserProfile();
+  const { isUserProfileLoading, userProfile } = useUserProfile();
 
   if (isUserProfileLoading || userProfile?.isInterviewsPremium) {
     return null;

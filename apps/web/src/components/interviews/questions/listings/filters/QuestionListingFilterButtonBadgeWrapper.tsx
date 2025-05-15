@@ -15,8 +15,8 @@ type Props = Readonly<{
 
 export default function QuestionListingFilterButtonBadgeWrapper({
   badgeClassName,
-  numberOfFilters,
   children,
+  numberOfFilters,
 }: Props) {
   if (numberOfFilters <= 0) {
     return children;

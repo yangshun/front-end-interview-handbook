@@ -30,8 +30,8 @@ type Props = Readonly<{
 }>;
 
 function splitSkillReps({
-  skillReps,
   size,
+  skillReps,
 }: Readonly<{ size: number; skillReps: SkillReps }>) {
   const result = [];
 

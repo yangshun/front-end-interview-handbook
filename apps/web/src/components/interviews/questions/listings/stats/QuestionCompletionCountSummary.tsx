@@ -13,8 +13,8 @@ type Props = Readonly<{
 
 export default function QuestionCompletionCountSummary({
   completed,
-  total,
   isQuestionsProgressLoading,
+  total,
 }: Props) {
   const hasCompletedAll = completed === total;
 

@@ -94,8 +94,8 @@ type Props = Readonly<{
 const DEFAULT_TAB: ProjectsChallengeResourcesDiscussionsTabType = 'guides';
 
 export default function ProjectsChallengeResourcesHeaderLayout({
-  children,
   challenge,
+  children,
   viewerAccess,
   viewerProjectsProfile,
 }: Props) {

@@ -25,14 +25,14 @@ export type Props<TabType> = Readonly<{
 export function TilesPanelRoot<TabType extends string>({
   disablePointerEventsDuringResize,
   getResizeHandlerProps,
-  renderTab,
   getTabLabel,
+  renderTab,
 }: Props<TabType>) {
   const { tiles } = useTilesContext<TabType>();
   const [prevDraggedItemId, setPrevDraggedItemId] = useState<string | null>(
     null,
   );
-  const { setParent, position, draggedItemId } = useDragHighlightContext();
+  const { draggedItemId, position, setParent } = useDragHighlightContext();
 
   useEffect(() => {
     if (draggedItemId !== null) {

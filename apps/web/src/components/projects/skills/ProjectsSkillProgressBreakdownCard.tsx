@@ -39,9 +39,9 @@ function SubSkillItem({ subSkill }: SubSkillProps) {
 }
 
 export default function ProjectsSkillProgressBreakdownCard({
+  borderColor,
   className,
   skill,
-  borderColor,
   subSkills,
 }: Props) {
   const intl = useIntl();

@@ -36,10 +36,10 @@ type Props = Readonly<{
 }>;
 
 export default function ShareButton({
+  iconOnly,
   metadata,
   size = 'sm',
   variant,
-  iconOnly,
   ...props
 }: Props) {
   const intl = useIntl();
@@ -116,7 +116,7 @@ export default function ShareButton({
           {...props}
         />
       }>
-      {shareOptions.map(({ label, value, icon: Icon, href }) => (
+      {shareOptions.map(({ href, icon: Icon, label, value }) => (
         <DropdownMenu.Item key={value} href={href} icon={Icon} label={label} />
       ))}
     </DropdownMenu>

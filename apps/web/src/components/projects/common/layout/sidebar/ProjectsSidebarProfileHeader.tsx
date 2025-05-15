@@ -17,7 +17,7 @@ import useUserProfileWithProjectsProfile from '../../useUserProfileWithProjectsP
 
 export function ProjectsSidebarProfileHeader() {
   const { isLoading, userProfile } = useUserProfileWithProjectsProfile();
-  const { signInUpLabel, signInUpHref } = useAuthSignInUp();
+  const { signInUpHref, signInUpLabel } = useAuthSignInUp();
 
   return (
     <div

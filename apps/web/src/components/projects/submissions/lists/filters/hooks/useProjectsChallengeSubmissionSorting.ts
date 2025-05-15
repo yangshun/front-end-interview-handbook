@@ -4,7 +4,7 @@ import { useProjectsChallengeSubmissionFilterContext } from '~/components/projec
 import type { ProjectsChallengeSubmissionSortField } from '~/components/projects/submissions/types';
 
 export default function useProjectsChallengeSubmissionSorting() {
-  const { updateSearchParams, getStringTypeSearchParams } =
+  const { getStringTypeSearchParams, updateSearchParams } =
     useProjectsChallengeSubmissionFilterContext();
   const initialSortField = getStringTypeSearchParams('sortField');
   const [isAscendingOrder, setIsAscendingOrder] = useState(

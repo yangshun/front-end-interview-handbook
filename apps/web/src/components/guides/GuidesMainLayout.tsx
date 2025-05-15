@@ -59,18 +59,18 @@ type Props<GuideSlug extends string> = Readonly<
 export default function GuidesMainLayout<GuideSlug extends string>({
   bottomNav: bottomNavProp,
   children,
-  navigation,
   guide,
+  guideMetadata,
+  navigation,
   questionMetadata,
   studyListKey,
   tableOfContents,
-  guideMetadata,
   ...props
 }: Props<GuideSlug>) {
   const intl = useIntl();
   const { pathname } = useI18nPathname();
   const { navigateToSignInUpPage } = useAuthSignInUp();
-  const { focusMode, collapsedToC, setCollapsedToC } = useGuidesContext();
+  const { collapsedToC, focusMode, setCollapsedToC } = useGuidesContext();
   const articleContainerRef = useRef<HTMLDivElement>(null);
   const user = useUser();
 

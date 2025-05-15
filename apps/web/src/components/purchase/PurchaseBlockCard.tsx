@@ -24,12 +24,12 @@ type Props = Readonly<{
 }>;
 
 export default function PurchaseBlockCard({
-  footer,
-  title,
-  subtitle,
-  features,
-  leftSectionContents,
   className,
+  features,
+  footer,
+  leftSectionContents,
+  subtitle,
+  title,
   widthClassName = 'w-full max-w-xl md:max-w-none',
 }: Props) {
   const id = useId();

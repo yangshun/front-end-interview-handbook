@@ -12,7 +12,7 @@ export function projectsDetermineSubscriptionPlan(
     throw new Error('Price is not found');
   }
 
-  const { type, recurring } = price;
+  const { recurring, type } = price;
 
   if (type === 'recurring' && recurring != null) {
     const { interval, interval_count: intervalCount } = recurring;

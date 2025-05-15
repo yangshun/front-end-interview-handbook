@@ -10,7 +10,7 @@ function projectsProfileWebsiteSchema(options?: {
   requiredMessage: string;
   urlMessage: string;
 }) {
-  const { urlMessage, requiredMessage, required } = options ?? {};
+  const { required, requiredMessage, urlMessage } = options ?? {};
 
   const urlValidation = z
     .string()

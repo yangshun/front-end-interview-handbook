@@ -91,9 +91,9 @@ const horizontalPaddingSizeClasses: Record<TextAreaSize, string> = {
 function TextArea(
   {
     autoResize = true,
-    defaultValue,
     className,
     classNameOuter,
+    defaultValue,
     description,
     descriptionStyle,
     disabled,
@@ -102,11 +102,11 @@ function TextArea(
     isLabelHidden,
     label,
     maxLength,
-    resize = 'vertical',
+    onChange,
     required,
+    resize = 'vertical',
     size = 'md',
     value,
-    onChange,
     ...props
   }: Props,
   ref: ForwardedRef<HTMLTextAreaElement>,

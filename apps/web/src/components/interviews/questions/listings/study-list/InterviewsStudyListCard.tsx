@@ -38,29 +38,29 @@ type Props = Readonly<{
 }>;
 
 export default function InterviewsStudyListCard({
+  alignVerticalOnMobile = true,
+  backgroundClass = themeBackgroundCardWhiteOnLightColor,
   completionCount = 0,
-  studyList,
   icon: Icon,
   isStarted,
-  showDescription = true,
-  showProgress = true,
-  showLogoShadow = true,
-  backgroundClass = themeBackgroundCardWhiteOnLightColor,
-  alignVerticalOnMobile = true,
-  showLongName = false,
-  showTopics = true,
   questionCount,
+  showDescription = true,
+  showLogoShadow = true,
+  showLongName = false,
+  showProgress = true,
+  showTopics = true,
+  studyList,
 }: Props) {
   const intl = useIntl();
 
   const {
-    name,
-    shortDescription,
     href,
-    questionHashes,
     logoUrl,
     longName,
+    name,
+    questionHashes,
     schedule,
+    shortDescription,
     topics,
   } = studyList;
   const totalQuestionCount = questionCount || questionHashes?.length || 0;

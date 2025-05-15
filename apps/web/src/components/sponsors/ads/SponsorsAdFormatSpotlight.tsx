@@ -49,15 +49,15 @@ const sizeClassNames: Record<SponsorsAdFormatSpotlightSize, string> = {
 };
 
 export default function SponsorsAdFormatSpotlight({
-  adPlacement,
   adId,
-  text,
+  adPlacement,
+  imageUrl,
   size = 'md',
   sponsorName,
-  url,
-  imageUrl,
-  tracking = true,
+  text,
   textWeight = 'normal',
+  tracking = true,
+  url,
 }: Props) {
   const intl = useIntl();
 

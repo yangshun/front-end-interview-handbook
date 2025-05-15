@@ -43,10 +43,10 @@ export default function ProjectsProfileProgressChallengeList({
 
   // Pagination
   const {
-    currentPageItems: currentPageItemsSessions,
-    totalPages: totalPagesSessions,
-    setCurrentPage: setCurrentPageSessions,
     currentPage: currentPageSessions,
+    currentPageItems: currentPageItemsSessions,
+    setCurrentPage: setCurrentPageSessions,
+    totalPages: totalPagesSessions,
   } = usePagination({
     deps: [],
     itemsPerPage: ITEMS_PER_PAGE,

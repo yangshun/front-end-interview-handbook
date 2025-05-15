@@ -14,9 +14,9 @@ type Props = Readonly<{
   size?: 'md' | 'sm' | 'xs';
 }>;
 
-export default function NavI18nDropdown({ size, showSelected }: Props) {
+export default function NavI18nDropdown({ showSelected, size }: Props) {
   const intl = useIntl();
-  const { pathname, locale } = useI18nPathname();
+  const { locale, pathname } = useI18nPathname();
 
   const selectedLocale = i18nLabelOptions.find(
     (item) => item.locale === (locale ?? 'en-US'),

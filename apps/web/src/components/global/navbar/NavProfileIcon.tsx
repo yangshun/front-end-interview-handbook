@@ -28,9 +28,9 @@ type Props = Readonly<{
 
 export default function NavProfileIcon({
   avatarUrl,
-  userIdentifierString,
-  navItems,
   isPremium,
+  navItems,
+  userIdentifierString,
 }: Props) {
   const intl = useIntl();
 

@@ -17,10 +17,10 @@ type Props = Readonly<{
 }>;
 
 export default function PromotionCard({
-  header,
+  addOnLabel,
   discountLabel,
   footer,
-  addOnLabel,
+  header,
   showGlow,
 }: Props) {
   return (

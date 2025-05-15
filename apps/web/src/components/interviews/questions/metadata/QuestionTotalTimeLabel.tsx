@@ -17,10 +17,10 @@ type Props = Readonly<{
 }>;
 
 export default function QuestionTotalTimeLabel({
-  showIcon = false,
-  mins,
-  size = 'body3',
   color = 'default',
+  mins,
+  showIcon = false,
+  size = 'body3',
 }: Props) {
   const id = useId();
   const intl = useIntl();

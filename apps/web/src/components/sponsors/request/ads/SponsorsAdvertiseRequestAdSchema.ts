@@ -22,9 +22,9 @@ function bodySchema(options?: {
   minMessage?: string;
 }) {
   const {
-    minMessage = 'Body is required',
-    maxMessage = 'Body is too long',
     maxLength = 500,
+    maxMessage = 'Body is too long',
+    minMessage = 'Body is required',
   } = options ?? {};
 
   return z
