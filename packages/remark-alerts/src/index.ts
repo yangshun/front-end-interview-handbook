@@ -42,7 +42,7 @@ type RemarkAlertsOptions = {
 const remarkAlerts: Plugin<[RemarkAlertsOptions], Root> = ({
   componentName = 'MDXAlert',
 }: RemarkAlertsOptions = {}) => {
-  return (tree: any) => {
+  return (tree: Root) => {
     visit(tree, 'blockquote', (node, index, parent) => {
       if (index === undefined || !parent) {
         return;

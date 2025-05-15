@@ -1,17 +1,19 @@
 {
   "name": "@gfe/remark-alerts",
   "version": "0.0.1",
+  "type": "module",
   "description": "",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.mts",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "exports": {
-    "import": "./dist/index.mjs",
-    "types": "./dist/index.d.mts"
+    "import": "./dist/index.js",
+    "types": "./dist/index.d.ts"
   },
   "scripts": {
     "build": "tsup",
-    "clean": "rimraf dist",
+    "lint": "eslint src --fix",
     "dev": "tsup --watch",
+    "clean": "rimraf dist",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,md,mdx}\"",
     "tsc": "tsc",
     "verify": "npm run tsc && npm run build",
@@ -29,6 +31,8 @@
     "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
+    "@gfe/eslint-config": "workspace:*",
+    "eslint": "9.26.0",
     "@types/lodash-es": "^4.17.6",
     "prettier": "3.5.3",
     "rimraf": "^6.0.1",

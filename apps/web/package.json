@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
+    "check": "npm run tsc && npm run lint",
     "build": "npm run gen:all && next build && npm run sitemap && npm run upload-cdn",
-    "check": "npm run tsc && npm run lint ",
     "cl": "contentlayer build",
     "dev": "next dev --turbo",
     "dev:wp": "next dev",
@@ -101,6 +101,7 @@
     "date-fns": "^4.1.0",
     "esbuild": "^0.17.8",
     "eslint": "^9.26.0",
+    "eslint-plugin-formatjs": "^5.3.1",
     "fuse.js": "^7.1.0",
     "gray-matter": "^4.0.3",
     "jose": "^5.2.0",

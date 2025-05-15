@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
+    "check": "npm run tsc && npm run lint",
     "build": "next build",
-    "check": "npm run tsc && eslint src",
     "dev": "next dev",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,md,mdx}\"",
     "start": "next start",

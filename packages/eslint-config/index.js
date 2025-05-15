@@ -54,6 +54,11 @@ export default tseslint.config(
     rules: {
       'perfectionist/sort-interfaces': 'warn',
       'perfectionist/sort-enums': 'warn',
+      'perfectionist/sort-array-includes': 'warn',
+      'perfectionist/sort-objects': 'warn',
+      'perfectionist/sort-object-types': 'warn',
+      'perfectionist/sort-named-imports': 'warn',
+      'perfectionist/sort-named-exports': 'warn',
       'perfectionist/sort-exports': 'warn',
       'perfectionist/sort-imports': [
         'warn',

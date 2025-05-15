@@ -9,5 +9,5 @@
     "esModuleInterop": true,
     "noEmit": true
   },
-  "include": ["src", "tsup.config.ts"]
+  "include": ["src", "tsup.config.ts", "eslint.config.js"]
 }

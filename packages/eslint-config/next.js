@@ -6,7 +6,6 @@ import pluginReact from 'eslint-plugin-react';
 import pluginReactHooks from 'eslint-plugin-react-hooks';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
-import formatjs from 'eslint-plugin-formatjs';
 
 import baseConfig from './index.js';
 
@@ -79,21 +78,6 @@ export const config = [
           reservedFirst: true,
         },
       ],
-    },
-  },
-  {
-    plugins: {
-      formatjs,
-    },
-    rules: {
-      'formatjs/enforce-description': ['error', 'literal'],
-      'formatjs/enforce-id': [
-        'error',
-        {
-          idInterpolationPattern: '[sha512:contenthash:base64:6]',
-        },
-      ],
-      'formatjs/enforce-default-message': ['error', 'literal'],
     },
   },
 ];
