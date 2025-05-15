@@ -1,9 +1,9 @@
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
+import type { PrismaClient } from '@prisma/client';
 import type { GetServerSidePropsContext } from 'next';
 import { getServerSession, type NextAuthOptions } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 
-import type { PrismaClient } from '~/../prisma/generated/client';
 import prisma from '~/server/prisma';
 
 const ADMIN_EMAILS = ['yangshun@greatfrontend.com', 'gina@greatfrontend.com'];

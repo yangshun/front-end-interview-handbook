@@ -95,7 +95,7 @@ importers:
         version: 1.0.7(@prisma/client@6.6.0)(next-auth@4.24.7)
       '@prisma/client':
         specifier: 6.6.0
-        version: 6.6.0(prisma@6.6.0)(typescript@5.3.3)
+        version: 6.6.0(prisma@6.6.0)(typescript@5.8.3)
       '@prisma/nextjs-monorepo-workaround-plugin':
         specifier: 6.6.0
         version: 6.6.0
@@ -140,7 +140,7 @@ importers:
         version: 3.3.2
       prisma:
         specifier: 6.6.0
-        version: 6.6.0(typescript@5.3.3)
+        version: 6.6.0(typescript@5.8.3)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -236,8 +236,8 @@ importers:
         specifier: ^4.7.1
         version: 4.7.1
       typescript:
-        specifier: 5.3.3
-        version: 5.3.3
+        specifier: 5.8.3
+        version: 5.8.3
 
   apps/web:
     dependencies:
@@ -864,6 +864,9 @@ importers:
       '@types/yargs':
         specifier: ^17.0.33
         version: 17.0.33
+      prettier:
+        specifier: 3.5.3
+        version: 3.5.3
       rimraf:
         specifier: ^6.0.1
         version: 6.0.1
@@ -895,6 +898,9 @@ importers:
       '@types/lodash-es':
         specifier: ^4.17.6
         version: 4.17.12
+      prettier:
+        specifier: 3.5.3
+        version: 3.5.3
       rimraf:
         specifier: ^6.0.1
         version: 6.0.1
@@ -4705,7 +4711,7 @@ packages:
       '@prisma/client': '>=2.26.0 || >=3'
       next-auth: ^4
     dependencies:
-      '@prisma/client': 6.6.0(prisma@6.6.0)(typescript@5.3.3)
+      '@prisma/client': 6.6.0(prisma@6.6.0)(typescript@5.8.3)
       next-auth: 4.24.7(next@14.2.15)(react-dom@18.2.0)(react@18.2.0)
     dev: false
 
@@ -5138,23 +5144,6 @@ packages:
   /@polka/url@1.0.0-next.29:
     resolution: {integrity: sha512-wwQAWhWSuHaag8c4q/KN/vCoeOJYshAIvMQwD4GpSb3OiZklFfvAgmj0VCBBImRpuF/aFgIRzllXlVX93Jevww==}
     dev: true
-
-  /@prisma/client@6.6.0(prisma@6.6.0)(typescript@5.3.3):
-    resolution: {integrity: sha512-vfp73YT/BHsWWOAuthKQ/1lBgESSqYqAWZEYyTdGXyFAHpmewwWL2Iz6ErIzkj4aHbuc6/cGSsE6ZY+pBO04Cg==}
-    engines: {node: '>=18.18'}
-    requiresBuild: true
-    peerDependencies:
-      prisma: '*'
-      typescript: '>=5.1.0'
-    peerDependenciesMeta:
-      prisma:
-        optional: true
-      typescript:
-        optional: true
-    dependencies:
-      prisma: 6.6.0(typescript@5.3.3)
-      typescript: 5.3.3
-    dev: false
 
   /@prisma/client@6.6.0(prisma@6.6.0)(typescript@5.8.3):
     resolution: {integrity: sha512-vfp73YT/BHsWWOAuthKQ/1lBgESSqYqAWZEYyTdGXyFAHpmewwWL2Iz6ErIzkj4aHbuc6/cGSsE6ZY+pBO04Cg==}
@@ -15281,26 +15270,6 @@ packages:
       react: 18.2.0
     dev: false
 
-  /prisma@6.6.0(typescript@5.3.3):
-    resolution: {integrity: sha512-SYCUykz+1cnl6Ugd8VUvtTQq5+j1Q7C0CtzKPjQ8JyA2ALh0EEJkMCS+KgdnvKW1lrxjtjCyJSHOOT236mENYg==}
-    engines: {node: '>=18.18'}
-    hasBin: true
-    requiresBuild: true
-    peerDependencies:
-      typescript: '>=5.1.0'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-    dependencies:
-      '@prisma/config': 6.6.0
-      '@prisma/engines': 6.6.0
-      typescript: 5.3.3
-    optionalDependencies:
-      fsevents: 2.3.3
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
   /prisma@6.6.0(typescript@5.8.3):
     resolution: {integrity: sha512-SYCUykz+1cnl6Ugd8VUvtTQq5+j1Q7C0CtzKPjQ8JyA2ALh0EEJkMCS+KgdnvKW1lrxjtjCyJSHOOT236mENYg==}
     engines: {node: '>=18.18'}
@@ -17883,11 +17852,6 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
-
-  /typescript@5.3.3:
-    resolution: {integrity: sha512-pXWcraxM0uxAS+tN0AG/BF2TyqmHO014Z070UsJ+pFvYuRSq8KH8DmWpnbXe0pEPDHXZV3FcAbJkijJ5oNEnWw==}
-    engines: {node: '>=14.17'}
-    hasBin: true
 
   /typescript@5.8.3:
     resolution: {integrity: sha512-p1diW6TqL9L07nNxvRMM7hMMw4c5XOo/1ibL4aAIGmSAt9slTE1Xgw5KWuof2uTOvCg9BY7ZRi+GaF+7sfgPeQ==}
