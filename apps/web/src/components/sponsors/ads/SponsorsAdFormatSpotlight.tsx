@@ -164,7 +164,7 @@ export default function SponsorsAdFormatSpotlight({
           </Anchor>{' '}
           <RiArrowRightLine
             aria-hidden={true}
-            className="size-3.5 inline-flex shrink-0"
+            className="inline-flex size-3.5 shrink-0"
           />
         </Text>
       </div>

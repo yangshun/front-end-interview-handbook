@@ -527,7 +527,7 @@ export default function InterviewsMarketingEmbedSystemDesignQuestion() {
   return (
     <div
       aria-hidden={true}
-      className="size-full relative isolate flex flex-col">
+      className="relative isolate flex size-full flex-col">
       <PanelGroup className="h-0 w-full grow lg:flex" direction="horizontal">
         <Panel defaultSize={40} maxSize={60}>
           <ScrollArea>

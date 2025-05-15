@@ -130,7 +130,7 @@ export default function Alert({
       {Icon && (
         <Icon
           aria-hidden="true"
-          className={clsx('size-5 mt-0.5 shrink-0', iconClass)}
+          className={clsx('mt-0.5 size-5 shrink-0', iconClass)}
         />
       )}
       <div className="grid w-full gap-y-1">

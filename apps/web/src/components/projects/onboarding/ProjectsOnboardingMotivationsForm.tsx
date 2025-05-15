@@ -57,7 +57,7 @@ export default function ProjectsOnboardingMotivationsForm({ onSubmit }: Props) {
         width="6xl">
         <div className="flex flex-col items-center gap-4">
           <Text
-            className="text-pretty block text-center"
+            className="block text-pretty text-center"
             color="active"
             size="body2"
             weight="medium">

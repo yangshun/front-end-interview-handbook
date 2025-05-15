@@ -44,7 +44,7 @@ export default function UserCard({ user }: Props) {
         <Menu.Target>
           <div className="absolute right-1 top-1">
             <ActionIcon variant="subtle">
-              <RiMoreLine className="size-4 " />
+              <RiMoreLine className="size-4" />
             </ActionIcon>
           </div>
         </Menu.Target>

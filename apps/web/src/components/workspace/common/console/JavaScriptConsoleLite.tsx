@@ -21,7 +21,7 @@ export default function JavaScriptConsoleLite({ logs }: Props) {
   return (
     <div
       className={clsx(
-        'size-full relative isolate',
+        'relative isolate size-full',
         'flex flex-col',
         'overflow-x-auto',
         !hasLogs && 'justify-center',

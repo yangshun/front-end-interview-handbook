@@ -25,7 +25,7 @@ export default function AuthUnverifiedEmailPage({ email, redirectTo }: Props) {
   return (
     <div
       className={clsx(
-        'size-full isolate before:!-top-[180px]',
+        'isolate size-full before:!-top-[180px]',
         themeRadialWhiteGlowBackground,
       )}>
       <Container
@@ -45,7 +45,7 @@ export default function AuthUnverifiedEmailPage({ email, redirectTo }: Props) {
         <div>
           <Text
             className={clsx(
-              'text-balance mt-4 block text-center md:mt-6',
+              'mt-4 block text-balance text-center md:mt-6',
               'text-sm sm:text-base',
             )}
             color="secondary"

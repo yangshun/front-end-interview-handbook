@@ -44,7 +44,7 @@ export default function ProjectsProfileInfo({
   );
 
   return (
-    <div className="flex flex-col  gap-8">
+    <div className="flex flex-col gap-8">
       <div className="flex gap-3 md:gap-6">
         <div className="hidden md:contents">
           <ProjectsProfileAvatar

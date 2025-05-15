@@ -60,7 +60,7 @@ export default function InterviewsMarketingEmbedUIQuestion({
   return (
     <div
       className={clsx(
-        'size-full flex flex-col',
+        'flex size-full flex-col',
         'bg-neutral-50 dark:bg-neutral-950',
       )}>
       <div className="relative flex h-0 grow flex-col lg:py-3">

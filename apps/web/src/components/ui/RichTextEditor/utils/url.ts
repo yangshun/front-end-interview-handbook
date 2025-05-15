@@ -10,7 +10,6 @@ export function sanitizeUrl(url: string): string {
   try {
     const parsedUrl = new URL(url);
 
-     
     if (!SUPPORTED_URL_PROTOCOLS.has(parsedUrl.protocol)) {
       return 'about:blank';
     }

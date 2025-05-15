@@ -124,7 +124,7 @@ export default function NavbarPopoverTabs({
               key={item.id}
               className={clsx(
                 'outline-none',
-                value === item.id && 'size-full flex flex-col gap-y-2',
+                value === item.id && 'flex size-full flex-col gap-y-2',
               )}
               value={item.id}>
               {item.items.map((childItem, index) => (

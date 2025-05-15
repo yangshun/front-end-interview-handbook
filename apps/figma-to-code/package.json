@@ -6,6 +6,7 @@
     "build:css": "tailwindcss --input ./src/styles/input.css --output ./src/styles/output.css",
     "build:js": "build-figma-plugin --typecheck --minify",
     "dev": "npm run build:css && concurrently npm:watch:css npm:watch:js",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,md,mdx}\"",
     "watch:css": "tailwindcss --input ./src/styles/input.css --output ./src/styles/output.css --watch",
     "watch:js": "build-figma-plugin --typecheck --watch",
     "tsc": "tsc",
@@ -26,8 +27,8 @@
     "@figma/plugin-typings": "1.90.0",
     "concurrently": ">=8",
     "eslint": "9.26.0",
-    "prettier": "^3.1.1",
-    "prettier-plugin-tailwindcss": "^0.5.9",
+    "prettier": "3.5.3",
+    "prettier-plugin-tailwindcss": "0.6.11",
     "tailwindcss": "^3.4.1",
     "typescript": "5.8.3"
   },

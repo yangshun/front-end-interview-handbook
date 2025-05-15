@@ -297,9 +297,7 @@ function PricingButtonSection({
     );
   }
 
-  if (
-    !userProfile?.projectsProfile?.premium
-  ) {
+  if (!userProfile?.projectsProfile?.premium) {
     if (paymentConfig == null) {
       return null;
     }
@@ -505,7 +503,7 @@ function ProjectsPricingPriceCell({
           <Text
             className={clsx(
               'flex items-center justify-center',
-              'md:min-h-8 pb-2 md:pb-0',
+              'pb-2 md:min-h-8 md:pb-0',
             )}
             size="body3">
             <PurchaseActivePlanLabel />
@@ -514,7 +512,7 @@ function ProjectsPricingPriceCell({
           <Text
             className={clsx(
               'flex items-center justify-center',
-              'xl:min-h-8 pb-1 xl:pb-0',
+              'pb-1 xl:min-h-8 xl:pb-0',
             )}
             size="body3">
             <PricingPlanComparisonDiscount
@@ -681,9 +679,9 @@ export default function ProjectsPricingTable({
                     index > 0 && ['border-t', themeBorderColor],
                   )}
                   scope="row">
-                  <span className="max-w-80 flex items-center justify-between gap-3">
+                  <span className="flex max-w-80 items-center justify-between gap-3">
                     <Text
-                      className="max-w-72 block"
+                      className="block max-w-72"
                       color="secondary"
                       size="body2"
                       weight="normal">

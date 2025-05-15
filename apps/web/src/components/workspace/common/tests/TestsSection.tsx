@@ -423,7 +423,7 @@ function TestsSection({
   }, [state.specs]);
 
   return (
-    <div className="size-full relative flex">
+    <div className="relative flex size-full">
       <iframe ref={iframe} style={{ display: 'none' }} title="Sandpack Tests" />
       <div className="flex w-full flex-col">
         <div className="flex grow overflow-y-auto">

@@ -122,12 +122,12 @@ export default function ProjectsMarketingEmailSubscribe() {
   } = trpc.emails.signUpForNewsletter.useMutation();
 
   const content = (
-    <div className=" relative isolate flex flex-col justify-center gap-y-8 overflow-hidden rounded-[48px]  px-4 py-16 lg:min-h-[400px] lg:gap-y-8 lg:p-20">
+    <div className="relative isolate flex flex-col justify-center gap-y-8 overflow-hidden rounded-[48px] px-4 py-16 lg:min-h-[400px] lg:gap-y-8 lg:p-20">
       <Background
         aria-hidden={true}
-        className="absolute inset-0 -z-10  h-full w-full"
+        className="absolute inset-0 -z-10 h-full w-full"
       />
-      <div className="text-balance flex flex-col gap-y-3 sm:text-center md:gap-y-4">
+      <div className="flex flex-col gap-y-3 text-balance sm:text-center md:gap-y-4">
         <Heading className="mx-auto max-w-3xl text-center" level="heading2">
           <FormattedMessage
             defaultMessage="Join our vibrant community of builders"

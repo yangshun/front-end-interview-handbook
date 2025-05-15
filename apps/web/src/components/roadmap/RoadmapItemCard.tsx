@@ -47,7 +47,7 @@ function RoadmapItemCard({
                 description: 'Tooltip for launched icon in roadmap',
                 id: '/Vt+sJ',
               })}>
-              <RiCheckboxCircleFill className="size-7 text-success" />
+              <RiCheckboxCircleFill className="text-success size-7" />
             </Tooltip>
           )}
         </div>

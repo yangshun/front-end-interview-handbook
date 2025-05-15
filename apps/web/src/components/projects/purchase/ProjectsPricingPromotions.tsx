@@ -28,7 +28,7 @@ function LimitedRibbon() {
 
   return (
     <span
-      className="size-14 absolute -right-0.5 -top-0.5 overflow-hidden"
+      className="absolute -right-0.5 -top-0.5 size-14 overflow-hidden"
       style={{
         clipPath: 'polygon(50% 0, 100% 50%, 100% 100%, 0 100%, 0 0)',
       }}>

@@ -106,7 +106,7 @@ function SocialDiscountAlertImpl() {
                   percentOff: PROMO_SOCIAL_DISCOUNT_PERCENTAGE,
                 }}
               />
-              <RiArrowRightLine className="size-4 ml-0.5 inline-flex shrink-0" />
+              <RiArrowRightLine className="ml-0.5 inline-flex size-4 shrink-0" />
             </Text>
           </Anchor>
         </div>

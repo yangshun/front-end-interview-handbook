@@ -11,7 +11,7 @@ export default function PurchaseActivePlanLabel() {
 
   return (
     <Text className="flex gap-1.5" color="active" size="body3" weight="medium">
-      <RiCheckboxCircleFill className="size-4 inline" />
+      <RiCheckboxCircleFill className="inline size-4" />
       <span>
         {intl.formatMessage({
           defaultMessage: 'Your active plan',

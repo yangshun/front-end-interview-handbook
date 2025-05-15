@@ -211,7 +211,7 @@ export default function InterviewsMarketingContactSection() {
                     <Tooltip label={tooltip}>
                       <RiInformationLine
                         className={clsx(
-                          'size-4 relative z-[1] shrink-0',
+                          'relative z-[1] size-4 shrink-0',
                           themeTextSubtleColor,
                         )}
                       />

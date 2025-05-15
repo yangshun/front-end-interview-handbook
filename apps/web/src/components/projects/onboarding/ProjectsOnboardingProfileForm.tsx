@@ -122,7 +122,7 @@ export default function ProjectsOnboardingProfileForm({
           />
         </Heading>
         <Text
-          className="text-pretty max-w-lg text-center"
+          className="max-w-lg text-pretty text-center"
           color="secondary"
           size="body1">
           <FormattedMessage

@@ -47,7 +47,7 @@ export default function QuestionMetadataSection({
         'flex flex-wrap items-center',
         justify === 'start' && 'justify-start',
         justify === 'center' && 'justify-center',
-        'gap-x-6 gap-y-4 ',
+        'gap-x-6 gap-y-4',
       )}>
       {elements.includes('author') && metadata.author && (
         <QuestionAuthor author={metadata.author} size={size} />

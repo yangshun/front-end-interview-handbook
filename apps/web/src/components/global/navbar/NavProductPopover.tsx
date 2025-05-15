@@ -139,7 +139,7 @@ export default function NavProductPopover({
                 <span
                   aria-hidden={true}
                   className={clsx(
-                    'size-1.5 inline-block',
+                    'inline-block size-1.5',
                     'bg-red rounded-full',
                     'absolute right-7 top-2.5',
                   )}
@@ -168,7 +168,7 @@ export default function NavProductPopover({
                 <span
                   aria-hidden={true}
                   className={clsx(
-                    'size-1.5 inline-block',
+                    'inline-block size-1.5',
                     'bg-red rounded-full',
                     'absolute right-5 top-1',
                   )}
@@ -248,7 +248,7 @@ export function NavProductPopoverLogoOnly({
           {showUnseenIndicator && (
             <span
               className={clsx(
-                'size-1.5 absolute',
+                'absolute size-1.5',
                 'bg-red rounded-full',
                 'right-1 top-1',
               )}

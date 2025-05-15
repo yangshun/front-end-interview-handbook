@@ -123,7 +123,6 @@ export default function MDXCodeBlock({
   });
 
   if (Object.keys(allLanguages).length === 0) {
-     
     throw 'At least one language needed';
   }
 

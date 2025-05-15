@@ -61,12 +61,12 @@ export default function ProjectForm({
       postFilteringPrompt: data?.postFilteringPrompt ?? '',
       productsToAdvertise:
         props.mode === 'edit'
-          ? data?.productsToAdvertise ?? [
+          ? (data?.productsToAdvertise ?? [
               {
                 description: '',
                 url: '',
               },
-            ]
+            ])
           : [
               {
                 description: '',

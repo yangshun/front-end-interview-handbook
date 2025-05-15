@@ -20,7 +20,7 @@ export default function MarketingSectionHeader({
       <div className="flex flex-col gap-y-3">
         {title && (
           <Text
-            className="text-pretty block text-center"
+            className="block text-pretty text-center"
             color="active"
             size="body2"
             weight="medium">

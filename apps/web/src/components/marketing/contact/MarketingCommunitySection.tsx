@@ -131,7 +131,7 @@ export default function MarketingCommunitySection() {
                   )}>
                   <div
                     className={clsx(
-                      'size-full !absolute inset-0 z-[1] rounded-[inherit] before:m-[-1px]',
+                      '!absolute inset-0 z-[1] size-full rounded-[inherit] before:m-[-1px]',
                       themeGlassyBorder,
                     )}
                   />

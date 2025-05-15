@@ -19,7 +19,7 @@ export default function BlogSubseriesItemCard({
   return (
     <div
       className={clsx(
-        'group relative flex h-full items-center justify-between gap-x-3 lg:gap-x-6 ',
+        'group relative flex h-full items-center justify-between gap-x-3 lg:gap-x-6',
       )}>
       {data?.imageUrl && (
         <Img
@@ -35,7 +35,7 @@ export default function BlogSubseriesItemCard({
           <div className="flex items-center gap-x-3">
             <Img
               alt={data.title}
-              className="size-8 !m-0 shrink-0 rounded-lg bg-neutral-800 object-cover lg:hidden"
+              className="!m-0 size-8 shrink-0 rounded-lg bg-neutral-800 object-cover lg:hidden"
               decoding="async"
               loading="lazy"
               src={data.imageUrl}

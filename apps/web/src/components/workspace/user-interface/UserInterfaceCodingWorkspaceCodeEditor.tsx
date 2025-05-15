@@ -68,7 +68,7 @@ export default function UserInterfaceCodingWorkspaceCodeEditor({
 
   if (files[filePath] == null) {
     return (
-      <div className="size-full flex items-center justify-center">
+      <div className="flex size-full items-center justify-center">
         <Text color="subtle" size="body2">
           {intl.formatMessage({
             defaultMessage: 'This file has been deleted or renamed.',

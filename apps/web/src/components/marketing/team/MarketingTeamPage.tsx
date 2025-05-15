@@ -92,7 +92,7 @@ export default function MarketingTeamPage({
                         {user.companyLogos.map((logo) => (
                           <div
                             key={logo}
-                            className="size-12 -mr-4 flex items-center justify-center overflow-clip rounded-full bg-white shadow">
+                            className="-mr-4 flex size-12 items-center justify-center overflow-clip rounded-full bg-white shadow">
                             <Img
                               alt=""
                               className={clsx(

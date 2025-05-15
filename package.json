@@ -16,8 +16,8 @@
     "tsc": "turbo run tsc"
   },
   "devDependencies": {
-    "prettier": "latest",
-    "prettier-plugin-tailwindcss": "^0.5.9",
+    "prettier": "3.5.3",
+    "prettier-plugin-tailwindcss": "0.6.11",
     "turbo": "2.5.3"
   },
   "engines": {

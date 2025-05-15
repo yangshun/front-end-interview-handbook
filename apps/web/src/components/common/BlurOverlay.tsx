@@ -42,7 +42,7 @@ export default function BlurOverlay({
       </div>
       <div
         className={clsx(
-          'size-full absolute top-0 flex flex-col',
+          'absolute top-0 flex size-full flex-col',
           align === 'top' && 'justify-start',
           align === 'bottom' && 'justify-end',
           align === 'center' && 'justify-center',

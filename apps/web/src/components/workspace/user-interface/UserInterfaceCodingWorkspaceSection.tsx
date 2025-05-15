@@ -58,7 +58,7 @@ export default function UserInterfaceCodingWorkspaceSection({
       : question.solutionBundle.files;
 
   const files =
-    mode === 'practice' ? loadedFiles ?? defaultFiles : defaultFiles;
+    mode === 'practice' ? (loadedFiles ?? defaultFiles) : defaultFiles;
 
   const workspace =
     mode === 'practice'

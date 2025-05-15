@@ -273,7 +273,7 @@ export default function QuestionsList<Q extends InterviewsQuestionItemMinimal>({
             {index === questions.length - 1 && showOverlayAtLastItem && (
               <div
                 className={clsx(
-                  'size-full absolute inset-0',
+                  'absolute inset-0 size-full',
                   'rounded-[inherit]',
                   'bg-gradient-to-b from-transparent to-white backdrop-blur-[4px] dark:to-neutral-900',
                 )}

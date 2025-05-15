@@ -30,7 +30,7 @@ export function ProjectsSidebarProfileHeader() {
         <>
           <div
             className={clsx(
-              'size-10 o animate-pulse rounded-full',
+              'o size-10 animate-pulse rounded-full',
               themeBackgroundGlimmerColor,
             )}
           />
@@ -66,7 +66,7 @@ export function ProjectsSidebarProfileHeader() {
                 suppressHydrationWarning={true}
                 variant="flat">
                 {signInUpLabel}
-                <RiArrowRightLine className="size-4 ms-1 inline-flex shrink-0" />
+                <RiArrowRightLine className="ms-1 inline-flex size-4 shrink-0" />
               </Anchor>
             </Text>
           </div>
@@ -92,7 +92,7 @@ export function ProjectsSidebarProfileHeader() {
                   description="Create a user profile"
                   id="VHG62y"
                 />
-                <RiArrowRightLine className="size-4 ms-1 inline-flex shrink-0" />
+                <RiArrowRightLine className="ms-1 inline-flex size-4 shrink-0" />
               </Anchor>
             </Text>
           </div>

@@ -53,13 +53,13 @@ export default function QuestionDifficultySummary({
         {showIcon && (
           <RiFireLine
             aria-hidden="true"
-            className={clsx('size-5 mr-1.5 shrink-0', themeIconColor)}
+            className={clsx('mr-1.5 size-5 shrink-0', themeIconColor)}
           />
         )}
         <div
           className="relative h-2 overflow-clip rounded-full"
           style={{ width: fullWidth }}>
-          <div className="bg-danger size-full absolute left-0 rounded-full" />
+          <div className="bg-danger absolute left-0 size-full rounded-full" />
           <div
             className="bg-warning absolute h-full rounded-full"
             style={{ width: mediumWidth }}

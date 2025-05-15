@@ -73,7 +73,7 @@ function ContactForm(
           message,
         });
       }}>
-      <div className="size-full flex flex-col gap-6">
+      <div className="flex size-full flex-col gap-6">
         <TextArea
           autoResize={false}
           errorMessage={errorMessage}

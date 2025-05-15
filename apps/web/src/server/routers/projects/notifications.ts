@@ -104,7 +104,6 @@ export const projectsNotificationsRouter = router({
         if (notifications.length > pagination.limit) {
           // Remove the last item and use it as next cursor
 
-           
           const nextItem = notifications.pop()!;
 
           nextCursor = nextItem.id;

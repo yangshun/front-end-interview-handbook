@@ -175,7 +175,7 @@ export default function ProjectsChallengeSubmissionHero({
               {backButton}
               {actionsButton}
             </div>
-            <div className="size-full flex flex-col justify-between gap-x-16 gap-y-2 xl:flex-row xl:items-center">
+            <div className="flex size-full flex-col justify-between gap-x-16 gap-y-2 xl:flex-row xl:items-center">
               <div className="flex flex-col gap-1">
                 <ProjectsChallengeSubmissionHeroTimestamp
                   submission={submission}

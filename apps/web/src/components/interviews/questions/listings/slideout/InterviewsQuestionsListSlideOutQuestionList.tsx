@@ -74,7 +74,7 @@ export default function InterviewsQuestionsListSlideOutQuestionList<
   );
 
   return (
-    <div className={clsx('size-full relative')}>
+    <div className={clsx('relative size-full')}>
       <VignetteOverlay
         className={clsx('min-h-[500px]')}
         overlay={

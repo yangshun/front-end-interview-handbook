@@ -56,7 +56,7 @@ export default function SponsorsAdvertiseRequestSuccessPage({ mode }: Props) {
           </Heading>
         </div>
         <Text
-          className="text-pretty block max-w-md text-center"
+          className="block max-w-md text-pretty text-center"
           color="secondary"
           size="body1">
           <FormattedMessage
@@ -69,7 +69,7 @@ export default function SponsorsAdvertiseRequestSuccessPage({ mode }: Props) {
           />
         </Text>
         <Text
-          className="text-pretty block max-w-md text-center"
+          className="block max-w-md text-pretty text-center"
           color="secondary"
           size="body1">
           <FormattedMessage

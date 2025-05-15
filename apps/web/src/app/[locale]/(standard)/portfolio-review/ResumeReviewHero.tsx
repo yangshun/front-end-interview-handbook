@@ -50,7 +50,7 @@ export default function ResumeReviewHero() {
       <Container>
         <svg
           aria-hidden="true"
-          className="size-full absolute inset-0 -z-10 stroke-white/10 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]">
+          className="absolute inset-0 -z-10 size-full stroke-white/10 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]">
           <defs>
             <pattern
               height={200}
@@ -114,7 +114,7 @@ export default function ResumeReviewHero() {
                     id: 'VdCQVS',
                   })}
                 </h1>
-                <div className="space-y-4 py-8 pb-6 text-left text-sm font-medium text-neutral-400 sm:text-base ">
+                <div className="space-y-4 py-8 pb-6 text-left text-sm font-medium text-neutral-400 sm:text-base">
                   <p>
                     {intl.formatMessage({
                       defaultMessage: 'By ex-interviewers at',

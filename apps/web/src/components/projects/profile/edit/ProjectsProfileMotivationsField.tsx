@@ -59,7 +59,7 @@ export default function ProjectsProfileMotivationsField({
         const reasons = (
           <div
             className={clsx(
-              'grid items-stretch gap-6 md:grid-cols-2 ',
+              'grid items-stretch gap-6 md:grid-cols-2',
               view === 'onboarding' && 'lg:grid-cols-3',
             )}>
             {reasonOptions.map(({ id, icon: Icon, label }) => {

@@ -272,7 +272,7 @@ export default function useInterviewsNavItems(
               <Img
                 key={label}
                 alt={label}
-                className="size-4 inline-block shrink-0 rounded bg-white p-0.5"
+                className="inline-block size-4 shrink-0 rounded bg-white p-0.5"
                 src={imgSrc}
               />
             ))}

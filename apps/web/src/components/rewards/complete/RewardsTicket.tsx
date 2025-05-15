@@ -26,7 +26,7 @@ export default function RewardsTicket({
       ratio={ratio}
       variant={variant}
       width={width}>
-      <div className="size-full m-auto flex flex-col items-center justify-center gap-y-2">
+      <div className="m-auto flex size-full flex-col items-center justify-center gap-y-2">
         {title && <Heading level="heading3">{title}</Heading>}
         {subtitle && (
           <Text className="block text-center" color="secondary" size="body1">

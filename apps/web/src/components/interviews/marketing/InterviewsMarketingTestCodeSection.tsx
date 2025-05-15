@@ -199,11 +199,11 @@ function TestCaseAnimation({
       </div>
       <motion.div
         animate={cursorControls}
-        className="size-8 absolute cursor-none"
+        className="absolute size-8 cursor-none"
         initial={{ left: 60, opacity: 0, top: 200 }}
         style={{ pointerEvents: 'none' }}>
         <RiCursorLine
-          className={clsx('size-5 relative z-[3] shrink-0', themeTextColor)}
+          className={clsx('relative z-[3] size-5 shrink-0', themeTextColor)}
         />
         <motion.div
           animate={rippleControls}

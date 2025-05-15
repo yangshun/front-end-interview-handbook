@@ -138,7 +138,7 @@ export default function JavaScriptCodingQuizCodeEditor(props: Props) {
       {isExecutionMode ? (
         <PanelGroup direction="horizontal">
           <Panel
-            className="size-full flex flex-col gap-2"
+            className="flex size-full flex-col gap-2"
             defaultSize={60}
             minSize={30}>
             <MonacoCodeEditor
@@ -228,7 +228,7 @@ export default function JavaScriptCodingQuizCodeEditor(props: Props) {
           <Panel minSize={30}>
             <div
               className={clsx(
-                'size-full flex flex-col',
+                'flex size-full flex-col',
                 'overflow-hidden rounded-lg',
                 ['border', themeBorderColor],
               )}>

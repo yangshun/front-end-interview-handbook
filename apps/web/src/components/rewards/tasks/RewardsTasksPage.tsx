@@ -50,7 +50,7 @@ function RewardsStepLabel({
     <div className="flex gap-x-2.5">
       <span
         className={clsx(
-          'size-6 inline-flex items-center justify-center rounded-full',
+          'inline-flex size-6 items-center justify-center rounded-full',
           status === 'active' &&
             clsx(
               'border',

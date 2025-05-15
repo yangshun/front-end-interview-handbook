@@ -139,7 +139,7 @@ export default function ProjectsDiscussionsComment({
             <>
               <div
                 className={clsx(
-                  'size-4 absolute bottom-8',
+                  'absolute bottom-8 size-4',
                   themeBackgroundColor,
                 )}
               />

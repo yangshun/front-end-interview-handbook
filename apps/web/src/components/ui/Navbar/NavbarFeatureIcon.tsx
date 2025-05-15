@@ -40,8 +40,7 @@ export default function NavbarFeatureIcon({ number, ...props }: Props) {
       ) : (
         <Img
           alt=""
-          className="size-6 object-fit shrink-0"
-           
+          className="object-fit size-6 shrink-0"
           src={props.imageUrl}
         />
       )}

@@ -3,9 +3,10 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
+    "build": "next build",
     "check": "npm run tsc && eslint src",
     "dev": "next dev",
-    "build": "next build",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,md,mdx}\"",
     "start": "next start",
     "lint": "eslint src --fix",
     "tsc": "tsc",
@@ -66,8 +67,8 @@
     "postcss": "^8.4.32",
     "postcss-preset-mantine": "^1.11.1",
     "postcss-simple-vars": "^7.0.1",
-    "prettier": "^3.1.1",
-    "prettier-plugin-tailwindcss": "^0.5.9",
+    "prettier": "3.5.3",
+    "prettier-plugin-tailwindcss": "0.6.11",
     "tailwindcss": "^3.4.17",
     "tsx": "^4.7.1",
     "typescript": "5.3.3"

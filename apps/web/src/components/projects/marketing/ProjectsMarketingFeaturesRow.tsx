@@ -99,7 +99,7 @@ export default function ProjectsMarketingFeaturesRow() {
             <div key={key} className="flex flex-col items-center gap-y-4">
               <ProjectsMarketingFeaturedIcon icon={icon} />
               <Text
-                className="text-balance max-w-72 text-center"
+                className="max-w-72 text-balance text-center"
                 color="subtitle"
                 size="body2">
                 {content}

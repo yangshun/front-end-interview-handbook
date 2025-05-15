@@ -85,7 +85,7 @@ function Asset() {
       />
       <div
         className={clsx(
-          'absolute inset-x-px  inset-y-0.5',
+          'absolute inset-x-px inset-y-0.5',
           'flex items-center justify-center',
           'overflow-hidden rounded-[inherit]',
         )}>

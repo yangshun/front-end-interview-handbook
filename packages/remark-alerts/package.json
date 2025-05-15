@@ -10,8 +10,9 @@
   },
   "scripts": {
     "build": "tsup",
-    "dev": "tsup --watch",
     "clean": "rimraf dist",
+    "dev": "tsup --watch",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,md,mdx}\"",
     "tsc": "tsc",
     "verify": "npm run tsc && npm run build",
     "prepublishOnly": "npm run verify"
@@ -29,6 +30,7 @@
   },
   "devDependencies": {
     "@types/lodash-es": "^4.17.6",
+    "prettier": "3.5.3",
     "rimraf": "^6.0.1",
     "tsup": "^8.3.6",
     "typescript": "5.8.3"

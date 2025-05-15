@@ -16,7 +16,7 @@ export default function ProjectMarketingReadyToStart() {
     <Container className={clsx('isolate px-0 pb-16 lg:pb-32')}>
       <div
         className={clsx(
-          'text-balance flex flex-col items-center justify-center gap-8',
+          'flex flex-col items-center justify-center gap-8 text-balance',
           'rounded-[48px]',
           'px-4 py-20 sm:px-[170px]',
           themeRadialGlowBackground,

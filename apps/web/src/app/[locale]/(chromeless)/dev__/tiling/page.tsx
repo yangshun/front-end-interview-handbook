@@ -96,7 +96,7 @@ export default function Page() {
           })}
           renderTab={(tabId) => (
             <CodingWorkspaceErrorBoundary>
-              <div className="size-full flex items-center justify-center">
+              <div className="flex size-full items-center justify-center">
                 <Text className="text-6xl" weight="bold">
                   {tabId}
                 </Text>

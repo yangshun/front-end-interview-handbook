@@ -57,7 +57,6 @@ export const activityRouter = router({
       if (activities.length > limit) {
         // Remove the last item and use it as next cursor
 
-         
         const nextItem = activities.pop()!;
 
         nextCursor = nextItem.id;

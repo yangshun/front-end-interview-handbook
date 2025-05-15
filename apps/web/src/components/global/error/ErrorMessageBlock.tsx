@@ -56,7 +56,7 @@ export default function ErrorMessageBlock({ returnHref }: Props) {
               <li key={link.name} className="relative flex gap-x-6 py-6">
                 <div
                   className={clsx(
-                    'size-10 flex flex-none items-center justify-center rounded-lg shadow-sm',
+                    'flex size-10 flex-none items-center justify-center rounded-lg shadow-sm',
                     ['border', themeBorderColor],
                   )}>
                   <link.icon

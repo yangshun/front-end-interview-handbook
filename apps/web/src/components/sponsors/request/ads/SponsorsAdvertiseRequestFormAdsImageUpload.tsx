@@ -183,7 +183,7 @@ export default function SponsorsAdvertiseRequestFormAdsImageUpload({
             <RiImageLine
               aria-hidden="true"
               className={clsx(
-                'size-10 mx-auto mb-2 shrink-0',
+                'mx-auto mb-2 size-10 shrink-0',
                 themeTextPlaceholderColor,
               )}
             />

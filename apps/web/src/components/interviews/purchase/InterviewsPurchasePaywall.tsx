@@ -121,7 +121,7 @@ function InterviewsPurchasePaywallImpl({
         )}>
         <Icon
           aria-hidden="true"
-          className={clsx('size-10 mx-auto shrink-0', colors[variant])}
+          className={clsx('mx-auto size-10 shrink-0', colors[variant])}
         />
         <div>
           <Heading
@@ -134,7 +134,7 @@ function InterviewsPurchasePaywallImpl({
           </Heading>
           {subtitle && (
             <Text
-              className="text-pretty mt-2 block"
+              className="mt-2 block text-pretty"
               color="secondary"
               size="body2">
               {subtitle}

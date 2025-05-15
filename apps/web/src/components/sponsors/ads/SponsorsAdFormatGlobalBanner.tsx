@@ -79,7 +79,7 @@ export default function SponsorsAdFormatGlobalBanner({
         {'text' in props ? props.text : props.children}
         <RiArrowRightLine
           aria-hidden={true}
-          className="size-3.5 -mt-0.5 ml-1 inline-flex shrink-0"
+          className="-mt-0.5 ml-1 inline-flex size-3.5 shrink-0"
         />
       </Anchor>
     </GlobalBannerShell>

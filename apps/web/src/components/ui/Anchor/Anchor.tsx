@@ -118,7 +118,6 @@ function Anchor(
   }
 
   return (
-     
     <I18nLink
       ref={ref}
       className={className}

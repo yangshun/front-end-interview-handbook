@@ -73,7 +73,7 @@ export default function ProjectsPage({ isAdminRole }: Props) {
                 <Text>{project.subreddits.length} subreddit</Text>
               </div>
               <Link
-                className="absolute inset-0 "
+                className="absolute inset-0"
                 href={`/projects/${project.slug}`}
               />
 
@@ -83,7 +83,7 @@ export default function ProjectsPage({ isAdminRole }: Props) {
                     className="absolute right-1 top-1"
                     onClick={(e) => e.preventDefault()}>
                     <ActionIcon variant="subtle">
-                      <RiMoreLine className="size-4 " />
+                      <RiMoreLine className="size-4" />
                     </ActionIcon>
                   </div>
                 </Menu.Target>

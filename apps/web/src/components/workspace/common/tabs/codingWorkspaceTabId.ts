@@ -1,4 +1,3 @@
- 
 declare const __communitySolutionTabType: unique symbol;
 
 export type CodingWorkspaceTabCommunitySolutionType =
@@ -15,7 +14,6 @@ export function codingWorkspaceTabCommunitySolutionId(
 export const codingWorkspaceTabCommunitySolutionPattern =
   /^community_solution:/;
 
- 
 declare const __fileTabType: unique symbol;
 
 export type CodingWorkspaceTabFileType = `file:${string}` & {
@@ -30,7 +28,6 @@ export function codingWorkspaceTabFileId(
 
 export const codingWorkspaceTabFilePattern = /^file:/;
 
- 
 declare const __submissionTabType: unique symbol;
 
 export type CodingWorkspaceTabSubmissionType = `submission:${string}` & {

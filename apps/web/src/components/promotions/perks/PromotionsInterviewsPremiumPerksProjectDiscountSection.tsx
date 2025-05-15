@@ -141,7 +141,7 @@ export default function PromotionsInterviewsPremiumPerksProjectDiscountSection()
         {promoCode != null && (
           <div className="flex w-full flex-1 grow flex-col items-center gap-4 md:gap-6">
             <Ticket padding="md" ratio="wide" variant="normal" width={280}>
-              <div className="size-full m-auto flex flex-col items-center justify-between">
+              <div className="m-auto flex size-full flex-col items-center justify-between">
                 <div className="flex flex-col items-center justify-center gap-1.5">
                   <Heading level="heading6">{promoCode.code}</Heading>
                   <Text color="subtitle" size="body2" weight="medium">

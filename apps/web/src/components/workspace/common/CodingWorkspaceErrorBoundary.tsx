@@ -54,7 +54,7 @@ export default class CodingWorkspaceErrorBoundary extends React.Component<
 
     if (hasError) {
       return (
-        <div className="size-full flex flex-col items-center justify-center px-10">
+        <div className="flex size-full flex-col items-center justify-center px-10">
           <EmptyState
             action={
               <Button

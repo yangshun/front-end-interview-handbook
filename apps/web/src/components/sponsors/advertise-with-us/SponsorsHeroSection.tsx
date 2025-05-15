@@ -179,7 +179,7 @@ function Asset() {
           </div>
         ))}
       </div>
-      <div className={clsx('flex  items-center gap-3', 'mb-4 mt-6')}>
+      <div className={clsx('flex items-center gap-3', 'mb-4 mt-6')}>
         {[
           {
             label: (
@@ -205,7 +205,7 @@ function Asset() {
           <div key={item.value} className="flex items-center gap-1.5">
             <div
               className={clsx(
-                'xl:size-2 size-[7px] shrink-0 rounded-full',
+                'size-[7px] shrink-0 rounded-full xl:size-2',
                 item.value === 'view'
                   ? themeBackgroundBrandColor
                   : themeBackgroundSuccessColor,
@@ -502,7 +502,7 @@ function FocusOnPlatformAsset() {
           <div key={item.value} className="flex items-center gap-1">
             <div
               className={clsx(
-                'xl:size-[5px] size-[4px] shrink-0 rounded-full',
+                'size-[4px] shrink-0 rounded-full xl:size-[5px]',
                 item.bgColor,
               )}
             />
@@ -530,7 +530,7 @@ function SessionDurationAsset() {
         ['border', themeBorderElementColor],
         themeBackgroundLayerEmphasized,
       )}>
-      <div className="size-[105%] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform">
+      <div className="absolute left-1/2 top-1/2 size-[105%] -translate-x-1/2 -translate-y-1/2 transform">
         <svg
           fill="none"
           height="100%"
@@ -548,8 +548,8 @@ function SessionDurationAsset() {
           />
         </svg>
       </div>
-      <div className="size-[100%] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform">
-        <div className="size-full relative">
+      <div className="absolute left-1/2 top-1/2 size-[100%] -translate-x-1/2 -translate-y-1/2 transform">
+        <div className="relative size-full">
           <svg
             fill="none"
             height="100%"
@@ -584,8 +584,8 @@ function SessionDurationAsset() {
           />
         </div>
       </div>
-      <div className="size-[90%] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform">
-        <div className="size-full relative">
+      <div className="absolute left-1/2 top-1/2 size-[90%] -translate-x-1/2 -translate-y-1/2 transform">
+        <div className="relative size-full">
           <svg
             fill="none"
             height="100%"
@@ -683,8 +683,8 @@ function SoftwareEngineersAsset() {
         ['border', themeBorderElementColor],
         themeBackgroundLayerEmphasized,
       )}>
-      <div className="size-[100%] absolute -right-[36%] top-1/2 -translate-y-1/2 transform">
-        <div className="size-full relative">
+      <div className="absolute -right-[36%] top-1/2 size-[100%] -translate-y-1/2 transform">
+        <div className="relative size-full">
           <svg
             fill="none"
             height="100%"
@@ -707,8 +707,8 @@ function SoftwareEngineersAsset() {
           />
         </div>
       </div>
-      <div className="size-[100%] absolute -right-[40%] top-1/2 -translate-y-1/2 transform">
-        <div className="size-full relative">
+      <div className="absolute -right-[40%] top-1/2 size-[100%] -translate-y-1/2 transform">
+        <div className="relative size-full">
           <svg
             fill="none"
             height="100%"
@@ -793,7 +793,7 @@ function SkillAsset({
         className={clsx(
           'flex items-center justify-center',
           'rounded-full shadow-sm',
-          'size-[18px] sm:size-6 p-[3px] sm:p-1',
+          'size-[18px] p-[3px] sm:size-6 sm:p-1',
           themeBackgroundLayerEmphasized,
           themeGlassyBorder,
         )}>

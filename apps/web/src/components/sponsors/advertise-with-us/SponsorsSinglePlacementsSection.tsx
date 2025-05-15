@@ -111,7 +111,7 @@ function GlobalBannerPlacement() {
       <picture
         className={clsx(
           'block dark:hidden',
-          'h-auto sm:w-[558px]  lg:w-[665px]',
+          'h-auto sm:w-[558px] lg:w-[665px]',
         )}>
         <source
           media="(max-width: 640px)"
@@ -171,7 +171,7 @@ function InContentPlacementAsset() {
       <picture
         className={clsx(
           'block dark:hidden',
-          'h-auto w-full sm:w-[277px]  lg:w-[332px]',
+          'h-auto w-full sm:w-[277px] lg:w-[332px]',
         )}>
         <source
           media="(max-width: 640px)"
@@ -256,7 +256,7 @@ function SpotlightPlacementAsset() {
       <picture
         className={clsx(
           'hidden dark:block',
-          'h-auto w-full sm:w-[277px]  lg:w-[332px]',
+          'h-auto w-full sm:w-[277px] lg:w-[332px]',
         )}>
         <source
           media="(max-width: 640px)"

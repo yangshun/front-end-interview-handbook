@@ -45,7 +45,6 @@ export const ProjectsChallengeMetadataDocument = defineDocumentType(() => ({
         return (
           doc.pointsBase +
           sumBy(
-             
             // @ts-expect-error: ContentLayer uses some custom array structure.
             (doc.skills as Readonly<{ _array: Array<string> }>)._array,
             (skill) =>

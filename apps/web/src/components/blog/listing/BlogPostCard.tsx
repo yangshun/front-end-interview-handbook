@@ -63,7 +63,7 @@ export default function BlogPostCard({
             {type === 'wide' && metadata.imageUrl && (
               <Img
                 alt={metadata.title}
-                className="size-8 !m-0 shrink-0 rounded object-cover sm:hidden"
+                className="!m-0 size-8 shrink-0 rounded object-cover sm:hidden"
                 decoding="async"
                 loading="lazy"
                 src={metadata.imageUrl}

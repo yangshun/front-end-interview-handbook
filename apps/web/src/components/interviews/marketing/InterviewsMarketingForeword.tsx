@@ -201,7 +201,7 @@ export default function InterviewsMarketingForeword() {
                 variant="flat"
                 weight="bold">
                 Yangshun Tay{' '}
-                <RiLinkedinBoxFill className="size-6 ml-0.5 inline -translate-y-0.5 align-middle" />
+                <RiLinkedinBoxFill className="ml-0.5 inline size-6 -translate-y-0.5 align-middle" />
               </Anchor>
               <div className="flex flex-col gap-1">
                 <Text color="secondary" size="body3" weight="medium">

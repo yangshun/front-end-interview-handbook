@@ -159,7 +159,7 @@ export default function InterviewsMarketingPrepResourcesByBigTechEngineers() {
       </div>
       <Section>
         <ScrollArea scrollbars="horizontal">
-          <CardContainer className="flex flex-col justify-between gap-x-4 gap-y-6 sm:flex-row lg:gap-x-6 ">
+          <CardContainer className="flex flex-col justify-between gap-x-4 gap-y-6 sm:flex-row lg:gap-x-6">
             {data.map((item) => (
               <Card
                 key={item.key}
@@ -191,7 +191,7 @@ export default function InterviewsMarketingPrepResourcesByBigTechEngineers() {
                       className={clsx(
                         'rounded-full',
                         themeBackgroundCardWhiteOnLightColor,
-                        'size-20 sm:size-14 md:size-16 lg:size-20 shrink-0',
+                        'size-20 shrink-0 sm:size-14 md:size-16 lg:size-20',
                         'flex items-center justify-center',
                         themeGlassyBorder,
                       )}>

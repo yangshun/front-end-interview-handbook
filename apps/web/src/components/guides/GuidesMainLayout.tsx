@@ -160,7 +160,7 @@ export default function GuidesMainLayout<GuideSlug extends string>({
                     showTooltip={false}
                     slug={guideMetadata.id}
                   />
-                  <div className="max-w-64 flex flex-col items-end gap-2">
+                  <div className="flex max-w-64 flex-col items-end gap-2">
                     <GuidesProgressAction
                       guideName={currentItem.label}
                       guideProgress={

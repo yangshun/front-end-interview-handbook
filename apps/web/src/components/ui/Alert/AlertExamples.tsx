@@ -38,7 +38,7 @@ export default function AlertExamples() {
         Students can sign up with Projects Platform with their .edu emails to
         receive special rates 40% off on the pricing plans.
         <span
-          className="size-14 absolute -right-0.5 -top-0.5 overflow-hidden"
+          className="absolute -right-0.5 -top-0.5 size-14 overflow-hidden"
           style={{
             clipPath: 'polygon(50% 0, 100% 50%, 100% 100%, 0 100%, 0 0)',
           }}>

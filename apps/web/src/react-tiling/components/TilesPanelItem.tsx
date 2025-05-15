@@ -216,7 +216,7 @@ export default function TilesPanelItem<TabType extends string>({
       )}
       collapsedSize={5}
       minSize={5}>
-      <div ref={panelRef} className="size-full flex flex-col">
+      <div ref={panelRef} className="flex size-full flex-col">
         <div
           className={clsx(
             'flex shrink-0 items-center justify-between',

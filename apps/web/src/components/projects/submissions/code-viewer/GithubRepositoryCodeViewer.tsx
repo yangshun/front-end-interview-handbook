@@ -157,7 +157,7 @@ export default function GithubRepositoryCodeViewer({
             </div>
             <div className="flex-1 overflow-auto">
               {isFetchingFileContents ? (
-                <div className="size-full flex items-center justify-center">
+                <div className="flex size-full items-center justify-center">
                   <Spinner className="block" />
                 </div>
               ) : (

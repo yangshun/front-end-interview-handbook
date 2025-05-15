@@ -300,7 +300,7 @@ function LogoCard() {
   return (
     <div
       className={clsx(
-        'relative overflow-hidden ',
+        'relative overflow-hidden',
         'flex items-center justify-center',
         'rounded-xl',
         'shadow-md',

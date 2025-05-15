@@ -223,7 +223,7 @@ function ProjectsChallengeSolutionWorkspaceImpl({
               renderTab={(tabId) => (
                 <CodingWorkspaceErrorBoundary>
                   {tabContents[tabId] != null ? (
-                    <div className="size-full flex">
+                    <div className="flex size-full">
                       {tabContents[tabId]!.contents}
                     </div>
                   ) : (

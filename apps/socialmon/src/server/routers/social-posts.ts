@@ -203,7 +203,6 @@ export const socialPostsRouter = router({
       if (posts.length > limit) {
         // Remove the last item and use it as next cursor
 
-         
         const nextItem = posts.pop()!;
 
         nextCursor = nextItem.id;

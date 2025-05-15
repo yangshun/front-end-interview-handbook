@@ -59,7 +59,7 @@ function Avatar(
       <AvatarPrimitive.Fallback
         asChild={true}
         className={clsx(
-          'size-full flex items-center justify-center rounded-full',
+          'flex size-full items-center justify-center rounded-full',
         )}
         delayMs={600}>
         {emptyAvatar}

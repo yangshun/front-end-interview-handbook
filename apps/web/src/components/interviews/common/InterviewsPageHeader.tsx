@@ -52,7 +52,7 @@ export default function InterviewsPageHeader({
       <div
         className={clsx(
           'inline-flex shrink-0 items-center justify-center',
-          'size-12 sm:size-14 xl:size-16 rounded-lg shadow-md',
+          'size-12 rounded-lg shadow-md sm:size-14 xl:size-16',
           'bg-white',
         )}>
         <Img

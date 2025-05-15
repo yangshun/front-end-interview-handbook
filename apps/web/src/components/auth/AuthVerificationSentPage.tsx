@@ -26,7 +26,7 @@ export default function AuthVerificationSentPage({ email, redirectTo }: Props) {
   return (
     <div
       className={clsx(
-        'size-full isolate before:!-top-[180px]',
+        'isolate size-full before:!-top-[180px]',
         themeRadialWhiteGlowBackground,
       )}>
       <Container

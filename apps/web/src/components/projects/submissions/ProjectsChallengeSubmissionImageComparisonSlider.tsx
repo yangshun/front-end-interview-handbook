@@ -64,8 +64,8 @@ export default function ProjectsChallengeSubmissionImageComparisonSlider({
                 themeBackgroundBrandColor,
               )}>
               <div className="flex">
-                <RiArrowDropLeftFill className="size-7 -mr-2" />
-                <RiArrowDropRightFill className="size-7 -ml-2" />
+                <RiArrowDropLeftFill className="-mr-2 size-7" />
+                <RiArrowDropRightFill className="-ml-2 size-7" />
               </div>
             </div>
           }

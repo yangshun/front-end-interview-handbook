@@ -431,7 +431,7 @@ export default function ProjectsMarketingLearningFeatures() {
                   </div>
                   <div className="flex flex-col">
                     <Heading
-                      className="text-pretty mb-4"
+                      className="mb-4 text-pretty"
                       id={featureId}
                       level="heading4">
                       {feature.title}
