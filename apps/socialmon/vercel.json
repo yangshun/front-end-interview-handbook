@@ -5,8 +5,7 @@
   "crons": [
     {
       "path": "/api/reddit/crawl",
-      "schedule": "0 9-18 * * *",
-      "timezone": "Asia/Singapore"
+      "schedule": "0 2-10 * * *"
     }
   ]
 }
