@@ -2,8 +2,8 @@ import { countBy, sum } from 'lodash-es';
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
-import productReviewsAll from '../../../__data/product-reviews.json' assert { type: 'json' };
-import users from '../../../__data/users.json' assert { type: 'json' };
+import productReviewsAll from '../../../__data/product-reviews.json' with { type: 'json' };
+import users from '../../../__data/users.json' with { type: 'json' };
 
 export async function OPTIONS() {
   return NextResponse.json({});

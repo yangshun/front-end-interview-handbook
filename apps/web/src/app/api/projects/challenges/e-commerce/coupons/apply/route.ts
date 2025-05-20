@@ -1,7 +1,7 @@
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
-import coupons from '../../__data/coupons.json' assert { type: 'json' };
+import coupons from '../../__data/coupons.json' with { type: 'json' };
 
 type FormBody = Readonly<{
   coupon_code?: string;

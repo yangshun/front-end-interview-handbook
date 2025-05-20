@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-import categories from '../__data/categories.json' assert { type: 'json' };
+import categories from '../__data/categories.json' with { type: 'json' };
 
 export async function OPTIONS() {
   return NextResponse.json({});
