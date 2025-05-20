@@ -6,6 +6,11 @@ const TAZAPAY_TOKEN = Buffer.from(
   `${process.env.TAZAPAY_API_KEY}:${process.env.TAZAPAY_SECRET_KEY}`,
 ).toString('base64');
 
+// Map of country codes to payment methods that should be removed in the checkout
+const REMOVE_PAYMENT_METHODS: Record<string, Array<string>> = {
+  IN: ['card'],
+} as const;
+
 export const PurchasePaymentTazapayProvider = {
   async createCustomer({
     countryCode,
@@ -90,6 +95,9 @@ export const PurchasePaymentTazapayProvider = {
     });
 
     return { id: data.id, url: data.url };
+  },
+  getRemovePaymentMethods(countryCode: string): Array<string> {
+    return REMOVE_PAYMENT_METHODS[countryCode] ?? [];
   },
 };
 

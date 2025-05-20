@@ -320,9 +320,8 @@ async function processOneTimePlan(
                   ftl: 'true',
                 }
               : undefined,
-          // Remove card payment method for India
-          // Because it has lower amount than other payment methods because of GST and it looks odd
-          removePaymentMethods: countryCode === 'IN' ? ['card'] : [],
+          removePaymentMethods:
+            PurchasePaymentTazapayProvider.getRemovePaymentMethods(countryCode),
           successUrl,
           // TODO: Handle this data in a better way.
           // May be get it from pricing plan config
