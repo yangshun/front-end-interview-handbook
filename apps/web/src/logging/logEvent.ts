@@ -23,7 +23,6 @@ type LoggingAction =
   | 'error'
   | 'guide.mark_complete'
   | 'hydration.fail'
-  | 'hydration.success'
   | 'monaco.reachable'
   | 'monaco.unreachable'
   | 'not_found'
