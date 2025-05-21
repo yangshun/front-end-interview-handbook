@@ -78,12 +78,48 @@ export function purchaseInitiateLogging({
   });
 }
 
+export function purchaseSessionGenerateLogging({
+  plan,
+  product,
+  purchasePrice,
+}: Props) {
+  gtag.event({
+    action: 'checkout.generate',
+    category: 'ecommerce',
+    label: plan,
+  });
+  logEvent('checkout.generate', {
+    currency: purchasePrice.currency.toLocaleUpperCase(),
+    namespace: product,
+    plan: `${product}.${plan}`,
+    value: purchasePrice.unitCostCurrency.withPPP.after,
+  });
+}
+
+export function purchaseSessionGeneratedLogging({
+  plan,
+  product,
+  purchasePrice,
+}: Props) {
+  gtag.event({
+    action: 'checkout.generated',
+    category: 'ecommerce',
+    label: plan,
+  });
+  logEvent('checkout.generated', {
+    currency: purchasePrice.currency.toLocaleUpperCase(),
+    namespace: product,
+    plan: `${product}.${plan}`,
+    value: purchasePrice.unitCostCurrency.withPPP.after,
+  });
+}
+
 export function purchaseFailureLogging({
   error,
   plan,
   product,
   purchasePrice,
-}: Props & Readonly<{ error: unknown }>) {
+}: Props & Readonly<{ error: Error }>) {
   gtag.event({
     action: 'checkout.failure',
     category: 'ecommerce',
@@ -93,12 +129,15 @@ export function purchaseFailureLogging({
     level: 'error',
     message: getErrorMessage(error),
     namespace: product,
-    title: 'Checkout attempt error',
+    title: 'Checkout error',
   });
   logEvent('checkout.fail', {
     currency: purchasePrice.currency.toLocaleUpperCase(),
+    message: error.message,
+    name: error.name,
     namespace: product,
     plan: `${product}.${plan}`,
+    stack: error.stack,
     value: purchasePrice.unitCostCurrency.withPPP.after,
   });
 }

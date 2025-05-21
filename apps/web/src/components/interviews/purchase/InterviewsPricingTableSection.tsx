@@ -33,6 +33,8 @@ import {
   purchaseFailureLogging,
   purchaseInitiateLogging,
   purchaseInitiateLoggingNonSignedIn,
+  purchaseSessionGeneratedLogging,
+  purchaseSessionGenerateLogging,
 } from '~/components/purchase/PurchaseLogging';
 import PurchasePriceLabel from '~/components/purchase/PurchasePriceLabel';
 import PurchaseProhibitedCountryAlert from '~/components/purchase/PurchaseProhibitedCountryAlert';
@@ -185,6 +187,12 @@ function PricingButtonNonPremium({
     setErrorMessage(null);
 
     try {
+      purchaseSessionGenerateLogging({
+        plan: planType,
+        product: 'interviews',
+        purchasePrice: paymentConfig,
+      });
+
       const res = await fetch(
         url.format({
           pathname: '/api/payments/purchase/checkout',
@@ -200,6 +208,12 @@ function PricingButtonNonPremium({
       );
 
       const { payload } = await res.json();
+
+      purchaseSessionGeneratedLogging({
+        plan: planType,
+        product: 'interviews',
+        purchasePrice: paymentConfig,
+      });
 
       if (hasClickedRef.current) {
         window.location.href = payload.url;
@@ -222,7 +236,7 @@ function PricingButtonNonPremium({
       }
 
       purchaseFailureLogging({
-        error,
+        error: error as Error,
         plan: planType,
         product: 'interviews',
         purchasePrice: paymentConfig,
@@ -278,7 +292,7 @@ function PricingButtonNonPremium({
 
           if (checkoutSessionHref != null) {
             // Had to move this checkout redirection here
-            // Otherwise with href passed to the PricingButton, the checkoutInitialEmailMutation is unable to execute it
+            // Otherwise with href passed to the PricingButton, the checkoutInitiateEmailMutation is unable to execute it
             // before the window is changed to stripe
             window.location.href = checkoutSessionHref;
 
