@@ -6,7 +6,11 @@ import GoogleProvider from 'next-auth/providers/google';
 
 import prisma from '~/server/prisma';
 
-const ADMIN_EMAILS = ['yangshun@greatfrontend.com', 'gina@greatfrontend.com'];
+const ADMIN_EMAILS = [
+  'yangshun@greatfrontend.com',
+  'gina@greatfrontend.com',
+  'yuhang@greatfrontend.com',
+];
 
 export const authConfig: NextAuthOptions = {
   adapter: PrismaAdapter(prisma as unknown as PrismaClient),
