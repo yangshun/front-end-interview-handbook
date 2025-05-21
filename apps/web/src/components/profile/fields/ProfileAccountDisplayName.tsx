@@ -39,11 +39,22 @@ export default function ProfileAccountDisplayName() {
 
   const toast = useToast();
   const displayNameFormSchema = useDisplayNameFormSchema();
-  const { control, formState, handleSubmit, reset } =
-    useForm<DisplayNameFormValues>({
-      mode: 'all',
-      resolver: zodResolver(displayNameFormSchema),
-    });
+  const {
+    control,
+    formState: {
+      dirtyFields,
+      errors,
+      isDirty,
+      isSubmitting,
+      isValid,
+      submitCount,
+    },
+    handleSubmit,
+    reset,
+  } = useForm<DisplayNameFormValues>({
+    mode: 'all',
+    resolver: zodResolver(displayNameFormSchema),
+  });
 
   const profileDataQuery = trpc.profile.viewer.useQuery();
   const nameUpdateMutation = trpc.profile.nameUpdate.useMutation({
@@ -73,11 +84,11 @@ export default function ProfileAccountDisplayName() {
               defaultValue={profileDataQuery.data?.name ?? undefined}
               description={attrs.description}
               errorMessage={
-                formState.dirtyFields.name || formState.submitCount > 0
-                  ? formState.errors.name?.message
+                dirtyFields.name || submitCount > 0
+                  ? errors.name?.message
                   : undefined
               }
-              isDisabled={formState.isSubmitting}
+              isDisabled={isSubmitting}
               label={attrs.label}
               maxLength={attrs.validation.maxLength}
               placeholder={attrs.placeholder}
@@ -87,10 +98,8 @@ export default function ProfileAccountDisplayName() {
         />
         <div className="flex justify-end">
           <Button
-            isDisabled={
-              !formState.isDirty || !formState.isValid || formState.isSubmitting
-            }
-            isLoading={formState.isSubmitting}
+            isDisabled={!isDirty || !isValid || isSubmitting}
+            isLoading={isSubmitting}
             label={intl.formatMessage({
               defaultMessage: 'Save changes',
               description: 'Button label for a form',

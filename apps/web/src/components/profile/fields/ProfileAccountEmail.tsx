@@ -56,14 +56,25 @@ export default function ProfileAccountEmail({ user }: Props) {
 
   const [message, setMessage] = useState('');
 
-  const { control, formState, handleSubmit, setError } =
-    useForm<EmailFormValues>({
-      defaultValues: {
-        email: user?.email ?? '',
-      },
-      mode: 'all',
-      resolver: zodResolver(emailFormSchema),
-    });
+  const {
+    control,
+    formState: {
+      dirtyFields,
+      errors,
+      isDirty,
+      isSubmitting,
+      isValid,
+      submitCount,
+    },
+    handleSubmit,
+    setError,
+  } = useForm<EmailFormValues>({
+    defaultValues: {
+      email: user?.email ?? '',
+    },
+    mode: 'all',
+    resolver: zodResolver(emailFormSchema),
+  });
 
   return (
     <div className={clsx('p-4', 'rounded-lg border', themeBorderColor)}>
@@ -113,11 +124,11 @@ export default function ProfileAccountEmail({ user }: Props) {
                     })
               }
               errorMessage={
-                formState.dirtyFields.email || formState.submitCount > 0
-                  ? formState.errors.email?.message
+                dirtyFields.email || submitCount > 0
+                  ? errors.email?.message
                   : undefined
               }
-              isDisabled={formState.isSubmitting}
+              isDisabled={isSubmitting}
               label={intl.formatMessage({
                 defaultMessage: 'Email',
                 description: 'Email',
@@ -135,10 +146,8 @@ export default function ProfileAccountEmail({ user }: Props) {
         )}
         <div className="flex justify-end">
           <Button
-            isDisabled={
-              !formState.isDirty || !formState.isValid || formState.isSubmitting
-            }
-            isLoading={formState.isSubmitting}
+            isDisabled={!isDirty || !isValid || isSubmitting}
+            isLoading={isSubmitting}
             label={intl.formatMessage({
               defaultMessage: 'Save changes',
               description: 'Button label for a form',

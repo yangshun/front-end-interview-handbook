@@ -48,15 +48,27 @@ export default function ProfileAccountUsername() {
     },
   });
 
-  const { control, formState, handleSubmit, reset, setError } =
-    useForm<UserNameFormValues>({
-      defaultValues: {
-        username: '',
-      },
-      mode: 'all',
-      resolver: zodResolver(userNameFormSchema),
-      values: { username: data?.username ?? '' },
-    });
+  const {
+    control,
+    formState: {
+      dirtyFields,
+      submitCount,
+      errors,
+      isSubmitting,
+      isDirty,
+      isValid,
+    },
+    handleSubmit,
+    reset,
+    setError,
+  } = useForm<UserNameFormValues>({
+    defaultValues: {
+      username: '',
+    },
+    mode: 'all',
+    resolver: zodResolver(userNameFormSchema),
+    values: { username: data?.username ?? '' },
+  });
 
   return (
     <div className={clsx('p-4', 'rounded-lg border', themeBorderColor)}>
@@ -84,11 +96,11 @@ export default function ProfileAccountUsername() {
               autoComplete="off"
               description={attrs.description}
               errorMessage={
-                formState.dirtyFields.username || formState.submitCount > 0
-                  ? formState.errors.username?.message
+                dirtyFields.username || submitCount > 0
+                  ? errors.username?.message
                   : undefined
               }
-              isDisabled={formState.isSubmitting}
+              isDisabled={isSubmitting}
               label={attrs.label}
               maxLength={attrs.validation.maxLength}
               placeholder={attrs.placeholder}
@@ -98,10 +110,8 @@ export default function ProfileAccountUsername() {
         />
         <div className="flex justify-end">
           <Button
-            isDisabled={
-              !formState.isDirty || !formState.isValid || formState.isSubmitting
-            }
-            isLoading={formState.isSubmitting}
+            isDisabled={!isDirty || !isValid || isSubmitting}
+            isLoading={isSubmitting}
             label={intl.formatMessage({
               defaultMessage: 'Save changes',
               description: 'Button label for a form',
