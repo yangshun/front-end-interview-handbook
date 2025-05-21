@@ -1,7 +1,28 @@
+import { BASE_URL } from '~/constants';
 import { getPostsFromReddit } from '~/db/RedditUtils';
 
 import prisma from '../prisma';
 import { sendGoogleChatMessage } from '../utils/googleChat';
+
+function extractTriggeringSnippet(
+  title: string,
+  content: string,
+  keyword: string,
+  contextLength = 30,
+): string {
+  const contentToSearch = `${title} ${content}`;
+  const keywordIndex = contentToSearch.indexOf(keyword);
+
+  if (keywordIndex === -1) return 'N/A';
+
+  const snippetStart = Math.max(0, keywordIndex - contextLength);
+  const snippetEnd = Math.min(
+    contentToSearch.length,
+    keywordIndex + keyword.length + contextLength,
+  );
+
+  return contentToSearch.substring(snippetStart, snippetEnd).trim();
+}
 
 export async function fetchPostsFromPlatform(projectSlug: string) {
   const fetchStartTime = new Date(); // Record the fetch start time before fetching posts
@@ -68,18 +89,24 @@ export async function fetchPostsFromPlatform(projectSlug: string) {
       },
     });
 
-    // Accumulate links and subreddits for all posts
+    // Accumulate links, subreddits, and triggering snippets for all posts
     const postLinks = newPosts.map((post) => {
       const triggeringKeyword = project.keywords.find(
         (keyword) =>
           post.title.includes(keyword) || post.content.includes(keyword),
       );
 
-      const postLink = `https://socialmon.vercel.app/projects/${projectSlug}/posts/${post.id}`;
+      const triggeringSnippet = triggeringKeyword
+        ? extractTriggeringSnippet(post.title, post.content, triggeringKeyword)
+        : 'N/A';
+
+      const postLink = `${BASE_URL}/projects/${projectSlug}/posts/${post.id}`;
 
       return `Link: ${postLink} | Subreddit: ${
         post.subreddit
-      } | Triggered by keyword: ${triggeringKeyword || 'N/A'}`;
+      } | Triggered by keyword: ${
+        triggeringKeyword || 'N/A'
+      } | Snippet: "${triggeringSnippet}"`;
     });
 
     // Send a single message with all links
