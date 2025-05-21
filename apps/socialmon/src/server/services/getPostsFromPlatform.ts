@@ -8,7 +8,7 @@ function extractTriggeringSnippet(
   title: string,
   content: string,
   keyword: string,
-  contextLength = 30,
+  contextLength = 50,
 ): string {
   const contentToSearch = `${title} ${content}`;
   const keywordIndex = contentToSearch.indexOf(keyword);
@@ -90,30 +90,27 @@ export async function fetchPostsFromPlatform(projectSlug: string) {
     });
 
     // Accumulate links, subreddits, and triggering snippets for all posts
-    const postLinks = newPosts.map((post) => {
+    const postLinks = newPosts.map((post, idx) => {
       const triggeringKeyword = project.keywords.find(
         (keyword) =>
           post.title.includes(keyword) || post.content.includes(keyword),
       );
 
-      const triggeringSnippet = triggeringKeyword
+      const snippet = triggeringKeyword
         ? extractTriggeringSnippet(post.title, post.content, triggeringKeyword)
         : 'N/A';
 
-      const postLink = `${BASE_URL}/projects/${projectSlug}/posts/${post.id}`;
+      const postLink = `<${BASE_URL}/projects/${projectSlug}/posts/${post.id}|Socialmon>`;
+      const redditLink = `<https://www.reddit.com${post.permalink}|Reddit>`;
 
-      return `Link: ${postLink} | Subreddit: ${
-        post.subreddit
-      } | Triggered by keyword: ${
-        triggeringKeyword || 'N/A'
-      } | Snippet: "${triggeringSnippet}"`;
+      return `${idx + 1}. ${post.title}
+${postLink} · ${redditLink} | ${post.subreddit} | Keyword: ${triggeringKeyword || 'N/A'}
+Snippet: "${snippet}"`;
     });
 
     // Send a single message with all links
     await sendGoogleChatMessage({
-      additionalInfo: `Fetched ${newPosts.length} new posts:\n${postLinks.join(
-        '\n',
-      )}`,
+      additionalInfo: `Fetched ${newPosts.length} new posts:\n\n${postLinks.join('\n\n')}`,
       projectName: project.name,
       subreddits: project.subreddits,
     });

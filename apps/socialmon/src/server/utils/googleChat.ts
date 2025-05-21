@@ -20,6 +20,7 @@ export async function sendGoogleChatMessage({
 
 *Project:* ${projectName}
 *Additional info:* ${additionalInfo}
+
 *Subreddits searched:* ${subreddits.join(', ')}
 *Time:* ${new Date().toLocaleString()}`,
   };
