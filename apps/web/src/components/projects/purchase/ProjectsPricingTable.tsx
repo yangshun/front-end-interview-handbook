@@ -24,6 +24,8 @@ import {
   purchaseFailureLogging,
   purchaseInitiateLogging,
   purchaseInitiateLoggingNonSignedIn,
+  purchaseSessionGeneratedLogging,
+  purchaseSessionGenerateLogging,
 } from '~/components/purchase/PurchaseLogging';
 import PurchasePriceLabel from '~/components/purchase/PurchasePriceLabel';
 import { priceRoundToNearestNiceNumber } from '~/components/purchase/PurchasePricingUtils';
@@ -173,22 +175,31 @@ function PricingButtonNonPremium({
     setErrorMessage(null);
 
     try {
-      const cancelURL = new URL(
-        window.location.pathname,
-        window.location.origin,
-      );
+      purchaseSessionGenerateLogging({
+        plan: planType,
+        product: 'projects',
+        purchasePrice: paymentConfig,
+      });
 
       const res = await fetch(
         url.format({
           pathname: '/api/payments/purchase/checkout',
           query: {
-            cancel_url: useCurrentPageAsCancelUrl ? cancelURL.href : undefined,
+            cancel_url: useCurrentPageAsCancelUrl
+              ? window.location.href
+              : undefined,
             plan_type: planTypeParam,
             product_domain: 'projects',
           },
         }),
       );
       const { payload } = await res.json();
+
+      purchaseSessionGeneratedLogging({
+        plan: planType,
+        product: 'projects',
+        purchasePrice: paymentConfig,
+      });
 
       if (hasClickedRef.current) {
         window.location.href = payload.url;
@@ -211,7 +222,7 @@ function PricingButtonNonPremium({
       }
 
       purchaseFailureLogging({
-        error,
+        error: error as Error,
         plan: planType,
         product: 'projects',
         purchasePrice: paymentConfig,

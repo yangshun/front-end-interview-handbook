@@ -15,6 +15,8 @@ type LoggingAction =
   | 'checkout.attempt'
   | 'checkout.cancel'
   | 'checkout.fail'
+  | 'checkout.generate'
+  | 'checkout.generated'
   | 'checkout.success'
   | 'click'
   | 'copy'
