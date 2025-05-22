@@ -41,14 +41,18 @@ function UserInterfaceCodingWorkspaceCommunitySolutionCreateTabImpl({
     sandpack: { files },
   } = useSandpack();
 
-  const { control, formState, handleSubmit, reset } =
-    useForm<CommunitySolutionDraft>({
-      defaultValues: {
-        title: '',
-        writeup: '',
-      },
-      mode: 'onTouched',
-    });
+  const {
+    control,
+    formState: { dirtyFields, errors, isDirty, submitCount },
+    handleSubmit,
+    reset,
+  } = useForm<CommunitySolutionDraft>({
+    defaultValues: {
+      title: '',
+      writeup: '',
+    },
+    mode: 'onTouched',
+  });
 
   const { isLoading, mutateAsync: addSolution } =
     trpc.questionCommunitySolution.userInterfaceAdd.useMutation({
@@ -86,7 +90,7 @@ function UserInterfaceCodingWorkspaceCommunitySolutionCreateTabImpl({
       <div className="flex flex-row-reverse gap-2">
         <Button
           className="mt-0.5 shrink-0"
-          isDisabled={!formState.isDirty || isLoading}
+          isDisabled={!isDirty || isLoading}
           label={intl.formatMessage({
             defaultMessage: 'Post',
             description: 'Community solution post button label',
@@ -102,8 +106,8 @@ function UserInterfaceCodingWorkspaceCommunitySolutionCreateTabImpl({
             <div className="flex-1">
               <TextInput
                 errorMessage={
-                  formState.dirtyFields.title || formState.submitCount > 0
-                    ? formState.errors.title?.message
+                  dirtyFields.title || submitCount > 0
+                    ? errors.title?.message
                     : undefined
                 }
                 isLabelHidden={true}
@@ -136,8 +140,8 @@ function UserInterfaceCodingWorkspaceCommunitySolutionCreateTabImpl({
         render={({ field }) => (
           <TextArea
             errorMessage={
-              formState.dirtyFields.writeup || formState.submitCount > 0
-                ? formState.errors.writeup?.message
+              dirtyFields.writeup || submitCount > 0
+                ? errors.writeup?.message
                 : undefined
             }
             isLabelHidden={true}

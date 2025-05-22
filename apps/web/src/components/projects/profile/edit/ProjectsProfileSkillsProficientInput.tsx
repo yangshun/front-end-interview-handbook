@@ -28,11 +28,11 @@ export default function ProjectsProfileSkillsProficientInput({
     <Controller
       control={control}
       name={name}
-      render={({ field, formState }) => (
+      render={({ field, formState: { dirtyFields, errors, submitCount } }) => (
         <div
           className="relative flex-1"
           id={SCROLL_HASH_PROJECTS_PROFILE.SKILLS_PROFICIENT}>
-          <span className="absolute end-0">
+          <span className="end-0 absolute">
             <ProjectsChallengeReputationBadge
               completed={field.value.length > 0}
               points={ProjectsReputationPointsConfig.PROFILE_FIELD_PER_OPTIONAL}
@@ -55,8 +55,8 @@ export default function ProjectsProfileSkillsProficientInput({
               },
             )}
             errorMessage={
-              formState.dirtyFields?.[name] || formState.submitCount > 0
-                ? formState.errors?.[name]?.message
+              dirtyFields?.[name] || submitCount > 0
+                ? errors?.[name]?.message
                 : undefined
             }
             label={intl.formatMessage({

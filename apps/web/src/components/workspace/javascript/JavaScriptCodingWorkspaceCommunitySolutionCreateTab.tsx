@@ -48,7 +48,11 @@ function JavaScriptCodingWorkspaceCommunitySolutionCreateTabImpl({
       },
     });
 
-  const { control, formState, handleSubmit } = useForm<CommunitySolutionDraft>({
+  const {
+    control,
+    formState: { dirtyFields, errors, isDirty, submitCount },
+    handleSubmit,
+  } = useForm<CommunitySolutionDraft>({
     defaultValues: {
       code: '',
       language: 'ts',
@@ -73,7 +77,7 @@ function JavaScriptCodingWorkspaceCommunitySolutionCreateTabImpl({
       <div className="flex flex-row-reverse gap-2">
         <Button
           className="mt-0.5 shrink-0"
-          isDisabled={!formState.isDirty || isLoading}
+          isDisabled={!isDirty || isLoading}
           label={intl.formatMessage({
             defaultMessage: 'Post',
             description: 'Coding workspace post solution button label',
@@ -89,8 +93,8 @@ function JavaScriptCodingWorkspaceCommunitySolutionCreateTabImpl({
             <div className="flex-1">
               <TextInput
                 errorMessage={
-                  formState.dirtyFields.title || formState.submitCount > 0
-                    ? formState.errors.title?.message
+                  dirtyFields.title || submitCount > 0
+                    ? errors.title?.message
                     : undefined
                 }
                 isLabelHidden={true}
@@ -123,8 +127,8 @@ function JavaScriptCodingWorkspaceCommunitySolutionCreateTabImpl({
         render={({ field }) => (
           <TextArea
             errorMessage={
-              formState.dirtyFields.writeup || formState.submitCount > 0
-                ? formState.errors.writeup?.message
+              dirtyFields.writeup || submitCount > 0
+                ? errors.writeup?.message
                 : undefined
             }
             isLabelHidden={true}
@@ -166,9 +170,9 @@ function JavaScriptCodingWorkspaceCommunitySolutionCreateTabImpl({
               isVimModeEnabled={isVimModeEnabled}
               {...field}
             />
-            {formState.isDirty && formState.errors.code?.message && (
+            {isDirty && errors.code?.message && (
               <Text color="error" size="body2" weight="medium">
-                {formState.errors.code?.message}
+                {errors.code?.message}
               </Text>
             )}
           </div>

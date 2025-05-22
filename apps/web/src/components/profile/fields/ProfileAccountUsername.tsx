@@ -52,11 +52,11 @@ export default function ProfileAccountUsername() {
     control,
     formState: {
       dirtyFields,
-      submitCount,
       errors,
-      isSubmitting,
       isDirty,
+      isSubmitting,
       isValid,
+      submitCount,
     },
     handleSubmit,
     reset,

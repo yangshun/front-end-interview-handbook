@@ -18,7 +18,10 @@ export default function ProjectsChallengeSubmissionImplementationField({
 }: Props) {
   const intl = useIntl();
   const attrs = getProjectsChallengeSubmissionImplementationAttributes(intl);
-  const { field, formState } = useController({
+  const {
+    field,
+    formState: { dirtyFields, errors, submitCount },
+  } = useController({
     control,
     name: fieldName,
     rules: { required: true },
@@ -29,8 +32,8 @@ export default function ProjectsChallengeSubmissionImplementationField({
       description={attrs.description}
       descriptionStyle="tooltip"
       errorMessage={
-        formState.dirtyFields[fieldName] || formState.submitCount > 0
-          ? formState.errors[fieldName]?.message
+        dirtyFields[fieldName] || submitCount > 0
+          ? errors[fieldName]?.message
           : undefined
       }
       label={attrs.label}

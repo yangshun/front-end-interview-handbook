@@ -107,7 +107,11 @@ export default function ProjectsOnboardingProfileForm({
       ...experienceInitialValues,
     },
   });
-  const { control, formState, handleSubmit } = methods;
+  const {
+    control,
+    formState: { dirtyFields, errors, isSubmitting, submitCount },
+    handleSubmit,
+  } = methods;
 
   return (
     <Container
@@ -122,7 +126,7 @@ export default function ProjectsOnboardingProfileForm({
           />
         </Heading>
         <Text
-          className="max-w-lg text-pretty text-center"
+          className="text-pretty max-w-lg text-center"
           color="secondary"
           size="body1">
           <FormattedMessage
@@ -181,9 +185,8 @@ export default function ProjectsOnboardingProfileForm({
                     render={({ field }) => (
                       <TextInput
                         errorMessage={
-                          formState.dirtyFields.name ||
-                          formState.submitCount > 0
-                            ? formState.errors.name?.message
+                          dirtyFields.name || submitCount > 0
+                            ? errors.name?.message
                             : undefined
                         }
                         label={intl.formatMessage({
@@ -208,9 +211,8 @@ export default function ProjectsOnboardingProfileForm({
                     render={({ field }) => (
                       <ProjectsProfileUsernameInput
                         errorMessage={
-                          formState.dirtyFields.username ||
-                          formState.submitCount > 0
-                            ? formState.errors.username?.message
+                          dirtyFields.username || submitCount > 0
+                            ? errors.username?.message
                             : undefined
                         }
                         field={field}
@@ -226,8 +228,8 @@ export default function ProjectsOnboardingProfileForm({
               <Button
                 addonPosition="start"
                 icon={RiArrowLeftLine}
-                isDisabled={formState.isSubmitting || usernameExistsError}
-                isLoading={formState.isSubmitting}
+                isDisabled={isSubmitting || usernameExistsError}
+                isLoading={isSubmitting}
                 label={intl.formatMessage({
                   defaultMessage: 'Prev',
                   description: 'Previous label',
@@ -240,8 +242,8 @@ export default function ProjectsOnboardingProfileForm({
               />
               <Button
                 icon={RiArrowRightLine}
-                isDisabled={formState.isSubmitting || usernameExistsError}
-                isLoading={formState.isSubmitting}
+                isDisabled={isSubmitting || usernameExistsError}
+                isLoading={isSubmitting}
                 label={intl.formatMessage({
                   defaultMessage: 'Create',
                   description: 'Create label',

@@ -20,7 +20,10 @@ export default function ProjectsChallengeSubmissionTechStackField({
 }: Props) {
   const intl = useIntl();
   const attrs = getProjectsTechStackInputAttributes(intl, required);
-  const { field, formState } = useController({
+  const {
+    field,
+    formState: { dirtyFields, errors, submitCount },
+  } = useController({
     control,
     name: fieldName,
     rules: { required: attrs.validation.required },
@@ -30,8 +33,8 @@ export default function ProjectsChallengeSubmissionTechStackField({
     <ProjectsSkillTechStackInput
       description={attrs.description}
       errorMessage={
-        formState.dirtyFields[fieldName] || formState.submitCount > 0
-          ? formState.errors[fieldName]?.message
+        dirtyFields[fieldName] || submitCount > 0
+          ? errors[fieldName]?.message
           : undefined
       }
       label={attrs.label}

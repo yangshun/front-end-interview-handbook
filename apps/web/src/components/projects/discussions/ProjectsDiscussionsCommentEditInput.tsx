@@ -40,18 +40,22 @@ export default function ProjectsDiscussionsCommentEditInput({
   const attrs = getDiscussionsCommentBodyAttributes(intl);
   const discussionsCommentBodySchema = useDiscussionsCommentBodySchema();
 
-  const { formState, getValues, handleSubmit, setValue } =
-    useForm<CommentFormInput>({
-      defaultValues: {
-        body: comment.body,
-      },
-      mode: 'onSubmit',
-      resolver: zodResolver(
-        z.object({
-          body: discussionsCommentBodySchema,
-        }),
-      ),
-    });
+  const {
+    formState: { dirtyFields, errors, submitCount },
+    getValues,
+    handleSubmit,
+    setValue,
+  } = useForm<CommentFormInput>({
+    defaultValues: {
+      body: comment.body,
+    },
+    mode: 'onSubmit',
+    resolver: zodResolver(
+      z.object({
+        body: discussionsCommentBodySchema,
+      }),
+    ),
+  });
   const onSubmit: SubmitHandler<CommentFormInput> = (data) =>
     updateCommentMutation.mutate(
       {
@@ -74,8 +78,8 @@ export default function ProjectsDiscussionsCommentEditInput({
           autoFocus={true}
           disabled={updateCommentMutation.isLoading}
           errorMessage={
-            formState.dirtyFields.body || formState.submitCount > 0
-              ? formState.errors.body?.message
+            dirtyFields.body || submitCount > 0
+              ? errors.body?.message
               : undefined
           }
           isLabelHidden={true}

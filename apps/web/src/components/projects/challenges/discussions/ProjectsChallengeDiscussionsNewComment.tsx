@@ -51,20 +51,26 @@ export default function ProjectsChallengeDiscussionsNewComment({
   const attrs = getDiscussionsCommentBodyAttributes(intl);
   const discussionsCommentBodySchema = useDiscussionsCommentBodySchema();
 
-  const { formState, getValues, handleSubmit, register, reset, setValue } =
-    useForm<CommentFormInput>({
-      defaultValues: {
-        body: '',
-        isQuestion: false,
-      },
-      mode: 'onSubmit',
-      resolver: zodResolver(
-        z.object({
-          body: discussionsCommentBodySchema,
-          isQuestion: z.boolean(),
-        }),
-      ),
-    });
+  const {
+    formState: { dirtyFields, errors, submitCount },
+    getValues,
+    handleSubmit,
+    register,
+    reset,
+    setValue,
+  } = useForm<CommentFormInput>({
+    defaultValues: {
+      body: '',
+      isQuestion: false,
+    },
+    mode: 'onSubmit',
+    resolver: zodResolver(
+      z.object({
+        body: discussionsCommentBodySchema,
+        isQuestion: z.boolean(),
+      }),
+    ),
+  });
 
   const onSubmit: SubmitHandler<CommentFormInput> = (data) => {
     return createCommentMutation.mutate(
@@ -123,8 +129,8 @@ export default function ProjectsChallengeDiscussionsNewComment({
           key={editorRerenderKey}
           disabled={createCommentMutation.isLoading}
           errorMessage={
-            formState.dirtyFields.body || formState.submitCount > 0
-              ? formState.errors.body?.message
+            dirtyFields.body || submitCount > 0
+              ? errors.body?.message
               : undefined
           }
           isLabelHidden={true}

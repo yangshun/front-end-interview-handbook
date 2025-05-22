@@ -50,12 +50,16 @@ export default function ProjectsChallengeCurrentSessionSkillsForm({
   );
   const techStackSkillsAttrs = getProjectsTechStackInputAttributes(intl, false);
 
-  const { control, formState, getValues, handleSubmit } =
-    useForm<ProjectsChallengeSessionSkillsFormValues>({
-      defaultValues,
-      mode: 'all',
-      resolver: zodResolver(projectsChallengeSessionFormSchema),
-    });
+  const {
+    control,
+    formState: { dirtyFields, errors, submitCount },
+    getValues,
+    handleSubmit,
+  } = useForm<ProjectsChallengeSessionSkillsFormValues>({
+    defaultValues,
+    mode: 'all',
+    resolver: zodResolver(projectsChallengeSessionFormSchema),
+  });
 
   return (
     <form className="flex flex-col gap-y-6" onSubmit={handleSubmit(onSubmit)}>
@@ -67,8 +71,8 @@ export default function ProjectsChallengeCurrentSessionSkillsForm({
             challengeDefaultSkills={challengeDefaultSkills}
             description={roadmapSkillsAttrs.description}
             errorMessage={
-              formState.dirtyFields.roadmapSkills || formState.submitCount > 0
-                ? formState.errors.roadmapSkills?.message
+              dirtyFields.roadmapSkills || submitCount > 0
+                ? errors.roadmapSkills?.message
                 : undefined
             }
             label={roadmapSkillsAttrs.label}
@@ -90,8 +94,8 @@ export default function ProjectsChallengeCurrentSessionSkillsForm({
           <ProjectsSkillTechStackInput
             description={techStackSkillsAttrs.description}
             errorMessage={
-              formState.dirtyFields.techStackSkills || formState.submitCount > 0
-                ? formState.errors.techStackSkills?.message
+              dirtyFields.techStackSkills || submitCount > 0
+                ? errors.techStackSkills?.message
                 : undefined
             }
             label={techStackSkillsAttrs.label}

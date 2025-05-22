@@ -21,7 +21,12 @@ type Values =
 
 export default function ProjectsProfileJobSection() {
   const intl = useIntl();
-  const { control, formState, setValue, watch } = useFormContext<Values>();
+  const {
+    control,
+    formState: { dirtyFields, errors, submitCount },
+    setValue,
+    watch,
+  } = useFormContext<Values>();
   const statusAttrs = getProjectsProfileJobStatusOthersFieldAttributes(intl);
 
   const jobStatusOptions = [
@@ -92,9 +97,8 @@ export default function ProjectsProfileJobSection() {
                 <div className="flex-1">
                   <TextInput
                     errorMessage={
-                      formState.dirtyFields.jobTitle ||
-                      formState.submitCount > 0
-                        ? formState.errors.jobTitle?.message
+                      dirtyFields.jobTitle || submitCount > 0
+                        ? errors.jobTitle?.message
                         : undefined
                     }
                     label={intl.formatMessage({
@@ -129,7 +133,7 @@ export default function ProjectsProfileJobSection() {
               name="company"
               render={({ field }) => (
                 <div className="relative flex-1">
-                  <span className="absolute end-0">
+                  <span className="end-0 absolute">
                     <ProjectsChallengeReputationBadge
                       completed={!!field.value}
                       points={
@@ -147,8 +151,8 @@ export default function ProjectsProfileJobSection() {
                     })}
                     descriptionStyle="tooltip"
                     errorMessage={
-                      formState.dirtyFields.company || formState.submitCount > 0
-                        ? formState.errors.company?.message
+                      dirtyFields.company || submitCount > 0
+                        ? errors.company?.message
                         : undefined
                     }
                     label={intl.formatMessage({
@@ -184,9 +188,8 @@ export default function ProjectsProfileJobSection() {
                 })}
                 descriptionStyle="tooltip"
                 errorMessage={
-                  formState.dirtyFields.monthYearExperience ||
-                  formState.submitCount > 0
-                    ? formState.errors.monthYearExperience?.message
+                  dirtyFields.monthYearExperience || submitCount > 0
+                    ? errors.monthYearExperience?.message
                     : undefined
                 }
                 isDisabled={field.disabled}
@@ -230,8 +233,8 @@ export default function ProjectsProfileJobSection() {
                 <TextInput
                   descriptionStyle="tooltip"
                   errorMessage={
-                    formState.dirtyFields.title || formState.submitCount > 0
-                      ? formState.errors.title?.message
+                    dirtyFields.title || submitCount > 0
+                      ? errors.title?.message
                       : undefined
                   }
                   label={intl.formatMessage({
@@ -266,9 +269,8 @@ export default function ProjectsProfileJobSection() {
                 })}
                 descriptionStyle="tooltip"
                 errorMessage={
-                  formState.dirtyFields.yoeReplacement?.option ||
-                  formState.submitCount > 0
-                    ? formState.errors.yoeReplacement?.option?.message
+                  dirtyFields.yoeReplacement?.option || submitCount > 0
+                    ? errors.yoeReplacement?.option?.message
                     : undefined
                 }
                 label={intl.formatMessage({
@@ -291,9 +293,8 @@ export default function ProjectsProfileJobSection() {
               render={({ field }) => (
                 <TextArea
                   errorMessage={
-                    formState.dirtyFields.yoeReplacement?.otherText ||
-                    formState.submitCount > 0
-                      ? formState.errors.yoeReplacement?.otherText?.message
+                    dirtyFields.yoeReplacement?.otherText || submitCount > 0
+                      ? errors.yoeReplacement?.otherText?.message
                       : undefined
                   }
                   isLabelHidden={true}
