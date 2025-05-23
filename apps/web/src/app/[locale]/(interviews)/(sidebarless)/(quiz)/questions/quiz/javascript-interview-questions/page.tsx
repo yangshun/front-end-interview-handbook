@@ -28,6 +28,7 @@ export default async function Page({ params }: Props) {
 
   return (
     <QuestionQuizScrollableList
+      languageOrFramework="js"
       listType={listType}
       questionsList={quizQuestions.map((item) => item.question)}
     />

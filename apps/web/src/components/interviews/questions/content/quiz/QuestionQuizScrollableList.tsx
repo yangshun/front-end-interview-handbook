@@ -9,7 +9,10 @@ import { WindowVirtualizer } from 'virtua';
 import { useEnterViewport } from '~/hooks/useEnterViewport';
 import useHashChange from '~/hooks/useHashChange';
 
+import { useAuthActiveEngagementPoints } from '~/components/auth/auth-points';
 import type {
+  QuestionFramework,
+  QuestionLanguage,
   QuestionListTypeData,
   QuestionQuiz,
 } from '~/components/interviews/questions/common/QuestionsTypes';
@@ -25,10 +28,13 @@ import InterviewsStudyListBottomBar from '~/components/interviews/questions/list
 import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';
 
+import useQuestionsAutoMarkAsComplete from '../../common/useQuestionsAutoMarkAsComplete';
 import QuestionQuizItem from './QuestionQuizItem';
+import QuestionQuizPageHeader from './QuestionQuizPageHeader';
 import QuestionQuizScrollModeToggle from './QuestionQuizScrollModeToggle';
 
 type Props = Readonly<{
+  languageOrFramework: QuestionFramework | QuestionLanguage;
   listType: QuestionListTypeData;
   questionsList: ReadonlyArray<QuestionQuiz>;
 }>;
@@ -48,6 +54,7 @@ function QuestionQuizScrollableListItem({
 }
 
 export default function QuestionQuizScrollableList({
+  languageOrFramework,
   listType,
   questionsList,
 }: Props) {
@@ -106,6 +113,12 @@ export default function QuestionQuizScrollableList({
     }, 100);
   }, 250);
 
+  useQuestionsAutoMarkAsComplete(currentQuestion.metadata);
+  useAuthActiveEngagementPoints({
+    entityId: currentQuestion.metadata.slug,
+    entityType: 'quiz',
+  });
+
   return (
     <QuestionsQuizContentLayout initialListType={listType}>
       <div
@@ -125,6 +138,11 @@ export default function QuestionQuizScrollableList({
               slug={currentQuestion.metadata.slug}
             />
           </div>
+          <QuestionQuizPageHeader
+            languageOrFramework={languageOrFramework}
+            questionCount={questions.length}
+          />
+          <Divider className="my-8" />
           <WindowVirtualizer
             ref={virtuaContainerRef}
             ssrCount={questions.length}
