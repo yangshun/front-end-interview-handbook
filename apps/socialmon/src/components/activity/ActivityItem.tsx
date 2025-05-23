@@ -2,10 +2,9 @@ import { Text } from '@mantine/core';
 import Link from 'next/link';
 
 import useCurrentProjectSlug from '~/hooks/useCurrentProjectSlug';
+import RelativeTimestamp from '~/components/common/datetime/RelativeTimestamp';
 
 import type { ActivityExtended } from '~/types';
-
-import RelativeTimestamp from '../common/datetime/RelativeTimestamp';
 
 type Props = Readonly<{
   activity: ActivityExtended;
