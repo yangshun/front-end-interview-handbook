@@ -5,7 +5,10 @@ import { RiFilterLine } from 'react-icons/ri';
 import { trpc } from '~/hooks/trpc';
 import useUserProfile from '~/hooks/user/useUserProfile';
 
-import { useQuestionFormatsData } from '~/data/QuestionCategories';
+import {
+  QuestionLanguageLabels,
+  useQuestionFormatsData,
+} from '~/data/QuestionCategories';
 
 import SidebarPremiumChip from '~/components/global/sidebar/SidebarPremiumChip';
 import InterviewsPricingTableDialog from '~/components/interviews/purchase/InterviewsPricingTableDialog';
@@ -179,6 +182,54 @@ function DropdownContent({
         defaultMessage: 'Frameworks / languages',
         description: 'Front end frameworks or language',
         id: 'pHQFA0',
+      }),
+      menuType: 'list',
+    },
+    {
+      items: [
+        ...questionLists.languages
+          .filter((item) => item.value !== 'ts')
+          .map(
+            (item) =>
+              ({
+                ...item,
+                label: intl.formatMessage(
+                  {
+                    defaultMessage: '{category} Quiz Questions',
+                    description: 'Label for Quiz question',
+                    id: '3A1yG3',
+                  },
+                  {
+                    category: QuestionLanguageLabels[item.value],
+                  },
+                ),
+                menuType: 'item',
+                tab: 'quiz',
+                type: 'language',
+              }) as const,
+          ),
+        {
+          label: intl.formatMessage(
+            {
+              defaultMessage: '{category} Quiz Questions',
+              description: 'Label for Quiz question',
+              id: '3A1yG3',
+            },
+            {
+              category: 'React',
+            },
+          ),
+          menuType: 'item',
+          tab: 'quiz',
+          type: 'framework',
+          value: 'react',
+        },
+      ],
+      key: 'quiz',
+      label: intl.formatMessage({
+        defaultMessage: 'Quizzes',
+        description: 'Tile for quiz question type',
+        id: 'QqddKP',
       }),
       menuType: 'list',
     },
