@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import { RiEditBoxLine } from 'react-icons/ri';
 
 import { useAuthActiveEngagementPoints } from '~/components/auth/auth-points';
+import type { QuestionQuiz } from '~/components/interviews/questions/common/QuestionsTypes';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import SponsorsAdFormatInContentContainer from '~/components/sponsors/ads/SponsorsAdFormatInContentContainer';
 import Button from '~/components/ui/Button';
@@ -14,10 +15,10 @@ import Text from '~/components/ui/Text';
 import { hashQuestion } from '~/db/QuestionsUtils';
 
 import QuestionReportIssueButton from '../../common/QuestionReportIssueButton';
-import type { QuestionQuiz } from '../../common/QuestionsTypes';
 import useQuestionsAutoMarkAsComplete from '../../common/useQuestionsAutoMarkAsComplete';
 import InterviewsStudyListBottomBar from '../../listings/study-list/InterviewsStudyListBottomBar';
 import QuestionQuizItem from './QuestionQuizItem';
+import QuestionQuizScrollModeToggle from './QuestionQuizScrollModeToggle';
 
 type Props = Readonly<{
   listIsShownInSidebarOnDesktop: boolean;
@@ -69,6 +70,12 @@ export default function QuestionQuizContents({
         'min-h-[calc(100vh_-_var(--global-sticky-height))]',
       )}>
       <Container className={clsx('grow', 'py-6 lg:py-8 xl:py-12')} width="3xl">
+        <div className="mb-3 hidden justify-end lg:flex">
+          <QuestionQuizScrollModeToggle
+            isScrollModeValue={false}
+            slug={question.metadata.slug}
+          />
+        </div>
         <div className="flex flex-col gap-y-6">
           <div className="overflow-auto">
             <Text className="mb-1 block" color="secondary" size="body2">

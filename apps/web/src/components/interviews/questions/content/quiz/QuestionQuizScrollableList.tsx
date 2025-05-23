@@ -26,6 +26,7 @@ import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';
 
 import QuestionQuizItem from './QuestionQuizItem';
+import QuestionQuizScrollModeToggle from './QuestionQuizScrollModeToggle';
 
 type Props = Readonly<{
   listType: QuestionListTypeData;
@@ -118,6 +119,12 @@ export default function QuestionQuizScrollableList({
             'py-6 lg:py-8 xl:py-12',
           )}
           width="4xl">
+          <div className="mb-3 hidden justify-end lg:flex">
+            <QuestionQuizScrollModeToggle
+              isScrollModeValue={true}
+              slug={currentQuestion.metadata.slug}
+            />
+          </div>
           <WindowVirtualizer
             ref={virtuaContainerRef}
             ssrCount={questions.length}

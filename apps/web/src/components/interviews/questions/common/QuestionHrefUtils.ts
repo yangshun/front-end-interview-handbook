@@ -1,5 +1,10 @@
 import url from 'url';
 
+import {
+  QuestionFrameworkRawToSEOMapping,
+  QuestionLanguageRawToSEOMapping,
+} from '~/data/QuestionCategories';
+
 import { getSiteOrigin } from '~/seo/siteUrl';
 
 import type {
@@ -92,7 +97,7 @@ export function questionHrefWithListType(
         switch (listType.value) {
           case 'react':
             return (
-              `/questions/quiz/react-interview-questions` +
+              `/questions/quiz/${QuestionFrameworkRawToSEOMapping.react}` +
               urlObject.search +
               `#${questionMetadata.slug}`
             );
@@ -103,19 +108,19 @@ export function questionHrefWithListType(
         switch (listType.value) {
           case 'js':
             return (
-              `/questions/quiz/javascript-interview-questions` +
+              `/questions/quiz/${QuestionLanguageRawToSEOMapping.js}` +
               urlObject.search +
               `#${questionMetadata.slug}`
             );
           case 'html':
             return (
-              `/questions/quiz/html-interview-questions` +
+              `/questions/quiz/${QuestionLanguageRawToSEOMapping.html}` +
               urlObject.search +
               `#${questionMetadata.slug}`
             );
           case 'css':
             return (
-              `/questions/quiz/css-interview-questions` +
+              `/questions/quiz/${QuestionLanguageRawToSEOMapping.css}` +
               urlObject.search +
               `#${questionMetadata.slug}`
             );
