@@ -903,6 +903,10 @@
     "defaultMessage": "Gamification and progress tracking",
     "description": "Answer to 'What is unique about GreatFrontEnd Projects vs other challenge platforms?' on projects FAQs"
   },
+  "2HQlrS": {
+    "defaultMessage": "{category} Interview Questions and Answers | by Ex-FAANG interviewers",
+    "description": "Title of quiz scrolling mode page"
+  },
   "2Hqklu": {
     "defaultMessage": "You contributed a code review for <recipientProfileLink>{recipient}</recipientProfileLink> on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for you reviewing others submission"
@@ -962,6 +966,10 @@
   "2T4Rg2": {
     "defaultMessage": "Algorithmic Coding Interview Questions",
     "description": "Social title for algo coding question format page"
+  },
+  "2TPnld": {
+    "defaultMessage": "Instant UI preview for UI-related questions",
+    "description": "Label for code preview features"
   },
   "2a6qgD": {
     "defaultMessage": "Your code was restored from client storage. <link>Reset to default</link>",
@@ -1066,6 +1074,10 @@
   "38b6CQ": {
     "defaultMessage": "Coding-focused",
     "description": "Coding workspace layout name"
+  },
+  "3A1yG3": {
+    "defaultMessage": "{category} Quiz Questions",
+    "description": "Label for Quiz question"
   },
   "3C1g+S": {
     "defaultMessage": "Don't settle for single placements - we'll give you repeated ad exposure",
@@ -1422,6 +1434,10 @@
   "4gshRJ": {
     "defaultMessage": "Start a new version",
     "description": "Start a new version of the question button label"
+  },
+  "4gumtt": {
+    "defaultMessage": "{category} Interview Questions",
+    "description": "Title of scrolling mode page"
   },
   "4jymHU": {
     "defaultMessage": "{skipCount} skipped",
@@ -1910,6 +1926,10 @@
   "71+OLd": {
     "defaultMessage": "Join over {userCount} users in our private Discord community for Premium users",
     "description": "Button subtitle for joining the Premium Discord community on interviews payment success page"
+  },
+  "71Hlcg": {
+    "defaultMessage": "Reference solutions from ex-interviewers at Big Tech companies",
+    "description": "Label for coding questions solution"
   },
   "72GwzV": {
     "defaultMessage": "Available in {frameworkLabel}",
@@ -3791,6 +3811,10 @@
     "defaultMessage": "New File",
     "description": "Button tooltip for creating a new file"
   },
+  "GPQg5j": {
+    "defaultMessage": "If you're looking for {languageOrFramework} coding questions -",
+    "description": "Header for coding section in interview quiz page"
+  },
   "GPp0wf": {
     "defaultMessage": "Welcome to GreatFrontEnd Projects!",
     "description": "Title for Projects onboarding page"
@@ -5527,6 +5551,10 @@
     "defaultMessage": "Article view",
     "description": "View option for blog list"
   },
+  "O0TX7L": {
+    "defaultMessage": "Switch to page-by-page",
+    "description": "Label for page-by-page toggle button"
+  },
   "O0WPJA": {
     "defaultMessage": "Import the progress of <bold>{questionCount}</bold> previously completed {questionCount, plural, one {question} other {questions}}",
     "description": "Tooltip for import button on import progress dialog"
@@ -5750,6 +5778,10 @@
   "P4vm6j": {
     "defaultMessage": "Support us by starring our GitHub repo and consider contributing!",
     "description": "Description for github star"
+  },
+  "P6sA19": {
+    "defaultMessage": "We've got you covered as well, with:",
+    "description": "Subheader for coding section in interview quiz page"
   },
   "P99cBr": {
     "defaultMessage": "Overview of various question formats",
@@ -5998,6 +6030,10 @@
   "Q7apLT": {
     "defaultMessage": "Blog | GreatFrontEnd",
     "description": "Title of GreatFrontEnd blog homepage"
+  },
+  "Q891Ht": {
+    "defaultMessage": "One-click automated, transparent test cases",
+    "description": "Label for test cases in coding questions"
   },
   "QAFkOT": {
     "defaultMessage": "No coupons available",
@@ -6678,6 +6714,10 @@
   "T4ajXP": {
     "defaultMessage": "{discountPercentage}% off",
     "description": "Rewards discount message"
+  },
+  "T4m6dQ": {
+    "defaultMessage": "{questionCount}+ most important HTML interview questions and answers, covering everything you need to know—from accessibility and semantics to forms, multimedia, SEO optimization, and best practices.",
+    "description": "Description of HTML quiz questions page"
   },
   "T6+Y/z": {
     "defaultMessage": "You have started your first project!",
@@ -7627,6 +7667,10 @@
     "defaultMessage": "How to use Figma for development",
     "description": "Figma guide link"
   },
+  "XCqQUO": {
+    "defaultMessage": "Get Started",
+    "description": "Label for get started button"
+  },
   "XG1Wfg": {
     "defaultMessage": "Join Discord (premium)",
     "description": "Tooltip for join premium discord"
@@ -7730,6 +7774,10 @@
   "XkNVS1": {
     "defaultMessage": "Complete your profile",
     "description": "Title for Complete profile card on Projects dashboard page"
+  },
+  "XkOCWy": {
+    "defaultMessage": "{questionCount}+ JavaScript interview questions and answers, covering everything you need to know—from core JavaScript fundamentals to advanced features, including key topics like accessibility and performance optimization",
+    "description": "Description of JavaScript quiz questions page"
   },
   "XkWy18": {
     "defaultMessage": "Premium focus area",
@@ -7838,6 +7886,10 @@
   "YBlo/J": {
     "defaultMessage": "As mentioned above, there are many ways to host your project for free. Our recommend hosts are:",
     "description": "Text for Deployment Info in Projects"
+  },
+  "YEEd13": {
+    "defaultMessage": "In-browser coding workspace that mimics real interview conditions",
+    "description": "Label for browser-based coding environment"
   },
   "YFKKP4": {
     "defaultMessage": "Expires",
@@ -8586,6 +8638,10 @@
   "bVOC6y": {
     "defaultMessage": "Now in BETA.",
     "description": "Project marketing hero section badge"
+  },
+  "bYOK+T": {
+    "defaultMessage": "{category} Interview Questions and Answers",
+    "description": "SEO title of quiz scrolling mode page"
   },
   "bYY9Mh": {
     "defaultMessage": "Crop your new profile photo",
@@ -10159,6 +10215,14 @@
     "defaultMessage": "In Content Ad Placement in system design",
     "description": "Alt text for ads in content placement preview"
   },
+  "inlaDX": {
+    "defaultMessage": "Practice {questionCount}+ curated {category} Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers",
+    "description": "Description of quiz scrolling mode page"
+  },
+  "inm56s": {
+    "defaultMessage": "{questionCount}+ most important React interview questions and answers on component lifecycle, state and props management, hooks, routing and more",
+    "description": "Description of React quiz questions page"
+  },
   "iqz/fo": {
     "defaultMessage": "Types of JS questions, concepts to cover and rubrics",
     "description": "JavaScript questions, concepts and rubrics during front end interviews"
@@ -10242,6 +10306,10 @@
   "jKbWY+": {
     "defaultMessage": "Stopped at",
     "description": "Stopped at label"
+  },
+  "jL6ul2": {
+    "defaultMessage": "Join {engineersCount}+ engineers",
+    "description": "Label for total engineers using the platform"
   },
   "jLHxac": {
     "defaultMessage": "Coming Soon",
@@ -10378,6 +10446,10 @@
   "jqfqCr": {
     "defaultMessage": "Regular payouts through PayPal",
     "description": "Affiliate program payout section title"
+  },
+  "jrT2Ow": {
+    "defaultMessage": "{questionCount}+ {languageOrFramework} Coding Questions",
+    "description": "Number of questions in coding section"
   },
   "jtnskJ": {
     "defaultMessage": "Creator's YOE",
@@ -11391,6 +11463,10 @@
     "defaultMessage": "Check out other available <link>promotions</link>.",
     "description": "Promotional message"
   },
+  "ofJOh2": {
+    "defaultMessage": "Javascript coding",
+    "description": "Alt text for ads in content placement preview"
+  },
   "ofUX5S": {
     "defaultMessage": "Challenge status",
     "description": "Label for Status filter for submissions list"
@@ -11642,10 +11718,6 @@
   "piqimi": {
     "defaultMessage": "OFF",
     "description": "Amount cashback/discount"
-  },
-  "pj07uD": {
-    "defaultMessage": "Mark complete",
-    "description": "Mark the question as complete"
   },
   "pjndkX": {
     "defaultMessage": "Unvote",
@@ -12346,6 +12418,10 @@
   "tK6m9g": {
     "defaultMessage": "Build entire component libraries or design systems from scratch for your portfolio or as a toolkit for future projects.",
     "description": "Description of Projects component tracks page"
+  },
+  "tKr9LQ": {
+    "defaultMessage": "{questionCount}+ most important CSS interview questions and answers, covering everything you need to know—from specificity and the box model to flexbox, grid, responsive design, and performance optimization.",
+    "description": "Description of CSS quiz questions page"
   },
   "tM5fjO": {
     "defaultMessage": "Security",
@@ -13578,6 +13654,10 @@
   "zGTH+Q": {
     "defaultMessage": "What do I do once I'm done coding?",
     "description": "FAQ question for projects platform"
+  },
+  "zI3w61": {
+    "defaultMessage": "Instantly preview your code for UI questions",
+    "description": "Label for code preview features"
   },
   "zIQsmk": {
     "defaultMessage": "Terms of Service",

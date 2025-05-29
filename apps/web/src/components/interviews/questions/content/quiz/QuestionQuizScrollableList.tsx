@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import type { InterviewsQuestionQuizScrollableContent } from 'contentlayer/generated';
 import { useEffect, useRef } from 'react';
 import { useDebounceCallback } from 'usehooks-ts';
 import type { VListHandle } from 'virtua';
@@ -34,9 +35,12 @@ import QuestionQuizPageHeader from './QuestionQuizPageHeader';
 import QuestionQuizScrollModeToggle from './QuestionQuizScrollModeToggle';
 
 type Props = Readonly<{
-  languageOrFramework: QuestionFramework | QuestionLanguage;
+  description: string;
+  languageOrFramework: Extract<QuestionFramework, 'react'> | QuestionLanguage;
   listType: QuestionListTypeData;
+  longDescription: InterviewsQuestionQuizScrollableContent;
   questionsList: ReadonlyArray<QuestionQuiz>;
+  title: string;
 }>;
 
 function QuestionQuizScrollableListItem({
@@ -54,9 +58,12 @@ function QuestionQuizScrollableListItem({
 }
 
 export default function QuestionQuizScrollableList({
+  description,
   languageOrFramework,
   listType,
+  longDescription,
   questionsList,
+  title,
 }: Props) {
   const currentHash = useHashChange();
   const virtuaContainerRef = useRef<VListHandle>(null);
@@ -139,8 +146,11 @@ export default function QuestionQuizScrollableList({
             />
           </div>
           <QuestionQuizPageHeader
+            description={description}
             languageOrFramework={languageOrFramework}
+            longDescription={longDescription}
             questionCount={questions.length}
+            title={title}
           />
           <Divider className="my-8" />
           <WindowVirtualizer
