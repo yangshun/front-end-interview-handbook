@@ -145,6 +145,17 @@ model RedditPostReply {
   @@index([userId])
 }
 
+model ProjectSubredditKeywords {
+  id         String   @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  projectId  String   @db.Uuid
+  keywords   String[]
+  subreddits String[]
+
+  project    Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([projectId])
+}
+
 model Project {
   id                  String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
   name                String    @db.VarChar
@@ -156,8 +167,9 @@ model Project {
   activities          Activity[]
   productsToAdvertise Json
   postFilteringPrompt String
-
   postsLastFetchedAt  DateTime?  @db.Timestamptz(6)
+
+  subredditKeywords   ProjectSubredditKeywords[]
 
   @@index([slug])
 }
