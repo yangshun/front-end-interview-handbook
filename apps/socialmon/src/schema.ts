@@ -100,10 +100,41 @@ const projectPostFilteringPromptSchema = z.string().trim().min(10, {
   message: `Prompt must contain at least 10 character(s).`,
 });
 
+const projectSubredditKeywordGroupSchema = z.object({
+  id: z.string(),
+  keywords: z
+    .array(z.string())
+    .min(1, { message: 'There must be at least one keyword in the group' })
+    .refine(
+      (keywords) => {
+        const uniqueSet = new Set(keywords);
+
+        return uniqueSet.size === keywords.length;
+      },
+      { message: 'Add unique keywords in the group' },
+    ),
+  subreddits: z
+    .array(z.string())
+    .min(1, { message: 'There must be at least one subreddit in the group' })
+    .refine(
+      (subreddits) => {
+        const uniqueSet = new Set(subreddits);
+
+        return uniqueSet.size === subreddits.length;
+      },
+      { message: 'Add unique subreddits in the group' },
+    ),
+});
+
+const projectSubredditKeywordsSchema = z
+  .array(projectSubredditKeywordGroupSchema)
+  .min(1, { message: 'There must be at least one keyword/subreddit group' });
+
 export const projectSchema = z.object({
   keywords: projectKeywordsSchema,
   name: projectNameSchema,
   postFilteringPrompt: projectPostFilteringPromptSchema,
   productsToAdvertise: projectProductsToAdvertiseSchema,
+  subredditKeywords: projectSubredditKeywordsSchema,
   subreddits: projectSubredditsSchema,
 });

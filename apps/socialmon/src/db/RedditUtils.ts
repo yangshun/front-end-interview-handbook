@@ -4,8 +4,8 @@ import fetch from 'node-fetch';
 import type { Submission } from 'snoowrap';
 import Snoowrap from 'snoowrap';
 
-import type { RedditPost } from '~/prisma/client';
 import AIProvider from '~/providers/AIProvider';
+import type { FetchedRedditPost } from '~/types';
 
 export async function initializeRedditClient(
   username?: string,
@@ -26,12 +26,7 @@ export async function createRedditPost({
 }: {
   matchedKeywords: Array<string>;
   post: Submission;
-}): Promise<
-  Omit<
-    RedditPost,
-    'createdAt' | 'id' | 'projectId' | 'relevancy' | 'response' | 'updatedAt'
-  >
-> {
+}): Promise<FetchedRedditPost> {
   return {
     commentsCount: post.num_comments,
     content: post.selftext,

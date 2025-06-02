@@ -27,6 +27,9 @@ export default async function Page({ params }: Props) {
 
   const { projectSlug } = params;
   const project = await prisma.project.findUnique({
+    include: {
+      subredditKeywords: true,
+    },
     where: {
       slug: projectSlug,
     },

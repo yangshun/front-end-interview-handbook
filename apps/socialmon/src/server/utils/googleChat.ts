@@ -1,11 +1,11 @@
 export async function sendGoogleChatMessage({
   additionalInfo,
+  groups,
   projectName,
-  subreddits,
 }: {
   additionalInfo: string;
+  groups: Array<{ keywords: Array<string>; subreddits: Array<string> }>;
   projectName: string;
-  subreddits: Array<string>;
 }) {
   const webhookUrl = process.env.GOOGLE_CHAT_WEBHOOK_URL;
 
@@ -15,13 +15,27 @@ export async function sendGoogleChatMessage({
     return;
   }
 
+  const groupingsText =
+    groups.length > 0
+      ? groups
+          .map(
+            (g, idx) =>
+              `*Group ${idx + 1}:*\n  • *Keywords:* ${g.keywords.join(
+                ', ',
+              )}\n  • *Subreddits:* ${g.subreddits.join(', ')}`,
+          )
+          .join('\n\n')
+      : 'N/A';
+
   const message = {
     text: `📢 *Reddit fetch completed*
 
 *Project:* ${projectName}
 *Additional info:* ${additionalInfo}
 
-*Subreddits searched:* ${subreddits.join(', ')}
+*Groups searched:*
+${groupingsText}
+
 *Time:* ${new Date().toLocaleString()}`,
   };
 

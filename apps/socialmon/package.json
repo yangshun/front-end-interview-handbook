@@ -61,6 +61,7 @@
     "@types/node": "22.15.0",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
+    "@types/uuid": "^10.0.0",
     "autoprefixer": "^10.4.21",
     "dotenv-cli": "^7.3.0",
     "eslint": "^9.26.0",

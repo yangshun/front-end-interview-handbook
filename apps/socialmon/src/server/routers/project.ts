@@ -24,7 +24,12 @@ export const projectRouter = router({
         });
       }
       await prisma.project.create({
-        data,
+        data: {
+          ...data,
+          subredditKeywords: {
+            create: data.subredditKeywords.map(({ id: _id, ...rest }) => rest),
+          },
+        },
       });
     }),
   delete: userProcedure
@@ -60,8 +65,20 @@ export const projectRouter = router({
           message: 'You are not authorized!',
         });
       }
+
+      // 1. Delete all existing subredditKeywords for this project
+      await prisma.projectSubredditKeywords.deleteMany({
+        where: { projectId },
+      });
+
+      // 2. Create new subredditKeywords
       await prisma.project.update({
-        data,
+        data: {
+          ...data,
+          subredditKeywords: {
+            create: data.subredditKeywords.map(({ id: _id, ...rest }) => rest),
+          },
+        },
         where: {
           id: projectId,
         },
@@ -81,7 +98,11 @@ export const projectRouter = router({
       });
     }),
   getAll: userProcedure.query(async () => {
-    const result = await prisma.project.findMany();
+    const result = await prisma.project.findMany({
+      include: {
+        subredditKeywords: true,
+      },
+    });
 
     return result as Array<ProjectTransformed>;
   }),

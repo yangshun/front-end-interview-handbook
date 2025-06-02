@@ -1,5 +1,6 @@
 import { BASE_URL } from '~/constants';
 import { getPostsFromReddit } from '~/db/RedditUtils';
+import type { FetchedRedditPost } from '~/types';
 
 import prisma from '../prisma';
 import { sendGoogleChatMessage } from '../utils/googleChat';
@@ -8,24 +9,26 @@ function extractTriggeringSnippet(
   title: string,
   content: string,
   keyword: string,
-  contextLength = 50,
 ): string {
   const contentToSearch = `${title} ${content}`;
-  const keywordIndex = contentToSearch.indexOf(keyword);
 
-  if (keywordIndex === -1) return 'N/A';
+  if (!keyword) return 'N/A';
 
-  const snippetStart = Math.max(0, keywordIndex - contextLength);
-  const snippetEnd = Math.min(
-    contentToSearch.length,
-    keywordIndex + keyword.length + contextLength,
+  // Split into sentences (handles . ! ? and newlines)
+  const sentences = contentToSearch.match(/[^.!?\n]+[.!?\n]+/g) || [
+    contentToSearch,
+  ];
+
+  // Find the first sentence containing the keyword (case-insensitive)
+  const found = sentences.find((sentence) =>
+    sentence.toLowerCase().includes(keyword.toLowerCase()),
   );
 
-  return contentToSearch.substring(snippetStart, snippetEnd).trim();
+  return found ? found.trim() : 'N/A';
 }
 
 export async function fetchPostsFromPlatform(projectSlug: string) {
-  const fetchStartTime = new Date(); // Record the fetch start time before fetching posts
+  const fetchStartTime = new Date();
 
   const project = await prisma.project.findUnique({
     select: {
@@ -33,6 +36,7 @@ export async function fetchPostsFromPlatform(projectSlug: string) {
       keywords: true,
       name: true,
       postFilteringPrompt: true,
+      subredditKeywords: true,
       subreddits: true,
     },
     where: {
@@ -44,13 +48,35 @@ export async function fetchPostsFromPlatform(projectSlug: string) {
     throw new Error('Project not found!');
   }
 
-  const rawPosts = await getPostsFromReddit({
-    keywords: project.keywords,
-    postFilteringPrompt: project.postFilteringPrompt,
-    subreddits: project.subreddits,
-  });
+  let postsFromReddit: Array<FetchedRedditPost> = [];
 
-  const postsFromReddit = await Promise.all(rawPosts);
+  // If subredditKeywords exists and is non-empty, use group-based fetching
+  if (project.subredditKeywords && project.subredditKeywords.length > 0) {
+    // For each group, fetch posts using its keywords and subreddits
+    const groupPosts = await Promise.all(
+      project.subredditKeywords.map(async (group) => {
+        const rawPosts = await getPostsFromReddit({
+          keywords: group.keywords,
+          postFilteringPrompt: project.postFilteringPrompt,
+          subreddits: group.subreddits,
+        });
+
+        return await Promise.all(rawPosts);
+      }),
+    );
+
+    // Flatten the array of arrays
+    postsFromReddit = groupPosts.flat();
+  } else {
+    // Fallback to legacy way
+    const rawPosts = await getPostsFromReddit({
+      keywords: project.keywords,
+      postFilteringPrompt: project.postFilteringPrompt,
+      subreddits: project.subreddits,
+    });
+
+    postsFromReddit = await Promise.all(rawPosts);
+  }
 
   const postsFromRedditWithProjectId = postsFromReddit.map((post) => ({
     ...post,
@@ -58,12 +84,10 @@ export async function fetchPostsFromPlatform(projectSlug: string) {
   }));
 
   const result = await prisma.$transaction([
-    // Add it to the db
     prisma.redditPost.createMany({
       data: postsFromRedditWithProjectId,
       skipDuplicates: true,
     }),
-    // Update last posts fetch time
     prisma.project.update({
       data: {
         postsLastFetchedAt: new Date(),
@@ -79,22 +103,25 @@ export async function fetchPostsFromPlatform(projectSlug: string) {
   const newPostsFetched = insertedNewPosts > 0;
 
   if (newPostsFetched) {
-    // Fetch only the successfully inserted posts
     const newPosts = await prisma.redditPost.findMany({
       where: {
         createdAt: {
-          gte: fetchStartTime, // Use the recorded fetch start time
+          gte: fetchStartTime,
         },
         projectId: project.id,
       },
     });
 
-    // Accumulate links, subreddits, and triggering snippets for all posts
     const postLinks = newPosts.map((post, idx) => {
-      const triggeringKeyword = project.keywords.find(
-        (keyword) =>
-          post.title.includes(keyword) || post.content.includes(keyword),
-      );
+      // Use group keywords if group-based fetch, else legacy
+      const keywordsToCheck =
+        project.subredditKeywords && project.subredditKeywords.length > 0
+          ? project.subredditKeywords.flatMap((g) => g.keywords)
+          : project.keywords;
+
+      const keywordRegex = new RegExp(keywordsToCheck.join('|'), 'gi');
+      const match = (post.title + ' ' + post.content).match(keywordRegex);
+      const triggeringKeyword = match ? match[0] : undefined;
 
       const snippet = triggeringKeyword
         ? extractTriggeringSnippet(post.title, post.content, triggeringKeyword)
@@ -108,11 +135,12 @@ ${postLink} · ${redditLink} | ${post.subreddit} | Keyword: ${triggeringKeyword 
 Snippet: "${snippet}"`;
     });
 
-    // Send a single message with all links
+    const additionalInfo = `Fetched ${newPosts.length} new posts:\n\n${postLinks.join('\n\n')}`;
+
     await sendGoogleChatMessage({
-      additionalInfo: `Fetched ${newPosts.length} new posts:\n\n${postLinks.join('\n\n')}`,
+      additionalInfo,
+      groups: project.subredditKeywords ?? [],
       projectName: project.name,
-      subreddits: project.subreddits,
     });
   }
 

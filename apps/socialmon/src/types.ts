@@ -73,6 +73,16 @@ export type ProjectTransformed = Omit<Project, 'productsToAdvertise'> &
       description: string;
       url: string;
     }> | null;
+    subredditKeywords: Array<{
+      id: string;
+      keywords: Array<string>;
+      subreddits: Array<string>;
+    }>;
   }>;
 
 export type ProjectFormValues = z.infer<typeof projectSchema>;
+
+export type FetchedRedditPost = Omit<
+  RedditPost,
+  'createdAt' | 'id' | 'projectId' | 'relevancy' | 'response' | 'updatedAt'
+>;

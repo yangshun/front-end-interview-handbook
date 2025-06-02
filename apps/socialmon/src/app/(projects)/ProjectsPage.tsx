@@ -69,8 +69,36 @@ export default function ProjectsPage({ isAdminRole }: Props) {
                   {project.productsToAdvertise?.length || 0} products to
                   advertise
                 </Text>
-                <Text>{project.keywords.length} keywords</Text>
-                <Text>{project.subreddits.length} subreddit</Text>
+                {/* Aggregate keyword and subreddit counts from subredditKeywords */}
+                {project.subredditKeywords &&
+                project.subredditKeywords.length > 0 ? (
+                  <>
+                    <Text>
+                      {project.subredditKeywords.reduce(
+                        (acc, group) => acc + (group.keywords?.length || 0),
+                        0,
+                      )}{' '}
+                      keywords (grouped)
+                    </Text>
+                    <Text>
+                      {
+                        Array.from(
+                          new Set(
+                            project.subredditKeywords.flatMap(
+                              (group) => group.subreddits || [],
+                            ),
+                          ),
+                        ).length
+                      }{' '}
+                      subreddits (grouped)
+                    </Text>
+                  </>
+                ) : (
+                  <>
+                    <Text>{project.keywords.length} keywords (legacy)</Text>
+                    <Text>{project.subreddits.length} subreddits (legacy)</Text>
+                  </>
+                )}
               </div>
               <Link
                 className="absolute inset-0"

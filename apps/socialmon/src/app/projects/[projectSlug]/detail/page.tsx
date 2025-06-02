@@ -21,6 +21,9 @@ export const metadata: Metadata = {
 export default async function Page({ params }: Props) {
   const { projectSlug } = params;
   const project = await prisma.project.findUnique({
+    include: {
+      subredditKeywords: true,
+    },
     where: {
       slug: projectSlug,
     },
@@ -35,8 +38,15 @@ export default async function Page({ params }: Props) {
     name,
     postFilteringPrompt,
     productsToAdvertise,
+    subredditKeywords = [],
     subreddits,
-  } = project as ProjectTransformed;
+  } = project as ProjectTransformed & {
+    subredditKeywords: Array<{
+      id: string;
+      keywords: Array<string>;
+      subreddits: Array<string>;
+    }>;
+  };
 
   return (
     <div className="flex w-full flex-col gap-4 md:w-1/2">
@@ -45,8 +55,57 @@ export default async function Page({ params }: Props) {
         <Text>{name}</Text>
       </div>
 
+      {/* --- Display subredditKeywords groups --- */}
       <div>
-        <Title order={4}>Keywords</Title>
+        <Title order={4}>Keyword/Subreddit Groups</Title>
+        {subredditKeywords.length === 0 && (
+          <Text c="dimmed" size="sm">
+            No groups defined.
+          </Text>
+        )}
+        {subredditKeywords.map((group, idx) => (
+          <div key={group.id} className="mb-2 rounded border p-2">
+            <Text fw={700}>Group {idx + 1}</Text>
+            <div>
+              <Text fw={500} span={true}>
+                Keywords:{' '}
+              </Text>
+              {group.keywords.length > 0 ? (
+                group.keywords.map((kw) => (
+                  <Pill key={kw} className="mr-1" size="xs">
+                    {kw}
+                  </Pill>
+                ))
+              ) : (
+                <Text c="dimmed" size="xs" span={true}>
+                  None
+                </Text>
+              )}
+            </div>
+            <div>
+              <Text fw={500} span={true}>
+                Subreddits:{' '}
+              </Text>
+              {group.subreddits.length > 0 ? (
+                group.subreddits.map((sr) => (
+                  <Pill key={sr} className="mr-1" size="xs">
+                    {sr}
+                  </Pill>
+                ))
+              ) : (
+                <Text c="dimmed" size="xs" span={true}>
+                  None
+                </Text>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+      {/* --- End subredditKeywords groups --- */}
+
+      {/* --- Legacy sections --- */}
+      <div>
+        <Title order={4}>Legacy Keywords</Title>
         {keywords.map((keyword) => (
           <Pill key={keyword} size="sm">
             {keyword}
@@ -55,13 +114,14 @@ export default async function Page({ params }: Props) {
       </div>
 
       <div>
-        <Title order={4}>Subreddits</Title>
+        <Title order={4}>Legacy Subreddits</Title>
         {subreddits.map((subreddit) => (
           <Pill key={subreddit} size="sm">
             {subreddit}
           </Pill>
         ))}
       </div>
+      {/* --- End legacy sections --- */}
 
       <div>
         <Title order={4}>Posts filter prompt</Title>
