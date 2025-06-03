@@ -29,6 +29,8 @@ import { SocialDiscountAlert } from '~/components/promotions/social/SocialDiscou
 import PurchasePriceAnnualComparison from '~/components/purchase/comparison/PurchasePriceAnnualComparison';
 import PurchasePriceMonthlyComparison from '~/components/purchase/comparison/PurchasePriceMonthlyComparison';
 import PurchasePriceQuarterlyComparison from '~/components/purchase/comparison/PurchasePriceQuarterlyComparison';
+import { resolvePaymentProvider } from '~/components/purchase/providers/PurchasePaymentProvider';
+import PurchaseLifetimePlanPromoCodeDialog from '~/components/purchase/PurchaseLifetimePlanPromoCodeDialog';
 import {
   purchaseFailureLogging,
   purchaseInitiateLogging,
@@ -177,8 +179,17 @@ function PricingButtonNonPremium({
   const [isCheckoutSessionLoading, setIsCheckoutSessionLoading] =
     useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [showPromoCodeDialog, setShowPromoCodeDialog] = useState(false);
 
-  async function processSubscription(planType: InterviewsPricingPlanType) {
+  const paymentProvider = resolvePaymentProvider(
+    paymentConfig,
+    countryCode ?? 'US',
+  );
+
+  async function processSubscription(
+    planType: InterviewsPricingPlanType,
+    promoCode?: string,
+  ) {
     if (isCheckoutSessionLoading) {
       return;
     }
@@ -203,6 +214,7 @@ function PricingButtonNonPremium({
             locale,
             plan_type: planType,
             product_domain: 'interviews',
+            stripe_promo_code: promoCode,
           },
         }),
       );
@@ -251,7 +263,8 @@ function PricingButtonNonPremium({
       userProfile != null &&
       !userProfile.isInterviewsPremium &&
       paymentConfig.planType === 'lifetime' &&
-      checkoutSessionHref == null
+      checkoutSessionHref == null &&
+      paymentProvider !== 'tazapay'
     ) {
       // Eagerly generate the checkout page URL for lifetime plan
       // in the background because it takes a while.
@@ -284,6 +297,12 @@ function PricingButtonNonPremium({
             purchasePrice: paymentConfig,
           });
 
+          if (paymentProvider === 'tazapay') {
+            setShowPromoCodeDialog(true);
+
+            return;
+          }
+
           if (user != null) {
             await checkoutInitiateEmailMutation.mutateAsync({
               countryCode,
@@ -307,6 +326,16 @@ function PricingButtonNonPremium({
           {errorMessage}
         </Text>
       )}
+      <PurchaseLifetimePlanPromoCodeDialog
+        errorMessage={errorMessage}
+        isLoading={isCheckoutSessionLoading}
+        isShown={showPromoCodeDialog}
+        paymentConfig={paymentConfig}
+        onClose={() => setShowPromoCodeDialog(false)}
+        onContinue={(promoCode) =>
+          processSubscription(paymentConfig.planType, promoCode)
+        }
+      />
     </div>
   );
 }

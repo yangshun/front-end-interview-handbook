@@ -100,6 +100,7 @@ export default async function handler(req: NextRequest) {
     const cancelUrl = searchParams.get('cancel_url');
     const countryCode = resolveCountryCode(req) ?? 'US';
     const locale = searchParams.get('locale') ?? 'en-US';
+    const stripePromoCode = searchParams.get('stripe_promo_code');
 
     // Step 3: Create Stripe/Tazapay customer if it doesn't exist for the user..
     const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
@@ -168,6 +169,9 @@ export default async function handler(req: NextRequest) {
       locale,
       receipt_email: user?.email,
       'x-vercel-protection-bypass': process.env.VERCEL_AUTOMATION_BYPASS_SECRET,
+      ...(stripePromoCode && {
+        stripe_promo_code: stripePromoCode,
+      }),
     };
 
     const queryParams: CheckoutQueryParams =

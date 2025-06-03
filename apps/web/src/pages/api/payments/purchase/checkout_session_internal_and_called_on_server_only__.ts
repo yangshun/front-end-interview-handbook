@@ -14,6 +14,7 @@ import fetchProjectsPricingPlanPaymentConfigLocalizedRecord from '~/components/p
 import { resolvePaymentProvider } from '~/components/purchase/providers/PurchasePaymentProvider';
 import { PurchasePaymentStripeProvider } from '~/components/purchase/providers/PurchasePaymentStripeProvider';
 import { PurchasePaymentTazapayProvider } from '~/components/purchase/providers/PurchasePaymentTazapayProvider';
+import { getDiscountedPrice } from '~/components/purchase/PurchasePricingUtils';
 import type { PurchasePricingPlanPaymentConfigLocalized } from '~/components/purchase/PurchaseTypes';
 
 import i18nHref from '~/next-i18nostic/src/utils/i18nHref';
@@ -31,6 +32,8 @@ type BaseCheckoutQueryParams = Readonly<{
   locale: string;
   // Email to send the receipt to.
   receipt_email?: string;
+  // Promo code used for the checkout session. Only used by Tazapay
+  stripe_promo_code?: string;
 }>;
 
 export type CheckoutProductDomain = 'interviews' | 'projects';
@@ -73,6 +76,7 @@ export default async function handler(
     plan_type: planType,
     product_domain: productDomain,
     receipt_email: receiptEmail,
+    stripe_promo_code: stripePromoCode,
   } = req.query as CheckoutQueryParams;
   const firstPromoterTrackingId =
     first_promoter_tid === 'undefined' ? undefined : first_promoter_tid;
@@ -80,6 +84,20 @@ export default async function handler(
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
     apiVersion: '2023-10-16',
   });
+
+  let promoCodeData: Stripe.PromotionCode | null = null;
+
+  if (stripePromoCode) {
+    const promoCodeList = await stripe.promotionCodes.list({
+      active: true,
+      code: stripePromoCode,
+      limit: 1,
+    });
+
+    if (promoCodeList.data.length > 0) {
+      promoCodeData = promoCodeList.data[0];
+    }
+  }
 
   const planPaymentConfig: PurchasePricingPlanPaymentConfigLocalized =
     await (async () => {
@@ -113,8 +131,16 @@ export default async function handler(
   }
 
   const { currency, unitCostCurrency } = planPaymentConfig;
+  const discountedPrice = promoCodeData
+    ? getDiscountedPrice({
+        amountOff: promoCodeData?.coupon.amount_off,
+        percentOff: promoCodeData?.coupon.percent_off,
+        price: unitCostCurrency.withPPP.after,
+      })
+    : unitCostCurrency.withPPP.after;
+
   const unitAmountInStripeFormat = convertCurrencyValueToStripeValue(
-    unitCostCurrency.withPPP.after,
+    discountedPrice,
     currency,
   );
 
@@ -144,6 +170,7 @@ export default async function handler(
       unitAmountInStripeFormat,
       locale,
       countryCode,
+      stripePromoCode,
       receiptEmail,
       firstPromoterTrackingId,
     );
@@ -242,6 +269,7 @@ async function processOneTimePlan(
   unitAmountInCurrency: number,
   locale: string,
   countryCode: string,
+  stripePromoCode?: string,
   receiptEmail?: string,
   firstPromoterTrackingId?: string,
 ) {
@@ -318,6 +346,9 @@ async function processOneTimePlan(
             planPaymentConfig.giveFTL && pppEligibleForFTLBundle
               ? {
                   ftl: 'true',
+                  ...(stripePromoCode && {
+                    stripePromoCode,
+                  }),
                 }
               : undefined,
           removePaymentMethods:
