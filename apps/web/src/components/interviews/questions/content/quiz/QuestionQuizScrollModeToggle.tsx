@@ -1,6 +1,6 @@
 import * as Switch from '@radix-ui/react-switch';
 import clsx from 'clsx';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import url from 'url';
 
 import {
@@ -13,13 +13,12 @@ import type {
   QuestionLanguage,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import { FormattedMessage } from '~/components/intl';
+import Anchor from '~/components/ui/Anchor';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundColor,
   themeOutlineElementBrandColor_FocusVisible,
 } from '~/components/ui/theme';
-
-import { useI18nRouter } from '~/next-i18nostic/src';
 
 type Props = Readonly<{
   isScrollModeValue: boolean;
@@ -31,38 +30,45 @@ export default function QuestionQuizScrollModeToggle({
   slug,
 }: Props) {
   const [isScrollMode, setIsScrollMode] = useState(isScrollModeValue);
-  const router = useI18nRouter();
+  const [pageUrl, setPageUrl] = useState('#');
 
-  function handleToggle() {
-    const urlObject = new URL(window.location.href);
-
-    const language = urlObject.searchParams.get('language') as QuestionLanguage;
-    const framework = urlObject.searchParams.get(
-      'framework',
-    ) as QuestionFramework;
-
-    if (isScrollModeValue) {
-      urlObject.pathname = `/questions/quiz/${slug}`;
-      urlObject.hash = '';
-    } else {
-      urlObject.hash = slug;
-      if (framework) {
-        urlObject.pathname = `/questions/quiz/${QuestionFrameworkRawToSEOMapping[framework as QuestionFramework]}`;
-      } else {
-        urlObject.pathname = `/questions/quiz/${QuestionLanguageRawToSEOMapping[language as QuestionLanguage]}`;
+  useEffect(() => {
+    function getPageURL() {
+      if (typeof window === 'undefined') {
+        return '#';
       }
+
+      const urlObject = new URL(window.location.href);
+
+      const language = urlObject.searchParams.get(
+        'language',
+      ) as QuestionLanguage;
+      const framework = urlObject.searchParams.get(
+        'framework',
+      ) as QuestionFramework;
+
+      if (isScrollModeValue) {
+        urlObject.pathname = `/questions/quiz/${slug}`;
+        urlObject.hash = '';
+      } else {
+        urlObject.hash = slug;
+        if (framework) {
+          urlObject.pathname = `/questions/quiz/${QuestionFrameworkRawToSEOMapping[framework as QuestionFramework]}`;
+        } else {
+          urlObject.pathname = `/questions/quiz/${QuestionLanguageRawToSEOMapping[language as QuestionLanguage]}`;
+        }
+      }
+
+      const newURL = url.format({
+        hash: urlObject.hash,
+        pathname: urlObject.pathname,
+        search: urlObject.search,
+      });
+
+      return newURL;
     }
-
-    const newURL = url.format({
-      hash: urlObject.hash,
-      pathname: urlObject.pathname,
-      search: urlObject.search,
-    });
-
-    router.push(newURL);
-
-    setIsScrollMode(!isScrollMode);
-  }
+    setPageUrl(getPageURL());
+  }, [slug, isScrollModeValue]);
 
   return (
     <div className="flex items-center gap-2">
@@ -74,6 +80,7 @@ export default function QuestionQuizScrollModeToggle({
         />
       </Text>
       <Switch.Root
+        asChild={true}
         checked={!isScrollMode}
         className={clsx(
           'h-4 w-8 shrink-0',
@@ -87,19 +94,24 @@ export default function QuestionQuizScrollModeToggle({
           ],
           !isScrollMode && 'dark:bg-brand bg-neutral-900',
           themeOutlineElementBrandColor_FocusVisible,
-        )}
-        onCheckedChange={handleToggle}>
-        <Switch.Thumb
-          className={clsx(
-            'block',
-            'size-2 rounded-full',
-            !isScrollMode
-              ? themeBackgroundColor
-              : 'bg-neutral-700 dark:bg-neutral-100',
-            'translate-x-1 data-[state=checked]:translate-x-[18px]',
-            'transition-transform duration-100 will-change-transform',
-          )}
-        />
+        )}>
+        <Anchor
+          className="flex items-center"
+          href={pageUrl}
+          variant="unstyled"
+          onClick={() => setIsScrollMode(!isScrollMode)}>
+          <Switch.Thumb
+            className={clsx(
+              'block',
+              'size-2 rounded-full',
+              !isScrollMode
+                ? themeBackgroundColor
+                : 'bg-neutral-700 dark:bg-neutral-100',
+              'translate-x-1 data-[state=checked]:translate-x-[18px]',
+              'transition-transform duration-100 will-change-transform',
+            )}
+          />
+        </Anchor>
       </Switch.Root>
     </div>
   );
