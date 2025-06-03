@@ -54,7 +54,7 @@ function QuestionQuizScrollableListItem({
     onEnterViewport();
   });
 
-  return <QuestionQuizItem ref={ref} question={question} />;
+  return <QuestionQuizItem ref={ref} question={question} scrollMode={true} />;
 }
 
 export default function QuestionQuizScrollableList({
@@ -134,10 +134,7 @@ export default function QuestionQuizScrollableList({
           'min-h-[calc(100vh_-_var(--global-sticky-height))]',
         )}>
         <Container
-          className={clsx(
-            'h-full grow overflow-y-hidden',
-            'py-6 lg:py-8 xl:py-12',
-          )}
+          className={clsx('h-full grow overflow-y-hidden', 'py-8 xl:py-12')}
           width="4xl">
           <div className="mb-3 hidden justify-end lg:flex">
             <QuestionQuizScrollModeToggle

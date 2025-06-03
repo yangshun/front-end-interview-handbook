@@ -13,7 +13,6 @@ import {
   useQuestionsListDataForType,
   useQuestionsListTypeCurrent,
 } from '~/components/interviews/questions/listings/utils/useQuestionsListDataForType';
-import { themeBorderColor } from '~/components/ui/theme';
 
 import { hashQuestion } from '~/db/QuestionsUtils';
 
@@ -104,8 +103,8 @@ function QuestionsQuizSidebarQuestionListImpl({
     initialListType.value !== currentListType.value;
 
   return (
-    <div className={clsx('flex flex-col gap-4', 'w-full')}>
-      <div className={clsx('px-6 py-2', ['border-b', themeBorderColor])}>
+    <div className={clsx('flex flex-col', 'w-full')}>
+      <div className={clsx('px-6 py-2')}>
         <InterviewsQuestionsListSlideOutSwitcher
           listType={currentListType}
           onChangeListType={setCurrentListType}

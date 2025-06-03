@@ -401,7 +401,7 @@ export default function InterviewsQuestionsListSlideOutContents({
           onSubmit={(event) => {
             event.preventDefault();
           }}>
-          <div className={clsx('flex w-full items-center gap-3', 'px-6 pt-2')}>
+          <div className={clsx('flex w-full items-center gap-3', 'px-6')}>
             <div className="flex-1">
               <TextInput
                 autoComplete="off"

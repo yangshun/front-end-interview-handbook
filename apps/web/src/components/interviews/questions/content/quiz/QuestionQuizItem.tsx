@@ -23,6 +23,7 @@ import useQuestionLogEventCopyContents from '../../common/useQuestionLogEventCop
 
 type Props = Readonly<{
   question: QuestionQuiz;
+  scrollMode?: boolean;
 }>;
 
 function GitHubEditButton({
@@ -51,7 +52,10 @@ function GitHubEditButton({
   );
 }
 
-function QuestionQuizItem({ question }: Props, ref: ForwardedRef<HTMLElement>) {
+function QuestionQuizItem(
+  { question, scrollMode }: Props,
+  ref: ForwardedRef<HTMLElement>,
+) {
   const titleId = useId();
   const copyRef = useQuestionLogEventCopyContents<HTMLDivElement>();
   const { solution } = question;
@@ -69,7 +73,7 @@ function QuestionQuizItem({ question }: Props, ref: ForwardedRef<HTMLElement>) {
 
   return (
     <article ref={ref} aria-labelledby={titleId} className="grow">
-      <div className="min-h-0 flex-1">
+      <div className={clsx('min-h-0 flex-1', scrollMode && 'space-y-9')}>
         <header className={clsx('flex flex-col gap-y-4')}>
           <Heading className="pb-4" id={titleId} level="heading4">
             {question.info.title}
@@ -81,6 +85,7 @@ function QuestionQuizItem({ question }: Props, ref: ForwardedRef<HTMLElement>) {
           )}
           <div className="flex items-start justify-between">
             <QuestionMetadataSection
+              className="gap-x-8"
               elements={['importance', 'difficulty', 'topics']}
               metadata={question.metadata}
             />
@@ -94,7 +99,7 @@ function QuestionQuizItem({ question }: Props, ref: ForwardedRef<HTMLElement>) {
             </div>
           </div>
         </header>
-        <Divider className="my-8" />
+        {!scrollMode && <Divider className="my-8" />}
         <Section>
           {/* Contents section */}
           <div ref={copyRef}>
