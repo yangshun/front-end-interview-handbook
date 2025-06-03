@@ -63,6 +63,21 @@ export default function QuestionQuizPageHeaderCodingSection({
     ? `/questions/${QuestionFrameworkRawToSEOMapping[languageOrFramework as QuestionFramework]}`
     : `/questions/${QuestionLanguageRawToSEOMapping[languageOrFramework as QuestionLanguage]}`;
 
+  function getImageSrc(value: LanguageOrFramework) {
+    switch (value) {
+      case 'js':
+        return '/img/interviews/quiz/js-coding.png';
+      case 'ts':
+        return '/img/interviews/quiz/ts-coding.png';
+      case 'html':
+        return '/img/interviews/quiz/html-coding.png';
+      case 'css':
+        return '/img/interviews/quiz/css-coding.png';
+      default:
+        return '/img/interviews/quiz/react-coding.png';
+    }
+  }
+
   return (
     <div>
       <Text size="body1" weight="bold">
@@ -94,15 +109,7 @@ export default function QuestionQuizPageHeaderCodingSection({
             'object-cover object-left',
             'h-full w-full sm:h-[196px] sm:w-[234px] lg:w-[343px]',
           )}
-          src={
-            languageOrFramework === 'js'
-              ? '/img/interviews/quiz/js-coding.png'
-              : languageOrFramework === 'html'
-                ? '/img/interviews/quiz/html-coding.png'
-                : languageOrFramework === 'css'
-                  ? '/img/interviews/quiz/css-coding.png'
-                  : '/img/interviews/quiz/react-coding.png'
-          }
+          src={getImageSrc(languageOrFramework)}
         />
         <div className="space-y-6">
           <ul className="flex flex-col gap-2.5" role="list">

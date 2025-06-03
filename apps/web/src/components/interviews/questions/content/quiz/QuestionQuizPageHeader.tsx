@@ -42,6 +42,7 @@ export default function QuestionQuizPageHeader({
   return (
     <InterviewsPageHeader
       description={description}
+      descriptionWidthFull={true}
       features={features}
       title={title}>
       <div className="space-y-12">

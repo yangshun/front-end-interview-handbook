@@ -112,6 +112,12 @@ export function questionHrefWithListType(
               urlObject.search +
               `#${questionMetadata.slug}`
             );
+          case 'ts':
+            return (
+              `/questions/quiz/${QuestionLanguageRawToSEOMapping.ts}` +
+              urlObject.search +
+              `#${questionMetadata.slug}`
+            );
           case 'html':
             return (
               `/questions/quiz/${QuestionLanguageRawToSEOMapping.html}` +

@@ -1910,6 +1910,16 @@
       "value": "Gamification and progress tracking"
     }
   ],
+  "2HQlrS": [
+    {
+      "type": 1,
+      "value": "category"
+    },
+    {
+      "type": 0,
+      "value": " Interview Questions and Answers | by Ex-FAANG interviewers"
+    }
+  ],
   "2Hqklu": [
     {
       "type": 0,
@@ -2048,6 +2058,12 @@
     {
       "type": 0,
       "value": "Algorithmic Coding Interview Questions"
+    }
+  ],
+  "2TPnld": [
+    {
+      "type": 0,
+      "value": "Instant UI preview for UI-related questions"
     }
   ],
   "2a6qgD": [
@@ -2375,6 +2391,16 @@
     {
       "type": 0,
       "value": "Coding-focused"
+    }
+  ],
+  "3A1yG3": [
+    {
+      "type": 1,
+      "value": "category"
+    },
+    {
+      "type": 0,
+      "value": " Quiz Questions"
     }
   ],
   "3C1g+S": [
@@ -3119,6 +3145,16 @@
     {
       "type": 0,
       "value": "Start a new version"
+    }
+  ],
+  "4gumtt": [
+    {
+      "type": 1,
+      "value": "category"
+    },
+    {
+      "type": 0,
+      "value": " Interview Questions"
     }
   ],
   "4jymHU": [
@@ -4157,6 +4193,12 @@
     {
       "type": 0,
       "value": " users in our private Discord community for Premium users"
+    }
+  ],
+  "71Hlcg": [
+    {
+      "type": 0,
+      "value": "Reference solutions from ex-interviewers at Big Tech companies"
     }
   ],
   "72GwzV": [
@@ -6923,6 +6965,16 @@
       "value": "Progress imported successfully"
     }
   ],
+  "Dabxa8": [
+    {
+      "type": 1,
+      "value": "questionCount"
+    },
+    {
+      "type": 0,
+      "value": "+ most important TypeScript interview questions and answers in quiz-style format, answered by ex-FAANG interviewers"
+    }
+  ],
   "Dc5QrJ": [
     {
       "type": 0,
@@ -7934,6 +7986,20 @@
     {
       "type": 0,
       "value": "New File"
+    }
+  ],
+  "GPQg5j": [
+    {
+      "type": 0,
+      "value": "If you're looking for "
+    },
+    {
+      "type": 1,
+      "value": "languageOrFramework"
+    },
+    {
+      "type": 0,
+      "value": " coding questions -"
     }
   ],
   "GPp0wf": [
@@ -10923,6 +10989,16 @@
       "value": " characters"
     }
   ],
+  "Mr6932": [
+    {
+      "type": 1,
+      "value": "questionCount"
+    },
+    {
+      "type": 0,
+      "value": "+ most important TypeScript interview questions and answers covering everything you need to know—from fundamentals, generics and utility types, to building type-safe applications."
+    }
+  ],
   "Mvs/7B": [
     {
       "type": 0,
@@ -11269,6 +11345,12 @@
     {
       "type": 0,
       "value": "Article view"
+    }
+  ],
+  "O0TX7L": [
+    {
+      "type": 0,
+      "value": "Switch to page-by-page"
     }
   ],
   "O0WPJA": [
@@ -11755,6 +11837,12 @@
     {
       "type": 0,
       "value": "Support us by starring our GitHub repo and consider contributing!"
+    }
+  ],
+  "P6sA19": [
+    {
+      "type": 0,
+      "value": "We've got you covered as well, with:"
     }
   ],
   "P99cBr": [
@@ -12389,6 +12477,12 @@
     {
       "type": 0,
       "value": "Blog | GreatFrontEnd"
+    }
+  ],
+  "Q891Ht": [
+    {
+      "type": 0,
+      "value": "One-click automated, transparent test cases"
     }
   ],
   "QAFkOT": [
@@ -13785,6 +13879,16 @@
     {
       "type": 0,
       "value": "% off"
+    }
+  ],
+  "T4m6dQ": [
+    {
+      "type": 1,
+      "value": "questionCount"
+    },
+    {
+      "type": 0,
+      "value": "+ most important HTML interview questions and answers, covering everything you need to know—from accessibility and semantics to forms, multimedia, SEO optimization, and best practices."
     }
   ],
   "T6+Y/z": [
@@ -15614,6 +15718,12 @@
       "value": "How to use Figma for development"
     }
   ],
+  "XCqQUO": [
+    {
+      "type": 0,
+      "value": "Get Started"
+    }
+  ],
   "XG1Wfg": [
     {
       "type": 0,
@@ -15834,6 +15944,16 @@
     {
       "type": 0,
       "value": "Complete your profile"
+    }
+  ],
+  "XkOCWy": [
+    {
+      "type": 1,
+      "value": "questionCount"
+    },
+    {
+      "type": 0,
+      "value": "+ JavaScript interview questions and answers, covering everything you need to know—from core JavaScript fundamentals to advanced features, including key topics like accessibility and performance optimization"
     }
   ],
   "XkWy18": [
@@ -16076,6 +16196,12 @@
     {
       "type": 0,
       "value": "As mentioned above, there are many ways to host your project for free. Our recommend hosts are:"
+    }
+  ],
+  "YEEd13": [
+    {
+      "type": 0,
+      "value": "In-browser coding workspace that mimics real interview conditions"
     }
   ],
   "YFKKP4": [
@@ -17544,6 +17670,16 @@
     {
       "type": 0,
       "value": "Now in BETA."
+    }
+  ],
+  "bYOK+T": [
+    {
+      "type": 1,
+      "value": "category"
+    },
+    {
+      "type": 0,
+      "value": " Interview Questions and Answers"
     }
   ],
   "bYY9Mh": [
@@ -20914,6 +21050,38 @@
       "value": "In Content Ad Placement in system design"
     }
   ],
+  "inlaDX": [
+    {
+      "type": 0,
+      "value": "Practice "
+    },
+    {
+      "type": 1,
+      "value": "questionCount"
+    },
+    {
+      "type": 0,
+      "value": "+ curated "
+    },
+    {
+      "type": 1,
+      "value": "category"
+    },
+    {
+      "type": 0,
+      "value": " Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers"
+    }
+  ],
+  "inm56s": [
+    {
+      "type": 1,
+      "value": "questionCount"
+    },
+    {
+      "type": 0,
+      "value": "+ most important React interview questions and answers on component lifecycle, state and props management, hooks, routing and more"
+    }
+  ],
   "iqz/fo": [
     {
       "type": 0,
@@ -21070,6 +21238,20 @@
     {
       "type": 0,
       "value": "Stopped at"
+    }
+  ],
+  "jL6ul2": [
+    {
+      "type": 0,
+      "value": "Join "
+    },
+    {
+      "type": 1,
+      "value": "engineersCount"
+    },
+    {
+      "type": 0,
+      "value": "+ engineers"
     }
   ],
   "jLHxac": [
@@ -21404,6 +21586,24 @@
     {
       "type": 0,
       "value": "Regular payouts through PayPal"
+    }
+  ],
+  "jrT2Ow": [
+    {
+      "type": 1,
+      "value": "questionCount"
+    },
+    {
+      "type": 0,
+      "value": "+ "
+    },
+    {
+      "type": 1,
+      "value": "languageOrFramework"
+    },
+    {
+      "type": 0,
+      "value": " Coding Questions"
     }
   ],
   "jtnskJ": [
@@ -23704,6 +23904,12 @@
       "value": "."
     }
   ],
+  "ofJOh2": [
+    {
+      "type": 0,
+      "value": "Javascript coding"
+    }
+  ],
   "ofUX5S": [
     {
       "type": 0,
@@ -24285,12 +24491,6 @@
     {
       "type": 0,
       "value": "OFF"
-    }
-  ],
-  "pj07uD": [
-    {
-      "type": 0,
-      "value": "Mark complete"
     }
   ],
   "pjndkX": [
@@ -25745,6 +25945,16 @@
     {
       "type": 0,
       "value": "Build entire component libraries or design systems from scratch for your portfolio or as a toolkit for future projects."
+    }
+  ],
+  "tKr9LQ": [
+    {
+      "type": 1,
+      "value": "questionCount"
+    },
+    {
+      "type": 0,
+      "value": "+ most important CSS interview questions and answers, covering everything you need to know—from specificity and the box model to flexbox, grid, responsive design, and performance optimization."
     }
   ],
   "tM5fjO": [
@@ -28116,6 +28326,12 @@
     {
       "type": 0,
       "value": "What do I do once I'm done coding?"
+    }
+  ],
+  "zI3w61": [
+    {
+      "type": 0,
+      "value": "Instantly preview your code for UI questions"
     }
   ],
   "zIQsmk": [
