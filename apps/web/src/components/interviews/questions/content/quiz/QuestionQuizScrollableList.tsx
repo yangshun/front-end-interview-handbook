@@ -26,7 +26,6 @@ import {
 } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import useQuestionsWithCompletionStatus from '~/components/interviews/questions/listings/items/useQuestionsWithCompletionStatus';
 import InterviewsStudyListBottomBar from '~/components/interviews/questions/listings/study-list/InterviewsStudyListBottomBar';
-import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';
 
 import useQuestionsAutoMarkAsComplete from '../../common/useQuestionsAutoMarkAsComplete';
@@ -133,9 +132,14 @@ export default function QuestionQuizScrollableList({
           'flex flex-col',
           'min-h-[calc(100vh_-_var(--global-sticky-height))]',
         )}>
-        <Container
-          className={clsx('h-full grow overflow-y-hidden', 'py-8 xl:py-12')}
-          width="4xl">
+        <div
+          className={clsx(
+            'mx-auto w-full',
+            'h-full grow overflow-y-hidden',
+            'py-8 xl:py-12',
+            'px-4 sm:px-6 xl:px-0',
+            'w-full max-w-[864px]',
+          )}>
           <div className="mb-3 hidden justify-end lg:flex">
             <QuestionQuizScrollModeToggle
               isScrollModeValue={true}
@@ -168,7 +172,7 @@ export default function QuestionQuizScrollableList({
               </div>
             ))}
           </WindowVirtualizer>
-        </Container>
+        </div>
         <InterviewsStudyListBottomBar
           initialListType={listType}
           listIsShownInSidebarOnDesktop={true}
