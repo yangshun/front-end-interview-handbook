@@ -114,7 +114,6 @@ export default function ProjectForm({
           required={true}
           {...form.getInputProps('name')}
         />
-
         {/* --- Keyword/Subreddit Groups Section --- */}
         <div>
           <label className="mb-1 block font-semibold">
@@ -173,7 +172,6 @@ export default function ProjectForm({
             Add Group
           </Button>
         </div>
-
         {/* Legacy fields for backward compatibility */}
         <TagsInput
           key={form.key('keywords')}
@@ -206,7 +204,6 @@ export default function ProjectForm({
           {...form.getInputProps('postFilteringPrompt')}
         />
         <ProjectsProductsToAdvertiseInput />
-
         <div className="flex justify-between">
           {props.mode === 'edit' && (
             <Button
@@ -215,6 +212,10 @@ export default function ProjectForm({
               loading={props.isDeleting}
               size="md"
               onClick={() => {
+                if (!confirm('Are you sure you want to delete this project?')) {
+                  return;
+                }
+
                 props.onDelete();
               }}>
               Delete
