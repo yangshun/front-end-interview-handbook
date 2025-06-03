@@ -3719,6 +3719,10 @@
     "defaultMessage": "JavaScript Functions",
     "description": "Page title for JavaScript coding question format"
   },
+  "Fxe4CE": {
+    "defaultMessage": "Total due",
+    "description": "Label for total due price"
+  },
   "FyfO1X": {
     "defaultMessage": "Front End System Design Playbook",
     "description": "Front end system design guidebook title"
@@ -5867,6 +5871,10 @@
     "defaultMessage": "Next available {slotsCount, plural, =0 {slots} one {slot} other {slots}}",
     "description": "Next available timeslot"
   },
+  "PNWyqB": {
+    "defaultMessage": "{questionCount}+ JavaScript interview questions and answers in quiz-style format, answered by ex-FAANG interviewers",
+    "description": "Description of JavaScript quiz questions page"
+  },
   "PPjL+V": {
     "defaultMessage": "Solve coding challenges involving performance-optimized data structures and algorithms.",
     "description": "Description for algo coding question format page"
@@ -7783,10 +7791,6 @@
     "defaultMessage": "Complete your profile",
     "description": "Title for Complete profile card on Projects dashboard page"
   },
-  "XkOCWy": {
-    "defaultMessage": "{questionCount}+ JavaScript interview questions and answers, covering everything you need to know—from core JavaScript fundamentals to advanced features, including key topics like accessibility and performance optimization",
-    "description": "Description of JavaScript quiz questions page"
-  },
   "XkWy18": {
     "defaultMessage": "Premium focus area",
     "description": "Paywall title for focus areas feature"
@@ -7938,6 +7942,10 @@
   "YQ5lLr": {
     "defaultMessage": "Includes all our questions and guides pages",
     "description": "Item 1 for placement pages info"
+  },
+  "YQhqx6": {
+    "defaultMessage": "Add promotion code",
+    "description": "Label to add promotion code"
   },
   "YRIsJs": {
     "defaultMessage": "Link text",
@@ -8386,6 +8394,10 @@
   "akHBWv": {
     "defaultMessage": "Outdent line",
     "description": "Text describing outdent line command in the coding workspace shortcuts menu"
+  },
+  "al0GiV": {
+    "defaultMessage": "There was a technical error while processing the payment.",
+    "description": "Decline message for technical error"
   },
   "alG3Yi": {
     "defaultMessage": "Reputation",
@@ -10235,6 +10247,10 @@
     "defaultMessage": "Types of JS questions, concepts to cover and rubrics",
     "description": "JavaScript questions, concepts and rubrics during front end interviews"
   },
+  "isHmCU": {
+    "defaultMessage": "Invalid promo code",
+    "description": "Error message for invalid promotion code"
+  },
   "iw1XYQ": {
     "defaultMessage": "No community contributions",
     "description": "Title for empty state when there are no contributions"
@@ -11011,6 +11027,10 @@
     "defaultMessage": "In Content Ad Placement in guides",
     "description": "Alt text for ads in content placement preview"
   },
+  "mLrZGz": {
+    "defaultMessage": "{amountOff} off",
+    "description": "Label for promotion code discount"
+  },
   "mNb3b2": {
     "defaultMessage": "Hard",
     "description": "Hard difficulty question"
@@ -11231,6 +11251,10 @@
     "defaultMessage": "More settings",
     "description": "Button label to show more settings for the console in the coding workspace"
   },
+  "nSJ/yC": {
+    "defaultMessage": "Continue",
+    "description": "Label for continue to checkout button"
+  },
   "nTu2nu": {
     "defaultMessage": "Privacy Policy",
     "description": "Title of Privacy Policy page"
@@ -11322,6 +11346,10 @@
   "nmG3eE": {
     "defaultMessage": "We have a \"fair use\" refund policy within 7 days of starting your first subscription. \"Fair use\" means that if you have accessed a significant amount of premium interview content (more than 5 premium content pieces), we reserve the right to reject the request for a refund. To request a refund, send an email to {contactEmail}.",
     "description": "Answer to 'What's the refund policy for GreatFrontEnd Interviews?' on Purchase's FAQ sections"
+  },
+  "nnXIFO": {
+    "defaultMessage": "{questionCount}+ most important JavaScript interview questions and answers, covering everything from core concepts to advanced JavaScript features",
+    "description": "Description of quiz scrolling mode page"
   },
   "nodFHk": {
     "defaultMessage": "Go to this submission's GitHub repository",
@@ -12463,6 +12491,10 @@
     "defaultMessage": "Starter",
     "description": "Starter blog"
   },
+  "tRQG6L": {
+    "defaultMessage": "{percentOff}% off",
+    "description": "Label for promotion code discount"
+  },
   "tWtbVf": {
     "defaultMessage": "OOP",
     "description": "Computer science topic"
@@ -12830,6 +12862,10 @@
   "vLdUUt": {
     "defaultMessage": "View other's code and learn from their approach",
     "description": "Description for recommended action for new projects platform user"
+  },
+  "vLsSQG": {
+    "defaultMessage": "Sub total",
+    "description": "Label for sub total price"
   },
   "vMy9f3": {
     "defaultMessage": "Months",

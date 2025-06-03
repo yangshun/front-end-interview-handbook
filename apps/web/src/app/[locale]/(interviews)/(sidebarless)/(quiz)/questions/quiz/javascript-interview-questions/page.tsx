@@ -45,9 +45,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: intl.formatMessage(
       {
         defaultMessage:
-          'Practice {questionCount}+ curated {category} Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers',
+          '{questionCount}+ most important JavaScript interview questions and answers, covering everything from core concepts to advanced JavaScript features',
         description: 'Description of quiz scrolling mode page',
-        id: 'inlaDX',
+        id: 'nnXIFO',
       },
       {
         category,
@@ -93,9 +93,9 @@ export default async function Page({ params }: Props) {
       description={intl.formatMessage(
         {
           defaultMessage:
-            '{questionCount}+ JavaScript interview questions and answers, covering everything you need to know—from core JavaScript fundamentals to advanced features, including key topics like accessibility and performance optimization',
+            '{questionCount}+ JavaScript interview questions and answers in quiz-style format, answered by ex-FAANG interviewers',
           description: 'Description of JavaScript quiz questions page',
-          id: 'XkOCWy',
+          id: 'PNWyqB',
         },
         { questionCount: roundQuestionCountToNearestTen(quizQuestions.length) },
       )}
