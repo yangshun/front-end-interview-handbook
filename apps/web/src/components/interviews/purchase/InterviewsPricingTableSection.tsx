@@ -30,6 +30,7 @@ import PurchasePriceAnnualComparison from '~/components/purchase/comparison/Purc
 import PurchasePriceMonthlyComparison from '~/components/purchase/comparison/PurchasePriceMonthlyComparison';
 import PurchasePriceQuarterlyComparison from '~/components/purchase/comparison/PurchasePriceQuarterlyComparison';
 import { resolvePaymentProvider } from '~/components/purchase/providers/PurchasePaymentProvider';
+import usePurchaseLastUsedPaymentProvider from '~/components/purchase/providers/usePurcahseLastUsedPaymentProvider';
 import PurchaseLifetimePlanPromoCodeDialog from '~/components/purchase/PurchaseLifetimePlanPromoCodeDialog';
 import {
   purchaseFailureLogging,
@@ -180,6 +181,7 @@ function PricingButtonNonPremium({
     useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [showPromoCodeDialog, setShowPromoCodeDialog] = useState(false);
+  const { setLastPaymentProvider } = usePurchaseLastUsedPaymentProvider();
 
   const paymentProvider = resolvePaymentProvider(
     paymentConfig,
@@ -228,6 +230,10 @@ function PricingButtonNonPremium({
       });
 
       if (hasClickedRef.current) {
+        setLastPaymentProvider({
+          id: payload.id,
+          provider: paymentProvider,
+        });
         window.location.href = payload.url;
 
         return;
@@ -310,6 +316,10 @@ function PricingButtonNonPremium({
           }
 
           if (checkoutSessionHref != null) {
+            setLastPaymentProvider({
+              id: '', // Okay to be empty, because we are not using it for Stripe provider
+              provider: paymentProvider,
+            });
             // Had to move this checkout redirection here
             // Otherwise with href passed to the PricingButton, the checkoutInitiateEmailMutation is unable to execute it
             // before the window is changed to stripe
@@ -501,9 +511,13 @@ export default function InterviewsPricingTableSection({
   const intl = useIntl();
   const featuredPlanId = useId();
   const user = useUser();
+  const { lastPaymentProvider } = usePurchaseLastUsedPaymentProvider();
   const { isUserProfileLoading, userProfile } = useUserProfile();
   const { data: lastPaymentError } = trpc.purchases.lastPaymentError.useQuery(
-    undefined,
+    {
+      checkoutId: lastPaymentProvider?.id ?? '',
+      provider: lastPaymentProvider?.provider ?? 'stripe',
+    },
     {
       enabled: !!user,
     },

@@ -96,6 +96,37 @@ export const PurchasePaymentTazapayProvider = {
 
     return { id: data.id, url: data.url };
   },
+  async getLastPaymentAttempt(id: string) {
+    const res = await fetchFromTazapay<AnyIntentional>({
+      endpoint: `/checkout/${id}`,
+      method: 'GET',
+    });
+
+    const latestPaymentAttempt = res.latest_payment_attempt;
+
+    const paymentAttemptData = (res.payment_attempts || []).find(
+      (attempt: AnyIntentional) => attempt.id === latestPaymentAttempt,
+    );
+
+    if (!paymentAttemptData) {
+      return null;
+    }
+
+    const status = extractErrorCodeAndMessage(
+      paymentAttemptData.status_description,
+    );
+
+    return {
+      amount: paymentAttemptData.amount,
+      currency: paymentAttemptData.charge_currency,
+      error: {
+        code: status?.code,
+        message: status?.message,
+      },
+      id: paymentAttemptData.id,
+      status: paymentAttemptData.status,
+    };
+  },
   getRemovePaymentMethods(countryCode: string): Array<string> {
     return REMOVE_PAYMENT_METHODS[countryCode] ?? [];
   },
@@ -104,19 +135,26 @@ export const PurchasePaymentTazapayProvider = {
 async function fetchFromTazapay<T>({
   body,
   endpoint,
+  method = 'POST',
 }: Readonly<{
-  body: AnyIntentional;
+  body?: AnyIntentional;
   endpoint: string;
+  method?: 'GET' | 'POST';
 }>): Promise<T> {
-  const res = await fetch(`${TAZAPAY_BASE_URL}${endpoint}`, {
-    body: JSON.stringify(body),
+  const fetchOptions: RequestInit = {
     headers: {
       Accept: 'application/json',
       Authorization: `Basic ${TAZAPAY_TOKEN}`,
       'Content-Type': 'application/json',
     },
-    method: 'POST',
-  });
+    method,
+  };
+
+  if (method === 'POST' && body) {
+    fetchOptions.body = JSON.stringify(body);
+  }
+
+  const res = await fetch(`${TAZAPAY_BASE_URL}${endpoint}`, fetchOptions);
 
   const json = await res.json();
 
@@ -125,4 +163,21 @@ async function fetchFromTazapay<T>({
   }
 
   return json.data;
+}
+
+// This function extracts the error code and message from the status description which is this format <error_code> <error_message>
+function extractErrorCodeAndMessage(statusDescription: string): Readonly<{
+  code?: string;
+  message?: string;
+} | null> {
+  if (!statusDescription) return null;
+
+  const parts = statusDescription.trim().split(' ');
+
+  return parts.length > 0
+    ? {
+        code: parts[0],
+        message: parts.slice(1).join(' '),
+      }
+    : null;
 }

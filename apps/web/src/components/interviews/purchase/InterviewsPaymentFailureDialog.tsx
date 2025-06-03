@@ -8,6 +8,7 @@ import { trpc } from '~/hooks/trpc';
 import FeedbackDialog from '~/components/global/feedback/FeedbackDialog';
 import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
 import { FormattedMessage, useIntl } from '~/components/intl';
+import type { PurchasePaymentProvider } from '~/components/purchase/PurchaseTypes';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
@@ -23,9 +24,10 @@ import {
 type Props = Readonly<{
   isShown?: boolean;
   lastPaymentError?: Readonly<{
-    code: Stripe.PaymentIntent.LastPaymentError.Code | undefined;
+    code: Stripe.PaymentIntent.LastPaymentError.Code | string | undefined;
     declineCode_DO_NOT_DISPLAY_TO_USER: string | undefined;
     message: string | undefined;
+    provider: PurchasePaymentProvider;
   }> | null;
   onClose?: (errorCode: string | null) => void;
 }>;
@@ -68,9 +70,10 @@ export default function InterviewsPaymentFailureDialog({
     null;
 
   const errorForDisplay = getPaymentErrorAndSteps(
-    normalizedErrorCode,
+    normalizedErrorCode ?? '',
     billingPortalHref,
     () => setClickedOnBillingPortalLink(true),
+    lastPaymentError?.provider,
   );
 
   function onCloseImpl() {
@@ -214,6 +217,16 @@ function paymentFailureReasonsMessages(
         />
       ),
     },
+    'internet-connection': {
+      key: 'internet-connection',
+      label: (
+        <FormattedMessage
+          defaultMessage="Ensure your internet connection is stable during the payment process."
+          description="Reason label for stable internet connection"
+          id="4u03oA"
+        />
+      ),
+    },
     'other-reason': {
       key: 'other-reason',
       label: (
@@ -249,10 +262,23 @@ function paymentFailureReasonsMessages(
   };
 }
 
+type ErrorCode =
+  | 'card_velocity_exceeded'
+  | 'currency_not_supported'
+  | 'expired_card'
+  | 'generic_decline'
+  | 'incorrect_cvc'
+  | 'insufficient_funds'
+  | 'invalid_account'
+  | 'invalid_cvc'
+  | 'processing_error'
+  | 'technical_error';
+
 function getPaymentErrorAndSteps(
-  errorCode: string | null,
+  errorCode: string,
   billingPortalHref: string | null,
   onClickBillingPortalLink: () => void,
+  provider?: PurchasePaymentProvider | null,
 ): Readonly<{
   code: string;
   message: JSX.Element | string;
@@ -263,7 +289,14 @@ function getPaymentErrorAndSteps(
     onClickBillingPortalLink,
   );
 
-  switch (errorCode) {
+  const normalizedErrorCode =
+    provider === 'tazapay'
+      ? getTazapayNormalizeErrorCode(errorCode ?? '')
+      : errorCode;
+
+  const otherReason = provider === 'stripe' ? [reasons['other-reason']] : [];
+
+  switch (normalizedErrorCode) {
     case 'card_velocity_exceeded':
       return {
         code: errorCode,
@@ -305,7 +338,7 @@ function getPaymentErrorAndSteps(
               />
             ),
           },
-          reasons['other-reason'],
+          ...otherReason,
         ],
       };
     case 'currency_not_supported':
@@ -349,7 +382,7 @@ function getPaymentErrorAndSteps(
               />
             ),
           },
-          reasons['other-reason'],
+          ...otherReason,
         ],
       };
     case 'expired_card':
@@ -383,7 +416,7 @@ function getPaymentErrorAndSteps(
               />
             ),
           },
-          reasons['other-reason'],
+          ...otherReason,
         ],
       };
     case 'incorrect_cvc':
@@ -417,7 +450,7 @@ function getPaymentErrorAndSteps(
               />
             ),
           },
-          reasons['other-reason'],
+          ...otherReason,
         ],
       };
     case 'insufficient_funds':
@@ -451,7 +484,7 @@ function getPaymentErrorAndSteps(
               />
             ),
           },
-          reasons['other-reason'],
+          ...otherReason,
         ],
       };
     case 'invalid_account':
@@ -485,7 +518,7 @@ function getPaymentErrorAndSteps(
               />
             ),
           },
-          reasons['other-reason'],
+          ...otherReason,
         ],
       };
     case 'invalid_cvc':
@@ -519,7 +552,7 @@ function getPaymentErrorAndSteps(
               />
             ),
           },
-          reasons['other-reason'],
+          ...otherReason,
         ],
       };
     case 'processing_error':
@@ -543,16 +576,7 @@ function getPaymentErrorAndSteps(
               />
             ),
           },
-          {
-            key: 'internet-connection',
-            label: (
-              <FormattedMessage
-                defaultMessage="Ensure your internet connection is stable during the payment process."
-                description="Reason label for stable internet connection"
-                id="4u03oA"
-              />
-            ),
-          },
+          reasons['internet-connection'],
           {
             key: 'different-payment-method',
             label: (
@@ -563,7 +587,23 @@ function getPaymentErrorAndSteps(
               />
             ),
           },
-          reasons['other-reason'],
+          ...otherReason,
+        ],
+      };
+    case 'technical_error':
+      return {
+        code: errorCode,
+        message: (
+          <FormattedMessage
+            defaultMessage="There was a technical error while processing the payment."
+            description="Decline message for technical error"
+            id="al0GiV"
+          />
+        ),
+        steps: [
+          reasons['retry-payment'],
+          reasons['internet-connection'],
+          reasons['contact-bank'],
         ],
       };
     case 'generic_decline':
@@ -582,8 +622,53 @@ function getPaymentErrorAndSteps(
           reasons['international-online-payment'],
           reasons['contact-bank'],
           reasons['retry-payment'],
-          reasons['other-reason'],
+          ...otherReason,
         ],
       };
   }
+}
+
+function getTazapayNormalizeErrorCode(code: string): ErrorCode {
+  if (code === '12010') {
+    return 'insufficient_funds';
+  }
+
+  if (code === '12011') {
+    return 'expired_card';
+  }
+
+  if (code === '12014') {
+    return 'incorrect_cvc';
+  }
+
+  if (code === '12023') {
+    return 'processing_error';
+  }
+
+  if (code === '12023') {
+    return 'card_velocity_exceeded';
+  }
+
+  // Generate an array of string from 13503 to 13514
+  const cardVelocityErrorCodes = Array.from({ length: 12 }, (_, i) =>
+    (13502 + i).toString(),
+  );
+
+  if (cardVelocityErrorCodes.includes(code)) {
+    return 'card_velocity_exceeded';
+  }
+
+  if (code === '12009') {
+    return 'currency_not_supported';
+  }
+
+  if (code === '12502') {
+    return 'invalid_account';
+  }
+
+  if (['14000', '14001', '14002'].includes(code)) {
+    return 'technical_error';
+  }
+
+  return 'generic_decline';
 }

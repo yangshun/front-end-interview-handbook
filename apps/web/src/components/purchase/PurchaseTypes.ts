@@ -43,3 +43,5 @@ export type PurchasePricingPlanPaymentConfigBase = Readonly<{
 
 export type PurchasePricingPlanPaymentConfigLocalized = PurchasePrice &
   PurchasePricingPlanPaymentConfigBase;
+
+export type PurchasePaymentProvider = 'stripe' | 'tazapay';

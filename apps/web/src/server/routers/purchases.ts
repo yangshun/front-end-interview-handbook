@@ -8,6 +8,8 @@ import countryNames from '~/data/countryCodesToNames.json';
 
 import fetchInterviewsPricingPlanPaymentConfigLocalizedRecord from '~/components/interviews/purchase/fetchInterviewsPricingPlanPaymentConfigLocalizedRecord';
 import fetchProjectsPricingPlanPaymentConfigLocalizedRecord from '~/components/projects/purchase/fetchProjectsPricingPlanPaymentConfigLocalizedRecord';
+import { PurchasePaymentTazapayProvider } from '~/components/purchase/providers/PurchasePaymentTazapayProvider';
+import type { PurchasePaymentProvider } from '~/components/purchase/PurchaseTypes';
 
 import prisma from '~/server/prisma';
 
@@ -107,52 +109,78 @@ export const purchasesRouter = router({
         plans,
       };
     }),
-  lastPaymentError: userProcedure.query(async ({ ctx }) => {
-    // Set headers to disable caching
-    ctx.res.setHeader(
-      'Cache-Control',
-      'no-store, no-cache, must-revalidate, proxy-revalidate',
-    );
-    ctx.res.setHeader('Pragma', 'no-cache');
-    ctx.res.setHeader('Expires', '0');
+  lastPaymentError: userProcedure
+    .input(
+      z.object({
+        checkoutId: z.string(),
+        provider: z.enum(['stripe', 'tazapay']),
+      }),
+    )
+    .query(async ({ ctx, input: { checkoutId, provider } }) => {
+      // Set headers to disable caching
+      ctx.res.setHeader(
+        'Cache-Control',
+        'no-store, no-cache, must-revalidate, proxy-revalidate',
+      );
+      ctx.res.setHeader('Pragma', 'no-cache');
+      ctx.res.setHeader('Expires', '0');
 
-    const userProfile = await prisma.profile.findFirst({
-      select: {
-        stripeCustomer: true,
-      },
-      where: {
-        id: ctx.viewer.id,
-      },
-    });
+      if (provider === 'tazapay') {
+        const paymentAttempt =
+          await PurchasePaymentTazapayProvider.getLastPaymentAttempt(
+            checkoutId,
+          );
 
-    // A Stripe customer hasn't been created yet.
-    if (userProfile?.stripeCustomer == null) {
-      return null;
-    }
+        if (!paymentAttempt || paymentAttempt.status !== 'failed') {
+          return null;
+        }
 
-    const { stripeCustomer: stripeCustomerId } = userProfile;
+        return {
+          code: paymentAttempt.error.code,
+          declineCode_DO_NOT_DISPLAY_TO_USER: paymentAttempt.error.code,
+          message: paymentAttempt.error.message,
+          provider: 'tazapay' as PurchasePaymentProvider,
+        };
+      }
 
-    const paymentIntents = await stripe.paymentIntents.list({
-      customer: stripeCustomerId,
-    });
+      const userProfile = await prisma.profile.findFirst({
+        select: {
+          stripeCustomer: true,
+        },
+        where: {
+          id: ctx.viewer.id,
+        },
+      });
 
-    if (paymentIntents.data.length === 0) {
-      return null;
-    }
+      // A Stripe customer hasn't been created yet.
+      if (userProfile?.stripeCustomer == null) {
+        return null;
+      }
 
-    const lastPaymentIntent = paymentIntents.data[0];
+      const { stripeCustomer: stripeCustomerId } = userProfile;
 
-    if (lastPaymentIntent.last_payment_error == null) {
-      return null;
-    }
+      const paymentIntents = await stripe.paymentIntents.list({
+        customer: stripeCustomerId,
+      });
 
-    return {
-      code: lastPaymentIntent.last_payment_error.code,
-      declineCode_DO_NOT_DISPLAY_TO_USER:
-        lastPaymentIntent.last_payment_error.decline_code,
-      message: lastPaymentIntent.last_payment_error.message,
-    };
-  }),
+      if (paymentIntents.data.length === 0) {
+        return null;
+      }
+
+      const lastPaymentIntent = paymentIntents.data[0];
+
+      if (lastPaymentIntent.last_payment_error == null) {
+        return null;
+      }
+
+      return {
+        code: lastPaymentIntent.last_payment_error.code,
+        declineCode_DO_NOT_DISPLAY_TO_USER:
+          lastPaymentIntent.last_payment_error.decline_code,
+        message: lastPaymentIntent.last_payment_error.message,
+        provider: 'stripe' as PurchasePaymentProvider,
+      };
+    }),
   lastSuccessfulPaymentThatHasntBeenLogged: userProcedure.query(
     async ({ ctx }) => {
       const userProfile = await prisma.profile.findFirst({
