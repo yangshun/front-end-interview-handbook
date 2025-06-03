@@ -37,7 +37,7 @@ export default function QuestionsQuizContentLayout({
         {questionsQuizSidebarExpanded && (
           <Section>
             <div
-              className={clsx('hidden w-[380px] xl:flex', [
+              className={clsx('hidden w-[320px] lg:flex', [
                 'border-r',
                 themeBorderColor,
               ])}>
