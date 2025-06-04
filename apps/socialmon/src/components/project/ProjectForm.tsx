@@ -13,7 +13,6 @@ import { debounce } from 'lodash-es';
 import { useRouter } from 'next/navigation';
 import { useRef, useState } from 'react';
 import toast from 'react-hot-toast';
-import { v4 as uuidv4 } from 'uuid';
 
 import { trpc } from '~/hooks/trpc';
 
@@ -57,7 +56,6 @@ export default function ProjectForm({
   const [subredditSuggestion, setSubredditSuggestion] = useState('');
   const form = useForm({
     initialValues: {
-      keywords: data?.keywords ?? [],
       name: data?.name ?? '',
       postFilteringPrompt: data?.postFilteringPrompt ?? '',
       productsToAdvertise:
@@ -74,10 +72,9 @@ export default function ProjectForm({
                 url: '',
               },
             ],
-      subredditKeywords: data?.subredditKeywords
-        ? data.subredditKeywords.map((g) => ({ ...g, id: uuidv4() }))
-        : [{ id: uuidv4(), keywords: [], subreddits: [] }],
-      subreddits: data?.subreddits ?? [],
+      subredditKeywords: data?.subredditKeywords ?? [
+        { keywords: [], subreddits: [] },
+      ],
     },
     mode: 'uncontrolled',
     validate: zodResolver(projectSchema),
@@ -114,7 +111,7 @@ export default function ProjectForm({
           required={true}
           {...form.getInputProps('name')}
         />
-        {/* --- Keyword/Subreddit Groups Section --- */}
+        
         <div>
           <label className="mb-1 block font-semibold">
             Keyword/Subreddit Groups
@@ -124,47 +121,53 @@ export default function ProjectForm({
             subreddits. Posts will be filtered if they match any keyword in any
             of the selected subreddits for that group.
           </div>
-          {form.values.subredditKeywords?.map((group, idx) => (
-            <div key={group.id} className="mb-2 flex items-end gap-2">
-              <div className="flex flex-1 gap-2">
-                <TagsInput
-                  key={form.key(`subredditKeywords.${idx}.keywords`)}
-                  description="Posts are included if they contain any of these keywords (case-insensitive, substring match)."
-                  label="Keywords"
-                  placeholder="Enter keywords"
-                  required={true}
-                  {...form.getInputProps(`subredditKeywords.${idx}.keywords`)}
-                />
-                <MultiSelect
-                  key={form.key(`subredditKeywords.${idx}.subreddits`)}
-                  data={subreddits ?? []}
-                  description="Subreddits to fetch posts from for these keywords"
-                  label="Subreddits"
-                  placeholder="Enter subreddits"
-                  required={true}
-                  {...form.getInputProps(`subredditKeywords.${idx}.subreddits`)}
-                  rightSection={
-                    isFetchingSubreddits ? <Loader size={16} /> : null
-                  }
-                  searchable={true}
-                  onSearchChange={onSubredditSearch}
-                />
+          {form.values.subredditKeywords?.map((group, idx) => {
+            // Create a stable key based on content + position to avoid using pure index
+            const contentKey = `${group.keywords.join('-')}-${group.subreddits.join('-')}-${idx}`;
+
+            return (
+              <div key={contentKey} className="mb-2 flex items-end gap-2">
+                <div className="flex flex-1 gap-2">
+                  <TagsInput
+                    key={form.key(`subredditKeywords.${idx}.keywords`)}
+                    description="Posts are included if they contain any of these keywords (case-insensitive, substring match)."
+                    label="Keywords"
+                    placeholder="Enter keywords"
+                    required={true}
+                    {...form.getInputProps(`subredditKeywords.${idx}.keywords`)}
+                  />
+                  <MultiSelect
+                    key={form.key(`subredditKeywords.${idx}.subreddits`)}
+                    data={subreddits ?? []}
+                    description="Subreddits to fetch posts from for these keywords"
+                    label="Subreddits"
+                    placeholder="Enter subreddits"
+                    required={true}
+                    {...form.getInputProps(
+                      `subredditKeywords.${idx}.subreddits`,
+                    )}
+                    rightSection={
+                      isFetchingSubreddits ? <Loader size={16} /> : null
+                    }
+                    searchable={true}
+                    onSearchChange={onSubredditSearch}
+                  />
+                </div>
+                <Button
+                  className="flex-shrink-0"
+                  color="red"
+                  disabled={form.values.subredditKeywords.length === 1}
+                  variant="outline"
+                  onClick={() => form.removeListItem('subredditKeywords', idx)}>
+                  Remove
+                </Button>
               </div>
-              <Button
-                className="flex-shrink-0"
-                color="red"
-                disabled={form.values.subredditKeywords.length === 1}
-                variant="outline"
-                onClick={() => form.removeListItem('subredditKeywords', idx)}>
-                Remove
-              </Button>
-            </div>
-          ))}
+            );
+          })}
           <Button
             variant="light"
             onClick={() =>
               form.insertListItem('subredditKeywords', {
-                id: uuidv4(),
                 keywords: [],
                 subreddits: [],
               })
@@ -172,27 +175,7 @@ export default function ProjectForm({
             Add Group
           </Button>
         </div>
-        {/* Legacy fields for backward compatibility */}
-        <TagsInput
-          key={form.key('keywords')}
-          description="(Legacy) Filters posts by keywords in a case-insensitive and substring match manner. Posts are included if they contain any of the keywords."
-          label="Keywords"
-          placeholder="Enter keyword"
-          required={true}
-          {...form.getInputProps('keywords')}
-        />
-        <MultiSelect
-          key={form.key('subreddits')}
-          description="(Legacy) Subreddits to fetched post from"
-          label="Subreddits"
-          placeholder="Enter subreddits"
-          required={true}
-          {...form.getInputProps('subreddits')}
-          data={subreddits ?? []}
-          rightSection={isFetchingSubreddits ? <Loader size={16} /> : null}
-          searchable={true}
-          onSearchChange={onSubredditSearch}
-        />
+
         <Textarea
           autosize={true}
           className="flex-1"

@@ -27,7 +27,7 @@ export const projectRouter = router({
         data: {
           ...data,
           subredditKeywords: {
-            create: data.subredditKeywords.map(({ id: _id, ...rest }) => rest),
+            create: data.subredditKeywords,
           },
         },
       });
@@ -76,7 +76,7 @@ export const projectRouter = router({
         data: {
           ...data,
           subredditKeywords: {
-            create: data.subredditKeywords.map(({ id: _id, ...rest }) => rest),
+            create: data.subredditKeywords,
           },
         },
         where: {

@@ -34,19 +34,11 @@ export default async function Page({ params }: Props) {
   }
 
   const {
-    keywords,
     name,
     postFilteringPrompt,
     productsToAdvertise,
     subredditKeywords = [],
-    subreddits,
-  } = project as ProjectTransformed & {
-    subredditKeywords: Array<{
-      id: string;
-      keywords: Array<string>;
-      subreddits: Array<string>;
-    }>;
-  };
+  } = project as ProjectTransformed;
 
   return (
     <div className="flex w-full flex-col gap-4 md:w-1/2">
@@ -55,7 +47,6 @@ export default async function Page({ params }: Props) {
         <Text>{name}</Text>
       </div>
 
-      {/* --- Display subredditKeywords groups --- */}
       <div>
         <Title order={4}>Keyword/Subreddit Groups</Title>
         {subredditKeywords.length === 0 && (
@@ -63,65 +54,49 @@ export default async function Page({ params }: Props) {
             No groups defined.
           </Text>
         )}
-        {subredditKeywords.map((group, idx) => (
-          <div key={group.id} className="mb-2 rounded border p-2">
-            <Text fw={700}>Group {idx + 1}</Text>
-            <div>
-              <Text fw={500} span={true}>
-                Keywords:{' '}
-              </Text>
-              {group.keywords.length > 0 ? (
-                group.keywords.map((kw) => (
-                  <Pill key={kw} className="mr-1" size="xs">
-                    {kw}
-                  </Pill>
-                ))
-              ) : (
-                <Text c="dimmed" size="xs" span={true}>
-                  None
-                </Text>
-              )}
-            </div>
-            <div>
-              <Text fw={500} span={true}>
-                Subreddits:{' '}
-              </Text>
-              {group.subreddits.length > 0 ? (
-                group.subreddits.map((sr) => (
-                  <Pill key={sr} className="mr-1" size="xs">
-                    {sr}
-                  </Pill>
-                ))
-              ) : (
-                <Text c="dimmed" size="xs" span={true}>
-                  None
-                </Text>
-              )}
-            </div>
-          </div>
-        ))}
-      </div>
-      {/* --- End subredditKeywords groups --- */}
+        {subredditKeywords.map((group, idx) => {
+          // Create a stable key based on content + position to avoid using pure index
+          const contentKey = `${group.keywords.join('-')}-${group.subreddits.join('-')}-${idx}`;
 
-      {/* --- Legacy sections --- */}
-      <div>
-        <Title order={4}>Legacy Keywords</Title>
-        {keywords.map((keyword) => (
-          <Pill key={keyword} size="sm">
-            {keyword}
-          </Pill>
-        ))}
+          return (
+            <div key={contentKey} className="mb-2 rounded border p-2">
+              <Text fw={700}>Group {idx + 1}</Text>
+              <div>
+                <Text fw={500} span={true}>
+                  Keywords:{' '}
+                </Text>
+                {group.keywords.length > 0 ? (
+                  group.keywords.map((kw) => (
+                    <Pill key={kw} className="mr-1" size="xs">
+                      {kw}
+                    </Pill>
+                  ))
+                ) : (
+                  <Text c="dimmed" size="xs" span={true}>
+                    None
+                  </Text>
+                )}
+              </div>
+              <div>
+                <Text fw={500} span={true}>
+                  Subreddits:{' '}
+                </Text>
+                {group.subreddits.length > 0 ? (
+                  group.subreddits.map((sr) => (
+                    <Pill key={sr} className="mr-1" size="xs">
+                      {sr}
+                    </Pill>
+                  ))
+                ) : (
+                  <Text c="dimmed" size="xs" span={true}>
+                    None
+                  </Text>
+                )}
+              </div>
+            </div>
+          );
+        })}
       </div>
-
-      <div>
-        <Title order={4}>Legacy Subreddits</Title>
-        {subreddits.map((subreddit) => (
-          <Pill key={subreddit} size="sm">
-            {subreddit}
-          </Pill>
-        ))}
-      </div>
-      {/* --- End legacy sections --- */}
 
       <div>
         <Title order={4}>Posts filter prompt</Title>

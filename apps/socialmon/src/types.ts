@@ -74,7 +74,6 @@ export type ProjectTransformed = Omit<Project, 'productsToAdvertise'> &
       url: string;
     }> | null;
     subredditKeywords: Array<{
-      id: string;
       keywords: Array<string>;
       subreddits: Array<string>;
     }>;
