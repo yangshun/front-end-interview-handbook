@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import type { ReactNode } from 'react';
 import { useEffect, useState } from 'react';
 import {
   RiArrowDownSLine,
@@ -194,6 +195,13 @@ type Props = Readonly<{
   >['onClickQuestion'];
   onCloseSwitchQuestionListDialog: () => void;
   onListTabChange?: (newTab: QuestionPracticeFormat) => void;
+  renderQuestionsListTopAddOnItem?: ({
+    listType,
+    tab,
+  }: {
+    listType: QuestionListTypeData;
+    tab: QuestionPracticeFormat | undefined;
+  }) => ReactNode;
   setFirstQuestionHref?: (href: string) => void;
   showSwitchQuestionListDialog: Readonly<{
     href: string | null;
@@ -212,6 +220,7 @@ export default function InterviewsQuestionsListSlideOutContents({
   onClickQuestion,
   onCloseSwitchQuestionListDialog,
   onListTabChange,
+  renderQuestionsListTopAddOnItem,
   setFirstQuestionHref,
   showSwitchQuestionListDialog,
 }: Props) {
@@ -452,74 +461,83 @@ export default function InterviewsQuestionsListSlideOutContents({
           </div>
           {showFilters && embedFilters}
         </form>
-        {listTabs && (
-          <div className="px-6">
-            <TabsUnderline
-              size="xs"
-              tabs={listTabs.map((listTabValue) => {
-                const labels: Record<QuestionPracticeFormat, string> = {
-                  coding: intl.formatMessage({
-                    defaultMessage: 'Coding',
-                    description: 'Question format',
-                    id: 'eJU0PN',
-                  }),
-                  quiz: intl.formatMessage({
-                    defaultMessage: 'Quiz',
-                    description: 'Question format',
-                    id: 'doY6Fg',
-                  }),
-                  'system-design': intl.formatMessage({
-                    defaultMessage: 'System design',
-                    description: 'Question format',
-                    id: '57qxzy',
-                  }),
-                };
+        <div>
+          {listTabs && (
+            <div>
+              <TabsUnderline
+                className="px-6"
+                size="xs"
+                tabs={listTabs.map((listTabValue) => {
+                  const labels: Record<QuestionPracticeFormat, string> = {
+                    coding: intl.formatMessage({
+                      defaultMessage: 'Coding',
+                      description: 'Question format',
+                      id: 'eJU0PN',
+                    }),
+                    quiz: intl.formatMessage({
+                      defaultMessage: 'Quiz',
+                      description: 'Question format',
+                      id: 'doY6Fg',
+                    }),
+                    'system-design': intl.formatMessage({
+                      defaultMessage: 'System design',
+                      description: 'Question format',
+                      id: '57qxzy',
+                    }),
+                  };
 
-                return {
-                  label: labels[listTabValue],
-                  value: listTabValue,
-                };
-              })}
-              value={data?.listType.tab}
-              onSelect={(value: QuestionPracticeFormat) =>
-                onListTabChange?.(value)
-              }
-            />
-          </div>
-        )}
-        {questionAttributesUnion.formats.size > 1 && (
-          <div className="mb-3 px-6">
-            <QuestionListFilterFormats
-              formatFilterOptions={formatFilterOptions}
-              formatFilters={formatFilters}
-              formatFiltersUnion={questionAttributesUnion.formats}
-            />
-          </div>
-        )}
-        <ScrollArea>
-          {isLoading ? (
-            <div className="flex h-40 w-full items-center justify-center">
-              <Spinner size="sm" />
+                  return {
+                    label: labels[listTabValue],
+                    value: listTabValue,
+                  };
+                })}
+                value={data?.listType.tab}
+                onSelect={(value: QuestionPracticeFormat) =>
+                  onListTabChange?.(value)
+                }
+              />
             </div>
-          ) : (
-            <InterviewsQuestionsListSlideOutQuestionList
-              key={`${listType.type}/${listType.value}/${listType.tab}`}
-              checkIfCompletedQuestion={(question) => question.isCompleted}
-              currentQuestionHash={currentQuestionHash}
-              framework={framework}
-              isDifferentListFromInitial={isDifferentListFromInitial}
-              listType={listType}
-              mode={mode}
-              questions={
-                showCompanyPaywall
-                  ? sortedQuestions.slice(0, 4)
-                  : processedQuestions
-              }
-              showCompanyPaywall={showCompanyPaywall}
-              onClickQuestion={onClickQuestion}
-            />
           )}
-        </ScrollArea>
+          {questionAttributesUnion.formats.size > 1 && (
+            <div className="my-3 px-6">
+              <QuestionListFilterFormats
+                formatFilterOptions={formatFilterOptions}
+                formatFilters={formatFilters}
+                formatFiltersUnion={questionAttributesUnion.formats}
+              />
+            </div>
+          )}
+          <ScrollArea>
+            {isLoading ? (
+              <div className="flex h-40 w-full items-center justify-center">
+                <Spinner size="sm" />
+              </div>
+            ) : (
+              <InterviewsQuestionsListSlideOutQuestionList
+                key={`${listType.type}/${listType.value}/${listType.tab}`}
+                checkIfCompletedQuestion={(question) => question.isCompleted}
+                currentQuestionHash={currentQuestionHash}
+                framework={framework}
+                isDifferentListFromInitial={isDifferentListFromInitial}
+                listType={listType}
+                mode={mode}
+                questions={
+                  showCompanyPaywall
+                    ? sortedQuestions.slice(0, 4)
+                    : processedQuestions
+                }
+                renderQuestionsListTopAddOnItem={() =>
+                  renderQuestionsListTopAddOnItem?.({
+                    listType,
+                    tab: data?.listType.tab,
+                  })
+                }
+                showCompanyPaywall={showCompanyPaywall}
+                onClickQuestion={onClickQuestion}
+              />
+            )}
+          </ScrollArea>
+        </div>
       </div>
       <ConfirmationDialog
         cancelButtonLabel={intl.formatMessage({

@@ -9,18 +9,24 @@ import QuestionsQuizSidebarCollapser from '~/components/interviews/questions/con
 import Section from '~/components/ui/Heading/HeadingContext';
 import { themeBorderColor } from '~/components/ui/theme';
 
-import type { QuestionListTypeData } from '../../common/QuestionsTypes';
+import type {
+  QuestionListTypeData,
+} from '../../common/QuestionsTypes';
 import QuestionsQuizSidebarQuestionList from './QuestionQuizSidebarQuestionList';
 import useQuestionsQuizSidebarExpanded from './useQuestionsQuizSidebarExpanded';
 
 type Props = Readonly<{
   children: React.ReactNode;
   initialListType?: QuestionListTypeData;
+  renderQuestionsListTopAddOnItem?: React.ComponentProps<
+    typeof QuestionsQuizSidebarQuestionList
+  >['renderQuestionsListTopAddOnItem'];
 }>;
 
 export default function QuestionsQuizContentLayout({
   children,
   initialListType,
+  renderQuestionsListTopAddOnItem,
 }: Props) {
   const [questionsQuizSidebarExpanded] = useQuestionsQuizSidebarExpanded();
   const pathname = usePathname();
@@ -43,6 +49,9 @@ export default function QuestionsQuizContentLayout({
               ])}>
               <QuestionsQuizSidebarQuestionList
                 initialListType={initialListType}
+                renderQuestionsListTopAddOnItem={
+                  renderQuestionsListTopAddOnItem
+                }
               />
             </div>
           </Section>

@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 import type { InterviewsQuestionQuizScrollableContent } from 'contentlayer/generated';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useDebounceCallback } from 'usehooks-ts';
 import type { VListHandle } from 'virtua';
 import { WindowVirtualizer } from 'virtua';
@@ -31,6 +31,7 @@ import Divider from '~/components/ui/Divider';
 import useQuestionsAutoMarkAsComplete from '../../common/useQuestionsAutoMarkAsComplete';
 import QuestionQuizItem from './QuestionQuizItem';
 import QuestionQuizPageHeader from './QuestionQuizPageHeader';
+import QuestionQuizScrollableListIntroduction from './QuestionQuizScrollableListIntroduction';
 import QuestionQuizScrollModeToggle from './QuestionQuizScrollModeToggle';
 
 type Props = Readonly<{
@@ -46,11 +47,11 @@ function QuestionQuizScrollableListItem({
   onEnterViewport,
   question,
 }: {
-  onEnterViewport: () => void;
+  onEnterViewport: (isInView: boolean) => void;
   question: QuestionQuiz;
 }) {
-  const ref = useEnterViewport(() => {
-    onEnterViewport();
+  const ref = useEnterViewport((isInView) => {
+    onEnterViewport(isInView);
   });
 
   return <QuestionQuizItem ref={ref} question={question} scrollMode={true} />;
@@ -66,6 +67,8 @@ export default function QuestionQuizScrollableList({
 }: Props) {
   const currentHash = useHashChange();
   const virtuaContainerRef = useRef<VListHandle>(null);
+  const [isIntroductionSectionInView, setIsIntroductionSectionInView] =
+    useState(false);
 
   const isUserScroll = useRef(false);
 
@@ -126,7 +129,25 @@ export default function QuestionQuizScrollableList({
   });
 
   return (
-    <QuestionsQuizContentLayout initialListType={listType}>
+    <QuestionsQuizContentLayout
+      initialListType={listType}
+      renderQuestionsListTopAddOnItem={({
+        listType: questionListType,
+        onClick,
+        tab,
+      }) => {
+        if (tab !== 'quiz') {
+          return null;
+        }
+
+        return (
+          <QuestionQuizScrollableListIntroduction
+            isActive={isIntroductionSectionInView}
+            listType={questionListType}
+            onClick={onClick}
+          />
+        );
+      }}>
       <div
         className={clsx(
           'flex flex-col',
@@ -152,6 +173,13 @@ export default function QuestionQuizScrollableList({
             longDescription={longDescription}
             questionCount={questions.length}
             title={title}
+            onEnterViewport={(isInView) => {
+              setIsIntroductionSectionInView(isInView);
+              if (!isInView) {
+                return;
+              }
+              debouncedHashChange('introduction');
+            }}
           />
           <Divider className="my-12" />
           <WindowVirtualizer
@@ -162,7 +190,10 @@ export default function QuestionQuizScrollableList({
               <div key={question.metadata.slug}>
                 <QuestionQuizScrollableListItem
                   question={question}
-                  onEnterViewport={() => {
+                  onEnterViewport={(isInView) => {
+                    if (isIntroductionSectionInView || !isInView) {
+                      return;
+                    }
                     debouncedHashChange(question.metadata.slug);
                   }}
                 />
@@ -174,6 +205,7 @@ export default function QuestionQuizScrollableList({
           </WindowVirtualizer>
         </div>
         <InterviewsStudyListBottomBar
+          allowMarkComplete={!isIntroductionSectionInView}
           initialListType={listType}
           listIsShownInSidebarOnDesktop={true}
           metadata={currentQuestion.metadata}

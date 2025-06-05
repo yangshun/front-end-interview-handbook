@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-export function useEnterViewport(callback: () => void) {
+export function useEnterViewport(callback: (isInView: boolean) => void) {
   const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -12,9 +12,7 @@ export function useEnterViewport(callback: () => void) {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          callback();
-        }
+        callback(entry.isIntersecting);
       },
       {
         threshold: 0.1,
