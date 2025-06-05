@@ -19,9 +19,7 @@ import type {
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionsQuizContentLayout from '~/components/interviews/questions/content/quiz/QuestionsQuizContentLayout';
 import useQuestionCodingSorting from '~/components/interviews/questions/listings/filters/hooks/useQuestionCodingSorting';
-import useQuestionUnifiedFilters from '~/components/interviews/questions/listings/filters/hooks/useQuestionUnifiedFilters';
 import {
-  filterQuestions,
   sortQuestionsMultiple,
 } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import useQuestionsWithCompletionStatus from '~/components/interviews/questions/listings/items/useQuestionsWithCompletionStatus';
@@ -75,24 +73,15 @@ export default function QuestionQuizScrollableList({
   const questionsWithCompletionStatus =
     useQuestionsWithCompletionStatus(questionsList);
 
-  const { filters } = useQuestionUnifiedFilters({
-    listType,
-  });
-
   // Sorting.
   const { sortFields } = useQuestionCodingSorting({
     listType,
   });
 
   // Processing.
-  const sortedQuestions = sortQuestionsMultiple(
+  const questions = sortQuestionsMultiple(
     questionsWithCompletionStatus,
     sortFields,
-  );
-
-  const questions = filterQuestions(
-    sortedQuestions,
-    filters.map(([_, filterFn]) => filterFn),
   );
 
   const currentQuestionIndex = questions.findIndex(
