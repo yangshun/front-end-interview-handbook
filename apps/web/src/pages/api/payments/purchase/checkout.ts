@@ -111,9 +111,12 @@ export default async function handler(req: NextRequest) {
 
       const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
         apiVersion: '2023-10-16',
+        maxNetworkRetries: 2,
       });
 
       const customer = await stripe.customers.create(
+        // Keep parameters across customer creation synced
+        // because they use the same idempotency key
         {
           email: user.email,
         },

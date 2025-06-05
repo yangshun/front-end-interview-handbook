@@ -395,6 +395,7 @@ export const promotionsRouter = router({
 
       const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
         apiVersion: '2023-10-16',
+        maxNetworkRetries: 2,
       });
 
       let stripeCustomer = profile?.stripeCustomer;
@@ -412,9 +413,10 @@ export const promotionsRouter = router({
         }
 
         const newCustomer = await stripe.customers.create(
+          // Keep parameters across customer creation synced
+          // because they use the same idempotency key
           {
             email: user.email,
-            name: user.user_metadata.name,
           },
           {
             idempotencyKey: user.id,
