@@ -65,6 +65,7 @@ export async function POST(req: NextRequest) {
 
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
     apiVersion: '2023-10-16',
+    maxNetworkRetries: 2,
   });
 
   // This is needed because sometimes this hook is called after the
@@ -94,9 +95,10 @@ export async function POST(req: NextRequest) {
   }
 
   const customer = await stripe.customers.create(
+    // Keep parameters across customer creation synced
+    // because they use the same idempotency key
     {
       email: user.email,
-      name: user.user_metadata.name,
     },
     {
       idempotencyKey: user.id,

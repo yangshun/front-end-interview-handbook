@@ -15,15 +15,15 @@ export const PurchasePaymentTazapayProvider = {
   async createCustomer({
     countryCode,
     email,
-    id,
     name,
+    userId,
   }: Readonly<{
     countryCode: string;
     email: string;
-    id: string;
     name: string;
+    userId: string;
   }>) {
-    console.info(`No Tazapay customer found for ${id}, creating one`);
+    console.info(`No Tazapay customer found for ${userId}, creating one`);
 
     const data = await fetchFromTazapay<{ id: string }>({
       body: {

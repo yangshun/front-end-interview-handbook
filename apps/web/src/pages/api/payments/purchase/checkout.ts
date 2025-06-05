@@ -138,7 +138,7 @@ export default async function handler(req: NextRequest) {
         const paymentProviderCustomer =
           await PurchasePaymentStripeProvider.createCustomer({
             email: user.email,
-            id: user.id,
+            userId: user.id,
           });
 
         customerId = paymentProviderCustomer.id;
@@ -151,8 +151,8 @@ export default async function handler(req: NextRequest) {
           await PurchasePaymentTazapayProvider.createCustomer({
             countryCode,
             email: user.email,
-            id: user.id,
             name: userProfile.name || user.email,
+            userId: user.id,
           });
 
         customerId = paymentProviderCustomer.id;

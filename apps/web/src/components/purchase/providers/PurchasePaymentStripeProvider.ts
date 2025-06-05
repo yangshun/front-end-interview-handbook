@@ -4,21 +4,27 @@ import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseSer
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: '2023-10-16',
+  maxNetworkRetries: 2,
 });
 
 export const PurchasePaymentStripeProvider = {
-  async createCustomer({ email, id }: Readonly<{ email: string; id: string }>) {
-    console.info(`No Stripe customer found for ${id}, creating one`);
+  async createCustomer({
+    email,
+    userId,
+  }: Readonly<{ email: string; userId: string }>) {
+    console.info(`No Stripe customer found for ${userId}, creating one`);
 
     // This happens when Supabase's webhooks don't fire during user signup
     // and there's no corresponding Stripe customer for the user.
     // We create a customer on the fly and update the `Profile` table.
     const customer = await stripe.customers.create(
+      // Keep parameters across customer creation synced
+      // because they use the same idempotency key
       {
         email,
       },
       {
-        idempotencyKey: id,
+        idempotencyKey: userId,
       },
     );
 
@@ -30,7 +36,7 @@ export const PurchasePaymentStripeProvider = {
       .update({
         stripeCustomer: customer.id,
       })
-      .eq('id', id);
+      .eq('id', userId);
 
     return { id: customer.id };
   },
