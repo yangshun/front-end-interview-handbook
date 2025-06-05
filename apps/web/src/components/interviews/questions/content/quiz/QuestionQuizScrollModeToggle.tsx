@@ -1,7 +1,7 @@
-import * as Switch from '@radix-ui/react-switch';
-import clsx from 'clsx';
 import { useEffect, useState } from 'react';
+import { RiPagesLine, RiTerminalWindowLine } from 'react-icons/ri';
 import url from 'url';
+import { useMediaQuery } from 'usehooks-ts';
 
 import {
   QuestionFrameworkRawToSEOMapping,
@@ -12,13 +12,8 @@ import type {
   QuestionFramework,
   QuestionLanguage,
 } from '~/components/interviews/questions/common/QuestionsTypes';
-import { FormattedMessage } from '~/components/intl';
-import Anchor from '~/components/ui/Anchor';
-import Text from '~/components/ui/Text';
-import {
-  themeBackgroundColor,
-  themeOutlineElementBrandColor_FocusVisible,
-} from '~/components/ui/theme';
+import { useIntl } from '~/components/intl';
+import DropdownMenu from '~/components/ui/DropdownMenu';
 
 type Props = Readonly<{
   isScrollModeValue: boolean;
@@ -29,8 +24,17 @@ export default function QuestionQuizScrollModeToggle({
   isScrollModeValue,
   slug,
 }: Props) {
+  const intl = useIntl();
   const [isScrollMode, setIsScrollMode] = useState(isScrollModeValue);
-  const [pageUrl, setPageUrl] = useState('#');
+  const [questionHref, setQuestionHref] = useState({
+    pageByPage: '#',
+    scroll: '#',
+  });
+  const [renderToggleButton, setRenderToggleButton] = useState(false);
+  const isSmallTablet = useMediaQuery(
+    '(min-width: 641px) and (max-width: 768px)',
+  );
+  const isMobile = useMediaQuery('(max-width: 640px)');
 
   useEffect(() => {
     function getPageURL() {
@@ -47,6 +51,8 @@ export default function QuestionQuizScrollModeToggle({
         'framework',
       ) as QuestionFramework;
 
+      // Becasue quiz scroll mode is only supported for languages and frameworks
+      setRenderToggleButton(language !== null || framework !== null);
       if (isScrollModeValue) {
         urlObject.pathname = `/questions/quiz/${slug}`;
         urlObject.hash = '';
@@ -65,54 +71,82 @@ export default function QuestionQuizScrollModeToggle({
         search: urlObject.search,
       });
 
-      return newURL;
+      if (isScrollModeValue) {
+        setQuestionHref({
+          pageByPage: newURL,
+          scroll: window.location.href,
+        });
+      } else {
+        setQuestionHref({
+          pageByPage: window.location.href,
+          scroll: newURL,
+        });
+      }
     }
-    setPageUrl(getPageURL());
+    getPageURL();
   }, [slug, isScrollModeValue]);
 
+  const options = [
+    {
+      href: questionHref.scroll,
+      icon: RiPagesLine,
+      isSelected: isScrollMode,
+      label: intl.formatMessage({
+        defaultMessage: 'Scrolling view',
+        description: 'Label for quiz scroll mode toggle button',
+        id: '/mpSVj',
+      }),
+      value: 'scroll',
+    },
+    {
+      href: questionHref.pageByPage,
+      icon: RiTerminalWindowLine,
+      isSelected: !isScrollMode,
+      label: intl.formatMessage({
+        defaultMessage: 'Page-by-page',
+        description: 'Label for quiz scroll mode toggle button',
+        id: 'rCqW54',
+      }),
+      value: 'page-by-page',
+    },
+  ];
+  const selectedOption = options.filter((item) => item.isSelected)[0];
+
+  if (!renderToggleButton) {
+    return null;
+  }
+
   return (
-    <div className="flex items-center gap-2">
-      <Text size="body2">
-        <FormattedMessage
-          defaultMessage="Switch to page-by-page"
-          description="Label for page-by-page toggle button"
-          id="O0TX7L"
+    <DropdownMenu
+      align="end"
+      icon={isSmallTablet ? undefined : selectedOption.icon}
+      isLabelHidden={isMobile}
+      label={selectedOption.label}
+      showChevron={true}
+      size="xs"
+      tooltip={
+        isScrollMode
+          ? intl.formatMessage({
+              defaultMessage: 'All questions appear on a single page',
+              description: 'Tooltip for quiz scroll mode toggle button',
+              id: 'jjdVOP',
+            })
+          : intl.formatMessage({
+              defaultMessage: 'Questions appear on different pages',
+              description: 'Tooltip for quiz scroll mode toggle button',
+              id: 'THbGFn',
+            })
+      }>
+      {options.map(({ href, icon, isSelected, label, value }) => (
+        <DropdownMenu.Item
+          key={value}
+          href={href}
+          icon={icon}
+          isSelected={isSelected}
+          label={label}
+          onClick={() => setIsScrollMode(value === 'scroll')}
         />
-      </Text>
-      <Switch.Root
-        asChild={true}
-        checked={!isScrollMode}
-        className={clsx(
-          'h-4 w-8 shrink-0',
-          'rounded-full',
-          'transition-colors',
-          [
-            'border',
-            !isScrollMode
-              ? 'border-transparent'
-              : 'border-neutral-700 dark:border-neutral-100',
-          ],
-          !isScrollMode && 'dark:bg-brand bg-neutral-900',
-          themeOutlineElementBrandColor_FocusVisible,
-        )}>
-        <Anchor
-          className="flex items-center"
-          href={pageUrl}
-          variant="unstyled"
-          onClick={() => setIsScrollMode(!isScrollMode)}>
-          <Switch.Thumb
-            className={clsx(
-              'block',
-              'size-2 rounded-full',
-              !isScrollMode
-                ? themeBackgroundColor
-                : 'bg-neutral-700 dark:bg-neutral-100',
-              'translate-x-1 data-[state=checked]:translate-x-[18px]',
-              'transition-transform duration-100 will-change-transform',
-            )}
-          />
-        </Anchor>
-      </Switch.Root>
-    </div>
+      ))}
+    </DropdownMenu>
   );
 }

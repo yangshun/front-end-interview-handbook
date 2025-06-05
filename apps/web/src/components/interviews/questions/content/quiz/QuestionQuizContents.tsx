@@ -70,12 +70,6 @@ export default function QuestionQuizContents({
         'min-h-[calc(100vh_-_var(--global-sticky-height))]',
       )}>
       <Container className={clsx('grow', 'py-6 lg:py-8 xl:py-12')} width="3xl">
-        <div className="mb-3 hidden justify-end lg:flex">
-          <QuestionQuizScrollModeToggle
-            isScrollModeValue={false}
-            slug={question.metadata.slug}
-          />
-        </div>
         <div className="flex flex-col gap-y-6">
           <div className="overflow-auto">
             <Text className="mb-1 block" color="secondary" size="body2">
@@ -111,6 +105,12 @@ export default function QuestionQuizContents({
         />
       </Container>
       <InterviewsStudyListBottomBar
+        leftAddOnItem={
+          <QuestionQuizScrollModeToggle
+            isScrollModeValue={false}
+            slug={question.metadata.slug}
+          />
+        }
         listIsShownInSidebarOnDesktop={listIsShownInSidebarOnDesktop}
         metadata={question.metadata}
         studyListKey={studyListKey}

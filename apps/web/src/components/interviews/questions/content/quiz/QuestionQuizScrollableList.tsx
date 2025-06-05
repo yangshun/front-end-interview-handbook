@@ -161,12 +161,6 @@ export default function QuestionQuizScrollableList({
             'px-4 sm:px-6 xl:px-0',
             'w-full max-w-[864px]',
           )}>
-          <div className="mb-3 hidden justify-end lg:flex">
-            <QuestionQuizScrollModeToggle
-              isScrollModeValue={true}
-              slug={currentQuestion.metadata.slug}
-            />
-          </div>
           <QuestionQuizPageHeader
             description={description}
             languageOrFramework={languageOrFramework}
@@ -207,6 +201,12 @@ export default function QuestionQuizScrollableList({
         <InterviewsStudyListBottomBar
           allowMarkComplete={!isIntroductionSectionInView}
           initialListType={listType}
+          leftAddOnItem={
+            <QuestionQuizScrollModeToggle
+              isScrollModeValue={true}
+              slug={currentQuestion.metadata.slug}
+            />
+          }
           listIsShownInSidebarOnDesktop={true}
           metadata={currentQuestion.metadata}
           questionTitle={currentQuestion.info.title}

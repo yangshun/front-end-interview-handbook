@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import type { ReactNode } from 'react';
 import { Suspense } from 'react';
 
 import QuestionProgressAction from '~/components/interviews/questions/common/QuestionProgressAction';
@@ -19,6 +20,7 @@ import type { QuestionListTypeData } from '../../common/QuestionsTypes';
 type Props = Readonly<{
   allowMarkComplete?: boolean;
   initialListType?: QuestionListTypeData;
+  leftAddOnItem?: ReactNode;
   listIsShownInSidebarOnDesktop: boolean;
   metadata: React.ComponentProps<typeof QuestionProgressAction>['metadata'];
   questionTitle?: string;
@@ -28,6 +30,7 @@ type Props = Readonly<{
 export default function InterviewsStudyListBottomBar({
   allowMarkComplete = true,
   initialListType,
+  leftAddOnItem,
   listIsShownInSidebarOnDesktop,
   metadata,
   questionTitle,
@@ -37,12 +40,12 @@ export default function InterviewsStudyListBottomBar({
     <div
       className={clsx(
         'sticky inset-x-0 bottom-0',
-        'space-y-2.5 px-3 py-2.5',
+        'px-3 py-2.5',
         ['border-t', themeBorderColor],
         themeBackgroundDarkColor,
       )}>
       {questionTitle && (
-        <Text className="block lg:hidden" size="body3">
+        <Text className="block pb-2.5 lg:hidden" size="body3">
           {questionTitle}
         </Text>
       )}
@@ -58,20 +61,23 @@ export default function InterviewsStudyListBottomBar({
             />
           </Suspense>
         </div>
-        <div className="hidden sm:flex sm:flex-1">
+        <div className="hidden gap-2 sm:flex sm:flex-1">
           <QuestionReportIssueButton
             entity="question"
             format={metadata.format}
             slug={metadata.slug}
           />
+          {leftAddOnItem}
         </div>
-        <div className={clsx('flex justify-end sm:order-3 sm:flex-1')}>
-          <QuestionReportIssueButton
-            className="mr-2 sm:hidden"
-            entity="question"
-            format={metadata.format}
-            slug={metadata.slug}
-          />
+        <div className={clsx('flex justify-end gap-3 sm:order-3 sm:flex-1')}>
+          <div className="flex gap-3 sm:hidden">
+            <QuestionReportIssueButton
+              entity="question"
+              format={metadata.format}
+              slug={metadata.slug}
+            />
+            {leftAddOnItem}
+          </div>
           {allowMarkComplete && (
             <QuestionProgressAction
               metadata={metadata}
