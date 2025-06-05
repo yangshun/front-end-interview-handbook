@@ -209,6 +209,7 @@ export default function QuestionQuizScrollableList({
           initialListType={listType}
           listIsShownInSidebarOnDesktop={true}
           metadata={currentQuestion.metadata}
+          questionTitle={currentQuestion.info.title}
         />
       </div>
     </QuestionsQuizContentLayout>
