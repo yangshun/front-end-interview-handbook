@@ -812,9 +812,6 @@ importers:
       '@clack/prompts':
         specifier: ^0.9.1
         version: 0.9.1
-      '@gfe/eslint-config':
-        specifier: workspace:*
-        version: link:../eslint-config
       ai:
         specifier: ^4.2.5
         version: 4.3.15(react@18.3.1)(zod@3.24.4)
@@ -827,9 +824,6 @@ importers:
       dotenv:
         specifier: ^16.3.1
         version: 16.5.0
-      eslint:
-        specifier: 9.26.0
-        version: 9.26.0(jiti@1.21.7)
       globby:
         specifier: ^13.2.2
         version: 13.2.2
@@ -867,6 +861,9 @@ importers:
         specifier: ^3.24.3
         version: 3.24.4
     devDependencies:
+      '@gfe/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
       '@types/lodash-es':
         specifier: ^4.17.6
         version: 4.17.12
@@ -876,6 +873,9 @@ importers:
       '@types/yargs':
         specifier: ^17.0.33
         version: 17.0.33
+      eslint:
+        specifier: 9.26.0
+        version: 9.26.0(jiti@1.21.7)
       prettier:
         specifier: 3.5.3
         version: 3.5.3

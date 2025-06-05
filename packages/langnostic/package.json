@@ -28,8 +28,6 @@
     "@ai-sdk/google": "^1.2.3",
     "@ai-sdk/openai": "^1.3.2",
     "@clack/prompts": "^0.9.1",
-    "@gfe/eslint-config": "workspace:*",
-    "eslint": "9.26.0",
     "ai": "^4.2.5",
     "chalk": "^5.2.0",
     "cosmiconfig": "^9.0.0",
@@ -48,9 +46,11 @@
     "zod": "^3.24.3"
   },
   "devDependencies": {
+    "@gfe/eslint-config": "workspace:*",
     "@types/lodash-es": "^4.17.6",
     "@types/node": "22.15.0",
     "@types/yargs": "^17.0.33",
+    "eslint": "9.26.0",
     "prettier": "3.5.3",
     "rimraf": "^6.0.1",
     "tsup": "^8.3.6",
