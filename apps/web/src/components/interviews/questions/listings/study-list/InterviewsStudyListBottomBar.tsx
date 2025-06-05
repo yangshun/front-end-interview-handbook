@@ -6,7 +6,10 @@ import { Suspense } from 'react';
 import QuestionProgressAction from '~/components/interviews/questions/common/QuestionProgressAction';
 import QuestionReportIssueButton from '~/components/interviews/questions/common/QuestionReportIssueButton';
 import InterviewsQuestionsListSlideOutButton from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOutButton';
-import { themeBackgroundColor, themeBorderColor } from '~/components/ui/theme';
+import {
+  themeBackgroundDarkColor,
+  themeBorderColor,
+} from '~/components/ui/theme';
 
 import { hashQuestion } from '~/db/QuestionsUtils';
 
@@ -33,7 +36,7 @@ export default function InterviewsStudyListBottomBar({
         'sticky inset-x-0 bottom-0',
         'flex items-center justify-between gap-2 px-3 py-3',
         ['border-t', themeBorderColor],
-        themeBackgroundColor,
+        themeBackgroundDarkColor,
       )}>
       <div className="flex shrink-0 justify-center sm:order-2 sm:flex-1">
         <Suspense>

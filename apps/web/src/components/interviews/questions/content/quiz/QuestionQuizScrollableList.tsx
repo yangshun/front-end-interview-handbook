@@ -153,7 +153,7 @@ export default function QuestionQuizScrollableList({
             questionCount={questions.length}
             title={title}
           />
-          <Divider className="my-8" />
+          <Divider className="my-12" />
           <WindowVirtualizer
             ref={virtuaContainerRef}
             ssrCount={questions.length}

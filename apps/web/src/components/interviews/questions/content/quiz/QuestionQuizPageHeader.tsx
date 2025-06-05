@@ -52,7 +52,7 @@ export default function QuestionQuizPageHeader({
               <span>{roundQuestionCountToNearestTen(questionCount)}</span>
             ),
           }}
-          fontSize="sm"
+          fontSize="md"
           mdxCode={longDescription.body.code}
           proseClassName={clsx('prose-sm', themeTextSecondaryColor)}
         />

@@ -75,7 +75,10 @@ function QuestionQuizItem(
     <article ref={ref} aria-labelledby={titleId} className="grow">
       <div className={clsx('min-h-0 flex-1', scrollMode && 'space-y-9')}>
         <header className={clsx('flex flex-col gap-y-4')}>
-          <Heading className="pb-4" id={titleId} level="heading4">
+          <Heading
+            className="pb-4"
+            id={titleId}
+            level={scrollMode ? 'heading5' : 'heading4'}>
             {question.info.title}
           </Heading>
           {question.metadata.subtitle && (
