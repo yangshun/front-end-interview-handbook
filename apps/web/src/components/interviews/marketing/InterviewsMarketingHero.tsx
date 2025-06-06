@@ -159,6 +159,7 @@ export default function InterviewsMarketingHero() {
             })}
             prefetch={null}
             size="lg"
+            target="_blank"
             variant="primary"
           />
           <Text color="secondary" size="body3" weight="medium">

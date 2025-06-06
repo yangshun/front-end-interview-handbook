@@ -148,6 +148,7 @@ export default function MarketingCommunitySection() {
                     iconSecondary_USE_SPARINGLY={RiArrowRightSLine}
                     label={name}
                     size="md"
+                    target="_blank"
                     variant="tertiary"
                     onClick={() => {
                       gtag.event({

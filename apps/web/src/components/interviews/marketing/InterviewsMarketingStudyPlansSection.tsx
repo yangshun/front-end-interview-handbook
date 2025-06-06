@@ -158,10 +158,11 @@ function CenterNode({
       <Anchor
         className={clsx('text-xs font-medium lg:text-base')}
         href={href}
+        target="_blank"
         variant="unstyled">
         {children}
       </Anchor>
-      <Anchor className="absolute inset-0" href={href} variant="flat" />
+      <Anchor className="absolute inset-0" href={href} target="_blank" variant="flat" />
     </div>
   );
 }

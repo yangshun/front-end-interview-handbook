@@ -229,6 +229,7 @@ export default function InterviewsMarketingContactSection() {
                   aria-label={key}
                   className="absolute inset-0"
                   href={href}
+                  target="_blank"
                 />
               </div>
             ))}

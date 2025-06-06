@@ -352,6 +352,7 @@ export default function InterviewsMarketingPracticeQuestionBankSection({
                       })}
                       prefetch={null}
                       size="md"
+                      target="_blank"
                       variant="secondary"
                     />
                   </div>

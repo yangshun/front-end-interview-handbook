@@ -95,7 +95,8 @@ export default function InterviewsMarketingFAQSection() {
                 link: (chunks) => (
                   <Anchor
                     className="inline-flex items-center gap-1"
-                    href="/interviews/faq">
+                    href="/interviews/faq"
+                    target="_blank">
                     {chunks} <RiArrowRightLine className="size-4.5 shrink-0" />
                   </Anchor>
                 ),

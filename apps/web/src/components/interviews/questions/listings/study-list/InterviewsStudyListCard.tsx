@@ -120,7 +120,7 @@ export default function InterviewsStudyListCard({
           <div className="flex flex-col items-start gap-2">
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
               <Text size="body1" weight="bold">
-                <Anchor className="relative z-[1]" href={href} variant="flat">
+                <Anchor className="relative z-[1]" href={href} target="_blank" variant="flat">
                   {showLongName ? longName : name}
                 </Anchor>
               </Text>
@@ -172,7 +172,7 @@ export default function InterviewsStudyListCard({
           )}
         />
       </div>
-      <Anchor aria-label={name} className="absolute inset-0" href={href} />
+      <Anchor aria-label={name} className="absolute inset-0" href={href} target="_blank" />
     </div>
   );
 }
