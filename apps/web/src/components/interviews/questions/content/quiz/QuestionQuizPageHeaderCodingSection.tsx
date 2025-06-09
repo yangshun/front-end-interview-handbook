@@ -51,10 +51,12 @@ export default function QuestionQuizPageHeaderCodingSection({
     codingFeatures.questions,
     codingFeatures['browser-coding'],
     codingFeatures.solutions,
-    codingFeatures['test-cases'],
+    ...(languageOrFramework !== 'react' ? [codingFeatures['test-cases']] : []),
     ...(languageOrFramework === 'js'
       ? [codingFeatures['code-preview']]
-      : [codingFeatures['ui-preview']]),
+      : languageOrFramework === 'react'
+        ? [codingFeatures['ui-preview']]
+        : [codingFeatures['related-ui-preview']]),
   ];
 
   const codingQuestionsHref = Object.keys(
@@ -171,9 +173,9 @@ function useCodingFeatures(languageOrFramework: LanguageOrFramework) {
       key: 'browser-coding',
       label: intl.formatMessage({
         defaultMessage:
-          'In-browser coding workspace that mimics real interview conditions',
+          'An in-browser coding workspace that mimics real interview conditions',
         description: 'Label for browser-based coding environment',
-        id: 'YEEd13',
+        id: 'fbZwwj',
       }),
     },
     'code-preview': {
@@ -201,6 +203,14 @@ function useCodingFeatures(languageOrFramework: LanguageOrFramework) {
         },
       ),
     },
+    'related-ui-preview': {
+      key: 'ui-questions-preview',
+      label: intl.formatMessage({
+        defaultMessage: 'Instant UI preview for UI-related questions',
+        description: 'Label for related UI preview features',
+        id: 'A5JdsM',
+      }),
+    },
     solutions: {
       key: 'solutions',
       label: intl.formatMessage({
@@ -221,9 +231,9 @@ function useCodingFeatures(languageOrFramework: LanguageOrFramework) {
     'ui-preview': {
       key: 'ui-questions-preview',
       label: intl.formatMessage({
-        defaultMessage: 'Instant UI preview for UI-related questions',
-        description: 'Label for code preview features',
-        id: '2TPnld',
+        defaultMessage: 'Instant UI preview for UI questions',
+        description: 'Label for UI preview features',
+        id: 'tmk5rv',
       }),
     },
   };
