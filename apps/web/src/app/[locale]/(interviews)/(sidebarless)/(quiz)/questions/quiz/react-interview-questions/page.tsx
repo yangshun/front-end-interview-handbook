@@ -93,11 +93,14 @@ export default async function Page({ params }: Props) {
       description={intl.formatMessage(
         {
           defaultMessage:
-            '{questionCount}+ most important React interview questions and answers on component lifecycle, state and props management, hooks, routing and more',
-          description: 'Description of React quiz questions page',
-          id: 'inm56s',
+            '{questionCount}+ {category} interview questions and answers in quiz-style format, answered by ex-FAANG interviewers',
+          description: 'Description of scroll mode quiz questions page',
+          id: 'EtDVci',
         },
-        { questionCount: roundQuestionCountToNearestTen(quizQuestions.length) },
+        {
+          category,
+          questionCount: roundQuestionCountToNearestTen(quizQuestions.length),
+        },
       )}
       languageOrFramework="react"
       listType={listType}

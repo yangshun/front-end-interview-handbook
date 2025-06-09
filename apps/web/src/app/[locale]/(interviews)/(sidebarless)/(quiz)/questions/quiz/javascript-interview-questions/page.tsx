@@ -93,11 +93,14 @@ export default async function Page({ params }: Props) {
       description={intl.formatMessage(
         {
           defaultMessage:
-            '{questionCount}+ JavaScript interview questions and answers in quiz-style format, answered by ex-FAANG interviewers',
-          description: 'Description of JavaScript quiz questions page',
-          id: 'PNWyqB',
+            '{questionCount}+ {category} interview questions and answers in quiz-style format, answered by ex-FAANG interviewers',
+          description: 'Description of scroll mode quiz questions page',
+          id: 'EtDVci',
         },
-        { questionCount: roundQuestionCountToNearestTen(quizQuestions.length) },
+        {
+          category,
+          questionCount: roundQuestionCountToNearestTen(quizQuestions.length),
+        },
       )}
       languageOrFramework="js"
       listType={listType}

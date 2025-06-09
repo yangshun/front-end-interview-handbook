@@ -93,11 +93,14 @@ export default async function Page({ params }: Props) {
       description={intl.formatMessage(
         {
           defaultMessage:
-            '{questionCount}+ most important CSS interview questions and answers, covering everything you need to know—from specificity and the box model to flexbox, grid, responsive design, and performance optimization.',
-          description: 'Description of CSS quiz questions page',
-          id: 'tKr9LQ',
+            '{questionCount}+ {category} interview questions and answers in quiz-style format, answered by ex-FAANG interviewers',
+          description: 'Description of scroll mode quiz questions page',
+          id: 'EtDVci',
         },
-        { questionCount: roundQuestionCountToNearestTen(quizQuestions.length) },
+        {
+          category,
+          questionCount: roundQuestionCountToNearestTen(quizQuestions.length),
+        },
       )}
       languageOrFramework="css"
       listType={listType}

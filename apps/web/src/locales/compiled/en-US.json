@@ -761,6 +761,12 @@
       "value": "Warm up question"
     }
   ],
+  "/mpSVj": [
+    {
+      "type": 0,
+      "value": "Scrolling view"
+    }
+  ],
   "/n0jtw": [
     {
       "type": 0,
@@ -7522,6 +7528,24 @@
       "value": "Project started! Leverage the provided resources and submit a link to your site once ready!"
     }
   ],
+  "EtDVci": [
+    {
+      "type": 1,
+      "value": "questionCount"
+    },
+    {
+      "type": 0,
+      "value": "+ "
+    },
+    {
+      "type": 1,
+      "value": "category"
+    },
+    {
+      "type": 0,
+      "value": " interview questions and answers in quiz-style format, answered by ex-FAANG interviewers"
+    }
+  ],
   "Euaee/": [
     {
       "type": 0,
@@ -7820,6 +7844,12 @@
     {
       "type": 0,
       "value": "JavaScript Functions"
+    }
+  ],
+  "Fxe4CE": [
+    {
+      "type": 0,
+      "value": "Total due"
     }
   ],
   "FyfO1X": [
@@ -10989,16 +11019,6 @@
       "value": " characters"
     }
   ],
-  "Mr6932": [
-    {
-      "type": 1,
-      "value": "questionCount"
-    },
-    {
-      "type": 0,
-      "value": "+ most important TypeScript interview questions and answers covering everything you need to know—from fundamentals, generics and utility types, to building type-safe applications."
-    }
-  ],
   "Mvs/7B": [
     {
       "type": 0,
@@ -11345,12 +11365,6 @@
     {
       "type": 0,
       "value": "Article view"
-    }
-  ],
-  "O0TX7L": [
-    {
-      "type": 0,
-      "value": "Switch to page-by-page"
     }
   ],
   "O0WPJA": [
@@ -13284,6 +13298,12 @@
       "value": "Privacy policy"
     }
   ],
+  "Rxyjw3": [
+    {
+      "type": 0,
+      "value": "Introduction"
+    }
+  ],
   "RyuIJe": [
     {
       "type": 0,
@@ -13881,16 +13901,6 @@
       "value": "% off"
     }
   ],
-  "T4m6dQ": [
-    {
-      "type": 1,
-      "value": "questionCount"
-    },
-    {
-      "type": 0,
-      "value": "+ most important HTML interview questions and answers, covering everything you need to know—from accessibility and semantics to forms, multimedia, SEO optimization, and best practices."
-    }
-  ],
   "T6+Y/z": [
     {
       "type": 0,
@@ -13979,6 +13989,12 @@
     {
       "type": 0,
       "value": "Tell us anything - about your journey as a front end developer, your goals and next steps, or how you want to connect with others"
+    }
+  ],
+  "THbGFn": [
+    {
+      "type": 0,
+      "value": "Questions appear on different pages"
     }
   ],
   "TJD+8A": [
@@ -15946,16 +15962,6 @@
       "value": "Complete your profile"
     }
   ],
-  "XkOCWy": [
-    {
-      "type": 1,
-      "value": "questionCount"
-    },
-    {
-      "type": 0,
-      "value": "+ JavaScript interview questions and answers, covering everything you need to know—from core JavaScript fundamentals to advanced features, including key topics like accessibility and performance optimization"
-    }
-  ],
   "XkWy18": [
     {
       "type": 0,
@@ -16278,6 +16284,12 @@
     {
       "type": 0,
       "value": "Includes all our questions and guides pages"
+    }
+  ],
+  "YQhqx6": [
+    {
+      "type": 0,
+      "value": "Add promotion code"
     }
   ],
   "YRIsJs": [
@@ -17222,6 +17234,12 @@
     {
       "type": 0,
       "value": "Outdent line"
+    }
+  ],
+  "al0GiV": [
+    {
+      "type": 0,
+      "value": "There was a technical error while processing the payment."
     }
   ],
   "alG3Yi": [
@@ -21072,20 +21090,16 @@
       "value": " Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers"
     }
   ],
-  "inm56s": [
-    {
-      "type": 1,
-      "value": "questionCount"
-    },
-    {
-      "type": 0,
-      "value": "+ most important React interview questions and answers on component lifecycle, state and props management, hooks, routing and more"
-    }
-  ],
   "iqz/fo": [
     {
       "type": 0,
       "value": "Types of JS questions, concepts to cover and rubrics"
+    }
+  ],
+  "isHmCU": [
+    {
+      "type": 0,
+      "value": "Invalid promo code"
     }
   ],
   "iw1XYQ": [
@@ -21542,6 +21556,12 @@
     {
       "type": 0,
       "value": "Suitable to get your foot in the door."
+    }
+  ],
+  "jjdVOP": [
+    {
+      "type": 0,
+      "value": "All questions appear on a single page"
     }
   ],
   "jlTtgt": [
@@ -22773,6 +22793,16 @@
       "value": "In Content Ad Placement in guides"
     }
   ],
+  "mLrZGz": [
+    {
+      "type": 1,
+      "value": "amountOff"
+    },
+    {
+      "type": 0,
+      "value": " off"
+    }
+  ],
   "mNb3b2": [
     {
       "type": 0,
@@ -23335,6 +23365,12 @@
       "value": "More settings"
     }
   ],
+  "nSJ/yC": [
+    {
+      "type": 0,
+      "value": "Continue"
+    }
+  ],
   "nTu2nu": [
     {
       "type": 0,
@@ -23513,6 +23549,16 @@
     {
       "type": 0,
       "value": "."
+    }
+  ],
+  "nnXIFO": [
+    {
+      "type": 1,
+      "value": "questionCount"
+    },
+    {
+      "type": 0,
+      "value": "+ most important JavaScript interview questions and answers, covering everything from core concepts to advanced JavaScript features"
     }
   ],
   "nodFHk": [
@@ -25215,6 +25261,12 @@
       "value": "No Projects profile"
     }
   ],
+  "rCqW54": [
+    {
+      "type": 0,
+      "value": "Page-by-page"
+    }
+  ],
   "rGbEEY": [
     {
       "type": 0,
@@ -25947,16 +25999,6 @@
       "value": "Build entire component libraries or design systems from scratch for your portfolio or as a toolkit for future projects."
     }
   ],
-  "tKr9LQ": [
-    {
-      "type": 1,
-      "value": "questionCount"
-    },
-    {
-      "type": 0,
-      "value": "+ most important CSS interview questions and answers, covering everything you need to know—from specificity and the box model to flexbox, grid, responsive design, and performance optimization."
-    }
-  ],
   "tM5fjO": [
     {
       "type": 0,
@@ -26003,6 +26045,16 @@
     {
       "type": 0,
       "value": "Starter"
+    }
+  ],
+  "tRQG6L": [
+    {
+      "type": 1,
+      "value": "percentOff"
+    },
+    {
+      "type": 0,
+      "value": "% off"
     }
   ],
   "tWtbVf": [
@@ -26677,6 +26729,12 @@
     {
       "type": 0,
       "value": "View other's code and learn from their approach"
+    }
+  ],
+  "vLsSQG": [
+    {
+      "type": 0,
+      "value": "Sub total"
     }
   ],
   "vMy9f3": [

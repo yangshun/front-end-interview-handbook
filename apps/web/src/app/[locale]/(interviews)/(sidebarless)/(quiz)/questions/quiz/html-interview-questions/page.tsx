@@ -92,11 +92,14 @@ export default async function Page({ params }: Props) {
       description={intl.formatMessage(
         {
           defaultMessage:
-            '{questionCount}+ most important HTML interview questions and answers, covering everything you need to know—from accessibility and semantics to forms, multimedia, SEO optimization, and best practices.',
-          description: 'Description of HTML quiz questions page',
-          id: 'T4m6dQ',
+            '{questionCount}+ {category} interview questions and answers in quiz-style format, answered by ex-FAANG interviewers',
+          description: 'Description of scroll mode quiz questions page',
+          id: 'EtDVci',
         },
-        { questionCount: roundQuestionCountToNearestTen(quizQuestions.length) },
+        {
+          category,
+          questionCount: roundQuestionCountToNearestTen(quizQuestions.length),
+        },
       )}
       languageOrFramework="html"
       listType={listType}

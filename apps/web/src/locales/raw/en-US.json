@@ -399,6 +399,10 @@
     "defaultMessage": "Warm up question",
     "description": "Label for warm up questions"
   },
+  "/mpSVj": {
+    "defaultMessage": "Scrolling view",
+    "description": "Label for quiz scroll mode toggle button"
+  },
   "/n0jtw": {
     "defaultMessage": "Contact your bank to get a new card issued.",
     "description": "Reason label for new card issue"
@@ -3555,6 +3559,10 @@
     "defaultMessage": "Project started! Leverage the provided resources and submit a link to your site once ready!",
     "description": "Toast subtitle for project session started"
   },
+  "EtDVci": {
+    "defaultMessage": "{questionCount}+ {category} interview questions and answers in quiz-style format, answered by ex-FAANG interviewers",
+    "description": "Description of scroll mode quiz questions page"
+  },
   "Euaee/": {
     "defaultMessage": "Resubscribe to unlock",
     "description": "Title for a premium project paywall"
@@ -5355,10 +5363,6 @@
     "defaultMessage": "Maximum of {maxLength} characters",
     "description": "Description for title input"
   },
-  "Mr6932": {
-    "defaultMessage": "{questionCount}+ most important TypeScript interview questions and answers covering everything you need to know—from fundamentals, generics and utility types, to building type-safe applications.",
-    "description": "Description of TypeScript quiz questions page"
-  },
   "Mvs/7B": {
     "defaultMessage": "In-depth Profile Assessment",
     "description": "Resume review feature"
@@ -5562,10 +5566,6 @@
   "O0Nl6x": {
     "defaultMessage": "Article view",
     "description": "View option for blog list"
-  },
-  "O0TX7L": {
-    "defaultMessage": "Switch to page-by-page",
-    "description": "Label for page-by-page toggle button"
   },
   "O0WPJA": {
     "defaultMessage": "Import the progress of <bold>{questionCount}</bold> previously completed {questionCount, plural, one {question} other {questions}}",
@@ -5870,10 +5870,6 @@
   "PN+PBz": {
     "defaultMessage": "Next available {slotsCount, plural, =0 {slots} one {slot} other {slots}}",
     "description": "Next available timeslot"
-  },
-  "PNWyqB": {
-    "defaultMessage": "{questionCount}+ JavaScript interview questions and answers in quiz-style format, answered by ex-FAANG interviewers",
-    "description": "Description of JavaScript quiz questions page"
   },
   "PPjL+V": {
     "defaultMessage": "Solve coding challenges involving performance-optimized data structures and algorithms.",
@@ -6479,6 +6475,10 @@
     "defaultMessage": "Privacy policy",
     "description": "Link to privacy policy page"
   },
+  "Rxyjw3": {
+    "defaultMessage": "Introduction",
+    "description": "Title for introduction section in quiz questions list"
+  },
   "RyuIJe": {
     "defaultMessage": "Your request has been submitted successfully",
     "description": "Success message for request submission"
@@ -6731,10 +6731,6 @@
     "defaultMessage": "{discountPercentage}% off",
     "description": "Rewards discount message"
   },
-  "T4m6dQ": {
-    "defaultMessage": "{questionCount}+ most important HTML interview questions and answers, covering everything you need to know—from accessibility and semantics to forms, multimedia, SEO optimization, and best practices.",
-    "description": "Description of HTML quiz questions page"
-  },
   "T6+Y/z": {
     "defaultMessage": "You have started your first project!",
     "description": "Toast subtitle for project session started"
@@ -6794,6 +6790,10 @@
   "THTioO": {
     "defaultMessage": "Tell us anything - about your journey as a front end developer, your goals and next steps, or how you want to connect with others",
     "description": "Bio field description"
+  },
+  "THbGFn": {
+    "defaultMessage": "Questions appear on different pages",
+    "description": "Tooltip for quiz scroll mode toggle button"
   },
   "TJD+8A": {
     "defaultMessage": "Project steps",
@@ -10239,10 +10239,6 @@
     "defaultMessage": "Practice {questionCount}+ curated {category} Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers",
     "description": "Description of quiz scrolling mode page"
   },
-  "inm56s": {
-    "defaultMessage": "{questionCount}+ most important React interview questions and answers on component lifecycle, state and props management, hooks, routing and more",
-    "description": "Description of React quiz questions page"
-  },
   "iqz/fo": {
     "defaultMessage": "Types of JS questions, concepts to cover and rubrics",
     "description": "JavaScript questions, concepts and rubrics during front end interviews"
@@ -10450,6 +10446,10 @@
   "jhV+k9": {
     "defaultMessage": "Suitable to get your foot in the door.",
     "description": "Resume review starter pricing tier description"
+  },
+  "jjdVOP": {
+    "defaultMessage": "All questions appear on a single page",
+    "description": "Tooltip for quiz scroll mode toggle button"
   },
   "jlTtgt": {
     "defaultMessage": "Please <link>leave us an email</link> if you have any other needs or wants. We would love to discuss them!",
@@ -12075,6 +12075,10 @@
     "defaultMessage": "No Projects profile",
     "description": "User does not have a profile for the Projects product"
   },
+  "rCqW54": {
+    "defaultMessage": "Page-by-page",
+    "description": "Label for quiz scroll mode toggle button"
+  },
   "rGbEEY": {
     "defaultMessage": "Resources & discussions",
     "description": "Subtitle for \"Tips, Resources and Discussions\" tab on Projects project page"
@@ -12454,10 +12458,6 @@
   "tK6m9g": {
     "defaultMessage": "Build entire component libraries or design systems from scratch for your portfolio or as a toolkit for future projects.",
     "description": "Description of Projects component tracks page"
-  },
-  "tKr9LQ": {
-    "defaultMessage": "{questionCount}+ most important CSS interview questions and answers, covering everything you need to know—from specificity and the box model to flexbox, grid, responsive design, and performance optimization.",
-    "description": "Description of CSS quiz questions page"
   },
   "tM5fjO": {
     "defaultMessage": "Security",
