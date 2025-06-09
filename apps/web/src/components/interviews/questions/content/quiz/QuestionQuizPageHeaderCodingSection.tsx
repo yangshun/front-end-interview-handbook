@@ -67,8 +67,6 @@ export default function QuestionQuizPageHeaderCodingSection({
     switch (value) {
       case 'js':
         return '/img/interviews/quiz/js-coding.png';
-      case 'ts':
-        return '/img/interviews/quiz/ts-coding.png';
       case 'html':
         return '/img/interviews/quiz/html-coding.png';
       case 'css':

@@ -52,7 +52,10 @@ export default function QuestionQuizScrollModeToggle({
       ) as QuestionFramework;
 
       // Becasue quiz scroll mode is only supported for languages and frameworks
-      setRenderToggleButton(language !== null || framework !== null);
+      // Also don't show when the language is ts
+      setRenderToggleButton(
+        (language !== null && language !== 'ts') || framework !== null,
+      );
       if (isScrollModeValue) {
         urlObject.pathname = `/questions/quiz/${slug}`;
         urlObject.hash = '';

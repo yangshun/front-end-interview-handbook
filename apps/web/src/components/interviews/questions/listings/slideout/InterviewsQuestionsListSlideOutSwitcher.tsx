@@ -187,25 +187,27 @@ function DropdownContent({
     },
     {
       items: [
-        ...questionLists.languages.map(
-          (item) =>
-            ({
-              ...item,
-              label: intl.formatMessage(
-                {
-                  defaultMessage: '{category} Quiz Questions',
-                  description: 'Label for Quiz question',
-                  id: '3A1yG3',
-                },
-                {
-                  category: QuestionLanguageLabels[item.value],
-                },
-              ),
-              menuType: 'item',
-              tab: 'quiz',
-              type: 'language',
-            }) as const,
-        ),
+        ...questionLists.languages
+          .filter((item) => item.value !== 'ts')
+          .map(
+            (item) =>
+              ({
+                ...item,
+                label: intl.formatMessage(
+                  {
+                    defaultMessage: '{category} Quiz Questions',
+                    description: 'Label for Quiz question',
+                    id: '3A1yG3',
+                  },
+                  {
+                    category: QuestionLanguageLabels[item.value],
+                  },
+                ),
+                menuType: 'item',
+                tab: 'quiz',
+                type: 'language',
+              }) as const,
+          ),
         {
           label: intl.formatMessage(
             {
