@@ -190,7 +190,10 @@ function PricingButtonNonPremium({
 
   async function processSubscription(
     planType: InterviewsPricingPlanType,
-    promoCode?: string,
+    {
+      abortController,
+      promoCode,
+    }: Readonly<{ abortController?: AbortController; promoCode?: string }> = {},
   ) {
     if (isCheckoutSessionLoading) {
       return;
@@ -219,6 +222,9 @@ function PricingButtonNonPremium({
             stripe_promo_code: promoCode,
           },
         }),
+        abortController?.signal
+          ? { signal: abortController.signal }
+          : undefined,
       );
 
       const { payload } = await res.json();
@@ -265,6 +271,7 @@ function PricingButtonNonPremium({
   }
 
   useEffect(() => {
+    const abortController = new AbortController();
     if (
       userProfile != null &&
       !userProfile.isInterviewsPremium &&
@@ -274,8 +281,14 @@ function PricingButtonNonPremium({
     ) {
       // Eagerly generate the checkout page URL for lifetime plan
       // in the background because it takes a while.
-      processSubscription(paymentConfig.planType);
+      processSubscription(paymentConfig.planType, {
+        abortController,
+      });
     }
+
+    return () => {
+      abortController.abort('Unmounting component, aborting request');
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userProfile, checkoutSessionHref, paymentConfig.planType]);
 
@@ -343,7 +356,7 @@ function PricingButtonNonPremium({
         paymentConfig={paymentConfig}
         onClose={() => setShowPromoCodeDialog(false)}
         onContinue={(promoCode) =>
-          processSubscription(paymentConfig.planType, promoCode)
+          processSubscription(paymentConfig.planType, { promoCode })
         }
       />
     </div>
