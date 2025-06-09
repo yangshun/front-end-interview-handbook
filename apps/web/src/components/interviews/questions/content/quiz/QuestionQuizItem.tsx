@@ -74,7 +74,7 @@ function QuestionQuizItem(
   return (
     <article ref={ref} aria-labelledby={titleId} className="grow">
       <div className={clsx('min-h-0 flex-1', scrollMode && 'space-y-9')}>
-        <header className={clsx('flex flex-col gap-y-4')}>
+        <header className={clsx('flex flex-col', scrollMode ? 'gap-y-5': 'ga-y-4')}>
           <Heading
             className="pb-4"
             id={titleId}

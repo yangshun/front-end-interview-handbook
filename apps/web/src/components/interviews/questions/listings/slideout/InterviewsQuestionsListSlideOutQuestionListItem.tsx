@@ -86,8 +86,8 @@ export default function InterviewsQuestionsListSlideOutQuestionListItem<
             themeBackgroundElementEmphasizedStateColor_Hover,
             isActiveQuestion && themeBackgroundElementEmphasizedStateColor,
           )}>
-          <div className="grow py-4">
-            <div className="flex items-center gap-x-4">
+          <div className="grow py-3">
+            <div className="flex items-center gap-x-3">
               {checkIfCompletedQuestion != null && (
                 <QuestionsListItemProgressChip
                   className="z-[1]"

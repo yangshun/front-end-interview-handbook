@@ -9,9 +9,7 @@ import QuestionsQuizSidebarCollapser from '~/components/interviews/questions/con
 import Section from '~/components/ui/Heading/HeadingContext';
 import { themeBorderColor } from '~/components/ui/theme';
 
-import type {
-  QuestionListTypeData,
-} from '../../common/QuestionsTypes';
+import type { QuestionListTypeData } from '../../common/QuestionsTypes';
 import QuestionsQuizSidebarQuestionList from './QuestionQuizSidebarQuestionList';
 import useQuestionsQuizSidebarExpanded from './useQuestionsQuizSidebarExpanded';
 
@@ -43,7 +41,7 @@ export default function QuestionsQuizContentLayout({
         {questionsQuizSidebarExpanded && (
           <Section>
             <div
-              className={clsx('hidden w-[320px] lg:flex', [
+              className={clsx('hidden w-[300px] lg:flex xl:w-80', [
                 'border-r',
                 themeBorderColor,
               ])}>

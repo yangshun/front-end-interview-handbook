@@ -19,9 +19,7 @@ import type {
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionsQuizContentLayout from '~/components/interviews/questions/content/quiz/QuestionsQuizContentLayout';
 import useQuestionCodingSorting from '~/components/interviews/questions/listings/filters/hooks/useQuestionCodingSorting';
-import {
-  sortQuestionsMultiple,
-} from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
+import { sortQuestionsMultiple } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import useQuestionsWithCompletionStatus from '~/components/interviews/questions/listings/items/useQuestionsWithCompletionStatus';
 import InterviewsStudyListBottomBar from '~/components/interviews/questions/listings/study-list/InterviewsStudyListBottomBar';
 import Divider from '~/components/ui/Divider';
@@ -96,7 +94,7 @@ export default function QuestionQuizScrollableList({
     }
 
     virtuaContainerRef.current?.scrollToIndex(currentQuestionIndex, {
-      offset: -100,
+      offset: -120,
     });
   }, [currentQuestionIndex, currentHash]);
 
@@ -146,9 +144,9 @@ export default function QuestionQuizScrollableList({
           className={clsx(
             'mx-auto w-full',
             'h-full grow overflow-y-hidden',
-            'py-8 xl:py-12',
-            'px-4 sm:px-6 xl:px-0',
-            'w-full max-w-[864px]',
+            'py-8 lg:py-12',
+            'px-4 sm:px-6 lg:px-12 min-[1101px]:px-0',
+            'w-full min-[1101px]:max-w-[756px] xl:max-w-[864px]',
           )}>
           <QuestionQuizPageHeader
             description={description}
@@ -181,7 +179,7 @@ export default function QuestionQuizScrollableList({
                   }}
                 />
                 {index !== questions.length - 1 && (
-                  <Divider className="my-16" />
+                  <Divider className="my-12" />
                 )}
               </div>
             ))}

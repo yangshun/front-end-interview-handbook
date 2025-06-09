@@ -40,7 +40,7 @@ export default function InterviewsStudyListBottomBar({
     <div
       className={clsx(
         'sticky inset-x-0 bottom-0',
-        'px-3 py-2.5',
+        'px-6 py-2.5',
         ['border-t', themeBorderColor],
         themeBackgroundDarkColor,
       )}>

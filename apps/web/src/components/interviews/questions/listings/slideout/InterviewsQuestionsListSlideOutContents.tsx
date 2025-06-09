@@ -404,7 +404,7 @@ export default function InterviewsQuestionsListSlideOutContents({
 
   return (
     <>
-      <div className={clsx('flex flex-col gap-4', 'h-full')}>
+      <div className={clsx('flex flex-col gap-5', 'h-full')}>
         <form
           className="flex w-full flex-col gap-4"
           onSubmit={(event) => {
@@ -461,7 +461,7 @@ export default function InterviewsQuestionsListSlideOutContents({
           </div>
           {showFilters && embedFilters}
         </form>
-        <div>
+        <div className="flex h-full flex-1 flex-col">
           {listTabs && (
             <div>
               <TabsUnderline
