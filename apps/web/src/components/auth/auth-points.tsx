@@ -10,7 +10,7 @@ import { useAuthSignupDialogContext } from './AuthSignupDialogContext';
 type EntityType = 'coding' | 'quiz' | 'system-design';
 
 const AUTH_SIGN_UP_POINTS_KEY = 'auth:sign-up:points';
-const MAX_POINTS = 8;
+const MAX_POINTS = 20;
 
 const ENTITY_POINTS: Record<EntityType, number> = {
   coding: 2,
