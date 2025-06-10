@@ -548,6 +548,7 @@ model SponsorsAdRequest {
   signatoryName  String
   signatoryTitle String
   agreement      String
+  promoCode      String?
   status         SponsorsAdRequestStatus @default(PENDING)
   createdAt      DateTime                @default(now()) @db.Timestamptz(6)
   updatedAt      DateTime                @default(now()) @updatedAt
