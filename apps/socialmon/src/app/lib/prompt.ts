@@ -12,6 +12,7 @@ export function getSystemPrompt(
       F. Do not include a concluding paragraph. Do not include greetings or sign-offs.
       G. Promote one resource from the promotion resources provided which description is relevant to either title or content of the post.
       H. The promotion should be VERY BRIEF if included. It should also be linked directly to the post and your response and should always be subtly place at the END of the response.
+      I. Do not include the links of the promotion resources. Just focus on asking the user to check them out.
 
       Promotion resources: ${JSON.stringify(resources)};
 
