@@ -162,6 +162,7 @@ export default function SponsorsAdvertiseRequestForm({
           company: formData.company!,
           emails: formData.emails,
           id: props.requestId!,
+          promoCode: formData.promoCode ? formData.promoCode : undefined,
         },
         {
           onError: (error) => {
@@ -204,6 +205,7 @@ export default function SponsorsAdvertiseRequestForm({
           agreement,
           company: formData.company!,
           emails: formData.emails,
+          promoCode: formData.promoCode ? formData.promoCode : undefined,
         },
         {
           onError: (error) => {
@@ -306,8 +308,12 @@ export default function SponsorsAdvertiseRequestForm({
         <SponsorsAdvertiseRequestFormAdsSection
           ads={formData.ads}
           mode={mode}
+          promoCode={formData.promoCode}
           sessionId={formData.sessionId}
           updateAds={(ads) => setFormData((prev) => ({ ...prev, ads }))}
+          updatePromoCode={(promoCode) =>
+            setFormData((prev) => ({ ...prev, promoCode }))
+          }
           updateStepStatus={(status) =>
             setStepsStatus((prev) => ({ ...prev, ads: status }))
           }
@@ -342,6 +348,7 @@ export default function SponsorsAdvertiseRequestForm({
             ads: formData.ads,
             company: formData.company!,
             emails: formData.emails,
+            promoCode: formData.promoCode,
           }}
           isSubmitting={
             adRequestCreateMutation.isLoading ||

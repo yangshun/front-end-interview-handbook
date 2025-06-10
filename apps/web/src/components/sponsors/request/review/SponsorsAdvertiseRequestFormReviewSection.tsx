@@ -5,6 +5,7 @@ import { RiArrowLeftLine, RiArrowRightLine } from 'react-icons/ri';
 
 import type { StepsTabItemStatus } from '~/components/common/StepsTabs';
 import { FormattedMessage, useIntl } from '~/components/intl';
+import { getDiscountedPrice } from '~/components/purchase/PurchasePricingUtils';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import CheckboxInput from '~/components/ui/CheckboxInput';
@@ -22,6 +23,7 @@ import {
 import type {
   SponsorsAdFormatFormItem,
   SponsorsCompanyDetails,
+  SponsorsPromoCode,
 } from '../types';
 import SponsorsAdvertiseRequestAgreement from './SponsorsAdvertiseRequestAgreement';
 
@@ -30,6 +32,7 @@ type Props = Readonly<{
     ads: Array<SponsorsAdFormatFormItem>;
     company: SponsorsCompanyDetails;
     emails: Array<string>;
+    promoCode: SponsorsPromoCode;
   };
   isSubmitting?: boolean;
   mode?: 'create' | 'edit' | 'readonly';
@@ -62,7 +65,7 @@ export default function SponsorsAdvertiseRequestFormReviewSection({
     mode === 'create' ? false : true,
   );
 
-  const { ads, company, emails } = data;
+  const { ads, company, emails, promoCode } = data;
   const { address, legalName, signatoryName, signatoryTitle, taxNumber } =
     company;
   const addressString = [
@@ -80,6 +83,13 @@ export default function SponsorsAdvertiseRequestFormReviewSection({
       curr.weeks.length * SponsorAdFormatConfigs[curr.format].pricePerWeekUSD,
     0,
   );
+
+  const discountedAmount = promoCode?.percentOff
+    ? getDiscountedPrice({
+        percentOff: promoCode.percentOff,
+        price: totalAmount,
+      })
+    : totalAmount;
 
   useEffect(() => {
     if (isReadonly) {
@@ -105,7 +115,7 @@ export default function SponsorsAdvertiseRequestFormReviewSection({
       authorizedSignatoryName={signatoryName}
       authorizedSignatoryTitle={signatoryTitle}
       contactEmails={emails}
-      totalAmount={totalAmount}
+      totalAmount={discountedAmount}
     />
   );
 
@@ -184,10 +194,20 @@ export default function SponsorsAdvertiseRequestFormReviewSection({
                   </div>
                 );
               })}
+              {promoCode?.code && (
+                <div className="flex justify-between">
+                  <Text color="secondary" size="body2">
+                    {promoCode.code}
+                  </Text>
+                  <Text color="secondary" size="body2" weight="medium">
+                    -${totalAmount - discountedAmount}
+                  </Text>
+                </div>
+              )}
               <Divider className="my-2" />
               <div className="flex justify-end">
                 <Text color="secondary" size="body2" weight="medium">
-                  ${totalAmount}
+                  ${discountedAmount}
                 </Text>
               </div>
             </div>

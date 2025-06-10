@@ -6,11 +6,15 @@ import { urlAddHttpsIfMissing } from '~/lib/urlValidation';
 import RelativeTimestamp from '~/components/common/datetime/RelativeTimestamp';
 import InterviewsMarketingHeroBrowserWindowFrame from '~/components/interviews/marketing/embed/InterviewsMarketingHeroBrowserWindowFrame';
 import { FormattedMessage, useIntl } from '~/components/intl';
+import { getDiscountedPrice } from '~/components/purchase/PurchasePricingUtils';
 import SponsorsAdFormatGlobalBanner from '~/components/sponsors/ads/SponsorsAdFormatGlobalBanner';
 import SponsorsAdFormatInContent from '~/components/sponsors/ads/SponsorsAdFormatInContent';
 import SponsorsAdFormatInContentBodyRenderer from '~/components/sponsors/ads/SponsorsAdFormatInContentBodyRenderer';
 import SponsorsAdFormatSpotlight from '~/components/sponsors/ads/SponsorsAdFormatSpotlight';
-import type { SponsorsAdFormatFormItem } from '~/components/sponsors/request/types';
+import type {
+  SponsorsAdFormatFormItem,
+  SponsorsPromoCode,
+} from '~/components/sponsors/request/types';
 import type { AdvertiseRequestFormValues } from '~/components/sponsors/request/useSponsorsAdvertiseRequestFormData';
 import {
   SponsorAdFormatConfigs,
@@ -59,8 +63,16 @@ export default function SponsorsAdvertiseRequestReadonly({
   onEdit,
 }: Props) {
   const intl = useIntl();
-  const { ads, agreement, company, createdAt, emails, review, updatedAt } =
-    data;
+  const {
+    ads,
+    agreement,
+    company,
+    createdAt,
+    emails,
+    promoCode,
+    review,
+    updatedAt,
+  } = data;
   const { address, signatoryName, signatoryTitle } = company!;
   const addressString = [
     [address.line1, address.line2].filter(Boolean).join(', '),
@@ -72,8 +84,22 @@ export default function SponsorsAdvertiseRequestReadonly({
     .filter(Boolean)
     .join(', ');
 
+  const totalPrice = ads.reduce(
+    (acc, curr) =>
+      acc +
+      curr.weeks.length * SponsorAdFormatConfigs[curr.format].pricePerWeekUSD,
+    0,
+  );
+
+  const discountedPrice = promoCode
+    ? getDiscountedPrice({
+        percentOff: promoCode.percentOff,
+        price: totalPrice,
+      })
+    : totalPrice;
+
   return (
-    <div className="flex flex-col gap-10">
+    <div className="flex w-full flex-col gap-10">
       <div className="flex flex-col gap-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex flex-col gap-1.5">
@@ -188,7 +214,7 @@ export default function SponsorsAdvertiseRequestReadonly({
                 <div className="flex flex-col items-start">
                   <ul className="flex w-full flex-col gap-4">
                     {ads.map((ad) => (
-                      <AdFormatCard key={ad.id} ad={ad} />
+                      <AdFormatCard key={ad.id} ad={ad} promoCode={promoCode} />
                     ))}
                   </ul>
                   <div className="mt-4 flex w-full justify-end gap-4">
@@ -198,14 +224,7 @@ export default function SponsorsAdvertiseRequestReadonly({
                         description="Total price label"
                         id="0kDCAp"
                         values={{
-                          total: ads.reduce(
-                            (acc, curr) =>
-                              acc +
-                              curr.weeks.length *
-                                SponsorAdFormatConfigs[curr.format]
-                                  .pricePerWeekUSD,
-                            0,
-                          ),
+                          total: discountedPrice,
                         }}
                       />
                     </Text>
@@ -327,7 +346,10 @@ export default function SponsorsAdvertiseRequestReadonly({
   );
 }
 
-function AdFormatCard({ ad }: Readonly<{ ad: SponsorsAdFormatFormItem }>) {
+function AdFormatCard({
+  ad,
+  promoCode,
+}: Readonly<{ ad: SponsorsAdFormatFormItem; promoCode: SponsorsPromoCode }>) {
   const intl = useIntl();
   const adFormatData = useSponsorsAdFormatData();
 
@@ -447,7 +469,12 @@ function AdFormatCard({ ad }: Readonly<{ ad: SponsorsAdFormatFormItem }>) {
             <Text color="secondary" size="body2">
               $
               {ad.weeks.length *
-                SponsorAdFormatConfigs[ad.format].pricePerWeekUSD}
+                (promoCode
+                  ? getDiscountedPrice({
+                      percentOff: promoCode.percentOff,
+                      price: SponsorAdFormatConfigs[ad.format].pricePerWeekUSD,
+                    })
+                  : SponsorAdFormatConfigs[ad.format].pricePerWeekUSD)}
             </Text>
           </AdDetailRow>
         </div>
