@@ -101,7 +101,11 @@ export default function QuestionQuizScrollableList({
   const currentQuestion = questions[questionIndex];
 
   const debouncedHashChange = useDebounceCallback((hash) => {
-    window.location.hash = `#${hash}`;
+    history.replaceState(null, '', `#${hash}`);
+
+    // Dispatch hashChange event manually to trigger any listeners because replaceState
+    // does not trigger it.
+    window.dispatchEvent(new Event('hashchange'));
 
     isUserScroll.current = true;
     setTimeout(() => {
