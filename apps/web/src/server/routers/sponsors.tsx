@@ -276,84 +276,94 @@ export const sponsorsRouter = router({
         agreement: z.string(),
         company: sponsorsCompanySchemaServer,
         emails: z.array(z.string().email()),
+        promoCode: z
+          .object({
+            code: z.string(),
+            percentOff: z.number(),
+          })
+          .optional(),
       }),
     )
-    .mutation(async ({ input: { ads, agreement, company, emails } }) => {
-      const { address, legalName, signatoryName, signatoryTitle, taxNumber } =
-        company;
+    .mutation(
+      async ({ input: { ads, agreement, company, emails, promoCode } }) => {
+        const { address, legalName, signatoryName, signatoryTitle, taxNumber } =
+          company;
 
-      const adRequest = await prisma.sponsorsAdRequest.create({
-        data: {
-          address,
-          ads: {
-            create: ads.map((ad) => {
-              const adData = (() => {
-                switch (ad.format) {
-                  case 'GLOBAL_BANNER':
-                    return {};
-                  case 'IN_CONTENT':
-                    return {
-                      body: ad.body,
-                      imageUrl: ad.imageUrl,
-                    };
-                  case 'SPOTLIGHT':
-                    return {
-                      imageUrl: ad.imageUrl,
-                    };
-                  default:
-                    throw new Error('Invalid ad format');
-                }
-              })();
+        const adRequest = await prisma.sponsorsAdRequest.create({
+          data: {
+            address,
+            ads: {
+              create: ads.map((ad) => {
+                const adData = (() => {
+                  switch (ad.format) {
+                    case 'GLOBAL_BANNER':
+                      return {};
+                    case 'IN_CONTENT':
+                      return {
+                        body: ad.body,
+                        imageUrl: ad.imageUrl,
+                      };
+                    case 'SPOTLIGHT':
+                      return {
+                        imageUrl: ad.imageUrl,
+                      };
+                    default:
+                      throw new Error('Invalid ad format');
+                  }
+                })();
 
-              return {
-                format: ad.format,
-                sponsorName: ad.sponsorName,
-                title: ad.text,
-                url: ad.url,
-                ...adData,
-                slots: {
-                  create: Array.from(ad.weeks).map((slot) => {
-                    const [year, week] = slot
-                      .split('/')
-                      .map((part) => Number(part));
+                return {
+                  format: ad.format,
+                  sponsorName: ad.sponsorName,
+                  title: ad.text,
+                  url: ad.url,
+                  ...adData,
+                  slots: {
+                    create: Array.from(ad.weeks).map((slot) => {
+                      const [year, week] = slot
+                        .split('/')
+                        .map((part) => Number(part));
 
-                    return {
-                      week,
-                      year,
-                    };
-                  }),
-                },
-              };
-            }),
+                      return {
+                        week,
+                        year,
+                      };
+                    }),
+                  },
+                };
+              }),
+            },
+            agreement,
+            emails,
+            legalName,
+            promoCode: promoCode?.code,
+            signatoryName,
+            signatoryTitle,
+            taxNumber,
           },
-          agreement,
-          emails,
-          legalName,
-          signatoryName,
-          signatoryTitle,
-          taxNumber,
-        },
-      });
+        });
 
-      // Send email to advertiser and sponsor manager
-      await Promise.all([
-        sendSponsorsAdRequestConfirmationEmail({
-          adRequestId: adRequest.id,
-          email: emails[0],
-          signatoryName,
-        }),
-        sendSponsorsAdRequestReviewEmail({
-          adRequestId: adRequest.id,
-          ads: ads.map((ad) => ({
-            ...ad,
-            id: new Date().toISOString(),
-          })),
-          legalName,
-          signatoryName,
-          signatoryTitle,
-        }),
-      ]);
-    }),
+        // Send email to advertiser and sponsor manager
+        await Promise.all([
+          sendSponsorsAdRequestConfirmationEmail({
+            adRequestId: adRequest.id,
+            email: emails[0],
+            signatoryName,
+          }),
+          sendSponsorsAdRequestReviewEmail({
+            adRequestId: adRequest.id,
+            ads: ads.map((ad) => ({
+              ...ad,
+              id: new Date().toISOString(),
+            })),
+            legalName,
+            percentOff: promoCode?.percentOff ?? 0,
+            signatoryName,
+            signatoryTitle,
+          }),
+        ]);
+      },
+    ),
   adRequestInquiries: adminProcedure.query(async () => {
     const aplQuery = `
     ['events']
@@ -518,12 +528,26 @@ export const sponsorsRouter = router({
         company: sponsorsCompanySchemaServer,
         emails: z.array(z.string()),
         id: z.string(),
+        promoCode: z
+          .object({
+            code: z.string(),
+            percentOff: z.number(),
+          })
+          .optional(),
       }),
     )
     .mutation(
       async ({
         ctx: { viewer },
-        input: { ads, advertiserEmail, agreement, company, emails, id },
+        input: {
+          ads,
+          advertiserEmail,
+          agreement,
+          company,
+          emails,
+          id,
+          promoCode,
+        },
       }) => {
         // If not admin, check if the user is authorized to update the request
         if (!(viewer && ADMIN_EMAILS.includes(viewer.email))) {
@@ -553,6 +577,7 @@ export const sponsorsRouter = router({
                 agreement,
                 emails,
                 legalName,
+                promoCode: promoCode?.code,
                 signatoryName,
                 signatoryTitle,
                 taxNumber,

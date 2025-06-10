@@ -250,8 +250,9 @@ export default function SponsorsAdvertiseRequestAgreement({
           .
         </li>
         <li>
-          The exact amount for this booking is specified in the Booking Form and
-          is <strong>payable upfront</strong>.
+          The exact amount for this booking, including any applicable discounts,
+          is specified in the Booking Form and is{' '}
+          <strong>payable upfront</strong>.
         </li>
       </ul>
       <p>

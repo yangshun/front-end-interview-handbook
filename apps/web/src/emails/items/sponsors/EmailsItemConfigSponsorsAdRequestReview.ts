@@ -32,7 +32,7 @@ export const EmailsItemConfigSponsorsAdRequestReview: EmailItemConfig<
     signatoryTitle: 'CEO',
   },
   from: {
-    email: 'hello@greatfrontend',
+    email: 'hello@greatfrontend.com',
     name: 'GreatFrontEnd Sponsorships',
   },
   id: 'SPONSORS_AD_REQUEST_REVIEW',
