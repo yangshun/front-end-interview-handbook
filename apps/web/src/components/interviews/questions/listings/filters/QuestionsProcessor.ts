@@ -216,14 +216,14 @@ export function tabulateQuestionsAttributesUnion<
   questions.forEach(({ metadata }) => {
     values.difficulty.add(metadata.difficulty);
     values.formats.add(metadata.format);
-    metadata.frameworks.forEach(({ framework }) => {
+    metadata.frameworks?.forEach(({ framework }) => {
       values.frameworks.add(framework);
     });
     values.importance.add(metadata.importance);
-    metadata.languages.forEach((language) => {
+    metadata.languages?.forEach((language) => {
       values.languages.add(language);
     });
-    metadata.topics.forEach((topic) => {
+    metadata.topics?.forEach((topic) => {
       values.topics.add(topic);
     });
   });

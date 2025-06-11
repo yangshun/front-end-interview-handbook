@@ -5,7 +5,7 @@ export default function questionMatchesTextQuery(
   query: string,
 ): boolean {
   return (
-    question.info.title.toLowerCase().includes(query.toLowerCase()) ||
-    Boolean(question.info.excerpt?.toLowerCase().includes(query.toLowerCase()))
+    question.info?.title?.toLowerCase().includes(query.toLowerCase()) ||
+    Boolean(question.info?.excerpt?.toLowerCase().includes(query.toLowerCase()))
   );
 }

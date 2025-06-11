@@ -212,7 +212,7 @@ export default function UserInterfaceCodingWorkspaceCodeEditor({
       <MonacoCodeEditor
         filePath={filePath}
         isVimModeEnabled={isVimModeEnabled}
-        value={files[filePath].code}
+        value={files[filePath]?.code ?? ''}
         onChange={(val) => {
           updateFile(filePath, val ?? '');
         }}
