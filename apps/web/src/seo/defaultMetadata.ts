@@ -46,7 +46,7 @@ export default function defaultMetadata({
           title: ogImageTitle,
         },
       })
-    : imageUrl || '/img/seo/og.jpg';
+    : cdnUrl(imageUrl || '/img/seo/og.jpg');
 
   return i18nMetadata(
     {
@@ -57,7 +57,7 @@ export default function defaultMetadata({
       metadataBase: new URL(getSiteOrigin()),
       openGraph: {
         description,
-        images: cdnUrl(ogImageUrl),
+        images: ogImageUrl,
         locale,
         siteName: siteName || 'GreatFrontEnd',
         title: socialTitle || title,
