@@ -1,0 +1,266 @@
+// This file is imported by Next config and i18n middleware.
+// Keep it in JS + lean since next.config.js might not transpile it.
+export const redirects = [
+  {
+    source: '/pricing',
+    destination: '/interviews/pricing',
+    permanent: false,
+  },
+  {
+    source: '/payment/success',
+    destination: '/interviews/payment/success',
+    permanent: false,
+  },
+  {
+    source: '/get-started',
+    destination: '/interviews/get-started',
+    permanent: false,
+  },
+  {
+    source: '/prepare',
+    destination: '/interviews/dashboard',
+    permanent: false,
+  },
+  {
+    source: '/prepare/coding',
+    destination: '/questions',
+    permanent: false,
+  },
+  {
+    source: '/prepare/quiz',
+    destination: '/questions/quiz',
+    permanent: false,
+  },
+  {
+    source: '/prepare/system-design',
+    destination: '/questions/system-design',
+    permanent: false,
+  },
+  {
+    source: '/prepare/behavioral',
+    destination: '/behavioral-interview-playbook',
+    permanent: false,
+  },
+  {
+    source: '/questions/quiz/css/:path*',
+    destination: '/questions/quiz/:path*',
+    permanent: false,
+  },
+  {
+    source: '/questions/quiz/html/:path*',
+    destination: '/questions/quiz/:path*',
+    permanent: false,
+  },
+  {
+    source: '/questions/quiz/javascript/:path*',
+    destination: '/questions/quiz/:path*',
+    permanent: false,
+  },
+  // Formats
+  {
+    source: '/questions/coding',
+    destination: '/questions',
+    permanent: false,
+  },
+  {
+    source: '/questions/js',
+    destination: '/questions/formats/javascript-functions',
+    permanent: false,
+  },
+  {
+    source: '/questions/javascript',
+    destination: '/questions/formats/javascript-functions',
+    permanent: false,
+  },
+  {
+    source: '/questions/javascript-functions',
+    destination: '/questions/formats/javascript-functions',
+    permanent: false,
+  },
+  {
+    source: '/questions/user-interface',
+    destination: '/questions/formats/ui-coding',
+    permanent: false,
+  },
+  {
+    source: '/questions/ui-coding',
+    destination: '/questions/formats/ui-coding',
+    permanent: false,
+  },
+  {
+    source: '/questions/algo',
+    destination: '/questions/formats/algo-coding',
+    permanent: false,
+  },
+  {
+    source: '/questions/algo-coding',
+    destination: '/questions/formats/algo-coding',
+    permanent: false,
+  },
+  {
+    source: '/questions/js',
+    destination: '/questions/javascript-interview-questions',
+    permanent: false,
+  },
+  {
+    source: '/questions/js/coding',
+    destination: '/questions/javascript-interview-questions',
+    permanent: false,
+  },
+  {
+    source: '/questions/js/quiz',
+    destination: '/questions/javascript-interview-questions/quiz',
+    permanent: false,
+  },
+  {
+    source: '/questions/js/coding/data-structures-algorithms',
+    destination: '/questions/javascript-interview-questions/algo-coding',
+    permanent: false,
+  },
+  {
+    source: '/questions/js/coding/user-interface',
+    destination: '/questions/javascript-interview-questions/ui-coding',
+    permanent: false,
+  },
+  {
+    source: '/questions/js/coding/utilities',
+    destination:
+      '/questions/javascript-interview-questions/javascript-functions',
+    permanent: false,
+  },
+  {
+    source: '/questions/html',
+    destination: '/questions/html-interview-questions',
+    permanent: false,
+  },
+  {
+    source: '/questions/html/coding',
+    destination: '/questions/html-interview-questions',
+    permanent: false,
+  },
+  {
+    source: '/questions/html/quiz',
+    destination: '/questions/html-interview-questions/quiz',
+    permanent: false,
+  },
+  {
+    source: '/questions/css',
+    destination: '/questions/css-interview-questions',
+    permanent: false,
+  },
+  {
+    source: '/questions/css/coding',
+    destination: '/questions/css-interview-questions',
+    permanent: false,
+  },
+  {
+    source: '/questions/css/quiz',
+    destination: '/questions/css-interview-questions/quiz',
+    permanent: false,
+  },
+  {
+    source: '/questions/ts',
+    destination: '/questions/typescript-interview-questions',
+    permanent: false,
+  },
+  {
+    source: '/questions/frameworks',
+    destination: '/questions/javascript-interview-questions',
+    permanent: false,
+  },
+  {
+    source: '/questions/react',
+    destination: '/questions/react-interview-questions',
+    permanent: false,
+  },
+  {
+    source: '/questions/formats/react',
+    destination: '/questions/react-interview-questions',
+    permanent: false,
+  },
+  {
+    source: '/questions/vanilla',
+    destination: '/questions/vanilla-javascript-interview-questions',
+    permanent: false,
+  },
+  {
+    source: '/questions/svelte',
+    destination: '/questions/svelte-interview-questions',
+    permanent: false,
+  },
+  {
+    source: '/questions/angular',
+    destination: '/questions/angular-interview-questions',
+    permanent: false,
+  },
+  {
+    source: '/questions/vue',
+    destination: '/questions/vue-interview-questions',
+    permanent: false,
+  },
+  {
+    source: '/questions/vue-interview-questions/quiz',
+    destination: '/questions/vue-interview-questions',
+    permanent: false,
+  },
+  {
+    source: '/study-plans',
+    destination: '/interviews/study-plans',
+    permanent: false,
+  },
+  {
+    source: '/prepare/one-week',
+    destination: '/interviews/study-plans/one-week',
+    permanent: false,
+  },
+  {
+    source: '/prepare/one-month',
+    destination: '/interviews/study-plans/one-month',
+    permanent: false,
+  },
+  {
+    source: '/prepare/three-months',
+    destination: '/interviews/study-plans/three-months',
+    permanent: false,
+  },
+  {
+    source: '/focus-areas',
+    destination: '/interviews/focus-areas',
+    permanent: false,
+  },
+  {
+    source: '/focus-areas/:path*',
+    destination: '/interviews/focus-areas/:path*',
+    permanent: false,
+  },
+  {
+    source: '/system-design',
+    destination: '/front-end-system-design-playbook',
+    permanent: false,
+  },
+  {
+    source: '/system-design/:path*',
+    destination: '/front-end-system-design-playbook/:path*',
+    permanent: false,
+  },
+  {
+    source: '/front-end-interview-guidebook',
+    destination: '/front-end-interview-playbook',
+    permanent: false,
+  },
+  {
+    source: '/front-end-interview-guidebook/:path*',
+    destination: '/front-end-interview-playbook/:path*',
+    permanent: false,
+  },
+  {
+    source: '/behavioral-interview-guidebook',
+    destination: '/behavioral-interview-playbook',
+    permanent: false,
+  },
+  {
+    source: '/behavioral-interview-guidebook/:path*',
+    destination: '/behavioral-interview-playbook/:path*',
+    permanent: false,
+  },
+];
