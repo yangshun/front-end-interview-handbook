@@ -45,35 +45,37 @@ export default function AuthGoogleOneTap({ next, showOnMobileOnly }: Props) {
 
   const handleSignInWithGoogle = useCallback(
     async (response: { credential: string }) => {
-      try {
-        const { error } = await supabaseClient.auth.signInWithIdToken({
-          provider: 'google',
-          token: response.credential,
-        });
+      logEvent('auth.sign_in', {
+        element: 'Google one tap sign in button',
+        namespace: 'auth',
+      });
 
-        if (error) {
-          throw error;
-        } else {
-          const redirectTo = url.format(
-            i18nHref(
-              {
-                pathname: '/auth/login-redirect',
-                query: {
-                  next,
-                },
-              },
-              locale,
-            ),
-          );
+      const { error } = await supabaseClient.auth.signInWithIdToken({
+        provider: 'google',
+        token: response.credential,
+      });
 
-          router.push(redirectTo);
-        }
-      } catch (error) {
+      if (error) {
         logEvent('auth.sign_in.fail', {
           message: getErrorMessage(error),
           namespace: 'auth',
-          type: 'google',
+          stack: error.stack,
+          type: 'google-one-tap',
         });
+      } else {
+        const redirectTo = url.format(
+          i18nHref(
+            {
+              pathname: '/auth/login-redirect',
+              query: {
+                next,
+              },
+            },
+            locale,
+          ),
+        );
+
+        router.push(redirectTo);
       }
     },
     [supabaseClient.auth, router, next, locale],
