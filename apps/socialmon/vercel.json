@@ -5,7 +5,7 @@
   "crons": [
     {
       "path": "/api/reddit/crawl",
-      "schedule": "0 2-10 * * *"
+      "schedule": "0 */3 * * *"
     }
   ]
 }
