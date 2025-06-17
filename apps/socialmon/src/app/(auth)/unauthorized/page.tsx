@@ -6,8 +6,8 @@ export default function Page() {
   return (
     <div
       className={clsx(
-        'w-full flex-1',
-        'flex flex-col items-center justify-center gap-16',
+        'w-full',
+        'flex flex-1 flex-col items-center justify-center gap-16',
       )}>
       <div className={clsx('flex flex-col gap-6', 'text-center')}>
         <h2 className="text-2xl font-bold leading-9 tracking-tight">
