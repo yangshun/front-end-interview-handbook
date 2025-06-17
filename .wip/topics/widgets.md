@@ -20,7 +20,7 @@ Also known as typeahead box.
 - Use windowing/virtual lists when the search results is too long.
 - Debounce user input and only search when user stops typing for some time (usually 300ms).
 
-###### References
+#### References
 
 - https://baymard.com/blog/autocomplete-design
 
@@ -45,7 +45,7 @@ Also known as typeahead box.
 
 - Modals can usually be dismissed by clicking on the backdrop. If the user interacts with the modal content by clicking on it, the backdrop might also receive the click event and be dismissed as a result.
 
-###### References
+#### References
 
 - https://css-tricks.com/dangers-stopping-event-propagation/
 

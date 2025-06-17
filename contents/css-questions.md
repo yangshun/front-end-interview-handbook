@@ -1,11 +1,11 @@
 ---
 title: CSS Interview Questions (Quiz) for Front End Interviews
-sidebar_label: CSS questions
+sidebar_label: CSS quiz
 ---
 
-:::info Page migrated to GreatFrontEnd
+:::info Latest version on GreatFrontEnd
 
-Front End Interview Handbook is part of [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/questions/css-interview-questions/quiz?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
+Find the latest version of this page on [GreatFrontEnd's CSS Quiz Interview Questions](https://www.greatfrontend.com/questions/css-interview-questions/quiz?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
 
 :::
 
@@ -30,7 +30,7 @@ In the cases of equal specificity: the latest rule is the one that counts. If yo
 
 I would write CSS rules with low specificity so that they can be easily overridden if necessary. When writing CSS UI component library code, it is important that they have low specificities so that users of the library can override them without using too complicated CSS rules just for the sake of increasing specificity or resorting to `!important`.
 
-###### References
+#### References
 
 - https://www.smashingmagazine.com/2007/07/css-specificity-things-you-should-know/
 - https://www.sitepoint.com/web-foundations/specificity/
@@ -42,7 +42,7 @@ I would write CSS rules with low specificity so that they can be easily overridd
 
 I would choose resetting when I have a very customized or unconventional site design such that I need to do a lot of my own styling and do not need any default styling to be preserved.
 
-###### References
+#### References
 
 - https://stackoverflow.com/questions/6887336/what-is-the-difference-between-normalize-css-and-reset-css
 
@@ -68,7 +68,7 @@ The `.clearfix` hack uses a clever CSS [pseudo selector](#describe-pseudo-elemen
 
 Alternatively, give `overflow: auto` or `overflow: hidden` property to the parent element which will establish a new block formatting context inside the children and it will expand to contain its children.
 
-###### References
+#### References
 
 - https://css-tricks.com/all-about-floats/
 
@@ -84,7 +84,7 @@ Each stacking context is self-contained - after the element's contents are stack
 
 _Note: What exactly qualifies an element to create a stacking context is listed in this long set of [rules](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context#The_stacking_context)._
 
-###### References
+#### References
 
 - https://css-tricks.com/almanac/properties/z/z-index/
 - https://philipwalton.com/articles/what-no-one-told-you-about-z-index/
@@ -107,7 +107,7 @@ In a BFC, each box's left outer edge touches the left edge of the containing blo
 
 Vertical margins between adjacent block-level boxes in a BFC collapse. Read more on [collapsing margins](https://www.sitepoint.com/web-foundations/collapsing-margins/).
 
-###### References
+#### References
 
 - https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context
 - https://www.sitepoint.com/understanding-block-formatting-contexts-in-css/
@@ -133,7 +133,7 @@ CSS sprites combine multiple images into one single larger image. It is a common
 - Reduce the number of HTTP requests for multiple images (only one single request is required per spritesheet). But with HTTP2, loading multiple images is no longer much of an issue.
 - Advance downloading of assets that won't be downloaded until needed, such as images that only appear upon `:hover` pseudo-states. Blinking wouldn't be seen.
 
-###### References
+#### References
 
 - https://css-tricks.com/css-sprites/
 
@@ -166,7 +166,7 @@ These techniques are related to accessibility (a11y).
 
 Even if WAI-ARIA is the ideal solution, I would go with the `absolute` positioning approach, as it has the least caveats, works for most elements and it's an easy technique.
 
-###### References
+#### References
 
 - https://www.w3.org/TR/wai-aria-1.1/
 - https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA
@@ -203,7 +203,7 @@ Basic coloring can be done by setting two attributes on the node: `fill` and `st
 
 The above `fill="purple"` is an example of a _presentational attribute_. Interestingly, and unlike inline styles like `style="fill: purple"` which also happens to be an attribute, presentational attributes can be [overriden by CSS](https://css-tricks.com/presentation-attributes-vs-inline-styles/) styles defined in a stylesheet. So, if you did something like `svg { fill: blue; }` it would override the purple fill we've defined.
 
-###### References
+#### References
 
 - https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Fills_and_Strokes
 
@@ -226,7 +226,7 @@ Here is an example of `print` media type's usage:
 }
 ```
 
-###### References
+#### References
 
 - https://developer.mozilla.org/en-US/docs/Web/CSS/@media#Syntax
 
@@ -238,7 +238,7 @@ Firstly, understand that browsers match selectors from rightmost (key selector) 
 
 Be aware of which CSS properties [trigger](https://csstriggers.com/) reflow, repaint, and compositing. Avoid writing styles that change the layout (trigger reflow) where possible.
 
-###### References
+#### References
 
 - https://developers.google.com/web/fundamentals/performance/rendering/
 - https://csstriggers.com/
@@ -281,7 +281,7 @@ This part is related to the above about [writing efficient CSS](#what-are-some-o
 
 For example with this selector `p span`, browsers firstly find all the `<span>` elements and traverse up its parent all the way up to the root to find the `<p>` element. For a particular `<span>`, as soon as it finds a `<p>`, it knows that the `<span>` matches and can stop its matching.
 
-###### References
+#### References
 
 - https://stackoverflow.com/questions/5797014/why-do-browsers-match-css-selectors-from-right-to-left
 
@@ -293,7 +293,7 @@ A CSS pseudo-element is a keyword added to a selector that lets you style a spec
 - Used in the `.clearfix` hack as shown above to add a zero-space element with `clear: both`.
 - Triangular arrows in tooltips use `:before` and `:after`. Encourages separation of concerns because the triangle is considered part of styling and not really the DOM.
 
-###### References
+#### References
 
 - https://css-tricks.com/almanac/pseudo-selectors/b/after-and-before/
 
@@ -316,7 +316,7 @@ The box model has the following rules:
 - The `width` of an element is calculated by the content's `width`.
 - By default, `padding`s and `border`s are not part of the `width` and `height` of an element.
 
-###### References
+#### References
 
 - https://www.smashingmagazine.com/2010/06/the-principles-of-cross-browser-css-coding/#understand-the-css-box-model
 
@@ -328,7 +328,7 @@ The box model has the following rules:
 - The `width` of an element is now calculated by the content's `width` + horizontal `padding` + horizontal `border` width.
 - Taking into account `padding`s and `border`s as part of our box model resonates better with how designers actually imagine content in grids.
 
-###### References
+#### References
 
 - https://www.paulirish.com/2012/box-sizing-border-box-ftw/
 
@@ -370,7 +370,7 @@ A positioned element is an element whose computed `position` property is either 
 - `fixed` - The element is removed from the flow of the page and positioned at a specified position relative to the viewport and doesn't move when scrolled.
 - `sticky` - Sticky positioning is a hybrid of relative and fixed positioning. The element is treated as `relative` positioned until it crosses a specified threshold, at which point it is treated as `fixed` positioned.
 
-###### References
+#### References
 
 - https://developer.mozilla.org/en/docs/Web/CSS/position
 
@@ -388,7 +388,7 @@ Flexbox solves many common problems in CSS, such as vertical centering of elemen
 
 Grid is by far the most intuitive approach for creating grid-based layouts (it better be!) but browser support is not wide at the moment.
 
-###### References
+#### References
 
 - https://philipwalton.github.io/solved-by-flexbox/
 
@@ -444,7 +444,7 @@ Both have these methods have some issues that need to be weighed:
 - Responsive design can be quite challenging, as you're essentially using a single albeit responsive layout to fit all situations. How to set the media query breakpoints is one such challenge. Do you use standardized breakpoint values? Or, do you use breakpoints that make sense to your particular layout? What if that layout changes?
 - Adaptive design generally requires user agent sniffing, or DPI detection, etc., all of which can prove unreliable.
 
-###### References
+#### References
 
 - https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design
 - http://mediumwell.com/responsive-adaptive-mobile/
@@ -480,7 +480,7 @@ It is important to note that browsers which don't support HTML5's `srcset` (i.e.
 
 For icons, I would also opt to use SVGs and icon fonts where possible, as they render very crisply regardless of resolution.
 
-###### References
+#### References
 
 - https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/
 - http://scottjehl.github.io/picturefill/
@@ -492,7 +492,7 @@ For icons, I would also opt to use SVGs and icon fonts where possible, as they r
 
 When using `translate()`, the element still occupies its original space (sort of like `position: relative`), unlike in changing the absolute positioning.
 
-###### References
+#### References
 
 - https://www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/
 

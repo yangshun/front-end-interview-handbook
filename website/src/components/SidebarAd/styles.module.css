@@ -1,46 +1,132 @@
-.container {
-  background-repeat: no-repeat;
-  background-size: contain;
-  border-radius: var(--ifm-global-radius);
-  color: #fff;
-  display: block;
-  opacity: 0.95;
-  padding: 1rem;
-  transition: opacity var(--ifm-transition-fast)
-    var(--ifm-transition-timing-default);
+/* The secret sauce that enables gradient rotation. NOTE: does not work in all browsers. https://caniuse.com/?search=%40property */
+@property --border-angle-1 {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0deg;
 }
 
-.backgroundPurple {
-  background-color: rgb(79, 70, 229);
+@property --border-angle-2 {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 90deg;
+}
+
+@property --border-angle-3 {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 180deg;
+}
+
+:root {
+  --color-one: #A07CFE;
+  --color-two: #FE8FB5;
+  --color-three: #FFBE7B;
+  --background: #fff;
+  --foreground: #18181b;
+  --border-size: 1.5px;
+  --border-radius: 0.75rem;
+}
+
+[data-theme="dark"] {
+  --background: #18181b;
+  --foreground: #fff;
+}
+
+@keyframes rotateBackground {
+  to { --border-angle-1: 360deg; }
+}
+
+@keyframes rotateBackground2 {
+  to { --border-angle-2: -270deg; }
+}
+
+@keyframes rotateBackground3 {
+  to { --border-angle-3: 540deg; }
+}
+
+.container {
+  --border-angle-1: 0deg;
+  --border-angle-2: 90deg;
+  --border-angle-3: 180deg;
+
+  background-color: #111;
+  border: 1px solid #eee;
+  color: inherit;
+  font-size: calc(0.8rem + 4vmin);
+  font-family: inherit;
+  padding: var(--border-size);
+  display: flex;
+  border-radius: var(--border-radius);
+  background-color: transparent;
+  background-image: conic-gradient(
+    from var(--border-angle-1) at 10% 15%,
+    transparent,
+    var(--color-one) 10%,
+    transparent 30%,
+    transparent
+  ),
+  conic-gradient(
+    from var(--border-angle-2) at 70% 60%,
+    transparent,
+    var(--color-two) 10%,
+    transparent 60%,
+    transparent
+  ),
+  conic-gradient(
+    from var(--border-angle-3) at 50% 20%,
+    transparent,
+    var(--color-three) 10%,
+    transparent 50%,
+    transparent
+  );
+  animation: 
+    rotateBackground 3s linear infinite,
+    rotateBackground2 8s linear infinite,
+    rotateBackground3 13s linear infinite;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.container > * {
+  background: var(--background); 
+  padding: 0.75rem;
+  border-radius: calc(var(--border-radius) - var(--border-size));
+  color: var(--foreground);
+}
+
+[data-theme^="dark"] .container {
+  border: 0;
 }
 
 .backgroundRed {
-  background-image: linear-gradient(39deg, rgb(188, 78, 156), rgb(248, 7, 89));
-}
-
-.backgroundOrange {
-  background-image: linear-gradient(
-    90deg,
-    rgb(253, 200, 48),
-    rgb(243, 115, 53)
-  );
-}
-
-.container:hover {
-  color: #fff;
-  opacity: 1;
-  text-decoration: none;
-}
-
-.tagline {
-  font-size: 0.75rem;
-  margin-bottom: 0;
+  --color-one: rgb(248, 7, 89);
+  --color-two: rgb(188, 78, 156);
+  --color-three: rgb(243, 115, 53);
 }
 
 .title {
+  color: var(--ifm-color-content);
   display: block;
   font-size: 0.8rem;
+  font-weight: 600;
   margin-bottom: 0.1rem;
+}
+
+.tagline {
+  color: var(--ifm-color-content-secondary);
+  font-size: 0.75rem;
+  margin-bottom: 0;
+  
+  strong, u {
+    color: var(--ifm-color-content);
+    font-weight: 500;
+  }
+}
+
+[data-theme="dark"] .tagline {
+  color: #a1a1aa;
 }
 
 .logo {

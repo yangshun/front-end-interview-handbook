@@ -198,6 +198,6 @@ Fixing accessibility issues is like fixing bugs; it is best looked at through th
 - How badly does this accessibility issue affect your users?
 - How expensive is it going to cost to fix?
 
-###### References
+#### References
 
 - https://www.udacity.com/course/web-accessibility--ud891

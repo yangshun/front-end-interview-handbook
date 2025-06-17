@@ -3,29 +3,22 @@ module.exports = {
     'introduction',
     {
       type: 'category',
-      label: 'Trivia questions',
+      label: 'Coding interview',
+      collapsed: false,
+      items: [
+        'javascript-utility-function',
+        'build-front-end-user-interfaces',
+        'algorithms',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Quiz/trivia interview',
       items: [
         'trivia',
         'javascript-questions',
         'css-questions',
         'html-questions',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Coding interview',
-      collapsed: false,
-      link: {
-        type: 'generated-index',
-        title: 'Coding round',
-        description:
-          'Various type of coding questions for front end interviews!',
-        slug: '/coding',
-      },
-      items: [
-        'javascript-utility-function',
-        'build-front-end-user-interfaces',
-        'algorithms',
       ],
     },
     {

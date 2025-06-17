@@ -2,9 +2,9 @@
 title: Introduction
 ---
 
-:::info Page migrated to GreatFrontEnd
+:::info Latest version on GreatFrontEnd
 
-Front End Interview Handbook is part of [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)! Find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-interview-playbook?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
+Find the latest version of this page on [GreatFrontEnd's Front End Interview Playbook](https://www.greatfrontend.com/front-end-interview-playbook/introduction?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
 
 :::
 
@@ -34,23 +34,9 @@ Look out for interview questions by companies on Glassdoor. Front end questions 
 
 ## Front end interview formats
 
-Unlike Software Engineering interviews, the formats for front end interviews are less known and not standardized across the industry. We have made the effort to search the Internet for front end interview questions asked by the popular companies and there are some questions which appear very often. In general, you should be familiar with the following questions and formats:
+Unlike Software Engineering interviews, the formats for front end interviews are less known and not standardized across the industry. We painstakingly searched the Internet for front end interview questions asked by popular tech companies and collated the questions which appear very often. 
 
-### Trivia questions
-
-Short questions which test your knowledge and have clear non-subjective answers. These are usually asked by recruiters because the accuracy of the answers can be verified even by non-technical people. Here are some examples:
-
-- JavaScript
-  - What is a closure?
-  - What is the difference between a promise and a callback?
-  - Explain the `this` keyword in JavaScript.
-- CSS
-  - What is the CSS box model?
-  - Various CSS `position` properties and its differences.
-
-[**Read more about front end trivia questions →**](./trivia.md)
-
-[**Practice front end trivia questions**](https://www.greatfrontend.com/questions/quiz?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
+In general, you should be familiar with the following questions and formats:
 
 ### JavaScript coding
 
@@ -63,7 +49,7 @@ This is the front end version of LeetCode-style algorithm questions. Implement a
 
 [**Read more about JavaScript coding questions →**](./javascript-utility-function.md)
 
-[**Practice JavaScript coding questions**](https://www.greatfrontend.com/questions/javascript-interview-questions?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
+[**Practice JavaScript coding questions on GreatFrontEnd**](https://www.greatfrontend.com/questions/formats/javascript-functions?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
 
 ### User interface coding
 
@@ -81,7 +67,7 @@ Build user interfaces (can be a UI component, an app, or a game) using HTML, CSS
 
 [**Read more about user interface coding questions →**](./build-front-end-user-interfaces.md)
 
-[**Practice user interface coding questions**](https://www.greatfrontend.com/questions?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
+[**Practice user interface coding questions on GreatFrontEnd**](https://www.greatfrontend.com/questions/formats/ui-coding?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
 
 ### Algorithmic coding
 
@@ -89,7 +75,23 @@ LeetCode-style algorithmic coding questions which evaluate your core data struct
 
 [**Read more about algorithm coding questions →**](./algorithms.md)
 
-[**Practice algorithm questions**](https://www.greatfrontend.com/focus-areas/data-structures-algorithms?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
+[**Practice algorithm questions on GreatFrontEnd**](https://www.greatfrontend.com/questions/formats/algo-coding?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
+
+### Quiz/trivia questions
+
+Short questions which test your knowledge and have clear non-subjective answers. These are usually asked within coding / system design rounds and even by recruiters because the accuracy of the answers can be somewhat verified by non-technical people. Here are some examples:
+
+- JavaScript
+  - What is a closure?
+  - What is the difference between a promise and a callback?
+  - Explain the `this` keyword in JavaScript.
+- CSS
+  - What is the CSS box model?
+  - Various CSS `position` properties and its differences.
+
+[**Read more about front end quiz questions →**](./trivia.md)
+
+[**Practice front end quiz questions on GreatFrontEnd**](https://www.greatfrontend.com/questions/quiz?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
 
 ### System design
 
@@ -100,7 +102,7 @@ Describe and discuss how you would build a UI component/app/game and its archite
 
 [**Read more about front end system design →**](./front-end-system-design.md)
 
-[**Practice front end system design questions**](https://www.greatfrontend.com/questions/system-design?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
+[**Practice front end system design questions on GreatFrontEnd**](https://www.greatfrontend.com/questions/system-design?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
 
 You can also try out the above mentioned question types at [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook). It has [over 500+ practice questions](https://www.greatfrontend.com/questions?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) and all of them are provided with comprehensive answers written by ex-FAANG senior engineers.
 
@@ -110,19 +112,20 @@ Through extensive research, here are the different type of formats companies ask
 
 _Legend: ✅: Asked, ❌: Not asked, ⚠️: No data_
 
-| Company | Trivia | Algorithms | JavaScript coding | UI coding | System design |
+| Company | Quiz | Algorithms | JavaScript coding | UI coding | System design |
 | :-- | :-: | :-: | :-: | :-: | :-: |
-| [**Airbnb**](./companies/airbnb-front-end-interview-questions.md) | ❌ | ✅ | ✅ | ✅ | ❌ |
+| [**Airbnb**](./companies/airbnb-front-end-interview-questions.md) | ❌ | ✅ | ✅ | ✅ | ✅ |
 | [**Amazon**](./companies/amazon-front-end-interview-questions.md) | ✅ | ✅ | ✅ | ✅ | ✅ |
-| [**Apple**](./companies/apple-front-end-interview-questions.md) | ⚠️ | ⚠️ | ✅ | ✅ | ⚠️ |
+| [**Apple**](./companies/apple-front-end-interview-questions.md) | ✅ | ⚠️ | ✅ | ✅ | ⚠️ |
+| **Atlassian** | ❌ | ❌ | ✅ | ✅ | ✅ |
 | [**ByteDance/TikTok**](./companies/bytedance-tiktok-front-end-interview-questions.md) | ✅ | ✅ | ✅ | ✅ | ❌ |
 | [**Dropbox**](./companies/dropbox-front-end-interview-questions.md) | ❌ | ⚠️ | ✅ | ✅ | ✅ |
-| Facebook/Meta | ✅ | ❌ | ✅ | ❌ | ✅ |
-| Flipkart | ⚠️ | ✅ | ⚠️ | ⚠️ | ⚠️ |
+| **Facebook/Meta** | ✅ | ❌ | ✅ | ❌ | ✅ |
+| **Flipkart** | ⚠️ | ✅ | ⚠️ | ⚠️ | ⚠️ |
 | [**Google**](./companies/google-front-end-interview-questions.md) | ✅ | ✅ | ✅ | ✅ | ✅ |
 | [**LinkedIn**](./companies/linkedin-front-end-interview-questions.md) | ✅ | ⚠️ | ✅ | ✅ | ⚠️ |
 | [**Lyft**](./companies/lyft-front-end-interview-questions.md) | ❌ | ❌ | ✅ | ✅ | ✅ |
-| [**Microsoft**](./companies/microsoft-front-end-interview-questions.md) | ✅ | ✅ | ✅ | ✅ | ⚠️ |
+| [**Microsoft**](./companies/microsoft-front-end-interview-questions.md) | ✅ | ✅ | ✅ | ✅ | ✅ |
 | [**Salesforce**](./companies/salesforce-front-end-interview-questions.md) | ✅ | ⚠️ | ⚠️ | ⚠️ | ⚠️ |
 | [**Twitter**](./companies/twitter-front-end-interview-questions.md) | ✅ | ⚠️ | ✅ | ✅ | ⚠️ |
 | [**Uber**](./companies/uber-front-end-interview-questions.md) | ⚠️ | ⚠️ | ✅ | ✅ | ⚠️ |

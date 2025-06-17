@@ -5,12 +5,10 @@ import clsx from 'clsx';
 
 import styles from './styles.module.css';
 
-const BACKGROUNDS = [styles.backgroundOrange, styles.backgroundRed];
-
-function FAANGTechLeads({ className, position }) {
+function FAANGTechLeads({ position }) {
   return (
     <a
-      className={clsx(styles.container, className)}
+      className={clsx(styles.container, styles.backgroundRed)}
       href={`https://www.faangtechleads.com?utm_source=techinterviewhandbook&utm_medium=referral&utm_content=${position}&aff=1e80c401fe7e2`}
       target="_blank"
       rel="noopener"
@@ -18,9 +16,9 @@ function FAANGTechLeads({ className, position }) {
         window.gtag('event', `faangtechleads.${position}.click`);
       }}>
       <p className={styles.tagline}>
-        <strong className={styles.title}>
+        <span className={styles.title}>
           Craft the perfect resume for FAANG
-        </strong>
+        </span>
         Save time crafting your resume with FAANG Tech Leads'{' '}
         <u>FAANG-quality resume templates and examples</u> which have helped
         many Software Engineers get interviews at top Bay Area companies. Grab
@@ -33,28 +31,24 @@ function FAANGTechLeads({ className, position }) {
 function GreatFrontEnd({ position }) {
   return (
     <a
-      className={clsx(styles.container, styles.backgroundPurple)}
+      className={clsx(styles.container)}
       href={`https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&utm_content=${position}&gnrs=frontendinterviewhandbook`}
       target="_blank"
       rel="noopener"
       onClick={() => {
         window.gtag('event', `greatfrontend.${position}.click`);
       }}>
-      <p className={styles.tagline}>
-        <strong className={styles.title}>
-          LeetCode for Front End Interviews
-        </strong>
-        Looking for front end interview practice? Try <u>GreatFrontEnd</u> - a
-        platform with curated practice questions, well-explained solutions and
-        automated test cases.
-      </p>
+      <div className={styles.tagline}>
+        <span className={styles.title}>
+          Navigate front end interviews easily with GreatFrontEnd
+        </span>
+        Meet the front end interview prep platform built by <u>ex-FAANG senior engineers</u> to make your life much easier
+      </div>
     </a>
   );
 }
 
 export default React.memo(function SidebarAd({ position }) {
-  const backgroundClass =
-    BACKGROUNDS[Math.floor(Math.random() * BACKGROUNDS.length)];
   // Because the SSR and client output can differ and hydration doesn't patch attribute differences,
   // we'll render this on the browser only.
   return (
@@ -66,7 +60,6 @@ export default React.memo(function SidebarAd({ position }) {
         if (path.includes('resume')) {
           return (
             <FAANGTechLeads
-              className={backgroundClass}
               key={Math.random()}
               position={position}
             />

@@ -1,36 +1,38 @@
 ---
-title: Front End System Design Interview - UI Components
+title: Front End System Design Interview - User Interface Components
 slug: front-end-system-design/ui-components
-sidebar_label: UI components
+sidebar_label: User interface components
 ---
 
-:::info Page migrated to GreatFrontEnd
+:::info Latest version on GreatFrontEnd
 
-Front End Interview Handbook is part of [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)! Find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-system-design-playbook/types-of-questions?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
+Find the latest version of this page on [GreatFrontEnd's Front End System Design Questions](https://www.greatfrontend.com/front-end-system-design-playbook/types-of-questions?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
 
 :::
 
 ## Examples
 
-- Autocomplete: [Read solution](https://www.greatfrontend.com/questions/system-design/autocomplete?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
-- Image carousel: [Read solution](https://www.greatfrontend.com/questions/system-design/image-carousel?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
-- Dropdown menu: [Read solution](https://www.greatfrontend.com/questions/system-design/dropdown-menu?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
-- Modal dialog: [Read solution](https://www.greatfrontend.com/questions/system-design/modal-dialog?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
-- Rich text editor: [Read solution](https://www.greatfrontend.com/questions/system-design/rich-text-editor?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
-- Poll widget: [Read solution](https://www.greatfrontend.com/questions/system-design/poll-widget?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
-- Selector which loads options over the network
+- [Autocomplete](https://www.greatfrontend.com/questions/system-design/autocomplete?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
+- [Image carousel](https://www.greatfrontend.com/questions/system-design/image-carousel?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
+- [Dropdown menu](https://www.greatfrontend.com/questions/system-design/dropdown-menu?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
+- [Modal dialog](https://www.greatfrontend.com/questions/system-design/modal-dialog?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
+- [Rich text editor](https://www.greatfrontend.com/questions/system-design/rich-text-editor?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
+- [Poll widget](https://www.greatfrontend.com/questions/system-design/poll-widget?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
+- Tooltip
 
 To find out more, check out [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook), which shows you how to approach front end system design interviews with their [Front End System Design Playbook](https://www.greatfrontend.com/front-end-system-design-playbook?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) and case studies. There are also [blog posts](https://www.greatfrontend.com/blog?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) that will cover some of the following topics in more detail.
 
 ## Framework
 
-In system design interviews, candidates are supposed to lead the conversation. Here's a framework you can use to give an outline to the interviewer as to what you are going to cover. This framework is called **RADIO** and it is made up of the first character of each step. You can write this structure down on the whiteboard/online editor so that you don't forget.
+In system design interviews, candidates are supposed to lead the conversation. Here's a framework you can use to give an outline to the interviewer as to what you are going to cover (not necessarily in that order). The framework is called **RADIO** and it is made up of the first character of each aspect.
 
-1. **<u>R</u>equirements exploration**: Understand the problem thoroughly and determine the scope by asking a number of clarifying questions.
-1. **<u>A</u>rchitecture / High-level design**: Identify the key components of the product and how they are related to each other.
-1. **<u>D</u>ata model**: Describe the various data entities, the fields they contain and which component(s) they belong to.
-1. **<u>I</u>nterface definition (API)**: Define the interface (API) between components in the product, functionality of each API, their parameters and responses.
-1. **<u>O</u>ptimizations and deep dive**: Discuss about possible optimization opportunities and specific areas of interest when building the product.
+- **<u>R</u>equirements exploration**: Understand the problem thoroughly and determine the scope by asking a number of clarifying questions.
+- **<u>A</u>rchitecture / High-level design**: Identify the key components of the product and how they are related to each other.
+- **<u>D</u>ata model**: Describe the various data entities, the fields they contain and which component(s) they belong to.
+- **<u>I</u>nterface definition (API)**: Define the interface (API) between components in the product, functionality of each API, their parameters and responses.
+- **<u>O</u>ptimizations and deep dive**: Discuss about possible optimization opportunities and specific areas of interest when building the product.
+
+You can write this structure down on the whiteboard/online editor so that you don't forget.
 
 ### Requirements exploration
 

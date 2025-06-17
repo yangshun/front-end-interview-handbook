@@ -28,6 +28,6 @@ If you are a total beginner to CSS, Codecademy's [HTML & CSS course](https://www
 
 TODO
 
-###### References
+#### References
 
 - https://philipwalton.com/articles/side-effects-in-css/

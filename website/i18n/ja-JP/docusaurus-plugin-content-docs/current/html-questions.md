@@ -134,7 +134,7 @@ JavaScript フレームワークが普及する前に、フロントエンドの
 - 目に見えるコンテンツの優先順位付け（または折り畳みの上のレンダリング） - できるだけ早く表示するためにユーザーのブラウザでレンダリングされるページの量に必要な最小の CSS/コンテンツ/スクリプトのみを含める。スクリプトを呼び出すか、`DOMContentLoaded`/`load` イベントが他のリソースやコンテンツを読み込むのを待ちます。
 - 非同期 HTML フラグメント - HTML の一部をブラウザにフラッシュし、ページがバックエンド上に構築されます。この技術の詳細は[こちら](http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/)にあります。
 
-###### References
+#### References
 
 - https://stackoverflow.com/questions/33651166/what-is-progressive-rendering
 - http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/

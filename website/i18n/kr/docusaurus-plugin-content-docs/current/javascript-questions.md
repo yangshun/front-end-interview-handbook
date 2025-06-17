@@ -33,7 +33,7 @@ import TOCInline from '@theme/TOCInline';
 
 상세한 설명은 [Medium의 글](https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3)을 참조하세요.
 
-###### References
+#### References
 
 - https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3
 - https://stackoverflow.com/a/3127440/1751946

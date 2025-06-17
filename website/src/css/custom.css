@@ -17,6 +17,7 @@
 }
 
 :root {
+  --ifm-font-size-base: 15px;
   --ifm-color-primary: #d62b79;
   --ifm-color-primary-dark: #c2256d;
   --ifm-color-primary-darker: #b72367;
@@ -29,7 +30,7 @@
     'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
     'Droid Sans', 'Helvetica Neue', sans-serif;
 
-  --ifm-footer-padding-vertical: 3rem;
+  --ifm-footer-padding-vertical: 5rem;
 }
 
 html[data-theme='dark'] {
@@ -40,12 +41,26 @@ html[data-theme='dark'] {
   --ifm-color-primary-light: #ffb01a;
   --ifm-color-primary-lighter: #ffb426;
   --ifm-color-primary-lightest: #ffc14d;
+}
 
-  --ifm-footer-padding-vertical: 3rem;
+strong {
+  font-weight: 600;
+}
+
+html[data-theme='dark'] strong {
+  color: #fff;
+}
+
+.footer, .footer-dark {
+  --ifm-footer-background-color: #18181b;
 }
 
 .navbar {
   font-size: 0.875rem;
+}
+
+.navbar__items .navbar-icon {
+  margin-right: 4px;
 }
 
 .footer__links {
@@ -56,14 +71,23 @@ html[data-theme='dark'] {
   text-align: start;
 }
 
-.markdown h1:first-child {
-  --ifm-h1-font-size: 1.5em;
+header h1 {
+  font-size: 1.875rem;
+  line-height: 1.2em;
 }
 
-@media screen and (min-width: 768px) {
-  .markdown h1:first-child {
-    --ifm-h1-font-size: 2.25em;
-  }
+html[data-theme="dark"] .markdown h1,
+html[data-theme="dark"] .markdown h2,
+html[data-theme="dark"] .markdown h3,
+html[data-theme="dark"] .markdown h4,
+html[data-theme="dark"] .markdown h5,
+html[data-theme="dark"] .markdown h6 {
+  color: #fff;
+}
+
+.markdown h1 {
+  font-size: 2rem;
+  line-height: 1.2em;
 }
 
 .markdown h2 {
@@ -80,7 +104,6 @@ html[data-theme='dark'] {
 
 .markdown h3 {
   --ifm-h3-font-size: 1.25em;
-  font-weight: 600;
   margin-top: 1.8em;
   margin-bottom: 0.5em;
 }

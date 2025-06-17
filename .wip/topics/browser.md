@@ -40,7 +40,7 @@ High level flow of how browsers render a webpage:
 
 - Finally, this gets actually displayed in a browser window, a process called "painting".
 
-###### References
+#### References
 
 - http://taligarsiel.com/Projects/howbrowserswork1.htm
 - https://medium.freecodecamp.org/its-not-dark-magic-pulling-back-the-curtains-from-your-stylesheets-c8d677fa21b2

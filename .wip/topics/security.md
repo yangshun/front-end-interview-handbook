@@ -49,7 +49,7 @@ XSS vulnerabilities allow attackers to bypass essentially all CSRF preventions.
 - Require user interaction
   - Require a re-authentication, using a one-time token, or requiring users to complete a captcha.
 
-###### References
+#### References
 
 - [OWASP CSRF](<https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)>)
 
@@ -77,7 +77,7 @@ HTTPS is HTTP over SSL/TLS. Servers and clients still speak exactly the same HTT
 - TLS handshake computational and latency overhead.
 - Encryption and decryption requires more computation power and bandwidth.
 
-###### References
+#### References
 
 - https://blog.hartleybrody.com/https-certificates/
 - https://github.com/alex/what-happens-when#tls-handshake

@@ -3,9 +3,9 @@ title: Google Front End Interview Questions
 sidebar_label: Google interview questions
 ---
 
-:::info Page migrated to GreatFrontEnd
+:::info Latest version on GreatFrontEnd
 
-Find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/interviews/company/google/questions-guides?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
+Find the latest version of this page on [GreatFrontEnd's Google Front End Interview Guide](https://www.greatfrontend.com/interviews/company/google/questions-guides?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
 
 :::
 

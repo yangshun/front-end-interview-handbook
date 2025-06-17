@@ -4,9 +4,9 @@ slug: coding/javascript-utility-function
 sidebar_label: JavaScript coding
 ---
 
-:::info Page migrated to GreatFrontEnd
+:::info Latest version on GreatFrontEnd
 
-Front End Interview Handbook is part of [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)! Find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-interview-playbook/javascript?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
+Find the latest version of this page on [GreatFrontEnd's Front End Interview Playbook](https://www.greatfrontend.com/front-end-interview-playbook/javascript?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
 
 :::
 
@@ -46,7 +46,7 @@ Advanced questions are usually given to more senior candidates and expect around
     </video>
 </div>
 
-These questions and many others are available on [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook). Apart from a [huge question bank of coding questions](https://www.greatfrontend.com/questions/javascript-functions-interview-questions?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) that you can access by frameworks, each question also comes with a solution authored by ex-FAANG engineers and automated test cases.
+These questions and many others are available on [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook). Apart from a [huge question bank of coding questions](https://www.greatfrontend.com/questions?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) that you can filter by frameworks, languages, and topics, each question also comes with automated test cases and an official solution authored by ex-FAANG senior engineers.
 
 Here are some questions you can start with:
 

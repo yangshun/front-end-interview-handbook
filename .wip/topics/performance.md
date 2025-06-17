@@ -37,7 +37,7 @@ WIP.
   - Use web workers for long running operations to move into a web worker thread.
   - Use `requestAnimationFrame`
 
-###### References
+#### References
 
 - https://bitsofco.de/understanding-the-critical-rendering-path/
 

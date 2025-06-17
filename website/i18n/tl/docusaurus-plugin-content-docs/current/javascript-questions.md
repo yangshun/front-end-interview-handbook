@@ -517,7 +517,7 @@ duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 
 "Ternary" indicates three, and a ternary expression accepts three operands, the test condition, the "then" expression and the "else" expression. Ternary expressions are not specific to JavaScript and I'm not sure why it is even in this list.
 
-###### References
+#### References
 
 - https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
 
@@ -543,7 +543,7 @@ Disadvantages:
 
 Overall, I think the benefits outweigh the disadvantages, and I never had to rely on the features that strict mode blocks. I would recommend using strict mode.
 
-###### References
+#### References
 
 - http://2ality.com/2011/10/strict-mode-hatred.html
 - http://lucybain.com/blog/2014/js-use-strict/
@@ -562,7 +562,7 @@ for (let i = 1; i <= 100; i++) {
 
 I would not advise you to write the above during interviews though. Just stick with the long but clear approach. For more wacky versions of FizzBuzz, check out the reference link below.
 
-###### References
+#### References
 
 - https://gist.github.com/jaysonrowe/1592432
 
@@ -580,7 +580,7 @@ The DOM event `DOMContentLoaded` will fire after the DOM for the page has been c
 
 TODO.
 
-###### References
+#### References
 
 - https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onload
 
@@ -604,7 +604,7 @@ The downsides:
 - There's an additional step to be done on your server which is to configure it to route all requests to a single entry point and allow client-side routing to take over from there.
 - SPAs are reliant on JavaScript to render content, but not all search engines execute JavaScript during crawling, and they may see empty content on your page. This inadvertently hurts the Search Engine Optimization (SEO) of your app. However, most of the time, when you are building apps, SEO is not the most important factor, as not all the content needs to be indexable by search engines. To overcome this, you can either server-side render your app or use services such as [Prerender](https://prerender.io/) to "render your javascript in a browser, save the static HTML, and return that to the crawlers".
 
-###### References
+#### References
 
 - https://github.com/grab/front-end-guide#single-page-apps-spas
 - http://stackoverflow.com/questions/21862054/single-page-app-advantages-and-disadvantages
@@ -617,7 +617,7 @@ Possess working knowledge of it. A promise is an object that may produce a singl
 
 Some common polyfills are `$.deferred`, Q and Bluebird but not all of them comply to the specification. ES2015 supports Promises out of the box and polyfills are typically not needed these days.
 
-###### References
+#### References
 
 - https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261
 
@@ -656,7 +656,7 @@ Disadvantages:
 
 Practically, ES2015 has vastly improved JavaScript and made it much nicer to write. I don't really see the need for CoffeeScript these days.
 
-###### References
+#### References
 
 - https://softwareengineering.stackexchange.com/questions/72569/what-are-the-pros-and-cons-of-coffeescript
 
@@ -670,7 +670,7 @@ Practically, ES2015 has vastly improved JavaScript and made it much nicer to wri
   - `debugger` statement
   - Good old `console.log` debugging
 
-###### References
+#### References
 
 - https://hackernoon.com/twelve-fancy-chrome-devtools-tips-dc1e39d10d9d
 - https://raygun.com/blog/javascript-debugging/
@@ -710,7 +710,7 @@ The event loop is a single-threaded loop that monitors the call stack and checks
 
 If you haven't already checked out Philip Robert's [talk on the Event Loop](https://2014.jsconf.eu/speakers/philip-roberts-what-the-heck-is-the-event-loop-anyway.html), you should. It is one of the most viewed videos on JavaScript.
 
-###### References
+#### References
 
 - https://2014.jsconf.eu/speakers/philip-roberts-what-the-heck-is-the-event-loop-anyway.html
 - http://theproactiveprogrammer.com/javascript/the-javascript-event-loop-a-stack-and-a-queue/
@@ -737,7 +737,7 @@ var foo = function () {
 };
 ```
 
-###### References
+#### References
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function
 
@@ -815,7 +815,7 @@ const baz = 'baz';
 baz = 'qux';
 ```
 
-###### References
+#### References
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var
@@ -867,7 +867,7 @@ const transformNamesToUppercase = function (names) {
 transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 ```
 
-###### References
+#### References
 
 - https://medium.com/javascript-scene/higher-order-functions-composing-software-5365cf2cbe99
 - https://hackernoon.com/effective-functional-javascript-first-class-and-higher-order-functions-713fde8df50a
@@ -910,7 +910,7 @@ console.log(p); // 42
 console.log(q); // true
 ```
 
-###### References
+#### References
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
 - https://ponyfoo.com/articles/es6-destructuring-in-depth
@@ -951,7 +951,7 @@ var addFive = curriedAdd(5);
 var result = [0, 1, 2, 3, 4, 5].map(addFive); // [5, 6, 7, 8, 9, 10]
 ```
 
-###### References
+#### References
 
 - https://hackernoon.com/currying-in-js-d9ddc64f162e
 
@@ -993,7 +993,7 @@ const { e, f, ...others } = {
 }; // e: 1, f: 2, others: { g: 3, h: 4 }
 ```
 
-###### References
+#### References
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters

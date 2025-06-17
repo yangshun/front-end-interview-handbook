@@ -135,7 +135,7 @@ Es gibt eine Ausnahme für die Positionierung von `<script>`s am unteren Rand: D
 
 Denke daran, dass das Einfügen von Scripten vor dem schließenden `</body>`-Tag die Illusion erzeugt, dass die Seite in einem leeren Cache schneller geladen wird (da die Scripte den Download des restlichen Dokuments nicht blockieren). Der Code wird erst dann ausgeführt, wenn die gesamte Seite geladen ist. Sind diese Scripte in das `<head>`-Tag gesetzt, beginnen sie vorher mit der Ausführung - auf einem vorbereiteten Cache würde die Seite also tatsächlich schneller geladen werden.
 
-###### References
+#### References
 
 - https://developer.yahoo.com/performance/rules.html#css_top
 - https://www.techrepublic.com/blog/web-designer/how-to-prevent-flash-of-unstyled-content-on-your-websites/

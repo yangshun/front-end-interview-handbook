@@ -1,11 +1,11 @@
 ---
 title: HTML Interview Questions (Quiz) for Front End Interviews
-sidebar_label: HTML questions
+sidebar_label: HTML quiz
 ---
 
-:::info Page migrated to GreatFrontEnd
+:::info Latest version on GreatFrontEnd
 
-Front End Interview Handbook is part of [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/questions/html-interview-questions/quiz?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
+Find the latest version of this page on [GreatFrontEnd's HTML Quiz Interview Questions](https://www.greatfrontend.com/questions/html-interview-questions/quiz?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
 
 :::
 
@@ -25,7 +25,7 @@ For webpages, the DOCTYPE declaration is required. It is used to tell user agent
 
 The DOCTYPE declaration for the HTML5 standards is `<!DOCTYPE html>`.
 
-###### References
+#### References
 
 - https://html.spec.whatwg.org/multipage/syntax.html#the-doctype
 - https://html.spec.whatwg.org/multipage/xhtml.html
@@ -41,7 +41,7 @@ Of course this is useless for letting a search engine know that the same content
 
 In the back end, the HTML markup will contain `i18n` placeholders and content for the specific language stored in YML or JSON formats. The server then dynamically generates the HTML page with content in that particular language, usually with the help of a back end framework.
 
-###### References
+#### References
 
 - https://www.w3.org/International/getting-started/language
 - https://support.google.com/webmasters/answer/189077
@@ -58,7 +58,7 @@ In the back end, the HTML markup will contain `i18n` placeholders and content fo
 - Language reading direction - In English, we read from left-to-right, top-to-bottom, in traditional Japanese, text is read up-to-down, right-to-left.
 - Useful-to-have - include the locale in the path (e.g en_US, zh_CN, etc).
 
-###### References
+#### References
 
 - https://www.quora.com/What-kind-of-things-one-should-be-wary-of-when-designing-or-developing-for-multilingual-sites
 
@@ -70,7 +70,7 @@ These days, using `data-` attributes is generally not encouraged. One reason is 
 
 However, one perfectly valid use of data attributes, is to add a hook for _end to end_ testing frameworks such as Selenium and Capybara without having to create a meaningless classes or ID attributes. The element needs a way to be found by a particular Selenium spec and something like `data-selector='the-thing'` is a valid way to do so without convoluting the semantic markup otherwise.
 
-###### References
+#### References
 
 - http://html5doctor.com/html5-custom-data-attributes/
 - https://www.w3.org/TR/html5/dom.html#embedding-custom-non-visible-data-with-the-data-*-attributes
@@ -86,7 +86,7 @@ However, one perfectly valid use of data attributes, is to add a hook for _end t
 - Device access - Allowing for the usage of various input and output devices.
 - Styling - Letting authors write more sophisticated themes.
 
-###### References
+#### References
 
 - https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
 
@@ -105,7 +105,7 @@ All the above-mentioned technologies are key-value storage mechanisms on the cli
 
 _Note: If the user decides to clear browsing data via whatever mechanism provided by the browser, this will clear out any `cookie`, `localStorage`, or `sessionStorage` stored. It's important to keep this in mind when designing for local persistance, especially when comparing to alternatives such as server side storing in a database or similar (which of course will persist despite user actions)._
 
-###### References
+#### References
 
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
 - http://tutorial.techaltum.com/local-and-session-storage.html
@@ -118,7 +118,7 @@ _Note: If the user decides to clear browsing data via whatever mechanism provide
 
 Note: The `async` and `defer` attributes are ignored for scripts that have no `src` attribute.
 
-###### References
+#### References
 
 - http://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html
 - https://stackoverflow.com/questions/10808109/script-tag-async-defer
@@ -142,7 +142,7 @@ Keep in mind that putting scripts just before the closing `</body>` tag will cre
 
 As per the HTML5 specification, certain HTML tags like `<head>` and `<body>` are optional. Google's style guide even recommends removing them to save bytes. However, this practice is still not widely adopted and the performance gain is likely to be minimal and for most sites it's not likely going to matter.
 
-###### References
+#### References
 
 - https://developer.yahoo.com/performance/rules.html#css_top
 - https://www.techrepublic.com/blog/web-designer/how-to-prevent-flash-of-unstyled-content-on-your-websites/
@@ -160,7 +160,7 @@ Examples of such techniques:
 - Prioritizing visible content (or above-the-fold rendering) - Include only the minimum CSS/content/scripts necessary for the amount of page that would be rendered in the users browser first to display as quickly as possible, you can then use deferred scripts or listen for the `DOMContentLoaded`/`load` event to load in other resources and content.
 - Async HTML fragments - Flushing parts of the HTML to the browser as the page is constructed on the back end. More details on the technique can be found [here](http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/).
 
-###### References
+#### References
 
 - https://stackoverflow.com/questions/33651166/what-is-progressive-rendering
 - http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/
@@ -179,7 +179,7 @@ If the resolution is retina (2x), the browser will use the closest resolution ab
 
 `srcset`s solve the problem whereby you want to serve smaller image files to narrow screen devices, as they don't need huge images like desktop displays do — and also optionally that you want to serve different resolution images to high density/low-density screens.
 
-###### References
+#### References
 
 - https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
 - https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/

@@ -4,9 +4,9 @@ slug: coding/build-front-end-user-interfaces
 sidebar_label: User interface coding
 ---
 
-:::info Page migrated to GreatFrontEnd
+:::info Latest version on GreatFrontEnd
 
-Front End Interview Handbook is part of [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)! Find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-interview-playbook/user-interface?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
+Find the latest version of this page on [GreatFrontEnd's Front End Interview Playbook](https://www.greatfrontend.com/front-end-interview-playbook/user-interface?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
 
 :::
 
@@ -19,34 +19,50 @@ Companies that ask such questions usually ask candidates to code in one of these
 - **BYOE (Bring Your Own Environment)**: Candidates bring their own development environment/laptop and free to choose whether they want to do local development using their own editors or use online environments like CodePen or CodeSandbox. This is the most ideal scenario that benefits candidates, but is usually only done during on-sites. You can usually use a JavaScript framework/library and in that case you are recommended to use tools that help you scaffold a fresh app where you can start coding immediately (e.g. `create-react-app`, `vue-cli`). You don't want to be spending time during the interview doing unnecessary plumbing that doesn't give your interviewers additional useful signals.
 - **Whiteboard**: Candidates have to write all the required HTML, JS, CSS on the whiteboard. There's no preview, no autocomplete, no online documentation to help you; you're totally on your own. So far Facebook and Google are the only companies that are known to make candidates write code on a physical whiteboard during onsite front end interviews.
 
-## Examples
+## Where to practice
+
+<div class="video-container">
+    <video class='gfe-webm' autoPlay muted loop>
+        <source src="/gfe-features.webm" type="video/webm" />
+    </video>
+</div>
+
+These questions and many others are available on [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook). Apart from a [huge question bank of coding questions](https://www.greatfrontend.com/questions?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) that you can filter by frameworks, languages, and topics, each question also comes with detailed test cases and an official solution authored by ex-FAANG senior engineers.
+
+Here are some questions you can start with:
 
 - Components
-  - Modal Dialog — [Practice](https://www.greatfrontend.com/questions/user-interface/modal-dialog?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
-  - Tabs — [Practice](https://www.greatfrontend.com/questions/user-interface/tabs?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
-  - Image Carousel - [Practice](https://www.greatfrontend.com/questions/user-interface/image-carousel?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
-  - Accordion — [Practice](https://www.greatfrontend.com/questions/user-interface/accordion?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
-  - Other possible components - [Refer to Bootstrap's list](https://getbootstrap.com/docs/5.3/components/)
+  - [Tabs](https://www.greatfrontend.com/questions/user-interface/tabs?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
+  - [Modal Dialog](https://www.greatfrontend.com/questions/user-interface/modal-dialog?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
+  - [Image Carousel](https://www.greatfrontend.com/questions/user-interface/image-carousel?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
+  - [Accordion](https://www.greatfrontend.com/questions/user-interface/accordion?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
+  - [Star Rating](https://www.greatfrontend.com/questions/user-interface/star-rating?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
+  - [Progress Bars](https://www.greatfrontend.com/questions/user-interface/progress-bars?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
+  - Refer to [Bootstrap's list](https://getbootstrap.com/docs/5.3/components/) for other possible components
 - Widgets
-  - Traffic Light - [Practice](https://www.greatfrontend.com/questions/user-interface/traffic-light?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
+  - [Traffic Light](https://www.greatfrontend.com/questions/user-interface/traffic-light?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
+  - [Digital Clock](https://www.greatfrontend.com/questions/user-interface/digital-clock?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
+  - [Stopwatch](https://www.greatfrontend.com/questions/user-interface/stopwatch?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
+  - [Transfer List](https://www.greatfrontend.com/questions/user-interface/transfer-list?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
 - Apps
-  - Todo list — [Practice](https://www.greatfrontend.com/questions/user-interface/todo-list?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
-  - Data Table (with extensions for sorting and filtering) — [Practice](https://www.greatfrontend.com/questions/user-interface/data-table?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
-  - File Explorer — [Practice](https://www.greatfrontend.com/questions/user-interface/file-explorer?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
+  - [Todo list](https://www.greatfrontend.com/questions/user-interface/todo-list?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
+  - [Data Table (with extensions for sorting and filtering)](https://www.greatfrontend.com/questions/user-interface/data-table?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
+  - [File Explorer](https://www.greatfrontend.com/questions/user-interface/file-explorer?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
   - Kanban Board
 - Games
-  - Tic-tac-toe — [Practice](https://www.greatfrontend.com/questions/user-interface/tic-tac-toe?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
-  - Whack-a-mole — [Practice](https://www.greatfrontend.com/questions/user-interface/whack-a-mole?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
-  - Wordle — [Practice](https://www.greatfrontend.com/questions/user-interface/wordle?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
+  - [Tic-tac-toe](https://www.greatfrontend.com/questions/user-interface/tic-tac-toe?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
+  - [Whack-a-mole](https://www.greatfrontend.com/questions/user-interface/whack-a-mole?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
+  - [Wordle](https://www.greatfrontend.com/questions/user-interface/wordle?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
   - Tetris (advanced)
   - Snake (advanced)
 
 ## Where to practice
 
-- Each of these questions and over 200+ more can be found on [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
-  - Each question comes with official solutions in popular frameworks such as React, Angular, Svelte and Vue.
-  - With live previews, you can practice online directly, simulating a real interview environment with no set-up required.
-- [Start practicing immediately](https://www.greatfrontend.com/questions?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
+Each of these questions and over 200+ more can be found on [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
+  - Each question comes with official solutions in popular frameworks such as React, Angular, Svelte and Vue
+  - With live previews, you can practice online directly, simulating a real interview environment with no set-up required
+
+[Start practicing immediately](https://www.greatfrontend.com/questions?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
 
 ## Considerations
 
@@ -97,6 +113,6 @@ Does your component scale (latency, performance, UI, UX, etc)?
 - XSS vulnerability. Interviewers are especially looking out for this whenever you need to render user input. You almost never need to use `.innerHTML` or jQuery's `$.html()`. There's `.textContent` and `$.text()`. If you do have to render raw HTML, make sure you escape the contents first.
 - User input that is being displayed in the URL has to be encoded first as well, or else there's also a potential for mischief where users can add additional query parameters.
 
-### Future
+### Closing
 
 Lastly, mention how you would do things differently if you had more time and were writing production code that you need to maintain. Perhaps use Sass instead of CSS, use React instead of jQuery for better maintainability, use Babel to compile your code for older browsers, make the component mobile-friendly and test on different screen widths, add keyboard shortcuts, etc.
