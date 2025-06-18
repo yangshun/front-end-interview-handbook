@@ -9,19 +9,19 @@ Find the latest version of this page on [GreatFrontEnd's Microsoft Front End Int
 
 :::
 
-## JavaScript
+## JavaScript coding questions
 
 - Tic-tac-toe implementation using vanilla JavaScript, HTML and CSS.
   - [Practice question](https://www.greatfrontend.com/questions/user-interface/tic-tac-toe?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
 - Create a chat interface like Microsoft teams.
 - Use OOP to implement a Chess game.
 
-## User interface coding
+## User interface coding questions
 
 - Create a notification interface like Microsoft teams
 - Image slider implementation.
 
-## Trivia
+## Quiz questions
 
 - What is a prototype?
   - [Read answer](https://www.greatfrontend.com/questions/quiz/explain-how-prototypal-inheritance-works?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
@@ -31,7 +31,7 @@ Find the latest version of this page on [GreatFrontEnd's Microsoft Front End Int
   - [Read answer](https://www.greatfrontend.com/questions/quiz/what-are-the-differences-between-variables-created-using-let-var-or-const?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
 - What is DOM?
 
-## System Design
+## System design questions
 
 - Design an email client like Microsoft Outlook.
   - [Read answer](https://www.greatfrontend.com/questions/system-design/email-client-outlook?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)

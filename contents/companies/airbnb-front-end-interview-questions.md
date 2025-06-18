@@ -9,12 +9,12 @@ Find the latest version of this page on [GreatFrontEnd's Airbnb Front End Interv
 
 :::
 
-## JavaScript
+## JavaScript coding questions
 
 - Write a simple promise.
 - Implement a `StoreData` class that add key/value pairs and listen to value changes for keys. [Source](https://leetcode.com/discuss/interview-question/348436/Airbnb-or-Phone-Screen-or-Implement-StoreData-class)
 
-## User interface coding
+## User interface coding questions
 
 - Given an input and an endpoint which returns a JSON list, as a result, extend it to autocomplete on change, handle key navigation through the results.
   - [Read answer](https://www.greatfrontend.com/questions/system-design/autocomplete?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)

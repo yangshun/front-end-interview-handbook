@@ -15,13 +15,13 @@ Dropbox focuses on practical questions for their Front End Engineering interview
 
 Refer to the [full official Dropbox Web Developer Interview Preparation Guide](/guides/dropbox-web-developer-guide.pdf).
 
-## JavaScript
+## JavaScript coding questions
 
 - Implement [`getByClassName()` and `getByClassnameHierarchy()`](https://leetcode.com/discuss/interview-question/427896/Dropbox-or-Phone-Screen-or-Implement-getByClassName-and-getByClassnameHierarchy)
   - [Practice question](https://www.greatfrontend.com/questions/javascript/get-elements-by-class-name?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
 - OOP-based class management system.
 
-## User interface coding
+## User interface coding questions
 
 - Build an image gallery using JavaScript, HTML, CSS.
   - [Read answer](https://www.greatfrontend.com/questions/system-design/image-carousel?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
@@ -29,7 +29,7 @@ Refer to the [full official Dropbox Web Developer Interview Preparation Guide](/
 - Build a UI that fetches data from a weather API that is matching a design spec.
 - Build a UI that matches a design spec of one of the pages on the Dropbox homepage.
 
-## System design
+## System design questions
 
 - Design Google calendar.
 

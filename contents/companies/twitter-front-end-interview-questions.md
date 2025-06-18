@@ -9,13 +9,13 @@ Find more company guides on [GreatFrontEnd](https://www.greatfrontend.com/interv
 
 :::
 
-## User interface coding
+## User interface coding questions
 
 - Implement a typeahead. [Source](https://leetcode.com/discuss/interview-question/1220887/Twitter-Frontend-Phone-Screen)
 - Add features to a tic-tac-toe game.
   - [Practice question](https://www.greatfrontend.com/questions/user-interface/tic-tac-toe?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
 
-## Trivia
+## Quiz questions
 
 - What is the difference between `Array.prototype.map` and `Array.prototype.forEach`?
   - [Read answer](https://www.greatfrontend.com/questions/quiz/can-you-describe-the-main-difference-between-a-foreach-loop-and-a-map-loop-and-why-you-would-pick-one-versus-the-other?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)

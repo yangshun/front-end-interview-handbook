@@ -16,7 +16,7 @@ Not much is known about Salesforce's front end interview process.
 - Flatten a nested array.
   - [Practice question](https://www.greatfrontend.com/questions/javascript/flatten?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
 
-## Trivia
+## Quiz questions
 
 - What is the event loop?
   - [Read answer](https://www.greatfrontend.com/questions/quiz/what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)

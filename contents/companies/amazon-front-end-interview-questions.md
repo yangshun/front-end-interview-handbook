@@ -16,7 +16,9 @@ Refer to Amazon's official interview preparation guides for:
 - [Front End Engineers](/guides/amazon-front-end-guide.pdf)
 - [Software Development Engineer](https://amazonsdeinterviewprep.splashthat.com/)
 
-## Trivia
+## Questions
+
+### Quiz questions
 
 - What is the CSS box model?
   - [Read answer](https://www.greatfrontend.com/questions/quiz/explain-your-understanding-of-the-box-model-and-how-you-would-tell-the-browser-in-css-to-render-your-layout-in-different-box-models?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
@@ -24,7 +26,7 @@ Refer to Amazon's official interview preparation guides for:
   - [Read answer](https://www.greatfrontend.com/questions/quiz/what-is-a-closure-and-how-why-would-you-use-one?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
 - What happens when you type URL into a browser and hit enter?
 
-## JavaScript
+### JavaScript coding questions
 
 - Implement `Array.prototype` functions like `map`, `reduce`, `filter`, `sort`.
   - [Practice questions](https://www.greatfrontend.com/questions/js/coding/utilities?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
@@ -34,7 +36,7 @@ Refer to Amazon's official interview preparation guides for:
   - [Practice question](https://www.greatfrontend.com/questions/javascript/get-elements-by-class-name?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
 - Promisify a function.
 
-## User interface coding
+### User interface coding questions
 
 - Implement a data table from an array of objects using HTML/CSS and JavaScript with searching and sorting.
   - [Practice question](https://www.greatfrontend.com/questions/javascript/data-selection?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
@@ -53,7 +55,7 @@ Refer to Amazon's official interview preparation guides for:
 - How do you render text on a banner image?
 - Render a directory tree given a nested JSON object.
 
-## System design
+### System design questions
 
 - Design a restaurant listing application where user can make orders and customize their orders by adding additional stuffs like toppings, salads etc. [Source](<https://leetcode.com/discuss/interview-question/1984996/Amazon-Virtual-Onsite-April-2022-FrontEnd-Engineer-II-(L5)Vancouver-Offer>)
 - Design an accordion component.

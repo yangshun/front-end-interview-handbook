@@ -15,11 +15,12 @@ Since it's Google, candidates can expect to be tested on fundamental Computer Sc
 
 Refer to Google's official interview preparation guides for:
 
+- [Official Interview Prep](https://techdevguide.withgoogle.com/paths/interview/)
 - [Front End or Mobile Software Engineers](/guides/google-front-end-guide.pdf)
 - [Front End/Mobile Software Engineers (Old)](/guides/google-front-end-guide-old.pdf)
 - [Non-technical interviews](/guides/google-non-technical-guide.pdf)
 
-## JavaScript
+## JavaScript coding questions
 
 - How do you make a function that takes a callback function `fn` and returns a function that calls `fn` on a timeout?
   - [Practice question](https://www.greatfrontend.com/questions/javascript/debounce?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
@@ -33,7 +34,7 @@ Refer to Google's official interview preparation guides for:
   - [Practice question](https://www.greatfrontend.com/questions/javascript/throttle?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
 - Given a timeline write the JavaScript to select all nodes within selection of timeline.
 
-## User interface coding
+## User interface coding questions
 
 - Design a slider component.
 - Design a Tic-Tac-Toe game/design an algorithm for Tic-Tac-Toe game.
@@ -50,7 +51,7 @@ Refer to Google's official interview preparation guides for:
 | 3   | 6   | 11  | 14  | 19  |
 | 4   | 5   | 12  | 13  | 20  |
 
-## Trivia
+## Quiz questions
 
 - Explain the CSS Box Model.
   - [Read answer](https://www.greatfrontend.com/questions/quiz/explain-your-understanding-of-the-box-model-and-how-you-would-tell-the-browser-in-css-to-render-your-layout-in-different-box-models?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
@@ -59,7 +60,7 @@ Refer to Google's official interview preparation guides for:
 - How do you send data from a web page to a server without a page refresh?
   - [Read answer](https://www.greatfrontend.com/questions/quiz/what-are-the-advantages-and-disadvantages-of-using-ajax?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
 
-## System design
+## System design questions
 
 - Design emoji autocomplete.
   - [Read answer](https://www.greatfrontend.com/questions/system-design/autocomplete?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)

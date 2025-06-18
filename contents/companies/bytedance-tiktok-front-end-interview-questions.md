@@ -11,19 +11,19 @@ Find the latest version of this page on [GreatFrontEnd's ByteDance Front End Int
 
 ByteDance/TikTok's front end interview is quite balanced in terms of interview format.
 
-## JavaScript
+## JavaScript coding questions
 
 - Implement `Promise.all`.
   - [Practice question](https://www.greatfrontend.com/questions/javascript/promise-all?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
 - Implement a function which extends `Array.prototype`.
   - [Practice questions](https://www.greatfrontend.com/questions?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
 
-## User interface coding
+## User interface coding questions
 
 - Implement a dropdown component.
   - [Read answer](https://www.greatfrontend.com/questions/system-design/dropdown-menu?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
 
-## Trivia
+## Quiz questions
 
 - Difference between `localStorage` and cookies.
   - [Read answer](https://www.greatfrontend.com/questions/quiz/describe-the-difference-between-a-cookie-sessionstorage-and-localstorage?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)

@@ -9,13 +9,13 @@ Find the latest version of this page on [GreatFrontEnd's Lyft Front End Intervie
 
 :::
 
-## JavaScript
+## JavaScript coding questions
 
 - Implement `Promise.all`.
   - [Practice question](https://www.greatfrontend.com/questions/javascript/promise-all?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
 - Write the logic for minesweeper using vanilla JS.
 
-## User interface coding
+## User interface coding questions
 
 - Implement an autocomplete.
   - [Read answer](https://www.greatfrontend.com/questions/system-design/autocomplete?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)

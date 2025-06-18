@@ -9,17 +9,17 @@ Find the latest version of this page on [GreatFrontEnd's LinkedIn Front End Inte
 
 :::
 
-## JavaScript
+## JavaScript coding questions
 
 - Write a `getElementsByClassName` function.
   - [Practice question](https://www.greatfrontend.com/questions/javascript/get-elements-by-class-name?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
 
-## User interface coding
+## User interface coding questions
 
 - Create a tooltip component.
 - Create a cross browser Linkedin top navigation bar.
 
-## Trivia
+## Quiz questions
 
 - Difference between CSS `padding` and `margin`.
   - [Read answer](https://www.greatfrontend.com/questions/quiz/explain-your-understanding-of-the-box-model-and-how-you-would-tell-the-browser-in-css-to-render-your-layout-in-different-box-models?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
