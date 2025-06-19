@@ -26,9 +26,10 @@
   --ifm-color-primary-lighter: #dc4b8d;
   --ifm-color-primary-lightest: #e26ca2;
 
-  --ifm-font-family-base: 'Inter var', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
-    'Droid Sans', 'Helvetica Neue', sans-serif;
+  --ifm-font-family-base:
+    'Inter var', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
 
   --ifm-footer-padding-vertical: 5rem;
 }
@@ -47,11 +48,8 @@ strong {
   font-weight: 600;
 }
 
-html[data-theme='dark'] strong {
-  color: #fff;
-}
-
-.footer, .footer-dark {
+.footer,
+.footer-dark {
   --ifm-footer-background-color: #18181b;
 }
 
@@ -76,12 +74,12 @@ header h1 {
   line-height: 1.2em;
 }
 
-html[data-theme="dark"] .markdown h1,
-html[data-theme="dark"] .markdown h2,
-html[data-theme="dark"] .markdown h3,
-html[data-theme="dark"] .markdown h4,
-html[data-theme="dark"] .markdown h5,
-html[data-theme="dark"] .markdown h6 {
+html[data-theme='dark'] .markdown h1,
+html[data-theme='dark'] .markdown h2,
+html[data-theme='dark'] .markdown h3,
+html[data-theme='dark'] .markdown h4,
+html[data-theme='dark'] .markdown h5,
+html[data-theme='dark'] .markdown h6 {
   color: #fff;
 }
 
