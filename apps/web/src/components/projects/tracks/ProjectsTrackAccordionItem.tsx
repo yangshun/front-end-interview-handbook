@@ -7,7 +7,6 @@ import { RiArrowDownSLine, RiArrowRightLine } from 'react-icons/ri';
 import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Card from '~/components/ui/Card';
-import Img from '~/components/ui/Img';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundCardColor,
@@ -118,7 +117,7 @@ export default function ProjectsTrackAccordionItem({
                           themeOutlineElementBrandColor_FocusVisible,
                         )}>
                         <div className="relative">
-                          <Img
+                          <img
                             alt={challenge.info.title}
                             className={clsx(
                               'object-cover',

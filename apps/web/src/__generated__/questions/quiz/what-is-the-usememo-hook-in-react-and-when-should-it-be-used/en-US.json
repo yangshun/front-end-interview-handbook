@@ -1,0 +1,36 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": true,
+    "format": "quiz",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-is-the-usememo-hook-in-react-and-when-should-it-be-used"
+      }
+    ],
+    "href": "/questions/quiz/what-is-the-usememo-hook-in-react-and-when-should-it-be-used",
+    "importance": "medium",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 160,
+    "similarQuestions": [],
+    "slug": "what-is-the-usememo-hook-in-react-and-when-should-it-be-used",
+    "subtitle": null,
+    "title": "What is the `useMemo` hook in React and when should it be used?",
+    "topics": [
+      "react"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-reactjs-interview-questions/blob/main/questions/what-is-the-usememo-hook-in-react-and-when-should-it-be-used/en-US.mdx"
+  },
+  "solution": "var Component=(()=>{var h=Object.create;var t=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var y=(o,e)=>()=>(e||o((e={exports:{}}).exports,e),e.exports),v=(o,e)=>{for(var s in e)t(o,s,{get:e[s],enumerable:!0})},a=(o,e,s,i)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let c of m(e))!f.call(o,c)&&c!==s&&t(o,c,{get:()=>e[c],enumerable:!(i=u(e,c))||i.enumerable});return o};var g=(o,e,s)=>(s=o!=null?h(p(o)):{},a(e||!o||!o.__esModule?t(s,\"default\",{value:o,enumerable:!0}):s,o)),b=o=>a(t({},\"__esModule\",{value:!0}),o);var l=y((T,r)=>{r.exports=_jsx_runtime});var j={};v(j,{default:()=>w,frontmatter:()=>M});var n=g(l()),M={title:\"What is the `useMemo` hook in React and when should it be used?\"};function d(o){let e=Object.assign({h2:\"h2\",p:\"p\",code:\"code\",pre:\"pre\",hr:\"hr\",h3:\"h3\",ul:\"ul\",li:\"li\",h4:\"h4\",strong:\"strong\",a:\"a\"},o.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{children:\"TL;DR\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"The \",(0,n.jsx)(e.code,{children:\"useMemo\"}),\" hook in React is used to memoize expensive calculations so that they are only recomputed when one of the dependencies has changed. This can improve performance by avoiding unnecessary recalculations. You should use \",(0,n.jsx)(e.code,{children:\"useMemo\"}),\" when you have a computationally expensive function that doesn't need to run on every render.\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-javascript\",children:`const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);\n`})}),`\n`,(0,n.jsx)(e.hr,{}),`\n`,(0,n.jsxs)(e.h2,{children:[\"What is the \",(0,n.jsx)(e.code,{children:\"useMemo\"}),\" hook in React and when should it be used?\"]}),`\n`,(0,n.jsxs)(e.h3,{children:[\"What is \",(0,n.jsx)(e.code,{children:\"useMemo\"}),\"?\"]}),`\n`,(0,n.jsxs)(e.p,{children:[\"The \",(0,n.jsx)(e.code,{children:\"useMemo\"}),\" hook is a built-in React hook that allows you to memoize the result of a function. This means that the function will only be re-executed when one of its dependencies changes. The primary purpose of \",(0,n.jsx)(e.code,{children:\"useMemo\"}),\" is to optimize performance by preventing unnecessary recalculations.\"]}),`\n`,(0,n.jsx)(e.h3,{children:\"Syntax\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"The syntax for \",(0,n.jsx)(e.code,{children:\"useMemo\"}),\" is as follows:\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-javascript\",children:`const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);\n`})}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"The first argument is a function that returns the value you want to memoize.\"}),`\n`,(0,n.jsx)(e.li,{children:\"The second argument is an array of dependencies. The memoized value will only be recomputed when one of these dependencies changes.\"}),`\n`]}),`\n`,(0,n.jsx)(e.h3,{children:\"When should it be used?\"}),`\n`,(0,n.jsx)(e.h4,{children:\"Expensive calculations\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"If you have a function that performs a computationally expensive calculation, you can use \",(0,n.jsx)(e.code,{children:\"useMemo\"}),\" to ensure that this calculation is only performed when necessary.\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-javascript\",children:`const expensiveCalculation = (num) => {\n  // Some expensive calculation\n  return num * 2;\n};\n\nconst MyComponent = ({ number }) => {\n  const memoizedValue = useMemo(() => expensiveCalculation(number), [number]);\n\n  return <div>{memoizedValue}</div>;\n};\n`})}),`\n`,(0,n.jsx)(e.h4,{children:\"Avoiding unnecessary renders\"}),`\n`,(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.code,{children:\"useMemo\"}),\" can also be useful for avoiding unnecessary renders of child components. If a child component depends on a value that is expensive to compute, you can use \",(0,n.jsx)(e.code,{children:\"useMemo\"}),\" to ensure that the value is only recomputed when necessary.\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-javascript\",children:`const MyComponent = ({ items }) => {\n  const sortedItems = useMemo(() => {\n    return items.sort((a, b) => a - b);\n  }, [items]);\n\n  return <ChildComponent sortedItems={sortedItems} />;\n};\n`})}),`\n`,(0,n.jsx)(e.h3,{children:\"Caveats\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Overuse\"}),\": Overusing \",(0,n.jsx)(e.code,{children:\"useMemo\"}),\" can lead to more complex code without significant performance benefits. It should be used judiciously.\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Dependencies\"}),\": Make sure to correctly specify all dependencies. Missing dependencies can lead to stale values, while extra dependencies can lead to unnecessary recalculations.\"]}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"Further reading\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsxs)(e.a,{href:\"https://react.dev/reference/react/useMemo\",children:[\"React documentation on \",(0,n.jsx)(e.code,{children:\"useMemo\"})]})}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.a,{href:\"https://kentcdodds.com/blog/usememo-and-usecallback\",children:\"When to useMemo and useCallback\"}),\" by Kent C. Dodds\"]}),`\n`]})]})}function x(o={}){let{wrapper:e}=o.components||{};return e?(0,n.jsx)(e,Object.assign({},o,{children:(0,n.jsx)(d,o)})):d(o)}var w=x;return b(j);})();\n;return Component;"
+}

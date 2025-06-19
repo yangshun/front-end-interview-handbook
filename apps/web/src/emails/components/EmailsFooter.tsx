@@ -79,8 +79,8 @@ export default function EmailsFooter({ unsub }: Props) {
                   url.format({
                     pathname: '/emails/unsubscribe',
                     query: {
-                      email: unsub.email,
-                      hash: unsub.hash,
+                      email: encodeURIComponent(unsub.email),
+                      hash: encodeURIComponent(unsub.hash),
                       list: unsub.list,
                     },
                   }),

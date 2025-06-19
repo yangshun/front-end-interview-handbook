@@ -3,7 +3,6 @@ import { RiCheckLine } from 'react-icons/ri';
 
 import { FormattedMessage } from '~/components/intl';
 import { SponsorAdFormatConfigs } from '~/components/sponsors/SponsorsAdFormatConfigs';
-import Img from '~/components/ui/Img';
 import Text from '~/components/ui/Text';
 import {
   themeBorderElementColor,
@@ -149,7 +148,7 @@ function Asset() {
           media="(min-width: 640px)"
           srcSet="/img/sponsors/global-banner-light.png"
         />
-        <Img
+        <img
           alt="Global banner placement preview"
           className="size-full object-cover object-top"
           decoding="async"
@@ -167,7 +166,7 @@ function Asset() {
           media="(min-width: 640px)"
           srcSet="/img/sponsors/global-banner-dark.png"
         />
-        <Img
+        <img
           alt="Global banner placement preview"
           className="size-full object-cover object-top"
           decoding="async"

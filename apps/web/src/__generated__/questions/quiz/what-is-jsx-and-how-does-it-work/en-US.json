@@ -1,0 +1,36 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": true,
+    "format": "quiz",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-is-jsx-and-how-does-it-work"
+      }
+    ],
+    "href": "/questions/quiz/what-is-jsx-and-how-does-it-work",
+    "importance": "medium",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 30,
+    "similarQuestions": [],
+    "slug": "what-is-jsx-and-how-does-it-work",
+    "subtitle": null,
+    "title": "What is JSX and how does it work?",
+    "topics": [
+      "react"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-reactjs-interview-questions/blob/main/questions/what-is-jsx-and-how-does-it-work/en-US.mdx"
+  },
+  "solution": "var Component=(()=>{var h=Object.create;var a=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,J=Object.prototype.hasOwnProperty;var S=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),f=(t,e)=>{for(var r in e)a(t,r,{get:e[r],enumerable:!0})},l=(t,e,r,o)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let i of u(e))!J.call(t,i)&&i!==r&&a(t,i,{get:()=>e[i],enumerable:!(o=p(e,i))||o.enumerable});return t};var v=(t,e,r)=>(r=t!=null?h(m(t)):{},l(e||!t||!t.__esModule?a(r,\"default\",{value:t,enumerable:!0}):r,t)),x=t=>l(a({},\"__esModule\",{value:!0}),t);var c=S((j,s)=>{s.exports=_jsx_runtime});var g={};f(g,{default:()=>w,frontmatter:()=>y});var n=v(c()),y={title:\"What is JSX and how does it work?\"};function d(t){let e=Object.assign({h2:\"h2\",p:\"p\",code:\"code\",hr:\"hr\",h3:\"h3\",pre:\"pre\",ul:\"ul\",li:\"li\",a:\"a\"},t.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{children:\"TL;DR\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"JSX stands for JavaScript XML. It is a syntax extension for JavaScript that allows you to write HTML-like code within JavaScript. JSX makes it easier to create React components by allowing you to write what looks like HTML directly in your JavaScript code. Under the hood, JSX is transformed into JavaScript function calls, typically using a tool like Babel. For example, \",(0,n.jsx)(e.code,{children:\"<div>Hello, world!</div>\"}),\" in JSX is transformed into \",(0,n.jsx)(e.code,{children:\"React.createElement('div', null, 'Hello, world!')\"}),\".\"]}),`\n`,(0,n.jsx)(e.hr,{}),`\n`,(0,n.jsx)(e.h2,{children:\"What is JSX and how does it work?\"}),`\n`,(0,n.jsx)(e.h3,{children:\"What is JSX?\"}),`\n`,(0,n.jsx)(e.p,{children:\"JSX stands for JavaScript XML. It is a syntax extension for JavaScript that allows you to write HTML-like code within JavaScript. JSX is primarily used with React to describe what the UI should look like.\"}),`\n`,(0,n.jsx)(e.h3,{children:\"How does JSX work?\"}),`\n`,(0,n.jsx)(e.p,{children:\"JSX is not valid JavaScript by itself. It needs to be transformed into regular JavaScript before it can be executed by the browser. This transformation is usually done by a tool like Babel.\"}),`\n`,(0,n.jsx)(e.h3,{children:\"JSX syntax\"}),`\n`,(0,n.jsx)(e.p,{children:\"JSX allows you to write HTML-like tags directly in your JavaScript code. For example:\"}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-jsx\",children:`const element = <h1>Hello, world!</h1>;\n`})}),`\n`,(0,n.jsx)(e.h3,{children:\"Transformation process\"}),`\n`,(0,n.jsx)(e.p,{children:\"When you write JSX, it is transformed into JavaScript function calls. For example, the JSX code:\"}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-jsx\",children:`const element = <h1>Hello, world!</h1>;\n`})}),`\n`,(0,n.jsx)(e.p,{children:\"is transformed into:\"}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-javascript\",children:`const element = React.createElement('h1', null, 'Hello, world!');\n`})}),`\n`,(0,n.jsx)(e.h3,{children:\"Embedding expressions\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"You can embed JavaScript expressions inside JSX using curly braces \",(0,n.jsx)(e.code,{children:\"{}\"}),\". For example:\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-jsx\",children:`const name = 'John';\nconst element = <h1>Hello, {name}!</h1>;\n`})}),`\n`,(0,n.jsx)(e.h3,{children:\"Attributes in JSX\"}),`\n`,(0,n.jsx)(e.p,{children:\"You can use quotes to specify string literals as attributes and curly braces to embed JavaScript expressions. For example:\"}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-jsx\",children:`const element = <img src={user.avatarUrl} alt=\"User Avatar\" />;\n`})}),`\n`,(0,n.jsx)(e.h3,{children:\"JSX is an expression\"}),`\n`,(0,n.jsx)(e.p,{children:\"After compilation, JSX expressions become regular JavaScript function calls and evaluate to JavaScript objects. This means you can use JSX inside if statements, for loops, and assign it to variables.\"}),`\n`,(0,n.jsx)(e.h3,{children:\"JSX prevents injection attacks\"}),`\n`,(0,n.jsx)(e.p,{children:\"By default, React DOM escapes any values embedded in JSX before rendering them. This ensures that you can never inject anything that's not explicitly written in your application.\"}),`\n`,(0,n.jsx)(e.h2,{children:\"Further reading\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://react.dev/learn/writing-markup-with-jsx\",children:\"React JSX documentation\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://babeljs.io/\",children:\"Babel\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/JSX\",children:\"MDN Web Docs on JSX\"})}),`\n`]})]})}function b(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(d,t)})):d(t)}var w=b;return x(g);})();\n;return Component;"
+}

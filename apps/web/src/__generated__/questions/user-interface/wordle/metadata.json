@@ -5,6 +5,7 @@
   "created": 1684022400,
   "difficulty": "hard",
   "duration": 60,
+  "excerpt": "Build Wordle, the word-guessing game that took the world by storm",
   "featured": false,
   "format": "user-interface",
   "frameworkDefault": "react",
@@ -39,5 +40,6 @@
   "similarQuestions": [],
   "slug": "wordle",
   "subtitle": null,
+  "title": "Wordle",
   "topics": []
 }

@@ -5,7 +5,7 @@ import { useIntl } from '~/components/intl';
 
 import { useMutationQuestionProgressAdd } from '~/db/QuestionsProgressClient';
 
-import type { InterviewsQuestionMetadata } from './QuestionsTypes';
+import type { QuestionMetadata } from './QuestionsTypes';
 
 export const MARK_AS_COMPLETE_ACTION_NAME = 'mark-complete';
 
@@ -14,7 +14,7 @@ export const MARK_AS_COMPLETE_ACTION_NAME = 'mark-complete';
  * query param in the URL when the page loads.
  */
 export default function useQuestionsAutoMarkAsComplete(
-  metadata: InterviewsQuestionMetadata,
+  metadata: QuestionMetadata,
   studyListKey?: string,
 ) {
   const intl = useIntl();

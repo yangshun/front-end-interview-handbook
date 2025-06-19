@@ -8,6 +8,7 @@
   "created": 1723766400,
   "difficulty": "medium",
   "duration": 20,
+  "excerpt": "Build a reusable modal dialog component that can be opened and closed",
   "featured": false,
   "format": "user-interface",
   "frameworkDefault": "react",
@@ -32,6 +33,7 @@
   "similarQuestions": [],
   "slug": "modal-dialog",
   "subtitle": null,
+  "title": "Modal Dialog",
   "topics": [
     "a11y"
   ]

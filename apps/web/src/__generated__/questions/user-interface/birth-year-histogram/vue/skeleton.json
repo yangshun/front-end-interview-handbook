@@ -1,0 +1,28 @@
+{
+  "author": "willnguyen1312",
+  "files": {
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/birth-year-histogram-vue-skeleton\",\n  \"author\": \"willnguyen1312\",\n  \"version\": \"0.0.1\",\n  \"main\": \"/src/main.js\",\n  \"scripts\": {\n    \"serve\": \"vue-cli-service serve\",\n    \"build\": \"vue-cli-service build\"\n  },\n  \"dependencies\": {\n    \"core-js\": \"3.32.2\",\n    \"vue\": \"3.3.4\"\n  },\n  \"devDependencies\": {\n    \"@vue/cli-plugin-babel\": \"5.0.8\",\n    \"@vue/cli-service\": \"5.0.8\"\n  }\n}\n"
+    },
+    "/public/index.html": {
+      "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width,initial-scale=1.0\" />\n    <title>Vue</title>\n  </head>\n  <body>\n    <div id=\"app\"></div>\n    <!-- Built files will be auto injected -->\n  </body>\n</html>\n"
+    },
+    "/src/App.vue": {
+      "code": "<script setup>\nimport { ref } from 'vue';\nconst msg = ref('world');\n</script>\n\n<template>\n  <h1>Hello {{ msg }}</h1>\n</template>\n"
+    },
+    "/src/main.js": {
+      "code": "import { createApp } from 'vue';\nimport App from './App.vue';\n\nimport './styles.css';\n\ncreateApp(App).mount('#app');\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n  margin: 0;\n}\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/src/App.vue"
+    ],
+    "activeFile": "/src/App.vue",
+    "environment": "vue-cli"
+  },
+  "writeup": "var Component=(()=>{var p=Object.create;var i=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var b=Object.getOwnPropertyNames;var x=Object.getPrototypeOf,y=Object.prototype.hasOwnProperty;var w=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),j=(t,e)=>{for(var n in e)i(t,n,{get:e[n],enumerable:!0})},d=(t,e,n,l)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of b(e))!y.call(t,r)&&r!==n&&i(t,r,{get:()=>e[r],enumerable:!(l=f(e,r))||l.enumerable});return t};var h=(t,e,n)=>(n=t!=null?p(x(t)):{},d(e||!t||!t.__esModule?i(n,\"default\",{value:t,enumerable:!0}):n,t)),_=t=>d(i({},\"__esModule\",{value:!0}),t);var s=w((I,c)=>{c.exports=_jsx_runtime});var M={};j(M,{default:()=>q});var o=h(s());var a=h(s());function m(t){let e=Object.assign({p:\"p\",a:\"a\",h2:\"h2\",ul:\"ul\",li:\"li\",img:\"img\"},t.components);return(0,a.jsxs)(a.Fragment,{children:[(0,a.jsxs)(e.p,{children:[\"Build a widget that fetches birth year data from an \",(0,a.jsx)(e.a,{href:\"https://www.random.org/integers/?num=200&min=1950&max=2019&col=1&base=10&format=plain\",children:\"API\"}),\" and display the data in a histogram, bucketing by the data by decades.\"]}),`\n`,(0,a.jsx)(e.h2,{children:\"Requirements\"}),`\n`,(0,a.jsxs)(e.ul,{children:[`\n`,(0,a.jsxs)(e.li,{children:[\"We'll use \",(0,a.jsx)(e.a,{href:\"https://www.random.org/integers/?num=200&min=1950&max=2019&col=1&base=10&format=plain\",children:\"random.org's random number generator\"}),\" to simulate an API that returns 200 random data points from 1950 to 2019.\"]}),`\n`,(0,a.jsx)(e.li,{children:\"Tabulate the data by bucketing the data by decades and plotting a histogram with the x-axis being the decade buckets and y-axis being the count.\"}),`\n`,(0,a.jsx)(e.li,{children:\"The y-axis should be appropriately labeled.\"}),`\n`]}),`\n`,(0,a.jsx)(e.p,{children:\"The example below shows a potential resulting histogram but you are free to style it.\"}),`\n`,(0,a.jsx)(e.p,{children:(0,a.jsx)(e.img,{src:\"/img/questions/birth-year-histogram/birth-year-histogram-example.png\",alt:\"Birth year histogram example\"})}),`\n`,(0,a.jsx)(e.h2,{children:\"Notes\"}),`\n`,(0,a.jsxs)(e.ul,{children:[`\n`,(0,a.jsx)(e.li,{children:\"In practice, you are usually not required to tabulate the API response data. However during interviews this is a possible task as the act of writing code to tabulate data provides good signal on coding fundamentals.\"}),`\n`]}),`\n`,(0,a.jsx)(e.h2,{children:\"Source\"}),`\n`,(0,a.jsxs)(e.p,{children:[\"This question is adapted from \",(0,a.jsx)(e.a,{href:\"https://frontendeval.com/questions/data-fetching\",children:\"FrontendEval's Data fetching and visualization question\"}),\".\"]})]})}function v(t={}){let{wrapper:e}=t.components||{};return e?(0,a.jsx)(e,Object.assign({},t,{children:(0,a.jsx)(m,t)})):m(t)}var u=v;function g(t){return(0,o.jsx)(u,{})}function D(t={}){let{wrapper:e}=t.components||{};return e?(0,o.jsx)(e,Object.assign({},t,{children:(0,o.jsx)(g,t)})):g(t)}var q=D;return _(M);})();\n;return Component;"
+}

@@ -1,9 +1,9 @@
+import { redirect } from 'next/navigation';
 import type { Metadata } from 'next/types';
 
 import SponsorsAdvertiseRequestPage from '~/components/sponsors/request/SponsorsAdvertiseRequestPage';
 
 import { getIntlServerOnly } from '~/i18n';
-import i18nRedirect from '~/next-i18nostic/src/utils/i18nRedirect';
 import defaultMetadata from '~/seo/defaultMetadata';
 
 type Props = Readonly<{
@@ -34,12 +34,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-export default async function Page({ params, searchParams }: Props) {
-  const { locale } = params;
-
+export default async function Page({ searchParams }: Props) {
   // On page reload take the user to the starting to make the user start from the beginning and revalidate the form again
   if (searchParams.step) {
-    return i18nRedirect('/advertise-with-us/request', { locale });
+    return redirect('/advertise-with-us/request');
   }
 
   return <SponsorsAdvertiseRequestPage />;

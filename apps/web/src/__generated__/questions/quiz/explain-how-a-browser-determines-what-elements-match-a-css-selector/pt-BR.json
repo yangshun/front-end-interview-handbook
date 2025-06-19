@@ -1,0 +1,32 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "hard",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/explain-how-a-browser-determines-what-elements-match-a-css-selector",
+    "importance": "high",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "explain-how-a-browser-determines-what-elements-match-a-css-selector",
+    "subtitle": null,
+    "title": "Explique como um navegador determina quais elementos correspondem a um seletor CSS.",
+    "topics": [
+      "browser",
+      "css"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/explain-how-a-browser-determines-what-elements-match-a-css-selector/pt-BR.mdx"
+  },
+  "solution": "var Component=(()=>{var p=Object.create;var s=Object.defineProperty;var l=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var f=(o,e)=>()=>(e||o((e={exports:{}}).exports,e),e.exports),x=(o,e)=>{for(var a in e)s(o,a,{get:e[a],enumerable:!0})},c=(o,e,a,t)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let n of u(e))!g.call(o,n)&&n!==a&&s(o,n,{get:()=>e[n],enumerable:!(t=l(e,n))||t.enumerable});return o};var v=(o,e,a)=>(a=o!=null?p(h(o)):{},c(e||!o||!o.__esModule?s(a,\"default\",{value:o,enumerable:!0}):a,o)),q=o=>c(s({},\"__esModule\",{value:!0}),o);var i=f((M,d)=>{d.exports=_jsx_runtime});var O={};x(O,{default:()=>b,frontmatter:()=>j});var r=v(i()),j={title:\"Explique como um navegador determina quais elementos correspondem a um seletor CSS.\"};function m(o){let e=Object.assign({p:\"p\",a:\"a\",code:\"code\"},o.components);return(0,r.jsxs)(r.Fragment,{children:[(0,r.jsxs)(e.p,{children:[\"Esta pergunta est\\xE1 relacionada com a pergunta sobre \",(0,r.jsx)(e.a,{href:\"/questions/quiz/what-are-some-of-the-gotchas-for-writing-efficient-css\",children:\"escrever um CSS eficiente\"}),\". Os navegadores combinam seletores da direita (seletor-chave) para a esquerda. Os navegadores filtram elementos no DOM de acordo com o seletor-chave e percorrem seus elementos pais para determinar correspond\\xEAncias. Quanto menor o comprimento da cadeia de seletores, mais r\\xE1pido o navegador pode determinar se aquele elemento corresponde ao seletor.\"]}),`\n`,(0,r.jsxs)(e.p,{children:[\"Por exemplo, com um seletor \",(0,r.jsx)(e.code,{children:\"p span\"}),\", os navegadores primeiro encontram todos os elementos \",(0,r.jsx)(e.code,{children:\"<span>\"}),\" e percorrem seus pais at\\xE9 a raiz para encontrar o elemento \",(0,r.jsx)(e.code,{children:\"<p>\"}),\". Para um determinado \",(0,r.jsx)(e.code,{children:\"<span>\"}),\", assim que ele encontrar um \",(0,r.jsx)(e.code,{children:\"<p>\"}),\", ele sabe que o \",(0,r.jsx)(e.code,{children:\"<span>\"}),\" corresponde ao seletor e pode parar de atravessar seus pais.\"]})]})}function _(o={}){let{wrapper:e}=o.components||{};return e?(0,r.jsx)(e,Object.assign({},o,{children:(0,r.jsx)(m,o)})):m(o)}var b=_;return q(O);})();\n;return Component;"
+}

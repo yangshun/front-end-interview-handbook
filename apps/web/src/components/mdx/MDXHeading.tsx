@@ -58,7 +58,7 @@ export default function MDXHeading({ as: Tag, children, id, ...props }: Props) {
               aria-hidden={true}
               className={clsx(
                 'shrink-0',
-                'ml-2 inline-block size-5',
+                'size-5 ml-2 inline-block',
                 'transition-all duration-300',
                 isCopied ? 'opacity-100' : 'opacity-0 group-hover:opacity-100',
                 isCopied

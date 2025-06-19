@@ -7,7 +7,6 @@ import ProjectsChallengeReputationTag from '~/components/projects/challenges/met
 import ProjectsChallengeTrackTag from '~/components/projects/challenges/metadata/ProjectsChallengeTrackTag';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
-import Img from '~/components/ui/Img';
 import Text, { textVariants } from '~/components/ui/Text';
 import {
   themeBackgroundCardAltColor,
@@ -67,7 +66,7 @@ export default function ProjectsChallengeCard({
         ],
       )}>
       <div className="relative">
-        <Img
+        <img
           alt={title}
           className={clsx(
             'aspect-[16/9] w-full object-cover',
@@ -112,7 +111,7 @@ export default function ProjectsChallengeCard({
             variant="flat">
             {title}
           </Anchor>
-          <Text className="grow text-pretty" color="secondary" size="body2">
+          <Text className="text-pretty grow" color="secondary" size="body2">
             {description}
           </Text>
         </div>

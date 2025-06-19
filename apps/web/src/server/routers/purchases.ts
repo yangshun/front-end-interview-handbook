@@ -1,15 +1,10 @@
-import { Redis } from '@upstash/redis';
 import Stripe from 'stripe';
 import { z } from 'zod';
-
-import { convertStripeValueToCurrencyValue } from '~/lib/stripeUtils';
 
 import countryNames from '~/data/countryCodesToNames.json';
 
 import fetchInterviewsPricingPlanPaymentConfigLocalizedRecord from '~/components/interviews/purchase/fetchInterviewsPricingPlanPaymentConfigLocalizedRecord';
 import fetchProjectsPricingPlanPaymentConfigLocalizedRecord from '~/components/projects/purchase/fetchProjectsPricingPlanPaymentConfigLocalizedRecord';
-import { PurchasePaymentTazapayProvider } from '~/components/purchase/providers/PurchasePaymentTazapayProvider';
-import type { PurchasePaymentProvider } from '~/components/purchase/PurchaseTypes';
 
 import prisma from '~/server/prisma';
 
@@ -109,203 +104,81 @@ export const purchasesRouter = router({
         plans,
       };
     }),
-  lastPaymentError: userProcedure
-    .input(
-      z.object({
-        checkoutId: z.string(),
-        provider: z.enum(['stripe', 'tazapay']),
-      }),
-    )
-    .query(async ({ ctx, input: { checkoutId, provider } }) => {
-      // Set headers to disable caching
-      ctx.res.setHeader(
-        'Cache-Control',
-        'no-store, no-cache, must-revalidate, proxy-revalidate',
-      );
-      ctx.res.setHeader('Pragma', 'no-cache');
-      ctx.res.setHeader('Expires', '0');
+  lastPaymentError: userProcedure.query(async ({ ctx }) => {
+    // Set headers to disable caching
+    ctx.res.setHeader(
+      'Cache-Control',
+      'no-store, no-cache, must-revalidate, proxy-revalidate',
+    );
+    ctx.res.setHeader('Pragma', 'no-cache');
+    ctx.res.setHeader('Expires', '0');
 
-      if (provider === 'tazapay') {
-        const paymentAttempt =
-          await PurchasePaymentTazapayProvider.getLastPaymentAttempt(
-            checkoutId,
-          );
+    const userProfile = await prisma.profile.findFirst({
+      select: {
+        stripeCustomer: true,
+      },
+      where: {
+        id: ctx.viewer.id,
+      },
+    });
 
-        if (!paymentAttempt || paymentAttempt.status !== 'failed') {
-          return null;
-        }
+    // A Stripe customer hasn't been created yet.
+    if (userProfile?.stripeCustomer == null) {
+      return null;
+    }
 
-        return {
-          code: paymentAttempt.error.code,
-          declineCode_DO_NOT_DISPLAY_TO_USER: paymentAttempt.error.code,
-          message: paymentAttempt.error.message,
-          provider: 'tazapay' as PurchasePaymentProvider,
-        };
-      }
+    const { stripeCustomer: stripeCustomerId } = userProfile;
 
-      const userProfile = await prisma.profile.findFirst({
-        select: {
-          stripeCustomer: true,
-        },
-        where: {
-          id: ctx.viewer.id,
-        },
-      });
+    const paymentIntents = await stripe.paymentIntents.list({
+      customer: stripeCustomerId,
+    });
 
-      // A Stripe customer hasn't been created yet.
-      if (userProfile?.stripeCustomer == null) {
-        return null;
-      }
+    if (paymentIntents.data.length === 0) {
+      return null;
+    }
 
-      const { stripeCustomer: stripeCustomerId } = userProfile;
+    const lastPaymentIntent = paymentIntents.data[0];
 
-      const paymentIntents = await stripe.paymentIntents.list({
-        customer: stripeCustomerId,
-      });
-
-      if (paymentIntents.data.length === 0) {
-        return null;
-      }
-
-      const lastPaymentIntent = paymentIntents.data[0];
-
-      if (lastPaymentIntent.last_payment_error == null) {
-        return null;
-      }
-
+    if (lastPaymentIntent.last_payment_error != null) {
       return {
         code: lastPaymentIntent.last_payment_error.code,
         declineCode_DO_NOT_DISPLAY_TO_USER:
           lastPaymentIntent.last_payment_error.decline_code,
         message: lastPaymentIntent.last_payment_error.message,
-        provider: 'stripe' as PurchasePaymentProvider,
       };
-    }),
-  lastSuccessfulPaymentThatHasntBeenLogged: userProcedure
-    .input(
-      z.object({
-        checkoutId: z.string(),
-        paymentProvider: z.enum(['stripe', 'tazapay']),
-      }),
-    )
-    .query(async ({ ctx, input: { checkoutId, paymentProvider } }) => {
-      let lastSuccessPaymentId = null;
-      let currency = null;
-      let amount = null;
-      const oneDayInSeconds = 24 * 3600;
-      const oneDayAgo = Math.floor(Date.now() / 1000) - oneDayInSeconds;
+    }
 
-      if (paymentProvider === 'tazapay') {
-        const paymentAttempt =
-          await PurchasePaymentTazapayProvider.getLastPaymentAttempt(
-            checkoutId,
-          );
+    return null;
+  }),
+  latestCheckoutSessionMetadata: userProcedure.query(async ({ ctx }) => {
+    const userProfile = await prisma.profile.findFirst({
+      select: {
+        stripeCustomer: true,
+      },
+      where: {
+        id: ctx.viewer.id,
+      },
+    });
 
-        if (!paymentAttempt || paymentAttempt.status !== 'succeeded') {
-          return null;
-        }
+    // A Stripe customer hasn't been created yet.
+    if (userProfile?.stripeCustomer == null) {
+      return null;
+    }
 
-        lastSuccessPaymentId = paymentAttempt.id;
-        ({ amount, currency } = paymentAttempt);
-      } else {
-        const userProfile = await prisma.profile.findFirst({
-          select: {
-            stripeCustomer: true,
-          },
-          where: {
-            id: ctx.viewer.id,
-          },
-        });
+    const { stripeCustomer: stripeCustomerId } = userProfile;
 
-        // No Stripe customer or non-existent user
-        if (userProfile?.stripeCustomer == null) {
-          return null;
-        }
+    const sessions = await stripe.checkout.sessions.list({
+      // Get the most recent session
+      customer: stripeCustomerId,
+      limit: 1,
+    });
 
-        const { stripeCustomer: stripeCustomerId } = userProfile;
+    if (!sessions.data || sessions.data.length === 0) {
+      return null;
+    }
 
-        const paymentIntents = await stripe.paymentIntents.list({
-          created: {
-            gte: oneDayAgo,
-          },
-          customer: stripeCustomerId,
-        });
-
-        const successfulPaymentIntents = paymentIntents.data.filter(
-          (paymentIntent) => paymentIntent.status === 'succeeded',
-        );
-
-        if (successfulPaymentIntents.length === 0) {
-          return null;
-        }
-
-        const lastSuccessfulPaymentIntent = successfulPaymentIntents[0];
-
-        lastSuccessPaymentId = lastSuccessfulPaymentIntent.id;
-        ({ amount, currency } = lastSuccessfulPaymentIntent);
-      }
-
-      const redis = Redis.fromEnv();
-      const paymentKey = `purchases:${lastSuccessPaymentId}`;
-      const paymentAlreadyLogged = await redis.get(paymentKey);
-
-      if (paymentAlreadyLogged) {
-        return null;
-      }
-
-      // Prematurely setting the redis key to true to prevent duplicate logging
-      // Will be inaccurate it the client doesn't log, but should be rare
-      await redis.set(paymentKey, true, {
-        ex: oneDayInSeconds,
-      });
-
-      return {
-        amount: convertStripeValueToCurrencyValue(amount, currency),
-        currency,
-      };
-    }),
-  latestCheckoutSessionMetadata: userProcedure
-    .input(
-      z.object({
-        checkoutId: z.string(),
-        paymentProvider: z.enum(['stripe', 'tazapay']),
-      }),
-    )
-    .query(async ({ ctx, input: { checkoutId, paymentProvider } }) => {
-      if (paymentProvider === 'tazapay') {
-        return await PurchasePaymentTazapayProvider.getCheckoutSessionMetdata(
-          checkoutId,
-        );
-      }
-
-      const userProfile = await prisma.profile.findFirst({
-        select: {
-          stripeCustomer: true,
-        },
-        where: {
-          id: ctx.viewer.id,
-        },
-      });
-
-      // A Stripe customer hasn't been created yet.
-      if (userProfile?.stripeCustomer == null) {
-        return null;
-      }
-
-      const { stripeCustomer: stripeCustomerId } = userProfile;
-
-      const sessions = await stripe.checkout.sessions.list({
-        // Get the most recent session
-        customer: stripeCustomerId,
-        limit: 1,
-      });
-
-      if (!sessions.data || sessions.data.length === 0) {
-        return null;
-      }
-
-      return sessions.data[0].metadata;
-    }),
+    return sessions.data[0].metadata;
+  }),
   projectsPlans: publicProcedure
     .input(z.string().optional())
     .query(async ({ ctx: { req }, input: country }) => {

@@ -3,6 +3,7 @@
 import clsx from 'clsx';
 import type { BlogPost } from 'contentlayer/generated';
 import { ArticleJsonLd } from 'next-seo';
+import { useRouter } from 'next/navigation';
 
 import BlogArticle from '~/components/blog/articles/BlogArticle';
 import type {
@@ -14,7 +15,7 @@ import SideNavigation from '~/components/common/SideNavigation';
 import Container from '~/components/ui/Container';
 import Text from '~/components/ui/Text';
 
-import { useI18nPathname, useI18nRouter } from '~/next-i18nostic/src';
+import { useI18nPathname } from '~/next-i18nostic/src';
 
 import { getSiteOrigin } from '../../../seo/siteUrl';
 
@@ -29,7 +30,7 @@ export default function BlogArticleLayout({
   metadata,
   seriesContents,
 }: Props) {
-  const router = useI18nRouter();
+  const router = useRouter();
   const { pathname } = useI18nPathname();
   const blogPostMetadata = metadata as BlogPost;
 

@@ -15,6 +15,7 @@
   "created": 1723766400,
   "difficulty": "hard",
   "duration": 40,
+  "excerpt": "Build an image carousel that smoothly transitions between images that has a minimal DOM footprint",
   "featured": false,
   "format": "user-interface",
   "frameworkDefault": "react",
@@ -37,5 +38,6 @@
   "similarQuestions": [],
   "slug": "image-carousel-iii",
   "subtitle": null,
+  "title": "Image Carousel III",
   "topics": []
 }

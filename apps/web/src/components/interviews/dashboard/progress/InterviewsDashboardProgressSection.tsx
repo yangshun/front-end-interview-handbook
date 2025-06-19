@@ -1,5 +1,5 @@
 import type {
-  InterviewsQuestionItemMinimal,
+  QuestionMetadata,
   QuestionSlug,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import { FormattedMessage } from '~/components/intl';
@@ -15,9 +15,9 @@ type Props = Readonly<{
   isContributionsLoading: boolean;
   isQuestionsProgressLoading: boolean;
   questions: {
-    codingQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
-    quizQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
-    systemDesignQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+    codingQuestions: ReadonlyArray<QuestionMetadata>;
+    quizQuestions: ReadonlyArray<QuestionMetadata>;
+    systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
   };
   questionsProgress: ReadonlyArray<
     Readonly<{ format: string; id: string; slug: QuestionSlug }>

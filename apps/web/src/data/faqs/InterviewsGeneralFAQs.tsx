@@ -85,40 +85,40 @@ export const generalBuying: FAQItem = {
               id="J0I9im"
               values={{
                 Angular: (
-                  <Anchor href="/questions/angular-interview-questions" target="_blank">
+                  <Anchor href="/questions/angular-interview-questions">
                     Angular
                   </Anchor>
                 ),
                 CSS: (
-                  <Anchor href="/questions/css-interview-questions" target="_blank">CSS</Anchor>
+                  <Anchor href="/questions/css-interview-questions">CSS</Anchor>
                 ),
                 HTML: (
-                  <Anchor href="/questions/html-interview-questions" target="_blank">
+                  <Anchor href="/questions/html-interview-questions">
                     HTML
                   </Anchor>
                 ),
                 JavaScript: (
-                  <Anchor href="/questions/javascript-interview-questions" target="_blank">
+                  <Anchor href="/questions/javascript-interview-questions">
                     JavaScript
                   </Anchor>
                 ),
                 React: (
-                  <Anchor href="/questions/react-interview-questions" target="_blank">
+                  <Anchor href="/questions/react-interview-questions">
                     React
                   </Anchor>
                 ),
                 Svelte: (
-                  <Anchor href="/questions/svelte-interview-questions" target="_blank">
+                  <Anchor href="/questions/svelte-interview-questions">
                     Svelte
                   </Anchor>
                 ),
                 TypeScript: (
-                  <Anchor href="/questions/typescript-interview-questions" target="_blank">
+                  <Anchor href="/questions/typescript-interview-questions">
                     TypeScript
                   </Anchor>
                 ),
                 Vue: (
-                  <Anchor href="/questions/vue-interview-questions" target="_blank">Vue</Anchor>
+                  <Anchor href="/questions/vue-interview-questions">Vue</Anchor>
                 ),
               }}
             />
@@ -132,25 +132,25 @@ export const generalBuying: FAQItem = {
               id="zOaxDi"
               values={{
                 algoCodingAnchor: (chunks) => (
-                  <Anchor href="/questions/formats/algo-coding" target="_blank">
+                  <Anchor href="/questions/formats/algo-coding">
                     {chunks}
                   </Anchor>
                 ),
                 jsCodingAnchor: (chunks) => (
-                  <Anchor href="/questions/formats/javascript-functions" target="_blank">
+                  <Anchor href="/questions/formats/javascript-functions">
                     {chunks}
                   </Anchor>
                 ),
                 quizAnchor: (chunks) => (
-                  <Anchor href="/questions/formats/quiz" target="_blank">{chunks}</Anchor>
+                  <Anchor href="/questions/formats/quiz">{chunks}</Anchor>
                 ),
                 systemDesignAnchor: (chunks) => (
-                  <Anchor href="/questions/formats/system-design" target="_blank">
+                  <Anchor href="/questions/formats/system-design">
                     {chunks}
                   </Anchor>
                 ),
                 uiAnchor: (chunks) => (
-                  <Anchor href="/questions/formats/ui-coding" target="_blank">{chunks}</Anchor>
+                  <Anchor href="/questions/formats/ui-coding">{chunks}</Anchor>
                 ),
               }}
             />
@@ -179,8 +179,7 @@ export const generalBuying: FAQItem = {
                   href={url.format({
                     hash: SCROLL_HASH_INTERVIEWS_DASHBOARD_RECOMMENDED_PREPARATION,
                     pathname: '/interviews/dashboard',
-                  })}
-                  target="_blank">
+                  })}>
                   {chunks}
                 </Anchor>
               ),
@@ -194,7 +193,7 @@ export const generalBuying: FAQItem = {
               description='Paragraph 2 for "What does GreatFrontEnd Interviews offer exactly?" on Homepage FAQ sections'
               id="72crs8"
               values={{
-                Title: <Anchor href="/interviews/gfe75" target="_blank">GFE 75</Anchor>,
+                Title: <Anchor href="/interviews/gfe75">GFE 75</Anchor>,
               }}
             />
           </li>
@@ -204,7 +203,7 @@ export const generalBuying: FAQItem = {
               description='Paragraph 2 for "What does GreatFrontEnd Interviews offer exactly?" on Homepage FAQ sections'
               id="zl/anP"
               values={{
-                Title: <Anchor href="/interviews/blind75" target="_blank">Blind 75</Anchor>,
+                Title: <Anchor href="/interviews/blind75">Blind 75</Anchor>,
               }}
             />
           </li>
@@ -215,7 +214,7 @@ export const generalBuying: FAQItem = {
               id="ZG5bD2"
               values={{
                 Title: (
-                  <Anchor href="/front-end-system-design-playbook" target="_blank">
+                  <Anchor href="/front-end-system-design-playbook">
                     Front-End System Design Playbook
                   </Anchor>
                 ),
@@ -256,7 +255,7 @@ export const generalBuying: FAQItem = {
                   id="8SsXE6"
                   values={{
                     Title: (
-                      <Anchor href="/interviews/study-plans/one-week" target="_blank">
+                      <Anchor href="/interviews/study-plans/one-week">
                         1-Week Plan
                       </Anchor>
                     ),
@@ -270,7 +269,7 @@ export const generalBuying: FAQItem = {
                   id="wPCPuk"
                   values={{
                     Title: (
-                      <Anchor href="/interviews/study-plans/one-month" target="_blank">
+                      <Anchor href="/interviews/study-plans/one-month">
                         1-Month Plan
                       </Anchor>
                     ),
@@ -284,7 +283,7 @@ export const generalBuying: FAQItem = {
                   id="xJ0BqY"
                   values={{
                     Title: (
-                      <Anchor href="/interviews/study-plans/three-months" target="_blank">
+                      <Anchor href="/interviews/study-plans/three-months">
                         3-Month Plan
                       </Anchor>
                     ),
@@ -371,7 +370,7 @@ export const generalBuying: FAQItem = {
                     },
                   ].map(({ href, name }) => (
                     <li key={name}>
-                      <Anchor href={href} target="_blank">{name}</Anchor>
+                      <Anchor href={href}>{name}</Anchor>
                     </li>
                   ))}
                 </ul>
@@ -434,8 +433,7 @@ export const generalUnique: FAQItem = {
                   href={url.format({
                     hash: SCROLL_HASH_INTERVIEWS_DASHBOARD_RECOMMENDED_PREPARATION,
                     pathname: '/interviews/dashboard',
-                  })}
-                  target="_blank">
+                  })}>
                   {chunks}
                 </Anchor>
               ),
@@ -588,7 +586,7 @@ export const generalSeniority: FAQItem = {
           description="Answer to 'Is GreatFrontEnd targeted at engineers of specific seniority?' on Homepage's FAQ sections"
           id="ochhSA"
           values={{
-            link: (chunks) => <Anchor href="/promotions" target="_blank">{chunks}</Anchor>,
+            link: (chunks) => <Anchor href="/promotions">{chunks}</Anchor>,
           }}
         />
       </p>

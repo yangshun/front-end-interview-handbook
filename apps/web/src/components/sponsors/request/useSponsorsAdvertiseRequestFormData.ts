@@ -4,17 +4,12 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { useGreatStorageLocal } from '~/hooks/useGreatStorageLocal';
 
-import type {
-  SponsorsAdFormatFormItem,
-  SponsorsCompanyDetails,
-  SponsorsPromoCode,
-} from './types';
+import type { SponsorsAdFormatFormItem, SponsorsCompanyDetails } from './types';
 
 export type AdvertiseRequestFormValues = Readonly<{
   ads: Array<SponsorsAdFormatFormItem>;
   company: SponsorsCompanyDetails | null;
   emails: Array<string>;
-  promoCode: SponsorsPromoCode;
   sessionId: string;
 }>;
 
@@ -33,7 +28,6 @@ export default function useSponsorsAdvertiseRequestFormData(
         ads: [],
         company: null,
         emails: [],
-        promoCode: null,
         sessionId: uuidv4(),
       }),
       { ttl: 7 * 24 * 60 * 60 },
@@ -45,7 +39,6 @@ export default function useSponsorsAdvertiseRequestFormData(
           ads: [],
           company: null,
           emails: [],
-          promoCode: null,
           sessionId: uuidv4(),
         },
   );

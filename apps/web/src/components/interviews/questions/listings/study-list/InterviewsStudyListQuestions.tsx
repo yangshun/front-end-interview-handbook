@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-import type { InterviewsQuestionItemMinimal } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionsUnifiedListWithFiltersAndProgress from '~/components/interviews/questions/listings/items/QuestionsUnifiedListWithFiltersAndProgress';
 import { FormattedMessage } from '~/components/intl';
 import Heading from '~/components/ui/Heading';
@@ -16,7 +16,7 @@ export default function InterviewsStudyListQuestions({
   studyListKey,
 }: Readonly<{
   overallProgress: QuestionsCategorizedProgress;
-  questions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+  questions: ReadonlyArray<QuestionMetadata>;
   showCount_TEMPORARY?: boolean;
   sideColumnAddOn?: ReactNode;
   studyListKey: string;
@@ -32,8 +32,8 @@ export default function InterviewsStudyListQuestions({
       </Heading>
       <Section>
         <QuestionsUnifiedListWithFiltersAndProgress
-          checkIfCompletedQuestionBefore={({ metadata }) =>
-            overallProgress[metadata.format].has(metadata.slug)
+          checkIfCompletedQuestionBefore={(question) =>
+            overallProgress[question.format].has(question.slug)
           }
           listMode="study-list"
           listType={{ type: 'study-list', value: studyListKey }}

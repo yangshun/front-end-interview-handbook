@@ -17,6 +17,7 @@ import { useColorSchemePreferences } from '~/components/global/color-scheme/Colo
 import ColorSchemeSelect from '~/components/global/color-scheme/ColorSchemeSelect';
 import NavbarEndWithAdvertiseWithUsBadge from '~/components/global/navbar/NavbarEndWithAdvertiseWithUsBadge';
 import NavColorSchemeDropdown from '~/components/global/navbar/NavColorSchemeDropdown';
+import NavI18nDropdown from '~/components/global/navbar/NavI18nDropdown';
 import NavProductPopover from '~/components/global/navbar/NavProductPopover';
 import NavProfileIcon from '~/components/global/navbar/NavProfileIcon';
 import { useIntl } from '~/components/intl';
@@ -165,8 +166,9 @@ export default function ProjectsNavbar({ hideOnDesktop = false }: Props) {
           'gap-x-3',
           isLoggedIn && isPremium
             ? 'hidden lg:flex'
-            : 'hidden min-[1201px]:flex',
+            : 'hidden min-[1367px]:flex',
         )}>
+        <NavI18nDropdown size="xs" />
         <NavColorSchemeDropdown size="xs" />
       </div>
       {!isPremium && (

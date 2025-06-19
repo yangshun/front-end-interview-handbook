@@ -226,8 +226,8 @@ export default function InterviewsDashboardContinueLearningSection({
                   href={href}
                   label={intl.formatMessage({
                     defaultMessage: 'Resume',
-                    description: 'Resume the study session',
-                    id: 'HH+Rb8',
+                    description: 'Button label for resume',
+                    id: 'jIpLwU',
                   })}
                   variant="secondary"
                 />

@@ -1,0 +1,32 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "hard",
+    "duration": 5,
+    "excerpt": null,
+    "featured": true,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/what-are-the-differences-between-es6-class-and-es5-function-constructors",
+    "importance": "high",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 200,
+    "similarQuestions": [],
+    "slug": "what-are-the-differences-between-es6-class-and-es5-function-constructors",
+    "subtitle": null,
+    "title": "Quais são as diferenças entre a classe ES2015 e os construtores de função ES5?",
+    "topics": [
+      "javascript",
+      "oop"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-differences-between-es6-class-and-es5-function-constructors/pt-BR.mdx"
+  },
+  "solution": "var Component=(()=>{var m=Object.create;var a=Object.defineProperty;var l=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var S=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var t in e)a(n,t,{get:e[t],enumerable:!0})},c=(n,e,t,o)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of p(e))!f.call(n,r)&&r!==t&&a(n,r,{get:()=>e[r],enumerable:!(o=l(e,r))||o.enumerable});return n};var x=(n,e,t)=>(t=n!=null?m(h(n)):{},c(e||!n||!n.__esModule?a(t,\"default\",{value:n,enumerable:!0}):t,n)),b=n=>c(a({},\"__esModule\",{value:!0}),n);var i=S((_,d)=>{d.exports=_jsx_runtime});var C={};j(C,{default:()=>I,frontmatter:()=>g});var s=x(i()),g={title:\"Quais s\\xE3o as diferen\\xE7as entre a classe ES2015 e os construtores de fun\\xE7\\xE3o ES5?\"};function u(n){let e=Object.assign({p:\"p\",pre:\"pre\",code:\"code\"},n.components);return(0,s.jsxs)(s.Fragment,{children:[(0,s.jsx)(e.p,{children:\"Vamos primeiro olhar o exemplo de cada um deles:\"}),`\n`,(0,s.jsx)(e.pre,{children:(0,s.jsx)(e.code,{className:\"language-js\",children:`// Constructor de fun\\xE7\\xE3o ES5\nfunction Person(name) {\n  this.name = name;\n}\n\n// ES2015 Class\nclass Person {\n  constructor(name) {\n    this.name = name;\n  }\n}\n`})}),`\n`,(0,s.jsx)(e.p,{children:\"Para construtores simples, eles parecem bem semelhantes.\"}),`\n`,(0,s.jsxs)(e.p,{children:[\"A principal diferen\\xE7a no construtor vem quando se usa heran\\xE7a. Se quisermos criar uma classe \",(0,s.jsx)(e.code,{children:\"Student\"}),\" que seja uma subclasse de \",(0,s.jsx)(e.code,{children:\"Person\"}),\" e adicionar um campo \",(0,s.jsx)(e.code,{children:\"studentId\"}),\", \\xE9 isso que devemos fazer al\\xE9m do que foi mostrado acima.\"]}),`\n`,(0,s.jsx)(e.pre,{children:(0,s.jsx)(e.code,{className:\"language-js\",children:`// Construtor de fun\\xE7\\xE3o ES5\nfunction Student(name, studentId) {\n  // Chamar o construtor da superclasse para inicializar membros derivados da superclasse.\n  Person.call(this, name);\n\n  // Inicializar os pr\\xF3prios membros da subclasse.\n  this.studentId = studentId;\n}\n\nStudent.prototype = Object.create(Person.prototype);\nStudent.prototype.constructor = Student;\n\n// Classe ES2015\nclass Student extends Person {\n  constructor(name, studentId) {\n    super(name);\n    this.studentId = studentId;\n  }\n}\n`})}),`\n`,(0,s.jsx)(e.p,{children:\"\\xC9 muito mais verboso usar a heran\\xE7a na ES5 e a vers\\xE3o ES2015 \\xE9 mais f\\xE1cil de entender e lembrar.\"})]})}function E(n={}){let{wrapper:e}=n.components||{};return e?(0,s.jsx)(e,Object.assign({},n,{children:(0,s.jsx)(u,n)})):u(n)}var I=E;return b(C);})();\n;return Component;"
+}

@@ -9,6 +9,7 @@
   "created": 1723766400,
   "difficulty": "hard",
   "duration": 40,
+  "excerpt": "Build a generalized data table with pagination, sorting and filtering features",
   "featured": false,
   "format": "user-interface",
   "frameworkDefault": "react",
@@ -30,5 +31,6 @@
   "similarQuestions": [],
   "slug": "data-table-iv",
   "subtitle": null,
+  "title": "Data Table IV",
   "topics": []
 }

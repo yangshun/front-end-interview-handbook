@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { trpc } from '~/hooks/trpc';
 
 import { useToast } from '~/components/global/toasts/useToast';
-import type { InterviewsQuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import { useIntl } from '~/components/intl';
 import JavaScriptTestCodesEmitter from '~/components/workspace/javascript/JavaScriptTestCodesEmitter';
 
@@ -26,7 +26,7 @@ export default function JavaScriptCodingWorkspaceTestsSubmitTab({
   specPath,
   studyListKey,
 }: Readonly<{
-  metadata: InterviewsQuestionMetadata;
+  metadata: QuestionMetadata;
   openBesideTabId: CodingWorkspaceTabFileType;
   specPath: string;
   studyListKey?: string;

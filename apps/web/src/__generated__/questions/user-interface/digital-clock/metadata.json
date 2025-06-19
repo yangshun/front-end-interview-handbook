@@ -7,6 +7,7 @@
   "created": 1656892800,
   "difficulty": "medium",
   "duration": 25,
+  "excerpt": "Build a 7-segment digital clock that shows the current time",
   "featured": true,
   "format": "user-interface",
   "frameworkDefault": "react",
@@ -45,6 +46,7 @@
   "similarQuestions": [],
   "slug": "digital-clock",
   "subtitle": null,
+  "title": "Digital Clock",
   "topics": [
     "a11y",
     "async"

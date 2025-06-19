@@ -2,8 +2,6 @@ import type { SandpackFiles } from '@codesandbox/sandpack-react';
 import type { ReactNode } from 'react';
 import { createContext, useCallback, useContext, useState } from 'react';
 
-import { useAuthPointOnActions } from '~/components/auth/auth-points';
-
 import CodingWorkspaceBottomBarEmitter from './CodingWorkspaceBottomBarEmitter';
 
 export type CodingWorkspaceTabContents<TabType extends string> = Readonly<
@@ -33,11 +31,7 @@ type BaseContext = Readonly<{
 
 type Props = Readonly<{
   children: ReactNode;
-  embed?: boolean;
   loadedFilesFromLocalStorage?: boolean;
-  metadata?: Readonly<{
-    slug: string;
-  }>;
   value: BaseContext;
 }>;
 
@@ -71,14 +65,9 @@ CodingWorkspaceContext.displayName = 'CodingWorkspaceContext';
 
 export function CodingWorkspaceProvider({
   children,
-  embed,
   loadedFilesFromLocalStorage = false,
-  metadata,
   value,
 }: Props) {
-  const { increaseAuthPoints } = useAuthPointOnActions({
-    showAuthSignupDialogOnMaxPoints: !embed,
-  });
   const [status, setStatus] = useState<Status>('idle');
   const [
     showLoadedFilesFromLocalStorageMessage,
@@ -86,33 +75,13 @@ export function CodingWorkspaceProvider({
   ] = useState(loadedFilesFromLocalStorage);
 
   const runTests = useCallback(() => {
-    if (metadata?.slug) {
-      const { maxAuthPointsReached } = increaseAuthPoints(
-        'coding',
-        metadata.slug,
-      );
-
-      if (maxAuthPointsReached) {
-        return;
-      }
-    }
     setStatus('running_tests');
-  }, [increaseAuthPoints, metadata?.slug]);
+  }, []);
 
   const submit = useCallback(() => {
-    if (metadata?.slug) {
-      const { maxAuthPointsReached } = increaseAuthPoints(
-        'coding',
-        metadata.slug,
-      );
-
-      if (maxAuthPointsReached) {
-        return;
-      }
-    }
     CodingWorkspaceBottomBarEmitter.emit('pause_timer');
     setStatus('submitting');
-  }, [increaseAuthPoints, metadata?.slug]);
+  }, []);
 
   const executionComplete = useCallback(() => {
     setStatus('idle');

@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "hard",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/describe-z-index-and-how-stacking-context-is-formed",
+    "importance": "medium",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "describe-z-index-and-how-stacking-context-is-formed",
+    "subtitle": null,
+    "title": "Descreva `z-index` e como o contexto de empilhamento é formado.",
+    "topics": [
+      "css"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/describe-z-index-and-how-stacking-context-is-formed/pt-BR.mdx"
+  },
+  "solution": "var Component=(()=>{var l=Object.create;var d=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var f=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),q=(n,e)=>{for(var t in e)d(n,t,{get:e[t],enumerable:!0})},i=(n,e,t,m)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let a of u(e))!x.call(n,a)&&a!==t&&d(n,a,{get:()=>e[a],enumerable:!(m=p(e,a))||m.enumerable});return n};var g=(n,e,t)=>(t=n!=null?l(h(n)):{},i(e||!n||!n.__esModule?d(t,\"default\",{value:n,enumerable:!0}):t,n)),_=n=>i(d({},\"__esModule\",{value:!0}),n);var c=f((b,s)=>{s.exports=_jsx_runtime});var C={};q(C,{default:()=>v,frontmatter:()=>S});var o=g(c()),S={title:\"Descreva `z-index` e como o contexto de empilhamento \\xE9 formado.\"};function r(n){let e=Object.assign({p:\"p\",code:\"code\",em:\"em\",strong:\"strong\",a:\"a\"},n.components);return(0,o.jsxs)(o.Fragment,{children:[(0,o.jsxs)(e.p,{children:[\"A propriedade \",(0,o.jsx)(e.code,{children:\"z-index\"}),\" no CSS controla a ordem de empilhamento vertical dos elementos que se sobrep\\xF5em. 'z-index' afeta apenas elementos posicionados (elementos que t\\xEAm um valor de 'posi\\xE7\\xE3o' que n\\xE3o \\xE9 'static') e seus descendentes ou itens flex\\xEDveis.\"]}),`\n`,(0,o.jsxs)(e.p,{children:[\"Sem qualquer valor de \",(0,o.jsx)(e.code,{children:\"z-index\"}),\", pilha de elementos na ordem de exibi\\xE7\\xE3o no DOM (o menor n\\xEDvel abaixo na mesma hierarquia aparece no topo). Elementos com posicionamento n\\xE3o est\\xE1tico (e seus filhos) sempre aparecer\\xE3o no topo dos elementos com posi\\xE7\\xE3o est\\xE1tica padr\\xE3o, independente da hierarquia HTML.\"]}),`\n`,(0,o.jsxs)(e.p,{children:[\"Um contexto de empilhamento \\xE9 um elemento que cont\\xE9m um conjunto de camadas. Dentro de um contexto local de empilhamento, os valores de \",(0,o.jsx)(e.code,{children:\"z-index\"}),\" de seus filhos s\\xE3o definidos em rela\\xE7\\xE3o a esse elemento, ao inv\\xE9s da raiz do documento. Camadas fora desse contexto \\u2014 ou seja, elementos irm\\xE3s de um contexto local de empilhamento \\u2014 n\\xE3o podem ficar entre as camadas dentro dele. Se um elemento B ficar no topo do elemento A, um elemento filho do elemento A, elemento C, nunca pode ser maior que o elemento B, mesmo que o elemento C tenha um \",(0,o.jsx)(e.code,{children:\"z-index\"}),\" maior que o elemento B.\"]}),`\n`,(0,o.jsxs)(e.p,{children:[\"Cada contexto de empilhamento \\xE9 auto-contido - ap\\xF3s o conte\\xFAdo do elemento ser empilhado, todo o elemento \\xE9 considerado na ordem de empilhamento do contexto de empilhamento do pai. Algumas propriedades CSS desencadeiam um novo contexto de empilhamento, como \",(0,o.jsx)(e.code,{children:\"opacity\"}),\" menor que 1, \",(0,o.jsx)(e.code,{children:\"filter\"}),\" que n\\xE3o \\xE9 \",(0,o.jsx)(e.code,{children:\"none\"}),\", e \",(0,o.jsx)(e.code,{children:\"transform\"}),\" que n\\xE3o \\xE9 \",(0,o.jsx)(e.code,{children:\"none\"}),\".\"]}),`\n`,(0,o.jsx)(e.p,{children:(0,o.jsxs)(e.em,{children:[(0,o.jsx)(e.strong,{children:\"Nota\"}),\": O que exatamente qualifica-se como um elemento para criar um contexto de empilhamento est\\xE1 listado neste longo conjunto de \",(0,o.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context#The_stacking_context\",children:\"rules\"}),\".\"]})})]})}function j(n={}){let{wrapper:e}=n.components||{};return e?(0,o.jsx)(e,Object.assign({},n,{children:(0,o.jsx)(r,n)})):r(n)}var v=j;return _(C);})();\n;return Component;"
+}

@@ -7,7 +7,8 @@ export const SponsorsAdsSpotsSwagOverflowSpotlight: SponsorsAdFormatPayloadSpotl
   {
     adId: 'swag-overflow-spotlight',
     format: 'SPOTLIGHT',
-    imageUrl: '/img/sponsors/ads/swag-overflow/spotlight.webp',
+    imageUrl:
+      'https://www.gfecdn.net/sponsors/ads/swag-overflow/spotlight.webp',
     sponsorName: 'SwagOverflow',
     text: 'Ultimate swag store for the modern front end dev',
     url: 'https://www.swagoverflow.store/',
@@ -269,7 +270,8 @@ export const SponsorsAdsSpotsSwagOverflowInContent: SponsorsAdFormatPayloadInCon
       },
     }),
     format: 'IN_CONTENT',
-    imageUrl: '/img/sponsors/ads/swag-overflow/in-content.webp',
+    imageUrl:
+      'https://www.gfecdn.net/sponsors/ads/swag-overflow/in-content.webp',
     sponsorName: 'SwagOverflow',
     title: 'SwagOverflow — Swag tailored for front end devs',
     url: 'https://www.swagoverflow.store/products/undefined-is-not-a-function-tee-unisex',
@@ -358,7 +360,7 @@ export const SponsorsAdsSpotsSwagOverflowInContentUndefinedIsNotAFunction: Spons
     }),
     format: 'IN_CONTENT',
     imageUrl:
-      '/img/sponsors/ads/swag-overflow/undefined-is-not-a-function.webp',
+      'https://www.gfecdn.net/sponsors/ads/swag-overflow/undefined-is-not-a-function.webp',
     sponsorName: 'SwagOverflow',
     title: 'The "undefined is not a function" Tee — A debugging classic',
     url: 'https://www.swagoverflow.store/products/undefined-is-not-a-function-tee-unisex',
@@ -428,7 +430,8 @@ export const SponsorsAdsSpotsSwagOverflowInContentTsIgnore: SponsorsAdFormatPayl
       },
     }),
     format: 'IN_CONTENT',
-    imageUrl: '/img/sponsors/ads/swag-overflow/ts-ignore.webp',
+    imageUrl:
+      'https://www.gfecdn.net/sponsors/ads/swag-overflow/ts-ignore.webp',
     sponsorName: 'SwagOverflow',
     title: 'The @ts-ignore Tee — Ship now, fix never',
     url: 'https://www.swagoverflow.store/products/the-ts-ignore-tee-unisex',
@@ -516,7 +519,8 @@ export const SponsorsAdsSpotsSwagOverflowInContentTsDenial: SponsorsAdFormatPayl
       },
     }),
     format: 'IN_CONTENT',
-    imageUrl: '/img/sponsors/ads/swag-overflow/ts-denial.webp',
+    imageUrl:
+      'https://www.gfecdn.net/sponsors/ads/swag-overflow/ts-denial.webp',
     sponsorName: 'SwagOverflow',
     title: 'The TypeScript Denial Tee — TypeScript love, "any" denial',
     url: 'https://www.swagoverflow.store/products/typescript-denial-tee-unisex',
@@ -604,7 +608,8 @@ export const SponsorsAdsSpotsSwagOverflowInContentValueAny: SponsorsAdFormatPayl
       },
     }),
     format: 'IN_CONTENT',
-    imageUrl: '/img/sponsors/ads/swag-overflow/value-any.webp',
+    imageUrl:
+      'https://www.gfecdn.net/sponsors/ads/swag-overflow/value-any.webp',
     sponsorName: 'SwagOverflow',
     title: 'The "value: any" Tee — "It works, but at what cost?"',
     url: 'https://www.swagoverflow.store/products/the-value-any-tee-unisex',
@@ -674,7 +679,8 @@ export const SponsorsAdsSpotsSwagOverflowInContentComponentLibrary: SponsorsAdFo
       },
     }),
     format: 'IN_CONTENT',
-    imageUrl: '/img/sponsors/ads/swag-overflow/component-lib.webp',
+    imageUrl:
+      'https://www.gfecdn.net/sponsors/ads/swag-overflow/component-lib.webp',
     sponsorName: 'SwagOverflow',
     title:
       'The Component Library Procrastinator Tee — Why reuse when you can rebuild?',
@@ -745,7 +751,8 @@ export const SponsorsAdsSpotsSwagOverflowInContentUseEffect: SponsorsAdFormatPay
       },
     }),
     format: 'IN_CONTENT',
-    imageUrl: '/img/sponsors/ads/swag-overflow/useeffect.webp',
+    imageUrl:
+      'https://www.gfecdn.net/sponsors/ads/swag-overflow/useeffect.webp',
     sponsorName: 'SwagOverflow',
     title: 'The useEffect() Tee — Mount, Update, Rerender, Repeat',
     url: 'https://www.swagoverflow.store/products/the-useeffect-tee-unisex',
@@ -815,7 +822,8 @@ export const SponsorsAdsSpotsSwagOverflowInContentWhoWroteThis: SponsorsAdFormat
       },
     }),
     format: 'IN_CONTENT',
-    imageUrl: '/img/sponsors/ads/swag-overflow/who-wrote-this.webp',
+    imageUrl:
+      'https://www.gfecdn.net/sponsors/ads/swag-overflow/who-wrote-this.webp',
     sponsorName: 'SwagOverflow',
     title: 'The "Who Wrote This?" Tee — Every dev\'s inner monologue',
     url: 'https://www.swagoverflow.store/products/the-who-wrote-this-tee-unisex',
@@ -885,7 +893,8 @@ export const SponsorsAdsSpotsSwagOverflowInContentMobileFearFactor: SponsorsAdFo
       },
     }),
     format: 'IN_CONTENT',
-    imageUrl: '/img/sponsors/ads/swag-overflow/mobile-fear-factor.webp',
+    imageUrl:
+      'https://www.gfecdn.net/sponsors/ads/swag-overflow/mobile-fear-factor.webp',
     sponsorName: 'SwagOverflow',
     title: 'The Mobile Fear Factor Tee — The ultimate horror story',
     url: 'https://www.swagoverflow.store/products/the-mobile-fear-factor-tee-unisex',

@@ -6,7 +6,6 @@ import type { BlogMetadata } from '~/components/blog/BlogTypes';
 import BlogMetadataSection from '~/components/blog/metadata/BlogMetadataSection';
 import Anchor from '~/components/ui/Anchor';
 import Heading, { headingCVA } from '~/components/ui/Heading';
-import Img from '~/components/ui/Img';
 import Text from '~/components/ui/Text';
 
 type ArticleView = 'card' | 'default';
@@ -49,7 +48,7 @@ export default function BlogArticle({
         <BlogMetadataSection metadata={metadata} />
       </div>
       {metadata.imageUrl && (
-        <Img
+        <img
           alt={metadata.title}
           decoding="async"
           loading="lazy"

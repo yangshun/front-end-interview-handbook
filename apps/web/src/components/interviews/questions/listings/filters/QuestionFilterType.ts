@@ -1,10 +1,10 @@
 import type { Dispatch, SetStateAction } from 'react';
 
-import type { InterviewsQuestionItemMinimal } from '../../common/QuestionsTypes';
+import type { QuestionMetadata } from '../../common/QuestionsTypes';
 
 export type QuestionFilter<
   T extends string,
-  Q extends InterviewsQuestionItemMinimal = InterviewsQuestionItemMinimal,
+  Q extends QuestionMetadata = QuestionMetadata,
 > = Readonly<{
   id: string;
   matches: (question: Q) => boolean;

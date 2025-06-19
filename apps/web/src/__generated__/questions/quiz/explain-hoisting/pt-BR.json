@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "hard",
+    "duration": 5,
+    "excerpt": null,
+    "featured": true,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/explain-hoisting",
+    "importance": "high",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 10,
+    "similarQuestions": [],
+    "slug": "explain-hoisting",
+    "subtitle": null,
+    "title": "Explique \"hoisting\"",
+    "topics": [
+      "javascript"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-hoisting/pt-BR.mdx"
+  },
+  "solution": "var Component=(()=>{var m=Object.create;var s=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var g=(o,e)=>()=>(e||o((e={exports:{}}).exports,e),e.exports),v=(o,e)=>{for(var n in e)s(o,n,{get:e[n],enumerable:!0})},i=(o,e,n,c)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of p(e))!h.call(o,r)&&r!==n&&s(o,r,{get:()=>e[r],enumerable:!(c=u(e,r))||c.enumerable});return o};var x=(o,e,n)=>(n=o!=null?m(f(o)):{},i(e||!o||!o.__esModule?s(n,\"default\",{value:o,enumerable:!0}):n,o)),b=o=>i(s({},\"__esModule\",{value:!0}),o);var t=g((E,d)=>{d.exports=_jsx_runtime});var _={};v(_,{default:()=>F,frontmatter:()=>O});var a=x(t()),O={title:'Explique \"hoisting\"'};function l(o){let e=Object.assign({p:\"p\",code:\"code\",pre:\"pre\"},o.components);return(0,a.jsxs)(a.Fragment,{children:[(0,a.jsxs)(e.p,{children:[\"Hoisting \\xE9 um termo usado para explicar o comportamento de declara\\xE7\\xF5es vari\\xE1veis em seu c\\xF3digo. Vari\\xE1veis declaradas ou inicializadas com a palavra-chave \",(0,a.jsx)(e.code,{children:\"var\"}),' ter\\xE3o sua declara\\xE7\\xE3o \"movida\" at\\xE9 o topo do escopo do m\\xF3dulo/fun\\xE7\\xE3o do escopo, a que chamamos de hoisting. No entanto, apenas a declara\\xE7\\xE3o est\\xE1 hoisted, a atribui\\xE7\\xE3o (se houver uma), ficar\\xE1 onde est\\xE1.']}),`\n`,(0,a.jsx)(e.p,{children:\"Observe que a declara\\xE7\\xE3o n\\xE3o \\xE9 realmente movida - o motor de JavaScript analisa as declara\\xE7\\xF5es durante a compila\\xE7\\xE3o e torna-se ciente das declara\\xE7\\xF5es e dos seus \\xE2mbitos. \\xC9 mais f\\xE1cil compreender este comportamento, visualizando as declara\\xE7\\xF5es como sendo hoisted at\\xE9 ao topo do seu escopo. Vamos explicar com alguns exemplos.\"}),`\n`,(0,a.jsx)(e.pre,{children:(0,a.jsx)(e.code,{className:\"language-js\",children:`console.log(foo); // indefinido\nvar foo = 1;\nconsole.log(foo); // 1\n`})}),`\n`,(0,a.jsx)(e.p,{children:\"As declara\\xE7\\xF5es de fun\\xE7\\xE3o t\\xEAm o corpo hoisted enquanto as express\\xF5es da fun\\xE7\\xE3o (escritas na forma de declara\\xE7\\xF5es vari\\xE1veis) s\\xF3 tem a declara\\xE7\\xE3o da vari\\xE1vel hoisted.\"}),`\n`,(0,a.jsx)(e.pre,{children:(0,a.jsx)(e.code,{className:\"language-js\",children:`// Declara\\xE7\\xE3o de fun\\xE7\\xE3o\nconsole.log(foo); // [Function: foo]\nfoo(); // 'FOOOOO'\nfunction foo() {\n  console.log('FOOOOO');\n}\nconsole.log(foo); // [Function: foo]\n\n// Function Expression\nconsole.log(bar); // undefined\nbar(); // Uncaught TypeError: bar is not a function\nvar bar = function () {\n  console.log('BARRRR');\n};\nconsole.log(bar); // [Function: bar]\n`})}),`\n`,(0,a.jsxs)(e.p,{children:[\"Vari\\xE1veis declaradas via \",(0,a.jsx)(e.code,{children:\"let\"}),\" e \",(0,a.jsx)(e.code,{children:\"const\"}),\" tamb\\xE9m sofrem o hoisted. No entanto, ao contr\\xE1rio de \",(0,a.jsx)(e.code,{children:\"var\"}),\" e \",(0,a.jsx)(e.code,{children:\"function\"}),\", eles n\\xE3o s\\xE3o inicializados e acess\\xE1-los antes que a declara\\xE7\\xE3o resulte em uma exce\\xE7\\xE3o \",(0,a.jsx)(e.code,{children:\"ReferenceError\"}),'. A vari\\xE1vel est\\xE1 em uma \"zona tempor\\xE1ria morta\" desde o in\\xEDcio do bloco at\\xE9 que a declara\\xE7\\xE3o seja processada.']}),`\n`,(0,a.jsx)(e.pre,{children:(0,a.jsx)(e.code,{className:\"language-js\",children:`x; // undefined; // Erro de refer\\xEAncia: y n\\xE3o est\\xE1 definido\n\nvar x = 'local';\nlet y = 'local';\n`})})]})}function j(o={}){let{wrapper:e}=o.components||{};return e?(0,a.jsx)(e,Object.assign({},o,{children:(0,a.jsx)(l,o)})):l(o)}var F=j;return b(_);})();\n;return Component;"
+}

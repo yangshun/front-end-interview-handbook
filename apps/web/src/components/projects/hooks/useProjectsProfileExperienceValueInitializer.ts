@@ -1,39 +1,16 @@
-import type { z } from 'zod';
-
 import { yoeReplacementSchema } from '~/components/projects/misc';
 
-type YoeReplacement =
-  | Readonly<{
-      option: Exclude<z.infer<typeof yoeReplacementSchema>, 'others'>;
-      otherText?: string;
-    }>
-  | Readonly<{ option: 'others'; otherText: string }>;
-
-type BaseInitializer = Readonly<{
-  company?: string;
-  yoeReplacement?: YoeReplacement;
+type InitializerValue = Readonly<{
+  company: string;
+  hasStartedWork: boolean;
+  jobTitle: string;
+  monthYearExperience: string | undefined;
+  title: string;
+  yoeReplacement: {
+    option: string | undefined;
+    otherText: string | undefined;
+  };
 }>;
-
-type NotStartedWork = Readonly<
-  BaseInitializer & {
-    hasStartedWork: false;
-    jobTitle?: string;
-    monthYearExperience?: string;
-    title: string;
-    yoeReplacement: YoeReplacement;
-  }
->;
-
-type StartedWork = Readonly<
-  BaseInitializer & {
-    hasStartedWork: true;
-    jobTitle: string;
-    monthYearExperience: string;
-    title?: string;
-  }
->;
-
-type InitializerValue = NotStartedWork | StartedWork;
 
 type Props = Readonly<{
   company?: string | null;
@@ -47,34 +24,24 @@ export default function useProjectsProfileExperienceValueInitializer(
 ): InitializerValue {
   const hasStartedWork = initialValues?.currentStatus === null;
 
-  if (hasStartedWork) {
-    return {
-      company: initialValues?.company ?? undefined,
-      hasStartedWork: true,
-      jobTitle: initialValues?.title ?? '',
-      monthYearExperience: initialValues?.startWorkDate
-        ? `${initialValues.startWorkDate.toLocaleDateString(undefined, {
-            month: '2-digit',
-          })}/${initialValues.startWorkDate.getFullYear()}`
-        : '',
-    };
-  }
-
   return {
-    hasStartedWork: false as const,
-    jobTitle: '',
-    title: initialValues?.title ?? '',
-    yoeReplacement: yoeReplacementSchema
-      .exclude(['others'])
-      .safeParse(initialValues?.currentStatus).success
-      ? {
-          option: yoeReplacementSchema
-            .exclude(['others'])
-            .parse(initialValues?.currentStatus),
-        }
-      : {
-          option: 'others',
-          otherText: initialValues?.currentStatus ?? '',
-        },
+    company: initialValues?.company ?? '',
+    hasStartedWork,
+    jobTitle: hasStartedWork ? initialValues?.title ?? '' : '',
+    monthYearExperience: initialValues?.startWorkDate
+      ? `${initialValues.startWorkDate.toLocaleDateString(undefined, {
+          month: '2-digit',
+        })}/${initialValues.startWorkDate.getFullYear()}`
+      : '',
+    title: hasStartedWork ? '' : initialValues?.title ?? '',
+    yoeReplacement: {
+      option: yoeReplacementSchema
+        .catch(() => 'others' as const)
+        .parse(initialValues?.currentStatus),
+      otherText: !yoeReplacementSchema.safeParse(initialValues?.currentStatus)
+        .success
+        ? initialValues?.currentStatus ?? undefined
+        : undefined,
+    },
   };
 }

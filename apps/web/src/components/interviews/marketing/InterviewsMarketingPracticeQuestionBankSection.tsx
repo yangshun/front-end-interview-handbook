@@ -10,9 +10,9 @@ import {
 
 import SideNavigation from '~/components/common/SideNavigation';
 import type {
-  InterviewsQuestionItemMinimal,
   QuestionFormat,
   QuestionLanguage,
+  QuestionMetadata,
   QuestionTopic,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { QuestionFramework } from '~/components/interviews/questions/common/QuestionsTypes';
@@ -51,7 +51,7 @@ type FilterType = 'format' | 'framework' | 'topics';
 type QuestionDataType = {
   count: number;
   duration: number;
-  questions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+  questions: ReadonlyArray<QuestionMetadata>;
 };
 
 export type QuestionBankDataType = Readonly<{
@@ -352,7 +352,6 @@ export default function InterviewsMarketingPracticeQuestionBankSection({
                       })}
                       prefetch={null}
                       size="md"
-                      target="_blank"
                       variant="secondary"
                     />
                   </div>

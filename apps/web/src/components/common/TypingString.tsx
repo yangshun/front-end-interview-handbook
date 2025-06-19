@@ -1,4 +1,4 @@
-import { useInView } from 'motion/react';
+import { useInView } from 'framer-motion';
 import { useEffect, useRef } from 'react';
 
 import useTypingString from '~/hooks/useTypingString';

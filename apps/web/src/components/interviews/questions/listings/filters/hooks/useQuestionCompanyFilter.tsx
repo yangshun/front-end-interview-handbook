@@ -15,6 +15,7 @@ const COMPANY_OPTIONS: ReadonlyArray<QuestionCompany> = [
   'apple',
   'bytedance',
   'microsoft',
+  'openai',
   'tiktok',
   'uber',
   'linkedin',
@@ -61,9 +62,7 @@ export default function useQuestionCompanyFilter({
     matches: (question) =>
       companyFilters.size === 0 ||
       !userProfile?.isInterviewsPremium ||
-      question.metadata.companies.some((company) =>
-        companyFilters.has(company),
-      ),
+      question.companies.some((company) => companyFilters.has(company)),
     name: intl.formatMessage({
       defaultMessage: 'Company',
       description: 'Header for company filters',

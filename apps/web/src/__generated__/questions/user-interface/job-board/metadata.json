@@ -11,6 +11,7 @@
   "created": 1683849600,
   "difficulty": "medium",
   "duration": 30,
+  "excerpt": "Build a job board that displays the latest job postings from Hacker News",
   "featured": false,
   "format": "user-interface",
   "frameworkDefault": "react",
@@ -49,6 +50,7 @@
   "similarQuestions": [],
   "slug": "job-board",
   "subtitle": null,
+  "title": "Job Board",
   "topics": [
     "networking"
   ]

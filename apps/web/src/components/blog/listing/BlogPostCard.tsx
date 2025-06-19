@@ -9,7 +9,6 @@ import BlogSeriesLabel from '~/components/blog/metadata/BlogSeriesLabel';
 import BlogTags from '~/components/blog/metadata/BlogTags';
 import BlogTimestamp from '~/components/blog/metadata/BlogTimestamp';
 import Anchor from '~/components/ui/Anchor';
-import Img from '~/components/ui/Img';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundCardWhiteOnLightColor,
@@ -44,7 +43,7 @@ export default function BlogPostCard({
         themeGlassyBorder,
       )}>
       {type === 'wide' && metadata.imageUrl && (
-        <Img
+        <img
           alt={metadata.title}
           className="!m-0 hidden aspect-[15/8] h-20 shrink-0 rounded object-cover sm:block"
           decoding="async"
@@ -61,9 +60,9 @@ export default function BlogPostCard({
           )}>
           <div className="flex items-center gap-x-3">
             {type === 'wide' && metadata.imageUrl && (
-              <Img
+              <img
                 alt={metadata.title}
-                className="!m-0 size-8 shrink-0 rounded object-cover sm:hidden"
+                className="size-8 !m-0 shrink-0 rounded object-cover sm:hidden"
                 decoding="async"
                 loading="lazy"
                 src={metadata.imageUrl}

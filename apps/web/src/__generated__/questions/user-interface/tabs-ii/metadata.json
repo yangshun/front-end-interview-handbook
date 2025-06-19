@@ -8,6 +8,7 @@
   "created": 1670976000,
   "difficulty": "medium",
   "duration": 20,
+  "excerpt": "Build a semi-accessible tabs component that has the right ARIA roles, states, and properties",
   "featured": false,
   "format": "user-interface",
   "frameworkDefault": "react",
@@ -44,6 +45,7 @@
   "similarQuestions": [],
   "slug": "tabs-ii",
   "subtitle": null,
+  "title": "Tabs II",
   "topics": [
     "a11y"
   ]

@@ -3,14 +3,13 @@
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
-import Img from '~/components/ui/Img';
 
 const testimonials = [
   {
     id: 'chaitanya',
     location: <>Dubai, United Arab Emirates</>,
     logo: (
-      <Img
+      <img
         alt="BharatX logo mark"
         className="size-8 flex-none rounded-full object-cover"
         src="/img/company-logos/bharatx-logomark.png"
@@ -38,7 +37,7 @@ const testimonials = [
     id: 'bryant-chan',
     location: <>Auckland, New Zealand</>,
     logo: (
-      <Img
+      <img
         alt="Koda Web logo mark"
         className="size-8 flex-none rounded-full object-cover"
         src="/img/company-logos/kodaweb-logomark.jpeg"
@@ -64,7 +63,7 @@ const testimonials = [
     id: 'dallas-tx',
     location: <>Dallas, Texas</>,
     logo: (
-      <Img
+      <img
         alt="Microsoft logo mark"
         className="size-8 flex-none rounded-full object-cover"
         src="/img/company-logos/microsoft-logomark.svg"
@@ -90,7 +89,7 @@ const testimonials = [
     id: 'sunnyvale-ca',
     location: <>Sunnyvale, California</>,
     logo: (
-      <Img
+      <img
         alt="Amazon logo mark"
         className="size-8 flex-none rounded-full object-cover"
         src="/img/company-logos/amazon-logomark.svg"
@@ -117,7 +116,7 @@ const testimonials = [
     id: 'cerritos-ca',
     location: <>Cerritos, California</>,
     logo: (
-      <Img
+      <img
         alt="Meta logo mark"
         className="size-8 flex-none rounded-full object-cover"
         src="/img/company-logos/meta-logomark.png"
@@ -140,7 +139,7 @@ const testimonials = [
     id: 'san-diego-ca',
     location: <>San Diego, California</>,
     logo: (
-      <Img
+      <img
         alt="Credit Karma logo mark"
         className="size-8 flex-none rounded-full object-cover"
         src="/img/company-logos/creditkarma-logomark.png"
@@ -164,7 +163,7 @@ const testimonials = [
     id: 'london-uk',
     location: <>London, UK</>,
     logo: (
-      <Img
+      <img
         alt="JPMorgan logo mark"
         className="size-8 flex-none rounded-full object-cover"
         src="/img/company-logos/jpmorgan-logomark.jpg"

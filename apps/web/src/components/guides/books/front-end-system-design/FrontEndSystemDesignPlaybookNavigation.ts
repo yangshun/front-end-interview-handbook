@@ -31,8 +31,11 @@ import type {
   BaseGuideNavigationLink,
   GuideNavigation,
 } from '~/components/guides/types';
-import type { InterviewsQuestionItemMinimal } from '~/components/interviews/questions/common/QuestionsTypes';
-import { InterviewsQuestionsSystemDesignReady } from '~/components/interviews/questions/content/system-design/InterviewsQuestionsSystemDesignConfig';
+import {
+  allSystemDesignQuestions,
+  readySystemDesignQuestions,
+} from '~/components/interviews/questions/content/system-design/InterviewsSystemDesignQuestions';
+import { ReadyQuestions } from '~/components/interviews/questions/content/system-design/SystemDesignConfig';
 import { useIntl } from '~/components/intl';
 
 export const basePath = '/front-end-system-design-playbook';
@@ -222,15 +225,9 @@ export function useSystemDesignGuides() {
   return systemDesignGuides;
 }
 
-export function useFrontEndSystemDesignPlaybookNavigation(
-  questions: ReadonlyArray<InterviewsQuestionItemMinimal>,
-) {
+export function useFrontEndSystemDesignPlaybookNavigation() {
   const intl = useIntl();
   const systemDesignGuides = useSystemDesignGuides();
-  const questionsSorted = questions
-    .slice()
-    .sort((a, b) => a.metadata.ranking - b.metadata.ranking);
-
   const navigation: GuideNavigation<
     FrontEndSystemDesignPlaybookPathType,
     FrontEndSystemDesignPlaybookNavigationLink
@@ -253,21 +250,15 @@ export function useFrontEndSystemDesignPlaybookNavigation(
           id: 'questions',
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-expect-error
-          items: questionsSorted
-            .filter((questionMetadata) =>
-              InterviewsQuestionsSystemDesignReady.includes(
-                questionMetadata.metadata.slug,
-              ),
-            )
-            .map((questionMetadata) => ({
-              href: questionMetadata.metadata.href,
-              icon: SystemDesignIcons[questionMetadata.metadata.slug],
-              id: questionMetadata.metadata.slug,
-              kind: 'question',
-              label: questionMetadata.info.title,
-              premium: questionMetadata.metadata.access === 'premium',
-              type: 'link',
-            })),
+          items: readySystemDesignQuestions.map((questionMetadata) => ({
+            href: questionMetadata.href,
+            icon: SystemDesignIcons[questionMetadata.slug],
+            id: questionMetadata.slug,
+            kind: 'question',
+            label: questionMetadata.title,
+            premium: questionMetadata.access === 'premium',
+            type: 'link',
+          })),
           label: intl.formatMessage({
             defaultMessage: 'Questions',
             description: 'Front end system design interviews questions',
@@ -279,20 +270,20 @@ export function useFrontEndSystemDesignPlaybookNavigation(
           id: 'coming-soon',
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-expect-error
-          items: questionsSorted
+          items: allSystemDesignQuestions
+            .slice()
+            .sort((a, b) => a.ranking - b.ranking)
             .filter(
               (questionMetadata) =>
-                !InterviewsQuestionsSystemDesignReady.includes(
-                  questionMetadata.metadata.slug,
-                ),
+                !ReadyQuestions.includes(questionMetadata.slug),
             )
             .map((questionMetadata) => ({
-              href: questionMetadata.metadata.href,
-              icon: SystemDesignIcons[questionMetadata.metadata.slug],
-              id: questionMetadata.metadata.slug,
+              href: questionMetadata.href,
+              icon: SystemDesignIcons[questionMetadata.slug],
+              id: questionMetadata.slug,
               kind: 'question',
-              label: questionMetadata.info.title,
-              premium: questionMetadata.metadata.access === 'premium',
+              label: questionMetadata.title,
+              premium: questionMetadata.access === 'premium',
               type: 'link',
             })),
           label: intl.formatMessage({

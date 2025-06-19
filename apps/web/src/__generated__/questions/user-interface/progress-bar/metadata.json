@@ -10,6 +10,7 @@
   "created": 1656720000,
   "difficulty": "easy",
   "duration": 15,
+  "excerpt": "Build a progress bar component that shows the percentage completion of an operation",
   "featured": false,
   "format": "user-interface",
   "frameworkDefault": "react",
@@ -42,5 +43,6 @@
   ],
   "slug": "progress-bar",
   "subtitle": null,
+  "title": "Progress Bar",
   "topics": []
 }

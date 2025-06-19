@@ -9,7 +9,6 @@ import gtag from '~/lib/gtag';
 
 import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
-import Img from '~/components/ui/Img';
 import type { TextWeight } from '~/components/ui/Text';
 import Text from '~/components/ui/Text';
 import {
@@ -125,7 +124,7 @@ export default function SponsorsAdFormatSpotlight({
           </div>
         </Tooltip>
         {imageUrl ? (
-          <Img
+          <img
             alt={text}
             className={clsx('size-full', 'object-cover', 'rounded-md')}
             src={imageUrl}
@@ -164,7 +163,7 @@ export default function SponsorsAdFormatSpotlight({
           </Anchor>{' '}
           <RiArrowRightLine
             aria-hidden={true}
-            className="inline-flex size-3.5 shrink-0"
+            className="size-3.5 inline-flex shrink-0"
           />
         </Text>
       </div>

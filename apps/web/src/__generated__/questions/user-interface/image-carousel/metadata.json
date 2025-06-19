@@ -15,6 +15,7 @@
   "created": 1723766400,
   "difficulty": "medium",
   "duration": 30,
+  "excerpt": "Build an image carousel that displays a sequence of images",
   "featured": false,
   "format": "user-interface",
   "frameworkDefault": "react",
@@ -40,6 +41,7 @@
   "similarQuestions": [],
   "slug": "image-carousel",
   "subtitle": null,
+  "title": "Image Carousel",
   "topics": [
     "a11y"
   ]

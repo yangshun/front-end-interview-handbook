@@ -1,20 +1,17 @@
 import clsx from 'clsx';
 import { useSearchParams } from 'next/navigation';
 import React, { useState } from 'react';
-import { RiArrowLeftLine } from 'react-icons/ri';
 
-import { FormattedMessage, useIntl } from '~/components/intl';
+import { FormattedMessage } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
-import Button from '~/components/ui/Button';
-import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
+import { themeBackgroundColor, themeBorderColor } from '~/components/ui/theme';
 
 import logEvent from '~/logging/logEvent';
 import type { SupabaseClientGFE } from '~/supabase/SupabaseServerGFE';
 
-import SupabaseAuthContinueWithEmail from './SupabaseAuthContinueWithEmail';
 import SupabaseAuthEmailSignIn from './SupabaseAuthEmailSignIn';
 import SupabaseAuthEmailSignUp from './SupabaseAuthEmailSignUp';
 import SupabaseAuthForgottenPassword from './SupabaseAuthForgottenPassword';
@@ -35,7 +32,6 @@ export type Props = Readonly<{
   socialLayout?: 'horizontal' | 'vertical';
   style?: React.CSSProperties;
   supabaseClient: SupabaseClientGFE;
-  variant?: 'compact' | 'full';
 }>;
 
 export default function SupabaseAuth({
@@ -47,114 +43,50 @@ export default function SupabaseAuth({
   providers,
   socialLayout = 'vertical',
   supabaseClient,
-  variant = 'full',
 }: Props): JSX.Element | null {
-  const searchParams = useSearchParams();
-  const authViewParam = searchParams?.get('view');
-  const intl = useIntl();
   const [signedInBefore] = useAuthSignedInBefore();
   const [authView, setAuthView] = useState<AuthViewType>(
-    authViewParam === 'email'
-      ? signedInBefore
-        ? 'sign_in_with_email'
-        : 'sign_up_with_email'
-      : initialView === 'sign_up' && signedInBefore
-        ? 'sign_in'
-        : initialView,
+    initialView === 'sign_up' && signedInBefore ? 'sign_in' : initialView,
   );
   const hasThirdPartyProviders = providers != null && providers.length > 0;
+  const searchParams = useSearchParams();
   const sourceSearchParam = searchParams?.get('source');
-
-  const isAuthScreenWithSocial =
-    authView === 'sign_in' || authView === 'sign_up';
-
-  const showThirdPartyProviders =
-    hasThirdPartyProviders && isAuthScreenWithSocial;
-
-  function getAuthHeading() {
-    switch (authView) {
-      case 'sign_in':
-        return sourceSearchParam === 'track_progress'
-          ? intl.formatMessage({
-              defaultMessage: 'Sign in to track your progress',
-              description: 'Subtitle of Sign In page',
-              id: 'ClNAgn',
-            })
-          : intl.formatMessage({
-              defaultMessage: 'Sign in to your account',
-              description: 'Subtitle of Sign In page',
-              id: 'urvIL3',
-            });
-      case 'sign_up':
-        return intl.formatMessage({
-          defaultMessage: 'Create a new account',
-          description: 'Subtitle of Sign Up page',
-          id: 'KtYnhS',
-        });
-      case 'sign_in_with_email':
-        return intl.formatMessage({
-          defaultMessage: 'Sign in with email',
-          description: 'Subtitle of Sign Up page',
-          id: '7A1yG8',
-        });
-      case 'sign_up_with_email':
-        return intl.formatMessage({
-          defaultMessage: 'Sign up with email',
-          description: 'Subtitle of Sign Up page',
-          id: 'vo/aU3',
-        });
-      default:
-        return '';
-    }
-  }
 
   function Container({ children }: Readonly<{ children: React.ReactNode }>) {
     return (
       <div className={className}>
         <div className="flex flex-col gap-y-6">
-          <div className="flex flex-col gap-y-8">
-            <div
-              className={clsx(
-                'flex flex-col gap-y-1.5',
-                variant === 'full'
-                  ? 'items-center xl:items-start'
-                  : 'items-start',
-              )}>
-              {!isAuthScreenWithSocial && !onlyThirdPartyProviders && (
-                <div className="w-full">
-                  <Button
-                    addonPosition="start"
-                    icon={RiArrowLeftLine}
-                    label={intl.formatMessage({
-                      defaultMessage: 'Back',
-                      description: 'Button label for back button',
-                      id: 'Dq9yul',
-                    })}
-                    size="xs"
-                    variant="tertiary"
-                    onClick={() =>
-                      setAuthView(
-                        authView === 'sign_in_with_email'
-                          ? 'sign_in'
-                          : 'sign_up',
-                      )
-                    }
+          <div className="flex flex-col gap-y-10">
+            <div className="flex flex-col gap-y-2">
+              <Heading className="text-center" level="heading5">
+                {authView === 'sign_in' ? (
+                  sourceSearchParam === 'track_progress' ? (
+                    <FormattedMessage
+                      defaultMessage="Sign in to track your progress"
+                      description="Subtitle of Sign In page"
+                      id="ClNAgn"
+                    />
+                  ) : (
+                    <FormattedMessage
+                      defaultMessage="Sign in to your account"
+                      description="Subtitle of Sign In page"
+                      id="urvIL3"
+                    />
+                  )
+                ) : (
+                  <FormattedMessage
+                    defaultMessage="Create a new account"
+                    description="Subtitle of Sign Up page"
+                    id="KtYnhS"
                   />
-                </div>
-              )}
-              <Heading
-                className="text-center"
-                level={variant === 'full' ? 'heading5' : 'heading6'}
-                weight="medium">
-                {getAuthHeading()}
+                )}
               </Heading>
               <Section>
                 <Text
                   className="block text-center"
                   color="secondary"
                   size="body2">
-                  {(authView === 'sign_in' ||
-                    authView === 'sign_in_with_email') && (
+                  {authView === 'sign_in' && (
                     <FormattedMessage
                       defaultMessage="Don't have an account? <link>Sign up for free</link>"
                       description="Prompt for account creation on Email Sign In page"
@@ -181,8 +113,7 @@ export default function SupabaseAuth({
                       }}
                     />
                   )}
-                  {(authView === 'sign_up' ||
-                    authView === 'sign_up_with_email') && (
+                  {authView === 'sign_up' && (
                     <FormattedMessage
                       defaultMessage="Already have an account? <link>Sign in</link>"
                       description="Prompt for sign in on Email Sign Up page"
@@ -211,33 +142,35 @@ export default function SupabaseAuth({
                 </Text>
               </Section>
             </div>
-            {(showThirdPartyProviders || preBodyContents) && (
-              <Section>
-                <div className="flex flex-col gap-y-12">
-                  {preBodyContents}
-                  {showThirdPartyProviders && (
-                    <SupabaseAuthSocial
-                      layout={socialLayout}
-                      next={next}
-                      providers={providers}
-                    />
-                  )}
-                </div>
-              </Section>
-            )}
+            <Section>
+              <div className="flex flex-col gap-y-12">
+                {preBodyContents}
+                <SupabaseAuthSocial
+                  layout={socialLayout}
+                  next={next}
+                  providers={providers}
+                  supabaseClient={supabaseClient}
+                />
+              </div>
+            </Section>
           </div>
           <Section>
-            {showThirdPartyProviders && !onlyThirdPartyProviders && (
-              <div className="relative flex items-center justify-center gap-2">
-                <Divider color="emphasized" />
-                <Text color="secondary" size="body2">
-                  <FormattedMessage
-                    defaultMessage="Or"
-                    description="Label of divider preceding third party providers on Sign In page"
-                    id="fTy7F4"
-                  />
-                </Text>
-                <Divider color="emphasized" />
+            {hasThirdPartyProviders && (
+              <div className="relative">
+                <div className="absolute inset-0 flex items-center">
+                  <div className={clsx('w-full border-t', themeBorderColor)} />
+                </div>
+                <div className="relative flex justify-center">
+                  <span className={clsx('px-2', themeBackgroundColor)}>
+                    <Text color="secondary" size="body2">
+                      <FormattedMessage
+                        defaultMessage="Or continue with"
+                        description="Label of divider preceding third party providers on Sign In page"
+                        id="ugHQqC"
+                      />
+                    </Text>
+                  </span>
+                </div>
               </div>
             )}
             {!onlyThirdPartyProviders && children}
@@ -249,16 +182,6 @@ export default function SupabaseAuth({
 
   switch (authView) {
     case 'sign_in':
-    case 'sign_up':
-      return (
-        <Container>
-          <SupabaseAuthContinueWithEmail
-            authView={authView}
-            setAuthView={setAuthView}
-          />
-        </Container>
-      );
-    case 'sign_in_with_email':
       return (
         <Container>
           <SupabaseAuthEmailSignIn
@@ -268,7 +191,7 @@ export default function SupabaseAuth({
           />
         </Container>
       );
-    case 'sign_up_with_email':
+    case 'sign_up':
       return (
         <Container>
           <SupabaseAuthEmailSignUp

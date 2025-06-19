@@ -9,15 +9,15 @@ import type { TextSize } from '~/components/ui/Text';
 import Text, { textVariants } from '~/components/ui/Text';
 
 import type {
-  InterviewsQuestionItemMinimal,
   QuestionFramework,
   QuestionListTypeData,
+  QuestionMetadata,
 } from '../../common/QuestionsTypes';
 
 type Props = Readonly<{
   framework?: QuestionFramework;
   listType?: QuestionListTypeData | null;
-  question: InterviewsQuestionItemMinimal;
+  question: QuestionMetadata;
   size?: TextSize;
 }>;
 
@@ -27,8 +27,6 @@ export default function InterviewsQuestionsListSlideOutHovercardContents({
   question,
   size = 'body3',
 }: Props) {
-  const { info, metadata } = question;
-
   return (
     <div
       className={clsx(
@@ -44,31 +42,31 @@ export default function InterviewsQuestionsListSlideOutHovercardContents({
             weight: 'bold',
           })}
           href={questionHrefFrameworkSpecificAndListType(
-            metadata,
+            question,
             listType,
             framework,
           )}
           variant="flat">
-          {info.title}
+          {question.title}
         </Anchor>
-        <Text className="grow text-pretty" color="secondary" size="body2">
-          {info.excerpt}
+        <Text className="text-pretty grow" color="secondary" size="body2">
+          {question.excerpt}
         </Text>
       </div>
-      {metadata.author && (
-        <QuestionAuthor author={metadata.author} size="body3" />
+      {question.author && (
+        <QuestionAuthor author={question.author} size="body3" />
       )}
       <div className="flex-start flex gap-3">
-        {metadata.difficulty && (
+        {question.difficulty && (
           <QuestionDifficultyLabel
             showIcon={true}
             size={size}
-            value={metadata.difficulty}
+            value={question.difficulty}
           />
         )}
-        {metadata.duration && (
+        {question.duration && (
           <QuestionDurationLabel
-            mins={metadata.duration}
+            mins={question.duration}
             showIcon={true}
             size={size}
           />

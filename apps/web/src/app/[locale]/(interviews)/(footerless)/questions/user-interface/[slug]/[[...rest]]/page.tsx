@@ -3,7 +3,7 @@ import type { Metadata } from 'next/types';
 
 import InterviewsPurchaseQuestionPaywallPage from '~/components/interviews/purchase/InterviewsPurchaseQuestionPaywallPage';
 import QuestionJsonLd from '~/components/interviews/questions/common/QuestionJsonLd';
-import type { InterviewsQuestionItemUserInterface } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { QuestionUserInterface } from '~/components/interviews/questions/common/QuestionsTypes';
 import { QuestionFrameworkLabels } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
 import { determineFrameworkAndMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
@@ -29,7 +29,7 @@ type Props = Readonly<{
 }>;
 
 function frameworkAgnosticLinks(
-  question: InterviewsQuestionItemUserInterface,
+  question: QuestionUserInterface,
   mode: QuestionUserInterfaceMode,
 ) {
   const frameworkAgnosticPathname = `${question.metadata.href}${
@@ -61,13 +61,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   } = determineFrameworkAndMode(rest);
 
   try {
-    const question = await readQuestionUserInterface({
-      codeId,
-      frameworkParam: parsedFramework,
-      isViewerPremium: false,
-      requestedLocale: locale,
+    const question = await readQuestionUserInterface(
       slug,
-    });
+      false,
+      parsedFramework,
+      codeId,
+    );
 
     const { pathname } = frameworkAgnosticLinks(question, mode);
     const socialTitle =
@@ -81,7 +80,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             },
             {
               questionFramework: QuestionFrameworkLabels[question.framework],
-              questionTitle: question.info.title,
+              questionTitle: question.metadata.title,
             },
           )
         : intl.formatMessage(
@@ -93,7 +92,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             },
             {
               questionFramework: QuestionFrameworkLabels[question.framework],
-              questionTitle: question.info.title,
+              questionTitle: question.metadata.title,
             },
           );
 
@@ -110,7 +109,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
               },
               {
                 questionFramework: QuestionFrameworkLabels[question.framework],
-                questionTitle: question.info.title,
+                questionTitle: question.metadata.title,
               },
             )
           : intl.formatMessage(
@@ -121,7 +120,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
                 id: 'KDDzWX',
               },
               {
-                questionExcerpt: question.info.excerpt,
+                questionExcerpt: question.metadata.excerpt,
                 questionFramework: QuestionFrameworkLabels[question.framework],
               },
             ),
@@ -141,7 +140,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
               },
               {
                 questionFramework: QuestionFrameworkLabels[question.framework],
-                questionTitle: question.info.title,
+                questionTitle: question.metadata.title,
               },
             )
           : intl.formatMessage(
@@ -154,7 +153,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
               },
               {
                 questionFramework: QuestionFrameworkLabels[question.framework],
-                questionTitle: question.info.title,
+                questionTitle: question.metadata.title,
               },
             ),
     });
@@ -193,13 +192,12 @@ export default async function Page({ params }: Props) {
     return profile?.premium ?? false;
   })();
 
-  const question = await readQuestionUserInterface({
-    codeId,
-    frameworkParam: parsedFramework,
-    isViewerPremium,
-    requestedLocale: locale,
+  const question = await readQuestionUserInterface(
     slug,
-  });
+    isViewerPremium,
+    parsedFramework,
+    codeId,
+  );
 
   const isQuestionLockedForViewer = (() => {
     if (mode === 'practice') {
@@ -223,7 +221,7 @@ export default async function Page({ params }: Props) {
   );
   const nextQuestions = sortQuestionsMultiple(
     questions.filter((questionItem) =>
-      question.metadata.nextQuestions.includes(questionItem.metadata.slug),
+      question.metadata.nextQuestions.includes(questionItem.slug),
     ),
     [
       {
@@ -238,7 +236,7 @@ export default async function Page({ params }: Props) {
   );
   const similarQuestions = sortQuestionsMultiple(
     questions.filter((questionItem) =>
-      question.metadata.similarQuestions.includes(questionItem.metadata.slug),
+      question.metadata.similarQuestions.includes(questionItem.slug),
     ),
     [
       {
@@ -254,12 +252,11 @@ export default async function Page({ params }: Props) {
 
   return (
     <>
-      <QuestionJsonLd info={question.info} metadata={question.metadata} />
+      <QuestionJsonLd metadata={question.metadata} />
       {isQuestionLockedForViewer ? (
         <InterviewsPurchaseQuestionPaywallPage
           metadata={question.metadata}
           mode={mode}
-          title={question.info.title}
         />
       ) : (
         <UserInterfaceCodingWorkspacePage

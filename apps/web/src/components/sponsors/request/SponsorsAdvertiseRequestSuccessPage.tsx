@@ -1,8 +1,8 @@
 'use client';
 
 import clsx from 'clsx';
-import { useEffect } from 'react';
 import { RiArrowRightLine, RiCheckboxCircleLine } from 'react-icons/ri';
+import { useEffectOnce } from 'usehooks-ts';
 
 import { SPONSORS_SPONSOR_MANAGER_EMAIL } from '~/data/SponsorsConfig';
 
@@ -24,11 +24,10 @@ export default function SponsorsAdvertiseRequestSuccessPage({ mode }: Props) {
   const intl = useIntl();
   const [, , removeFormData] = useSponsorsAdvertiseRequestFormData();
 
-  useEffect(() => {
+  useEffectOnce(() => {
     // Clear the saved data
     removeFormData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  });
 
   return (
     <Container className="py-16" width="marketing">
@@ -56,7 +55,7 @@ export default function SponsorsAdvertiseRequestSuccessPage({ mode }: Props) {
           </Heading>
         </div>
         <Text
-          className="block max-w-md text-pretty text-center"
+          className="text-pretty block max-w-md text-center"
           color="secondary"
           size="body1">
           <FormattedMessage
@@ -69,7 +68,7 @@ export default function SponsorsAdvertiseRequestSuccessPage({ mode }: Props) {
           />
         </Text>
         <Text
-          className="block max-w-md text-pretty text-center"
+          className="text-pretty block max-w-md text-center"
           color="secondary"
           size="body1">
           <FormattedMessage

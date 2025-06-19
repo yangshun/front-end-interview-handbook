@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 
 import Chip from '~/components/ui/Chip';
-import Img from '~/components/ui/Img';
 import {
   themeGlassyBorder,
   themeTextSubtitleColor,
@@ -38,9 +37,10 @@ export default function NavbarFeatureIcon({ number, ...props }: Props) {
       {'icon' in props ? (
         <props.icon aria-hidden="true" className={clsx('size-4 shrink-0')} />
       ) : (
-        <Img
+        <img
           alt=""
-          className="object-fit size-6 shrink-0"
+          className="size-6 object-fit shrink-0"
+           
           src={props.imageUrl}
         />
       )}

@@ -1,5 +1,5 @@
 import type { SponsorsAdFormat } from '@prisma/client';
-import { useInView } from 'motion/react';
+import { useInView } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef } from 'react';
 

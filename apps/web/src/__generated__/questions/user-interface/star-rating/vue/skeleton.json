@@ -1,0 +1,32 @@
+{
+  "author": "willnguyen1312",
+  "files": {
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/star-rating-vue-skeleton\",\n  \"author\": \"willnguyen1312\",\n  \"version\": \"0.0.1\",\n  \"main\": \"/src/main.js\",\n  \"scripts\": {\n    \"serve\": \"vue-cli-service serve\",\n    \"build\": \"vue-cli-service build\"\n  },\n  \"dependencies\": {\n    \"core-js\": \"3.32.2\",\n    \"vue\": \"3.3.4\"\n  },\n  \"devDependencies\": {\n    \"@vue/cli-plugin-babel\": \"5.0.8\",\n    \"@vue/cli-service\": \"5.0.8\"\n  }\n}\n"
+    },
+    "/public/index.html": {
+      "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width,initial-scale=1.0\" />\n    <title>Vue</title>\n  </head>\n  <body>\n    <div id=\"app\"></div>\n    <!-- Built files will be auto injected -->\n  </body>\n</html>\n"
+    },
+    "/src/App.vue": {
+      "code": "<script setup>\nimport StarRating from './StarRating.vue';\n</script>\n\n<template>\n  <div>\n    <StarRating />\n  </div>\n</template>\n"
+    },
+    "/src/main.js": {
+      "code": "import { createApp } from 'vue';\nimport App from './App.vue';\n\nimport './styles.css';\n\ncreateApp(App).mount('#app');\n"
+    },
+    "/src/StarRating.vue": {
+      "code": "<template>\n  <div>\n    <svg\n      xmlns=\"http://www.w3.org/2000/svg\"\n      class=\"star-icon\"\n      fill=\"none\"\n      viewBox=\"0 0 24 24\"\n      stroke=\"currentColor\"\n      stroke-width=\"2\">\n      <path\n        stroke-linecap=\"round\"\n        stroke-linejoin=\"round\"\n        d=\"M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z\" />\n    </svg>\n    <svg\n      xmlns=\"http://www.w3.org/2000/svg\"\n      class=\"star-icon star-icon-filled\"\n      fill=\"none\"\n      viewBox=\"0 0 24 24\"\n      stroke=\"currentColor\"\n      stroke-width=\"2\">\n      <path\n        stroke-linecap=\"round\"\n        stroke-linejoin=\"round\"\n        d=\"M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z\" />\n    </svg>\n  </div>\n</template>\n\n<style>\n.star-icon {\n  --icon-size: 32px;\n\n  cursor: pointer;\n  height: var(--icon-size);\n  width: var(--icon-size);\n}\n\n.star-icon-filled {\n  fill: yellow;\n}\n</style>\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/src/App.vue",
+      "/src/StarRating.vue"
+    ],
+    "activeFile": "/src/App.vue",
+    "environment": "vue-cli"
+  },
+  "writeup": "var Component=(()=>{var f=Object.create;var i=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var b=Object.getOwnPropertyNames;var x=Object.getPrototypeOf,w=Object.prototype.hasOwnProperty;var j=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),_=(t,e)=>{for(var a in e)i(t,a,{get:e[a],enumerable:!0})},c=(t,e,a,l)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let s of b(e))!w.call(t,s)&&s!==a&&i(t,s,{get:()=>e[s],enumerable:!(l=p(e,s))||l.enumerable});return t};var d=(t,e,a)=>(a=t!=null?f(x(t)):{},c(e||!t||!t.__esModule?i(a,\"default\",{value:t,enumerable:!0}):a,t)),v=t=>c(i({},\"__esModule\",{value:!0}),t);var o=j((F,h)=>{h.exports=_jsx_runtime});var k={};_(k,{default:()=>D});var r=d(o());var n=d(o());function u(t){let e=Object.assign({p:\"p\",h2:\"h2\",ul:\"ul\",li:\"li\"},t.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.p,{children:\"Create a star rating widget that allows users to select a rating value.\"}),`\n`,(0,n.jsx)(e.h2,{children:\"Requirements\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"The widget accepts two parameters: the maximum number of stars and the number of currently filled stars.\"}),`\n`,(0,n.jsx)(e.li,{children:\"When a star is clicked, it is filled along with all the stars to its left.\"}),`\n`,(0,n.jsxs)(e.li,{children:[\"Hovering over a star fills that star and all stars to its left.\",`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"The stars which need to be filled during hover take priority over existing filled state.\"}),`\n`,(0,n.jsx)(e.li,{children:\"If the cursor leaves the widget and no new selection is made, the appropriate stars revert to the filled state before the hovering.\"}),`\n`]}),`\n`]}),`\n`,(0,n.jsx)(e.li,{children:\"Make the star rating widget reusable such that multiple instances can be rendered within the same page.\"}),`\n`]}),`\n`,(0,n.jsx)(e.p,{children:\"The star icons, both empty and filled, are provided to you as SVGs.\"})]})}function y(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(u,t)})):u(t)}var m=y;function g(t){let e=Object.assign({p:\"p\",code:\"code\"},t.components);return(0,r.jsxs)(r.Fragment,{children:[(0,r.jsx)(m,{}),`\n`,(0,r.jsxs)(e.p,{children:[\"A \",(0,r.jsx)(e.code,{children:\"StarRating.vue\"}),\" skeleton component has been created for you. You are free to decide the props of \",(0,r.jsx)(e.code,{children:\"<StarRating />\"}),\".\"]})]})}function M(t={}){let{wrapper:e}=t.components||{};return e?(0,r.jsx)(e,Object.assign({},t,{children:(0,r.jsx)(g,t)})):g(t)}var D=M;return v(k);})();\n;return Component;"
+}

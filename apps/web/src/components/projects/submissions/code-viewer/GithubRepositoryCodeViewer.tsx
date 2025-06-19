@@ -6,12 +6,9 @@ import { trpc } from '~/hooks/trpc';
 import ReadonlyDirectoryExplorer from '~/components/common/directory-explorer/ReadonlyDirectoryExplorer';
 import { useIntl } from '~/components/intl';
 import EmptyState from '~/components/ui/EmptyState';
-import Img from '~/components/ui/Img';
 import Spinner from '~/components/ui/Spinner';
 import { themeBorderColor } from '~/components/ui/theme';
 import MonacoCodeEditor from '~/components/workspace/common/editor/MonacoCodeEditor';
-
-import { isImageFile } from '~/utils/isImageFile';
 
 type Props = Readonly<{
   className?: string;
@@ -19,6 +16,10 @@ type Props = Readonly<{
   repoOwner: string;
   repoSubdirectoryPath: string | null;
 }>;
+
+export function isImageFile(filePath: string) {
+  return /\.(gif|jpe?g|tiff?|png|webp|bmp|heif|svg|pdf|psd)$/i.test(filePath);
+}
 
 const DEFAULT_FILE = 'README.md';
 
@@ -98,7 +99,7 @@ export default function GithubRepositoryCodeViewer({
     }
 
     if (isImageFile(activeFile)) {
-      return <Img alt={activeFile} className="w-full" src={fileContents} />;
+      return <img alt={activeFile} className="w-full" src={fileContents} />;
     }
 
     return (
@@ -157,7 +158,7 @@ export default function GithubRepositoryCodeViewer({
             </div>
             <div className="flex-1 overflow-auto">
               {isFetchingFileContents ? (
-                <div className="flex size-full items-center justify-center">
+                <div className="size-full flex items-center justify-center">
                   <Spinner className="block" />
                 </div>
               ) : (

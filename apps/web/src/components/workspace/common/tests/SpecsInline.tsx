@@ -1,9 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import { truncate } from 'lodash-es';
 import * as React from 'react';
-import { VList } from 'virtua';
 
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
@@ -31,7 +29,7 @@ type Props = Readonly<{
   specs: Array<Spec>;
 }>;
 
-function SpecsInline({
+export default function SpecsInline({
   onFocusConsole,
   onShowTestCase,
   openSpec,
@@ -42,7 +40,7 @@ function SpecsInline({
   const intl = useIntl();
 
   return (
-    <div className="flex h-full flex-col gap-y-6">
+    <div className="flex flex-col gap-y-6">
       {specs
         .filter((spec) => !isEmpty(spec))
         .map((spec) => {
@@ -89,7 +87,7 @@ function SpecsInline({
           return (
             <div
               key={spec.name}
-              className={clsx('flex h-full w-full flex-col gap-y-6')}>
+              className={clsx('flex w-full flex-col gap-y-6')}>
               {showSpecFile && (
                 <div className="flex items-center">
                   {runStatus === 'complete' ? (
@@ -128,69 +126,62 @@ function SpecsInline({
                 </div>
               )}
               <div
-                className={clsx('flex h-full flex-col overflow-clip', [
+                className={clsx('flex flex-col overflow-clip', [
                   'divide-y',
                   themeDivideColor,
                 ])}>
-                <VList overscan={2} style={{ height: '100%' }}>
-                  {allTests.map((test) => {
-                    const nameSegments = [...test.blocks, test.name];
-                    const fullTestName = nameSegments.join(' › ');
-                    const testErrors = test.errors.filter(
-                      (error) => error.name != null,
-                    );
+                {allTests.map((test) => {
+                  const nameSegments = [...test.blocks, test.name];
+                  const fullTestName = nameSegments.join(' › ');
+                  const testErrors = test.errors.filter(
+                    (error) => error.name != null,
+                  );
 
-                    return (
+                  return (
+                    <div
+                      key={fullTestName}
+                      className={clsx(
+                        'flex w-full flex-col transition-colors',
+                      )}>
                       <div
-                        key={fullTestName}
                         className={clsx(
-                          'flex w-full flex-col transition-colors',
+                          'sticky top-0 flex justify-between gap-2 p-3',
+                          themeBackgroundColor,
                         )}>
-                        <div
-                          className={clsx(
-                            'sticky top-0 flex max-h-32 justify-between gap-2 overflow-y-auto p-3',
-                            themeBackgroundColor,
-                          )}>
-                          <Text
-                            className="flex items-center gap-3"
-                            size="body3">
-                            <TestStatusIcon status={test.status} />{' '}
-                            <code className="text-xs">
-                              {nameSegments.map((nameSegment, index) => (
-                                <React.Fragment key={nameSegment}>
-                                  {index > 0 && <span> › </span>}
-                                  <button
-                                    className="line-clamp-2 hover:underline"
-                                    type="button"
-                                    onClick={() => {
-                                      onShowTestCase(index, nameSegments);
-                                    }}>
-                                    {truncate(nameSegment, { length: 80 })}
-                                  </button>
-                                </React.Fragment>
-                              ))}
-                            </code>
-                          </Text>
-                          <TestDuration duration={test.duration} />
-                        </div>
-                        {testErrors.length > 0 && (
-                          <div className="pb-3">
-                            {testErrors.map((error) => (
-                              <div
-                                key={error.name}
-                                className="w-full overflow-x-auto px-3">
-                                <FormattedError
-                                  error={error}
-                                  path={test.path}
-                                />
-                              </div>
+                        <Text className="flex items-center gap-3" size="body3">
+                          <TestStatusIcon status={test.status} />{' '}
+                          <code className="text-xs">
+                            {nameSegments.map((nameSegment, index) => (
+                              <React.Fragment key={nameSegment}>
+                                {index > 0 && <span> › </span>}
+                                <button
+                                  className="hover:underline"
+                                  type="button"
+                                  onClick={() => {
+                                    onShowTestCase(index, nameSegments);
+                                  }}>
+                                  {nameSegment}
+                                </button>
+                              </React.Fragment>
                             ))}
-                          </div>
-                        )}
+                          </code>
+                        </Text>
+                        <TestDuration duration={test.duration} />
                       </div>
-                    );
-                  })}
-                </VList>
+                      {testErrors.length > 0 && (
+                        <div className="pb-3">
+                          {testErrors.map((error) => (
+                            <div
+                              key={error.name}
+                              className="w-full overflow-x-auto px-3">
+                              <FormattedError error={error} path={test.path} />
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
             </div>
           );
@@ -198,8 +189,6 @@ function SpecsInline({
     </div>
   );
 }
-
-export default React.memo(SpecsInline);
 
 function SpecLabel({
   children,

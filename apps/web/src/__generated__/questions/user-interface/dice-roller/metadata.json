@@ -5,6 +5,7 @@
   "created": 1719964800,
   "difficulty": "medium",
   "duration": 20,
+  "excerpt": "Build a dice roller app that simulates the results of rolling 6-sided dice",
   "featured": false,
   "format": "user-interface",
   "frameworkDefault": "react",
@@ -39,6 +40,7 @@
   "similarQuestions": [],
   "slug": "dice-roller",
   "subtitle": null,
+  "title": "Dice Roller",
   "topics": [
     "a11y"
   ]

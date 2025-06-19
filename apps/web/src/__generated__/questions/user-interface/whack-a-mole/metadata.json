@@ -7,6 +7,7 @@
   "created": 1684195200,
   "difficulty": "medium",
   "duration": 30,
+  "excerpt": "Build a popular arcade game where players attempt to hit moles as they pop up from holes in a board",
   "featured": false,
   "format": "user-interface",
   "frameworkDefault": "react",
@@ -43,5 +44,6 @@
   ],
   "slug": "whack-a-mole",
   "subtitle": null,
+  "title": "Whack-A-Mole",
   "topics": []
 }

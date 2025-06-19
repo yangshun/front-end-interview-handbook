@@ -1,0 +1,29 @@
+{
+  "author": "utpal-d4l",
+  "files": {
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/connect-four-react-skeleton\",\n  \"author\": \"utpal-d4l\",\n  \"version\": \"0.0.1\",\n  \"private\": true,\n  \"dependencies\": {\n    \"react\": \"18.2.0\",\n    \"react-dom\": \"18.2.0\",\n    \"react-scripts\": \"5.0.1\"\n  },\n  \"scripts\": {\n    \"start\": \"react-scripts start\",\n    \"build\": \"react-scripts build\",\n    \"test\": \"react-scripts test\",\n    \"eject\": \"react-scripts eject\"\n  },\n  \"browserslist\": {\n    \"production\": [\n      \">0.2%\",\n      \"not dead\",\n      \"not op_mini all\"\n    ],\n    \"development\": [\n      \"last 1 chrome version\",\n      \"last 1 firefox version\",\n      \"last 1 safari version\"\n    ]\n  }\n}\n"
+    },
+    "/public/index.html": {
+      "code": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0\" />\n  </head>\n  <body>\n    <div id=\"root\"></div>\n  </body>\n</html>\n"
+    },
+    "/src/App.js": {
+      "code": "import { useState } from 'react';\n\nexport default function App() {\n  const [message, setMessage] = useState('Hello World!');\n\n  return <div>{message}</div>;\n}\n"
+    },
+    "/src/index.js": {
+      "code": "import React, { StrictMode } from 'react';\nimport { createRoot } from 'react-dom/client';\n\nimport App from './App';\n\nimport './styles.css';\n\nconst root = createRoot(document.getElementById('root'));\nroot.render(\n  <StrictMode>\n    <App />\n  </StrictMode>,\n);\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n\n* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/src/App.js",
+      "/src/styles.css"
+    ],
+    "activeFile": "/src/App.js",
+    "environment": "create-react-app"
+  },
+  "writeup": "var Component=(()=>{var f=Object.create;var l=Object.defineProperty;var g=Object.getOwnPropertyDescriptor;var y=Object.getOwnPropertyNames;var w=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var b=(o,e)=>()=>(e||o((e={exports:{}}).exports,e),e.exports),v=(o,e)=>{for(var r in e)l(o,r,{get:e[r],enumerable:!0})},s=(o,e,r,c)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let t of y(e))!x.call(o,t)&&t!==r&&l(o,t,{get:()=>e[t],enumerable:!(c=g(e,t))||c.enumerable});return o};var d=(o,e,r)=>(r=o!=null?f(w(o)):{},s(e||!o||!o.__esModule?l(r,\"default\",{value:o,enumerable:!0}):r,o)),j=o=>s(l({},\"__esModule\",{value:!0}),o);var a=b((M,h)=>{h.exports=_jsx_runtime});var D={};v(D,{default:()=>k});var i=d(a());var n=d(a());function u(o){let e=Object.assign({p:\"p\",img:\"img\",h2:\"h2\",ul:\"ul\",li:\"li\",h3:\"h3\",code:\"code\"},o.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.p,{children:'Build a \"Connect Four\" game for two players in which the players take turns dropping colored discs from the top into a vertically suspended board/grid.'}),`\n`,(0,n.jsx)(e.p,{children:\"The objective of the game is to be the first player to form a horizontal, vertical, or diagonal line of four of their own colored discs.\"}),`\n`,(0,n.jsx)(e.p,{children:(0,n.jsx)(e.img,{src:\"/img/questions/connect-four/connect-four-example.png\",alt:\"Connect Four example\"})}),`\n`,(0,n.jsx)(e.h2,{children:\"Requirements\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"The board should have 6 rows and 7 columns.\"}),`\n`,(0,n.jsx)(e.li,{children:\"The game should support two players, Player 1 and Player 2, with distinct colors for their game pieces (e.g., red and yellow).\"}),`\n`,(0,n.jsx)(e.li,{children:\"Players take turns to drop their pieces onto the board. Player 1 goes first, and then the players alternate turns.\"}),`\n`,(0,n.jsx)(e.li,{children:\"When a player clicks on a column, their piece should fall to the lowest available position within that column.\"}),`\n`,(0,n.jsx)(e.li,{children:\"A player can only place a piece in a column that is not already full. If a column is full, the player must choose a different column.\"}),`\n`,(0,n.jsx)(e.li,{children:\"When a player successfully connects four of their pieces horizontally, vertically, or diagonally, declare them as the winner and display a victory message.\"}),`\n`,(0,n.jsx)(e.li,{children:\"If the game board is full (i.e., no more valid moves are possible) and no player has connected four pieces, declare the game as a draw.\"}),`\n`,(0,n.jsx)(e.li,{children:\"Provide a button to restart the game, allowing players to play again without having to refresh the page.\"}),`\n`]}),`\n`,(0,n.jsx)(e.h3,{children:\"Colors\"}),`\n`,(0,n.jsx)(e.p,{children:\"Feel free to use the following hex values when making your game:\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsxs)(e.li,{children:[\"Red pieces: \",(0,n.jsx)(e.code,{children:\"#d9313d\"})]}),`\n`,(0,n.jsxs)(e.li,{children:[\"Yellow pieces: \",(0,n.jsx)(e.code,{children:\"#fdc601\"})]}),`\n`,(0,n.jsxs)(e.li,{children:[\"Blue board: \",(0,n.jsx)(e.code,{children:\"#1c61f2\"})]}),`\n`]})]})}function _(o={}){let{wrapper:e}=o.components||{};return e?(0,n.jsx)(e,Object.assign({},o,{children:(0,n.jsx)(u,o)})):u(o)}var p=_;function m(o){return(0,i.jsx)(p,{})}function C(o={}){let{wrapper:e}=o.components||{};return e?(0,i.jsx)(e,Object.assign({},o,{children:(0,i.jsx)(m,o)})):m(o)}var k=C;return j(D);})();\n;return Component;"
+}

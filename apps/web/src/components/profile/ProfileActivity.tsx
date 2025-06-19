@@ -38,7 +38,7 @@ function NoCompletedQuestions() {
 
   return (
     <div className="py-12 text-center">
-      <RiInboxLine className="mx-auto size-12 text-neutral-400" />
+      <RiInboxLine className="size-12 mx-auto text-neutral-400" />
       <Heading className="mt-2 text-sm font-medium" level="custom">
         <FormattedMessage
           defaultMessage="No completed questions"
@@ -227,7 +227,7 @@ export default function ProfileActivity() {
             )}
             role="list">
             {filteredQuestionProgressWithMetadata.map(
-              ({ createdAt, id, info, metadata }) => {
+              ({ createdAt, id, metadata }) => {
                 const qnHash = metadata ? hashQuestion(metadata) : '';
 
                 return (
@@ -248,7 +248,7 @@ export default function ProfileActivity() {
                               'Aria label for checkbox to select question for deletion',
                             id: 'FjrpK8',
                           },
-                          { question: info?.title },
+                          { question: metadata?.title },
                         )}
                         isLabelHidden={true}
                         value={selectedQuestions.has(qnHash)}
@@ -262,7 +262,7 @@ export default function ProfileActivity() {
                           size="body2"
                           weight="medium">
                           <Anchor href={metadata?.href} variant="flat">
-                            {info.title}
+                            {metadata.title}
                           </Anchor>
                         </Text>
                         {metadata?.format && (

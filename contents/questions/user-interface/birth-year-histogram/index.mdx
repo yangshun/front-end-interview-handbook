@@ -1,0 +1,34 @@
+---
+slug: birth-year-histogram
+title: Birth Year Histogram
+excerpt: Build a widget that fetches birth year data from an API and plot it on a histogram
+created: 2024-08-16
+languages: [html, css, js]
+companies: []
+access: premium
+duration: 30
+published: true
+importance: low
+difficulty: medium
+frameworks: [react, angular, vue, svelte]
+---
+
+Build a widget that fetches birth year data from an [API](https://www.random.org/integers/?num=200&min=1950&max=2019&col=1&base=10&format=plain) and display the data in a histogram, bucketing by the data by decades.
+
+## Requirements
+
+- We'll use [random.org's random number generator](https://www.random.org/integers/?num=200&min=1950&max=2019&col=1&base=10&format=plain) to simulate an API that returns 200 random data points from 1950 to 2019.
+- Tabulate the data by bucketing the data by decades and plotting a histogram with the x-axis being the decade buckets and y-axis being the count.
+- The y-axis should be appropriately labeled.
+
+The example below shows a potential resulting histogram but you are free to style it.
+
+![Birth year histogram example](/img/questions/birth-year-histogram/birth-year-histogram-example.png)
+
+## Notes
+
+- In practice, you are usually not required to tabulate the API response data. However during interviews this is a possible task as the act of writing code to tabulate data provides good signal on coding fundamentals.
+
+## Source
+
+This question is adapted from [FrontendEval's Data fetching and visualization question](https://frontendeval.com/questions/data-fetching).

@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/can-you-give-an-example-of-an-media-property-other-than-screen",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "can-you-give-an-example-of-an-media-property-other-than-screen",
+    "subtitle": null,
+    "title": "你能举一个除了`screen`之外的`@media`属性的例子吗？",
+    "topics": [
+      "css"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/can-you-give-an-example-of-an-media-property-other-than-screen/zh-CN.mdx"
+  },
+  "solution": "var Component=(()=>{var h=Object.create;var l=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var u=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var j=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),_=(n,e)=>{for(var r in e)l(n,r,{get:e[r],enumerable:!0})},t=(n,e,r,d)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let i of m(e))!x.call(n,i)&&i!==r&&l(n,i,{get:()=>e[i],enumerable:!(d=p(e,i))||d.enumerable});return n};var g=(n,e,r)=>(r=n!=null?h(u(n)):{},t(e||!n||!n.__esModule?l(r,\"default\",{value:n,enumerable:!0}):r,n)),f=n=>t(l({},\"__esModule\",{value:!0}),n);var s=j((F,o)=>{o.exports=_jsx_runtime});var C={};_(C,{default:()=>y,frontmatter:()=>b});var c=g(s()),b={title:\"\\u4F60\\u80FD\\u4E3E\\u4E00\\u4E2A\\u9664\\u4E86`screen`\\u4E4B\\u5916\\u7684`@media`\\u5C5E\\u6027\\u7684\\u4F8B\\u5B50\\u5417\\uFF1F\"};function a(n){let e=Object.assign({p:\"p\",code:\"code\",ul:\"ul\",li:\"li\",pre:\"pre\"},n.components);return(0,c.jsxs)(c.Fragment,{children:[(0,c.jsxs)(e.p,{children:[\"\\u6709\\u56DB\\u79CD\\u7C7B\\u578B\\u7684\",(0,c.jsx)(e.code,{children:\"@media\"}),\"\\u5C5E\\u6027\\uFF08\\u5305\\u62EC\",(0,c.jsx)(e.code,{children:\"screen\"}),\"\\uFF09\\uFF1A\"]}),`\n`,(0,c.jsxs)(e.ul,{children:[`\n`,(0,c.jsxs)(e.li,{children:[(0,c.jsx)(e.code,{children:\"all\"}),\"\\uFF1A\\u9002\\u7528\\u4E8E\\u6240\\u6709\\u5A92\\u4F53\\u7C7B\\u578B\\u8BBE\\u5907\"]}),`\n`,(0,c.jsxs)(e.li,{children:[(0,c.jsx)(e.code,{children:\"print\"}),\"\\uFF1A\\u9002\\u7528\\u4E8E\\u6253\\u5370\\u673A\"]}),`\n`,(0,c.jsxs)(e.li,{children:[(0,c.jsx)(e.code,{children:\"speech\"}),\"\\uFF1A\\u9002\\u7528\\u4E8E\\u201C\\u6717\\u8BFB\\u201D\\u9875\\u9762\\u7684\\u5C4F\\u5E55\\u9605\\u8BFB\\u5668\"]}),`\n`,(0,c.jsxs)(e.li,{children:[(0,c.jsx)(e.code,{children:\"screen\"}),\"\\uFF1A\\u9002\\u7528\\u4E8E\\u7535\\u8111\\u5C4F\\u5E55\\u3001\\u5E73\\u677F\\u7535\\u8111\\u3001\\u667A\\u80FD\\u624B\\u673A\\u7B49\\u3002\"]}),`\n`]}),`\n`,(0,c.jsxs)(e.p,{children:[\"\\u4EE5\\u4E0B\\u662F\",(0,c.jsx)(e.code,{children:\"print\"}),\"\\u5A92\\u4F53\\u7C7B\\u578B\\u7528\\u6CD5\\u7684\\u793A\\u4F8B\\uFF1A\"]}),`\n`,(0,c.jsx)(e.pre,{children:(0,c.jsx)(e.code,{className:\"language-css\",children:`@media print {\n  body {\n    color: black;\n  }\n}\n`})})]})}function M(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,Object.assign({},n,{children:(0,c.jsx)(a,n)})):a(n)}var y=M;return f(C);})();\n;return Component;"
+}

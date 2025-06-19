@@ -1,0 +1,28 @@
+{
+  "author": "willnguyen1312",
+  "files": {
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/traffic-light-vue-skeleton\",\n  \"author\": \"willnguyen1312\",\n  \"version\": \"0.0.1\",\n  \"main\": \"/src/main.js\",\n  \"scripts\": {\n    \"serve\": \"vue-cli-service serve\",\n    \"build\": \"vue-cli-service build\"\n  },\n  \"dependencies\": {\n    \"core-js\": \"3.32.2\",\n    \"vue\": \"3.3.4\"\n  },\n  \"devDependencies\": {\n    \"@vue/cli-plugin-babel\": \"5.0.8\",\n    \"@vue/cli-service\": \"5.0.8\"\n  }\n}\n"
+    },
+    "/public/index.html": {
+      "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width,initial-scale=1.0\" />\n    <title>Vue</title>\n  </head>\n  <body>\n    <div id=\"app\"></div>\n    <!-- Built files will be auto injected -->\n  </body>\n</html>\n"
+    },
+    "/src/App.vue": {
+      "code": "<script setup>\nimport { ref } from 'vue';\nconst msg = ref('world');\n</script>\n\n<template>\n  <h1>Hello {{ msg }}</h1>\n</template>\n"
+    },
+    "/src/main.js": {
+      "code": "import { createApp } from 'vue';\nimport App from './App.vue';\n\nimport './styles.css';\n\ncreateApp(App).mount('#app');\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/src/App.vue"
+    ],
+    "activeFile": "/src/App.vue",
+    "environment": "vue-cli"
+  },
+  "writeup": "var Component=(()=>{var g=Object.create;var l=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var w=Object.getPrototypeOf,y=Object.prototype.hasOwnProperty;var j=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),_=(e,t)=>{for(var i in t)l(e,i,{get:t[i],enumerable:!0})},c=(e,t,i,s)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let r of x(t))!y.call(e,r)&&r!==i&&l(e,r,{get:()=>t[r],enumerable:!(s=p(t,r))||s.enumerable});return e};var h=(e,t,i)=>(i=e!=null?g(w(e)):{},c(t||!e||!e.__esModule?l(i,\"default\",{value:e,enumerable:!0}):i,e)),b=e=>c(l({},\"__esModule\",{value:!0}),e);var a=j((L,d)=>{d.exports=_jsx_runtime});var C={};_(C,{default:()=>M});var o=h(a());var n=h(a());function f(e){let t=Object.assign({p:\"p\",ul:\"ul\",li:\"li\"},e.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(t.p,{children:\"Build a traffic light where the lights switch from green to yellow to red after predetermined intervals and loop indefinitely. Each light should be lit for the following durations:\"}),`\n`,(0,n.jsxs)(t.ul,{children:[`\n`,(0,n.jsx)(t.li,{children:\"Red light: 4000ms\"}),`\n`,(0,n.jsx)(t.li,{children:\"Yellow light: 500ms\"}),`\n`,(0,n.jsx)(t.li,{children:\"Green light: 3000ms\"}),`\n`]}),`\n`,(0,n.jsx)(t.p,{children:\"You are free to exercise your creativity to style the appearance of the traffic light.\"})]})}function v(e={}){let{wrapper:t}=e.components||{};return t?(0,n.jsx)(t,Object.assign({},e,{children:(0,n.jsx)(f,e)})):f(e)}var u=v;function m(e){return(0,o.jsx)(u,{})}function D(e={}){let{wrapper:t}=e.components||{};return t?(0,o.jsx)(t,Object.assign({},e,{children:(0,o.jsx)(m,e)})):m(e)}var M=D;return b(C);})();\n;return Component;"
+}

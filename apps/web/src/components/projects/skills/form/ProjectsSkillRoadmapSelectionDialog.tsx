@@ -75,7 +75,7 @@ export default function ProjectsSkillRoadmapSelectionDialog({
                 {footerInfoContent}
                 <div
                   className={clsx(
-                    'flex flex-1 gap-2',
+                    'flex flex-1 gap-2 ',
                     footerInfoContent ? 'md:justify-end' : 'justify-end',
                   )}>
                   {challengeDefaultSkills != null && (

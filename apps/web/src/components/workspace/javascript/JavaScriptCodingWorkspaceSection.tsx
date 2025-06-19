@@ -4,9 +4,9 @@ import clsx from 'clsx';
 import CodingPreferencesProvider from '~/components/global/CodingPreferencesProvider';
 import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
 import type {
-  InterviewsQuestionItemJavaScript,
-  InterviewsQuestionItemMinimal,
   QuestionCodingWorkingLanguage,
+  QuestionJavaScript,
+  QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import sandpackProviderOptions from '~/components/workspace/common/sandpack/sandpackProviderOptions';
 import JavaScriptCodingWorkspace from '~/components/workspace/javascript/JavaScriptCodingWorkspace';
@@ -18,10 +18,10 @@ type Props = Readonly<{
   canViewPremiumContent: boolean;
   embed?: boolean;
   language: QuestionCodingWorkingLanguage;
-  nextQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+  nextQuestions: ReadonlyArray<QuestionMetadata>;
   onLanguageChange: (language: QuestionCodingWorkingLanguage) => void;
-  question: InterviewsQuestionItemJavaScript;
-  similarQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+  question: QuestionJavaScript;
+  similarQuestions: ReadonlyArray<QuestionMetadata>;
   studyListKey?: string;
   timeoutLoggerInstance: string;
 }>;

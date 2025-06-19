@@ -4,15 +4,10 @@ import { getOrCreateUserProfileWithProjectsProfile } from '~/components/projects
 
 type Props = Readonly<{
   children: React.ReactNode;
-  params: Readonly<{ locale: string }>;
 }>;
 
-export default async function Layout({ children, params }: Props) {
-  const { locale } = params;
-  const viewer = await redirectToLoginPageIfNotLoggedIn(
-    '/projects/dashboard',
-    locale,
-  );
+export default async function Layout({ children }: Props) {
+  const viewer = await redirectToLoginPageIfNotLoggedIn('/projects/dashboard');
 
   await getOrCreateUserProfileWithProjectsProfile(viewer);
 

@@ -530,17 +530,6 @@ export const QuestionFrameworkLabels: Record<QuestionFramework, string> = {
   vue: 'Vue',
 };
 
-export const QuestionFrameworkRawToSEOMapping: Record<
-  QuestionFramework,
-  QuestionFrameworkSEO
-> = {
-  angular: 'angular-interview-questions',
-  react: 'react-interview-questions',
-  svelte: 'svelte-interview-questions',
-  vanilla: 'vanilla-javascript-interview-questions',
-  vue: 'vue-interview-questions',
-};
-
 export function getQuestionFrameworksData(
   intl: IntlShape,
 ): QuestionCategoryLists<QuestionFramework, QuestionFrameworkSEO> {

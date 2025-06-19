@@ -29,6 +29,7 @@ import {
 } from '~/components/projects/profile/fields/ProjectsProfileJobSchema';
 import { useProjectsProfileWebsiteSchema } from '~/components/projects/profile/fields/ProjectsProfileWebsiteSchema';
 import { useProjectsSkillListInputSchema } from '~/components/projects/skills/form/ProjectsSkillListInputSchema';
+import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
@@ -76,11 +77,7 @@ function useProjectsProfileEditSchema() {
   ]);
 }
 
-type ProjectsEditProfileTransformedValues = z.output<
-  ReturnType<typeof useProjectsProfileEditSchema>
->;
-
-export type ProjectsProfileEditFormValues = z.input<
+type ProjectsEditProfileTransformedValues = z.infer<
   ReturnType<typeof useProjectsProfileEditSchema>
 >;
 
@@ -128,7 +125,9 @@ export default function ProjectsProfileEditPage({ userProfile }: Props) {
     undefined,
     ProjectsEditProfileTransformedValues
   >({
-    defaultValues: {
+    mode: 'onTouched',
+    resolver: zodResolver(projectsProfileEditSchema),
+    values: {
       avatarUrl: initialValues?.avatarUrl ?? '',
       bio: initialValues?.bio ?? '',
       githubUsername: initialValues?.githubUsername ?? '',
@@ -143,8 +142,6 @@ export default function ProjectsProfileEditPage({ userProfile }: Props) {
       website: initialValues?.website ?? '',
       ...experienceInitialValues,
     },
-    mode: 'onTouched',
-    resolver: zodResolver(projectsProfileEditSchema),
   });
   const {
     formState: { isDirty, isSubmitting },

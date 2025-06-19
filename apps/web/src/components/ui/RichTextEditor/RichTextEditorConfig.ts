@@ -5,7 +5,11 @@ import { ListItemNode, ListNode } from '@lexical/list';
 import { HorizontalRuleNode } from '@lexical/react/LexicalHorizontalRuleNode';
 import { HeadingNode, QuoteNode } from '@lexical/rich-text';
 import type { EditorThemeClasses, LexicalNode } from 'lexical';
-import type { CreateEditorArgs, Klass, LexicalNodeReplacement } from 'lexical';
+import type {
+  ErrorHandler,
+  Klass,
+  LexicalNodeReplacement,
+} from 'lexical/LexicalEditor';
 
 import { externalLinkHref } from '../Anchor/ExternalLinkHref';
 import { CustomAutoLinkNode, CustomLinkNode } from './nodes/CustomLinkNode';
@@ -14,7 +18,7 @@ import RichTextEditorTheme from './theme/RichTextEditorTheme';
 export type RichTextEditorConfigType = Readonly<{
   namespace: string;
   nodes: ReadonlyArray<Klass<LexicalNode> | LexicalNodeReplacement>;
-  onError: NonNullable<CreateEditorArgs['onError']>;
+  onError: ErrorHandler;
   theme: EditorThemeClasses;
 }>;
 

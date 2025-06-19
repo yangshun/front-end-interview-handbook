@@ -5,6 +5,7 @@
   "created": 1658188800,
   "difficulty": "easy",
   "duration": 20,
+  "excerpt": "Build a component that resembles a Tweet from Twitter",
   "featured": false,
   "format": "user-interface",
   "frameworkDefault": "react",
@@ -44,5 +45,6 @@
   ],
   "slug": "tweet",
   "subtitle": null,
+  "title": "Tweet",
   "topics": []
 }

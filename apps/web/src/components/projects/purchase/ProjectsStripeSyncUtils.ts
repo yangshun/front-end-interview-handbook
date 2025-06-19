@@ -45,7 +45,7 @@ export async function projectsCustomerAddPlan(
 
   const features = projectsPaidPlanFeatures[planName];
   const creditsForPlan =
-    features.credits === 'unlimited' ? 100 : (features.credits ?? 0);
+    features.credits === 'unlimited' ? 100 : features.credits ?? 0;
   const creditsAtStartOfCycle =
     (userProfile.projectsProfile?.credits ?? 0) + creditsForPlan;
 

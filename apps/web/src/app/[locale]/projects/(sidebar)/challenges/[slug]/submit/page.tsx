@@ -1,3 +1,4 @@
+import { redirect } from 'next/navigation';
 import type { Metadata } from 'next/types';
 
 import { redirectToLoginPageIfNotLoggedIn } from '~/components/auth/redirectToLoginPageIfNotLoggedIn';
@@ -6,7 +7,6 @@ import { redirectToProjectsOnboardingIfProjectsProfileIncomplete } from '~/compo
 
 import { readProjectsChallengeItem } from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
-import i18nRedirect from '~/next-i18nostic/src/utils/i18nRedirect';
 import defaultProjectsMetadata from '~/seo/defaultProjectsMetadata';
 import prisma from '~/server/prisma';
 
@@ -53,7 +53,6 @@ export default async function Page({ params }: Props) {
   const { challenge } = await readProjectsChallengeItem(slug, locale);
   const viewer = await redirectToLoginPageIfNotLoggedIn(
     challenge.metadata.submitHref,
-    locale,
   );
 
   const session = await prisma.projectsChallengeSession.findFirst({
@@ -67,14 +66,13 @@ export default async function Page({ params }: Props) {
   });
 
   if (session == null) {
-    return i18nRedirect(challenge.metadata.href, { locale });
+    return redirect(challenge.metadata.href);
   }
 
   const viewerProfile =
     await redirectToProjectsOnboardingIfProjectsProfileIncomplete(
       viewer,
       challenge.metadata.submitHref,
-      locale,
     );
 
   return (

@@ -18,23 +18,20 @@ import defaultMetadata from '~/seo/defaultMetadata';
 type Props = Readonly<{
   params: {
     locale: string;
-    slug: QuestionCompany;
+    slug: string;
   };
 }>;
 
 export async function generateStaticParams() {
-  const companyGuides = await fetchInterviewsStudyLists(
-    'company-guide',
-    'en-US',
-  );
+  const companyGuides = await fetchInterviewsStudyLists('company-guide');
 
   return generateStaticParamsWithLocale(
     companyGuides.map((companyGuide) => ({ slug: companyGuide.slug })),
   );
 }
 
-async function getPageSEOMetadata({ locale, slug }: Props['params']) {
-  const companyGuide = await fetchInterviewsStudyList(slug, locale);
+async function getPageSEOMetadata({ slug }: Props['params']) {
+  const companyGuide = await fetchInterviewsStudyList(slug);
 
   if (companyGuide == null) {
     return notFound();
@@ -72,7 +69,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { locale, slug } = params;
 
-  const companyGuide = await fetchInterviewsStudyList(slug, locale);
+  const companyGuide = await fetchInterviewsStudyList(slug);
 
   if (companyGuide == null) {
     return notFound();
@@ -83,8 +80,8 @@ export default async function Page({ params }: Props) {
   );
 
   const [questions, bottomContent] = await Promise.all([
-    fetchQuestionsListForCompany(slug, locale),
-    fetchInterviewListingBottomContent('company/company-detail', locale),
+    fetchQuestionsListForCompany(slug as QuestionCompany, locale),
+    fetchInterviewListingBottomContent('company-detail'),
   ]);
 
   return (

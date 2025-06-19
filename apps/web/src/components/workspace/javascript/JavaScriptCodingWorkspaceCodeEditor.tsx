@@ -9,7 +9,6 @@ import { themeBorderColor } from '~/components/ui/theme';
 import CodingWorkspaceEditorShortcutsButton from '~/components/workspace/common/editor/CodingWorkspaceEditorShortcutsButton';
 import CodingWorkspaceResetButton from '~/components/workspace/common/editor/CodingWorkspaceResetButton';
 import CodingWorkspaceThemeSelect from '~/components/workspace/common/editor/CodingWorkspaceThemeSelect';
-import { useVimMode } from '~/components/workspace/common/editor/hooks/useVimMode';
 import JavaScriptCodingWorkspaceWorkingLanguageSelect from '~/components/workspace/javascript/JavaScriptCodingWorkspaceWorkingLanguageSelect';
 
 import { useCodingWorkspaceContext } from '../common/CodingWorkspaceContext';
@@ -36,7 +35,6 @@ export default function JavaScriptCodingWorkspaceCodeEditor({
     useJavaScriptCodingWorkspaceContext();
   const { sandpack } = useSandpack();
   const intl = useIntl();
-  const { isVimModeEnabled } = useVimMode();
   const isMounted = useIsMounted();
 
   const { files, updateFile } = sandpack;
@@ -119,7 +117,6 @@ export default function JavaScriptCodingWorkspaceCodeEditor({
       )}
       <MonacoCodeEditor
         filePath={filePath}
-        isVimModeEnabled={isVimModeEnabled}
         value={files[filePath].code}
         onChange={(val) => {
           updateFile(filePath, val ?? '');

@@ -1,0 +1,36 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": true,
+    "format": "quiz",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/explain-what-happens-when-setstate-is-called-in-react"
+      }
+    ],
+    "href": "/questions/quiz/explain-what-happens-when-setstate-is-called-in-react",
+    "importance": "medium",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 500,
+    "similarQuestions": [],
+    "slug": "explain-what-happens-when-setstate-is-called-in-react",
+    "subtitle": null,
+    "title": "Explain what happens when the `useState` setter function is called in React",
+    "topics": [
+      "react"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-reactjs-interview-questions/blob/main/questions/explain-what-happens-when-setstate-is-called-in-react/en-US.mdx"
+  },
+  "solution": "var Component=(()=>{var l=Object.create;var r=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var m=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),y=(n,e)=>{for(var a in e)r(n,a,{get:e[a],enumerable:!0})},c=(n,e,a,o)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let s of p(e))!g.call(n,s)&&s!==a&&r(n,s,{get:()=>e[s],enumerable:!(o=d(e,s))||o.enumerable});return n};var v=(n,e,a)=>(a=n!=null?l(f(n)):{},c(e||!n||!n.__esModule?r(a,\"default\",{value:n,enumerable:!0}):a,n)),w=n=>c(r({},\"__esModule\",{value:!0}),n);var h=m((x,u)=>{u.exports=_jsx_runtime});var C={};y(C,{default:()=>R,frontmatter:()=>b});var t=v(h()),b={title:\"Explain what happens when the `useState` setter function is called in React\"};function i(n){let e=Object.assign({h2:\"h2\",p:\"p\",code:\"code\",hr:\"hr\",h3:\"h3\",pre:\"pre\",strong:\"strong\",ul:\"ul\",li:\"li\",a:\"a\"},n.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(e.h2,{children:\"TL;DR\"}),`\n`,(0,t.jsxs)(e.p,{children:[\"When the setter function returned by the \",(0,t.jsx)(e.code,{children:\"useState\"}),\" hook is called in React, it schedules an update to the component's state value. React then queues a re-render of the component with the new state. This process is typically asynchronous, and React batches multiple state updates together for performance.\"]}),`\n`,(0,t.jsx)(e.hr,{}),`\n`,(0,t.jsxs)(e.h2,{children:[\"What happens when the \",(0,t.jsx)(e.code,{children:\"useState\"}),\" setter is called\"]}),`\n`,(0,t.jsx)(e.h3,{children:\"State update scheduling\"}),`\n`,(0,t.jsxs)(e.p,{children:[\"When you call the setter function provided by \",(0,t.jsx)(e.code,{children:\"useState\"}),\" (e.g., \",(0,t.jsx)(e.code,{children:\"setCount\"}),\"), React schedules an update for that specific state variable. This doesn't happen instantly; React marks the component as needing to re-render with the updated state value.\"]}),`\n`,(0,t.jsx)(e.pre,{children:(0,t.jsx)(e.code,{className:\"language-javascript\",children:`const [count, setCount] = useState(0);\n// ...\nsetCount(count + 1); // Schedules an update to set 'count' to 1\n`})}),`\n`,(0,t.jsx)(e.h3,{children:\"State replacement\"}),`\n`,(0,t.jsxs)(e.p,{children:[\"The \",(0,t.jsx)(e.code,{children:\"useState\"}),\" setter function \",(0,t.jsx)(e.strong,{children:\"replaces\"}),\" the old state value entirely with the new value you provide. If your state is an object and you only want to update one property, you need to manually spread the old state and override the specific property.\"]}),`\n`,(0,t.jsx)(e.pre,{children:(0,t.jsx)(e.code,{className:\"language-javascript\",children:`const [user, setUser] = useState({ name: 'Anon', age: 99 });\n\n// To update only name, you must spread the old state:\nsetUser((prevState) => ({ ...prevState, name: 'John' }));\n// If you just did setUser({ name: 'John' }), the 'age' property would be lost.\n`})}),`\n`,(0,t.jsx)(e.h3,{children:\"Re-rendering\"}),`\n`,(0,t.jsx)(e.p,{children:\"After scheduling the state update(s), React will eventually trigger a re-render of the component. The functional component body is executed again with the new state value(s). React updates its virtual DOM, compares it with the previous version, and efficiently updates the actual DOM only where necessary.\"}),`\n`,(0,t.jsx)(e.h3,{children:\"Asynchronous nature and Batching\"}),`\n`,(0,t.jsxs)(e.p,{children:[\"State updates triggered by \",(0,t.jsx)(e.code,{children:\"useState\"}),\" setters are typically asynchronous and batched. If you call multiple state setters in the same event handler or effect, React will often batch these updates together into a single re-render pass for better performance. Because of this, you shouldn't rely on the state variable having its new value immediately after calling the setter. If the new state depends on the previous state, use the functional update form.\"]}),`\n`,(0,t.jsx)(e.pre,{children:(0,t.jsx)(e.code,{className:\"language-javascript\",children:`// Assume count is 0\nsetCount(count + 1); // Queues update to 1\nsetCount(count + 1); // Still sees count as 0, queues update to 1 again!\n// Result might be 1, not 2\n\n// Correct way using functional update:\nsetCount((prevCount) => prevCount + 1); // Queues update based on previous state\nsetCount((prevCount) => prevCount + 1); // Queues another update based on the result of the first\n// Result will be 2\n`})}),`\n`,(0,t.jsx)(e.h2,{children:\"Further reading\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsx)(e.li,{children:(0,t.jsxs)(e.a,{href:\"https://react.dev/reference/react/useState\",children:[\"React Docs: Using the State Hook (\",(0,t.jsx)(e.code,{children:\"useState\"}),\")\"]})}),`\n`,(0,t.jsx)(e.li,{children:(0,t.jsx)(e.a,{href:\"https://react.dev/reference/react/useState#updating-state-based-on-the-previous-state\",children:\"React Docs: Queueing multiple state updates\"})}),`\n`]})]})}function S(n={}){let{wrapper:e}=n.components||{};return e?(0,t.jsx)(e,Object.assign({},n,{children:(0,t.jsx)(i,n)})):i(n)}var R=S;return w(C);})();\n;return Component;"
+}

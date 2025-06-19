@@ -1,0 +1,29 @@
+{
+  "author": "tanhauhau",
+  "files": {
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/memory-game-svelte-skeleton\",\n  \"author\": \"tanhauhau\",\n  \"version\": \"0.0.1\",\n  \"main\": \"src/index.js\",\n  \"dependencies\": {\n    \"svelte\": \"^3.58.0\"\n  }\n}\n"
+    },
+    "/public/index.html": {
+      "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"utf8\" />\n    <meta name=\"viewport\" content=\"width=device-width\" />\n    <title>Svelte</title>\n    <link rel=\"stylesheet\" href=\"public/bundle.css\" />\n  </head>\n\n  <body>\n    <script src=\"bundle.js\"></script>\n  </body>\n</html>\n"
+    },
+    "/src/App.svelte": {
+      "code": "<script>\n  import './styles.css';\n\n  const emojis = [\n    '🐵',\n    '🐶',\n    '🦊',\n    '🐱',\n    '🦁',\n    '🐯',\n    '🐴',\n    '🦄',\n    '🦓',\n    '🦌',\n    '🐮',\n    '🐷',\n    '🐭',\n    '🐹',\n    '🐻',\n    '🐨',\n    '🐼',\n    '🐽',\n    '🐸',\n    '🐰',\n    '🐙',\n  ];\n  let name = 'world';\n</script>\n\n<h1>Hello {name}</h1>\n\n<style>\n  h1 {\n    font-size: 1.5rem;\n  }\n</style>\n"
+    },
+    "/src/index.js": {
+      "code": "import App from './App.svelte';\nimport './styles.css';\n\nconst app = new App({\n  target: document.body,\n});\n\nexport default app;\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/src/App.svelte",
+      "/src/styles.css"
+    ],
+    "activeFile": "/src/App.svelte",
+    "environment": "svelte"
+  },
+  "writeup": "var Component=(()=>{var f=Object.create;var i=Object.defineProperty;var g=Object.getOwnPropertyDescriptor;var y=Object.getOwnPropertyNames;var w=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var j=(a,e)=>()=>(e||a((e={exports:{}}).exports,e),e.exports),b=(a,e)=>{for(var n in e)i(a,n,{get:e[n],enumerable:!0})},o=(a,e,n,c)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of y(e))!x.call(a,r)&&r!==n&&i(a,r,{get:()=>e[r],enumerable:!(c=g(e,r))||c.enumerable});return a};var d=(a,e,n)=>(n=a!=null?f(w(a)):{},o(e||!a||!a.__esModule?i(n,\"default\",{value:a,enumerable:!0}):n,a)),_=a=>o(i({},\"__esModule\",{value:!0}),a);var l=j((X,m)=>{m.exports=_jsx_runtime});var k={};b(k,{default:()=>M});var s=d(l());var t=d(l());function h(a){let e=Object.assign({p:\"p\",img:\"img\",h2:\"h2\",ul:\"ul\",li:\"li\"},a.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(e.p,{children:\"Build a memory game where the player needs to match pairs of cards.\"}),`\n`,(0,t.jsx)(e.p,{children:(0,t.jsx)(e.img,{src:\"/img/questions/memory-game/memory-game-example.png\",alt:\"Memory game example\"})}),`\n`,(0,t.jsx)(e.h2,{children:\"Requirements\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsx)(e.li,{children:\"Display a grid of faced-down cards on the screen, with each card representing a different item or image. You can use emojis as the image, a list of emojis has been provided.\"}),`\n`,(0,t.jsx)(e.li,{children:\"The grid should consist of an equal number of cards to make pairs.\"}),`\n`,(0,t.jsx)(e.li,{children:\"When a player clicks on a card, it should flip over and reveal its image.\"}),`\n`,(0,t.jsx)(e.li,{children:\"Allow the player to select two cards at a time.\"}),`\n`,(0,t.jsx)(e.li,{children:\"If the two selected cards have the same image, it's a match and they should remain face-up.\"}),`\n`,(0,t.jsxs)(e.li,{children:[\"If the two selected cards have different images and the player\",`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsx)(e.li,{children:\"Selects other cards, the two selected cards should flip back.\"}),`\n`,(0,t.jsx)(e.li,{children:\"Do nothing, the two selected cards should flip back facedown after a short delay.\"}),`\n`]}),`\n`]}),`\n`,(0,t.jsx)(e.li,{children:'When all pairs have been successfully matched, end the game and display a \"Play again\" button.'}),`\n`]})]})}function v(a={}){let{wrapper:e}=a.components||{};return e?(0,t.jsx)(e,Object.assign({},a,{children:(0,t.jsx)(h,a)})):h(a)}var u=v;function p(a){return(0,s.jsx)(u,{})}function D(a={}){let{wrapper:e}=a.components||{};return e?(0,s.jsx)(e,Object.assign({},a,{children:(0,s.jsx)(p,a)})):p(a)}var M=D;return _(k);})();\n;return Component;"
+}

@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/what-is-progressive-rendering",
+    "importance": "medium",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "what-is-progressive-rendering",
+    "subtitle": null,
+    "title": "What is progressive rendering?",
+    "topics": [
+      "html"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/what-is-progressive-rendering/en-US.mdx"
+  },
+  "solution": "var Component=(()=>{var l=Object.create;var o=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,u=Object.prototype.hasOwnProperty;var f=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),b=(t,e)=>{for(var r in e)o(t,r,{get:e[r],enumerable:!0})},a=(t,e,r,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let i of m(e))!u.call(t,i)&&i!==r&&o(t,i,{get:()=>e[i],enumerable:!(s=p(e,i))||s.enumerable});return t};var w=(t,e,r)=>(r=t!=null?l(g(t)):{},a(e||!t||!t.__esModule?o(r,\"default\",{value:t,enumerable:!0}):r,t)),v=t=>a(o({},\"__esModule\",{value:!0}),t);var h=f((q,d)=>{d.exports=_jsx_runtime});var M={};b(M,{default:()=>j,frontmatter:()=>y});var n=w(h()),y={title:\"What is progressive rendering?\"};function c(t){let e=Object.assign({p:\"p\",h2:\"h2\",ul:\"ul\",li:\"li\",code:\"code\",a:\"a\"},t.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.p,{children:\"Progressive rendering is the name given to techniques used to improve the performance of a webpage (in particular, improve perceived load time) to render content for display as quickly as possible.\"}),`\n`,(0,n.jsx)(e.p,{children:\"It used to be much more prevalent in the days before broadband internet but it is still used in modern development as mobile data connections are becoming increasingly popular (and unreliable)!\"}),`\n`,(0,n.jsx)(e.h2,{children:\"Lazy loading of images\"}),`\n`,(0,n.jsx)(e.p,{children:\"Images on the page are not loaded all at once. The image is only loaded when the user scrolls into/near the part of the page that displays the image.\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.code,{children:'<img loading=\"lazy\">'}),\" is a modern way to instruct the browser to defer loading of images that are outside of the screen until the user scrolls near them.\"]}),`\n`,(0,n.jsx)(e.li,{children:\"Use JavaScript to watch the scroll position and load the image when the image is about to come on screen (by comparing the coordinates of the image with the scroll position).\"}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"Prioritizing visible content (or above-the-fold rendering)\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"Include only the minimum CSS/content/scripts necessary for the amount of page that would be rendered in the users browser first to display as quickly as possible, you can then use deferred scripts or listen for the \",(0,n.jsx)(e.code,{children:\"DOMContentLoaded\"}),\"/\",(0,n.jsx)(e.code,{children:\"load\"}),\" event to load in other resources and content.\"]}),`\n`,(0,n.jsx)(e.h2,{children:\"Async HTML fragments\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"Flushing parts of the HTML to the browser as the page is constructed on the back end. More details on the technique can be found \",(0,n.jsx)(e.a,{href:\"http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/\",children:\"here\"}),\".\"]}),`\n`,(0,n.jsx)(e.h2,{children:\"Other modern techniques\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://www.patterns.dev/posts/progressive-hydration/\",children:\"Progressive hydration\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://www.patterns.dev/posts/server-side-rendering/\",children:\"Streaming server-side rendering\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://www.patterns.dev/posts/react-selective-hydration/\",children:\"Selective hydration\"})}),`\n`]})]})}function x(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(c,t)})):c(t)}var j=x;return v(M);})();\n;return Component;"
+}

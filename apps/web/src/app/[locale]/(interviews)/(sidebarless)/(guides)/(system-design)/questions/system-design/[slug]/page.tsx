@@ -5,7 +5,6 @@ import GuidesArticleJsonLd from '~/components/guides/GuidesArticleJsonLd';
 import InterviewsQuestionsSystemDesignPage from '~/components/interviews/questions/content/system-design/InterviewsQuestionsSystemDesignPage';
 
 import { readQuestionSystemDesignContents } from '~/db/QuestionsContentsReader';
-import { fetchQuestionsList } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 import {
@@ -41,11 +40,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           id: 'XI5h+Z',
         },
         {
-          questionTitle: question.info.title,
+          questionTitle: question.metadata.title,
         },
       ),
       locale,
-      ogImageTitle: question.info.title,
+      ogImageTitle: question.metadata.title,
       pathname: question.metadata.href,
       socialTitle: intl.formatMessage(
         {
@@ -54,7 +53,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           id: 'Ozg1OX',
         },
         {
-          questionTitle: question.info.title,
+          questionTitle: question.metadata.title,
         },
       ),
       title: intl.formatMessage(
@@ -64,7 +63,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           id: '9xFHNn',
         },
         {
-          questionTitle: question.info.title,
+          questionTitle: question.metadata.title,
         },
       ),
     });
@@ -98,29 +97,23 @@ export default async function Page({ params }: Props) {
 
   const isQuestionLocked =
     question.metadata.access === 'premium' && !isViewerPremium;
-  const { questions } = await fetchQuestionsList(
-    { type: 'format', value: 'system-design' },
-    locale,
-  );
 
   return (
     <>
       <GuidesArticleJsonLd
-        description={question.info.excerpt ?? ''}
+        description={question.metadata.excerpt ?? ''}
         isAccessibleForFree={question.metadata.access !== 'premium'}
         pathname={question.metadata.href}
-        title={`Front End System Design: ${question.info.title}`}
+        title={`Front End System Design: ${question.metadata.title}`}
       />
       <InterviewsQuestionsSystemDesignPage
         canViewPremiumContent={isViewerPremium}
         isQuestionLocked={isQuestionLocked}
         question={{
           description: question.description,
-          info: question.info,
           metadata: question.metadata,
           solution: isQuestionLocked ? null : question.solution,
         }}
-        questions={questions}
       />
     </>
   );

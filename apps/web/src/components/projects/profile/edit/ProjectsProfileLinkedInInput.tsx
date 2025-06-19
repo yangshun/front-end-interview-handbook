@@ -26,11 +26,11 @@ export default function ProjectsProfileLinkedInInput({ control }: Props) {
     <Controller
       control={control}
       name="linkedInUsername"
-      render={({ field, formState: { dirtyFields, errors, submitCount } }) => (
+      render={({ field, formState }) => (
         <div
           className="relative flex-1"
           id={SCROLL_HASH_PROJECTS_PROFILE.LINKEDIN}>
-          <span className="end-0 absolute">
+          <span className="absolute end-0">
             <ProjectsChallengeReputationBadge
               completed={field.value.length > 0}
               points={ProjectsReputationPointsConfig.PROFILE_FIELD_PER_OPTIONAL}
@@ -38,8 +38,9 @@ export default function ProjectsProfileLinkedInInput({ control }: Props) {
           </span>
           <TextInput
             errorMessage={
-              dirtyFields.linkedInUsername || submitCount > 0
-                ? errors.linkedInUsername?.message
+              formState.dirtyFields.linkedInUsername ||
+              formState.submitCount > 0
+                ? formState.errors.linkedInUsername?.message
                 : undefined
             }
             label={attrs.label}

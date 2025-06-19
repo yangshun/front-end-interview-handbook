@@ -1,7 +1,6 @@
 import { useSandpackClient } from '@codesandbox/sandpack-react';
 import clsx from 'clsx';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import React from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import {
   RiCheckboxLine,
   RiFlaskLine,
@@ -58,7 +57,7 @@ export type Props = Readonly<{
   specPath: string;
 }>;
 
-function TestsSection({
+export default function TestsSection({
   onComplete,
   onFocusConsole,
   onShowTestCase,
@@ -400,30 +399,15 @@ function TestsSection({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.currentSpecPath, sandpack.status]);
 
-  const openSpec = useCallback(
-    (file: string): void => {
-      sandpack.setActiveFile(file);
-    },
-    [sandpack],
-  );
+  const openSpec = (file: string): void => {
+    sandpack.setActiveFile(file);
+  };
 
-  const onShowTestCaseForInlineSpec = useCallback(
-    (index: number, displayPath: Array<string>) => {
-      onShowTestCase(specMode, index, displayPath);
-    },
-    [specMode, onShowTestCase],
-  );
-
-  const { specs, testResults } = useMemo(() => {
-    const specsCalc = Object.values(state.specs).filter((spec) => !!spec.name);
-
-    const testResultsCalc = getAllTestResults(specsCalc);
-
-    return { specs: specsCalc, testResults: testResultsCalc };
-  }, [state.specs]);
+  const specs = Object.values(state.specs).filter((spec) => !!spec.name);
+  const testResults = getAllTestResults(specs);
 
   return (
-    <div className="relative flex size-full">
+    <div className="size-full relative flex">
       <iframe ref={iframe} style={{ display: 'none' }} title="Sandpack Tests" />
       <div className="flex w-full flex-col">
         <div className="flex grow overflow-y-auto">
@@ -583,7 +567,9 @@ function TestsSection({
                       runStatus={state.status}
                       specs={specs}
                       onFocusConsole={onFocusConsole}
-                      onShowTestCase={onShowTestCaseForInlineSpec}
+                      onShowTestCase={(index, displayPath) => {
+                        onShowTestCase(specMode, index, displayPath);
+                      }}
                     />
                   );
                 })()}
@@ -645,5 +631,3 @@ function TestsSection({
     </div>
   );
 }
-
-export default React.memo(TestsSection);

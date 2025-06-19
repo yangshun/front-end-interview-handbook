@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "easy",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/how-do-you-check-if-an-object-has-a-specific-property",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 999,
+    "similarQuestions": [],
+    "slug": "how-do-you-check-if-an-object-has-a-specific-property",
+    "subtitle": null,
+    "title": "How do you check if an object has a specific property?",
+    "topics": [
+      "javascript"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-check-if-an-object-has-a-specific-property/en-US.mdx"
+  },
+  "solution": "var Component=(()=>{var d=Object.create;var i=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var y=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,b=Object.prototype.hasOwnProperty;var u=(r,e)=>()=>(e||r((e={exports:{}}).exports,e),e.exports),f=(r,e)=>{for(var o in e)i(r,o,{get:e[o],enumerable:!0})},h=(r,e,o,t)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let c of y(e))!b.call(r,c)&&c!==o&&i(r,c,{get:()=>e[c],enumerable:!(t=p(e,c))||t.enumerable});return r};var g=(r,e,o)=>(o=r!=null?d(j(r)):{},h(e||!r||!r.__esModule?i(o,\"default\",{value:r,enumerable:!0}):o,r)),O=r=>h(i({},\"__esModule\",{value:!0}),r);var s=u((v,l)=>{l.exports=_jsx_runtime});var k={};f(k,{default:()=>P,frontmatter:()=>w});var n=g(s()),w={title:\"How do you check if an object has a specific property?\"};function a(r){let e=Object.assign({h2:\"h2\",p:\"p\",code:\"code\",pre:\"pre\",hr:\"hr\",h3:\"h3\",ul:\"ul\",li:\"li\",a:\"a\"},r.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{children:\"TL;DR\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"To check if an object has a specific property, you can use the \",(0,n.jsx)(e.code,{children:\"in\"}),\" operator or the \",(0,n.jsx)(e.code,{children:\"hasOwnProperty\"}),\" method. The \",(0,n.jsx)(e.code,{children:\"in\"}),\" operator checks for both own and inherited properties, while \",(0,n.jsx)(e.code,{children:\"hasOwnProperty\"}),\" checks only for own properties.\"]}),`\n`,(0,n.jsx)(e.pre,{live:!0,children:(0,n.jsx)(e.code,{className:\"language-js\",children:`const obj = { key: 'value' };\n\n// Using the \\`in\\` operator\nif ('key' in obj) {\n  console.log('Property exists');\n}\n\n// Using \\`hasOwnProperty\\`\nif (obj.hasOwnProperty('key')) {\n  console.log('Property exists');\n}\n`})}),`\n`,(0,n.jsx)(e.hr,{}),`\n`,(0,n.jsx)(e.h2,{children:\"How do you check if an object has a specific property?\"}),`\n`,(0,n.jsxs)(e.h3,{children:[\"Using the \",(0,n.jsx)(e.code,{children:\"in\"}),\" operator\"]}),`\n`,(0,n.jsxs)(e.p,{children:[\"The \",(0,n.jsx)(e.code,{children:\"in\"}),\" operator checks if a property exists in an object, including properties in the object's prototype chain.\"]}),`\n`,(0,n.jsx)(e.pre,{live:!0,children:(0,n.jsx)(e.code,{className:\"language-js\",children:`const obj = { key: 'value' };\n\nif ('key' in obj) {\n  console.log('Property exists');\n}\n`})}),`\n`,(0,n.jsxs)(e.h3,{children:[\"Using \",(0,n.jsx)(e.code,{children:\"hasOwnProperty\"})]}),`\n`,(0,n.jsxs)(e.p,{children:[\"The \",(0,n.jsx)(e.code,{children:\"hasOwnProperty\"}),\" method checks if a property exists directly on the object, not in its prototype chain.\"]}),`\n`,(0,n.jsx)(e.pre,{live:!0,children:(0,n.jsx)(e.code,{className:\"language-js\",children:`const obj = { key: 'value' };\n\nif (obj.hasOwnProperty('key')) {\n  console.log('Property exists');\n}\n`})}),`\n`,(0,n.jsxs)(e.h3,{children:[\"Differences between \",(0,n.jsx)(e.code,{children:\"in\"}),\" and \",(0,n.jsx)(e.code,{children:\"hasOwnProperty\"})]}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsxs)(e.li,{children:[\"The \",(0,n.jsx)(e.code,{children:\"in\"}),\" operator checks for both own and inherited properties.\"]}),`\n`,(0,n.jsxs)(e.li,{children:[\"The \",(0,n.jsx)(e.code,{children:\"hasOwnProperty\"}),\" method checks only for own properties.\"]}),`\n`]}),`\n`,(0,n.jsx)(e.h3,{children:\"Example with inherited properties\"}),`\n`,(0,n.jsx)(e.pre,{live:!0,children:(0,n.jsx)(e.code,{className:\"language-js\",children:`const parentObj = { inheritedKey: 'inheritedValue' };\nconst childObj = Object.create(parentObj);\nchildObj.ownKey = 'ownValue';\n\nconsole.log('inheritedKey' in childObj); // true\nconsole.log(childObj.hasOwnProperty('inheritedKey')); // false\nconsole.log('ownKey' in childObj); // true\nconsole.log(childObj.hasOwnProperty('ownKey')); // true\n`})}),`\n`,(0,n.jsx)(e.h2,{children:\"Further reading\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/in\",children:\"MDN Web Docs: in operator\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty\",children:\"MDN Web Docs: Object.prototype.hasOwnProperty\"})}),`\n`]})]})}function m(r={}){let{wrapper:e}=r.components||{};return e?(0,n.jsx)(e,Object.assign({},r,{children:(0,n.jsx)(a,r)})):a(r)}var P=m;return O(k);})();\n;return Component;"
+}

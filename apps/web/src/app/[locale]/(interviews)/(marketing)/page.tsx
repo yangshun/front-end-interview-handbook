@@ -3,10 +3,10 @@ import type { Metadata } from 'next/types';
 import { InterviewsMarketingDisplayTopics } from '~/components/interviews/marketing/InterviewsMarketingDisplayTopics';
 import type { QuestionBankDataType } from '~/components/interviews/marketing/InterviewsMarketingPracticeQuestionBankSection';
 import type {
-  InterviewsQuestionItemMinimal,
   QuestionFormat,
   QuestionFramework,
   QuestionLanguage,
+  QuestionMetadata,
   QuestionTopic,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import {
@@ -103,9 +103,7 @@ export default function flatten(
 
 const MAX_TO_SHOW = 4;
 
-function createQuestionData(
-  questionList: ReadonlyArray<InterviewsQuestionItemMinimal>,
-) {
+function createQuestionData(questionList: ReadonlyArray<QuestionMetadata>) {
   return {
     count: questionList.length,
     duration: countQuestionsTotalDurationMins(questionList),
@@ -117,10 +115,7 @@ function createQuestionData(
 }
 
 function getQuestionBankSectionData(
-  questions: Record<
-    QuestionFormat,
-    ReadonlyArray<InterviewsQuestionItemMinimal>
-  >,
+  questions: Record<QuestionFormat, ReadonlyArray<QuestionMetadata>>,
 ): QuestionBankDataType {
   const {
     algo: algoQuestions,
@@ -148,7 +143,7 @@ function getQuestionBankSectionData(
     {
       count: number;
       duration: number;
-      questions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+      questions: ReadonlyArray<QuestionMetadata>;
     }
   > = {
     angular: createQuestionData(framework.angular),
@@ -162,7 +157,7 @@ function getQuestionBankSectionData(
     {
       count: number;
       duration: number;
-      questions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+      questions: ReadonlyArray<QuestionMetadata>;
     }
   > = {
     css: createQuestionData(language.css),
@@ -188,7 +183,7 @@ function getQuestionBankSectionData(
     {
       count: number;
       duration: number;
-      questions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+      questions: ReadonlyArray<QuestionMetadata>;
     }
   > = {
     algo: createQuestionData(algoQuestions),
@@ -226,41 +221,16 @@ export default async function Page({ params }: Props) {
     // JS question embed
     readQuestionJavaScriptContents('flatten', false, locale),
     // UI question embed
-    readQuestionUserInterface({
-      codeId: 'solution-improved',
-      frameworkParam: 'react',
-      isViewerPremium: false,
-      requestedLocale: locale,
-      slug: 'todo-list',
-    }),
-    readQuestionUserInterface({
-      codeId: 'solution-template',
-      frameworkParam: 'vanilla',
-      isViewerPremium: false,
-      requestedLocale: locale,
-      slug: 'todo-list',
-    }),
-    readQuestionUserInterface({
-      codeId: 'solution',
-      frameworkParam: 'angular',
-      isViewerPremium: false,
-      requestedLocale: locale,
-      slug: 'todo-list',
-    }),
-    readQuestionUserInterface({
-      codeId: 'solution',
-      frameworkParam: 'vue',
-      isViewerPremium: false,
-      requestedLocale: locale,
-      slug: 'todo-list',
-    }),
-    readQuestionUserInterface({
-      codeId: 'solution',
-      frameworkParam: 'svelte',
-      isViewerPremium: false,
-      requestedLocale: locale,
-      slug: 'todo-list',
-    }),
+    readQuestionUserInterface('todo-list', false, 'react', 'solution-improved'),
+    readQuestionUserInterface(
+      'todo-list',
+      false,
+      'vanilla',
+      'solution-template',
+    ),
+    readQuestionUserInterface('todo-list', false, 'angular', 'solution'),
+    readQuestionUserInterface('todo-list', false, 'vue', 'solution'),
+    readQuestionUserInterface('todo-list', false, 'svelte', 'solution'),
     // Question list
     fetchQuestionsList({ type: 'format', value: 'javascript' }, locale),
     fetchQuestionsList({ type: 'format', value: 'algo' }, locale),
@@ -268,7 +238,7 @@ export default async function Page({ params }: Props) {
     fetchQuestionsList({ type: 'format', value: 'quiz' }, locale),
     fetchQuestionsList({ type: 'format', value: 'system-design' }, locale),
     // Company guides
-    fetchInterviewsStudyLists('company', locale),
+    fetchInterviewsStudyLists('company'),
   ]);
 
   const questionBankData = getQuestionBankSectionData({
@@ -321,7 +291,6 @@ export default async function Page({ params }: Props) {
           vanilla: todoListVanillaSolutionBundle,
           vue: todoListVueSolutionBundle,
         },
-        info: todoListReactSolutionBundle.info,
         metadata: todoListReactSolutionBundle.metadata,
       }}
     />

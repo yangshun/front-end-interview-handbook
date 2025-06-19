@@ -1,0 +1,27 @@
+{
+  "author": "yangshun",
+  "files": {
+    "/index.html": {
+      "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0\" />\n  </head>\n  <body>\n    <div>\n      <div>\n        <button>HTML</button>\n        <button>CSS</button>\n        <button>JavaScript</button>\n      </div>\n      <div>\n        <p>\n          The HyperText Markup Language or HTML is the\n          standard markup language for documents designed to\n          be displayed in a web browser.\n        </p>\n        <p>\n          Cascading Style Sheets is a style sheet language\n          used for describing the presentation of a document\n          written in a markup language such as HTML or XML.\n        </p>\n        <p>\n          JavaScript, often abbreviated as JS, is a\n          programming language that is one of the core\n          technologies of the World Wide Web, alongside HTML\n          and CSS.\n        </p>\n      </div>\n    </div>\n    <script src=\"src/index.js\"></script>\n  </body>\n</html>\n"
+    },
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/tabs-vanilla-skeleton\",\n  \"author\": \"yangshun\",\n  \"version\": \"0.0.1\",\n  \"private\": true,\n  \"devDependencies\": {\n    \"parcel\": \"2.9.3\"\n  },\n  \"source\": \"index.html\",\n  \"scripts\": {\n    \"start\": \"parcel\",\n    \"build\": \"parcel build\"\n  }\n}\n"
+    },
+    "/src/index.js": {
+      "code": "import './styles.css';\n\n// Write your JavaScript here.\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/index.html",
+      "/src/index.js",
+      "/src/styles.css"
+    ],
+    "activeFile": "/src/index.html",
+    "environment": "parcel"
+  },
+  "writeup": "var Component=(()=>{var f=Object.create;var o=Object.defineProperty;var g=Object.getOwnPropertyDescriptor;var b=Object.getOwnPropertyNames;var x=Object.getPrototypeOf,y=Object.prototype.hasOwnProperty;var v=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),j=(t,e)=>{for(var i in e)o(t,i,{get:e[i],enumerable:!0})},l=(t,e,i,c)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let a of b(e))!y.call(t,a)&&a!==i&&o(t,a,{get:()=>e[a],enumerable:!(c=g(e,a))||c.enumerable});return t};var d=(t,e,i)=>(i=t!=null?f(x(t)):{},l(e||!t||!t.__esModule?o(i,\"default\",{value:t,enumerable:!0}):i,t)),_=t=>l(o({},\"__esModule\",{value:!0}),t);var r=v((T,u)=>{u.exports=_jsx_runtime});var C={};j(C,{default:()=>k});var s=d(r());var n=d(r());function h(t){let e=Object.assign({p:\"p\",h2:\"h2\",ul:\"ul\",li:\"li\",code:\"code\"},t.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.p,{children:\"Build a tabs component that displays one panel of content at a time depending on the active tab element. Some HTML is provided for you as example contents.\"}),`\n`,(0,n.jsx)(e.h2,{children:\"Requirements\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"Clicking on a tab makes it the active tab. Add a visual indication (e.g. using blue text color) for the active tab to differentiate it from the non-active tabs.\"}),`\n`,(0,n.jsx)(e.li,{children:\"At all times, only one panel's contents should be displayed \\u2014 the one corresponding to the active tab's.\"}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"Notes\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"The focus of this question is on functionality, not the styling. There's no need to write any custom CSS except for highlighting the active tab.\"}),`\n`,(0,n.jsxs)(e.li,{children:[\"You may modify the markup (e.g. adding \",(0,n.jsx)(e.code,{children:\"id\"}),\"s, data attributes, replacing some tags, etc) and use client-side rendering instead.\"]}),`\n`,(0,n.jsx)(e.li,{children:\"You may want to think about ways to improve the user experience of the application and implement them (you get bonus credit for doing that during interviews).\"}),`\n`]})]})}function w(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(h,t)})):h(t)}var m=w;function p(t){return(0,s.jsx)(m,{})}function M(t={}){let{wrapper:e}=t.components||{};return e?(0,s.jsx)(e,Object.assign({},t,{children:(0,s.jsx)(p,t)})):p(t)}var k=M;return _(C);})();\n;return Component;"
+}

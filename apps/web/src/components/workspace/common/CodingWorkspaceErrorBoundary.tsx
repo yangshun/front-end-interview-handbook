@@ -5,7 +5,6 @@ import React from 'react';
 
 import Button from '~/components/ui/Button';
 import EmptyState from '~/components/ui/EmptyState';
-import { chunkLoadErrorReload } from '~/logging/chunkErrorReload';
 
 import logEvent from '~/logging/logEvent';
 import logMessage from '~/logging/logMessage';
@@ -33,14 +32,6 @@ export default class CodingWorkspaceErrorBoundary extends React.Component<
   }
 
   componentDidCatch(error: Error & { digest?: string }) {
-    console.error(error);
-    // If the error is a ChunkLoadError, we reload the page to try to load the chunk again because it's likely an intermittent network issue.
-    if (error.name === 'ChunkLoadError') {
-      chunkLoadErrorReload();
-
-      return;
-    }
-
     logMessage({
       level: 'error',
       message: error.message,
@@ -63,7 +54,7 @@ export default class CodingWorkspaceErrorBoundary extends React.Component<
 
     if (hasError) {
       return (
-        <div className="flex size-full flex-col items-center justify-center px-10">
+        <div className="size-full flex flex-col items-center justify-center px-10">
           <EmptyState
             action={
               <Button

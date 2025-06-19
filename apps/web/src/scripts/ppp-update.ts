@@ -3,7 +3,7 @@ import fs from 'fs';
 import url from 'node:url';
 import path from 'path';
 
-import pricing from '../data/purchase/purchasingPowerParity.json' with { type: 'json' };
+import pricing from '../data/purchase/purchasingPowerParity.json' assert { type: 'json' };
 
 export type PurchasingPowerParity = Readonly<{
   countryCodeIsoAlpha2: string;

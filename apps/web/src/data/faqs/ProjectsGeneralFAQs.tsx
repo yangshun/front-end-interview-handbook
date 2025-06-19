@@ -23,9 +23,13 @@ export const projectPricingModel: FAQItem = {
       </p>
       <p>
         <FormattedMessage
-          defaultMessage="Premium provides additional benefits for <strong>serious learners and builders</strong>. This includes access to underlying Figma files, official guides and solutions, as well as complete access to all nodes on our skill roadmap and all available component tracks."
+          defaultMessage="Premium provides additional benefits for{' '}
+        <strong>serious learners and builders</strong>. This includes access to
+        underlying Figma files, official guides and solutions, as well as
+        complete access to all nodes on our skill roadmap and all available
+        component tracks."
           description="Answer to 'Is GreatFrontEnd Projects free?' on projects FAQs"
-          id="sF+kBL"
+          id="hVdKww"
           values={{
             strong: (chunks) => <strong>{chunks}</strong>,
           }}

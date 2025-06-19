@@ -5,6 +5,7 @@
   "created": 1657065600,
   "difficulty": "easy",
   "duration": 15,
+  "excerpt": "Build a temperature converter widget that converts temperature values between Celsius and Fahrenheit",
   "featured": false,
   "format": "user-interface",
   "frameworkDefault": "react",
@@ -44,5 +45,6 @@
   ],
   "slug": "temperature-converter",
   "subtitle": null,
+  "title": "Temperature Converter",
   "topics": []
 }

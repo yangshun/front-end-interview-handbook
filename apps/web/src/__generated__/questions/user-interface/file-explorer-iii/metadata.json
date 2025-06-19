@@ -10,6 +10,7 @@
   "created": 1723766400,
   "difficulty": "medium",
   "duration": 20,
+  "excerpt": "Build a file explorer component using a flat DOM structure",
   "featured": false,
   "format": "user-interface",
   "frameworkDefault": "react",
@@ -33,5 +34,6 @@
   "similarQuestions": [],
   "slug": "file-explorer-iii",
   "subtitle": null,
+  "title": "File Explorer III",
   "topics": []
 }

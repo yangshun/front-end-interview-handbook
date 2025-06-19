@@ -1,5 +1,5 @@
 import type { RoadmapItem } from '@prisma/client';
-import { format } from 'date-fns';
+import format from 'date-fns/format';
 
 import { DEC, JAN, MONTH_DELTA, MONTHS } from './constants';
 import type { RoadmapProduct } from './hooks/useRoadmap';

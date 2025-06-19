@@ -4,7 +4,7 @@ import { RiArrowRightLine } from 'react-icons/ri';
 
 import { useQuestionFormatsData } from '~/data/QuestionCategories';
 
-import type { InterviewsQuestionItemMinimal } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import { countQuestionsTotalDurationMins } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import QuestionsList from '~/components/interviews/questions/listings/items/QuestionsList';
 import useQuestionsWithCompletionStatus from '~/components/interviews/questions/listings/items/useQuestionsWithCompletionStatus';
@@ -16,9 +16,9 @@ import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
 
 type Props = Readonly<{
   questions: {
-    codingQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
-    quizQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
-    systemDesignQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+    codingQuestions: ReadonlyArray<QuestionMetadata>;
+    quizQuestions: ReadonlyArray<QuestionMetadata>;
+    systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
   };
 }>;
 

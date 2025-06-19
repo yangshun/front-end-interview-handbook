@@ -6,7 +6,7 @@ import { trpc } from '~/hooks/trpc';
 
 import Timestamp from '~/components/common/datetime/Timestamp';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
-import type { InterviewsQuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionFrameworkIcon from '~/components/interviews/questions/metadata/QuestionFrameworkIcon';
 import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
@@ -25,7 +25,7 @@ import { useUserInterfaceCodingWorkspaceSavesContext } from './UserInterfaceCodi
 import UserInterfaceCodingWorkspaceSavesListItemActions from './UserInterfaceCodingWorkspaceSavesListItemActions';
 
 type Props = Readonly<{
-  metadata: InterviewsQuestionMetadata;
+  metadata: QuestionMetadata;
 }>;
 
 export default function UserInterfaceCodingWorkspaceSavesList({

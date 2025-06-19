@@ -8,7 +8,6 @@ import { formatBigNumber } from '~/components/common/formatBigNumber';
 import UserProfileInformationRow from '~/components/profile/info/UserProfileInformationRow';
 import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAvatar';
 import Anchor from '~/components/ui/Anchor';
-import Img from '~/components/ui/Img';
 import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 
@@ -101,7 +100,7 @@ export default function ProjectsProfileHoverCard({ userId }: Props) {
                   key={submission.id}
                   className="flex-1"
                   href={submission.hrefs.detail}>
-                  <Img
+                  <img
                     alt={submission.title}
                     className="h-[110px] w-full rounded-md"
                     src={submission.imgSrc}

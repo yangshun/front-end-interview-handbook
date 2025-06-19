@@ -7,6 +7,7 @@ import { RiCheckboxCircleFill } from 'react-icons/ri';
 import { useIntl } from '~/components/intl';
 import type {
   FieldView,
+  ProjectsMotivationReasonFormValues,
   ProjectsProfileEditFormValues,
 } from '~/components/projects/types';
 import Text from '~/components/ui/Text';
@@ -26,7 +27,6 @@ import {
 
 import useProjectsMotivationReasonOptions from '../../hooks/useProjectsMotivationReasonOptions';
 import { MOTIVATION_OTHER_REASON_CHAR_LIMIT } from '../../hooks/useProjectsMotivationReasonSchema';
-import type { ProjectsMotivationReasonFormValues } from '../../onboarding/ProjectsOnboardingMotivationsForm';
 
 type Values =
   | ProjectsMotivationReasonFormValues
@@ -59,7 +59,7 @@ export default function ProjectsProfileMotivationsField({
         const reasons = (
           <div
             className={clsx(
-              'grid items-stretch gap-6 md:grid-cols-2',
+              'grid items-stretch gap-6 md:grid-cols-2 ',
               view === 'onboarding' && 'lg:grid-cols-3',
             )}>
             {reasonOptions.map(({ icon: Icon, id, label }) => {

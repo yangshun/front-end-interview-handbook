@@ -1,0 +1,33 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "easy",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/what-is-the-difference-between-eventpreventdefault-and-eventstoppropagation",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 999,
+    "similarQuestions": [],
+    "slug": "what-is-the-difference-between-eventpreventdefault-and-eventstoppropagation",
+    "subtitle": null,
+    "title": "event.preventDefault() 和 event.stopPropagation() 有什么区别？",
+    "topics": [
+      "web-api",
+      "html",
+      "javascript"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-difference-between-eventpreventdefault-and-eventstoppropagation/zh-CN.mdx"
+  },
+  "solution": "var Component=(()=>{var p=Object.create;var l=Object.defineProperty;var s=Object.getOwnPropertyDescriptor;var v=Object.getOwnPropertyNames;var u=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var f=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),m=(t,e)=>{for(var r in e)l(t,r,{get:e[r],enumerable:!0})},c=(t,e,r,o)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let i of v(e))!g.call(t,i)&&i!==r&&l(t,i,{get:()=>e[i],enumerable:!(o=s(e,i))||o.enumerable});return t};var D=(t,e,r)=>(r=t!=null?p(u(t)):{},c(e||!t||!t.__esModule?l(r,\"default\",{value:t,enumerable:!0}):r,t)),P=t=>c(l({},\"__esModule\",{value:!0}),t);var d=f((S,a)=>{a.exports=_jsx_runtime});var _={};m(_,{default:()=>x,frontmatter:()=>b});var n=D(d()),b={title:\"event.preventDefault() \\u548C event.stopPropagation() \\u6709\\u4EC0\\u4E48\\u533A\\u522B\\uFF1F\"};function h(t){let e=Object.assign({h2:\"h2\",p:\"p\",hr:\"hr\",h3:\"h3\",pre:\"pre\",code:\"code\",ul:\"ul\",li:\"li\",a:\"a\"},t.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{children:\"TL;DR\"}),`\n`,(0,n.jsxs)(e.p,{children:[(0,n.jsx)(\"code\",{children:\"event.preventDefault()\"}),\" \\u7528\\u4E8E\\u963B\\u6B62\\u5C5E\\u4E8E\\u8BE5\\u4E8B\\u4EF6\\u7684\\u9ED8\\u8BA4\\u64CD\\u4F5C\\uFF0C\\u4F8B\\u5982\\u963B\\u6B62\\u8868\\u5355\\u63D0\\u4EA4\\u3002\",(0,n.jsx)(\"code\",{children:\"event.stopPropagation()\"}),\" \\u7528\\u4E8E\\u963B\\u6B62\\u4E8B\\u4EF6\\u5192\\u6CE1\\u5230\\u7236\\u5143\\u7D20\\uFF0C\\u4ECE\\u800C\\u963B\\u6B62\\u4EFB\\u4F55\\u7236\\u4E8B\\u4EF6\\u5904\\u7406\\u7A0B\\u5E8F\\u88AB\\u6267\\u884C\\u3002\"]}),`\n`,(0,n.jsx)(e.hr,{}),`\n`,(0,n.jsx)(e.h2,{children:\"event.preventDefault() \\u548C event.stopPropagation() \\u6709\\u4EC0\\u4E48\\u533A\\u522B\\uFF1F\"}),`\n`,(0,n.jsx)(e.h3,{children:\"event.preventDefault()\"}),`\n`,(0,n.jsxs)(e.p,{children:[(0,n.jsx)(\"code\",{children:\"event.preventDefault()\"}),\" \\u662F\\u4E00\\u79CD\\u65B9\\u6CD5\\uFF0C\\u5982\\u679C\\u4E8B\\u4EF6\\u662F\\u53EF\\u53D6\\u6D88\\u7684\\uFF0C\\u5219\\u53D6\\u6D88\\u8BE5\\u4E8B\\u4EF6\\uFF0C\\u8FD9\\u610F\\u5473\\u7740\\u5C5E\\u4E8E\\u8BE5\\u4E8B\\u4EF6\\u7684\\u9ED8\\u8BA4\\u64CD\\u4F5C\\u5C06\\u4E0D\\u4F1A\\u53D1\\u751F\\u3002\\u4F8B\\u5982\\uFF0C\\u8FD9\\u53EF\\u4EE5\\u7528\\u4E8E\\u963B\\u6B62\\u8868\\u5355\\u63D0\\u4EA4\\uFF1A\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`document.querySelector('form').addEventListener('submit', function (event) {\n  event.preventDefault();\n  // Form submission is prevented\n});\n`})}),`\n`,(0,n.jsx)(e.h3,{children:\"event.stopPropagation()\"}),`\n`,(0,n.jsxs)(e.p,{children:[(0,n.jsx)(\"code\",{children:\"event.stopPropagation()\"}),\" \\u662F\\u4E00\\u79CD\\u65B9\\u6CD5\\uFF0C\\u53EF\\u9632\\u6B62\\u4E8B\\u4EF6\\u5728 DOM \\u6811\\u4E2D\\u5192\\u6CE1\\uFF0C\\u4ECE\\u800C\\u963B\\u6B62\\u4EFB\\u4F55\\u7236\\u5904\\u7406\\u7A0B\\u5E8F\\u6536\\u5230\\u8BE5\\u4E8B\\u4EF6\\u7684\\u901A\\u77E5\\u3002\\u5F53\\u60A8\\u5E0C\\u671B\\u5728\\u7279\\u5B9A\\u7EA7\\u522B\\u5904\\u7406\\u4E8B\\u4EF6\\u5E76\\u4E14\\u4E0D\\u5E0C\\u671B\\u5B83\\u89E6\\u53D1\\u7236\\u5143\\u7D20\\u4E0A\\u7684\\u5904\\u7406\\u7A0B\\u5E8F\\u65F6\\uFF0C\\u8FD9\\u5F88\\u6709\\u7528\\uFF1A\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`document.querySelector('.child').addEventListener('click', function (event) {\n  event.stopPropagation();\n  // Click event will not propagate to parent elements\n});\n`})}),`\n`,(0,n.jsx)(e.h3,{children:\"\\u5173\\u952E\\u533A\\u522B\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(\"code\",{children:\"event.preventDefault()\"}),\" \\u505C\\u6B62\\u4E0E\\u4E8B\\u4EF6\\u5173\\u8054\\u7684\\u9ED8\\u8BA4\\u64CD\\u4F5C\\u3002\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(\"code\",{children:\"event.stopPropagation()\"}),\" \\u963B\\u6B62\\u4E8B\\u4EF6\\u4F20\\u64AD\\uFF08\\u5192\\u6CE1\\uFF09\\u5230\\u7236\\u5143\\u7D20\\u3002\"]}),`\n`]}),`\n`,(0,n.jsx)(e.h3,{children:\"\\u7528\\u4F8B\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsxs)(e.li,{children:[\"\\u5F53\\u60A8\\u60F3\\u963B\\u6B62\\u5143\\u7D20\\u7684\\u9ED8\\u8BA4\\u884C\\u4E3A\\u65F6\\uFF0C\\u8BF7\\u4F7F\\u7528 \",(0,n.jsx)(\"code\",{children:\"event.preventDefault()\"}),\"\\uFF0C\\u4F8B\\u5982\\u963B\\u6B62\\u94FE\\u63A5\\u5BFC\\u822A\\u6216\\u8868\\u5355\\u63D0\\u4EA4\\u3002\"]}),`\n`,(0,n.jsxs)(e.li,{children:[\"\\u5F53\\u60A8\\u60F3\\u963B\\u6B62\\u4E8B\\u4EF6\\u5230\\u8FBE\\u7236\\u5143\\u7D20\\u65F6\\uFF0C\\u8BF7\\u4F7F\\u7528 \",(0,n.jsx)(\"code\",{children:\"event.stopPropagation()\"}),\"\\uFF0C\\u8FD9\\u5728\\u591A\\u4E2A\\u5143\\u7D20\\u5177\\u6709\\u4E8B\\u4EF6\\u4FA6\\u542C\\u5668\\u7684\\u590D\\u6742 UI \\u4E2D\\u5F88\\u6709\\u7528\\u3002\"]}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"\\u5EF6\\u4F38\\u9605\\u8BFB\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault\",children:\"MDN Web \\u6587\\u6863\\uFF1Aevent.preventDefault()\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation\",children:\"MDN Web \\u6587\\u6863\\uFF1Aevent.stopPropagation()\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://javascript.info/bubbling-and-capturing\",children:\"JavaScript \\u4E8B\\u4EF6\\u4F20\\u64AD\"})}),`\n`]})]})}function j(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(h,t)})):h(t)}var x=j;return P(_);})();\n;return Component;"
+}

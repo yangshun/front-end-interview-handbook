@@ -2,16 +2,16 @@
 
 import { useState } from 'react';
 import { RiArrowGoBackLine, RiPlayLine, RiSettings2Line } from 'react-icons/ri';
-import { VscLayout, VscTerminal } from 'react-icons/vsc';
+import { VscLayout } from 'react-icons/vsc';
 
-import { useAuthActiveEngagementPoints } from '~/components/auth/auth-points';
 import QuestionProgressAction from '~/components/interviews/questions/common/QuestionProgressAction';
 import QuestionReportIssueButton from '~/components/interviews/questions/common/QuestionReportIssueButton';
-import type { InterviewsQuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import QuestionNextQuestions from '~/components/interviews/questions/content/QuestionNextQuestions';
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
+import Divider from '~/components/ui/Divider';
 import DropdownMenu from '~/components/ui/DropdownMenu';
-import { useVimMode } from '~/components/workspace/common/editor/hooks/useVimMode';
 
 import logEvent from '~/logging/logEvent';
 
@@ -22,7 +22,8 @@ import JavaScriptCodingWorkspaceLayoutDialog from './JavaScriptCodingWorkspaceLa
 
 type Props = Readonly<{
   layout: 'full' | 'minimal';
-  metadata: InterviewsQuestionMetadata;
+  metadata: QuestionMetadata;
+  nextQuestions: ReadonlyArray<QuestionMetadata>;
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE: string;
   studyListKey?: string;
 }>;
@@ -30,6 +31,7 @@ type Props = Readonly<{
 export default function JavaScriptCodingWorkspaceBottomBar({
   layout,
   metadata,
+  nextQuestions,
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE,
   studyListKey,
 }: Props) {
@@ -37,12 +39,6 @@ export default function JavaScriptCodingWorkspaceBottomBar({
   const { resetToDefaultCode, runTests, status, submit } =
     useCodingWorkspaceContext();
   const [isLayoutDialogOpen, setIsLayoutDialogOpen] = useState(false);
-  const { isVimModeEnabled, toggleVimMode } = useVimMode();
-
-  useAuthActiveEngagementPoints({
-    entityId: metadata.slug,
-    entityType: 'coding',
-  });
 
   const rightPostElements = (
     <>
@@ -122,7 +118,19 @@ export default function JavaScriptCodingWorkspaceBottomBar({
       <div className="hidden lg:inline">
         <CodingWorkspaceTimer qnMetadata={metadata} />
       </div>
-      <QuestionProgressAction metadata={metadata} studyListKey={studyListKey} />
+      <QuestionProgressAction
+        metadata={metadata}
+        signInModalContents={
+          nextQuestions &&
+          nextQuestions.length > 0 && (
+            <div className="mt-4 space-y-4">
+              <Divider />
+              <QuestionNextQuestions questions={nextQuestions} />
+            </div>
+          )
+        }
+        studyListKey={studyListKey}
+      />
       {rightPostElements}
     </>
   );
@@ -160,24 +168,6 @@ export default function JavaScriptCodingWorkspaceBottomBar({
                     setIsLayoutDialogOpen(true);
                   },
                   value: 'layout',
-                },
-                {
-                  icon: VscTerminal,
-                  label: isVimModeEnabled
-                    ? intl.formatMessage({
-                        defaultMessage: 'Disable Vim mode',
-                        description:
-                          'Button label to disable vim mode in editor',
-                        id: 'cnL7HI',
-                      })
-                    : intl.formatMessage({
-                        defaultMessage: 'Enable Vim mode',
-                        description:
-                          'Button label to enable vim mode in editor',
-                        id: 'YeHWje',
-                      }),
-                  onClick: toggleVimMode,
-                  value: 'vim-mode',
                 },
                 {
                   icon: RiArrowGoBackLine,

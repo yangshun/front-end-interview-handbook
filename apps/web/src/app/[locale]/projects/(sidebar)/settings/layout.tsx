@@ -10,10 +10,8 @@ type Props = Readonly<{
   }>;
 }>;
 
-export default async function Layout({ children, params }: Props) {
-  const { locale } = params;
-
-  await redirectToLoginPageIfNotLoggedIn('/projects/settings', locale);
+export default async function Layout({ children }: Props) {
+  await redirectToLoginPageIfNotLoggedIn('/projects/settings');
 
   return <ProjectsSettingsLayout>{children}</ProjectsSettingsLayout>;
 }

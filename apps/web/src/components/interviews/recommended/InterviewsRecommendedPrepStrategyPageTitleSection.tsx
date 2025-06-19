@@ -10,7 +10,7 @@ import Badge from '~/components/ui/Badge';
 import Tooltip from '~/components/ui/Tooltip';
 
 import InterviewsPageHeaderActions from '../common/InterviewsPageHeaderActions';
-import type { InterviewsQuestionItemMinimal } from '../questions/common/QuestionsTypes';
+import type { QuestionMetadata } from '../questions/common/QuestionsTypes';
 import InterviewsStudyListPageTitleSection from '../questions/listings/study-list/InterviewsStudyListPageTitleSection';
 import InterviewsRecommendedPrepStrategyPopover from './InterviewsRecommendedPrepStrategyPopover';
 
@@ -27,7 +27,7 @@ type CommonProps = Readonly<{
     href: string;
     title: string;
   };
-  questions?: ReadonlyArray<InterviewsQuestionItemMinimal>;
+  questions?: ReadonlyArray<QuestionMetadata>;
   studyListKey: string | null;
   title: string;
 }>;

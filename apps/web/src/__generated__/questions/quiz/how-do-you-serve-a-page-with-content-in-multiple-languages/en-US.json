@@ -1,0 +1,32 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "hard",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/how-do-you-serve-a-page-with-content-in-multiple-languages",
+    "importance": "medium",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "how-do-you-serve-a-page-with-content-in-multiple-languages",
+    "subtitle": null,
+    "title": "How do you serve a page with content in multiple languages?",
+    "topics": [
+      "html",
+      "i18n"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/how-do-you-serve-a-page-with-content-in-multiple-languages/en-US.mdx"
+  },
+  "solution": "var Component=(()=>{var d=Object.create;var r=Object.defineProperty;var g=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,m=Object.prototype.hasOwnProperty;var f=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),b=(t,e)=>{for(var a in e)r(t,a,{get:e[a],enumerable:!0})},o=(t,e,a,l)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let i of u(e))!m.call(t,i)&&i!==a&&r(t,i,{get:()=>e[i],enumerable:!(l=g(e,i))||l.enumerable});return t};var v=(t,e,a)=>(a=t!=null?d(p(t)):{},o(e||!t||!t.__esModule?r(a,\"default\",{value:t,enumerable:!0}):a,t)),w=t=>o(r({},\"__esModule\",{value:!0}),t);var c=f((_,s)=>{s.exports=_jsx_runtime});var k={};b(k,{default:()=>j,frontmatter:()=>T});var n=v(c()),T={title:\"How do you serve a page with content in multiple languages?\"};function h(t){let e=Object.assign({blockquote:\"blockquote\",p:\"p\",code:\"code\",h2:\"h2\",ul:\"ul\",li:\"li\",strong:\"strong\"},t.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsxs)(e.blockquote,{children:[`\n`,(0,n.jsx)(e.p,{children:\"Assumption: The question is about how to serve a page with content available in multiple languages and the content within the page should be displayed only in one consistent language.\"}),`\n`]}),`\n`,(0,n.jsx)(e.p,{children:\"Serving a page in different languages is one of the aspects of internationalization (i18n).\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"When an HTTP request is made to a server, the requesting user agent usually sends information about language preferences, such as in the \",(0,n.jsx)(e.code,{children:\"Accept-Language\"}),\" header. The server can then use this information to return a version of the document in the appropriate language if such an alternative is available. The returned HTML document should also declare the \",(0,n.jsx)(e.code,{children:\"lang\"}),\" attribute in the \",(0,n.jsx)(e.code,{children:\"<html>\"}),\" tag, such as \",(0,n.jsx)(e.code,{children:'<html lang=\"en\">...</html>'}),\".\"]}),`\n`,(0,n.jsxs)(e.p,{children:[\"To let a search engine know that the same content is available in different languages, \",(0,n.jsx)(e.code,{children:\"<link>\"}),\" tags with the \",(0,n.jsx)(e.code,{children:'rel=\"alternate\"'}),\" and \",(0,n.jsx)(e.code,{children:'hreflang=\"...\"'}),\" attributes should be used. E.g. \",(0,n.jsx)(e.code,{children:'<link rel=\"alternate\" hreflang=\"de\" href=\"http://de.example.com/page.html\" />'}),\".\"]}),`\n`,(0,n.jsx)(e.h2,{children:\"Rendering\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Server-side rendering:\"}),\" The HTML markup will contain string placeholders and content for the specific language will be fetched from configuration in code or a translation service. The server then dynamically generates the HTML page with content in that particular language.\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Client-side rendering:\"}),\" The appropriate locale strings will be fetched and combined with the JavaScript-based views.\"]}),`\n`]})]})}function x(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(h,t)})):h(t)}var j=x;return w(k);})();\n;return Component;"
+}

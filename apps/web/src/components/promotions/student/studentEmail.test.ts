@@ -1,5 +1,3 @@
-import { describe, expect, test } from 'vitest';
-
 import { isValidStudentEmail } from './studentEmail';
 
 describe('isValidStudentEmail', () => {

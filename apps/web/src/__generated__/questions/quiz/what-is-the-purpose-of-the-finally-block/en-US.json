@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "easy",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/what-is-the-purpose-of-the-finally-block",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 999,
+    "similarQuestions": [],
+    "slug": "what-is-the-purpose-of-the-finally-block",
+    "subtitle": null,
+    "title": "What is the purpose of the `finally` block?",
+    "topics": [
+      "javascript"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-purpose-of-the-finally-block/en-US.mdx"
+  },
+  "solution": "var Component=(()=>{var d=Object.create;var c=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,y=Object.prototype.hasOwnProperty;var g=(r,e)=>()=>(e||r((e={exports:{}}).exports,e),e.exports),m=(r,e)=>{for(var t in e)c(r,t,{get:e[t],enumerable:!0})},a=(r,e,t,l)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of p(e))!y.call(r,o)&&o!==t&&c(r,o,{get:()=>e[o],enumerable:!(l=u(e,o))||l.enumerable});return r};var b=(r,e,t)=>(t=r!=null?d(f(r)):{},a(e||!r||!r.__esModule?c(t,\"default\",{value:r,enumerable:!0}):t,r)),k=r=>a(c({},\"__esModule\",{value:!0}),r);var i=g((T,s)=>{s.exports=_jsx_runtime});var v={};m(v,{default:()=>x,frontmatter:()=>j});var n=b(i()),j={title:\"What is the purpose of the `finally` block?\"};function h(r){let e=Object.assign({h2:\"h2\",p:\"p\",code:\"code\",pre:\"pre\",hr:\"hr\",h3:\"h3\",ul:\"ul\",li:\"li\",a:\"a\"},r.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{children:\"TL;DR\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"The \",(0,n.jsx)(e.code,{children:\"finally\"}),\" block in JavaScript is used to execute code after a \",(0,n.jsx)(e.code,{children:\"try\"}),\" and \",(0,n.jsx)(e.code,{children:\"catch\"}),\" block, regardless of whether an error was thrown or caught. It ensures that certain cleanup or finalization code runs no matter what. For example:\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`try {\n  // Code that may throw an error\n} catch (error) {\n  // Code to handle the error\n} finally {\n  // Code that will always run\n}\n`})}),`\n`,(0,n.jsx)(e.hr,{}),`\n`,(0,n.jsxs)(e.h2,{children:[\"Purpose of the \",(0,n.jsx)(e.code,{children:\"finally\"}),\" block\"]}),`\n`,(0,n.jsx)(e.h3,{children:\"Ensuring cleanup\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"The \",(0,n.jsx)(e.code,{children:\"finally\"}),\" block is often used to ensure that certain cleanup code runs regardless of whether an error occurred or not. This is useful for tasks like closing files, releasing resources, or resetting states.\"]}),`\n`,(0,n.jsx)(e.pre,{live:!0,children:(0,n.jsx)(e.code,{className:\"language-js\",children:`async function fetchData() {\n  try {\n    const response = await fetch(\n      'https://jsonplaceholder.typicode.com/posts/1',\n    );\n    if (!response.ok) {\n      throw new Error(\\`HTTP error! Status: \\${response.status}\\`);\n    }\n    const data = await response.json();\n    console.log('Fetched data:', data);\n  } catch (error) {\n    console.error('An error occurred:', error);\n  } finally {\n    console.log('Cleanup code runs here');\n  }\n}\n\nfetchData();\n// Try creating a typo in the URL to see error handling.\n`})}),`\n`,(0,n.jsx)(e.h3,{children:\"Guaranteeing execution\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"The \",(0,n.jsx)(e.code,{children:\"finally\"}),\" block guarantees that the code within it will execute after the \",(0,n.jsx)(e.code,{children:\"try\"}),\" and \",(0,n.jsx)(e.code,{children:\"catch\"}),\" blocks have finished. This is true even if a \",(0,n.jsx)(e.code,{children:\"return\"}),\" statement is encountered in the \",(0,n.jsx)(e.code,{children:\"try\"}),\" or \",(0,n.jsx)(e.code,{children:\"catch\"}),\" blocks.\"]}),`\n`,(0,n.jsx)(e.pre,{live:!0,children:(0,n.jsx)(e.code,{className:\"language-js\",children:`function exampleFunction() {\n  try {\n    return 'Try block';\n  } catch (error) {\n    return 'Catch block';\n  } finally {\n    console.log('Finally block');\n  }\n}\n\nconsole.log(exampleFunction()); // Output: 'Finally block' followed by 'Try block'\n`})}),`\n`,(0,n.jsx)(e.h3,{children:\"Handling asynchronous code\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"When dealing with asynchronous code, the \",(0,n.jsx)(e.code,{children:\"finally\"}),\" block can be used to ensure that certain actions are taken after a promise is settled, regardless of its outcome.\"]}),`\n`,(0,n.jsx)(e.pre,{live:!0,children:(0,n.jsx)(e.code,{className:\"language-js\",children:`fetch('https://jsonplaceholder.typicode.com/todos/1')\n  .then((response) => response.json())\n  .then((res) => console.log(res))\n  .catch((error) => console.error('Fetch error:', error))\n  .finally(() => console.log('Fetch attempt finished'));\n`})}),`\n`,(0,n.jsx)(e.h2,{children:\"Further reading\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch\",children:\"MDN Web Docs: try...catch\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://javascript.info/try-catch\",children:\"JavaScript.info: try...catch\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/finally\",children:\"MDN Web Docs: Promise.prototype.finally()\"})}),`\n`]})]})}function w(r={}){let{wrapper:e}=r.components||{};return e?(0,n.jsx)(e,Object.assign({},r,{children:(0,n.jsx)(h,r)})):h(r)}var x=w;return k(v);})();\n;return Component;"
+}

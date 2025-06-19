@@ -5,6 +5,7 @@
   "created": 1719964800,
   "difficulty": "medium",
   "duration": 30,
+  "excerpt": "Build a game for two players who take turns to drop colored discs from the top into a vertically suspended board/grid",
   "featured": false,
   "format": "user-interface",
   "frameworkDefault": "react",
@@ -39,5 +40,6 @@
   "similarQuestions": [],
   "slug": "connect-four",
   "subtitle": null,
+  "title": "Connect Four",
   "topics": []
 }

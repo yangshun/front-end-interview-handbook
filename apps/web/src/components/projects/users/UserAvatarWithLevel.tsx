@@ -95,7 +95,7 @@ export default function UserAvatarWithLevel({
       </CircularProgressbarWithChildren>
       <div
         className={clsx(
-          'bg-success text-2xs absolute bottom-0 end-0 flex size-4 items-center justify-center rounded-full font-bold text-white',
+          'bg-success text-2xs size-4 absolute bottom-0 end-0 flex items-center justify-center rounded-full font-bold text-white',
           {
             'h-[30px] w-[30px] text-base': size === '3xl',
           },

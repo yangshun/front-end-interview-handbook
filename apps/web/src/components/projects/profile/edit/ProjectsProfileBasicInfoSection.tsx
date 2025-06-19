@@ -20,10 +20,8 @@ export default function ProjectsProfileBasicInfoSection({
   const intl = useIntl();
   const nameAttrs = getProfileNameAttrs(intl);
 
-  const {
-    control,
-    formState: { dirtyFields, errors, submitCount },
-  } = useFormContext<ProjectsProfileEditFormValues>();
+  const { control, formState } =
+    useFormContext<ProjectsProfileEditFormValues>();
 
   return (
     <div className="flex flex-wrap gap-6 md:flex-nowrap md:gap-16">
@@ -47,8 +45,8 @@ export default function ProjectsProfileBasicInfoSection({
             render={({ field }) => (
               <TextInput
                 errorMessage={
-                  dirtyFields.name || submitCount > 0
-                    ? errors.name?.message
+                  formState.dirtyFields.name || formState.submitCount > 0
+                    ? formState.errors.name?.message
                     : undefined
                 }
                 label={nameAttrs.label}
@@ -64,8 +62,8 @@ export default function ProjectsProfileBasicInfoSection({
             render={({ field }) => (
               <ProjectsProfileUsernameInput
                 errorMessage={
-                  dirtyFields.username || submitCount > 0
-                    ? errors.username?.message
+                  formState.dirtyFields.username || formState.submitCount > 0
+                    ? formState.errors.username?.message
                     : undefined
                 }
                 field={field}

@@ -15,6 +15,7 @@ import {
   FaYelp,
 } from 'react-icons/fa';
 import { FaAtlassian, FaTiktok } from 'react-icons/fa6';
+import { RiOpenaiLine } from 'react-icons/ri';
 import { SiBytedance, SiPalantir, SiToptal } from 'react-icons/si';
 import { TbBrandWalmart } from 'react-icons/tb';
 
@@ -110,6 +111,14 @@ export default function useCompanyNames(): Record<
         id: 'MeV/ww',
       }),
       logo: FaMicrosoft,
+    },
+    openai: {
+      label: intl.formatMessage({
+        defaultMessage: 'OpenAI',
+        description: 'Company name for OpenAI',
+        id: 'syNZit',
+      }),
+      logo: RiOpenaiLine,
     },
     palantir: {
       label: intl.formatMessage({

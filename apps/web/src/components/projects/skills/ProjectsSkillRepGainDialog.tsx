@@ -125,7 +125,7 @@ export default function ProjectsSkillRepGainDialog({
                           themeBackgroundLineEmphasizedColor,
                         )}>
                         <RiFireLine
-                          className={clsx('text-brand size-4 shrink-0')}
+                          className={clsx('size-4 text-brand shrink-0')}
                         />
                         <Text size="body1">+{parentSkill.totalPoints}</Text>
                       </div>

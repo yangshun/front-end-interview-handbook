@@ -1,4 +1,3 @@
-import { useAuthActiveEngagementPoints } from '~/components/auth/auth-points';
 import QuestionReportIssueButton from '~/components/interviews/questions/common/QuestionReportIssueButton';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Badge from '~/components/ui/Badge';
@@ -10,7 +9,7 @@ import Text from '~/components/ui/Text';
 import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
 
 import InterviewsPremiumBadge from '../../../common/InterviewsPremiumBadge';
-import type { QuestionSystemDesign } from '../../common/QuestionsTypes';
+import type { QuestionBase } from '../../common/QuestionsTypes';
 import useQuestionLogEventCopyContents from '../../common/useQuestionLogEventCopyContents';
 import useQuestionsAutoMarkAsComplete from '../../common/useQuestionsAutoMarkAsComplete';
 import QuestionMetadataSection from '../../metadata/QuestionMetadataSection';
@@ -20,7 +19,7 @@ import QuestionContentProse from '../QuestionContentProse';
 type Props = Readonly<{
   canViewPremiumContent: boolean;
   isQuestionLocked: boolean;
-  question: QuestionSystemDesign;
+  question: QuestionBase;
   studyListKey?: string;
 }>;
 
@@ -37,14 +36,10 @@ export default function QuestionContentsSystemDesign({
   );
 
   useQuestionsAutoMarkAsComplete(question.metadata, studyListKey);
-  useAuthActiveEngagementPoints({
-    entityId: question.metadata.slug,
-    entityType: 'system-design',
-  });
 
   const copyRef = useQuestionLogEventCopyContents<HTMLElement>();
 
-  const { description, info, metadata, solution } = question;
+  const { description, metadata, solution } = question;
 
   return (
     <article ref={copyRef} className="flex flex-col gap-y-8">
@@ -59,7 +54,7 @@ export default function QuestionContentsSystemDesign({
           </Text>
           <header className="flex flex-wrap items-center gap-4">
             <Heading className="inline-flex" level="heading4">
-              {info.title}
+              {metadata.title}
             </Heading>
             <div className="flex gap-2">
               {metadata.access === 'premium' && <InterviewsPremiumBadge />}
@@ -94,14 +89,12 @@ export default function QuestionContentsSystemDesign({
           {!isQuestionLocked &&
             metadata.companies &&
             metadata.companies.length > 0 && (
-              <>
-                <QuestionCompanies
-                  canViewPremiumContent={canViewPremiumContent}
-                  companies={metadata.companies}
-                />
-                <Divider />
-              </>
+              <QuestionCompanies
+                canViewPremiumContent={canViewPremiumContent}
+                companies={metadata.companies}
+              />
             )}
+          <Divider />
           <QuestionContentProse contents={description} textSize="md" />
         </div>
         <Divider />

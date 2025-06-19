@@ -1,11 +1,7 @@
 import clsx from 'clsx';
 import type { CSSProperties, ReactNode } from 'react';
-import { Fragment, useCallback, useRef } from 'react';
-import type {
-  ImperativePanelGroupHandle,
-  PanelGroupProps,
-  PanelProps,
-} from 'react-resizable-panels';
+import { Fragment } from 'react';
+import type { PanelGroupProps, PanelProps } from 'react-resizable-panels';
 import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels';
 
 import type { TilesPanelConfig } from '../types';
@@ -26,7 +22,6 @@ type TilesPanelCommonProps<TabType> = Readonly<{
     label: string;
   }>;
   level: number;
-  minSize?: PanelProps['minSize'];
   order?: number;
   parentDirection: PanelGroupProps['direction'];
   renderTab: (tabId: TabType) => JSX.Element;
@@ -46,50 +41,16 @@ type TilesPanelGroupTypeProps<TabType> = Readonly<{
 
 export default function TilesPanel<TabType extends string>({
   defaultSize = 100,
+  disablePointerEventsDuringResize,
   getResizeHandlerProps,
   getTabLabel,
   id,
   level,
-  minSize = 10,
   order,
   parentDirection,
   renderTab,
   ...props
 }: TilesPanelGroupTypeProps<TabType> | TilesPanelItemTypeProps<TabType>) {
-  const panelGroupRef = useRef<ImperativePanelGroupHandle>(null);
-
-  const handleDoubleClick = useCallback((index: number) => {
-    const groupHandle = panelGroupRef.current;
-
-    if (!groupHandle) {
-      return;
-    }
-
-    const currentLayout = groupHandle.getLayout();
-
-    if (index > 0 && index < currentLayout.length) {
-      const panelBeforeIndex = index - 1;
-      const panelAfterIndex = index;
-
-      const sizeBefore = currentLayout[panelBeforeIndex];
-      const sizeAfter = currentLayout[panelAfterIndex];
-
-      if (sizeBefore + sizeAfter <= 0) {
-        return;
-      }
-
-      const combinedSize = sizeBefore + sizeAfter;
-      const equalSize = combinedSize / 2;
-
-      const newLayout = [...currentLayout];
-
-      newLayout[panelBeforeIndex] = equalSize;
-      newLayout[panelAfterIndex] = equalSize;
-
-      groupHandle.setLayout(newLayout);
-    }
-  }, []);
-
   if (props.type === 'item') {
     const panel = (
       <TilesPanelItem
@@ -112,7 +73,10 @@ export default function TilesPanel<TabType extends string>({
     );
 
     return level === 0 ? (
-      <PanelGroup className="relative" direction="horizontal">
+      <PanelGroup
+        className="relative"
+        direction="horizontal"
+        disablePointerEventsDuringResize={disablePointerEventsDuringResize}>
         {panel}
       </PanelGroup>
     ) : (
@@ -124,33 +88,29 @@ export default function TilesPanel<TabType extends string>({
 
   const group = (
     <PanelGroup
-      ref={panelGroupRef}
       className={clsx(level === 0 && 'relative')}
       direction={groupDirection}
+      disablePointerEventsDuringResize={disablePointerEventsDuringResize}
       id={String(id)}>
       {props.items.map((item, index) => {
         const itemSizeEqual = 100 / Math.max(props.items.length, 1);
 
-        const resizeHandlerProps = getResizeHandlerProps(
-          groupDirection === 'horizontal' ? 'vertical' : 'horizontal',
-        );
-
         return (
           <Fragment key={'fragment-' + item.id}>
             {index > 0 && (
-              <div
-                key={'handle-wrapper-' + item.id}
-                className={resizeHandlerProps.className}
-                style={resizeHandlerProps.style}
-                onDoubleClick={() => handleDoubleClick(index)}>
-                <PanelResizeHandle className="h-full w-full">
-                  {resizeHandlerProps.children}
-                </PanelResizeHandle>
-              </div>
+              <PanelResizeHandle
+                key={'handle-' + item.id}
+                {...getResizeHandlerProps(
+                  groupDirection === 'horizontal' ? 'vertical' : 'horizontal',
+                )}
+              />
             )}
             <TilesPanel
               key={item.id}
               defaultSize={item.defaultSize ?? itemSizeEqual}
+              disablePointerEventsDuringResize={
+                disablePointerEventsDuringResize
+              }
               getResizeHandlerProps={getResizeHandlerProps}
               getTabLabel={getTabLabel}
               level={level + 1}
@@ -170,12 +130,7 @@ export default function TilesPanel<TabType extends string>({
   return level === 0 ? (
     group
   ) : (
-    <Panel
-      key={id}
-      defaultSize={defaultSize}
-      id={String(id)}
-      minSize={minSize}
-      order={order}>
+    <Panel key={id} defaultSize={defaultSize} id={String(id)} order={order}>
       {group}
     </Panel>
   );

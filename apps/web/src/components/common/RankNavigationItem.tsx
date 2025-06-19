@@ -35,7 +35,7 @@ export default function RankNavigationItem({
         <div
           aria-hidden="true"
           className={clsx(
-            'flex size-5 shrink-0 items-center justify-center rounded-full',
+            'size-5 flex shrink-0 items-center justify-center rounded-full',
             'font-bold text-neutral-500 dark:text-neutral-400',
             themeBackgroundChipColor,
           )}

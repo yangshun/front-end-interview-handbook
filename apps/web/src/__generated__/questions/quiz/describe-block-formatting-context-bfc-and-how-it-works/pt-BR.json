@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "hard",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/describe-block-formatting-context-bfc-and-how-it-works",
+    "importance": "medium",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "describe-block-formatting-context-bfc-and-how-it-works",
+    "subtitle": null,
+    "title": "Descrever o contexto de formatação de bloco (BFC) e como ele funciona.",
+    "topics": [
+      "css"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/describe-block-formatting-context-bfc-and-how-it-works/pt-BR.mdx"
+  },
+  "solution": "var Component=(()=>{var m=Object.create;var d=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var u=Object.getPrototypeOf,b=Object.prototype.hasOwnProperty;var f=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),x=(n,e)=>{for(var a in e)d(n,a,{get:e[a],enumerable:!0})},r=(n,e,a,i)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let c of p(e))!b.call(n,c)&&c!==a&&d(n,c,{get:()=>e[c],enumerable:!(i=h(e,c))||i.enumerable});return n};var g=(n,e,a)=>(a=n!=null?m(u(n)):{},r(e||!n||!n.__esModule?d(a,\"default\",{value:n,enumerable:!0}):a,n)),_=n=>r(d({},\"__esModule\",{value:!0}),n);var t=f((F,l)=>{l.exports=_jsx_runtime});var j={};x(j,{default:()=>S,frontmatter:()=>v});var o=g(t()),v={title:\"Descrever o contexto de formata\\xE7\\xE3o de bloco (BFC) e como ele funciona.\"};function s(n){let e=Object.assign({p:\"p\",code:\"code\",a:\"a\",ul:\"ul\",li:\"li\"},n.components);return(0,o.jsxs)(o.Fragment,{children:[(0,o.jsxs)(e.p,{children:[\"Um Contexto de Formata\\xE7\\xE3o de Bloco (BFC) \\xE9 parte da renderiza\\xE7\\xE3o visual do CSS em uma p\\xE1gina da web, no qual os blocos s\\xE3o organizados. Elementos flutuantes, posicionados absolutamente, \",(0,o.jsx)(e.code,{children:\"inline-blocks\"}),\", \",(0,o.jsx)(e.code,{children:\"table-cells\"}),\", \",(0,o.jsx)(e.code,{children:\"table-captions\"}),\" e elementos com \",(0,o.jsx)(e.code,{children:\"overflow\"}),\" diferente de \",(0,o.jsx)(e.code,{children:\"visible\"}),\" (exceto quando esse valor foi propagado para a \\xE1rea vis\\xEDvel) estabelecem novos contextos de formata\\xE7\\xE3o de bloco.\"]}),`\n`,(0,o.jsxs)(e.p,{children:[\"Saber estabelecer um contexto de formata\\xE7\\xE3o de blocos \\xE9 importante, porque sem fazer isso, a caixa de conten\\xE7\\xE3o n\\xE3o \",(0,o.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context#Make_float_content_and_alongside_content_the_same_height\",children:\"conter\\xE1 filhos floated\"}),\". Isso \\xE9 semelhante ao colapso das margens, mas mais insidioso, pois voc\\xEA encontrar\\xE1 caixas inteiras colapsando de maneiras estranhas.\"]}),`\n`,(0,o.jsx)(e.p,{children:\"Um BFC \\xE9 uma caixa HTML que atende pelo menos uma das seguintes condi\\xE7\\xF5es:\"}),`\n`,(0,o.jsxs)(e.ul,{children:[`\n`,(0,o.jsxs)(e.li,{children:[\"O valor de \",(0,o.jsx)(e.code,{children:\"float\"}),\" n\\xE3o \\xE9 \",(0,o.jsx)(e.code,{children:\"none\"}),\".\"]}),`\n`,(0,o.jsxs)(e.li,{children:[\"O valor de \",(0,o.jsx)(e.code,{children:\"posi\\xE7\\xE3o\"}),\" n\\xE3o \\xE9 \",(0,o.jsx)(e.code,{children:\"static\"}),\" nem \",(0,o.jsx)(e.code,{children:\"relative\"}),\".\"]}),`\n`,(0,o.jsxs)(e.li,{children:[\"O valor de \",(0,o.jsx)(e.code,{children:\"display\"}),\" \\xE9 \",(0,o.jsx)(e.code,{children:\"table-cell\"}),\", \",(0,o.jsx)(e.code,{children:\"table-caption\"}),\", \",(0,o.jsx)(e.code,{children:\"inline-block\"}),\", \",(0,o.jsx)(e.code,{children:\"flex\"}),\", or \",(0,o.jsx)(e.code,{children:\"inline-flex\"}),\", \",(0,o.jsx)(e.code,{children:\"grid\"}),\", or \",(0,o.jsx)(e.code,{children:\"inline-grid\"}),\".\"]}),`\n`,(0,o.jsxs)(e.li,{children:[\"O valor de \",(0,o.jsx)(e.code,{children:\"float\"}),\" n\\xE3o \\xE9 \",(0,o.jsx)(e.code,{children:\"none\"}),\".\"]}),`\n`]}),`\n`,(0,o.jsx)(e.p,{children:\"Em um BFC, a borda externa esquerda de cada caixa toca a borda esquerda do bloco cont\\xEAiner (para formata\\xE7\\xE3o da direita para a esquerda, as bordas direitas se tocam).\"}),`\n`,(0,o.jsxs)(e.p,{children:[\"As margens verticais entre caixas adjacentes de n\\xEDvel de bloco em um BFC colapsam. Leia mais em \",(0,o.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing\",children:\"margens de recolhimento\"}),\".\"]})]})}function C(n={}){let{wrapper:e}=n.components||{};return e?(0,o.jsx)(e,Object.assign({},n,{children:(0,o.jsx)(s,n)})):s(n)}var S=C;return _(j);})();\n;return Component;"
+}

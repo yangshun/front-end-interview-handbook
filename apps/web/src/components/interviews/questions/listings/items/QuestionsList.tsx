@@ -22,11 +22,11 @@ import { hashQuestion } from '~/db/QuestionsUtils';
 import InterviewsPremiumBadge from '../../../common/InterviewsPremiumBadge';
 import { questionHrefFrameworkSpecificAndListType } from '../../common/QuestionHrefUtils';
 import type {
-  InterviewsQuestionItemMinimal,
   QuestionFramework,
   QuestionListTypeData,
+  QuestionMetadata,
 } from '../../common/QuestionsTypes';
-import { InterviewsQuestionsSystemDesignReady } from '../../content/system-design/InterviewsQuestionsSystemDesignConfig';
+import { ReadyQuestions } from '../../content/system-design/SystemDesignConfig';
 import QuestionDifficultyLabel from '../../metadata/QuestionDifficultyLabel';
 import QuestionFormatLabel from '../../metadata/QuestionFormatLabel';
 import QuestionFrameworks from '../../metadata/QuestionFrameworks';
@@ -37,7 +37,7 @@ import QuestionTopics from '../../metadata/QuestionTopics';
 import QuestionUsersCompletedLabel from '../../metadata/QuestionUsersCompletedLabel';
 import QuestionsListItemProgressChip from './QuestionsListItemProgressChip';
 
-type Props<Q extends InterviewsQuestionItemMinimal> = Readonly<{
+type Props<Q extends QuestionMetadata> = Readonly<{
   checkIfCompletedQuestion: (question: Q) => boolean;
   checkIfCompletedQuestionBefore?: (question: Q) => boolean;
   framework?: QuestionFramework;
@@ -53,7 +53,7 @@ type Props<Q extends InterviewsQuestionItemMinimal> = Readonly<{
   showProgress?: boolean;
 }>;
 
-export default function QuestionsList<Q extends InterviewsQuestionItemMinimal>({
+export default function QuestionsList<Q extends QuestionMetadata>({
   checkIfCompletedQuestion,
   checkIfCompletedQuestionBefore,
   framework,
@@ -100,22 +100,21 @@ export default function QuestionsList<Q extends InterviewsQuestionItemMinimal>({
         ['divide-y', themeDivideColor],
         ['border', themeBorderColor],
       )}>
-      {questions.map((question, index) => {
-        const hasCompletedQuestion = checkIfCompletedQuestion(question);
-        const { info, metadata } = question;
+      {questions.map((questionMetadata, index) => {
+        const hasCompletedQuestion = checkIfCompletedQuestion(questionMetadata);
         const hasCompletedQuestionBefore = checkIfCompletedQuestionBefore
-          ? checkIfCompletedQuestionBefore(question)
+          ? checkIfCompletedQuestionBefore(questionMetadata)
           : false;
 
         const questionHref = questionHrefFrameworkSpecificAndListType(
-          metadata,
+          questionMetadata,
           listType,
           framework,
         );
 
         return (
           <li
-            key={hashQuestion(metadata)}
+            key={hashQuestion(questionMetadata)}
             className={clsx(
               'group relative',
               'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
@@ -127,7 +126,7 @@ export default function QuestionsList<Q extends InterviewsQuestionItemMinimal>({
               index === questions.length - 1 && 'rounded-b-lg',
             )}>
             <div className={clsx('flex gap-x-4 px-6 py-5 md:py-4', 'isolate')}>
-              <QuestionNewLabel created={metadata.created} />
+              <QuestionNewLabel created={questionMetadata.created} />
               {showProgress && (
                 <QuestionsListItemProgressChip
                   className="z-[1]" // Needed for the icon to be above the link.
@@ -135,7 +134,7 @@ export default function QuestionsList<Q extends InterviewsQuestionItemMinimal>({
                   hasCompletedQuestionBefore={hasCompletedQuestionBefore}
                   index={mode === 'study-list' ? index : undefined}
                   premiumUser={userProfile?.isInterviewsPremium}
-                  question={question}
+                  question={questionMetadata}
                   onMarkAsCompleted={onMarkAsCompleted}
                   onMarkAsNotCompleted={onMarkAsNotCompleted}
                 />
@@ -151,10 +150,10 @@ export default function QuestionsList<Q extends InterviewsQuestionItemMinimal>({
                     variant="unstyled">
                     {/* Extend touch target to entire panel */}
                     <span aria-hidden="true" className="absolute inset-0" />
-                    {info.title}
+                    {questionMetadata.title}
                   </Anchor>
                   {/* TODO(interviews): remove hardcoding of "counter" and shift it into metadata */}
-                  {metadata.slug === 'counter' && (
+                  {questionMetadata.slug === 'counter' && (
                     <Badge
                       label={intl.formatMessage({
                         defaultMessage: 'Warm up question',
@@ -165,11 +164,11 @@ export default function QuestionsList<Q extends InterviewsQuestionItemMinimal>({
                       variant="warning"
                     />
                   )}
-                  {metadata.access === 'premium' && <InterviewsPremiumBadge />}
-                  {metadata.format === 'system-design' &&
-                    !InterviewsQuestionsSystemDesignReady.includes(
-                      metadata.slug,
-                    ) && (
+                  {questionMetadata.access === 'premium' && (
+                    <InterviewsPremiumBadge />
+                  )}
+                  {questionMetadata.format === 'system-design' &&
+                    !ReadyQuestions.includes(questionMetadata.slug) && (
                       <Badge
                         label={intl.formatMessage({
                           defaultMessage: 'Coming soon',
@@ -182,9 +181,9 @@ export default function QuestionsList<Q extends InterviewsQuestionItemMinimal>({
                       />
                     )}
                 </Text>
-                {info.excerpt && (
+                {questionMetadata.excerpt && (
                   <Text className="mt-2 block" color="secondary" size="body2">
-                    {info.excerpt}
+                    {questionMetadata.excerpt}
                   </Text>
                 )}
                 <div
@@ -195,41 +194,45 @@ export default function QuestionsList<Q extends InterviewsQuestionItemMinimal>({
                   <span className="inline-flex">
                     <QuestionFormatLabel
                       showIcon={true}
-                      value={metadata.format}
+                      value={questionMetadata.format}
                     />
                   </span>
                   <span className="inline-flex">
                     {primaryLabel === 'difficulty' && (
                       <QuestionDifficultyLabel
                         showIcon={true}
-                        value={metadata.difficulty}
+                        value={questionMetadata.difficulty}
                       />
                     )}
                     {primaryLabel === 'importance' && (
                       <QuestionImportanceLabel
                         showIcon={true}
-                        value={metadata.importance}
+                        value={questionMetadata.importance}
                       />
                     )}
                   </span>
                   {(() => {
-                    switch (metadata.format) {
+                    switch (questionMetadata.format) {
                       case 'algo':
                       case 'javascript':
                         return (
-                          <QuestionLanguages languages={metadata.languages} />
+                          <QuestionLanguages
+                            languages={questionMetadata.languages}
+                          />
                         );
                       case 'user-interface':
                         return (
                           <QuestionFrameworks
-                            frameworks={metadata.frameworks}
+                            frameworks={questionMetadata.frameworks}
                             listType={listType}
                           />
                         );
                       case 'quiz':
                       case 'system-design':
-                        if (metadata.topics.length > 0) {
-                          return <QuestionTopics topics={metadata.topics} />;
+                        if (questionMetadata.topics.length > 0) {
+                          return (
+                            <QuestionTopics topics={questionMetadata.topics} />
+                          );
                         }
 
                         return null;
@@ -239,8 +242,8 @@ export default function QuestionsList<Q extends InterviewsQuestionItemMinimal>({
                   })()}
                   {(() => {
                     const count =
-                      questionCompletionCount?.[metadata.format]?.[
-                        metadata.slug
+                      questionCompletionCount?.[questionMetadata.format]?.[
+                        questionMetadata.slug
                       ];
 
                     if (count == null) {
@@ -273,7 +276,7 @@ export default function QuestionsList<Q extends InterviewsQuestionItemMinimal>({
             {index === questions.length - 1 && showOverlayAtLastItem && (
               <div
                 className={clsx(
-                  'absolute inset-0 size-full',
+                  'size-full absolute inset-0',
                   'rounded-[inherit]',
                   'bg-gradient-to-b from-transparent to-white backdrop-blur-[4px] dark:to-neutral-900',
                 )}

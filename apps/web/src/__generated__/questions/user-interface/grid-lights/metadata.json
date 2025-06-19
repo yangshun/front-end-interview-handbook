@@ -7,6 +7,7 @@
   "created": 1671148800,
   "difficulty": "medium",
   "duration": 20,
+  "excerpt": "Build a grid of lights where the lights deactivate in the reverse order they were activated",
   "featured": false,
   "format": "user-interface",
   "frameworkDefault": "react",
@@ -41,6 +42,7 @@
   "similarQuestions": [],
   "slug": "grid-lights",
   "subtitle": null,
+  "title": "Grid Lights",
   "topics": [
     "a11y",
     "async"

@@ -8,6 +8,7 @@
   "created": 1723766400,
   "difficulty": "medium",
   "duration": 20,
+  "excerpt": "Build a semi-accessible modal dialog component that has the right ARIA roles, states, and properties",
   "featured": false,
   "format": "user-interface",
   "frameworkDefault": "react",
@@ -32,6 +33,7 @@
   "similarQuestions": [],
   "slug": "modal-dialog-ii",
   "subtitle": null,
+  "title": "Modal Dialog II",
   "topics": [
     "a11y"
   ]

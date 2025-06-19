@@ -1,4 +1,7 @@
+import { cookies } from 'next/headers';
 import type { Metadata } from 'next/types';
+
+import fetchProjectsPricingPlanPaymentConfigLocalizedRecord from '~/components/projects/purchase/fetchProjectsPricingPlanPaymentConfigLocalizedRecord';
 
 import { getIntlServerOnly } from '~/i18n';
 import defaultProjectsMetadata from '~/seo/defaultProjectsMetadata';
@@ -34,5 +37,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page() {
-  return <ProjectsPaymentSuccessPage />;
+  const cookieStore = cookies();
+  const countryCode: string = cookieStore.get('country')?.value ?? 'US';
+  const plansPaymentConfig =
+    await fetchProjectsPricingPlanPaymentConfigLocalizedRecord(countryCode);
+
+  return <ProjectsPaymentSuccessPage plansPaymentConfig={plansPaymentConfig} />;
 }

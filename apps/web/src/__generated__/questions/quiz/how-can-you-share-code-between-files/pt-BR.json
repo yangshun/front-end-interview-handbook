@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/how-can-you-share-code-between-files",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 999,
+    "similarQuestions": [],
+    "slug": "how-can-you-share-code-between-files",
+    "subtitle": null,
+    "title": "Como você pode compartilhar código entre arquivos?",
+    "topics": [
+      "javascript"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-can-you-share-code-between-files/pt-BR.mdx"
+  },
+  "solution": "var Component=(()=>{var u=Object.create;var r=Object.defineProperty;var l=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var v=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var b=(o,e)=>()=>(e||o((e={exports:{}}).exports,e),e.exports),f=(o,e)=>{for(var n in e)r(o,n,{get:e[n],enumerable:!0})},d=(o,e,n,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let t of p(e))!x.call(o,t)&&t!==n&&r(o,t,{get:()=>e[t],enumerable:!(s=l(e,t))||s.enumerable});return o};var j=(o,e,n)=>(n=o!=null?u(v(o)):{},d(e||!o||!o.__esModule?r(n,\"default\",{value:o,enumerable:!0}):n,o)),g=o=>d(r({},\"__esModule\",{value:!0}),o);var m=b((D,i)=>{i.exports=_jsx_runtime});var C={};f(C,{default:()=>q,frontmatter:()=>h});var a=j(m()),h={title:\"Como voc\\xEA pode compartilhar c\\xF3digo entre arquivos?\"};function c(o){let e=Object.assign({p:\"p\",code:\"code\"},o.components);return(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)(e.p,{children:\"Isto depende do ambiente JavaScript.\"}),`\n`,(0,a.jsxs)(e.p,{children:[\"No cliente (ambiente do navegador), desde que as vari\\xE1veis/fun\\xE7\\xF5es sejam declaradas no escopo global (\",(0,a.jsx)(e.code,{children:\"window\"}),\"), todos os scripts podem se referir a elas. Alternativamente, adote a Defini\\xE7\\xE3o de M\\xF3dulo Ass\\xEDncrono (AMD) por meio do RequireJS para uma abordagem mais modular.\"]}),`\n`,(0,a.jsxs)(e.p,{children:[\"No servidor (Node.js), a maneira comum tem sido usar o CommonJS. Cada arquivo \\xE9 tratado como um m\\xF3dulo e pode exportar vari\\xE1veis e fun\\xE7\\xF5es anexando-os ao objeto \",(0,a.jsx)(e.code,{children:\"module.exports\"}),\".\"]}),`\n`,(0,a.jsx)(e.p,{children:\"ES2015 define uma sintaxe de m\\xF3dulo que visa substituir tanto o AMD quanto o CommonJS. Isso eventualmente ser\\xE1 suportado em ambos os ambientes de navegador e Node.\"})]})}function _(o={}){let{wrapper:e}=o.components||{};return e?(0,a.jsx)(e,Object.assign({},o,{children:(0,a.jsx)(c,o)})):c(o)}var q=_;return g(C);})();\n;return Component;"
+}

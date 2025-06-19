@@ -44,12 +44,7 @@ export default function ProjectsChallengeSubmissionDeploymentUrlItemFormDialog({
     values,
   });
 
-  const {
-    control,
-    formState: { dirtyFields, errors, submitCount },
-    handleSubmit,
-    reset,
-  } = formMethods;
+  const { control, formState, handleSubmit, reset } = formMethods;
 
   useEffect(() => {
     reset();
@@ -113,8 +108,8 @@ export default function ProjectsChallengeSubmissionDeploymentUrlItemFormDialog({
             <TextInput
               autoFocus={true}
               errorMessage={
-                dirtyFields.label || submitCount > 0
-                  ? errors.label?.message
+                formState.dirtyFields.label || formState.submitCount > 0
+                  ? formState.errors.label?.message
                   : undefined
               }
               label={intl.formatMessage({
@@ -134,8 +129,8 @@ export default function ProjectsChallengeSubmissionDeploymentUrlItemFormDialog({
           render={({ field }) => (
             <TextInput
               errorMessage={
-                dirtyFields.href || submitCount > 0
-                  ? errors.href?.message
+                formState.dirtyFields.href || formState.submitCount > 0
+                  ? formState.errors.href?.message
                   : undefined
               }
               label="URL"

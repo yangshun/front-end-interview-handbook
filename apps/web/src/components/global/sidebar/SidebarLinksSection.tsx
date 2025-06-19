@@ -109,7 +109,7 @@ function SidebarLinkItem({
         {Icon && showIcon && (
           <Icon
             className={clsx(
-              'group-hover:animate-wiggle size-4 shrink-0 origin-bottom',
+              'size-4 group-hover:animate-wiggle shrink-0 origin-bottom',
               isActive && themeTextSubtitleColor,
             )}
           />

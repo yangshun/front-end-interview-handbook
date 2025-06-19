@@ -14,8 +14,8 @@ import { useUserProfile } from '~/components/global/UserProfileProvider';
 import useInterviewsQuestionsFeatures from '~/components/interviews/common/useInterviewsQuestionsFeatures';
 import InterviewsPurchasePaywall from '~/components/interviews/purchase/InterviewsPurchasePaywall';
 import type {
-  InterviewsQuestionItemMinimal,
   QuestionFormat,
+  QuestionMetadata,
   QuestionSlug,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import { StudyPlanIcons } from '~/components/interviews/questions/content/study-list/StudyListUtils';
@@ -33,7 +33,7 @@ import {
 
 type Props = Readonly<{
   bottomContent?: InterviewsListingBottomContent;
-  questions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+  questions: ReadonlyArray<QuestionMetadata>;
   questionsSlugs: Record<QuestionFormat, ReadonlyArray<QuestionSlug>>;
   studyList: InterviewsStudyList;
 }>;

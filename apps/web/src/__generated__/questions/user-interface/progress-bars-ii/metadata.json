@@ -7,6 +7,7 @@
   "created": 1671321600,
   "difficulty": "medium",
   "duration": 20,
+  "excerpt": "Build a list of progress bars that fill up gradually in sequence, one at a time",
   "featured": false,
   "format": "user-interface",
   "frameworkDefault": "react",
@@ -31,6 +32,7 @@
   "similarQuestions": [],
   "slug": "progress-bars-ii",
   "subtitle": null,
+  "title": "Progress Bars II",
   "topics": [
     "async"
   ]

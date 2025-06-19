@@ -8,6 +8,7 @@
   "created": 1723766400,
   "difficulty": "hard",
   "duration": 30,
+  "excerpt": "Build a fully-accessible modal dialog component that supports all required keyboard interactions",
   "featured": false,
   "format": "user-interface",
   "frameworkDefault": "react",
@@ -29,6 +30,7 @@
   "similarQuestions": [],
   "slug": "modal-dialog-iv",
   "subtitle": null,
+  "title": "Modal Dialog IV",
   "topics": [
     "a11y"
   ]

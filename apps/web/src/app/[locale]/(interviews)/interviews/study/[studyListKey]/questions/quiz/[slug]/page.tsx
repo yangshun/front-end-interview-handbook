@@ -1,4 +1,4 @@
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import type { Metadata } from 'next/types';
 
 import InterviewsPurchaseStudyListPaywallPage from '~/components/interviews/purchase/InterviewsPurchaseStudyListPaywallPage';
@@ -7,7 +7,6 @@ import QuestionQuizContents from '~/components/interviews/questions/content/quiz
 import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
 import { readQuestionQuizContents } from '~/db/QuestionsContentsReader';
 import { getIntlServerOnly } from '~/i18n';
-import i18nRedirect from '~/next-i18nostic/src/utils/i18nRedirect';
 import defaultMetadata from '~/seo/defaultMetadata';
 import {
   createSupabaseAdminClientGFE_SERVER_ONLY,
@@ -37,11 +36,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { question } = quizQuestionContents;
 
   return defaultMetadata({
-    description: question.info.excerpt ?? '',
+    description: question.metadata.excerpt ?? '',
     locale,
-    ogImageTitle: question.info.title,
+    ogImageTitle: question.metadata.title,
     pathname: question.metadata.href,
-    socialTitle: question.info.title,
+    socialTitle: question.metadata.title,
     title: intl.formatMessage(
       {
         defaultMessage:
@@ -50,7 +49,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         id: 'wTdDt/',
       },
       {
-        questionTitle: question.info.title,
+        questionTitle: question.metadata.title,
       },
     ),
   });
@@ -82,7 +81,7 @@ export default async function Page({ params }: Props) {
     return profile?.premium ?? false;
   })();
 
-  const studyList = await fetchInterviewsStudyList(studyListKey, locale);
+  const studyList = await fetchInterviewsStudyList(studyListKey);
 
   if (studyList == null) {
     return notFound();
@@ -100,7 +99,7 @@ export default async function Page({ params }: Props) {
   const { exactMatch, question } = quizQuestion;
 
   if (!exactMatch) {
-    i18nRedirect(quizQuestion.question.metadata.slug, { locale });
+    redirect(quizQuestion.question.metadata.slug);
   }
 
   return isStudyListLockedForViewer ? (

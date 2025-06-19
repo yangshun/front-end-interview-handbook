@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/describe-pseudo-elements-and-discuss-what-they-are-used-for",
+    "importance": "medium",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "describe-pseudo-elements-and-discuss-what-they-are-used-for",
+    "subtitle": null,
+    "title": "Descreva pseudo-elementos e discuta para que eles são usados.",
+    "topics": [
+      "css"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/describe-pseudo-elements-and-discuss-what-they-are-used-for/pt-BR.mdx"
+  },
+  "solution": "var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var S=(s,e)=>()=>(e||s((e={exports:{}}).exports,e),e.exports),b=(s,e)=>{for(var a in e)r(s,a,{get:e[a],enumerable:!0})},i=(s,e,a,d)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let n of h(e))!f.call(s,n)&&n!==a&&r(s,n,{get:()=>e[n],enumerable:!(d=u(e,n))||d.enumerable});return s};var g=(s,e,a)=>(a=s!=null?m(p(s)):{},i(e||!s||!s.__esModule?r(a,\"default\",{value:s,enumerable:!0}):a,s)),v=s=>i(r({},\"__esModule\",{value:!0}),s);var c=S((q,t)=>{t.exports=_jsx_runtime});var j={};b(j,{default:()=>C,frontmatter:()=>x});var o=g(c()),x={title:\"Descreva pseudo-elementos e discuta para que eles s\\xE3o usados.\"};function l(s){let e=Object.assign({p:\"p\",a:\"a\",code:\"code\",ul:\"ul\",li:\"li\",h2:\"h2\",em:\"em\"},s.components);return(0,o.jsxs)(o.Fragment,{children:[(0,o.jsxs)(e.p,{children:[\"Um CSS \",(0,o.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements\",children:\"pseudo-element\"}),\" \\xE9 uma palavra-chave adicionada a um seletor que permite estilizar uma parte espec\\xEDfica do(s) elemento(s) selecionado(s). Eles podem ser usados para decora\\xE7\\xE3o (\",(0,o.jsx)(e.code,{children:\"::first-line\"}),\", \",(0,o.jsx)(e.code,{children:\"::first-letter\"}),\") ou adicionando elementos \\xE0 marca\\xE7\\xE3o (combinado com \",(0,o.jsx)(e.code,{children:\"content: ...\"}),\") sem ter que modificar a marca\\xE7\\xE3o (\",(0,o.jsx)(e.code,{children:\":before\"}),\", \",(0,o.jsx)(e.code,{children:\":after\"}),\").\"]}),`\n`,(0,o.jsxs)(e.ul,{children:[`\n`,(0,o.jsxs)(e.li,{children:[(0,o.jsx)(e.code,{children:\"::first-line\"}),\" e \",(0,o.jsx)(e.code,{children:\"::first-letter\"}),\" podem ser usados para decorar o texto.\"]}),`\n`,(0,o.jsxs)(e.li,{children:[\"Usado no truque \",(0,o.jsx)(e.code,{children:\".clearfix\"}),\" conforme mostrado acima, para adicionar um elemento de espa\\xE7o zero com \",(0,o.jsx)(e.code,{children:\"clear: both\"}),\".\"]}),`\n`,(0,o.jsxs)(e.li,{children:[\"As setas triangulares em tooltips utilizam \",(0,o.jsx)(e.code,{children:\"::before\"}),\" e \",(0,o.jsx)(e.code,{children:\"::after\"}),\". Incentiva a separa\\xE7\\xE3o de responsabilidades porque o tri\\xE2ngulo \\xE9 considerado parte do estilo e n\\xE3o realmente do DOM.\"]}),`\n`]}),`\n`,(0,o.jsx)(e.h2,{children:\"Notas\"}),`\n`,(0,o.jsxs)(e.ul,{children:[`\n`,(0,o.jsxs)(e.li,{children:[\"Pseudo-elementos s\\xE3o diferentes de \",(0,o.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes\",children:\"pseudo-classes\"}),\", que s\\xE3o usados para estilizar um elemento baseado em seu \",(0,o.jsx)(e.em,{children:\"state\"}),\" (como \",(0,o.jsx)(e.code,{children:\":hover\"}),\", \",(0,o.jsx)(e.code,{children:\":focus\"}),\", etc).\"]}),`\n`,(0,o.jsx)(e.li,{children:\"Dois-pontos devem ser usados em vez de dois-pontos para distinguir pseudo-classes de pseudo-elementos. A maioria dos navegadores suporta ambas as sintaxes, pois essa distin\\xE7\\xE3o n\\xE3o estava clara nas especifica\\xE7\\xF5es antigas do W3C.\"}),`\n`]}),`\n`,(0,o.jsx)(e.h2,{children:\"Refer\\xEAncias\"}),`\n`,(0,o.jsxs)(e.ul,{children:[`\n`,(0,o.jsx)(e.li,{children:(0,o.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements\",children:\"Pseudo-elements - CSS | MDN\"})}),`\n`]})]})}function z(s={}){let{wrapper:e}=s.components||{};return e?(0,o.jsx)(e,Object.assign({},s,{children:(0,o.jsx)(l,s)})):l(s)}var C=z;return v(j);})();\n;return Component;"
+}

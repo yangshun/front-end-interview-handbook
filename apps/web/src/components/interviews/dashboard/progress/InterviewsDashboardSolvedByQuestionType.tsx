@@ -2,7 +2,7 @@ import clsx from 'clsx';
 
 import getProgressBarGradient from '~/components/interviews/common/utils';
 import type {
-  InterviewsQuestionItemMinimal,
+  QuestionMetadata,
   QuestionSlug,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import { FormattedMessage, useIntl } from '~/components/intl';
@@ -24,9 +24,9 @@ import QuestionCompletionCountSummary from '../../questions/listings/stats/Quest
 type Props = Readonly<{
   isQuestionsProgressLoading: boolean;
   questions: {
-    codingQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
-    quizQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
-    systemDesignQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+    codingQuestions: ReadonlyArray<QuestionMetadata>;
+    quizQuestions: ReadonlyArray<QuestionMetadata>;
+    systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
   };
   questionsProgress: ReadonlyArray<
     Readonly<{ format: string; id: string; slug: QuestionSlug }>

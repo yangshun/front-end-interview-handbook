@@ -1,0 +1,35 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [
+      "rippling",
+      "salesforce",
+      "amazon"
+    ],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/whats-the-difference-between-a-relative-fixed-absolute-and-statically-positioned-element",
+    "importance": "high",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 2,
+    "similarQuestions": [],
+    "slug": "whats-the-difference-between-a-relative-fixed-absolute-and-statically-positioned-element",
+    "subtitle": null,
+    "title": "What's the difference between a `relative`, `fixed`, `absolute`, `sticky` and `static`-ally positioned element?",
+    "topics": [
+      "css"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/whats-the-difference-between-a-relative-fixed-absolute-and-statically-positioned-element/en-US.mdx"
+  },
+  "solution": "var Component=(()=>{var h=Object.create;var d=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,u=Object.prototype.hasOwnProperty;var g=(i,e)=>()=>(e||i((e={exports:{}}).exports,e),e.exports),v=(i,e)=>{for(var o in e)d(i,o,{get:e[o],enumerable:!0})},s=(i,e,o,l)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let n of f(e))!u.call(i,n)&&n!==o&&d(i,n,{get:()=>e[n],enumerable:!(l=p(e,n))||l.enumerable});return i};var w=(i,e,o)=>(o=i!=null?h(m(i)):{},s(e||!i||!i.__esModule?d(o,\"default\",{value:i,enumerable:!0}):o,i)),x=i=>s(d({},\"__esModule\",{value:!0}),i);var r=g((k,c)=>{c.exports=_jsx_runtime});var T={};v(T,{default:()=>j,frontmatter:()=>y});var t=w(r()),y={title:\"What's the difference between a `relative`, `fixed`, `absolute`, `sticky` and `static`-ally positioned element?\"};function a(i){let e=Object.assign({p:\"p\",code:\"code\",ul:\"ul\",li:\"li\"},i.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsxs)(e.p,{children:[\"A positioned element is an element whose computed \",(0,t.jsx)(e.code,{children:\"position\"}),\" property is either \",(0,t.jsx)(e.code,{children:\"relative\"}),\", \",(0,t.jsx)(e.code,{children:\"absolute\"}),\", \",(0,t.jsx)(e.code,{children:\"fixed\"}),\" or \",(0,t.jsx)(e.code,{children:\"sticky\"}),\".\"]}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.code,{children:\"static\"}),\": The default position; the element will flow into the page as it normally would. The \",(0,t.jsx)(e.code,{children:\"top\"}),\", \",(0,t.jsx)(e.code,{children:\"right\"}),\", \",(0,t.jsx)(e.code,{children:\"bottom\"}),\", \",(0,t.jsx)(e.code,{children:\"left\"}),\" and \",(0,t.jsx)(e.code,{children:\"z-index\"}),\" properties do not apply.\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.code,{children:\"relative\"}),\": The element's position is adjusted relative to itself, without changing layout (and thus leaving a gap for the element where it would have been had it not been positioned).\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.code,{children:\"absolute\"}),\": The element is removed from the flow of the page and positioned at a specified position relative to its closest positioned ancestor if any, or otherwise relative to the initial containing block. Absolutely-positioned boxes can have margins, and they do not collapse with any other margins. These elements do not affect the position of other elements.\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.code,{children:\"fixed\"}),\": The element is removed from the flow of the page and positioned at a specified position relative to the viewport and doesn't move when scrolled.\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.code,{children:\"sticky\"}),\": Sticky positioning is a hybrid of relative and fixed positioning. The element is treated as \",(0,t.jsx)(e.code,{children:\"relative\"}),\" positioned until it crosses a specified threshold, at which point it is treated as \",(0,t.jsx)(e.code,{children:\"fixed\"}),\"-positioned.\"]}),`\n`]})]})}function b(i={}){let{wrapper:e}=i.components||{};return e?(0,t.jsx)(e,Object.assign({},i,{children:(0,t.jsx)(a,i)})):a(i)}var j=b;return x(T);})();\n;return Component;"
+}

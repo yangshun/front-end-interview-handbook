@@ -49,8 +49,3 @@ export type SponsorsCompanyDetails = Readonly<{
   signatoryTitle: string;
   taxNumber?: string;
 }>;
-
-export type SponsorsPromoCode = Readonly<{
-  code: string;
-  percentOff: number;
-} | null>;

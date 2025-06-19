@@ -1,4 +1,4 @@
-import { describe, expect, test } from 'vitest';
+import { describe, expect, test } from '@jest/globals';
 
 import tabClose from './tabClose';
 
@@ -328,23 +328,23 @@ describe('tabClose', () => {
             },
           ),
         ).toMatchInlineSnapshot(`
-{
-  "activeTabId": "1",
-  "fullScreen": false,
-  "id": "bar",
-  "tabs": [
-    {
-      "closeable": true,
-      "id": "1",
-    },
-    {
-      "closeable": true,
-      "id": "2",
-    },
-  ],
-  "type": "item",
-}
-`);
+          {
+            "activeTabId": "1",
+            "fullScreen": false,
+            "id": "bar",
+            "tabs": [
+              {
+                "closeable": true,
+                "id": "1",
+              },
+              {
+                "closeable": true,
+                "id": "2",
+              },
+            ],
+            "type": "item",
+          }
+        `);
       });
 
       test('no prune', () => {

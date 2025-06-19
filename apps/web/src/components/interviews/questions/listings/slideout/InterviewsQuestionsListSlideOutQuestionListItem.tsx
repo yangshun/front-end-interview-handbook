@@ -19,7 +19,7 @@ import {
   themeBorderColor,
 } from '~/components/ui/theme';
 
-import type { InterviewsQuestionItemMinimal } from '../../common/QuestionsTypes';
+import type { QuestionMetadata } from '../../common/QuestionsTypes';
 import QuestionDifficultyLabel from '../../metadata/QuestionDifficultyLabel';
 import QuestionFormatLabel from '../../metadata/QuestionFormatLabel';
 import QuestionsListItemProgressChip from '../items/QuestionsListItemProgressChip';
@@ -29,7 +29,7 @@ type QuestionClickEvent = Parameters<
   NonNullable<React.ComponentProps<typeof Anchor>['onClick']>
 >[0];
 
-type Props<Q extends InterviewsQuestionItemMinimal> = Readonly<{
+type Props<Q extends QuestionMetadata> = Readonly<{
   checkIfCompletedQuestion?: (question: Q) => boolean;
   hasCompletedQuestion?: boolean;
   href: string;
@@ -37,11 +37,11 @@ type Props<Q extends InterviewsQuestionItemMinimal> = Readonly<{
   listType: QuestionListTypeData;
   mode: 'embedded' | 'slideout';
   onClick: (event: QuestionClickEvent, href: string) => void;
-  question: InterviewsQuestionItemMinimal;
+  questionMetadata: QuestionMetadata;
 }>;
 
 export default function InterviewsQuestionsListSlideOutQuestionListItem<
-  Q extends InterviewsQuestionItemMinimal,
+  Q extends QuestionMetadata,
 >({
   checkIfCompletedQuestion,
   hasCompletedQuestion,
@@ -50,11 +50,10 @@ export default function InterviewsQuestionsListSlideOutQuestionListItem<
   listType,
   mode,
   onClick,
-  question,
+  questionMetadata,
 }: Props<Q>) {
   const ref = useRef<HTMLDivElement>(null);
   const { userProfile } = useUserProfile();
-  const { info, metadata } = question;
 
   useEffect(() => {
     if (!isActiveQuestion) {
@@ -86,15 +85,15 @@ export default function InterviewsQuestionsListSlideOutQuestionListItem<
             themeBackgroundElementEmphasizedStateColor_Hover,
             isActiveQuestion && themeBackgroundElementEmphasizedStateColor,
           )}>
-          <div className="grow py-3">
-            <div className="flex items-center gap-x-3">
+          <div className="grow py-4">
+            <div className="flex items-center gap-x-4">
               {checkIfCompletedQuestion != null && (
                 <QuestionsListItemProgressChip
                   className="z-[1]"
                   hasCompletedQuestion={!!hasCompletedQuestion}
                   hasCompletedQuestionBefore={false}
                   premiumUser={userProfile?.isInterviewsPremium}
-                  question={question}
+                  question={questionMetadata}
                   size="sm"
                 />
               )}
@@ -110,10 +109,10 @@ export default function InterviewsQuestionsListSlideOutQuestionListItem<
                       }}>
                       {/* Extend touch target to entire panel */}
                       <span aria-hidden="true" className="absolute inset-0" />
-                      {info.title}
+                      {questionMetadata.title}
                     </Anchor>
                   </Text>
-                  {metadata.access === 'premium' && (
+                  {questionMetadata.access === 'premium' && (
                     <InterviewsPremiumBadge size="xs" />
                   )}
                 </div>
@@ -122,13 +121,13 @@ export default function InterviewsQuestionsListSlideOutQuestionListItem<
                     <div className="sm:w-[106px]">
                       <QuestionFormatLabel
                         showIcon={true}
-                        value={metadata.format}
+                        value={questionMetadata.format}
                       />
                     </div>
                     <div className="sm:w-[68px]">
                       <QuestionDifficultyLabel
                         showIcon={true}
-                        value={metadata.difficulty}
+                        value={questionMetadata.difficulty}
                       />
                     </div>
                   </div>
@@ -147,7 +146,7 @@ export default function InterviewsQuestionsListSlideOutQuestionListItem<
           sideOffset={0}>
           <InterviewsQuestionsListSlideOutHovercardContents
             listType={listType}
-            question={question}
+            question={questionMetadata}
           />
         </HovercardContent>
       </HovercardPortal>

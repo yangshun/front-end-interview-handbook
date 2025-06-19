@@ -62,7 +62,7 @@ export default function InterviewsDashboardContributionsChart({
 
             return (
               <div key={month} className="flex flex-col items-center gap-2.5">
-                <div className="grid shrink-0 auto-cols-max grid-flow-col grid-rows-7 items-start gap-0.5">
+                <div className="grid-rows-7 grid shrink-0 auto-cols-max grid-flow-col items-start gap-0.5">
                   {days.map((day, index) => {
                     const { date, dayOfWeek } = day;
                     const formattedDate = groupByDateFormatter.format(
@@ -104,7 +104,7 @@ export default function InterviewsDashboardContributionsChart({
                       <Tooltip key={date} asChild={true} label={tooltipLabel}>
                         <div
                           className={clsx(
-                            'size-4 rounded-sm md:size-[19px] lg:size-[13.4px]',
+                            'size-4 md:size-[19px] lg:size-[13.4px] rounded-sm',
                             index === 0 && [
                               dayOfWeek === 'Sunday' && 'row-start-1',
                               dayOfWeek === 'Monday' && 'row-start-2',

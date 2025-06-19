@@ -1,7 +1,7 @@
 'use client';
 
 import type { InterviewsStudyList } from 'contentlayer/generated';
-import { useInView } from 'motion/react';
+import { useInView } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import { useRef } from 'react';
 

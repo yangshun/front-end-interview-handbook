@@ -5,13 +5,12 @@ import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels';
 import gtag from '~/lib/gtag';
 
 import InterviewsPurchasePaywallSmall from '~/components/interviews/purchase/InterviewsPurchasePaywallSmall';
-import type { InterviewsQuestionItemMinimal } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionMetadataSection from '~/components/interviews/questions/metadata/QuestionMetadataSection';
 import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
 import Divider from '~/components/ui/Divider';
-import Img from '~/components/ui/Img';
 import Prose from '~/components/ui/Prose';
 import ScrollArea from '~/components/ui/ScrollArea';
 import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
@@ -28,7 +27,7 @@ function ReadFullQuestionAlert() {
       <Text className="block" size="body3" weight="medium">
         Like what you are reading?{' '}
         <Anchor
-          href={question.metadata.href}
+          href={questionMetadata.href}
           target="_blank"
           variant="flat"
           onClick={() => {
@@ -90,7 +89,7 @@ function Requirements() {
 function Architecture() {
   return (
     <div>
-      <Img
+      <img
         alt="News Feed Architecture"
         className="mx-auto w-full max-w-md"
         decoding="async"
@@ -398,7 +397,7 @@ function Interface() {
         </code>{' '}
         will return items 6 - 10 along with pagination metadata.{' '}
         <Anchor
-          href={question.metadata.href}
+          href={questionMetadata.href}
           target="_blank"
           onClick={() => {
             gtag.event({
@@ -467,7 +466,7 @@ function Optimizations() {
       </p>
       <p>
         <Anchor
-          href={question.metadata.href}
+          href={questionMetadata.href}
           target="_blank"
           onClick={() => {
             gtag.event({
@@ -489,35 +488,29 @@ function Optimizations() {
   );
 }
 
-const question: InterviewsQuestionItemMinimal = {
-  info: {
-    excerpt:
-      'Design a news feed user interface similar to Facebook and Twitter',
-
-    title: 'News Feed (e.g. Facebook)',
-  },
-  metadata: {
-    access: 'free',
-    author: 'yangshun',
-    companies: ['twitter'],
-    created: Math.floor(Date.now() / 1000),
-    difficulty: 'medium',
-    duration: 30,
-    featured: true,
-    format: 'system-design',
-    frameworkDefault: null,
-    frameworks: [],
-    href: '/questions/system-design/news-feed-facebook',
-    importance: 'high',
-    languages: [],
-    nextQuestions: [],
-    published: true,
-    ranking: 1,
-    similarQuestions: [],
-    slug: 'news-feed-facebook',
-    subtitle: null,
-    topics: [],
-  },
+const questionMetadata: QuestionMetadata = {
+  access: 'free',
+  author: 'yangshun',
+  companies: ['twitter'],
+  created: Math.floor(Date.now() / 1000),
+  difficulty: 'medium',
+  duration: 30,
+  excerpt: 'Design a news feed user interface similar to Facebook and Twitter',
+  featured: true,
+  format: 'system-design',
+  frameworkDefault: null,
+  frameworks: [],
+  href: '/questions/system-design/news-feed-facebook',
+  importance: 'high',
+  languages: [],
+  nextQuestions: [],
+  published: true,
+  ranking: 1,
+  similarQuestions: [],
+  slug: 'news-feed-facebook',
+  subtitle: null,
+  title: 'News Feed (e.g. Facebook)',
+  topics: [],
 };
 
 export default function InterviewsMarketingEmbedSystemDesignQuestion() {
@@ -527,7 +520,7 @@ export default function InterviewsMarketingEmbedSystemDesignQuestion() {
   return (
     <div
       aria-hidden={true}
-      className="relative isolate flex size-full flex-col">
+      className="size-full relative isolate flex flex-col">
       <PanelGroup className="h-0 w-full grow lg:flex" direction="horizontal">
         <Panel defaultSize={40} maxSize={60}>
           <ScrollArea>
@@ -544,7 +537,7 @@ export default function InterviewsMarketingEmbedSystemDesignQuestion() {
                 </Text>
                 <QuestionMetadataSection
                   elements={['author', 'difficulty', 'duration']}
-                  metadata={question.metadata}
+                  metadata={questionMetadata}
                 />
                 <Divider />
                 <div className="flex flex-col gap-y-2">
@@ -577,7 +570,7 @@ export default function InterviewsMarketingEmbedSystemDesignQuestion() {
                     Design a news feed application that contains a list of feed
                     posts users can interact with.
                   </p>
-                  <Img
+                  <img
                     alt="News Feed Example"
                     className="mx-auto w-full max-w-md"
                     decoding="async"
@@ -637,7 +630,7 @@ export default function InterviewsMarketingEmbedSystemDesignQuestion() {
         </Panel>
       </PanelGroup>
       <Anchor
-        href={question.metadata.href}
+        href={questionMetadata.href}
         passHref={true}
         target="_blank"
         variant="unstyled"

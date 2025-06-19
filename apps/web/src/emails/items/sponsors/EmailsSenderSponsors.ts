@@ -56,14 +56,12 @@ export async function sendSponsorsAdRequestReviewEmail({
   adRequestId,
   ads,
   legalName,
-  percentOff,
   signatoryName,
   signatoryTitle,
 }: Readonly<{
   adRequestId: string;
   ads: Array<SponsorsAdFormatFormItem>;
   legalName: string;
-  percentOff?: number | null;
   signatoryName: string;
   signatoryTitle: string;
 }>) {
@@ -77,7 +75,6 @@ export async function sendSponsorsAdRequestReviewEmail({
     props: {
       ads,
       legalName,
-      percentOff,
       requestUrl: url.format({
         host: getSiteOrigin({ usePreviewForDev: true }),
         pathname: `/admin/sponsorships/request/${adRequestId}`,

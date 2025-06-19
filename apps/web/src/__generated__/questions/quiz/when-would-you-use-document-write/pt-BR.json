@@ -1,0 +1,33 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "hard",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/when-would-you-use-document-write",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 999,
+    "similarQuestions": [],
+    "slug": "when-would-you-use-document-write",
+    "subtitle": null,
+    "title": "Quando você usaria `document.write()`?",
+    "topics": [
+      "web-api",
+      "javascript",
+      "html"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/when-would-you-use-document-write/pt-BR.mdx"
+  },
+  "solution": "var Component=(()=>{var m=Object.create;var n=Object.defineProperty;var l=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var x=(o,e)=>()=>(e||o((e={exports:{}}).exports,e),e.exports),v=(o,e)=>{for(var a in e)n(o,a,{get:e[a],enumerable:!0})},c=(o,e,a,d)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of p(e))!g.call(o,r)&&r!==a&&n(o,r,{get:()=>e[r],enumerable:!(d=l(e,r))||d.enumerable});return o};var w=(o,e,a)=>(a=o!=null?m(h(o)):{},c(e||!o||!o.__esModule?n(a,\"default\",{value:o,enumerable:!0}):a,o)),b=o=>c(n({},\"__esModule\",{value:!0}),o);var i=x((L,s)=>{s.exports=_jsx_runtime});var q={};v(q,{default:()=>_,frontmatter:()=>f});var t=w(i()),f={title:\"Quando voc\\xEA usaria `document.write()`?\"};function u(o){let e=Object.assign({p:\"p\",code:\"code\",a:\"a\"},o.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsxs)(e.p,{children:[(0,t.jsx)(e.code,{children:\"document.write()\"}),\" escreve uma string de texto em um fluxo de documento aberto por \",(0,t.jsx)(e.code,{children:\"document.open()\"}),\". Quando o \",(0,t.jsx)(e.code,{children:\"document.write()\"}),\" \\xE9 executado ap\\xF3s o carregamento da p\\xE1gina, ele chamar\\xE1 o \",(0,t.jsx)(e.code,{children:\"document.open\"}),\", o que limpar\\xE1 todo o documento (\",(0,t.jsx)(e.code,{children:\"<head>\"}),\" e \",(0,t.jsx)(e.code,{children:\"<body>\"}),\" removidos!) e substitui o conte\\xFAdo pelo valor do par\\xE2metro dado. Portanto, geralmente \\xE9 considerado perigoso e propenso a uso indevido.\"]}),`\n`,(0,t.jsxs)(e.p,{children:[\"Existem algumas respostas online que explicam \",(0,t.jsx)(e.code,{children:\"documento.write()\"}),\" est\\xE1 sendo usado no c\\xF3digo anal\\xEDtico ou \",(0,t.jsx)(e.a,{href:\"https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html\",children:\"quando deseja incluir estilos que s\\xF3 devem funcionar se o JavaScript estiver ativado\"}),\". Ele est\\xE1 at\\xE9 sendo usado em boilerplate HTML5 para \",(0,t.jsx)(e.a,{href:\"https://github.com/paulirish/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag\",children:\"carregar scripts em paralelo e preservar a ordem de execu\\xE7\\xE3o\"}),\"! No entanto, esses motivos podem estar desatualizados e, atualmente, podem ser alcan\\xE7ados sem o uso do \",(0,t.jsx)(e.code,{children:\"document.write()\"}),\".\"]})]})}function j(o={}){let{wrapper:e}=o.components||{};return e?(0,t.jsx)(e,Object.assign({},o,{children:(0,t.jsx)(u,o)})):u(o)}var _=j;return b(q);})();\n;return Component;"
+}

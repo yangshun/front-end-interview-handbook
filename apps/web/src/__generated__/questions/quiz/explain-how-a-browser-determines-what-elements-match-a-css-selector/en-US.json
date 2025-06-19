@@ -1,0 +1,32 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "hard",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/explain-how-a-browser-determines-what-elements-match-a-css-selector",
+    "importance": "high",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "explain-how-a-browser-determines-what-elements-match-a-css-selector",
+    "subtitle": null,
+    "title": "Explain how a browser determines what elements match a CSS selector.",
+    "topics": [
+      "browser",
+      "css"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/explain-how-a-browser-determines-what-elements-match-a-css-selector/en-US.mdx"
+  },
+  "solution": "var Component=(()=>{var d=Object.create;var o=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,u=Object.prototype.hasOwnProperty;var w=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),g=(t,e)=>{for(var r in e)o(t,r,{get:e[r],enumerable:!0})},i=(t,e,r,a)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let s of p(e))!u.call(t,s)&&s!==r&&o(t,s,{get:()=>e[s],enumerable:!(a=m(e,s))||a.enumerable});return t};var x=(t,e,r)=>(r=t!=null?d(f(t)):{},i(e||!t||!t.__esModule?o(r,\"default\",{value:t,enumerable:!0}):r,t)),j=t=>i(o({},\"__esModule\",{value:!0}),t);var h=w((F,c)=>{c.exports=_jsx_runtime});var q={};g(q,{default:()=>y,frontmatter:()=>_});var n=x(h()),_={title:\"Explain how a browser determines what elements match a CSS selector.\"};function l(t){let e=Object.assign({p:\"p\",a:\"a\",code:\"code\"},t.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsxs)(e.p,{children:[\"This question is related to the question about \",(0,n.jsx)(e.a,{href:\"/questions/quiz/what-are-some-of-the-gotchas-for-writing-efficient-css\",children:\"writing efficient CSS\"}),\". Browsers match selectors from rightmost (key selector) to the left. Browsers filter out elements in the DOM according to the key selector and traverse up its parent elements to determine matches. The shorter the length of the selector chain, the faster the browser can determine if that element matches the selector.\"]}),`\n`,(0,n.jsxs)(e.p,{children:[\"For example, with a selector \",(0,n.jsx)(e.code,{children:\"p span\"}),\", browsers firstly find all the \",(0,n.jsx)(e.code,{children:\"<span>\"}),\" elements and traverse up its parent all the way up to the root to find the \",(0,n.jsx)(e.code,{children:\"<p>\"}),\" element. For a particular \",(0,n.jsx)(e.code,{children:\"<span>\"}),\", as soon as it finds a \",(0,n.jsx)(e.code,{children:\"<p>\"}),\", it knows that the \",(0,n.jsx)(e.code,{children:\"<span>\"}),\" matches the selector, and can stop traversing its parents.\"]})]})}function b(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(l,t)})):l(t)}var y=b;return j(q);})();\n;return Component;"
+}

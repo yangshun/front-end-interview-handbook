@@ -1,0 +1,57 @@
+{
+  "description": "var Component=(()=>{var u=Object.create;var o=Object.defineProperty;var a=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,w=Object.prototype.hasOwnProperty;var g=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),f=(n,e)=>{for(var r in e)o(n,r,{get:e[r],enumerable:!0})},c=(n,e,r,h)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let i of p(e))!w.call(n,i)&&i!==r&&o(n,i,{get:()=>e[i],enumerable:!(h=a(e,i))||h.enumerable});return n};var x=(n,e,r)=>(r=n!=null?u(m(n)):{},c(e||!n||!n.__esModule?o(r,\"default\",{value:n,enumerable:!0}):r,n)),j=n=>c(o({},\"__esModule\",{value:!0}),n);var s=g((k,d)=>{d.exports=_jsx_runtime});var S={};f(S,{default:()=>C,frontmatter:()=>_});var t=x(s()),_={title:\"useWindowSize\",excerpt:\"Implement a hook that returns the current height and width of the window\"};function l(n){let e=Object.assign({p:\"p\",code:\"code\",pre:\"pre\",h2:\"h2\",ul:\"ul\",li:\"li\"},n.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsxs)(e.p,{children:[\"Implement a \",(0,t.jsx)(e.code,{children:\"useWindowSize\"}),\" hook that returns the current height and width of the window (\",(0,t.jsx)(e.code,{children:\"window.innerHeight\"}),\" and \",(0,t.jsx)(e.code,{children:\"window.innerWidth\"}),\"). It should re-render the component if the screen properties changes.\"]}),`\n`,(0,t.jsx)(e.pre,{children:(0,t.jsx)(e.code,{className:\"language-jsx\",children:`export default function Component() {\n  const screen = useWindowSize();\n\n  return (\n    <div>\n      <p>The current window dimensions are:</p>\n      <code>{JSON.stringify(screen, null, 2)}</code>\n    </div>\n  );\n}\n`})}),`\n`,(0,t.jsx)(e.h2,{children:\"Arguments\"}),`\n`,(0,t.jsx)(e.p,{children:\"Nothing.\"}),`\n`,(0,t.jsx)(e.h2,{children:\"Returns\"}),`\n`,(0,t.jsx)(e.p,{children:\"The hook returns an object with the following properties:\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.code,{children:\"height: number\"}),\": Current height of the screen\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.code,{children:\"width: number\"}),\": Current width of the screen\"]}),`\n`]})]})}function b(n={}){let{wrapper:e}=n.components||{};return e?(0,t.jsx)(e,Object.assign({},n,{children:(0,t.jsx)(l,n)})):l(n)}var C=b;return j(S);})();\n;return Component;",
+  "files": {
+    "/package.json": "{\n  \"name\": \"@gfe-questions/use-window-size\",\n  \"version\": \"0.0.1\",\n  \"main\": \"/src/use-window-size.ts\",\n  \"dependencies\": {\n    \"@testing-library/react\": \"14.0.0\",\n    \"react\": \"18.2.0\",\n    \"react-dom\": \"18.2.0\"\n  },\n  \"devDependencies\": {\n    \"@types/jest\": \"29.5.0\",\n    \"@types/react\": \"18.2.25\",\n    \"@types/react-dom\": \"18.2.10\",\n    \"typescript\": \"5.0.2\"\n  }\n}\n",
+    "/tsconfig.json": "{\n  \"include\": [\"./**/*\"],\n  \"compilerOptions\": {\n    \"strict\": true,\n    \"esModuleInterop\": true,\n    \"lib\": [\"dom\", \"dom.iterable\", \"esnext\"],\n    \"jsx\": \"react-jsx\",\n    \"target\": \"es2020\"\n  }\n}\n",
+    "/src/use-window-size.run.test.ts": "import { renderHook } from '@testing-library/react';\n\nimport useWindowSize from './use-window-size';\n\ndescribe('useWindowSize', () => {\n  test('return values', () => {\n    const { result } = renderHook(() => useWindowSize());\n\n    expect(typeof result.current).toBe('object');\n    expect(typeof result.current.width).toBe('number');\n    expect(typeof result.current.height).toBe('number');\n  });\n\n  test('initial value', () => {\n    const { result } = renderHook(() => useWindowSize());\n\n    expect(result.current.width).toBe(window.innerWidth);\n    expect(result.current.height).toBe(window.innerHeight);\n  });\n});\n",
+    "/src/use-window-size.submit.test.ts": "import { act, fireEvent, renderHook } from '@testing-library/react';\n\nimport useWindowSize from './use-window-size';\n\ndescribe('useWindowSize', () => {\n  test('return values', () => {\n    const { result } = renderHook(() => useWindowSize());\n\n    expect(typeof result.current).toBe('object');\n    expect(typeof result.current.width).toBe('number');\n    expect(typeof result.current.height).toBe('number');\n  });\n\n  test('initial value', () => {\n    const { result } = renderHook(() => useWindowSize());\n\n    expect(result.current.width).toBe(window.innerWidth);\n    expect(result.current.height).toBe(window.innerHeight);\n  });\n\n  test('resize', () => {\n    const { result } = renderHook(() => useWindowSize());\n\n    act(() => {\n      window.innerWidth = 100;\n      window.innerHeight = 200;\n      fireEvent.resize(window);\n    });\n\n    expect(result.current.width).toBe(100);\n    expect(result.current.height).toBe(200);\n  });\n});\n",
+    "/src/use-window-size.ts": "import { useState, useLayoutEffect } from 'react';\n\ninterface WindowSize {\n  height: number;\n  width: number;\n}\n\nexport default function useWindowSize(): WindowSize {\n  const [windowSize, setWindowSize] = useState<WindowSize>({\n    height: 0,\n    width: 0,\n  });\n\n  useLayoutEffect(() => {\n    const resize = () =>\n      setWindowSize({\n        height: window.innerHeight,\n        width: window.innerWidth,\n      });\n\n    resize();\n    window.addEventListener('resize', resize);\n\n    return () => {\n      window.removeEventListener('resize', resize);\n    };\n  }, []);\n\n  return windowSize;\n}\n"
+  },
+  "metadata": {
+    "access": "free",
+    "author": "phillmont",
+    "companies": [],
+    "created": 1742169600,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "Implement a hook that returns the current height and width of the window",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-window-size"
+      }
+    ],
+    "href": "/questions/javascript/use-window-size",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "use-media-query",
+      "use-breakpoint"
+    ],
+    "slug": "use-window-size",
+    "subtitle": null,
+    "title": "useWindowSize",
+    "topics": [
+      "react-hooks"
+    ]
+  },
+  "skeleton": {
+    "js": "/**\n * @typedef {Object} WindowSize\n * @property {number} height\n * @property {number} width\n */\n/**\n * @returns {WindowSize}\n */\nexport default function useWindowSize() {\n  throw 'Not implemented';\n}",
+    "ts": "interface WindowSize {\n  height: number;\n  width: number;\n}\n\nexport default function useWindowSize(): WindowSize {\n  throw 'Not implemented';\n}"
+  },
+  "solution": "var Component=(()=>{var w=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,z=Object.prototype.hasOwnProperty;var S=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),W=(t,e)=>{for(var i in e)r(t,i,{get:e[i],enumerable:!0})},d=(t,e,i,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of p(e))!z.call(t,o)&&o!==i&&r(t,o,{get:()=>e[o],enumerable:!(s=f(e,o))||s.enumerable});return t};var g=(t,e,i)=>(i=t!=null?w(m(t)):{},d(e||!t||!t.__esModule?r(i,\"default\",{value:t,enumerable:!0}):i,t)),b=t=>d(r({},\"__esModule\",{value:!0}),t);var h=S((L,c)=>{c.exports=_jsx_runtime});var y={};W(y,{default:()=>v});var n=g(h());var a=MDXCodeBlock;var u=`import { useState, useLayoutEffect } from 'react';\n\ninterface WindowSize {\n  height: number;\n  width: number;\n}\n\nexport default function useWindowSize(): WindowSize {\n  const [windowSize, setWindowSize] = useState<WindowSize>({\n    height: 0,\n    width: 0,\n  });\n\n  useLayoutEffect(() => {\n    const resize = () =>\n      setWindowSize({\n        height: window.innerHeight,\n        width: window.innerWidth,\n      });\n\n    resize();\n    window.addEventListener('resize', resize);\n\n    return () => {\n      window.removeEventListener('resize', resize);\n    };\n  }, []);\n\n  return windowSize;\n}\n`;function l(t){let e=Object.assign({h2:\"h2\",p:\"p\",code:\"code\",a:\"a\"},t.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{children:\"Solution\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"The \",(0,n.jsx)(e.code,{children:\"useWindowSize\"}),\" hook can be implemented using the \",(0,n.jsx)(e.code,{children:\"useState\"}),\" hook to store the current screen properties and the \",(0,n.jsx)(e.a,{href:\"https://react.dev/reference/react/useLayoutEffect\",children:(0,n.jsx)(e.code,{children:\"useLayoutEffect\"})}),\" hook to update the properties when the screen is resized. We can attach an event listener to the \",(0,n.jsxs)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/API/Window/resize_event\",children:[(0,n.jsx)(e.code,{children:\"resize\"}),\" event\"]}),\" on the \",(0,n.jsx)(e.code,{children:\"window\"}),\" object to update the properties state.\"]}),`\n`,(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.code,{children:\"useLayoutEffect\"}),\" is used instead of \",(0,n.jsx)(e.code,{children:\"useEffect\"}),\" to ensure that the size is updated synchronously after the browser has painted. This is important for animations and other visual effects that depend on the window size.\"]}),`\n`,(0,n.jsxs)(e.p,{children:[\"We recreate the \",(0,n.jsx)(e.code,{children:\"windowSize\"}),\" object so that the user doesn't accidentally mutate the original object.\"]}),`\n`,(0,n.jsx)(a,{children:u})]})}function x(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(l,t)})):l(t)}var v=x;return b(y);})();\n;return Component;",
+  "workspace": {
+    "main": "/src/use-window-size.ts",
+    "run": "/src/use-window-size.run.test.ts",
+    "submit": "/src/use-window-size.submit.test.ts"
+  }
+}

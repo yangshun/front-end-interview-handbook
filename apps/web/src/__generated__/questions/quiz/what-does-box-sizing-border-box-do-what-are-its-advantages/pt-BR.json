@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": true,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/what-does-box-sizing-border-box-do-what-are-its-advantages",
+    "importance": "high",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 1,
+    "similarQuestions": [],
+    "slug": "what-does-box-sizing-border-box-do-what-are-its-advantages",
+    "subtitle": "Quais as vantagens?",
+    "title": "O que faz `* { box-sizing: border-box; }`?",
+    "topics": [
+      "css"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/what-does-box-sizing-border-box-do-what-are-its-advantages/pt-BR.mdx"
+  },
+  "solution": "var Component=(()=>{var s=Object.create;var r=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var b=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,u=Object.prototype.hasOwnProperty;var p=(o,e)=>()=>(e||o((e={exports:{}}).exports,e),e.exports),x=(o,e)=>{for(var n in e)r(o,n,{get:e[n],enumerable:!0})},a=(o,e,n,c)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let i of b(e))!u.call(o,i)&&i!==n&&r(o,i,{get:()=>e[i],enumerable:!(c=m(e,i))||c.enumerable});return o};var z=(o,e,n)=>(n=o!=null?s(g(o)):{},a(e||!o||!o.__esModule?r(n,\"default\",{value:o,enumerable:!0}):n,o)),f=o=>a(r({},\"__esModule\",{value:!0}),o);var l=p((q,t)=>{t.exports=_jsx_runtime});var _={};x(_,{default:()=>w,frontmatter:()=>S});var d=z(l()),S={title:\"O que faz `* { box-sizing: border-box; }`?\",subtitle:\"Quais as vantagens?\"};function h(o){let e=Object.assign({p:\"p\",code:\"code\",h2:\"h2\",table:\"table\",thead:\"thead\",tr:\"tr\",th:\"th\",tbody:\"tbody\",td:\"td\",ul:\"ul\",li:\"li\",a:\"a\"},o.components);return(0,d.jsxs)(d.Fragment,{children:[(0,d.jsxs)(e.p,{children:[(0,d.jsx)(e.code,{children:\"* { box-sizing: border-box; }\"}),\" faz com que cada elemento na p\\xE1gina use a abordagem \",(0,d.jsx)(e.code,{children:\"box: border-box\"}),\" para calcular os elementos \",(0,d.jsx)(e.code,{children:\"height\"}),\" e \",(0,d.jsx)(e.code,{children:\"width\"}),\".\"]}),`\n`,(0,d.jsx)(e.h2,{children:\"Qual \\xE9 a diferen\\xE7a?\"}),`\n`,(0,d.jsxs)(e.p,{children:[\"Por padr\\xE3o, os elementos t\\xEAm \",(0,d.jsx)(e.code,{children:\"box-sizing: content-box\"}),\" aplicado, e apenas o tamanho do conte\\xFAdo est\\xE1 sendo contabilizado se um elemento tem \",(0,d.jsx)(e.code,{children:\"height\"}),\" e \",(0,d.jsx)(e.code,{children:\"width\"}),\" especificados. \",(0,d.jsx)(e.code,{children:\"box-sizing: border-box\"}),\" altera como a \",(0,d.jsx)(e.code,{children:\"width\"}),\" e \",(0,d.jsx)(e.code,{children:\"height\"}),\" dos elementos est\\xE3o sendo calculadas, a \",(0,d.jsx)(e.code,{children:\"border\"}),\" e o \",(0,d.jsx)(e.code,{children:\"padding\"}),\" tamb\\xE9m s\\xE3o inclu\\xEDdos no c\\xE1lculo. O \",(0,d.jsx)(e.code,{children:\"height\"}),\" de um elemento \\xE9 agora calculado pelo conte\\xFAdo \",(0,d.jsx)(e.code,{children:\"height\"}),\" + \",(0,d.jsx)(e.code,{children:\"padding\"}),\" vertical + \",(0,d.jsx)(e.code,{children:\"border\"}),\" horizontal. A \",(0,d.jsx)(e.code,{children:\"width\"}),\" de um elemento \\xE9 agora calculada pela \",(0,d.jsx)(e.code,{children:\"width\"}),\" do conte\\xFAdo + \",(0,d.jsx)(e.code,{children:\"padding\"}),\" horizontal + largura da horizontal \",(0,d.jsx)(e.code,{children:\"border\"}),\".\"]}),`\n`,(0,d.jsxs)(e.p,{children:[\"A tabela a seguir indica se a propriedade \\xE9 inclu\\xEDda ou n\\xE3o no c\\xE1lculo da altura e largura do elemento quando ele tem o respectivo \",(0,d.jsx)(e.code,{children:\"box-sizing\"}),\":\"]}),`\n`,(0,d.jsxs)(e.table,{children:[(0,d.jsx)(e.thead,{children:(0,d.jsxs)(e.tr,{children:[(0,d.jsx)(e.th,{children:\"Propriedade\"}),(0,d.jsxs)(e.th,{children:[(0,d.jsx)(e.code,{children:\"box-sizing: content-box\"}),\" (padr\\xE3o)\"]}),(0,d.jsx)(e.th,{children:(0,d.jsx)(e.code,{children:\"box-sizing: border-box\"})})]})}),(0,d.jsxs)(e.tbody,{children:[(0,d.jsxs)(e.tr,{children:[(0,d.jsx)(e.td,{children:\"conte\\xFAdo\"}),(0,d.jsx)(e.td,{children:\"Sim\"}),(0,d.jsx)(e.td,{children:\"Sim\"})]}),(0,d.jsxs)(e.tr,{children:[(0,d.jsx)(e.td,{children:(0,d.jsx)(e.code,{children:\"padding\"})}),(0,d.jsx)(e.td,{children:\"N\\xE3o\"}),(0,d.jsx)(e.td,{children:\"Sim\"})]}),(0,d.jsxs)(e.tr,{children:[(0,d.jsx)(e.td,{children:(0,d.jsx)(e.code,{children:\"border\"})}),(0,d.jsx)(e.td,{children:\"N\\xE3o\"}),(0,d.jsx)(e.td,{children:\"Sim\"})]}),(0,d.jsxs)(e.tr,{children:[(0,d.jsx)(e.td,{children:(0,d.jsx)(e.code,{children:\"margin\"})}),(0,d.jsx)(e.td,{children:\"N\\xE3o\"}),(0,d.jsx)(e.td,{children:\"N\\xE3o\"})]})]})]}),`\n`,(0,d.jsx)(e.h2,{children:\"Vantagens\"}),`\n`,(0,d.jsxs)(e.p,{children:[\"Levar em considera\\xE7\\xE3o \",(0,d.jsx)(e.code,{children:\"paddings\"}),\" e \",(0,d.jsx)(e.code,{children:\"border\"}),\"s como parte do modelo de caixa \\xE9 mais coerente com a forma como os designers imaginam o conte\\xFAdo em grades. Essa \\xE9 uma maneira mais intuitiva de pensar em caixas e, portanto, muitos frameworks CSS definem globalmente \",(0,d.jsx)(e.code,{children:\"* { box-sizing: border-box; }\"}),\" para que todos os elementos usem esse modelo de caixa por padr\\xE3o.\"]}),`\n`,(0,d.jsx)(e.h2,{children:\"Refer\\xEAncias\"}),`\n`,(0,d.jsxs)(e.ul,{children:[`\n`,(0,d.jsx)(e.li,{children:(0,d.jsx)(e.a,{href:\"https://css-tricks.com/box-sizing/\",children:\"Box Sizing CSS-Tricks\"})}),`\n`]})]})}function j(o={}){let{wrapper:e}=o.components||{};return e?(0,d.jsx)(e,Object.assign({},o,{children:(0,d.jsx)(h,o)})):h(o)}var w=j;return f(_);})();\n;return Component;"
+}

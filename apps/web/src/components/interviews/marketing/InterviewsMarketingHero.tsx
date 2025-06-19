@@ -1,7 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import { useInView } from 'motion/react';
+import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { RiArrowRightLine } from 'react-icons/ri';
 
@@ -48,9 +48,8 @@ export default function InterviewsMarketingHero() {
     marketingTestimonials.lamTran,
     marketingTestimonials.leanneZhang,
     marketingTestimonials.cliffordFung,
-    marketingTestimonials.faithMorante,
-    marketingTestimonials.locChuong,
-    marketingTestimonials.anubhavKhanna,
+    marketingTestimonials.deannaTran,
+    marketingTestimonials.kiaanCastillo,
   ];
 
   return (
@@ -159,7 +158,6 @@ export default function InterviewsMarketingHero() {
             })}
             prefetch={null}
             size="lg"
-            target="_blank"
             variant="primary"
           />
           <Text color="secondary" size="body3" weight="medium">

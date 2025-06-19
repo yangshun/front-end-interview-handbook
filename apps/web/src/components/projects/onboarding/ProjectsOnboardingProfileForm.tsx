@@ -25,6 +25,21 @@ import TextInput from '~/components/ui/TextInput';
 
 import logEvent from '~/logging/logEvent';
 
+export type ProjectsProfileOnboardingStepFormValues = {
+  avatarUrl?: string | undefined;
+  company: string;
+  hasStartedWork: boolean;
+  jobTitle: string;
+  monthYearExperience: string | undefined;
+  name: string;
+  title: string;
+  username: string;
+  yoeReplacement: {
+    option: string | undefined;
+    otherText: string | undefined;
+  };
+};
+
 function useOnboardingProfileStepSchema() {
   const intl = useIntl();
   const usernameSchema = useProfileUsernameSchema();
@@ -50,11 +65,7 @@ function useOnboardingProfileStepSchema() {
   ]);
 }
 
-type OnboardingProfileStepTransformedValues = z.output<
-  ReturnType<typeof useOnboardingProfileStepSchema>
->;
-
-export type ProjectsProfileOnboardingStepFormValues = z.input<
+type OnboardingProfileStepTransformedValues = z.infer<
   ReturnType<typeof useOnboardingProfileStepSchema>
 >;
 
@@ -107,11 +118,7 @@ export default function ProjectsOnboardingProfileForm({
       ...experienceInitialValues,
     },
   });
-  const {
-    control,
-    formState: { dirtyFields, errors, isSubmitting, submitCount },
-    handleSubmit,
-  } = methods;
+  const { control, formState, handleSubmit } = methods;
 
   return (
     <Container
@@ -185,8 +192,9 @@ export default function ProjectsOnboardingProfileForm({
                     render={({ field }) => (
                       <TextInput
                         errorMessage={
-                          dirtyFields.name || submitCount > 0
-                            ? errors.name?.message
+                          formState.dirtyFields.name ||
+                          formState.submitCount > 0
+                            ? formState.errors.name?.message
                             : undefined
                         }
                         label={intl.formatMessage({
@@ -211,8 +219,9 @@ export default function ProjectsOnboardingProfileForm({
                     render={({ field }) => (
                       <ProjectsProfileUsernameInput
                         errorMessage={
-                          dirtyFields.username || submitCount > 0
-                            ? errors.username?.message
+                          formState.dirtyFields.username ||
+                          formState.submitCount > 0
+                            ? formState.errors.username?.message
                             : undefined
                         }
                         field={field}
@@ -228,8 +237,8 @@ export default function ProjectsOnboardingProfileForm({
               <Button
                 addonPosition="start"
                 icon={RiArrowLeftLine}
-                isDisabled={isSubmitting || usernameExistsError}
-                isLoading={isSubmitting}
+                isDisabled={formState.isSubmitting || usernameExistsError}
+                isLoading={formState.isSubmitting}
                 label={intl.formatMessage({
                   defaultMessage: 'Prev',
                   description: 'Previous label',
@@ -242,8 +251,8 @@ export default function ProjectsOnboardingProfileForm({
               />
               <Button
                 icon={RiArrowRightLine}
-                isDisabled={isSubmitting || usernameExistsError}
-                isLoading={isSubmitting}
+                isDisabled={formState.isSubmitting || usernameExistsError}
+                isLoading={formState.isSubmitting}
                 label={intl.formatMessage({
                   defaultMessage: 'Create',
                   description: 'Create label',

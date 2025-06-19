@@ -8,7 +8,6 @@ import { trpc } from '~/hooks/trpc';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
-import Img from '~/components/ui/Img';
 import Text, { textVariants } from '~/components/ui/Text';
 import {
   themeBackgroundCardWhiteOnLightColor,
@@ -66,7 +65,7 @@ export default function ProjectsDashboardContinueProjectsSection() {
               index === recentSessions.length - 1 && 'rounded-b-lg',
             )}>
             <div className="flex w-full items-center gap-4">
-              <Img
+              <img
                 alt={session.challenge.info.title}
                 className="h-[70px] w-[90px] rounded object-cover"
                 decoding="async"

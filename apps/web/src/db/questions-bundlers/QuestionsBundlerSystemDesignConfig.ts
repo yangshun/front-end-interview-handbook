@@ -10,7 +10,6 @@ export const QUESTIONS_SRC_DIR_SYSTEM_DESIGN = path.join(
   'questions',
   format,
 );
-
 export const QUESTIONS_OUT_DIR_SYSTEM_DESIGN = path.join(
   process.cwd(),
   'src',
@@ -22,22 +21,9 @@ export const QUESTIONS_OUT_DIR_SYSTEM_DESIGN = path.join(
 export function getQuestionSrcPathSystemDesign(slug: string) {
   return path.join(QUESTIONS_SRC_DIR_SYSTEM_DESIGN, slug);
 }
-
 export function getQuestionOutPathSystemDesign(slug: string) {
   return path.join(QUESTIONS_OUT_DIR_SYSTEM_DESIGN, slug);
 }
-
-export function getQuestionOutPathSystemDesignLocaleContents(
-  slug: string,
-  locale: string,
-) {
-  return path.join(
-    getQuestionOutPathSystemDesign(slug),
-    'locales',
-    `${locale}.json`,
-  );
-}
-
 export function getQuestionsListOutFilenameSystemDesign(locale: string) {
   return path.join(QUESTIONS_OUT_DIR_SYSTEM_DESIGN, `list.${locale}.json`);
 }

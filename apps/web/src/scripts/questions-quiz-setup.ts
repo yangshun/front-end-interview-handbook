@@ -2,15 +2,9 @@ import fs from 'fs';
 import { globby } from 'globby';
 import path, { parse } from 'path';
 
-import {
-  readQuestionQuiz,
-  readQuestionQuizLocaleAgnostic,
-} from '../db/questions-bundlers/QuestionsBundlerQuiz';
+import { readQuestionQuiz } from '../db/questions-bundlers/QuestionsBundlerQuiz';
 import type { QuestionsQuizSourceConfig } from '../db/questions-bundlers/QuestionsBundlerQuizConfig';
-import {
-  getQuestionOutPathQuiz,
-  getQuestionOutPathQuizLocaleContents,
-} from '../db/questions-bundlers/QuestionsBundlerQuizConfig';
+import { getQuestionOutPathQuiz } from '../db/questions-bundlers/QuestionsBundlerQuizConfig';
 
 async function generateSetupForQuestion(
   quizSourceConfig: QuestionsQuizSourceConfig,
@@ -22,24 +16,15 @@ async function generateSetupForQuestion(
     // Files are named after their locales.
     .map((filePath) => parse(filePath).name);
 
-  const { metadata } = await readQuestionQuizLocaleAgnostic(
-    quizSourceConfig,
-    slug,
-  );
-
   const outDir = getQuestionOutPathQuiz(slug);
-  const metadataPath = path.join(outDir, 'metadata.json');
 
   fs.mkdirSync(outDir, { recursive: true });
-  fs.writeFileSync(metadataPath, JSON.stringify(metadata, null, 2));
-
   await Promise.all(
     locales.map(async (locale) => {
       const content = await readQuestionQuiz(quizSourceConfig, slug, locale);
-      const contentOutPath = getQuestionOutPathQuizLocaleContents(slug, locale);
+      const outPath = path.join(outDir, `${locale}.json`);
 
-      fs.mkdirSync(path.dirname(contentOutPath), { recursive: true });
-      fs.writeFileSync(contentOutPath, JSON.stringify(content, null, 2));
+      fs.writeFileSync(outPath, JSON.stringify(content, null, 2));
     }),
   );
 }

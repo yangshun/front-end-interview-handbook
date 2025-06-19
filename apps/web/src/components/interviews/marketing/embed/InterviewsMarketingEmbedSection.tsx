@@ -7,7 +7,7 @@ import {
   useInView,
   useScroll,
   useTransform,
-} from 'motion/react';
+} from 'framer-motion';
 import dynamic from 'next/dynamic';
 import { useRef, useState } from 'react';
 import { useMediaQuery } from 'usehooks-ts';
@@ -22,7 +22,7 @@ import FilterButton from '~/components/ui/FilterButton/FilterButton';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
-import type { InterviewsQuestionItemJavaScript } from '../../questions/common/QuestionsTypes';
+import type { QuestionJavaScript } from '../../questions/common/QuestionsTypes';
 import InterviewsMarketingEmbedJavaScriptQuestion from './InterviewsMarketingEmbedJavaScriptQuestion';
 import type { EmbedUIQuestion } from './InterviewsMarketingEmbedUIQuestion';
 import InterviewsMarketingEmbedUIQuestion from './InterviewsMarketingEmbedUIQuestion';
@@ -80,7 +80,7 @@ export default function InterviewsMarketingEmbedSection({
   javaScriptEmbedExample,
   uiEmbedExample,
 }: Readonly<{
-  javaScriptEmbedExample: InterviewsQuestionItemJavaScript;
+  javaScriptEmbedExample: QuestionJavaScript;
   uiEmbedExample: EmbedUIQuestion;
 }>) {
   const intl = useIntl();

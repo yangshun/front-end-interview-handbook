@@ -1,3 +1,5 @@
+import { redirect } from 'next/navigation';
+
 import ProjectsChallengeResourcePaywall from '~/components/projects/challenges/premium/ProjectsChallengeResourcePaywall';
 import ProjectsPremiumAccessControl from '~/components/projects/challenges/premium/ProjectsPremiumAccessControl';
 import ProjectsChallengeSolutionSection from '~/components/projects/challenges/solutions/ProjectsChallengeSolutionSection';
@@ -9,7 +11,6 @@ import {
   readProjectsChallengeItem,
   readProjectsChallengeSolutions,
 } from '~/db/projects/ProjectsReader';
-import i18nRedirect from '~/next-i18nostic/src/utils/i18nRedirect';
 
 type Props = Readonly<{
   params: Readonly<{ framework: string; locale: string; slug: string }>;
@@ -55,12 +56,12 @@ export default async function ProjectsChallengeResourcesSolutionsPage({
 
   // No solution, then redirect
   if (!metadata.solutionFrameworks?.[0]) {
-    return i18nRedirect(metadata.resourcesGuidesHref, { locale });
+    return redirect(metadata.resourcesGuidesHref);
   }
 
   // Redirect to default solution framework, if the framework in param doesn't match the available frameworks
   if (!metadata.solutionFrameworks.includes(solutionFramework)) {
-    return i18nRedirect(metadata.resourcesSolutionsHref, { locale });
+    return redirect(metadata.resourcesSolutionsHref);
   }
 
   const solution = await readProjectsChallengeSolutions(

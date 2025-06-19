@@ -13,7 +13,7 @@ function Box({
   return (
     <div
       className={clsx(
-        'flex size-16 rounded p-2',
+        'size-16 flex rounded p-2',
         'bg-neutral-200 dark:bg-neutral-800',
         className,
       )}

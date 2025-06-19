@@ -20,7 +20,7 @@ import Heading from '../Heading';
 import Section from '../Heading/HeadingContext';
 import Text, { textVariants } from '../Text';
 
-export type AlertVariant =
+type AlertVariant =
   | 'danger'
   | 'info'
   | 'neutral'
@@ -130,7 +130,7 @@ export default function Alert({
       {Icon && (
         <Icon
           aria-hidden="true"
-          className={clsx('mt-0.5 size-5 shrink-0', iconClass)}
+          className={clsx('size-5 mt-0.5 shrink-0', iconClass)}
         />
       )}
       <div className="grid w-full gap-y-1">
@@ -148,7 +148,7 @@ export default function Alert({
           </Heading>
         )}
         <Section>
-          <Text className="not-prose block" color="secondary" size={bodySize}>
+          <Text className="block" color="secondary" size={bodySize}>
             {children}
           </Text>
         </Section>

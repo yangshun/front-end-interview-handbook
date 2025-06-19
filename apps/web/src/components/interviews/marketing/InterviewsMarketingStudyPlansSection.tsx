@@ -158,11 +158,10 @@ function CenterNode({
       <Anchor
         className={clsx('text-xs font-medium lg:text-base')}
         href={href}
-        target="_blank"
         variant="unstyled">
         {children}
       </Anchor>
-      <Anchor className="absolute inset-0" href={href} target="_blank" variant="flat" />
+      <Anchor className="absolute inset-0" href={href} variant="flat" />
     </div>
   );
 }
@@ -189,7 +188,7 @@ function NodesNetwork() {
         'relative flex h-fit w-[343px] items-center justify-center md:h-[380px] md:w-[720px] lg:h-[456px] lg:w-[1000px]',
         'lg:py-[42px]',
       )}>
-      <div className="flex size-full flex-col items-center justify-center gap-10 overflow-hidden md:flex-row md:justify-between md:gap-0">
+      <div className="size-full flex flex-col items-center justify-center gap-10 overflow-hidden md:flex-row md:justify-between md:gap-0">
         <div
           className={clsx(
             'flex flex-wrap items-center justify-center gap-2',

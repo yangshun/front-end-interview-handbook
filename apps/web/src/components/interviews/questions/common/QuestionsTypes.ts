@@ -17,6 +17,7 @@ export type QuestionCompany =
   | 'linkedin'
   | 'lyft'
   | 'microsoft'
+  | 'openai'
   | 'palantir'
   | 'salesforce'
   | 'snap'
@@ -130,19 +131,14 @@ export type QuestionUserInterfaceBundle = Readonly<{
   writeup: string | null;
 }>;
 
-export type InterviewsQuestionInfo = Readonly<{
-  excerpt: string | null;
-  gitHubEditUrl?: string | null;
-  title: string;
-}>;
-
-export type InterviewsQuestionMetadata = Readonly<{
+export type QuestionMetadata = Readonly<{
   access: QuestionAccess;
   author: string | null;
   companies: ReadonlyArray<QuestionCompany>;
   created: number; // Unix timestamp in seconds.
   difficulty: QuestionDifficulty;
   duration: number;
+  excerpt: string | null;
   featured: boolean;
   format: QuestionFormat;
   frameworkDefault: QuestionFramework | null;
@@ -152,6 +148,7 @@ export type InterviewsQuestionMetadata = Readonly<{
       href: string;
     }>
   >;
+  gitHubEditUrl?: string | null;
   href: string;
   importance: QuestionImportance;
   languages: ReadonlyArray<QuestionLanguage>;
@@ -162,21 +159,17 @@ export type InterviewsQuestionMetadata = Readonly<{
   similarQuestions: ReadonlyArray<QuestionSlug>;
   slug: QuestionSlug;
   subtitle: string | null;
+  title: string;
   topics: ReadonlyArray<QuestionTopic>;
 }>;
 
-export type InterviewsQuestionItemMinimal = Readonly<{
-  info: InterviewsQuestionInfo;
-  metadata: InterviewsQuestionMetadata;
+export type QuestionBase = Readonly<{
+  description: string | null;
+  metadata: QuestionMetadata;
+  solution: string | null;
 }>;
 
-export type InterviewsQuestionItem = InterviewsQuestionItemMinimal &
-  Readonly<{
-    description: string | null;
-    solution: string | null;
-  }>;
-
-export type QuestionSystemDesign = InterviewsQuestionItem;
+export type QuestionSystemDesign = QuestionBase;
 
 export type QuestionCodingWorkingLanguage = 'js' | 'ts';
 
@@ -189,7 +182,7 @@ export type QuestionJavaScriptWorkspace = Readonly<{
   run: string;
   submit: string;
 }>;
-export type InterviewsQuestionItemJavaScript = InterviewsQuestionItem &
+export type QuestionJavaScript = QuestionBase &
   Readonly<{
     files: Record<string, string>;
     skeleton: QuestionJavaScriptSkeleton;
@@ -202,18 +195,17 @@ export type QuestionUserInterfaceWorkspace = Readonly<{
   visibleFiles?: Array<string>;
 }>;
 
-export type InterviewsQuestionItemUserInterface = InterviewsQuestionItem &
+export type QuestionUserInterface = QuestionBase &
   Readonly<{
     framework: QuestionFramework;
     skeletonBundle: QuestionUserInterfaceBundle;
     solutionBundle: QuestionUserInterfaceBundle;
   }>;
 
-export type InterviewsQuestionItemWithCompletedStatus =
-  InterviewsQuestionItemMinimal &
-    Readonly<{
-      isCompleted: boolean;
-    }>;
+export type QuestionMetadataWithCompletedStatus = QuestionMetadata &
+  Readonly<{
+    isCompleted: boolean;
+  }>;
 
 export type QuestionTopic =
   | 'a11y'
@@ -257,7 +249,7 @@ export type QuestionTopic =
   | 'ui-component'
   | 'web-api';
 
-export type QuestionQuiz = InterviewsQuestionItem;
+export type QuestionQuiz = QuestionBase;
 
 export type QuestionListTypeDataFilters = Readonly<{
   formats?: Array<QuestionCodingFormat>;

@@ -13,10 +13,11 @@ import { trpc } from '~/hooks/trpc';
 import { useGuidesData } from '~/data/Guides';
 
 import type {
-  InterviewsQuestionItemMinimal,
   QuestionFramework,
   QuestionLanguage,
+  QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
+import { FormattedMessage } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import Anchor from '~/components/ui/Anchor';
 import Divider from '~/components/ui/Divider';
@@ -44,17 +45,17 @@ type Props = Readonly<{
   defaultLoggedIn: boolean;
   focusAreas: ReadonlyArray<InterviewsStudyList>;
   questions: {
-    codingQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+    codingQuestions: ReadonlyArray<QuestionMetadata>;
     frameworkQuestions: Record<
       QuestionFramework,
-      ReadonlyArray<InterviewsQuestionItemMinimal>
+      ReadonlyArray<QuestionMetadata>
     >;
     languageQuestions: Record<
       QuestionLanguage,
-      ReadonlyArray<InterviewsQuestionItemMinimal>
+      ReadonlyArray<QuestionMetadata>
     >;
-    quizQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
-    systemDesignQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+    quizQuestions: ReadonlyArray<QuestionMetadata>;
+    systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
   };
   studyPlans: ReadonlyArray<InterviewsStudyList>;
 }>;
@@ -235,20 +236,16 @@ export default function InterviewsDashboardPage({
                   <ul>
                     {companyGuides.map((guide) => (
                       <li key={guide.href}>
-                        <Anchor href={guide.href}>{guide.longName}</Anchor>
+                        <Anchor href={guide.href}>
+                          <FormattedMessage
+                            defaultMessage="{name} front end interview questions"
+                            description="Label for company guides"
+                            id="pjH0jb"
+                            values={{ name: guide.name }}
+                          />
+                        </Anchor>
                       </li>
                     ))}
-                  </ul>
-                ),
-                QuestionsSystemDesignList: () => (
-                  <ul>
-                    {questions.systemDesignQuestions.map(
-                      ({ info, metadata }) => (
-                        <li key={metadata.slug}>
-                          <Anchor href={metadata.href}>{info.title}</Anchor>
-                        </li>
-                      ),
-                    )}
                   </ul>
                 ),
               }}

@@ -13,7 +13,7 @@ import CheckboxInput from '~/components/ui/CheckboxInput';
 import TextInput from '~/components/ui/TextInput';
 
 import logEvent from '~/logging/logEvent';
-import { i18nHref, useI18n, useI18nRouter } from '~/next-i18nostic/src';
+import { useI18nRouter } from '~/next-i18nostic/src';
 import type { SupabaseClientGFE } from '~/supabase/SupabaseServerGFE';
 
 import AuthTermsOfServiceLine from './AuthTermsOfServiceLine';
@@ -39,7 +39,6 @@ export default function SupabaseAuthEmailSignUp({
     trpc.emails.signUpForNewsletter.useMutation();
   const intl = useIntl();
   const router = useI18nRouter();
-  const { locale } = useI18n();
   const scheduleWelcomeSeriesEmailMutation =
     trpc.emails.scheduleWelcomeSeries.useMutation();
 
@@ -51,17 +50,12 @@ export default function SupabaseAuthEmailSignUp({
 
     const emailRedirectTo =
       window.location.origin +
-      url.format(
-        i18nHref(
-          {
-            pathname: '/auth/login-redirect',
-            query: {
-              next,
-            },
-          },
-          locale,
-        ),
-      );
+      url.format({
+        pathname: '/auth/login-redirect',
+        query: {
+          next,
+        },
+      });
 
     fbqGFE('track', 'CompleteRegistration');
 
@@ -157,73 +151,68 @@ export default function SupabaseAuthEmailSignUp({
   }
 
   return (
-    <form className="flex flex-col" onSubmit={handleSubmit}>
-      <div className="flex flex-col gap-y-4">
-        <TextInput
-          autoComplete="email"
-          autoFocus={true}
-          defaultValue={email}
-          label={intl.formatMessage({
-            defaultMessage: 'Email',
-            description: 'Label of email field on Sign In/Up page',
-            id: '9LT8eh',
+    <form className="flex flex-col gap-y-6" onSubmit={handleSubmit}>
+      <TextInput
+        autoComplete="email"
+        autoFocus={true}
+        defaultValue={email}
+        label={intl.formatMessage({
+          defaultMessage: 'Email',
+          description: 'Label of email field on Sign In/Up page',
+          id: '9LT8eh',
+        })}
+        required={true}
+        type="email"
+        onChange={setEmail}
+      />
+      <TextInput
+        defaultValue={password}
+        label={intl.formatMessage({
+          defaultMessage: 'Password',
+          description: 'Label of password field on Sign In/Up page',
+          id: 'jgIdRC',
+        })}
+        required={true}
+        type="password"
+        onChange={setPassword}
+      />
+      <CheckboxInput
+        label={intl.formatMessage({
+          defaultMessage:
+            "I would like to sign up for GreatFrontEnd's newsletter to receive interview tips and question updates",
+          description:
+            'Label of checkbox to sign up for newsletter on Email Sign Up page',
+          id: 'KmiBbk',
+        })}
+        value={signUpForMarketingEmails}
+        onChange={(value) => {
+          setSignUpForMarketingEmails(value);
+        }}
+      />
+      {message && (
+        <Alert
+          title={intl.formatMessage({
+            defaultMessage: 'Signed up successfully',
+            description: 'Title of alert indicating a successful email sign up',
+            id: 'I5MeD9',
           })}
-          required={true}
-          type="email"
-          onChange={setEmail}
-        />
-        <TextInput
-          defaultValue={password}
-          label={intl.formatMessage({
-            defaultMessage: 'Password',
-            description: 'Label of password field on Sign In/Up page',
-            id: 'jgIdRC',
-          })}
-          required={true}
-          type="password"
-          onChange={setPassword}
-        />
-        <CheckboxInput
-          className="py-1"
-          label={intl.formatMessage({
-            defaultMessage:
-              "I would like to sign up for GreatFrontEnd's newsletter to receive interview tips and question updates",
+          variant="info">
+          {message}
+        </Alert>
+      )}
+      {error && (
+        <Alert
+          title={intl.formatMessage({
+            defaultMessage: 'An error has occurred',
             description:
-              'Label of checkbox to sign up for newsletter on Email Sign Up page',
-            id: 'KmiBbk',
+              'Title of alert indicating an error on Email Sign In/Up Page',
+            id: 'YM1bnf',
           })}
-          value={signUpForMarketingEmails}
-          onChange={(value) => {
-            setSignUpForMarketingEmails(value);
-          }}
-        />
-        {message && (
-          <Alert
-            title={intl.formatMessage({
-              defaultMessage: 'Signed up successfully',
-              description:
-                'Title of alert indicating a successful email sign up',
-              id: 'I5MeD9',
-            })}
-            variant="info">
-            {message}
-          </Alert>
-        )}
-        {error && (
-          <Alert
-            title={intl.formatMessage({
-              defaultMessage: 'An error has occurred',
-              description:
-                'Title of alert indicating an error on Email Sign In/Up Page',
-              id: 'YM1bnf',
-            })}
-            variant="danger">
-            {error}
-          </Alert>
-        )}
-      </div>
+          variant="danger">
+          {error}
+        </Alert>
+      )}
       <Button
-        className="mt-6"
         display="block"
         isDisabled={loading}
         isLoading={loading}
@@ -243,9 +232,7 @@ export default function SupabaseAuthEmailSignUp({
           });
         }}
       />
-      <div className="mt-8">
-        <AuthTermsOfServiceLine />
-      </div>
+      <AuthTermsOfServiceLine />
     </form>
   );
 }

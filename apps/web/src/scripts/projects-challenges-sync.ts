@@ -1,4 +1,4 @@
-import allProjectsChallengeMetadata from '../../.contentlayer/generated/ProjectsChallengeMetadata/_index.json' with { type: 'json' };
+import allProjectsChallengeMetadata from '../../.contentlayer/generated/ProjectsChallengeMetadata/_index.json' assert { type: 'json' };
 import { projectDifficultyOptions } from '../components/projects/challenges/types';
 import Prisma from '../server/prisma';
 

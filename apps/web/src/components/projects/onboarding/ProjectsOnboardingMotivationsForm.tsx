@@ -7,6 +7,7 @@ import { z } from 'zod';
 
 import { FormattedMessage, useIntl } from '~/components/intl';
 import useProjectsMotivationReasonSchema from '~/components/projects/hooks/useProjectsMotivationReasonSchema';
+import type { ProjectsMotivationReasonFormValues } from '~/components/projects/types';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
@@ -17,10 +18,6 @@ import ProjectsProfileMotivationsField from '../profile/edit/ProjectsProfileMoti
 
 type OnboardingProfileFormTransformedValues = {
   motivations: z.infer<ReturnType<typeof useProjectsMotivationReasonSchema>>;
-};
-
-export type ProjectsMotivationReasonFormValues = {
-  motivations: z.input<ReturnType<typeof useProjectsMotivationReasonSchema>>;
 };
 
 type Props = Readonly<{
@@ -57,7 +54,7 @@ export default function ProjectsOnboardingMotivationsForm({ onSubmit }: Props) {
         width="6xl">
         <div className="flex flex-col items-center gap-4">
           <Text
-            className="block text-pretty text-center"
+            className="text-pretty block text-center"
             color="active"
             size="body2"
             weight="medium">

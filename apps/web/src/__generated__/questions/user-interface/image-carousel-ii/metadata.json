@@ -15,6 +15,7 @@
   "created": 1723766400,
   "difficulty": "medium",
   "duration": 30,
+  "excerpt": "Build an image carousel that smoothly transitions between images",
   "featured": false,
   "format": "user-interface",
   "frameworkDefault": "react",
@@ -39,6 +40,7 @@
   "similarQuestions": [],
   "slug": "image-carousel-ii",
   "subtitle": null,
+  "title": "Image Carousel II",
   "topics": [
     "a11y"
   ]

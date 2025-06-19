@@ -10,6 +10,7 @@
   "created": 1723766400,
   "difficulty": "medium",
   "duration": 20,
+  "excerpt": "Build a semi-accessible file explorer component that has the right ARIA roles, states, and properties",
   "featured": false,
   "format": "user-interface",
   "frameworkDefault": "react",
@@ -33,5 +34,6 @@
   "similarQuestions": [],
   "slug": "file-explorer-ii",
   "subtitle": null,
+  "title": "File Explorer II",
   "topics": []
 }

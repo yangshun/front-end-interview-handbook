@@ -17,8 +17,6 @@ import { themeBorderElementColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
 import type {
-  InterviewsQuestionItemMinimal,
-  InterviewsQuestionItemWithCompletedStatus,
   QuestionCompany,
   QuestionCompletionStatus,
   QuestionDifficulty,
@@ -26,6 +24,8 @@ import type {
   QuestionFramework,
   QuestionImportance,
   QuestionLanguage,
+  QuestionMetadata,
+  QuestionMetadataWithCompletedStatus,
   QuestionTopic,
 } from '../../common/QuestionsTypes';
 import type { QuestionFilter } from './QuestionFilterType';
@@ -36,46 +36,25 @@ import type { QuestionsListAttributesUnion } from './QuestionsProcessor';
 
 type Props = Readonly<{
   attributesUnion: QuestionsListAttributesUnion;
-  companyFilterOptions: QuestionFilter<
-    QuestionCompany,
-    InterviewsQuestionItemMinimal
-  >;
+  companyFilterOptions: QuestionFilter<QuestionCompany, QuestionMetadata>;
   companyFilters: Set<QuestionCompany>;
   completionStatusFilterOptions: QuestionFilter<
     QuestionCompletionStatus,
-    InterviewsQuestionItemWithCompletedStatus
+    QuestionMetadataWithCompletedStatus
   >;
   completionStatusFilters: Set<QuestionCompletionStatus>;
-  difficultyFilterOptions: QuestionFilter<
-    QuestionDifficulty,
-    InterviewsQuestionItemMinimal
-  >;
+  difficultyFilterOptions: QuestionFilter<QuestionDifficulty, QuestionMetadata>;
   difficultyFilters: Set<QuestionDifficulty>;
-  formatFilterOptions?: QuestionFilter<
-    QuestionFormat,
-    InterviewsQuestionItemMinimal
-  >;
+  formatFilterOptions?: QuestionFilter<QuestionFormat, QuestionMetadata>;
   formatFilters?: Set<QuestionFormat>;
-  frameworkFilterOptions: QuestionFilter<
-    QuestionFramework,
-    InterviewsQuestionItemMinimal
-  >;
+  frameworkFilterOptions: QuestionFilter<QuestionFramework, QuestionMetadata>;
   frameworkFilters: Set<QuestionFramework>;
-  importanceFilterOptions: QuestionFilter<
-    QuestionImportance,
-    InterviewsQuestionItemMinimal
-  >;
+  importanceFilterOptions: QuestionFilter<QuestionImportance, QuestionMetadata>;
   importanceFilters: Set<QuestionImportance>;
   initialOpenItems?: ReadonlyArray<string>;
-  languageFilterOptions: QuestionFilter<
-    QuestionLanguage,
-    InterviewsQuestionItemMinimal
-  >;
+  languageFilterOptions: QuestionFilter<QuestionLanguage, QuestionMetadata>;
   languageFilters: Set<QuestionLanguage>;
-  topicFilterOptions: QuestionFilter<
-    QuestionTopic,
-    InterviewsQuestionItemMinimal
-  >;
+  topicFilterOptions: QuestionFilter<QuestionTopic, QuestionMetadata>;
   topicFilters: Set<QuestionTopic>;
 }>;
 

@@ -2,11 +2,17 @@
 
 import { useEffect } from 'react';
 
+import logEvent from '~/logging/logEvent';
+
 export default function HydrationFailureLogging() {
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     window.__hydrated = true;
+    logEvent('hydration.success', {
+      namespace: 'general',
+      url: window.location.href,
+    });
   }, []);
 
   return (

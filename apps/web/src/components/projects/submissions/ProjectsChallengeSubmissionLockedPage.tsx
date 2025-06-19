@@ -1,7 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import { useInView } from 'motion/react';
+import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';

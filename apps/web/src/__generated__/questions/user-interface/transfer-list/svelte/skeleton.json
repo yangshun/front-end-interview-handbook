@@ -1,0 +1,29 @@
+{
+  "author": "tanhauhau",
+  "files": {
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/transfer-list-svelte-skeleton\",\n  \"author\": \"tanhauhau\",\n  \"version\": \"0.0.1\",\n  \"main\": \"src/index.js\",\n  \"dependencies\": {\n    \"svelte\": \"^3.58.0\"\n  }\n}\n"
+    },
+    "/public/index.html": {
+      "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"utf8\" />\n    <meta name=\"viewport\" content=\"width=device-width\" />\n    <title>Svelte</title>\n    <link rel=\"stylesheet\" href=\"public/bundle.css\" />\n  </head>\n\n  <body>\n    <script src=\"bundle.js\"></script>\n  </body>\n</html>\n"
+    },
+    "/src/App.svelte": {
+      "code": "<script>\n  import './styles.css';\n</script>\n\n<div>\n  <div>\n    <ul>\n      <li>HTML</li>\n      <li>JavaScript</li>\n      <li>CSS</li>\n      <li>TypeScript</li>\n    </ul>\n    <ul>\n      <li>React</li>\n      <li>Angular</li>\n      <li>Vue</li>\n      <li>Svelte</li>\n    </ul>\n  </div>\n</div>\n"
+    },
+    "/src/index.js": {
+      "code": "import App from './App.svelte';\nimport './styles.css';\n\nconst app = new App({\n  target: document.body,\n});\n\nexport default app;\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/src/App.svelte",
+      "/src/styles.css"
+    ],
+    "activeFile": "/src/App.svelte",
+    "environment": "svelte"
+  },
+  "writeup": "var Component=(()=>{var g=Object.create;var s=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var w=Object.getOwnPropertyNames;var x=Object.getPrototypeOf,b=Object.prototype.hasOwnProperty;var j=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),_=(t,e)=>{for(var i in e)s(t,i,{get:e[i],enumerable:!0})},c=(t,e,i,l)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of w(e))!b.call(t,r)&&r!==i&&s(t,r,{get:()=>e[r],enumerable:!(l=p(e,r))||l.enumerable});return t};var d=(t,e,i)=>(i=t!=null?g(x(t)):{},c(e||!t||!t.__esModule?s(i,\"default\",{value:t,enumerable:!0}):i,t)),k=t=>c(s({},\"__esModule\",{value:!0}),t);var o=j((q,h)=>{h.exports=_jsx_runtime});var M={};_(M,{default:()=>D});var a=d(o());var n=d(o());function m(t){let e=Object.assign({p:\"p\",img:\"img\",h2:\"h2\",ul:\"ul\",li:\"li\"},t.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.p,{children:\"Build a component that allows transferring of items between two lists.\"}),`\n`,(0,n.jsx)(e.p,{children:(0,n.jsx)(e.img,{src:\"/img/questions/transfer-list/transfer-list-example.png\",alt:\"Transfer List Example\"})}),`\n`,(0,n.jsx)(e.h2,{children:\"Requirements\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"There are two lists each initially containing 4 items.\"}),`\n`,(0,n.jsx)(e.li,{children:\"Each item has a checkbox that can be checked/unchecked.\"}),`\n`,(0,n.jsxs)(e.li,{children:[\"Transferring\",`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"Clicking on the double arrow buttons will transfer all items from one list to the other, as specified by the direction of the arrows.\"}),`\n`,(0,n.jsx)(e.li,{children:\"Clicking on the single arrow buttons will transfer only the selected items, as specified by the direction of the arrows.\"}),`\n`,(0,n.jsx)(e.li,{children:\"Transferred items are added to the bottom of the destination list.\"}),`\n`,(0,n.jsx)(e.li,{children:\"Item selection (checked) states are preserved after transferring.\"}),`\n`,(0,n.jsx)(e.li,{children:\"Buttons are disabled if there are no relevant items to be transferred.\"}),`\n`]}),`\n`]}),`\n`]})]})}function y(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(m,t)})):m(t)}var u=y;function f(t){return(0,a.jsx)(u,{})}function C(t={}){let{wrapper:e}=t.components||{};return e?(0,a.jsx)(e,Object.assign({},t,{children:(0,a.jsx)(f,t)})):f(t)}var D=C;return k(M);})();\n;return Component;"
+}

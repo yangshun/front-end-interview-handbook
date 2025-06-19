@@ -102,7 +102,7 @@ async function takeScreenshotForViewport(
 
   const path = createStoragePath(submissionId, url, device);
 
-  return await saveScreenshot(Buffer.from(screenshotBuffer), path);
+  return await saveScreenshot(screenshotBuffer, path);
 }
 
 // Returns an object with screenshot URLs for each device type
@@ -149,6 +149,7 @@ export async function generateScreenshots(
   submissionId: string,
   deploymentUrls: ProjectsChallengeSubmissionDeploymentUrls,
 ): Promise<ProjectsChallengeSubmissionDeploymentUrls> {
+   
   const chromium = require('@sparticuz/chromium');
   const puppeteer = require('puppeteer-core');
 

@@ -2,20 +2,20 @@
 
 import { useState } from 'react';
 import { RiArrowGoBackLine, RiSettings2Line } from 'react-icons/ri';
-import { VscLayout, VscTerminal } from 'react-icons/vsc';
+import { VscLayout } from 'react-icons/vsc';
 
-import { useAuthActiveEngagementPoints } from '~/components/auth/auth-points';
 import QuestionProgressAction from '~/components/interviews/questions/common/QuestionProgressAction';
 import QuestionReportIssueButton from '~/components/interviews/questions/common/QuestionReportIssueButton';
 import type {
-  InterviewsQuestionItemUserInterface,
-  InterviewsQuestionMetadata,
   QuestionFramework,
+  QuestionMetadata,
+  QuestionUserInterface,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
+import QuestionNextQuestions from '~/components/interviews/questions/content/QuestionNextQuestions';
 import { useIntl } from '~/components/intl';
+import Divider from '~/components/ui/Divider';
 import DropdownMenu from '~/components/ui/DropdownMenu';
-import { useVimMode } from '~/components/workspace/common/editor/hooks/useVimMode';
 
 import CodingWorkspaceBottomBar from '../common/CodingWorkspaceBottomBar';
 import CodingWorkspaceTimer from '../common/CodingWorkspaceTimer';
@@ -25,10 +25,10 @@ import UserInterfaceCodingWorkspaceSaveButton from './UserInterfaceCodingWorkspa
 type Props = Readonly<{
   framework: QuestionFramework;
   frameworkSolutionPath: string;
-  isViewingSave: boolean;
-  metadata: InterviewsQuestionMetadata;
+  metadata: QuestionMetadata;
   mode: QuestionUserInterfaceMode;
-  question: InterviewsQuestionItemUserInterface;
+  nextQuestions: ReadonlyArray<QuestionMetadata>;
+  question: QuestionUserInterface;
   resetToDefaultCode: () => void;
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE: string;
   studyListKey?: string;
@@ -37,23 +37,16 @@ type Props = Readonly<{
 export default function UserInterfaceCodingWorkspaceBottomBar({
   framework,
   frameworkSolutionPath,
-  isViewingSave,
   metadata,
   mode,
+  nextQuestions,
   question,
   resetToDefaultCode,
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE,
   studyListKey,
 }: Props) {
   const intl = useIntl();
-
-  useAuthActiveEngagementPoints({
-    entityId: metadata.slug,
-    entityType: 'coding',
-  });
-
   const [isLayoutDialogOpen, setIsLayoutDialogOpen] = useState(false);
-  const { isVimModeEnabled, toggleVimMode } = useVimMode();
 
   const leftElements = (
     <div className="hidden flex-1 items-center gap-x-2 sm:inline-flex">
@@ -85,22 +78,6 @@ export default function UserInterfaceCodingWorkspaceBottomBar({
               setIsLayoutDialogOpen(true);
             },
             value: 'layout',
-          },
-          {
-            icon: VscTerminal,
-            label: isVimModeEnabled
-              ? intl.formatMessage({
-                  defaultMessage: 'Disable Vim mode',
-                  description: 'Button label to disable vim mode in editor',
-                  id: 'cnL7HI',
-                })
-              : intl.formatMessage({
-                  defaultMessage: 'Enable Vim mode',
-                  description: 'Button label to enable vim mode in editor',
-                  id: 'YeHWje',
-                }),
-            onClick: toggleVimMode,
-            value: 'vim-mode',
           },
           {
             icon: RiArrowGoBackLine,
@@ -155,13 +132,20 @@ export default function UserInterfaceCodingWorkspaceBottomBar({
       <div className="hidden lg:inline">
         <CodingWorkspaceTimer qnMetadata={metadata} />
       </div>
-      {!isViewingSave ? (
-        <QuestionProgressAction
-          metadata={metadata}
-          studyListKey={studyListKey}
-        />
-      ) : null}
-      {mode === 'practice' && !isViewingSave ? (
+      <QuestionProgressAction
+        metadata={metadata}
+        signInModalContents={
+          nextQuestions &&
+          nextQuestions.length > 0 && (
+            <div className="mt-4 space-y-4">
+              <Divider />
+              <QuestionNextQuestions questions={nextQuestions} />
+            </div>
+          )
+        }
+        studyListKey={studyListKey}
+      />
+      {mode === 'practice' ? (
         <div className="hidden min-[450px]:block">
           <UserInterfaceCodingWorkspaceSaveButton
             question={question}

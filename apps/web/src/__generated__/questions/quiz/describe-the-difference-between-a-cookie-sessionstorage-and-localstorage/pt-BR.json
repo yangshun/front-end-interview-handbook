@@ -1,0 +1,37 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [
+      "amazon",
+      "bytedance",
+      "tiktok",
+      "apple"
+    ],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": true,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/describe-the-difference-between-a-cookie-sessionstorage-and-localstorage",
+    "importance": "high",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 70,
+    "similarQuestions": [],
+    "slug": "describe-the-difference-between-a-cookie-sessionstorage-and-localstorage",
+    "subtitle": null,
+    "title": "Descreva a diferença entre cookie, `sessionStorage` e `localStorage`.",
+    "topics": [
+      "web-api",
+      "javascript"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/describe-the-difference-between-a-cookie-sessionstorage-and-localstorage/pt-BR.mdx"
+  },
+  "solution": "var Component=(()=>{var h=Object.create;var i=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,b=Object.prototype.hasOwnProperty;var f=(o,e)=>()=>(e||o((e={exports:{}}).exports,e),e.exports),g=(o,e)=>{for(var r in e)i(o,r,{get:e[r],enumerable:!0})},n=(o,e,r,d)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let a of u(e))!b.call(o,a)&&a!==r&&i(o,a,{get:()=>e[a],enumerable:!(d=m(e,a))||d.enumerable});return o};var v=(o,e,r)=>(r=o!=null?h(p(o)):{},n(e||!o||!o.__esModule?i(r,\"default\",{value:o,enumerable:!0}):r,o)),y=o=>n(i({},\"__esModule\",{value:!0}),o);var c=f((z,s)=>{s.exports=_jsx_runtime});var S={};g(S,{default:()=>C,frontmatter:()=>w});var t=v(c()),w={title:\"Descreva a diferen\\xE7a entre cookie, `sessionStorage` e `localStorage`.\"};function l(o){let e=Object.assign({p:\"p\",h2:\"h2\",code:\"code\",ul:\"ul\",li:\"li\",table:\"table\",thead:\"thead\",tr:\"tr\",th:\"th\",tbody:\"tbody\",td:\"td\",a:\"a\"},o.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(e.p,{children:\"Local storage is useful for storing data that the user will need to access later, such as offline data, because it stores the data in the browser and the system. This data will persist even if the user closes and reopens the browser and is accessible by other sites.\"}),`\n`,(0,t.jsx)(e.p,{children:\"Session storage is a great way to improve the performance of your web applications. It stores data locally on the browser but is specific to (and only accessible by) the respective site/browser tab and is only available while the user is on the site/tab. This is a more secure storage method due to the restrictive access and promotes better site performance due to reduced data transfer between server and client.\"}),`\n`,(0,t.jsx)(e.p,{children:\"Cookies are a good choice for storing data that should not be persisted for a long time, such as session IDs. Cookies allow you to set an expiry time at which point it would be deleted. Cookies can only be smaller sized data compared to the other two storage methods.\"}),`\n`,(0,t.jsx)(e.h2,{children:\"Similaridades\"}),`\n`,(0,t.jsxs)(e.p,{children:[\"Cookies, \",(0,t.jsx)(e.code,{children:\"localStorage\"}),\", and \",(0,t.jsx)(e.code,{children:\"sessionStorage\"}),\", s\\xE3o todos:\"]}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsx)(e.li,{children:\"Mecanismos de armazenamento no lado do cliente. Isso significa que os clientes podem ler e modificar os valores.\"}),`\n`,(0,t.jsx)(e.li,{children:\"Armazenamento baseado em chave-valor.\"}),`\n`,(0,t.jsxs)(e.li,{children:[\"Eles s\\xF3 s\\xE3o capazes de armazenar valores como strings. Objetos ter\\xE3o que ser serializados em uma string (\",(0,t.jsx)(e.code,{children:\"JSON.stringify()\"}),\") a fim de serem armazenados.\"]}),`\n`]}),`\n`,(0,t.jsx)(e.h2,{children:\"Diferen\\xE7as\"}),`\n`,(0,t.jsxs)(e.table,{children:[(0,t.jsx)(e.thead,{children:(0,t.jsxs)(e.tr,{children:[(0,t.jsx)(e.th,{children:\"Propriedade\"}),(0,t.jsx)(e.th,{children:\"Cookie\"}),(0,t.jsx)(e.th,{children:(0,t.jsx)(e.code,{children:\"localStorage\"})}),(0,t.jsx)(e.th,{children:(0,t.jsx)(e.code,{children:\"sessionStorage\"})})]})}),(0,t.jsxs)(e.tbody,{children:[(0,t.jsxs)(e.tr,{children:[(0,t.jsx)(e.td,{children:\"Iniciador\"}),(0,t.jsxs)(e.td,{children:[\"Cliente ou servidor. O servidor pode usar o cabe\\xE7alho \",(0,t.jsx)(e.code,{children:\"Set-Cookie\"})]}),(0,t.jsx)(e.td,{children:\"Cliente\"}),(0,t.jsx)(e.td,{children:\"Cliente\"})]}),(0,t.jsxs)(e.tr,{children:[(0,t.jsx)(e.td,{children:\"Vencimento\"}),(0,t.jsx)(e.td,{children:\"Definir manualmente\"}),(0,t.jsx)(e.td,{children:\"Para sempre\"}),(0,t.jsx)(e.td,{children:\"Ao fechar a aba\"})]}),(0,t.jsxs)(e.tr,{children:[(0,t.jsx)(e.td,{children:\"Persistente atrav\\xE9s de sess\\xF5es do navegador\"}),(0,t.jsx)(e.td,{children:\"Depende se a expira\\xE7\\xE3o est\\xE1 definida\"}),(0,t.jsx)(e.td,{children:\"Sim\"}),(0,t.jsx)(e.td,{children:\"N\\xE3o\"})]}),(0,t.jsxs)(e.tr,{children:[(0,t.jsx)(e.td,{children:\"Enviado para o servidor com cada solicita\\xE7\\xE3o HTTP\"}),(0,t.jsxs)(e.td,{children:[\"Os cookies s\\xE3o automaticamente enviados via cabe\\xE7alho \",(0,t.jsx)(e.code,{children:\"Cookie\"})]}),(0,t.jsx)(e.td,{children:\"N\\xE3o\"}),(0,t.jsx)(e.td,{children:\"N\\xE3o\"})]}),(0,t.jsxs)(e.tr,{children:[(0,t.jsx)(e.td,{children:\"Capacidade (por dom\\xEDnio)\"}),(0,t.jsx)(e.td,{children:\"4kb\"}),(0,t.jsx)(e.td,{children:\"5MB\"}),(0,t.jsx)(e.td,{children:\"5MB\"})]}),(0,t.jsxs)(e.tr,{children:[(0,t.jsx)(e.td,{children:\"Acesso\"}),(0,t.jsx)(e.td,{children:\"Quqlquer Janela\"}),(0,t.jsx)(e.td,{children:\"Quqlquer Janela\"}),(0,t.jsx)(e.td,{children:\"Mesma Guia\"})]})]})]}),`\n`,(0,t.jsxs)(e.p,{children:[\"Tamb\\xE9m existem outros mecanismos de armazenamento do lado do cliente, como \",(0,t.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API\",children:\"IndexedDB\"}),\" que \\xE9 mais poderoso do que as tecnologias acima mencionadas, mas mais complicado de usar.\"]})]})}function x(o={}){let{wrapper:e}=o.components||{};return e?(0,t.jsx)(e,Object.assign({},o,{children:(0,t.jsx)(l,o)})):l(o)}var C=x;return y(S);})();\n;return Component;"
+}

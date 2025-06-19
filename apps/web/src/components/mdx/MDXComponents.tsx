@@ -3,7 +3,6 @@
 
 import type { ComponentProps } from 'react';
 
-import MDXAlert from './MDXAlert';
 import MDXCodeBlock from './MDXCodeBlock';
 import MDXHeading from './MDXHeading';
 import MDXImage from './MDXImage';
@@ -19,7 +18,6 @@ const MDXComponents = Object.freeze({
   h5: (props: ComponentProps<'h5'>) => <MDXHeading as="h5" {...props} />,
   h6: (props: ComponentProps<'h6'>) => <MDXHeading as="h6" {...props} />,
   img: MDXImage,
-  MDXAlert,
   pre: MDXCodeBlock,
   table: MDXTable,
 });

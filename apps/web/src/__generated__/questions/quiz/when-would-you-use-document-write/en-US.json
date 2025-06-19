@@ -1,0 +1,33 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "hard",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/when-would-you-use-document-write",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 999,
+    "similarQuestions": [],
+    "slug": "when-would-you-use-document-write",
+    "subtitle": null,
+    "title": "When would you use `document.write()`?",
+    "topics": [
+      "web-api",
+      "javascript",
+      "html"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/when-would-you-use-document-write/en-US.mdx"
+  },
+  "solution": "var Component=(()=>{var h=Object.create;var i=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var w=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),f=(t,e)=>{for(var r in e)i(t,r,{get:e[r],enumerable:!0})},c=(t,e,r,d)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of m(e))!g.call(t,o)&&o!==r&&i(t,o,{get:()=>e[o],enumerable:!(d=u(e,o))||d.enumerable});return t};var b=(t,e,r)=>(r=t!=null?h(p(t)):{},c(e||!t||!t.__esModule?i(r,\"default\",{value:t,enumerable:!0}):r,t)),y=t=>c(i({},\"__esModule\",{value:!0}),t);var a=w((W,l)=>{l.exports=_jsx_runtime});var k={};f(k,{default:()=>x,frontmatter:()=>v});var n=b(a()),v={title:\"When would you use `document.write()`?\"};function s(t){let e=Object.assign({h2:\"h2\",p:\"p\",code:\"code\",hr:\"hr\",h3:\"h3\",pre:\"pre\",ul:\"ul\",li:\"li\",strong:\"strong\",a:\"a\"},t.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{children:\"TL;DR\"}),`\n`,(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.code,{children:\"document.write()\"}),\" is rarely used in modern web development because it can overwrite the entire document if called after the page has loaded. It is mainly used for simple tasks like writing content during the initial page load, such as for educational purposes or quick debugging. However, it is generally recommended to use other methods like \",(0,n.jsx)(e.code,{children:\"innerHTML\"}),\", \",(0,n.jsx)(e.code,{children:\"appendChild()\"}),\", or modern frameworks for manipulating the DOM.\"]}),`\n`,(0,n.jsx)(e.hr,{}),`\n`,(0,n.jsxs)(e.h2,{children:[\"When would you use \",(0,n.jsx)(e.code,{children:\"document.write()\"}),\"?\"]}),`\n`,(0,n.jsx)(e.h3,{children:\"Initial page load\"}),`\n`,(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.code,{children:\"document.write()\"}),\" can be used to write content directly to the document during the initial page load. This is one of the few scenarios where it might be appropriate, as it can be simpler and faster for very basic tasks.\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-html\",children:`<!doctype html>\n<html>\n  <head>\n    <title>Document Write Example</title>\n  </head>\n  <body>\n    <script>\n      document.write('<h1>Hello, World!</h1>');\n    <\\/script>\n  </body>\n</html>\n`})}),`\n`,(0,n.jsx)(e.h3,{children:\"Educational purposes\"}),`\n`,(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.code,{children:\"document.write()\"}),\" is sometimes used in educational contexts to demonstrate basic JavaScript concepts. It provides a straightforward way to show how JavaScript can manipulate the DOM.\"]}),`\n`,(0,n.jsx)(e.h3,{children:\"Quick debugging\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"For quick and dirty debugging, \",(0,n.jsx)(e.code,{children:\"document.write()\"}),\" can be used to output variables or messages directly to the document. However, this is not recommended for production code.\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-javascript\",children:`var debugMessage = 'Debugging message';\ndocument.write(debugMessage);\n`})}),`\n`,(0,n.jsx)(e.h3,{children:\"Legacy code\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"In some older codebases, you might encounter \",(0,n.jsx)(e.code,{children:\"document.write()\"}),\". While it's not recommended to use it in new projects, understanding it can be useful for maintaining or refactoring legacy code.\"]}),`\n`,(0,n.jsxs)(e.h3,{children:[\"Why not use \",(0,n.jsx)(e.code,{children:\"document.write()\"}),\"?\"]}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Overwrites the document\"}),\": If called after the page has loaded, \",(0,n.jsx)(e.code,{children:\"document.write()\"}),\" will overwrite the entire document, which can lead to loss of content and a poor user experience.\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Better alternatives\"}),\": Modern methods like \",(0,n.jsx)(e.code,{children:\"innerHTML\"}),\", \",(0,n.jsx)(e.code,{children:\"appendChild()\"}),\", and frameworks like React or Vue provide more control and are safer to use.\"]}),`\n`]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-javascript\",children:`// Using innerHTML\ndocument.getElementById('content').innerHTML = '<h1>Hello, World!</h1>';\n\n// Using appendChild\nvar newElement = document.createElement('h1');\nnewElement.textContent = 'Hello, World!';\ndocument.getElementById('content').appendChild(newElement);\n`})}),`\n`,(0,n.jsx)(e.h2,{children:\"Further reading\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/API/Document/write\",children:\"MDN Web Docs on document.write()\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://stackoverflow.com/questions/802854/why-is-document-write-considered-a-bad-practice\",children:\"Why is document.write() considered harmful?\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction#modifying_the_document\",children:\"Modern DOM manipulation methods\"})}),`\n`]})]})}function M(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(s,t)})):s(t)}var x=M;return y(k);})();\n;return Component;"
+}

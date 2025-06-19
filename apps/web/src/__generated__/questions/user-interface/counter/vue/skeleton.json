@@ -1,0 +1,29 @@
+{
+  "author": null,
+  "files": {
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/counter-vue-skeleton\",\n  \"version\": \"0.0.1\",\n  \"main\": \"/src/main.js\",\n  \"scripts\": {\n    \"serve\": \"vue-cli-service serve\",\n    \"build\": \"vue-cli-service build\"\n  },\n  \"dependencies\": {\n    \"core-js\": \"3.32.2\",\n    \"vue\": \"3.3.4\"\n  },\n  \"devDependencies\": {\n    \"@vue/cli-plugin-babel\": \"5.0.8\",\n    \"@vue/cli-service\": \"5.0.8\"\n  }\n}\n"
+    },
+    "/public/index.html": {
+      "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width,initial-scale=1.0\" />\n    <title>Vue</title>\n  </head>\n  <body>\n    <div id=\"app\"></div>\n    <!-- Built files will be auto injected -->\n  </body>\n</html>\n"
+    },
+    "/src/App.vue": {
+      "code": "<script setup>\nimport { ref } from 'vue';\n\n// This is a warm up question to help you\n// get familiar with the editor.\n// Most of the code has been filled in for you.\nconst count = ref(0);\n</script>\n\n<template>\n  <!-- Fix the bug in the next line to \n    complete the question. -->\n  <button @click=\"count--\">Clicks: {{ count }}</button>\n</template>\n"
+    },
+    "/src/main.js": {
+      "code": "import { createApp } from 'vue';\nimport App from './App.vue';\n\nimport './styles.css';\n\ncreateApp(App).mount('#app');\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/src/App.vue",
+      "/src/styles.css"
+    ],
+    "activeFile": "/src/App.vue",
+    "environment": "vue-cli"
+  },
+  "writeup": "var Component=(()=>{var f=Object.create;var i=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var w=Object.getPrototypeOf,j=Object.prototype.hasOwnProperty;var _=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),b=(t,e)=>{for(var o in e)i(t,o,{get:e[o],enumerable:!0})},u=(t,e,o,c)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of g(e))!j.call(t,r)&&r!==o&&i(t,r,{get:()=>e[r],enumerable:!(c=x(e,r))||c.enumerable});return t};var l=(t,e,o)=>(o=t!=null?f(w(t)):{},u(e||!t||!t.__esModule?i(o,\"default\",{value:t,enumerable:!0}):o,t)),y=t=>u(i({},\"__esModule\",{value:!0}),t);var a=_((C,m)=>{m.exports=_jsx_runtime});var k={};b(k,{default:()=>D});var s=l(a());var n=l(a());function h(t){let e=Object.assign({p:\"p\",strong:\"strong\",h2:\"h2\"},t.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.strong,{children:\"Note:\"}),\" This is a short warm up question meant to help you familiarize with the coding workspace. Actual UI coding interview questions will be more complicated.\"]}),`\n`,(0,n.jsx)(e.h2,{children:\"Requirements\"}),`\n`,(0,n.jsx)(e.p,{children:\"Make the text within the button display the number of times the button has been clicked.\"})]})}function M(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(h,t)})):h(t)}var d=M;function p(t){return(0,s.jsx)(d,{})}function v(t={}){let{wrapper:e}=t.components||{};return e?(0,s.jsx)(e,Object.assign({},t,{children:(0,s.jsx)(p,t)})):p(t)}var D=v;return y(k);})();\n;return Component;"
+}

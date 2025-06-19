@@ -92,7 +92,9 @@ export default async function Page({ params }: Props) {
         locale,
         slugs: InterviewsQuestionsLanguageJavaScriptGuideSlugs,
       }),
-      fetchInterviewListingBottomContent('ads/javascript-functions', locale),
+      fetchInterviewListingBottomContent(
+        'javascript-functions-interview-questions',
+      ),
     ]);
 
   const listTypeWithTitle = {

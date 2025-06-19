@@ -1,0 +1,32 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "easy",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/how-do-you-redirect-to-a-new-page-in-javascript",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 999,
+    "similarQuestions": [],
+    "slug": "how-do-you-redirect-to-a-new-page-in-javascript",
+    "subtitle": null,
+    "title": "How do you redirect to a new page in JavaScript?",
+    "topics": [
+      "web-api",
+      "javascript"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-redirect-to-a-new-page-in-javascript/en-US.mdx"
+  },
+  "solution": "var Component=(()=>{var s=Object.create;var r=Object.defineProperty;var w=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,u=Object.prototype.hasOwnProperty;var m=(o,e)=>()=>(e||o((e={exports:{}}).exports,e),e.exports),f=(o,e)=>{for(var i in e)r(o,i,{get:e[i],enumerable:!0})},a=(o,e,i,c)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let t of p(e))!u.call(o,t)&&t!==i&&r(o,t,{get:()=>e[t],enumerable:!(c=w(e,t))||c.enumerable});return o};var y=(o,e,i)=>(i=o!=null?s(g(o)):{},a(e||!o||!o.__esModule?r(i,\"default\",{value:o,enumerable:!0}):i,o)),b=o=>a(r({},\"__esModule\",{value:!0}),o);var l=m((D,h)=>{h.exports=_jsx_runtime});var W={};f(W,{default:()=>j,frontmatter:()=>x});var n=y(l()),x={title:\"How do you redirect to a new page in JavaScript?\"};function d(o){let e=Object.assign({h2:\"h2\",p:\"p\",code:\"code\",pre:\"pre\",hr:\"hr\",h3:\"h3\",ul:\"ul\",li:\"li\",a:\"a\"},o.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{children:\"TL;DR\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"To redirect to a new page in JavaScript, you can use the \",(0,n.jsx)(e.code,{children:\"window.location\"}),\" object. The most common methods are \",(0,n.jsx)(e.code,{children:\"window.location.href\"}),\" and \",(0,n.jsx)(e.code,{children:\"window.location.replace()\"}),\". For example:\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`// Using window.location.href\nwindow.location.href = 'https://www.example.com';\n\n// Using window.location.replace()\nwindow.location.replace('https://www.example.com');\n`})}),`\n`,(0,n.jsx)(e.hr,{}),`\n`,(0,n.jsx)(e.h2,{children:\"How do you redirect to a new page in JavaScript?\"}),`\n`,(0,n.jsxs)(e.h3,{children:[\"Using \",(0,n.jsx)(e.code,{children:\"window.location.href\"})]}),`\n`,(0,n.jsxs)(e.p,{children:[\"The \",(0,n.jsx)(e.code,{children:\"window.location.href\"}),\" property is used to get or set the URL of the current page. When you set this property, the browser will navigate to the new URL, and it will create a new entry in the browser's history.\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`window.location.href = 'https://www.example.com';\n`})}),`\n`,(0,n.jsxs)(e.h3,{children:[\"Using \",(0,n.jsx)(e.code,{children:\"window.location.replace()\"})]}),`\n`,(0,n.jsxs)(e.p,{children:[\"The \",(0,n.jsx)(e.code,{children:\"window.location.replace()\"}),\" method is similar to \",(0,n.jsx)(e.code,{children:\"window.location.href\"}),\", but it does not create a new entry in the browser's history. This means that the user cannot use the back button to return to the original page.\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`window.location.replace('https://www.example.com');\n`})}),`\n`,(0,n.jsxs)(e.h3,{children:[\"Using \",(0,n.jsx)(e.code,{children:\"window.location.assign()\"})]}),`\n`,(0,n.jsxs)(e.p,{children:[\"The \",(0,n.jsx)(e.code,{children:\"window.location.assign()\"}),\" method works similarly to \",(0,n.jsx)(e.code,{children:\"window.location.href\"}),\" and creates a new entry in the browser's history.\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`window.location.assign('https://www.example.com');\n`})}),`\n`,(0,n.jsxs)(e.h3,{children:[\"Using \",(0,n.jsx)(e.code,{children:\"window.location.reload()\"})]}),`\n`,(0,n.jsxs)(e.p,{children:[\"If you want to reload the current page, you can use the \",(0,n.jsx)(e.code,{children:\"window.location.reload()\"}),\" method. This method can be useful if you want to refresh the page without changing the URL.\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`window.location.reload();\n`})}),`\n`,(0,n.jsxs)(e.h3,{children:[\"Using \",(0,n.jsx)(e.code,{children:\"window.history.pushState()\"})]}),`\n`,(0,n.jsxs)(e.p,{children:[\"For more advanced use cases, such as single-page applications (SPAs), you can use the \",(0,n.jsx)(e.code,{children:\"window.history.pushState()\"}),\" method. This method allows you to change the URL without reloading the page.\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`window.history.pushState({}, '', '/new-page');\n`})}),`\n`,(0,n.jsx)(e.h2,{children:\"Further reading\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/API/Window/location\",children:\"MDN Web Docs: Window.location\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/API/Location/href\",children:\"MDN Web Docs: Window.location.href\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/API/Location/replace\",children:\"MDN Web Docs: Window.location.replace()\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/API/History/pushState\",children:\"MDN Web Docs: Window.history.pushState()\"})}),`\n`]})]})}function U(o={}){let{wrapper:e}=o.components||{};return e?(0,n.jsx)(e,Object.assign({},o,{children:(0,n.jsx)(d,o)})):d(o)}var j=U;return b(W);})();\n;return Component;"
+}

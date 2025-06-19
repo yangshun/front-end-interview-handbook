@@ -24,8 +24,6 @@ import {
   purchaseFailureLogging,
   purchaseInitiateLogging,
   purchaseInitiateLoggingNonSignedIn,
-  purchaseSessionGeneratedLogging,
-  purchaseSessionGenerateLogging,
 } from '~/components/purchase/PurchaseLogging';
 import PurchasePriceLabel from '~/components/purchase/PurchasePriceLabel';
 import { priceRoundToNearestNiceNumber } from '~/components/purchase/PurchasePricingUtils';
@@ -175,31 +173,22 @@ function PricingButtonNonPremium({
     setErrorMessage(null);
 
     try {
-      purchaseSessionGenerateLogging({
-        plan: planType,
-        product: 'projects',
-        purchasePrice: paymentConfig,
-      });
+      const cancelURL = new URL(
+        window.location.pathname,
+        window.location.origin,
+      );
 
       const res = await fetch(
         url.format({
           pathname: '/api/payments/purchase/checkout',
           query: {
-            cancel_url: useCurrentPageAsCancelUrl
-              ? window.location.href
-              : undefined,
+            cancel_url: useCurrentPageAsCancelUrl ? cancelURL.href : undefined,
             plan_type: planTypeParam,
             product_domain: 'projects',
           },
         }),
       );
       const { payload } = await res.json();
-
-      purchaseSessionGeneratedLogging({
-        plan: planType,
-        product: 'projects',
-        purchasePrice: paymentConfig,
-      });
 
       if (hasClickedRef.current) {
         window.location.href = payload.url;
@@ -222,7 +211,7 @@ function PricingButtonNonPremium({
       }
 
       purchaseFailureLogging({
-        error: error as Error,
+        error,
         plan: planType,
         product: 'projects',
         purchasePrice: paymentConfig,
@@ -308,7 +297,10 @@ function PricingButtonSection({
     );
   }
 
-  if (!userProfile?.projectsProfile?.premium) {
+  if (
+    userProfile?.projectsProfile == null ||
+    !userProfile?.projectsProfile?.premium
+  ) {
     if (paymentConfig == null) {
       return null;
     }
@@ -514,7 +506,7 @@ function ProjectsPricingPriceCell({
           <Text
             className={clsx(
               'flex items-center justify-center',
-              'pb-2 md:min-h-8 md:pb-0',
+              'md:min-h-8 pb-2 md:pb-0',
             )}
             size="body3">
             <PurchaseActivePlanLabel />
@@ -523,7 +515,7 @@ function ProjectsPricingPriceCell({
           <Text
             className={clsx(
               'flex items-center justify-center',
-              'pb-1 xl:min-h-8 xl:pb-0',
+              'xl:min-h-8 pb-1 xl:pb-0',
             )}
             size="body3">
             <PricingPlanComparisonDiscount
@@ -690,9 +682,9 @@ export default function ProjectsPricingTable({
                     index > 0 && ['border-t', themeBorderColor],
                   )}
                   scope="row">
-                  <span className="flex max-w-80 items-center justify-between gap-3">
+                  <span className="max-w-80 flex items-center justify-between gap-3">
                     <Text
-                      className="block max-w-72"
+                      className="max-w-72 block"
                       color="secondary"
                       size="body2"
                       weight="normal">

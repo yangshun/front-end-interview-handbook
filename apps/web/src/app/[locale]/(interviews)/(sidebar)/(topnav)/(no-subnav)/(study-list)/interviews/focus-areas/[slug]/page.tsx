@@ -21,8 +21,8 @@ type Props = Readonly<{
   };
 }>;
 
-async function getPageSEOMetadata({ locale, slug }: Props['params']) {
-  const focusAreaDocument = await fetchInterviewsStudyList(slug, locale);
+async function getPageSEOMetadata({ slug }: Props['params']) {
+  const focusAreaDocument = await fetchInterviewsStudyList(slug);
 
   if (focusAreaDocument == null) {
     return notFound();
@@ -38,7 +38,7 @@ async function getPageSEOMetadata({ locale, slug }: Props['params']) {
 }
 
 export async function generateStaticParams() {
-  const focusAreas = await fetchInterviewsStudyLists('focus-area', 'en-US');
+  const focusAreas = await fetchInterviewsStudyLists('focus-area');
 
   return generateStaticParamsWithLocale(
     focusAreas.map((focusArea) => ({ focusArea: focusArea.slug })),
@@ -77,7 +77,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { locale, slug } = params;
 
-  const focusArea = await fetchInterviewsStudyList(slug, locale);
+  const focusArea = await fetchInterviewsStudyList(slug);
 
   if (focusArea == null) {
     return notFound();
@@ -89,7 +89,7 @@ export default async function Page({ params }: Props) {
 
   const [questions, bottomContent] = await Promise.all([
     fetchQuestionsListByHash(focusArea?.questionHashes ?? [], locale),
-    fetchInterviewListingBottomContent(`focus-areas/${slug}`, locale),
+    fetchInterviewListingBottomContent(`${slug}-focus-area`),
   ]);
 
   return (

@@ -26,9 +26,9 @@ export default function ProjectsProfileBioInput({ control }: Props) {
     <Controller
       control={control}
       name="bio"
-      render={({ field, formState: { dirtyFields, errors, submitCount } }) => (
+      render={({ field, formState }) => (
         <div className="relative flex-1" id={SCROLL_HASH_PROJECTS_PROFILE.BIO}>
-          <span className="end-0 absolute">
+          <span className="absolute end-0">
             <ProjectsChallengeReputationBadge
               completed={!!field.value}
               points={ProjectsReputationPointsConfig.PROFILE_FIELD_PER_OPTIONAL}
@@ -38,8 +38,8 @@ export default function ProjectsProfileBioInput({ control }: Props) {
             description={attrs.description}
             descriptionStyle="tooltip"
             errorMessage={
-              dirtyFields.bio || submitCount > 0
-                ? errors.bio?.message
+              formState.dirtyFields.bio || formState.submitCount > 0
+                ? formState.errors.bio?.message
                 : undefined
             }
             label={attrs.label}

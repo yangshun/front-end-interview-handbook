@@ -1,4 +1,5 @@
 import { useUser } from '@supabase/auth-helpers-react';
+import { usePathname, useRouter } from 'next/navigation';
 import { useCallback, useEffect, useState } from 'react';
 
 import { trpc } from '~/hooks/trpc';
@@ -14,11 +15,10 @@ import {
   useMutationQuestionProgressDelete,
 } from '~/db/QuestionsProgressClient';
 import { hashQuestion } from '~/db/QuestionsUtils';
-import { useI18nPathname, useI18nRouter } from '~/next-i18nostic/src';
 
 import type {
-  InterviewsQuestionItemMinimal,
   QuestionFormat,
+  QuestionMetadata,
 } from '../../common/QuestionsTypes';
 import QuestionsUnifiedListWithFilters from './QuestionsUnifiedListWithFilters';
 import useQuestionsWithCompletionStatus from './useQuestionsWithCompletionStatus';
@@ -33,7 +33,7 @@ type Props = Omit<
       items: ReadonlyArray<GuideCardMetadataWithCompletedStatus>;
       title: string;
     };
-    questions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+    questions: ReadonlyArray<QuestionMetadata>;
   }>;
 
 const MARK_QN_COMPLETE_ACTION = 'mark-question-complete';
@@ -47,8 +47,8 @@ export default function QuestionsUnifiedListWithFiltersAndProgress({
   const intl = useIntl();
   const { showToast } = useToast();
   const user = useUser();
-  const router = useI18nRouter();
-  const { pathname } = useI18nPathname();
+  const router = useRouter();
+  const pathname = usePathname();
   const { signInUpHref } = useAuthSignInUp();
   const [
     automaticallyMarkCompleteQuestion,
@@ -81,12 +81,10 @@ export default function QuestionsUnifiedListWithFiltersAndProgress({
 
   const markQuestionAsCompleted = useCallback(
     ({
-      info: { title },
-      metadata: { format, slug },
-    }: Readonly<{
-      info: { title: string };
-      metadata: { format: QuestionFormat; slug: string };
-    }>) => {
+      format,
+      slug,
+      title,
+    }: Readonly<{ format: QuestionFormat; slug: string; title: string }>) => {
       if (user == null || markCompleteMutation.isLoading) {
         return;
       }
@@ -142,26 +140,18 @@ export default function QuestionsUnifiedListWithFiltersAndProgress({
       return;
     }
 
-    markQuestionAsCompleted({
-      info: {
-        title: automaticallyMarkCompleteQuestion.title,
-      },
-      metadata: {
-        format: automaticallyMarkCompleteQuestion.format,
-        slug: automaticallyMarkCompleteQuestion.slug,
-      },
-    });
+    markQuestionAsCompleted(automaticallyMarkCompleteQuestion);
     setAutomaticallyMarkCompleteQuestion(null);
   }, [automaticallyMarkCompleteQuestion, markQuestionAsCompleted, user]);
 
-  function markQuestionAsNotCompleted(question: InterviewsQuestionItemMinimal) {
+  function markQuestionAsNotCompleted(question: QuestionMetadata) {
     if (user == null || markNotCompleteMutation.isLoading) {
       return;
     }
 
     markNotCompleteMutation.mutate(
       {
-        qnHashes: [hashQuestion(question.metadata)],
+        qnHashes: [hashQuestion(question)],
         studyListKey,
       },
       {
@@ -180,7 +170,7 @@ export default function QuestionsUnifiedListWithFiltersAndProgress({
                 id: 'Hav9UT',
               },
               {
-                questionTitle: question.info.title,
+                questionTitle: question.title,
               },
             ),
             variant: 'info',
@@ -196,13 +186,13 @@ export default function QuestionsUnifiedListWithFiltersAndProgress({
       questions={questionsWithCompletionStatus}
       onMarkAsCompleted={
         user == null
-          ? ({ info, metadata }) => {
+          ? (questionMetadata) => {
               router.push(
                 signInUpHref({
                   next: addQueryParamToPath(pathname || '', {
-                    format: metadata.format,
-                    slug: metadata.slug,
-                    title: info.title,
+                    format: questionMetadata.format,
+                    slug: questionMetadata.slug,
+                    title: questionMetadata.title,
                   }),
                 }),
               );

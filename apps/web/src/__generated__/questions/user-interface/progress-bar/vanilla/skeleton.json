@@ -1,0 +1,27 @@
+{
+  "author": "yangshun",
+  "files": {
+    "/index.html": {
+      "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0\" />\n  </head>\n  <body>\n    <div class=\"progress\"></div>\n    <script src=\"src/index.js\"></script>\n  </body>\n</html>\n"
+    },
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/progress-bar-vanilla-skeleton\",\n  \"author\": \"yangshun\",\n  \"version\": \"0.0.1\",\n  \"private\": true,\n  \"devDependencies\": {\n    \"parcel\": \"2.9.3\"\n  },\n  \"source\": \"index.html\",\n  \"scripts\": {\n    \"start\": \"parcel\",\n    \"build\": \"parcel build\"\n  }\n}\n"
+    },
+    "/src/index.js": {
+      "code": "import './styles.css';\n\n// Write your JavaScript here.\ndocument.querySelector('.progress-bar');\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n\n.progress {\n  background-color: rgb(233, 236, 239);\n  border: 1px solid #c5c5c5;\n  border-radius: 8px;\n  height: 20px;\n}\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/index.html",
+      "/src/index.js",
+      "/src/styles.css"
+    ],
+    "activeFile": "/src/index.html",
+    "environment": "parcel"
+  },
+  "writeup": "var Component=(()=>{var d=Object.create;var s=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var b=Object.getOwnPropertyNames;var x=Object.getPrototypeOf,j=Object.prototype.hasOwnProperty;var _=(r,e)=>()=>(e||r((e={exports:{}}).exports,e),e.exports),w=(r,e)=>{for(var t in e)s(r,t,{get:e[t],enumerable:!0})},l=(r,e,t,c)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of b(e))!j.call(r,o)&&o!==t&&s(r,o,{get:()=>e[o],enumerable:!(c=f(e,o))||c.enumerable});return r};var m=(r,e,t)=>(t=r!=null?d(x(r)):{},l(e||!r||!r.__esModule?s(t,\"default\",{value:r,enumerable:!0}):t,r)),y=r=>l(s({},\"__esModule\",{value:!0}),r);var i=_((B,p)=>{p.exports=_jsx_runtime});var C={};w(C,{default:()=>q});var a=m(i());var n=m(i());function u(r){let e=Object.assign({p:\"p\",img:\"img\",h2:\"h2\",ul:\"ul\",li:\"li\",code:\"code\"},r.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.p,{children:\"Implement a progress bar component which shows the completion progress by filling the bar proportionately to the progress (a number between 0-100, inclusive).\"}),`\n`,(0,n.jsx)(e.p,{children:(0,n.jsx)(e.img,{src:\"/img/questions/progress-bar/progress-bar-example.png\",alt:\"Progress Bar Example\"})}),`\n`,(0,n.jsx)(e.h2,{children:\"Requirements\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsxs)(e.li,{children:[\"The filled bar can be of any color. The example uses \",(0,n.jsx)(e.code,{children:\"#c5c5c5\"}),\" for the background color and \",(0,n.jsx)(e.code,{children:\"#0d6efd\"}),\" for the progress color.\"]}),`\n`,(0,n.jsx)(e.li,{children:\"The completion % is shown in the center of the filled bar.\"}),`\n`]})]})}function D(r={}){let{wrapper:e}=r.components||{};return e?(0,n.jsx)(e,Object.assign({},r,{children:(0,n.jsx)(u,r)})):u(r)}var h=D;function g(r){return(0,a.jsx)(h,{})}function M(r={}){let{wrapper:e}=r.components||{};return e?(0,a.jsx)(e,Object.assign({},r,{children:(0,a.jsx)(g,r)})):g(r)}var q=M;return y(C);})();\n;return Component;"
+}

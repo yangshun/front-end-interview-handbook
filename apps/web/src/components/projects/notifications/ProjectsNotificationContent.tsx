@@ -1,6 +1,6 @@
 import clsx from 'clsx';
+import { useInView } from 'framer-motion';
 import { debounce } from 'lodash-es';
-import { useInView } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
 import { RiNotification3Line } from 'react-icons/ri';
 

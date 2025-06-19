@@ -27,11 +27,11 @@ export default function ProjectsProfileWebsiteInput({ control }: Props) {
     <Controller
       control={control}
       name="website"
-      render={({ field, formState: { dirtyFields, errors, submitCount } }) => (
+      render={({ field, formState }) => (
         <div
           className="relative flex-1"
           id={SCROLL_HASH_PROJECTS_PROFILE.WEBSITE}>
-          <span className="end-0 absolute">
+          <span className="absolute end-0">
             <ProjectsChallengeReputationBadge
               completed={field.value.length > 0}
               points={ProjectsReputationPointsConfig.PROFILE_FIELD_PER_OPTIONAL}
@@ -39,8 +39,8 @@ export default function ProjectsProfileWebsiteInput({ control }: Props) {
           </span>
           <TextInput
             errorMessage={
-              dirtyFields.website || submitCount > 0
-                ? errors.website?.message
+              formState.dirtyFields.website || formState.submitCount > 0
+                ? formState.errors.website?.message
                 : undefined
             }
             label={attrs.label}

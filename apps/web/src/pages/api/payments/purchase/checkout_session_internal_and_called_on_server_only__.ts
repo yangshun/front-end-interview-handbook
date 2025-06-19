@@ -1,39 +1,28 @@
 import type { ProjectsSubscriptionPlan } from '@prisma/client';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import Stripe from 'stripe';
-import url from 'url';
 
 import absoluteUrl from '~/lib/absoluteUrl';
-import { convertCurrencyValueToStripeValue } from '~/lib/stripeUtils';
+import { normalizeCurrencyValue } from '~/lib/stripeUtils';
 
 import { PROMO_FAANG_TECH_LEADS_MAX_PPP_ELIGIBLE } from '~/data/PromotionConfig';
 
 import fetchInterviewsPricingPlanPaymentConfigLocalizedRecord from '~/components/interviews/purchase/fetchInterviewsPricingPlanPaymentConfigLocalizedRecord';
 import type { InterviewsPricingPlanType } from '~/components/interviews/purchase/InterviewsPricingPlans';
 import fetchProjectsPricingPlanPaymentConfigLocalizedRecord from '~/components/projects/purchase/fetchProjectsPricingPlanPaymentConfigLocalizedRecord';
-import { resolvePaymentProvider } from '~/components/purchase/providers/PurchasePaymentProvider';
-import { PurchasePaymentStripeProvider } from '~/components/purchase/providers/PurchasePaymentStripeProvider';
-import { PurchasePaymentTazapayProvider } from '~/components/purchase/providers/PurchasePaymentTazapayProvider';
-import { getDiscountedPrice } from '~/components/purchase/PurchasePricingUtils';
 import type { PurchasePricingPlanPaymentConfigLocalized } from '~/components/purchase/PurchaseTypes';
-
-import i18nHref from '~/next-i18nostic/src/utils/i18nHref';
 
 type BaseCheckoutQueryParams = Readonly<{
   // Optional cancel URL if user cancels checkout.
   cancel_url?: string;
   // Two-letter ISO country code.
   country_code: string;
-  // Payment provider customer ID (cus_xxxxx).
-  customer_id: string;
   // First promoter tracking ID.
   first_promoter_tid?: string;
-  // Locale
-  locale: string;
   // Email to send the receipt to.
   receipt_email?: string;
-  // Promo code used for the checkout session. Only used by Tazapay
-  stripe_promo_code?: string;
+  // Stripe customer ID (cus_xxxxx).
+  stripe_customer_id: string;
 }>;
 
 export type CheckoutProductDomain = 'interviews' | 'projects';
@@ -70,34 +59,16 @@ export default async function handler(
 ) {
   const {
     country_code: countryCode,
-    customer_id: customerId,
-    first_promoter_tid,
-    locale,
+    first_promoter_tid: firstPromoterTrackingId,
     plan_type: planType,
     product_domain: productDomain,
     receipt_email: receiptEmail,
-    stripe_promo_code: stripePromoCode,
+    stripe_customer_id: stripeCustomerId,
   } = req.query as CheckoutQueryParams;
-  const firstPromoterTrackingId =
-    first_promoter_tid === 'undefined' ? undefined : first_promoter_tid;
 
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
     apiVersion: '2023-10-16',
   });
-
-  let promoCodeData: Stripe.PromotionCode | null = null;
-
-  if (stripePromoCode) {
-    const promoCodeList = await stripe.promotionCodes.list({
-      active: true,
-      code: stripePromoCode,
-      limit: 1,
-    });
-
-    if (promoCodeList.data.length > 0) {
-      promoCodeData = promoCodeList.data[0];
-    }
-  }
 
   const planPaymentConfig: PurchasePricingPlanPaymentConfigLocalized =
     await (async () => {
@@ -131,16 +102,8 @@ export default async function handler(
   }
 
   const { currency, unitCostCurrency } = planPaymentConfig;
-  const discountedPrice = promoCodeData
-    ? getDiscountedPrice({
-        amountOff: promoCodeData?.coupon.amount_off,
-        percentOff: promoCodeData?.coupon.percent_off,
-        price: unitCostCurrency.withPPP.after,
-      })
-    : unitCostCurrency.withPPP.after;
-
-  const unitAmountInStripeFormat = convertCurrencyValueToStripeValue(
-    discountedPrice,
+  const unitAmountInStripeFormat = normalizeCurrencyValue(
+    unitCostCurrency.withPPP.after,
     currency,
   );
 
@@ -148,13 +111,12 @@ export default async function handler(
     return await processSubscriptionPlan(
       req,
       res,
-      customerId,
+      stripeCustomerId,
       stripe,
       planType,
       planPaymentConfig,
       currency,
       unitAmountInStripeFormat,
-      locale,
       firstPromoterTrackingId,
     );
   }
@@ -163,14 +125,12 @@ export default async function handler(
     return await processOneTimePlan(
       req,
       res,
-      customerId,
+      stripeCustomerId,
+      stripe,
       planType,
       planPaymentConfig,
       currency,
       unitAmountInStripeFormat,
-      locale,
-      countryCode,
-      stripePromoCode,
       receiptEmail,
       firstPromoterTrackingId,
     );
@@ -186,7 +146,6 @@ async function processSubscriptionPlan(
   planPaymentConfig: PurchasePricingPlanPaymentConfigLocalized,
   currency: string,
   unitAmountInCurrency: number,
-  locale: string,
   firstPromoterTrackingId?: string,
 ) {
   const { productId, recurring, urls } = planPaymentConfig;
@@ -206,8 +165,7 @@ async function processSubscriptionPlan(
 
   const cancelUrl = (() => {
     const baseCancelUrl = new URL(
-      queryParams.cancel_url ||
-        origin + url.format(i18nHref(urls.cancel, locale)),
+      queryParams.cancel_url || origin + urls.cancel,
     );
 
     baseCancelUrl.searchParams.set('checkout_cancel', '1');
@@ -216,9 +174,7 @@ async function processSubscriptionPlan(
     return baseCancelUrl.toString();
   })();
   const successUrl = (() => {
-    const baseSuccessUrl = new URL(
-      origin + url.format(i18nHref(urls.success, locale)),
-    );
+    const baseSuccessUrl = new URL(origin + urls.success);
 
     baseSuccessUrl.searchParams.set('plan', planType);
 
@@ -262,14 +218,12 @@ async function processSubscriptionPlan(
 async function processOneTimePlan(
   req: NextApiRequest,
   res: NextApiResponse,
-  customerId: string,
+  stripeCustomerId: string,
+  stripe: Stripe,
   planType: string,
   planPaymentConfig: PurchasePricingPlanPaymentConfigLocalized,
   currency: string,
   unitAmountInCurrency: number,
-  locale: string,
-  countryCode: string,
-  stripePromoCode?: string,
   receiptEmail?: string,
   firstPromoterTrackingId?: string,
 ) {
@@ -279,8 +233,7 @@ async function processOneTimePlan(
 
   const cancelUrl = (() => {
     const baseCancelUrl = new URL(
-      queryParams.cancel_url ||
-        origin + url.format(i18nHref(urls.cancel, locale)),
+      queryParams.cancel_url || origin + urls.cancel,
     );
 
     baseCancelUrl.searchParams.set('checkout_cancel', '1');
@@ -289,9 +242,7 @@ async function processOneTimePlan(
     return baseCancelUrl.toString();
   })();
   const successUrl = (() => {
-    const baseSuccessUrl = new URL(
-      origin + url.format(i18nHref(urls.success, locale)),
-    );
+    const baseSuccessUrl = new URL(origin + urls.success);
 
     baseSuccessUrl.searchParams.set('plan', planType);
 
@@ -302,63 +253,37 @@ async function processOneTimePlan(
     planPaymentConfig.conversionFactor <
     PROMO_FAANG_TECH_LEADS_MAX_PPP_ELIGIBLE;
 
-  const paymentProvider = resolvePaymentProvider(
-    planPaymentConfig,
-    countryCode,
-  );
-
-  const session =
-    paymentProvider === 'stripe'
-      ? await PurchasePaymentStripeProvider.createOneTimePlanCheckoutSession({
-          allowPromoCode: planPaymentConfig.allowPromoCode,
-          cancelUrl,
+  const session = await stripe.checkout.sessions.create({
+    allow_promotion_codes: planPaymentConfig.allowPromoCode,
+    cancel_url: cancelUrl,
+    client_reference_id: firstPromoterTrackingId || 'fp_' + String(Date.now()),
+    customer: stripeCustomerId,
+    invoice_creation: {
+      // TODO: find out cost for invoice creation and disable if too expensive.
+      enabled: true,
+    },
+    line_items: [
+      {
+        price_data: {
           currency,
-          customerId,
-          firstPromoterTrackingId,
-          metadata:
-            planPaymentConfig.giveFTL && pppEligibleForFTLBundle
-              ? {
-                  ftl: 'true',
-                }
-              : undefined,
-          productId,
-          receiptEmail,
-          successUrl,
-          unitAmountInCurrency,
-        })
-      : await PurchasePaymentTazapayProvider.createOneTimePlanCheckoutSession({
-          cancelUrl,
-          currency,
-          customerId,
-          firstPromoterTrackingId,
-          items: [
-            {
-              amount: unitAmountInCurrency,
-              // TODO: Handle this data in a better way.
-              // May be get it from pricing plan config
-              description:
-                'Full access to all questions and high quality solutions. Filter questions by company. Free continuous interview question and content updates.',
-              name: 'GreatFrontEnd Interviews Premium',
-              quantity: 1,
-            },
-          ],
-          metadata:
-            planPaymentConfig.giveFTL && pppEligibleForFTLBundle
-              ? {
-                  ftl: 'true',
-                  ...(stripePromoCode && {
-                    stripePromoCode,
-                  }),
-                }
-              : undefined,
-          removePaymentMethods:
-            PurchasePaymentTazapayProvider.getRemovePaymentMethods(countryCode),
-          successUrl,
-          // TODO: Handle this data in a better way.
-          // May be get it from pricing plan config
-          transactionDescription: 'GreatFrontEnd Interviews Premium',
-          unitAmountInCurrency,
-        });
+          product: productId,
+          unit_amount: unitAmountInCurrency,
+        },
+        quantity: 1,
+      },
+    ],
+    metadata:
+      planPaymentConfig.giveFTL && pppEligibleForFTLBundle
+        ? {
+            ftl: 'true',
+          }
+        : undefined,
+    mode: 'payment',
+    payment_intent_data: {
+      receipt_email: receiptEmail ?? undefined,
+    },
+    success_url: successUrl,
+  });
 
   return res.json({
     payload: {

@@ -119,7 +119,8 @@ export default function JavaScriptCodingQuizCodeEditor(props: Props) {
           onLoad={() => {
             if (iframeRef.current) {
               Hook(
-                (iframeRef.current.contentWindow as AnyIntentional).console,
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                (iframeRef.current.contentWindow as any).console,
                 (log) => {
                   setDisplayConsole(true);
 
@@ -138,7 +139,7 @@ export default function JavaScriptCodingQuizCodeEditor(props: Props) {
       {isExecutionMode ? (
         <PanelGroup direction="horizontal">
           <Panel
-            className="flex size-full flex-col gap-2"
+            className="size-full flex flex-col gap-2"
             defaultSize={60}
             minSize={30}>
             <MonacoCodeEditor
@@ -228,7 +229,7 @@ export default function JavaScriptCodingQuizCodeEditor(props: Props) {
           <Panel minSize={30}>
             <div
               className={clsx(
-                'flex size-full flex-col',
+                'size-full flex flex-col',
                 'overflow-hidden rounded-lg',
                 ['border', themeBorderColor],
               )}>

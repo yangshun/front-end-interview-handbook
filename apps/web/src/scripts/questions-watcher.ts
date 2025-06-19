@@ -44,7 +44,6 @@ const pathsToWatch = [quizPath, codingQuestionsPath];
 const watcher = chokidar
   .watch(pathsToWatch, {
     atomic: true,
-    ignored: (f) => f.includes('node_modules'),
   })
   .on('ready', () => {
     console.info(

@@ -8,6 +8,7 @@
   "created": 1682121600,
   "difficulty": "easy",
   "duration": 15,
+  "excerpt": "Build a component that books a flight for specified dates",
   "featured": false,
   "format": "user-interface",
   "frameworkDefault": "react",
@@ -41,6 +42,7 @@
   "similarQuestions": [],
   "slug": "flight-booker",
   "subtitle": null,
+  "title": "Flight Booker",
   "topics": [
     "a11y"
   ]

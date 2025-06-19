@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/have-you-used-or-implemented-media-queries-or-mobile-specific-layouts-css",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "have-you-used-or-implemented-media-queries-or-mobile-specific-layouts-css",
+    "subtitle": null,
+    "title": "Have you used or implemented media queries or mobile-specific layouts/CSS?",
+    "topics": [
+      "css"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/have-you-used-or-implemented-media-queries-or-mobile-specific-layouts-css/en-US.mdx"
+  },
+  "solution": "var Component=(()=>{var d=Object.create;var i=Object.defineProperty;var l=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var x=Object.getPrototypeOf,b=Object.prototype.hasOwnProperty;var f=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),g=(t,e)=>{for(var n in e)i(t,n,{get:e[n],enumerable:!0})},s=(t,e,n,r)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of p(e))!b.call(t,o)&&o!==n&&i(t,o,{get:()=>e[o],enumerable:!(r=l(e,o))||r.enumerable});return t};var j=(t,e,n)=>(n=t!=null?d(x(t)):{},s(e||!t||!t.__esModule?i(n,\"default\",{value:t,enumerable:!0}):n,t)),_=t=>s(i({},\"__esModule\",{value:!0}),t);var m=f((k,c)=>{c.exports=_jsx_runtime});var M={};g(M,{default:()=>C,frontmatter:()=>y});var a=j(m()),y={title:\"Have you used or implemented media queries or mobile-specific layouts/CSS?\"};function u(t){let e=Object.assign({p:\"p\"},t.components);return(0,a.jsx)(e.p,{children:\"An example would be transforming a stacked pill navigation into a fixed-bottom tab navigation beyond a certain breakpoint.\"})}function v(t={}){let{wrapper:e}=t.components||{};return e?(0,a.jsx)(e,Object.assign({},t,{children:(0,a.jsx)(u,t)})):u(t)}var C=v;return _(M);})();\n;return Component;"
+}

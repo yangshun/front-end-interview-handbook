@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/what-are-some-of-the-advantages-disadvantages-of-writing-javascript-code-in-a-language-that-compiles-to-javascript",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 999,
+    "similarQuestions": [],
+    "slug": "what-are-some-of-the-advantages-disadvantages-of-writing-javascript-code-in-a-language-that-compiles-to-javascript",
+    "subtitle": null,
+    "title": "Quais são algumas das vantagens/desvantagens de escrever código JavaScript em uma linguagem que compila para JavaScript?",
+    "topics": [
+      "javascript"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-some-of-the-advantages-disadvantages-of-writing-javascript-code-in-a-language-that-compiles-to-javascript/pt-BR.mdx"
+  },
+  "solution": "var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,v=Object.prototype.hasOwnProperty;var h=(a,e)=>()=>(e||a((e={exports:{}}).exports,e),e.exports),S=(a,e)=>{for(var i in e)r(a,i,{get:e[i],enumerable:!0})},d=(a,e,i,n)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let s of u(e))!v.call(a,s)&&s!==i&&r(a,s,{get:()=>e[s],enumerable:!(n=m(e,s))||n.enumerable});return a};var f=(a,e,i)=>(i=a!=null?p(g(a)):{},d(e||!a||!a.__esModule?r(i,\"default\",{value:a,enumerable:!0}):i,a)),x=a=>d(r({},\"__esModule\",{value:!0}),a);var t=h((_,c)=>{c.exports=_jsx_runtime});var C={};S(C,{default:()=>J,frontmatter:()=>j});var o=f(t()),j={title:\"Quais s\\xE3o algumas das vantagens/desvantagens de escrever c\\xF3digo JavaScript em uma linguagem que compila para JavaScript?\"};function l(a){let e=Object.assign({p:\"p\",h2:\"h2\",ul:\"ul\",li:\"li\"},a.components);return(0,o.jsxs)(o.Fragment,{children:[(0,o.jsx)(e.p,{children:\"Alguns exemplos de linguagens que compilam para JavaScript incluem CoffeeScript, Elm, ClojureScript, PureScript e TypeScript.\"}),`\n`,(0,o.jsx)(e.h2,{children:\"Vantagens\"}),`\n`,(0,o.jsxs)(e.ul,{children:[`\n`,(0,o.jsx)(e.li,{children:\"Corrige alguns dos problemas de longa data em JavaScript e desencoraja anti-padr\\xF5es do JavaScript.\"}),`\n`,(0,o.jsx)(e.li,{children:\"Permite que voc\\xEA escreva um c\\xF3digo mais curto, fornecendo a\\xE7\\xFAcar sint\\xE1tico em cima do JavaScript, o que o ES5 n\\xE3o possui, mas o ES2015 \\xE9 excelente.\"}),`\n`,(0,o.jsx)(e.li,{children:\"Tipos est\\xE1ticos s\\xE3o incr\\xEDveis (no caso do TypeScript) para projetos grandes que precisam ser mantidos ao longo do tempo.\"}),`\n`]}),`\n`,(0,o.jsx)(e.h2,{children:\"Desvantagens\"}),`\n`,(0,o.jsxs)(e.ul,{children:[`\n`,(0,o.jsx)(e.li,{children:\"\\xC9 preciso ter um processo de constru\\xE7\\xE3o/compila\\xE7\\xE3o, j\\xE1 que os navegadores apenas executam JavaScript e seu c\\xF3digo precisar\\xE1 ser compilado em JavaScript antes de ser enviado aos navegadores.\"}),`\n`,(0,o.jsx)(e.li,{children:\"Depura\\xE7\\xE3o pode ser dif\\xEDcil se seus mapas de origem n\\xE3o mapearem corretamente para sua origem pr\\xE9-compilada.\"}),`\n`,(0,o.jsx)(e.li,{children:\"A maioria dos desenvolvedores n\\xE3o est\\xE1 familiarizada com essas linguagens e precisar\\xE1 aprend\\xEA-las. H\\xE1 um custo de aprendizado envolvido para sua equipe se voc\\xEA us\\xE1-lo em seus projetos.\"}),`\n`,(0,o.jsx)(e.li,{children:\"Comunidade menor (dependendo da linguagem), o que significa que recursos, tutoriais, bibliotecas e ferramentas ser\\xE3o mais dif\\xEDceis de encontrar.\"}),`\n`,(0,o.jsx)(e.li,{children:\"O suporte de IDE/editor pode ser limitado.\"}),`\n`,(0,o.jsx)(e.li,{children:\"Essas linguagens sempre estar\\xE3o atrasadas em rela\\xE7\\xE3o ao padr\\xE3o mais recente do JavaScript.\"}),`\n`,(0,o.jsx)(e.li,{children:\"Os desenvolvedores devem estar cientes do que seu c\\xF3digo est\\xE1 sendo compilado, pois \\xE9 isso que realmente ser\\xE1 executado e \\xE9 isso que importa no final.\"}),`\n`]}),`\n`,(0,o.jsx)(e.p,{children:\"Na pr\\xE1tica, o ES2015 melhorou significativamente o JavaScript e tornou muito mais agrad\\xE1vel escrev\\xEA-lo. N\\xE3o h\\xE1 mais uma grande necessidade de usar o CoffeeScript nos dias de hoje. Em vez disso, o TypeScript \\xE9 a escolha preferida devido \\xE0 seguran\\xE7a de tipo adicionada e \\xE0 experi\\xEAncia de desenvolvedor melhorada que ele proporciona.\"})]})}function q(a={}){let{wrapper:e}=a.components||{};return e?(0,o.jsx)(e,Object.assign({},a,{children:(0,o.jsx)(l,a)})):l(a)}var J=q;return x(C);})();\n;return Component;"
+}

@@ -2,9 +2,9 @@
 
 import * as PopoverPrimitive from '@radix-ui/react-popover';
 import clsx from 'clsx';
-import React from 'react';
+import React, { useState } from 'react';
 import { RiArrowDownSLine } from 'react-icons/ri';
-import { useDebounceValue } from 'usehooks-ts';
+import { useDebounce } from 'usehooks-ts';
 
 import LogoMark from '~/components/global/logos/LogoMark';
 import NavProductPopoverContent from '~/components/global/navbar/NavProductPopoverContent';
@@ -56,7 +56,9 @@ export default function NavProductPopover({
 }: Props) {
   const { label: productLabel } = labels[product];
   const [showUnseenIndicator] = useProductMenuUnseenIndicator();
-  const [debouncedOpen, setOpen] = useDebounceValue(false, 100);
+  const [open, setOpen] = useState(false);
+  // To debounce open state when quick hovering on and out
+  const debouncedOpen = useDebounce(open, 100);
 
   function handleMouseEnter() {
     setOpen(true);
@@ -139,7 +141,7 @@ export default function NavProductPopover({
                 <span
                   aria-hidden={true}
                   className={clsx(
-                    'inline-block size-1.5',
+                    'size-1.5 inline-block',
                     'bg-red rounded-full',
                     'absolute right-7 top-2.5',
                   )}
@@ -168,7 +170,7 @@ export default function NavProductPopover({
                 <span
                   aria-hidden={true}
                   className={clsx(
-                    'inline-block size-1.5',
+                    'size-1.5 inline-block',
                     'bg-red rounded-full',
                     'absolute right-5 top-1',
                   )}
@@ -203,8 +205,9 @@ export function NavProductPopoverLogoOnly({
 }>) {
   const intl = useIntl();
   const [showUnseenIndicator] = useProductMenuUnseenIndicator();
+  const [open, setOpen] = useState(false);
   // To debounce open state when quick hovering on and out
-  const [debouncedOpen, setOpen] = useDebounceValue(false, 100);
+  const debouncedOpen = useDebounce(open, 100);
 
   function handleMouseEnter() {
     setOpen(true);
@@ -248,7 +251,7 @@ export function NavProductPopoverLogoOnly({
           {showUnseenIndicator && (
             <span
               className={clsx(
-                'absolute size-1.5',
+                'size-1.5 absolute',
                 'bg-red rounded-full',
                 'right-1 top-1',
               )}

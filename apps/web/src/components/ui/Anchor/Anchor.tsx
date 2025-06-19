@@ -28,7 +28,6 @@ export type Props = Omit<I18nLinkProps, 'href' | 'prefetch'> &
     href?: string;
     locale?: string;
     prefetch?: I18nLinkProps['prefetch'] | 'hover'; // Add custom prefetch-on-hover behavior
-    refresh?: boolean; // Hard navigation, uses <a>
     suppressHydrationWarning?: boolean;
     underline?: boolean;
     variant?: AnchorVariant;
@@ -43,7 +42,6 @@ function Anchor(
     href = '#',
     onClick,
     prefetch = 'hover',
-    refresh = false,
     rel: relProp,
     target: targetProp,
     underline = false,
@@ -63,7 +61,6 @@ function Anchor(
     typeof href === 'string' ? /^(http|mailto)/.test(href ?? '') : false;
 
   const finalHref = href ?? '#';
-
   const rel = relProp ?? (isExternalURL ? 'noreferrer noopener' : undefined);
   const className = anchorVariants({
     className: clsx(
@@ -81,7 +78,6 @@ function Anchor(
   const target = targetProp ?? (isExternalURL ? '_blank' : undefined);
 
   if (
-    refresh ||
     // Do a hard navigation when client and server versions mismatch.
     serverMismatch ||
     isExternalURL ||
@@ -118,6 +114,7 @@ function Anchor(
   }
 
   return (
+     
     <I18nLink
       ref={ref}
       className={className}

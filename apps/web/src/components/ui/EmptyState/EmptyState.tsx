@@ -110,7 +110,7 @@ export default function EmptyState({
       <Icon
         aria-hidden="true"
         className={clsx(
-          'mx-auto size-10 shrink-0',
+          'size-10 mx-auto shrink-0',
           iconClassName,
           colors[variant],
         )}
@@ -127,7 +127,7 @@ export default function EmptyState({
       <Section>
         {subtitle && (
           <Text
-            className="mt-1 block text-pretty"
+            className="text-pretty mt-1 block"
             color="secondary"
             size={subtitleSize}>
             {subtitle}

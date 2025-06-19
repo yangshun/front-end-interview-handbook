@@ -70,7 +70,6 @@ export type Props =
         href: AnchorProps['href'];
         locale?: AnchorProps['locale'];
         prefetch?: AnchorProps['prefetch'];
-        refresh?: AnchorProps['refresh'];
         target?: HTMLAttributeAnchorTarget;
         warnAboutExternalLink?: boolean;
       }>)
@@ -332,7 +331,6 @@ function Button(
         href={props.href}
         {...commonProps}
         prefetch={props.prefetch}
-        refresh={props.refresh}
         target={props.target}
         variant="unstyled"
         warnAboutExternalLink={props.warnAboutExternalLink}

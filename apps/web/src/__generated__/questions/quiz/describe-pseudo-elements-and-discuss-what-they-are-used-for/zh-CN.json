@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/describe-pseudo-elements-and-discuss-what-they-are-used-for",
+    "importance": "medium",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "describe-pseudo-elements-and-discuss-what-they-are-used-for",
+    "subtitle": null,
+    "title": "描述伪元素并讨论它们的使用。",
+    "topics": [
+      "css"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/describe-pseudo-elements-and-discuss-what-they-are-used-for/zh-CN.mdx"
+  },
+  "solution": "var Component=(()=>{var a=Object.create;var d=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var u=Object.getPrototypeOf,S=Object.prototype.hasOwnProperty;var p=(r,e)=>()=>(e||r((e={exports:{}}).exports,e),e.exports),x=(r,e)=>{for(var c in e)d(r,c,{get:e[c],enumerable:!0})},o=(r,e,c,i)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let l of m(e))!S.call(r,l)&&l!==c&&d(r,l,{get:()=>e[l],enumerable:!(i=f(e,l))||i.enumerable});return r};var b=(r,e,c)=>(c=r!=null?a(u(r)):{},o(e||!r||!r.__esModule?d(c,\"default\",{value:r,enumerable:!0}):c,r)),C=r=>o(d({},\"__esModule\",{value:!0}),r);var h=p((D,t)=>{t.exports=_jsx_runtime});var M={};x(M,{default:()=>_,frontmatter:()=>g});var n=b(h()),g={title:\"\\u63CF\\u8FF0\\u4F2A\\u5143\\u7D20\\u5E76\\u8BA8\\u8BBA\\u5B83\\u4EEC\\u7684\\u4F7F\\u7528\\u3002\"};function s(r){let e=Object.assign({p:\"p\",a:\"a\",code:\"code\",ul:\"ul\",li:\"li\",h2:\"h2\",em:\"em\"},r.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsxs)(e.p,{children:[\"CSS \",(0,n.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements\",children:\"\\u4F2A\\u5143\\u7D20\"}),\" \\u662F\\u6DFB\\u52A0\\u5230\\u9009\\u62E9\\u5668\\u7684\\u5173\\u952E\\u5B57\\uFF0C\\u53EF\\u8BA9\\u60A8\\u8BBE\\u7F6E\\u6240\\u9009\\u5143\\u7D20\\u7279\\u5B9A\\u90E8\\u5206\\u7684\\u6837\\u5F0F\\u3002\\u5B83\\u4EEC\\u53EF\\u7528\\u4E8E\\u88C5\\u9970 (\",(0,n.jsx)(e.code,{children:\"::first-line\"}),\", \",(0,n.jsx)(e.code,{children:\"::first-letter\"}),\") \\u6216\\u5C06\\u5143\\u7D20\\u6DFB\\u52A0\\u5230\\u6807\\u8BB0\\u4E2D\\uFF08\\u4E0E \",(0,n.jsx)(e.code,{children:\"content: ...\"}),\" \\u7ED3\\u5408\\u4F7F\\u7528\\uFF09\\uFF0C\\u800C\\u65E0\\u9700\\u4FEE\\u6539\\u6807\\u8BB0 (\",(0,n.jsx)(e.code,{children:\":before\"}),\", \",(0,n.jsx)(e.code,{children:\":after\"}),\")\\u3002\"]}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.code,{children:\"::first-line\"}),\" \\u548C \",(0,n.jsx)(e.code,{children:\"::first-letter\"}),\" \\u53EF\\u7528\\u4E8E\\u88C5\\u9970\\u6587\\u672C\\u3002\"]}),`\n`,(0,n.jsxs)(e.li,{children:[\"\\u5728\\u4E0A\\u9762\\u663E\\u793A\\u7684 \",(0,n.jsx)(e.code,{children:\".clearfix\"}),\" hack \\u4E2D\\u4F7F\\u7528\\uFF0C\\u4EE5\\u6DFB\\u52A0\\u4E00\\u4E2A\\u5E26\\u6709 \",(0,n.jsx)(e.code,{children:\"clear: both\"}),\" \\u7684\\u96F6\\u7A7A\\u95F4\\u5143\\u7D20\\u3002\"]}),`\n`,(0,n.jsxs)(e.li,{children:[\"\\u5DE5\\u5177\\u63D0\\u793A\\u4E2D\\u7684\\u4E09\\u89D2\\u5F62\\u7BAD\\u5934\\u4F7F\\u7528 \",(0,n.jsx)(e.code,{children:\"::before\"}),\" \\u548C \",(0,n.jsx)(e.code,{children:\"::after\"}),\"\\u3002 \\u9F13\\u52B1\\u5173\\u6CE8\\u70B9\\u5206\\u79BB\\uFF0C\\u56E0\\u4E3A\\u4E09\\u89D2\\u5F62\\u88AB\\u8BA4\\u4E3A\\u662F\\u6837\\u5F0F\\u7684\\u4E00\\u90E8\\u5206\\uFF0C\\u800C\\u4E0D\\u662F\\u771F\\u6B63\\u7684 DOM\\u3002\"]}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"\\u7B14\\u8BB0\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsxs)(e.li,{children:[\"\\u4F2A\\u5143\\u7D20\\u4E0E \",(0,n.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes\",children:\"\\u4F2A\\u7C7B\"}),\" \\u4E0D\\u540C\\uFF0C\\u4F2A\\u7C7B\\u7528\\u4E8E\\u6839\\u636E\\u5143\\u7D20\\u7684\",(0,n.jsx)(e.em,{children:\"\\u72B6\\u6001\"}),\"\\uFF08\\u4F8B\\u5982 \",(0,n.jsx)(e.code,{children:\":hover\"}),\"\\u3001\",(0,n.jsx)(e.code,{children:\":focus\"}),\" \\u7B49\\uFF09\\u8BBE\\u7F6E\\u5143\\u7D20\\u7684\\u6837\\u5F0F\\u3002\"]}),`\n`,(0,n.jsx)(e.li,{children:\"\\u5E94\\u4F7F\\u7528\\u53CC\\u5192\\u53F7\\u800C\\u4E0D\\u662F\\u5355\\u5192\\u53F7\\u6765\\u533A\\u5206\\u4F2A\\u7C7B\\u548C\\u4F2A\\u5143\\u7D20\\u3002 \\u5927\\u591A\\u6570\\u6D4F\\u89C8\\u5668\\u90FD\\u652F\\u6301\\u8FD9\\u4E24\\u79CD\\u8BED\\u6CD5\\uFF0C\\u56E0\\u4E3A\\u8FD9\\u79CD\\u533A\\u522B\\u5728\\u65E7\\u7248 W3C \\u89C4\\u8303\\u4E2D\\u5E76\\u4E0D\\u660E\\u786E\\u3002\"}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"\\u53C2\\u8003\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements\",children:\"\\u4F2A\\u5143\\u7D20 - CSS | MDN\"})}),`\n`]})]})}function j(r={}){let{wrapper:e}=r.components||{};return e?(0,n.jsx)(e,Object.assign({},r,{children:(0,n.jsx)(s,r)})):s(r)}var _=j;return C(M);})();\n;return Component;"
+}

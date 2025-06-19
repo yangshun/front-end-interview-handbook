@@ -111,7 +111,7 @@ export default async function Page({ params }: Props) {
         locale,
         slugs: InterviewsQuestionsLanguageJavaScriptGuideSlugs,
       }),
-      fetchInterviewListingBottomContent('ads/javascript-ui', locale),
+      fetchInterviewListingBottomContent('javascript-ui-interview-questions'),
     ]);
 
   const listTypeWithTitle = {

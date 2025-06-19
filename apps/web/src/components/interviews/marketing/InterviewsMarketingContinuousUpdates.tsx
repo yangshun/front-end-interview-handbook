@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { motion, useInView, useMotionValue } from 'motion/react';
+import { motion, useInView, useMotionValue } from 'framer-motion';
 import { useId, useRef, useState } from 'react';
 
 import LogoMark from '~/components/global/logos/LogoMark';
@@ -238,7 +238,7 @@ function Chart({
           }}>
           <div
             className={clsx(
-              'flex size-14 items-center justify-center rounded-full',
+              'size-14 flex items-center justify-center rounded-full',
               themeGlassyBorder,
               themeBackgroundLayerEmphasized,
             )}>

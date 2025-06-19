@@ -11,8 +11,8 @@ import MDXContent from '~/components/mdx/MDXContent';
 import Divider from '~/components/ui/Divider';
 
 import type {
-  InterviewsQuestionItemMinimal,
   QuestionFramework,
+  QuestionMetadata,
 } from '../../common/QuestionsTypes';
 import InterviewsQuestionsCategoryPage from './InterviewsQuestionsCategoryPage';
 import InterviewsQuestionsCategoryPracticeFormatTabs from './InterviewsQuestionsCategoryPracticeFormatTabs';
@@ -37,7 +37,7 @@ type Props = Omit<
     listType: React.ComponentProps<
       typeof InterviewsQuestionsCategoryPage
     >['listType'];
-    questions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+    questions: ReadonlyArray<QuestionMetadata>;
     showCategoryTabs?: boolean;
     title?: string;
     totalQuestionsCount: number;

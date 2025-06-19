@@ -33,10 +33,10 @@ import { getIntlClientOnly } from '~/i18n/getIntlClientOnly';
 import { publicProcedure, router } from '../trpc';
 
 export const questionListsRouter = router({
-  get: publicProcedure.query(async ({ ctx: { locale } }) => {
-    const intl = await getIntlClientOnly(locale);
+  get: publicProcedure.query(async () => {
+    const intl = await getIntlClientOnly('en-US');
 
-    return await fetchQuestionLists(intl, locale);
+    return await fetchQuestionLists(intl);
   }),
   getQuestions: publicProcedure
     .input(
@@ -58,7 +58,6 @@ export const questionListsRouter = router({
     )
     .query(
       async ({
-        ctx: { locale },
         input: {
           filters: filtersInput,
           format,
@@ -70,7 +69,7 @@ export const questionListsRouter = router({
           title,
         },
       }) => {
-        const intl = await getIntlClientOnly(locale);
+        const intl = await getIntlClientOnly('en-US');
         const tab =
           tabInput != null ? (tabInput as QuestionPracticeFormat) : undefined;
         const filters =
@@ -79,10 +78,7 @@ export const questionListsRouter = router({
             : undefined;
 
         if (studyList != null) {
-          const studyListData_ = await fetchInterviewsStudyList(
-            studyList,
-            locale,
-          );
+          const studyListData_ = await fetchInterviewsStudyList(studyList);
 
           const studyListData = nullthrows(
             studyListData_,
@@ -97,7 +93,6 @@ export const questionListsRouter = router({
           if (QuestionCompanies.includes(studyList as QuestionCompany)) {
             const studyListQuestions = await fetchQuestionsListForCompany(
               studyList as QuestionCompany,
-              locale,
             );
 
             return {
@@ -109,7 +104,6 @@ export const questionListsRouter = router({
 
           const studyListQuestions = await fetchQuestionsListByHash(
             studyListData?.questionHashes ?? [],
-            locale,
           );
 
           return {
@@ -129,7 +123,7 @@ export const questionListsRouter = router({
             type: 'framework',
             value: framework_,
           } as const;
-          const { questions } = await fetchQuestionsList(listType, locale);
+          const { questions } = await fetchQuestionsList(listType);
 
           return {
             listType,
@@ -146,7 +140,7 @@ export const questionListsRouter = router({
             value: format_,
           } as const;
 
-          const { questions } = await fetchQuestionsList(listType, locale);
+          const { questions } = await fetchQuestionsList(listType);
           const codingLabel = intl.formatMessage({
             defaultMessage: 'Coding',
             description: 'Question format',
@@ -171,7 +165,7 @@ export const questionListsRouter = router({
             type: 'language',
             value: language_,
           } as const;
-          const { questions } = await fetchQuestionsList(listType, locale);
+          const { questions } = await fetchQuestionsList(listType);
 
           return {
             listType,
@@ -192,7 +186,7 @@ export const questionListsRouter = router({
             type: 'practice',
             value: 'practice',
           } as const;
-          const { questions } = await fetchQuestionsList(listType, locale);
+          const { questions } = await fetchQuestionsList(listType);
 
           return {
             listType,
@@ -203,7 +197,6 @@ export const questionListsRouter = router({
 
         const { questions: questionsCoding } = await fetchQuestionsList(
           QuestionListTypeDefault,
-          locale,
         );
 
         return {
@@ -213,25 +206,23 @@ export const questionListsRouter = router({
         } as const;
       },
     ),
-  getRecommendedStudyList: publicProcedure.query(
-    async ({ ctx: { locale } }) => {
-      const [blind75, gfe75, { questions }] = await Promise.all([
-        fetchInterviewsStudyList('blind75', locale),
-        fetchInterviewsStudyList('gfe75', locale),
-        fetchQuestionsList({ type: 'format', value: 'system-design' }, locale),
-      ]);
+  getRecommendedStudyList: publicProcedure.query(async () => {
+    const [blind75, gfe75, { questions }] = await Promise.all([
+      fetchInterviewsStudyList('blind75'),
+      fetchInterviewsStudyList('gfe75'),
+      fetchQuestionsList({ type: 'format', value: 'system-design' }, 'en-US'),
+    ]);
 
-      return {
-        blind75: {
-          questionCount: (blind75?.questionHashes ?? []).length ?? 0,
-          studyListKey: blind75?.slug ?? '',
-        },
-        gfe75: {
-          questionCount: (gfe75?.questionHashes ?? []).length ?? 0,
-          studyListKey: gfe75?.slug ?? '',
-        },
-        systemDesignQuestionCount: questions.length,
-      };
-    },
-  ),
+    return {
+      blind75: {
+        questionCount: (blind75?.questionHashes ?? []).length ?? 0,
+        studyListKey: blind75?.slug ?? '',
+      },
+      gfe75: {
+        questionCount: (gfe75?.questionHashes ?? []).length ?? 0,
+        studyListKey: gfe75?.slug ?? '',
+      },
+      systemDesignQuestionCount: questions.length,
+    };
+  }),
 });

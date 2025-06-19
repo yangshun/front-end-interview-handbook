@@ -8,7 +8,6 @@ import {
 import { lowerCase, startCase } from 'lodash-es';
 import React from 'react';
 
-import { getDiscountedPrice } from '~/components/purchase/PurchasePricingUtils';
 import type { SponsorsAdFormatFormItem } from '~/components/sponsors/request/types';
 import { SponsorAdFormatConfigs } from '~/components/sponsors/SponsorsAdFormatConfigs';
 import {
@@ -28,7 +27,6 @@ import { containerStyle, mainStyle } from '~/emails/components/EmailsStyles';
 type Props = Readonly<{
   ads: Array<SponsorsAdFormatFormItem>;
   legalName: string;
-  percentOff?: number | null;
   requestUrl: string;
   signatoryName: string;
   signatoryTitle: string;
@@ -37,7 +35,6 @@ type Props = Readonly<{
 export default function EmailsTemplateSponsorsAdRequestReview({
   ads,
   legalName,
-  percentOff,
   requestUrl,
   signatoryName,
   signatoryTitle,
@@ -45,13 +42,7 @@ export default function EmailsTemplateSponsorsAdRequestReview({
   const totalAmount = ads.reduce(
     (acc, curr) =>
       acc +
-      curr.weeks.length *
-        (percentOff
-          ? getDiscountedPrice({
-              percentOff,
-              price: SponsorAdFormatConfigs[curr.format].pricePerWeekUSD,
-            })
-          : SponsorAdFormatConfigs[curr.format].pricePerWeekUSD),
+      curr.weeks.length * SponsorAdFormatConfigs[curr.format].pricePerWeekUSD,
     0,
   );
 

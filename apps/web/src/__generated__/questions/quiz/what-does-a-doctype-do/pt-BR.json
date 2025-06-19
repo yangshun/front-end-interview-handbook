@@ -1,0 +1,33 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [
+      "apple"
+    ],
+    "created": 1630800000,
+    "difficulty": "hard",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/what-does-a-doctype-do",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "what-does-a-doctype-do",
+    "subtitle": null,
+    "title": "O que um `DOCTYPE` faz?",
+    "topics": [
+      "html"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/what-does-a-doctype-do/pt-BR.mdx"
+  },
+  "solution": "var Component=(()=>{var m=Object.create;var a=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var D=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var T=(o,e)=>()=>(e||o((e={exports:{}}).exports,e),e.exports),g=(o,e)=>{for(var r in e)a(o,r,{get:e[r],enumerable:!0})},d=(o,e,r,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let t of l(e))!h.call(o,t)&&t!==r&&a(o,t,{get:()=>e[t],enumerable:!(s=p(e,t))||s.enumerable});return o};var O=(o,e,r)=>(r=o!=null?m(D(o)):{},d(e||!o||!o.__esModule?a(r,\"default\",{value:o,enumerable:!0}):r,o)),C=o=>d(a({},\"__esModule\",{value:!0}),o);var i=T((j,c)=>{c.exports=_jsx_runtime});var Y={};g(Y,{default:()=>E,frontmatter:()=>x});var n=O(i()),x={title:\"O que um `DOCTYPE` faz?\"};function u(o){let e=Object.assign({p:\"p\",strong:\"strong\",code:\"code\",em:\"em\"},o.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.strong,{children:\"DOCTYPE\"}),\" \\xE9 uma abrevia\\xE7\\xE3o para \",(0,n.jsx)(e.strong,{children:\"Tipo de Documento\"}),\". Um DOCTYPE sempre est\\xE1 associado a um \",(0,n.jsx)(e.strong,{children:\"DTD\"}),\" - para \",(0,n.jsx)(e.strong,{children:\"Defini\\xE7\\xE3o de Tipo de Documento\"}),\".\"]}),`\n`,(0,n.jsxs)(e.p,{children:[\"Um DTD define como documentos de um determinado tipo devem ser estruturados (por exemplo, um \",(0,n.jsx)(e.code,{children:\"button\"}),\" pode conter um \",(0,n.jsx)(e.code,{children:\"span\"}),\" mas n\\xE3o uma \",(0,n.jsx)(e.code,{children:\"div\"}),\"), ao passo que um DOCTYPE declara o que DTD um documento \",(0,n.jsx)(e.em,{children:\"supostamente\"}),\" respeita (ex.: este documento respeita o HTML DTD).\"]}),`\n`,(0,n.jsxs)(e.p,{children:[\"Para p\\xE1ginas web, a declara\\xE7\\xE3o DOCTYPE \\xE9 necess\\xE1ria. \\xC9 usado para dizer aos agentes do usu\\xE1rio qual vers\\xE3o das especifica\\xE7\\xF5es HTML o seu documento respeita. Uma vez que um agente de usu\\xE1rio tenha reconhecido um DOCTYPE correto, ele acionar\\xE1 o \",(0,n.jsx)(e.strong,{children:\"modo no-quirk\"}),\" correspondente a este DOCTYPE para ler o documento. Se um agente de usu\\xE1rio n\\xE3o reconhecer um DOCTYPE correto, ele ativar\\xE1 o \",(0,n.jsx)(e.strong,{children:\"quirks mode\"}),\" (modo de peculiaridade).\"]}),`\n`,(0,n.jsxs)(e.p,{children:[\"A declara\\xE7\\xE3o DOCTYPE para os padr\\xF5es HTML5 \\xE9 \",(0,n.jsx)(e.code,{children:\"<!DOCTYPE html>\"}),\".\"]})]})}function P(o={}){let{wrapper:e}=o.components||{};return e?(0,n.jsx)(e,Object.assign({},o,{children:(0,n.jsx)(u,o)})):u(o)}var E=P;return C(Y);})();\n;return Component;"
+}

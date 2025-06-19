@@ -2,83 +2,38 @@ import fs from 'fs';
 import grayMatter from 'gray-matter';
 import path from 'path';
 
-import type {
-  InterviewsQuestionInfo,
-  InterviewsQuestionItemMinimal,
-  InterviewsQuestionMetadata,
-} from '~/components/interviews/questions/common/QuestionsTypes';
+import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 
 import { normalizeQuestionFrontMatter } from '../QuestionsUtils';
 import {
   getQuestionSrcPathUserInterface,
-  getQuestionSrcPathUserInterfaceWriteups,
   QUESTIONS_SRC_DIR_USER_INTERFACE,
 } from './QuestionsBundlerUserInterfaceConfig';
 
 export async function readQuestionMetadataUserInterface(
   slug: string,
-): Promise<InterviewsQuestionMetadata> {
+  _locale = 'en-US',
+) {
   const questionPath = getQuestionSrcPathUserInterface(slug);
-  const metadataPath = path.join(questionPath, 'metadata.json');
-  const metadataJSON = JSON.parse(String(fs.readFileSync(metadataPath)));
 
-  return normalizeQuestionFrontMatter(metadataJSON, 'user-interface').metadata;
-}
-
-export async function readQuestionInfoUserInterface(
-  slug: string,
-  locale = 'en-US',
-): Promise<InterviewsQuestionInfo> {
-  const questionWriteupsPath = getQuestionSrcPathUserInterfaceWriteups(slug);
-
-  // Read frontmatter from MDX file
-  const filePath = path.join(questionWriteupsPath, locale, `index.mdx`);
-
+  // Read frontmatter from MDX file.
+  const filePath = path.join(questionPath, `index.mdx`);
   const source = fs.readFileSync(filePath).toString().trim();
   const { data: frontMatter } = grayMatter(source);
 
-  return normalizeQuestionFrontMatter(frontMatter, 'user-interface').info;
-}
+  // Read locale-agnostic metadata file.
+  // const metadataPath = path.join(questionPath, 'metadata.json');
+  // const metadataJSON = JSON.parse(String(fs.readFileSync(metadataPath)));
 
-async function readQuestionItemUserInterface(
-  slug: string,
-  locale = 'en-US',
-): Promise<InterviewsQuestionItemMinimal> {
-  const [metadata, info] = await Promise.all([
-    readQuestionMetadataUserInterface(slug),
-    readQuestionInfoUserInterface(slug, locale),
-  ]);
+  // Combine them together.
+  const metadata = normalizeQuestionFrontMatter(frontMatter, 'user-interface');
 
-  return {
-    info,
-    metadata,
-  };
-}
-
-async function readQuestionMetadataWithFallbackUserInterface(
-  slug: string,
-  requestedLocale = 'en-US',
-): Promise<{ content: InterviewsQuestionItemMinimal; loadedLocale: string }> {
-  let loadedLocale = requestedLocale;
-  const content = await (async () => {
-    try {
-      return await readQuestionItemUserInterface(slug, requestedLocale);
-    } catch {
-      loadedLocale = 'en-US';
-
-      return await readQuestionItemUserInterface(slug, loadedLocale);
-    }
-  })();
-
-  return {
-    content,
-    loadedLocale,
-  };
+  return metadata;
 }
 
 export async function readQuestionListMetadataUserInterface(
   locale = 'en-US',
-): Promise<ReadonlyArray<InterviewsQuestionItemMinimal>> {
+): Promise<ReadonlyArray<QuestionMetadata>> {
   const directories = fs
     .readdirSync(QUESTIONS_SRC_DIR_USER_INTERFACE, {
       withFileTypes: true,
@@ -89,14 +44,9 @@ export async function readQuestionListMetadataUserInterface(
     directories.map(async (dirent) => {
       const slug = dirent.name;
 
-      const { content } = await readQuestionMetadataWithFallbackUserInterface(
-        slug,
-        locale,
-      );
-
-      return content;
+      return await readQuestionMetadataUserInterface(slug, locale);
     }),
   );
 
-  return questions.filter(({ metadata }) => metadata.published);
+  return questions.filter(({ published }) => published);
 }

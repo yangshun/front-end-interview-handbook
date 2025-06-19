@@ -29,11 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   try {
     const [question, save] = await Promise.all([
-      readQuestionUserInterface({
-        isViewerPremium: false,
-        requestedLocale: locale,
-        slug,
-      }),
+      readQuestionUserInterface(slug, false),
       prisma.questionUserInterfaceSave.findFirst({
         where: {
           id: saveId,
@@ -50,8 +46,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       pathname: question.metadata.href + `/v/${saveId}`,
       title:
         save == null
-          ? question.info.title
-          : `${save?.name} | ${question.info.title}`,
+          ? question.metadata.title
+          : `${save?.name} | ${question.metadata.title}`,
     });
   } catch {
     notFound();
@@ -100,14 +96,11 @@ export default async function Page({ params }: Props) {
     return profile?.premium ?? false;
   })();
 
-  const isSaveOwner = save.userId === viewer?.id;
-
-  const question = await readQuestionUserInterface({
-    frameworkParam: staticLowerCase(save!.framework),
-    isViewerPremium,
-    requestedLocale: locale,
+  const question = await readQuestionUserInterface(
     slug,
-  });
+    isViewerPremium,
+    staticLowerCase(save!.framework),
+  );
 
   const isQuestionLockedForViewer =
     question.metadata.access === 'premium' && !isViewerPremium;
@@ -117,7 +110,6 @@ export default async function Page({ params }: Props) {
       <InterviewsPurchaseQuestionPaywallPage
         metadata={question.metadata}
         mode="practice"
-        title={question.info.title}
       />
     );
   }
@@ -128,7 +120,7 @@ export default async function Page({ params }: Props) {
   );
   const nextQuestions = sortQuestionsMultiple(
     questions.filter((questionItem) =>
-      question.metadata.nextQuestions.includes(questionItem.metadata.slug),
+      question.metadata.nextQuestions.includes(questionItem.slug),
     ),
     [
       {
@@ -143,7 +135,7 @@ export default async function Page({ params }: Props) {
   );
   const similarQuestions = sortQuestionsMultiple(
     questions.filter((questionItem) =>
-      question.metadata.similarQuestions.includes(questionItem.metadata.slug),
+      question.metadata.similarQuestions.includes(questionItem.slug),
     ),
     [
       {
@@ -160,7 +152,6 @@ export default async function Page({ params }: Props) {
   return (
     <UserInterfaceCodingWorkspaceSavesPage
       canViewPremiumContent={isViewerPremium}
-      isViewingSave={!isSaveOwner}
       nextQuestions={nextQuestions}
       question={question}
       save={save!}

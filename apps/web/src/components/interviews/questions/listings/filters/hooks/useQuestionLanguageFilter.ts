@@ -48,9 +48,7 @@ export default function useQuestionLanguageFilter(
     id: 'language',
     matches: (question) =>
       languageFilters.size === 0 ||
-      question.metadata.languages.some((language) =>
-        languageFilters.has(language),
-      ),
+      question.languages.some((language) => languageFilters.has(language)),
     name: intl.formatMessage({
       defaultMessage: 'Language',
       description: 'Question programming language',

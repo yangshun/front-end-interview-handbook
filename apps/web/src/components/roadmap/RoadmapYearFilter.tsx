@@ -14,7 +14,7 @@ type Props = Readonly<{
 function RoadmapYearFilter({ onYearChange, selectedYear, years }: Props) {
   return (
     <Card
-      className={clsx('space-y-1', 'w-40 p-3')}
+      className={clsx('space-y-1', 'w-40  p-3')}
       disableBackground={true}
       disableSpotlight={true}
       padding={false}
@@ -28,7 +28,7 @@ function RoadmapYearFilter({ onYearChange, selectedYear, years }: Props) {
             addonPosition="start"
             className={clsx(
               'gap-x-2',
-              'text-primary border-none !px-3 py-2',
+              'text-primary  border-none !px-3 py-2',
               selected && '!text-brand',
             )}
             icon={RiCheckboxCircleLine}

@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { motion, useAnimation, useInView } from 'motion/react';
+import { motion, useAnimation, useInView } from 'framer-motion';
 import type { RefObject } from 'react';
 import { useEffect, useRef, useState } from 'react';
 import { RiCheckboxCircleLine, RiCursorLine, RiPlayLine } from 'react-icons/ri';
@@ -199,11 +199,11 @@ function TestCaseAnimation({
       </div>
       <motion.div
         animate={cursorControls}
-        className="absolute size-8 cursor-none"
+        className="size-8 absolute cursor-none"
         initial={{ left: 60, opacity: 0, top: 200 }}
         style={{ pointerEvents: 'none' }}>
         <RiCursorLine
-          className={clsx('relative z-[3] size-5 shrink-0', themeTextColor)}
+          className={clsx('size-5 relative z-[3] shrink-0', themeTextColor)}
         />
         <motion.div
           animate={rippleControls}

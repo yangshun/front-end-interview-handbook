@@ -6,18 +6,18 @@ import { useMemo } from 'react';
 import { trpc } from '~/hooks/trpc';
 
 import type {
-  InterviewsQuestionItemMinimal,
-  InterviewsQuestionItemWithCompletedStatus,
+  QuestionMetadata,
+  QuestionMetadataWithCompletedStatus,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 
 import { hasCompletedQuestion, hashQuestion } from '~/db/QuestionsUtils';
 
 export default function useQuestionsWithCompletionStatus<
-  Q extends InterviewsQuestionItemMinimal,
+  Q extends QuestionMetadata,
 >(
   questions: ReadonlyArray<Q>,
   studyListKey?: string,
-): ReadonlyArray<InterviewsQuestionItemWithCompletedStatus & Q> {
+): ReadonlyArray<Q & QuestionMetadataWithCompletedStatus> {
   const user = useUser();
 
   const { data: questionProgress } = trpc.questionProgress.getAll.useQuery(

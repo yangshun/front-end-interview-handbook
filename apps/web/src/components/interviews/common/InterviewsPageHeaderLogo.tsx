@@ -18,12 +18,12 @@ export default function InterviewsPageHeaderLogo({ icon: Icon }: Props) {
         'rounded-lg',
         'overflow-hidden',
         'flex items-center justify-center',
-        'size-12 shrink-0 sm:size-14 xl:size-16',
+        'size-12 sm:size-14 xl:size-16 shrink-0',
         themeBackgroundCardColor,
         themeGlassyBorder,
       )}>
       <Icon
-        className={clsx('size-6 shrink-0 sm:size-8', themeTextSubtitleColor)}
+        className={clsx('size-6 sm:size-8 shrink-0', themeTextSubtitleColor)}
       />
       <div className="absolute inset-0">
         <div

@@ -1,5 +1,3 @@
-import { describe, expect, test } from 'vitest';
-
 import i18nMetadata, { parseCanonical } from './i18nMetadata';
 
 describe('parseCanonical', () => {
@@ -78,17 +76,17 @@ describe('i18nMetadata', () => {
       ).toMatchInlineSnapshot(`
         {
           "alternates": {
-            "canonical": "/en/products",
+            "canonical": "/products",
             "languages": {
               "en-US": "/products",
-              "pt-BR": "/pt-BR/products",
+              "fr-FR": "/fr/products",
               "x-default": "/products",
               "zh-CN": "/zh-CN/products",
             },
           },
           "robots": {
             "googleBot": {
-              "notranslate": true,
+              "notranslate": false,
             },
           },
         }
@@ -111,14 +109,14 @@ describe('i18nMetadata', () => {
             "canonical": "https://example.com/products",
             "languages": {
               "en-US": "https://example.com/products",
-              "pt-BR": "https://example.com/pt-BR/products",
+              "fr-FR": "https://example.com/fr/products",
               "x-default": "https://example.com/products",
               "zh-CN": "https://example.com/zh-CN/products",
             },
           },
           "robots": {
             "googleBot": {
-              "notranslate": true,
+              "notranslate": false,
             },
           },
         }
@@ -138,17 +136,17 @@ describe('i18nMetadata', () => {
       ).toMatchInlineSnapshot(`
         {
           "alternates": {
-            "canonical": "[object Object]",
+            "canonical": "https://example.com/products",
             "languages": {
               "en-US": "https://example.com/products",
-              "pt-BR": "https://example.com/pt-BR/products",
+              "fr-FR": "https://example.com/fr/products",
               "x-default": "https://example.com/products",
               "zh-CN": "https://example.com/zh-CN/products",
             },
           },
           "robots": {
             "googleBot": {
-              "notranslate": true,
+              "notranslate": false,
             },
           },
         }
@@ -179,10 +177,10 @@ describe('i18nMetadata', () => {
                   "url": "/products",
                 },
               ],
-              "pt-BR": [
+              "fr-FR": [
                 {
                   "title": "Foo",
-                  "url": "/pt-BR/products",
+                  "url": "/fr/products",
                 },
               ],
               "x-default": [
@@ -201,7 +199,7 @@ describe('i18nMetadata', () => {
           },
           "robots": {
             "googleBot": {
-              "notranslate": true,
+              "notranslate": false,
             },
           },
         }
@@ -225,7 +223,7 @@ describe('i18nMetadata', () => {
           "canonical": "/zh-CN/products",
           "languages": {
             "en-US": "/products",
-            "pt-BR": "/pt-BR/products",
+            "fr-FR": "/fr/products",
             "x-default": "/products",
             "zh-CN": "/zh-CN/products",
           },
@@ -258,10 +256,10 @@ describe('i18nMetadata', () => {
       ).toMatchInlineSnapshot(`
         {
           "alternates": {
-            "canonical": "/en/products",
+            "canonical": "/products",
             "languages": {
               "en-US": "/products",
-              "pt-BR": "/pt-BR/products",
+              "fr-FR": "/fr/products",
               "x-default": "/products",
               "zh-CN": "/zh-CN/products",
             },
@@ -269,7 +267,7 @@ describe('i18nMetadata', () => {
           "robots": {
             "googleBot": {
               "index": true,
-              "notranslate": true,
+              "notranslate": false,
             },
           },
         }
@@ -297,7 +295,7 @@ describe('i18nMetadata', () => {
             "canonical": "/zh-CN/products",
             "languages": {
               "en-US": "/products",
-              "pt-BR": "/pt-BR/products",
+              "fr-FR": "/fr/products",
               "x-default": "/products",
               "zh-CN": "/zh-CN/products",
             },

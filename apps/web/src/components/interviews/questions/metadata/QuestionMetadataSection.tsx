@@ -2,7 +2,7 @@ import clsx from 'clsx';
 
 import type { TextSize } from '~/components/ui/Text';
 
-import type { InterviewsQuestionMetadata } from '../common/QuestionsTypes';
+import type { QuestionMetadata } from '../common/QuestionsTypes';
 import QuestionAuthor from './QuestionAuthor';
 import QuestionDifficultyLabel from './QuestionDifficultyLabel';
 import QuestionDurationLabel from './QuestionDurationLabel';
@@ -21,10 +21,9 @@ type MetadataElement =
   | 'users_completed';
 
 type Props = Readonly<{
-  className?: string;
   elements?: ReadonlyArray<MetadataElement>;
   justify?: 'center' | 'start';
-  metadata: InterviewsQuestionMetadata;
+  metadata: QuestionMetadata;
   size?: TextSize;
 }>;
 
@@ -37,7 +36,6 @@ const DEFAULT_ELEMENTS: ReadonlyArray<MetadataElement> = [
 ];
 
 export default function QuestionMetadataSection({
-  className,
   elements = DEFAULT_ELEMENTS,
   justify = 'start',
   metadata,
@@ -49,8 +47,7 @@ export default function QuestionMetadataSection({
         'flex flex-wrap items-center',
         justify === 'start' && 'justify-start',
         justify === 'center' && 'justify-center',
-        'gap-x-6 gap-y-4',
-        className,
+        'gap-x-6 gap-y-4 ',
       )}>
       {elements.includes('author') && metadata.author && (
         <QuestionAuthor author={metadata.author} size={size} />

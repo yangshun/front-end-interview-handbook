@@ -10,6 +10,7 @@
   "created": 1656460800,
   "difficulty": "medium",
   "duration": 20,
+  "excerpt": "Build a Todo list that lets users add new tasks and delete existing tasks",
   "featured": true,
   "format": "user-interface",
   "frameworkDefault": "react",
@@ -53,5 +54,6 @@
   ],
   "slug": "todo-list",
   "subtitle": null,
+  "title": "Todo List",
   "topics": []
 }

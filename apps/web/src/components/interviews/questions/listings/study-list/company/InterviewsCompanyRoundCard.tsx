@@ -26,7 +26,7 @@ export default function InterviewsCompanyRoundCard({
       <div className="flex justify-between self-stretch">
         <span
           className={clsx(
-            'inline-flex size-10 items-center justify-center rounded-md',
+            'size-10 inline-flex items-center justify-center rounded-md',
             themeBackgroundChipColor,
             themeTextSecondaryColor,
             'border border-transparent transition',

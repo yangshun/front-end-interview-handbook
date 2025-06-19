@@ -5,14 +5,14 @@ import {
 } from '~/components/ui/Accordion';
 import Tooltip from '~/components/ui/Tooltip';
 
-import type { InterviewsQuestionItemMinimal } from '../../common/QuestionsTypes';
+import type { QuestionMetadata } from '../../common/QuestionsTypes';
 import type { QuestionFilter } from './QuestionFilterType';
 import QuestionListingFilterItemCheckboxes from './QuestionListingFilterItemCheckboxes';
 import QuestionListingFilterItemLabel from './QuestionListingFilterItemLabel';
 
 export default function QuestionListingFilterItem<
   T extends string,
-  Q extends InterviewsQuestionItemMinimal,
+  Q extends QuestionMetadata,
 >({
   coveredValues,
   section,

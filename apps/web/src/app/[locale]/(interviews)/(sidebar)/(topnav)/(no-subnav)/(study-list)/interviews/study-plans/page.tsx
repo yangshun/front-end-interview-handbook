@@ -15,7 +15,8 @@ type Props = Readonly<{
   }>;
 }>;
 
-async function getPageSEOMetadata({ locale }: Props['params']) {
+async function getPageSEOMetadata({ params }: Props) {
+  const { locale } = params;
   const intl = await getIntlServerOnly(locale);
 
   return {
@@ -48,7 +49,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
 
   const { description, href, ogImagePageType, socialTitle, title } =
-    await getPageSEOMetadata(params);
+    await getPageSEOMetadata({
+      params,
+    });
 
   return defaultMetadata({
     description,
@@ -61,12 +64,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-export default async function Page({ params }: Props) {
-  const { locale } = params;
-
+export default async function Page() {
   const [studyPlans, bottomContent] = await Promise.all([
-    fetchInterviewsStudyLists('study-plan', locale),
-    fetchInterviewListingBottomContent('study-plans/study-plans', locale),
+    fetchInterviewsStudyLists('study-plan'),
+    fetchInterviewListingBottomContent('study-plans'),
   ]);
 
   return (

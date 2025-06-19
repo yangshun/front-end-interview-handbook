@@ -1,5 +1,3 @@
-import AuthGoogleOneTap from '~/components/auth/AuthGoogleOneTap';
-import AuthOneClickSignup from '~/components/auth/AuthOneClickSignUp';
 import BlogSidebarContainer from '~/components/blog/layout/BlogSidebarContainer';
 import { GlobalBannerInterviews } from '~/components/global/banners/GlobalBannerInterviews';
 import InterviewsFooter from '~/components/interviews/common/InterviewsFooter';
@@ -19,8 +17,6 @@ export default function BlogLayout({ children }: Props) {
   return (
     <>
       <GlobalBannerInterviews />
-      <AuthGoogleOneTap showOnMobileOnly={true} />
-      <AuthOneClickSignup />
       <div className="flex flex-col">
         <InterviewsNavbar />
         <div className="flex">

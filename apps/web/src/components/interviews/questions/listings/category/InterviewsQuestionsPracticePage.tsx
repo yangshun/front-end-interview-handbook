@@ -9,9 +9,9 @@ import { trpc } from '~/hooks/trpc';
 import InterviewsPageHeader from '~/components/interviews/common/InterviewsPageHeader';
 import useInterviewsQuestionsFeatures from '~/components/interviews/common/useInterviewsQuestionsFeatures';
 import type {
-  InterviewsQuestionItemMinimal,
   QuestionFramework,
   QuestionLanguage,
+  QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsFormatsSection from '~/components/interviews/questions/listings/category/InterviewsQuestionsFormatsSection';
 import InterviewsQuestionsFrameworkAndLanguageSection from '~/components/interviews/questions/listings/category/InterviewsQuestionsFrameworkAndLanguageSection';
@@ -26,17 +26,17 @@ type Props = Readonly<{
   anchorSection?: AnchorSection;
   bottomContent?: InterviewsListingBottomContent;
   questions: {
-    codingQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+    codingQuestions: ReadonlyArray<QuestionMetadata>;
     frameworkQuestions: Record<
       QuestionFramework,
-      ReadonlyArray<InterviewsQuestionItemMinimal>
+      ReadonlyArray<QuestionMetadata>
     >;
     languageQuestions: Record<
       QuestionLanguage,
-      ReadonlyArray<InterviewsQuestionItemMinimal>
+      ReadonlyArray<QuestionMetadata>
     >;
-    quizQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
-    systemDesignQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+    quizQuestions: ReadonlyArray<QuestionMetadata>;
+    systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
   };
 }>;
 

@@ -1,13 +1,12 @@
+import { redirect } from 'next/navigation';
 import url from 'node:url';
 
-import i18nRedirect from '~/next-i18nostic/src/utils/i18nRedirect';
 import prisma from '~/server/prisma';
 import type { Viewer } from '~/supabase/SupabaseServerGFE';
 
 export async function redirectToProjectsOnboardingIfProjectsProfileIncomplete(
   viewer: Viewer,
   path: string,
-  locale: string,
 ) {
   const viewerProfile = await prisma.profile.findUnique({
     include: {
@@ -22,9 +21,8 @@ export async function redirectToProjectsOnboardingIfProjectsProfileIncomplete(
     return viewerProfile;
   }
 
-  return i18nRedirect(
+  return redirect(
     url.format({ pathname: '/projects/onboarding', query: { next: path } }),
-    { locale },
   );
 }
 

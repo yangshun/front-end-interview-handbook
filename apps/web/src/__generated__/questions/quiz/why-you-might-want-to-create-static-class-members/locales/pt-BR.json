@@ -1,9 +1,0 @@
-{
-  "description": null,
-  "info": {
-    "excerpt": null,
-    "title": "Por que você pode querer criar membros de classe estáticos?",
-    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/why-you-might-want-to-create-static-class-members/pt-BR.mdx"
-  },
-  "solution": "var Component=(()=>{var u=Object.create;var n=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var g=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),j=(e,t)=>{for(var s in t)n(e,s,{get:t[s],enumerable:!0})},i=(e,t,s,r)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let o of l(t))!x.call(e,o)&&o!==s&&n(e,o,{get:()=>t[o],enumerable:!(r=p(t,o))||r.enumerable});return e};var _=(e,t,s)=>(s=e!=null?u(f(e)):{},i(t||!e||!e.__esModule?n(s,\"default\",{value:e,enumerable:!0}):s,e)),b=e=>i(n({},\"__esModule\",{value:!0}),e);var d=g((C,c)=>{c.exports=_jsx_runtime});var O={};j(O,{default:()=>M,frontmatter:()=>q});var a=_(d()),q={title:\"Por que voc\\xEA pode querer criar membros de classe est\\xE1ticos?\"};function m(e){let t=Object.assign({p:\"p\"},e.components);return(0,a.jsx)(t.p,{children:\"Os membros est\\xE1ticos de classe (propriedades/m\\xE9todos) n\\xE3o est\\xE3o ligados a uma inst\\xE2ncia espec\\xEDfica de uma classe e t\\xEAm o mesmo valor independentemente da inst\\xE2ncia que est\\xE1 se referindo a ele. Propriedades est\\xE1ticas geralmente s\\xE3o vari\\xE1veis de configura\\xE7\\xE3o e m\\xE9todos est\\xE1ticos s\\xE3o normalmente fun\\xE7\\xF5es utilit\\xE1rias puras que n\\xE3o dependem do estado da inst\\xE2ncia.\"})}function v(e={}){let{wrapper:t}=e.components||{};return t?(0,a.jsx)(t,Object.assign({},e,{children:(0,a.jsx)(m,e)})):m(e)}var M=v;return b(O);})();\n;return Component;"
-}

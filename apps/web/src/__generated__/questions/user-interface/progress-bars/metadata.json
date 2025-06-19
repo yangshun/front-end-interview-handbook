@@ -7,6 +7,7 @@
   "created": 1671321600,
   "difficulty": "easy",
   "duration": 15,
+  "excerpt": "Build a list of progress bars that fill up gradually when they are added to the page",
   "featured": false,
   "format": "user-interface",
   "frameworkDefault": "react",
@@ -31,6 +32,7 @@
   "similarQuestions": [],
   "slug": "progress-bars",
   "subtitle": null,
+  "title": "Progress Bars",
   "topics": [
     "async"
   ]

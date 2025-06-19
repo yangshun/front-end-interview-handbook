@@ -16,6 +16,7 @@ import {
   projectsSkillListInputOptionalSchemaServer,
   projectsSkillListInputSchemaServer,
 } from '~/components/projects/skills/form/ProjectsSkillListInputSchema';
+import { isImageFile } from '~/components/projects/submissions/code-viewer/GithubRepositoryCodeViewer';
 import { projectsChallengeSubmissionDeploymentUrlsSchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionDeploymentUrlsSchema';
 import { projectsChallengeSubmissionImplementationSchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionImplementationSchema';
 import { projectsChallengeSubmissionRepositoryUrlSchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionRepositoryUrlSchema';
@@ -25,7 +26,6 @@ import { projectsChallengeSubmissionTitleSchemaServer } from '~/components/proje
 import { getSiteOrigin } from '~/seo/siteUrl';
 import prisma from '~/server/prisma';
 import { getErrorMessage } from '~/utils/getErrorMessage';
-import { isImageFile } from '~/utils/isImageFile';
 
 import { publicProcedure, router } from '../../trpc';
 import { projectsUserProcedure } from './procedures';

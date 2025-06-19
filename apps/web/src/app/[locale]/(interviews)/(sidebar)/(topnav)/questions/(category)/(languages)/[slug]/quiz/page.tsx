@@ -121,7 +121,7 @@ export default async function Page({ params }: Props) {
       locale,
       slugs: InterviewsQuestionsQuizGuideSlugs,
     }),
-    fetchInterviewListingBottomContent(`languages/${language}`, locale),
+    fetchInterviewListingBottomContent(`language-${language}`),
   ]);
 
   return (

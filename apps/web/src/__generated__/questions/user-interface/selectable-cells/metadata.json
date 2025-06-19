@@ -5,6 +5,7 @@
   "created": 1723766400,
   "difficulty": "hard",
   "duration": 40,
+  "excerpt": "Build an interface where users can drag to select multiple cells within a grid",
   "featured": false,
   "format": "user-interface",
   "frameworkDefault": "react",
@@ -27,5 +28,6 @@
   "similarQuestions": [],
   "slug": "selectable-cells",
   "subtitle": null,
+  "title": "Selectable Cells",
   "topics": []
 }

@@ -46,7 +46,7 @@ export default function HoverCardExamples() {
                     key={item.name}
                     className="-m-3 flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-neutral-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
                     href={item.href}>
-                    <div className="flex size-10 shrink-0 items-center justify-center text-white sm:size-12">
+                    <div className="size-10 sm:size-12 flex shrink-0 items-center justify-center text-white">
                       <item.icon aria-hidden="true" color="black" />
                     </div>
                     <div className="ml-4">
@@ -89,7 +89,7 @@ export default function HoverCardExamples() {
                     key={item.name}
                     className="-m-3 flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-neutral-700 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
                     href={item.href}>
-                    <div className="flex size-10 shrink-0 items-center justify-center text-white sm:size-12">
+                    <div className="size-10 sm:size-12 flex shrink-0 items-center justify-center text-white">
                       <item.icon aria-hidden="true" color="white" />
                     </div>
                     <div className="ml-4">

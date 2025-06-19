@@ -12,7 +12,7 @@ type Props = Readonly<{
 export default function AuthPasswordResetPage({ next }: Props) {
   return (
     <Container
-      className={clsx('flex flex-col', 'py-16', 'mb-40 sm:mb-60 lg:mb-80')}
+      className={clsx('flex flex-col', 'py-8 md:py-12 lg:py-16')}
       width="xl">
       <SupabaseAuthUpdatePassword next={next} />
     </Container>

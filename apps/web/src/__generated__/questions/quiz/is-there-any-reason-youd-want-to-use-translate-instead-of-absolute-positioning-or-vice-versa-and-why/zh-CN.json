@@ -1,0 +1,34 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [
+      "bytedance"
+    ],
+    "created": 1630800000,
+    "difficulty": "hard",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/is-there-any-reason-youd-want-to-use-translate-instead-of-absolute-positioning-or-vice-versa-and-why",
+    "importance": "high",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "is-there-any-reason-youd-want-to-use-translate-instead-of-absolute-positioning-or-vice-versa-and-why",
+    "subtitle": null,
+    "title": "你是否想使用 `translate()` 而不是 `absolute` 定位，或者反过来？为什么？",
+    "topics": [
+      "css",
+      "performance"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/is-there-any-reason-youd-want-to-use-translate-instead-of-absolute-positioning-or-vice-versa-and-why/zh-CN.mdx"
+  },
+  "solution": "var Component=(()=>{var h=Object.create;var o=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var x=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var u=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var r in e)o(n,r,{get:e[r],enumerable:!0})},a=(n,e,r,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let c of p(e))!f.call(n,c)&&c!==r&&o(n,c,{get:()=>e[c],enumerable:!(s=m(e,c))||s.enumerable});return n};var _=(n,e,r)=>(r=n!=null?h(x(n)):{},a(e||!n||!n.__esModule?o(r,\"default\",{value:n,enumerable:!0}):r,n)),g=n=>a(o({},\"__esModule\",{value:!0}),n);var i=u((F,d)=>{d.exports=_jsx_runtime});var y={};j(y,{default:()=>M,frontmatter:()=>C});var t=_(i()),C={title:\"\\u4F60\\u662F\\u5426\\u60F3\\u4F7F\\u7528 `translate()` \\u800C\\u4E0D\\u662F `absolute` \\u5B9A\\u4F4D\\uFF0C\\u6216\\u8005\\u53CD\\u8FC7\\u6765\\uFF1F\\u4E3A\\u4EC0\\u4E48\\uFF1F\"};function l(n){let e=Object.assign({p:\"p\",code:\"code\"},n.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsxs)(e.p,{children:[(0,t.jsx)(e.code,{children:\"translate()\"}),\" \\u662F CSS \",(0,t.jsx)(e.code,{children:\"transform\"}),\" \\u5C5E\\u6027\\u7684\\u4E00\\u4E2A\\u53EF\\u80FD\\u503C\\u3002\\u4F7F\\u7528 \",(0,t.jsx)(e.code,{children:\"translate()\"}),\" \\u65F6\\uFF0C\\u5143\\u7D20\\u4ECD\\u7136\\u5360\\u636E\\u5176\\u539F\\u59CB\\u7A7A\\u95F4\\uFF08\\u6709\\u70B9\\u50CF \",(0,t.jsx)(e.code,{children:\"position: relative\"}),\"\\uFF09\\u3002\\u4F46\\u662F\\uFF0C\\u5F53\\u66F4\\u6539\\u5143\\u7D20\\u7684\\u7EDD\\u5BF9\\u5B9A\\u4F4D\\u65F6\\uFF0C\\u5143\\u7D20\\u5C06\\u4ECE\\u9875\\u9762\\u6D41\\u4E2D\\u79FB\\u9664\\uFF0C\\u5E76\\u4E14\\u5468\\u56F4\\u5143\\u7D20\\u7684\\u4F4D\\u7F6E\\u5C06\\u53D7\\u5230\\u5F71\\u54CD\\u3002\\u56E0\\u6B64\\uFF0C\\u5C06\\u4E0D\\u5F97\\u4E0D\\u91CD\\u65B0\\u8BA1\\u7B97\\u9875\\u9762\\u5E03\\u5C40\\u3002\"]}),`\n`,(0,t.jsxs)(e.p,{children:[\"\\u66F4\\u6539 \",(0,t.jsx)(e.code,{children:\"transform\"}),\" \\u6216 \",(0,t.jsx)(e.code,{children:\"opacity\"}),\" \\u4E0D\\u4F1A\\u89E6\\u53D1\\u6D4F\\u89C8\\u5668\\u56DE\\u6D41\\u6216\\u91CD\\u7ED8\\uFF0C\\u4F46\\u4F1A\\u89E6\\u53D1\\u5408\\u6210\\uFF1B\\u53E6\\u4E00\\u65B9\\u9762\\uFF0C\\u66F4\\u6539\\u7EDD\\u5BF9\\u5B9A\\u4F4D\\u4F1A\\u89E6\\u53D1\\u201C\\u56DE\\u6D41\\u201D\\u3002\",(0,t.jsx)(e.code,{children:\"transform\"}),\" \\u4F1A\\u5BFC\\u81F4\\u6D4F\\u89C8\\u5668\\u4E3A\\u8BE5\\u5143\\u7D20\\u521B\\u5EFA\\u4E00\\u4E2A GPU \\u5C42\\uFF0C\\u4F46\\u66F4\\u6539\\u7EDD\\u5BF9\\u5B9A\\u4F4D\\u5C5E\\u6027\\u4F1A\\u4F7F\\u7528 CPU\\u3002\\u56E0\\u6B64\\uFF0C\",(0,t.jsx)(e.code,{children:\"translate()\"}),\" \\u66F4\\u6709\\u6548\\uFF0C\\u5E76\\u4E14\\u5C06\\u5BFC\\u81F4\\u66F4\\u77ED\\u7684\\u7ED8\\u5236\\u65F6\\u95F4\\uFF0C\\u4ECE\\u800C\\u5B9E\\u73B0\\u66F4\\u6D41\\u7545\\u7684\\u52A8\\u753B\\u3002\"]})]})}function b(n={}){let{wrapper:e}=n.components||{};return e?(0,t.jsx)(e,Object.assign({},n,{children:(0,t.jsx)(l,n)})):l(n)}var M=b;return g(y);})();\n;return Component;"
+}

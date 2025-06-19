@@ -1,0 +1,63 @@
+---
+name: OpenAI
+logoUrl: /img/company-logos/openai-logomark.svg
+access: premium
+longName: OpenAI Front End Interview Guide
+description: OpenAI Front End Interview Guide
+shortDescription: The one-stop to prepare well for your OpenAI front end interviews
+seoTitle: OpenAI Front End Interview Guide - Prep Strategies and Practice Questions
+seoDescription: The one-stop to prepare well for your OpenAI front end interviews. Discover insider tips, optimal prep strategies, and practice questions known to be tested.
+socialTitle: OpenAI Front End Interview Guide | GreatFrontEnd
+ranking: 5
+---
+
+OpenAI's front end technical interviews tend to be more practical and relevant to company's product offerings. It is not necessary to grind traditional algorithms questions.
+
+### Interview process
+
+The interview process can be split into two parts, the technical screen and the onsite/full loop. Front end engineer candidates can expect to have both coding and system design round within the screening stage.
+
+#### Coding rounds
+
+The coding questions tend to be practical and related to OpenAI's product offerings; it will not be hardcore LeetCode-style algorithm questions. CoderPad is used for the coding interviews.
+
+- **Practical question on building a user interface**: Build a small section of an existing OpenAI product using a JavaScript framework of your choice (e.g. streaming chat messages). Candidates may be given a UI mockup, some starter code, and can see a live preview of the UI they are building
+- **Code refactoring exercise**: Given some code, refactor and improve the quality. Study SOLID and clean code principles, e.g. single source of truth, remove duplicate state, remove state that can be computed, etc.
+
+#### System design rounds
+
+OpenAI's system design interviews questions are also related to OpenAI's product offerings. However, candidates should present a holistic full stack design instead of only focusing on the front end. The discussion will be carried out over [Excalidraw](https://excalidraw.com/).
+
+Imagine you're an OpenAI engineer and have to build an MVP in 2 weeks, what components would the product/system need? First present a full stack architecture, then dive deep into the front end. Some points and questions to consider:
+
+- **Product**: Consider what you'd expect in an AI product. Non-exhaustive list of possible products – streaming chat interfaces, inline editing (ChatGPT canvas), voice input, browser agents (ChatGPT operator)
+- **Full stack design**: Design a full stack architecture for the product. You do not need to know the intricate technical details of the back end components, but you should be aware of basic distributed system components (e.g. servers, databases, CDNs, caches, message queues), what they do, and when to use them
+- **AI models**: For the most parts, AI models can be treated as a black box. However, you should be aware of the features, limitations, common parameters, of AI models. Having basic prompt engineering knowledge would also be useful
+- **Network communication**: How clients and servers should communicate – Long polling, WebSockets, Server-side streaming, WebTRC. Which protocols or approaches to use for certain features
+- **API design**: Design the back end APIs needed by the product – the routes, the parameters, the responses. Decide between API approaches – RESTful vs GraphQL
+- **Front end client design**: Various rendering approaches: SSR vs CSR vs SSG, etc., state management and design, networking, performance, accessibility, user experience, etc. Refer to [GreatFrontEnd's Front End System Design Playbook](/front-end-system-design-playbook)
+- **Best practices**: Developing AI apps involve some best practices that aren't commonly see in typical apps such as prompt engineering, dealing with request latency, optimizing for accuracy, etc. OpenAI has published a set of [Best Practices](https://platform.openai.com/docs/guides/prompt-engineering)
+- **User experience**: Beyond the usual established user experience practices, AI products have certain characteristics that require special attention when related to user experience. Check out Tiger Abrodi's article on [Principles for building great AI interfaces](https://tigerabrodi.blog/principles-for-building-great-ai-interfaces)
+
+### Recommended preparation strategy
+
+1. **OpenAI products**: Firstly, be familiar with the various product offerings by OpenAI
+   - [ChatGPT](https://chatgpt.com): Streaming AI chat interface with rich results, voice input, image generation. Read GreatFrontEnd's [Chat App](/questions/system-design/chat-application-messenger) system design solution
+     - [Search](https://openai.com/index/introducing-chatgpt-search/): Use ChatGPT to get fast, timely answers with links to relevant web sources, similar to Perplexity
+     - [Canvas](https://openai.com/index/introducing-canvas/): An alternative interface of working with ChatGPT to write and code, optimized for editing and revising content. Read GreatFrontEnd's [Rich Text Editor](/questions/system-design/rich-text-editor) and [Google Docs](/questions/system-design/collaborative-editor-google-docs) system design solutions
+   - [Operator](https://openai.com/index/introducing-operator/): Agent that can use its own browser to perform tasks for you
+   - [Deep Research](https://openai.com/index/introducing-deep-research/): Agent that uses reasoning to synthesize large amounts of online information and complete multi-step research tasks for you
+   - [OpenAI Playground](https://platform.openai.com/playground/): Interactive web-based tool that allows users to experiment with and test OpenAI’s language models by inputting prompts and receiving AI-generated responses in real-time
+   - [Sora](https://sora.com/): Tool to generate videos from prompts using OpenAI's Sora model
+2. **Research**: Consider how you would build OpenAI's products
+   1. Try out [OpenAI's developer APIs](https://platform.openai.com/). Understand the capabilities, parameters, responses. Experiment with the APIs in the [developer playground](https://platform.openai.com/playground/)
+   2. Look up open source examples of the products on GitHub and study the code
+   3. Analyze the technical and UX decisions made
+3. **Practice**: Practice interview questions on GreatFrontEnd
+   - **Fundamentals**: Strengthen your front end fundamentals through [GreatFrontEnd's quiz questions](/questions/quiz)
+   - **Technical coding**: Build up your confidence in coding UI interfaces through [GreatFrontEnd's user interface coding questions](/questions/formats/ui-coding). Focus on form interfaces, state management, and data fetching
+   - **System design**: Study [GreatFrontEnd's system design questions](/questions/system-design). Many existing solutions cover design patterns and technical topics that would be useful for building complex front end interfaces found in AI apps
+
+### Official guides
+
+Refer to [OpenAI's official interview guide](https://openai.com/interview-guide/).

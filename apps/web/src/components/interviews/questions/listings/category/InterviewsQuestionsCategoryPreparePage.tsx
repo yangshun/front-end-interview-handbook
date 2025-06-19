@@ -3,12 +3,11 @@
 import type { InterviewsListingBottomContent } from 'contentlayer/generated';
 
 import useInterviewsQuestionsFeatures from '~/components/interviews/common/useInterviewsQuestionsFeatures';
-import type { InterviewsQuestionItemMinimal } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsCategoryPage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryPage';
 import { QuestionCountTotal } from '~/components/interviews/questions/listings/stats/QuestionCount';
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
-import Anchor from '~/components/ui/Anchor';
 import Divider from '~/components/ui/Divider';
 
 import InterviewsQuestionsCategoryPracticeFormatTabs from './InterviewsQuestionsCategoryPracticeFormatTabs';
@@ -18,7 +17,7 @@ type Props = Readonly<{
   listType: React.ComponentProps<
     typeof InterviewsQuestionsCategoryPage
   >['listType'];
-  questions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+  questions: ReadonlyArray<QuestionMetadata>;
 }>;
 
 export default function InterviewsQuestionsCategoryPreparePage({
@@ -88,17 +87,7 @@ export default function InterviewsQuestionsCategoryPreparePage({
           <Divider />
           <MDXContent
             components={{
-              // eslint-disable-next-line react/jsx-no-useless-fragment
-              QuestionsCount: () => <>{QuestionCountTotal}</>,
-              QuestionsList: () => (
-                <ul>
-                  {questions.map(({ info, metadata }) => (
-                    <li key={metadata.slug}>
-                      <Anchor href={metadata.href}>{info.title}</Anchor>
-                    </li>
-                  ))}
-                </ul>
-              ),
+              QuestionsCount: () => <span>{QuestionCountTotal}</span>,
             }}
             mdxCode={bottomContent.body.code}
           />

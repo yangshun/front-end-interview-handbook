@@ -3,15 +3,10 @@ import { RiArrowRightUpLine } from 'react-icons/ri';
 
 import { useQuestionFrameworksData } from '~/data/QuestionCategories';
 
-import {
-  questionHrefFrameworkSpecificAndListType,
-  QuestionListTypeDefault,
-} from '~/components/interviews/questions/common/QuestionHrefUtils';
+import { questionHrefFrameworkSpecificAndListType } from '~/components/interviews/questions/common/QuestionHrefUtils';
 import type {
-  InterviewsQuestionInfo,
-  InterviewsQuestionItemMinimal,
-  InterviewsQuestionMetadata,
   QuestionFramework,
+  QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
 import useQuestionLogEventCopyContents from '~/components/interviews/questions/common/useQuestionLogEventCopyContents';
@@ -44,16 +39,15 @@ type Props = Readonly<{
   contentType: 'description' | 'solution';
   environment?: 'embed' | 'workspace';
   framework: QuestionFramework;
-  info: InterviewsQuestionInfo;
-  metadata: InterviewsQuestionMetadata;
+  metadata: QuestionMetadata;
   mode: QuestionUserInterfaceMode;
-  nextQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+  nextQuestions: ReadonlyArray<QuestionMetadata>;
   onFrameworkChange: (
     framework: QuestionFramework,
     contentType: 'description' | 'solution',
   ) => void;
   showAd: boolean;
-  similarQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+  similarQuestions: ReadonlyArray<QuestionMetadata>;
   studyListKey?: string;
   writeup: string | null;
 }>;
@@ -63,7 +57,6 @@ export default function UserInterfaceCodingWorkspaceWriteup({
   contentType,
   environment = 'workspace',
   framework,
-  info,
   metadata,
   mode,
   nextQuestions,
@@ -74,9 +67,7 @@ export default function UserInterfaceCodingWorkspaceWriteup({
   writeup,
 }: Props) {
   const copyRef = useQuestionLogEventCopyContents<HTMLDivElement>();
-  const listType =
-    useQuestionsListTypeCurrent(studyListKey, framework) ??
-    QuestionListTypeDefault;
+  const listType = useQuestionsListTypeCurrent(studyListKey, framework);
   const { data } = useQueryQuestionProgress(metadata, studyListKey ?? null);
   const { save } = useUserInterfaceCodingWorkspaceSavesContext();
   const intl = useIntl();
@@ -133,16 +124,11 @@ export default function UserInterfaceCodingWorkspaceWriteup({
               <div className="flex flex-col items-start gap-2">
                 <Text className="block" size="body2">
                   <FormattedMessage
-                    defaultMessage="You are currently editing code from the saved version: <strong>{saveName}</strong>."
+                    defaultMessage='You are currently editing code from the saved version: <strong>"{saveName}"</strong>.'
                     description="Viewing saved version alert message"
-                    id="u8wdZe"
+                    id="QrHNsv"
                     values={{
                       saveName: save.name,
-                      strong: (chunk) => (
-                        <Text color="inherit" weight="medium">
-                          {chunk}
-                        </Text>
-                      ),
                     }}
                   />
                 </Text>
@@ -164,7 +150,7 @@ export default function UserInterfaceCodingWorkspaceWriteup({
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
               <Heading level="heading5">
                 <span>
-                  {info.title} {contentType === 'solution' && ' Solution'}
+                  {metadata.title} {contentType === 'solution' && ' Solution'}
                 </span>
               </Heading>
               {metadata.access === 'premium' && (

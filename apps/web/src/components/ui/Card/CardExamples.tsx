@@ -29,7 +29,7 @@ export default function CardExamples() {
             <div className="flex justify-between">
               <span
                 className={clsx(
-                  'inline-flex size-10 items-center justify-center rounded-md',
+                  'size-10 inline-flex items-center justify-center rounded-md',
                   themeBackgroundChipColor,
                   'text-neutral-400',
                   'dark:border-brand dark:text-brand dark:border',
@@ -51,7 +51,7 @@ export default function CardExamples() {
             <div className="flex justify-between">
               <span
                 className={clsx(
-                  'inline-flex size-10 items-center justify-center rounded-md',
+                  'size-10 inline-flex items-center justify-center rounded-md',
                   themeBackgroundChipColor,
                   'text-neutral-400',
                   'border border-transparent transition',

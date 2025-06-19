@@ -85,7 +85,7 @@ function SocialDiscountSidebarBannerImpl({
         )}
         <RiArrowRightLine
           aria-hidden={true}
-          className={clsx('-mt-0.5 inline-flex size-3.5 shrink-0')}
+          className={clsx('size-3.5 -mt-0.5 inline-flex shrink-0')}
         />
       </Text>
     </Anchor>

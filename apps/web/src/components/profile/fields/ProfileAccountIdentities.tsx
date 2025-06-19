@@ -3,8 +3,8 @@ import clsx from 'clsx';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   RiCheckboxCircleFill,
-  RiGithubFill,
-  RiGoogleFill,
+  RiGithubLine,
+  RiGoogleLine,
 } from 'react-icons/ri';
 import url from 'url';
 
@@ -137,13 +137,13 @@ export default function ProfileAccountIdentities({ userIdentities }: Props) {
   > = {
     github: {
       connected: !!githubIdentity,
-      icon: RiGithubFill,
+      icon: RiGithubLine,
       label: 'GitHub',
       provider: 'github',
     },
     google: {
       connected: !!googleIdentity,
-      icon: RiGoogleFill,
+      icon: RiGoogleLine,
       label: 'Google',
       provider: 'google',
     },
@@ -195,7 +195,10 @@ export default function ProfileAccountIdentities({ userIdentities }: Props) {
   }
 
   async function onLinkUserIdentity(provider: SupabaseProviderGFE) {
-    const redirectTo = new URL('/auth/oauth-redirect', window.location.origin);
+    const redirectTo = new URL(
+      window.location.pathname,
+      window.location.origin,
+    );
 
     setLoading((prev) => ({ ...prev, provider: true }));
 
@@ -204,7 +207,6 @@ export default function ProfileAccountIdentities({ userIdentities }: Props) {
         redirectTo: url.format({
           pathname: redirectTo.href,
           query: {
-            next: window.location.pathname,
             oauth: provider,
           },
         }),

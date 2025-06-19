@@ -15,7 +15,6 @@ import type { ProjectsChallengeSubmissionDeploymentUrls } from '~/components/pro
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import EmptyState from '~/components/ui/EmptyState';
-import Img from '~/components/ui/Img';
 import Spinner from '~/components/ui/Spinner';
 import Text, { textVariants } from '~/components/ui/Text';
 import {
@@ -374,7 +373,7 @@ export default function ProjectsImageComparison({
                         )}
                         type="button"
                         onClick={() => setSelectedScreenIndex(index)}>
-                        <Img
+                        <img
                           alt={page.label}
                           className="size-full object-cover"
                           decoding="async"

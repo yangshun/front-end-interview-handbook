@@ -8,6 +8,7 @@
   "created": 1670976000,
   "difficulty": "medium",
   "duration": 20,
+  "excerpt": "Build a Like button that changes appearance based on the states",
   "featured": true,
   "format": "user-interface",
   "frameworkDefault": "react",
@@ -42,6 +43,7 @@
   "similarQuestions": [],
   "slug": "like-button",
   "subtitle": null,
+  "title": "Like Button",
   "topics": [
     "async",
     "networking"

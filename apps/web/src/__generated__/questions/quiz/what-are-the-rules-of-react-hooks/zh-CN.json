@@ -1,0 +1,36 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": true,
+    "format": "quiz",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-are-the-rules-of-react-hooks"
+      }
+    ],
+    "href": "/questions/quiz/what-are-the-rules-of-react-hooks",
+    "importance": "high",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "what-are-the-rules-of-react-hooks",
+    "subtitle": null,
+    "title": "React Hooks 的规则是什么？",
+    "topics": [
+      "react"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-reactjs-interview-questions/blob/main/questions/what-are-the-rules-of-react-hooks/zh-CN.mdx"
+  },
+  "solution": "var Component=(()=>{var u=Object.create;var c=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var k=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var m=(o,n)=>()=>(n||o((n={exports:{}}).exports,n),n.exports),H=(o,n)=>{for(var t in n)c(o,t,{get:n[t],enumerable:!0})},a=(o,n,t,r)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let s of k(n))!f.call(o,s)&&s!==t&&c(o,s,{get:()=>n[s],enumerable:!(r=d(n,s))||r.enumerable});return o};var g=(o,n,t)=>(t=o!=null?u(p(o)):{},a(n||!o||!o.__esModule?c(t,\"default\",{value:o,enumerable:!0}):t,o)),j=o=>a(c({},\"__esModule\",{value:!0}),o);var l=m((_,i)=>{i.exports=_jsx_runtime});var v={};H(v,{default:()=>x,frontmatter:()=>C});var e=g(l()),C={title:\"React Hooks \\u7684\\u89C4\\u5219\\u662F\\u4EC0\\u4E48\\uFF1F\"};function h(o){let n=Object.assign({h2:\"h2\",p:\"p\",hr:\"hr\",h3:\"h3\",pre:\"pre\",code:\"code\",ul:\"ul\",li:\"li\",a:\"a\"},o.components);return(0,e.jsxs)(e.Fragment,{children:[(0,e.jsx)(n.h2,{children:\"\\u603B\\u7ED3\"}),`\n`,(0,e.jsx)(n.p,{children:\"React Hooks \\u6709\\u4E00\\u4E9B\\u57FA\\u672C\\u89C4\\u5219\\u6765\\u786E\\u4FDD\\u5B83\\u4EEC\\u6B63\\u5E38\\u5DE5\\u4F5C\\u3002 \\u59CB\\u7EC8\\u5728 React \\u51FD\\u6570\\u7684\\u9876\\u5C42\\u8C03\\u7528 Hooks\\uFF0C\\u5207\\u52FF\\u5728\\u5FAA\\u73AF\\u3001\\u6761\\u4EF6\\u6216\\u5D4C\\u5957\\u51FD\\u6570\\u5185\\u8C03\\u7528\\u3002 \\u4EC5\\u4ECE React \\u51FD\\u6570\\u7EC4\\u4EF6\\u6216\\u81EA\\u5B9A\\u4E49 Hooks \\u8C03\\u7528 Hooks\\u3002 \\u8FD9\\u4E9B\\u89C4\\u5219\\u786E\\u4FDD Hooks \\u4FDD\\u6301\\u6B63\\u786E\\u7684\\u72B6\\u6001\\u548C\\u751F\\u547D\\u5468\\u671F\\u884C\\u4E3A\\u3002\"}),`\n`,(0,e.jsx)(n.hr,{}),`\n`,(0,e.jsx)(n.h2,{children:\"React Hooks \\u7684\\u89C4\\u5219\\u662F\\u4EC0\\u4E48\\uFF1F\"}),`\n`,(0,e.jsx)(n.h3,{children:\"\\u59CB\\u7EC8\\u5728\\u9876\\u5C42\\u8C03\\u7528 Hooks\"}),`\n`,(0,e.jsx)(n.p,{children:\"Hooks \\u5E94\\u8BE5\\u59CB\\u7EC8\\u5728 React \\u51FD\\u6570\\u7684\\u9876\\u5C42\\u8C03\\u7528\\u3002 \\u8FD9\\u610F\\u5473\\u7740\\u4F60\\u4E0D\\u5E94\\u8BE5\\u5728\\u5FAA\\u73AF\\u3001\\u6761\\u4EF6\\u6216\\u5D4C\\u5957\\u51FD\\u6570\\u5185\\u8C03\\u7528 Hooks\\u3002 \\u6B64\\u89C4\\u5219\\u786E\\u4FDD\\u6BCF\\u6B21\\u7EC4\\u4EF6\\u6E32\\u67D3\\u65F6 Hooks \\u4EE5\\u76F8\\u540C\\u7684\\u987A\\u5E8F\\u8C03\\u7528\\uFF0C\\u8FD9\\u5BF9\\u4E8E\\u7EF4\\u62A4\\u6B63\\u786E\\u7684\\u72B6\\u6001\\u548C\\u751F\\u547D\\u5468\\u671F\\u884C\\u4E3A\\u81F3\\u5173\\u91CD\\u8981\\u3002\"}),`\n`,(0,e.jsx)(n.pre,{children:(0,e.jsx)(n.code,{className:\"language-javascript\",children:`// \\u6B63\\u786E\nfunction MyComponent() {\n  const [count, setCount] = useState(0);\n\n  if (count > 0) {\n    // \\u505A\\u4E00\\u4E9B\\u4E8B\\u60C5\n  }\n}\n\n// \\u4E0D\\u6B63\\u786E\nfunction MyComponent() {\n  if (someCondition) {\n    const [count, setCount] = useState(0); // \\u8FD9\\u5C06\\u7834\\u574F Hooks \\u7684\\u89C4\\u5219\n  }\n}\n`})}),`\n`,(0,e.jsx)(n.h3,{children:\"\\u4EC5\\u4ECE React \\u51FD\\u6570\\u7EC4\\u4EF6\\u6216\\u81EA\\u5B9A\\u4E49 Hooks \\u8C03\\u7528 Hooks\"}),`\n`,(0,e.jsx)(n.p,{children:\"Hooks \\u5E94\\u8BE5\\u4EC5\\u4ECE React \\u51FD\\u6570\\u7EC4\\u4EF6\\u6216\\u81EA\\u5B9A\\u4E49 Hooks \\u8C03\\u7528\\u3002 \\u6B64\\u89C4\\u5219\\u786E\\u4FDD Hooks \\u5728 React \\u53EF\\u4EE5\\u7BA1\\u7406\\u5176\\u72B6\\u6001\\u548C\\u751F\\u547D\\u5468\\u671F\\u7684\\u9002\\u5F53\\u4E0A\\u4E0B\\u6587\\u4E2D\\u88AB\\u4F7F\\u7528\\u3002\"}),`\n`,(0,e.jsx)(n.pre,{children:(0,e.jsx)(n.code,{className:\"language-javascript\",children:`// \\u6B63\\u786E\nfunction MyComponent() {\n  const [count, setCount] = useState(0);\n  return <div>{count}</div>;\n}\n\n// \\u6B63\\u786E\\uFF08\\u81EA\\u5B9A\\u4E49 Hook\\uFF09\nfunction useCustomHook() {\n  const [state, setState] = useState(null);\n  return [state, setState];\n}\n\n// \\u4E0D\\u6B63\\u786E\nfunction regularFunction() {\n  const [count, setCount] = useState(0); // \\u8FD9\\u5C06\\u7834\\u574F Hooks \\u7684\\u89C4\\u5219\n}\n`})}),`\n`,(0,e.jsxs)(n.h3,{children:[\"\\u4F7F\\u7528 \",(0,e.jsx)(n.code,{children:\"eslint-plugin-react-hooks\"}),\" linter\"]}),`\n`,(0,e.jsxs)(n.p,{children:[\"\\u4E3A\\u4E86\\u6267\\u884C\\u8FD9\\u4E9B\\u89C4\\u5219\\uFF0C\\u4F60\\u53EF\\u4EE5\\u4F7F\\u7528 \",(0,e.jsx)(n.code,{children:\"eslint-plugin-react-hooks\"}),\" linter\\u3002 \\u8FD9\\u4E2A\\u63D2\\u4EF6\\u5C06\\u5E2E\\u52A9\\u4F60\\u8BC6\\u522B\\u548C\\u4FEE\\u590D\\u4EE3\\u7801\\u4E2D Hooks \\u89C4\\u5219\\u7684\\u8FDD\\u89C4\\u884C\\u4E3A\\u3002\"]}),`\n`,(0,e.jsx)(n.pre,{children:(0,e.jsx)(n.code,{className:\"language-bash\",children:`npm install eslint-plugin-react-hooks --save-dev\n`})}),`\n`,(0,e.jsx)(n.p,{children:\"\\u5C06\\u63D2\\u4EF6\\u6DFB\\u52A0\\u5230\\u4F60\\u7684 ESLint \\u914D\\u7F6E\\u4E2D\\uFF1A\"}),`\n`,(0,e.jsx)(n.pre,{children:(0,e.jsx)(n.code,{className:\"language-json\",children:`{\n  \"plugins\": [\"react-hooks\"],\n  \"rules\": {\n    \"react-hooks/rules-of-hooks\": \"error\", // \\u68C0\\u67E5 Hooks \\u7684\\u89C4\\u5219\n    \"react-hooks/exhaustive-deps\": \"warn\" // \\u68C0\\u67E5 effect \\u4F9D\\u8D56\\u9879\n  }\n}\n`})}),`\n`,(0,e.jsx)(n.h2,{children:\"\\u5EF6\\u4F38\\u9605\\u8BFB\"}),`\n`,(0,e.jsxs)(n.ul,{children:[`\n`,(0,e.jsx)(n.li,{children:(0,e.jsx)(n.a,{href:\"https://react.dev/reference/react/hooks\",children:\"React hooks documentation\"})}),`\n`,(0,e.jsx)(n.li,{children:(0,e.jsx)(n.a,{href:\"https://react.dev/reference/rules/rules-of-hooks\",children:\"Rules of hooks\"})}),`\n`,(0,e.jsx)(n.li,{children:(0,e.jsxs)(n.a,{href:\"https://www.npmjs.com/package/eslint-plugin-react-hooks\",children:[\"Using the \",(0,e.jsx)(n.code,{children:\"eslint-plugin-react-hooks\"}),\" linter\"]})}),`\n`]})]})}function R(o={}){let{wrapper:n}=o.components||{};return n?(0,e.jsx)(n,Object.assign({},o,{children:(0,e.jsx)(h,o)})):h(o)}var x=R;return j(v);})();\n;return Component;"
+}

@@ -1,13 +1,10 @@
 'use client';
 
-import {
-  questionHrefWithListType,
-  QuestionListTypeDefault,
-} from '~/components/interviews/questions/common/QuestionHrefUtils';
+import { questionHrefWithListType } from '~/components/interviews/questions/common/QuestionHrefUtils';
 import type {
-  InterviewsQuestionItemMinimal,
-  InterviewsQuestionItemUserInterface,
   QuestionFramework,
+  QuestionMetadata,
+  QuestionUserInterface,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
 import {
@@ -24,9 +21,9 @@ type Props = Readonly<{
   canViewPremiumContent: boolean;
   embed?: boolean;
   mode: QuestionUserInterfaceMode;
-  nextQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
-  question: InterviewsQuestionItemUserInterface;
-  similarQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+  nextQuestions: ReadonlyArray<QuestionMetadata>;
+  question: QuestionUserInterface;
+  similarQuestions: ReadonlyArray<QuestionMetadata>;
   studyListKey?: string;
 }>;
 
@@ -39,8 +36,7 @@ export default function UserInterfaceCodingWorkspacePage({
     question: { metadata },
   } = props;
 
-  const listType =
-    useQuestionsListTypeCurrent(studyListKey) ?? QuestionListTypeDefault;
+  const listType = useQuestionsListTypeCurrent(studyListKey);
 
   return (
     <UserInterfaceCodingWorkspaceSection

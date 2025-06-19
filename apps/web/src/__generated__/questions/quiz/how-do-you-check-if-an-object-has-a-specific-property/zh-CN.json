@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "easy",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/how-do-you-check-if-an-object-has-a-specific-property",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 999,
+    "similarQuestions": [],
+    "slug": "how-do-you-check-if-an-object-has-a-specific-property",
+    "subtitle": null,
+    "title": "如何检查对象是否具有特定属性？",
+    "topics": [
+      "javascript"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-check-if-an-object-has-a-specific-property/zh-CN.mdx"
+  },
+  "solution": "var Component=(()=>{var a=Object.create;var l=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var y=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,O=Object.prototype.hasOwnProperty;var u=(r,e)=>()=>(e||r((e={exports:{}}).exports,e),e.exports),b=(r,e)=>{for(var o in e)l(r,o,{get:e[o],enumerable:!0})},t=(r,e,o,i)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let c of y(e))!O.call(r,c)&&c!==o&&l(r,c,{get:()=>e[c],enumerable:!(i=p(e,c))||i.enumerable});return r};var g=(r,e,o)=>(o=r!=null?a(j(r)):{},t(e||!r||!r.__esModule?l(o,\"default\",{value:r,enumerable:!0}):o,r)),w=r=>t(l({},\"__esModule\",{value:!0}),r);var d=u((_,h)=>{h.exports=_jsx_runtime});var x={};b(x,{default:()=>f,frontmatter:()=>P});var n=g(d()),P={title:\"\\u5982\\u4F55\\u68C0\\u67E5\\u5BF9\\u8C61\\u662F\\u5426\\u5177\\u6709\\u7279\\u5B9A\\u5C5E\\u6027\\uFF1F\"};function s(r){let e=Object.assign({h2:\"h2\",p:\"p\",code:\"code\",pre:\"pre\",hr:\"hr\",h3:\"h3\",ul:\"ul\",li:\"li\",a:\"a\"},r.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{children:\"TL;DR\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"\\u8981\\u68C0\\u67E5\\u5BF9\\u8C61\\u662F\\u5426\\u5177\\u6709\\u7279\\u5B9A\\u5C5E\\u6027\\uFF0C\\u53EF\\u4EE5\\u4F7F\\u7528 \",(0,n.jsx)(e.code,{children:\"in\"}),\" \\u8FD0\\u7B97\\u7B26\\u6216 \",(0,n.jsx)(e.code,{children:\"hasOwnProperty\"}),\" \\u65B9\\u6CD5\\u3002\",(0,n.jsx)(e.code,{children:\"in\"}),\" \\u8FD0\\u7B97\\u7B26\\u68C0\\u67E5\\u81EA\\u6709\\u5C5E\\u6027\\u548C\\u7EE7\\u627F\\u5C5E\\u6027\\uFF0C\\u800C \",(0,n.jsx)(e.code,{children:\"hasOwnProperty\"}),\" \\u4EC5\\u68C0\\u67E5\\u81EA\\u6709\\u5C5E\\u6027\\u3002\"]}),`\n`,(0,n.jsx)(e.pre,{live:!0,children:(0,n.jsx)(e.code,{className:\"language-js\",children:`const obj = { key: 'value' };\n\n// \\u4F7F\\u7528 \\`in\\` \\u8FD0\\u7B97\\u7B26\nif ('key' in obj) {\n  console.log('Property exists');\n}\n\n// \\u4F7F\\u7528 \\`hasOwnProperty\\`\nif (obj.hasOwnProperty('key')) {\n  console.log('Property exists');\n}\n`})}),`\n`,(0,n.jsx)(e.hr,{}),`\n`,(0,n.jsx)(e.h2,{children:\"\\u5982\\u4F55\\u68C0\\u67E5\\u5BF9\\u8C61\\u662F\\u5426\\u5177\\u6709\\u7279\\u5B9A\\u5C5E\\u6027\\uFF1F\"}),`\n`,(0,n.jsxs)(e.h3,{children:[\"\\u4F7F\\u7528 \",(0,n.jsx)(e.code,{children:\"in\"}),\" \\u8FD0\\u7B97\\u7B26\"]}),`\n`,(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.code,{children:\"in\"}),\" \\u8FD0\\u7B97\\u7B26\\u68C0\\u67E5\\u5C5E\\u6027\\u662F\\u5426\\u5B58\\u5728\\u4E8E\\u5BF9\\u8C61\\u4E2D\\uFF0C\\u5305\\u62EC\\u5BF9\\u8C61\\u539F\\u578B\\u94FE\\u4E2D\\u7684\\u5C5E\\u6027\\u3002\"]}),`\n`,(0,n.jsx)(e.pre,{live:!0,children:(0,n.jsx)(e.code,{className:\"language-js\",children:`const obj = { key: 'value' };\n\nif ('key' in obj) {\n  console.log('Property exists');\n}\n`})}),`\n`,(0,n.jsxs)(e.h3,{children:[\"\\u4F7F\\u7528 \",(0,n.jsx)(e.code,{children:\"hasOwnProperty\"})]}),`\n`,(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.code,{children:\"hasOwnProperty\"}),\" \\u65B9\\u6CD5\\u68C0\\u67E5\\u5C5E\\u6027\\u662F\\u5426\\u76F4\\u63A5\\u5B58\\u5728\\u4E8E\\u5BF9\\u8C61\\u4E0A\\uFF0C\\u800C\\u4E0D\\u662F\\u5728\\u5176\\u539F\\u578B\\u94FE\\u4E2D\\u3002\"]}),`\n`,(0,n.jsx)(e.pre,{live:!0,children:(0,n.jsx)(e.code,{className:\"language-js\",children:`const obj = { key: 'value' };\n\nif (obj.hasOwnProperty('key')) {\n  console.log('Property exists');\n}\n`})}),`\n`,(0,n.jsxs)(e.h3,{children:[(0,n.jsx)(e.code,{children:\"in\"}),\" \\u548C \",(0,n.jsx)(e.code,{children:\"hasOwnProperty\"}),\" \\u4E4B\\u95F4\\u7684\\u533A\\u522B\"]}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.code,{children:\"in\"}),\" \\u8FD0\\u7B97\\u7B26\\u68C0\\u67E5\\u81EA\\u6709\\u5C5E\\u6027\\u548C\\u7EE7\\u627F\\u5C5E\\u6027\\u3002\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.code,{children:\"hasOwnProperty\"}),\" \\u65B9\\u6CD5\\u4EC5\\u68C0\\u67E5\\u81EA\\u6709\\u5C5E\\u6027\\u3002\"]}),`\n`]}),`\n`,(0,n.jsx)(e.h3,{children:\"\\u5177\\u6709\\u7EE7\\u627F\\u5C5E\\u6027\\u7684\\u793A\\u4F8B\"}),`\n`,(0,n.jsx)(e.pre,{live:!0,children:(0,n.jsx)(e.code,{className:\"language-js\",children:`const parentObj = { inheritedKey: 'inheritedValue' };\nconst childObj = Object.create(parentObj);\nchildObj.ownKey = 'ownValue';\n\nconsole.log('inheritedKey' in childObj); // true\nconsole.log(childObj.hasOwnProperty('inheritedKey')); // false\nconsole.log('ownKey' in childObj); // true\nconsole.log(childObj.hasOwnProperty('ownKey')); // true\n`})}),`\n`,(0,n.jsx)(e.h2,{children:\"\\u5EF6\\u4F38\\u9605\\u8BFB\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/in\",children:\"MDN Web Docs: in operator\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty\",children:\"MDN Web Docs: Object.prototype.hasOwnProperty\"})}),`\n`]})]})}function m(r={}){let{wrapper:e}=r.components||{};return e?(0,n.jsx)(e,Object.assign({},r,{children:(0,n.jsx)(s,r)})):s(r)}var f=m;return w(x);})();\n;return Component;"
+}

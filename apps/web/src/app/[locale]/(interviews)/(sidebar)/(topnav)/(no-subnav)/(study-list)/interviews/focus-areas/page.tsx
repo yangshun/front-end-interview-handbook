@@ -15,10 +15,11 @@ type Props = Readonly<{
   }>;
 }>;
 
-async function getPageSEOMetadata({ locale }: Props['params']) {
+async function getPageSEOMetadata({ params }: Props) {
+  const { locale } = params;
   const [intl, focusAreas] = await Promise.all([
     getIntlServerOnly(locale),
-    fetchInterviewsStudyLists('focus-area', 'en-US'),
+    fetchInterviewsStudyLists('focus-area'),
   ]);
 
   return {
@@ -57,7 +58,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
 
   const { description, href, ogImagePageType, socialTitle, title } =
-    await getPageSEOMetadata(params);
+    await getPageSEOMetadata({
+      params,
+    });
 
   return defaultMetadata({
     description,
@@ -70,12 +73,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-export default async function Page({ params }: Props) {
-  const { locale } = params;
-
+export default async function Page() {
   const [focusAreas, bottomContent] = await Promise.all([
-    fetchInterviewsStudyLists('focus-area', locale),
-    fetchInterviewListingBottomContent('focus-areas/focus-areas', locale),
+    fetchInterviewsStudyLists('focus-area'),
+    fetchInterviewListingBottomContent('focus-areas'),
   ]);
 
   return (

@@ -1,7 +1,8 @@
 import * as PopoverPrimitive from '@radix-ui/react-popover';
 import clsx from 'clsx';
+import { useState } from 'react';
 import url from 'url';
-import { useDebounceValue } from 'usehooks-ts';
+import { useDebounce } from 'usehooks-ts';
 
 import Anchor from '~/components/ui/Anchor';
 import NavbarPopoverLink from '~/components/ui/Navbar/NavbarPopoverLink';
@@ -34,7 +35,8 @@ export default function SidebarCollapsedLinkItem({
   onClick,
   ...props
 }: SidebarCollapsedLinkItemProps) {
-  const [debouncedOpen, setOpen] = useDebounceValue(false, 100);
+  const [open, setOpen] = useState(false);
+  const debouncedOpen = useDebounce(open, 100);
 
   function handleMouseEnter() {
     setOpen(true);
@@ -105,7 +107,7 @@ export default function SidebarCollapsedLinkItem({
         aria-label={label}
         className={clsx(
           commonClass,
-          isSelected || debouncedOpen ? activeClassName : defaultClassName,
+          isSelected || open ? activeClassName : defaultClassName,
         )}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}>

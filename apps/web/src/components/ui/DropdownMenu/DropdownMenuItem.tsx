@@ -16,7 +16,6 @@ export type Props = Readonly<{
   label: React.ReactNode;
   locale?: AnchorProps['locale'];
   onClick?: React.MouseEventHandler<HTMLElement>;
-  refresh?: AnchorProps['refresh'];
 }>;
 
 export default function DropdownMenuItem({
@@ -28,7 +27,6 @@ export default function DropdownMenuItem({
   label,
   locale,
   onClick,
-  refresh,
 }: Props) {
   const props = {
     children: (
@@ -50,13 +48,7 @@ export default function DropdownMenuItem({
       {href == null ? (
         <button type="button" {...props} />
       ) : (
-        <Anchor
-          href={href}
-          refresh={refresh}
-          variant="unstyled"
-          weight="normal"
-          {...props}
-        />
+        <Anchor href={href} variant="unstyled" weight="normal" {...props} />
       )}
     </DropdownMenuPrimitive.Item>
   );

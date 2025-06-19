@@ -1,3 +1,4 @@
+import { redirect } from 'next/navigation';
 import type { Metadata } from 'next/types';
 
 import InterviewsDashboardPage from '~/components/interviews/dashboard/InterviewsDashboardPage';
@@ -10,7 +11,6 @@ import {
   categorizeQuestionsByFrameworkAndLanguage,
 } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
-import i18nRedirect from '~/next-i18nostic/src/utils/i18nRedirect';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
@@ -52,11 +52,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const viewer = await readViewerFromToken();
-  const { locale } = params;
 
   if (viewer) {
-    return i18nRedirect('/interviews/dashboard', { locale });
+    return redirect('/interviews/dashboard');
   }
+
+  const { locale } = params;
 
   const [
     { questions: codingQuestions },
@@ -77,8 +78,8 @@ export default async function Page({ params }: Props) {
       { tab: 'system-design', type: 'practice', value: 'practice' },
       locale,
     ),
-    fetchInterviewListingBottomContent('dashboard', locale),
-    fetchInterviewsAllStudyLists(locale),
+    fetchInterviewListingBottomContent('dashboard'),
+    fetchInterviewsAllStudyLists(),
   ]);
   const { framework, language } = categorizeQuestionsByFrameworkAndLanguage({
     codingQuestions,

@@ -1,0 +1,38 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [
+      "amazon",
+      "linkedin",
+      "microsoft",
+      "salesforce",
+      "bytedance"
+    ],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": true,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/what-is-a-closure-and-how-why-would-you-use-one",
+    "importance": "high",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 180,
+    "similarQuestions": [],
+    "slug": "what-is-a-closure-and-how-why-would-you-use-one",
+    "subtitle": null,
+    "title": "O que é um closure e como/por que você usaria um?",
+    "topics": [
+      "closure",
+      "javascript"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-a-closure-and-how-why-would-you-use-one/pt-BR.mdx"
+  },
+  "solution": "var Component=(()=>{var u=Object.create;var s=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var v=(a,e)=>()=>(e||a((e={exports:{}}).exports,e),e.exports),g=(a,e)=>{for(var n in e)s(a,n,{get:e[n],enumerable:!0})},i=(a,e,n,c)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of p(e))!f.call(a,r)&&r!==n&&s(a,r,{get:()=>e[r],enumerable:!(c=m(e,r))||c.enumerable});return a};var q=(a,e,n)=>(n=a!=null?u(h(a)):{},i(e||!a||!a.__esModule?s(n,\"default\",{value:a,enumerable:!0}):n,a)),x=a=>i(s({},\"__esModule\",{value:!0}),a);var l=v((_,d)=>{d.exports=_jsx_runtime});var j={};g(j,{default:()=>b,frontmatter:()=>C});var o=q(l()),C={title:\"O que \\xE9 um closure e como/por que voc\\xEA usaria um?\"};function t(a){let e=Object.assign({h2:\"h2\",p:\"p\",ol:\"ol\",li:\"li\",strong:\"strong\",code:\"code\",pre:\"pre\",a:\"a\"},a.components);return(0,o.jsxs)(o.Fragment,{children:[(0,o.jsx)(e.h2,{children:\"Compreendendo Closures em JavaScript\"}),`\n`,(0,o.jsx)(e.p,{children:\"Em JavaScript, um closure \\xE9 uma fun\\xE7\\xE3o que captura o escopo l\\xE9xico no qual foi declarada, permitindo que ela acesse e manipule vari\\xE1veis de um escopo externo mesmo depois que esse escopo foi fechado.\"}),`\n`,(0,o.jsx)(e.p,{children:\"Aqui est\\xE1 como os closures funcionam:\"}),`\n`,(0,o.jsxs)(e.ol,{children:[`\n`,(0,o.jsxs)(e.li,{children:[(0,o.jsx)(e.strong,{children:\"Escopo l\\xE9xico\"}),\": JavaScript utiliza o escopo l\\xE9xico, o que significa que o acesso de uma fun\\xE7\\xE3o \\xE0s vari\\xE1veis \\xE9 determinado pela sua localiza\\xE7\\xE3o f\\xEDsica no c\\xF3digo-fonte.\"]}),`\n`,(0,o.jsxs)(e.li,{children:[(0,o.jsx)(e.strong,{children:\"Cria\\xE7\\xE3o de fun\\xE7\\xE3o\"}),\": Quando uma fun\\xE7\\xE3o \\xE9 criada, ela mant\\xE9m uma refer\\xEAncia ao seu escopo l\\xE9xico. Este escopo cont\\xE9m todas as vari\\xE1veis locais que estavam em escopo no momento em que o closure foi criado.\"]}),`\n`,(0,o.jsxs)(e.li,{children:[(0,o.jsx)(e.strong,{children:\"Manuten\\xE7\\xE3o de estado\"}),\": Closures s\\xE3o frequentemente usados para manter o estado de uma forma segura, porque as vari\\xE1veis capturadas pelo closure n\\xE3o s\\xE3o acess\\xEDveis fora da fun\\xE7\\xE3o.\"]}),`\n`]}),`\n`,(0,o.jsx)(e.p,{children:\"Sintaxe do ES6 e closures\"}),`\n`,(0,o.jsxs)(e.p,{children:[\"Com o ES6, closures podem ser criados usando fun\\xE7\\xF5es de seta (arrow functions), que proporcionam uma sintaxe mais concisa e vinculam lexicalmente o valor de \",(0,o.jsx)(e.code,{children:\"this\"}),\". Aqui est\\xE1 um exemplo:\"]}),`\n`,(0,o.jsx)(e.pre,{children:(0,o.jsx)(e.code,{className:\"language-js\",children:`const criarContador = () => {\n  let contador = 0;\n  return () => {\n    contador += 1;\n    return contador;\n  };\n};\n\nconst contador = criarContador();\nconsole.log(contador()); // Sa\\xEDda: 1\nconsole.log(contador()); // Sa\\xEDda: 2\n`})}),`\n`,(0,o.jsx)(e.h2,{children:\"Por que usar closures?\"}),`\n`,(0,o.jsxs)(e.ol,{children:[`\n`,(0,o.jsxs)(e.li,{children:[(0,o.jsx)(e.strong,{children:\"Encapsulamento de dados\"}),\": Closures fornecem uma maneira de criar vari\\xE1veis e fun\\xE7\\xF5es privadas que n\\xE3o podem ser acessadas fora do closure. Isso \\xE9 \\xFAtil para ocultar detalhes de implementa\\xE7\\xE3o e manter o estado de forma encapsulada.\"]}),`\n`,(0,o.jsxs)(e.li,{children:[(0,o.jsx)(e.strong,{children:\"Programa\\xE7\\xE3o funcional\"}),\": Closures s\\xE3o fundamentais em paradigmas de programa\\xE7\\xE3o funcional, onde s\\xE3o usados para criar fun\\xE7\\xF5es que podem ser passadas e invocadas posteriormente, mantendo o acesso ao escopo em que foram criadas, por exemplo, \",(0,o.jsx)(e.a,{href:\"https://medium.com/javascript-scene/curry-or-partial-application-8150044c78b8#.l4b6l1i3x\",children:\"aplica\\xE7\\xF5es parciais ou currying\"}),\".\"]}),`\n`,(0,o.jsxs)(e.li,{children:[(0,o.jsx)(e.strong,{children:\"Manipuladores de eventos e callbacks\"}),\": Em JavaScript, closures s\\xE3o frequentemente usados em manipuladores de eventos e callbacks para manter o estado ou acessar vari\\xE1veis que estavam em escopo quando o manipulador ou callback foi definido.\"]}),`\n`,(0,o.jsxs)(e.li,{children:[(0,o.jsx)(e.strong,{children:\"Padr\\xF5es de m\\xF3dulo\"}),\": Closures permitem o uso do \",(0,o.jsx)(e.a,{href:\"https://www.patterns.dev/vanilla/module-pattern\",children:\"padr\\xE3o de m\\xF3dulo\"}),\" em JavaScript, possibilitando a cria\\xE7\\xE3o de m\\xF3dulos com partes privadas e p\\xFAblicas.\"]}),`\n`]})]})}function S(a={}){let{wrapper:e}=a.components||{};return e?(0,o.jsx)(e,Object.assign({},a,{children:(0,o.jsx)(t,a)})):t(a)}var b=S;return x(j);})();\n;return Component;"
+}

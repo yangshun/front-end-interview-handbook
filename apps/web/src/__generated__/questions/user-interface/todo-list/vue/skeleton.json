@@ -1,0 +1,29 @@
+{
+  "author": "coalinga8",
+  "files": {
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/todo-list-vue-skeleton\",\n  \"author\": \"coalinga8\",\n  \"version\": \"0.0.1\",\n  \"main\": \"/src/main.js\",\n  \"scripts\": {\n    \"serve\": \"vue-cli-service serve\",\n    \"build\": \"vue-cli-service build\"\n  },\n  \"dependencies\": {\n    \"core-js\": \"3.32.2\",\n    \"vue\": \"3.3.4\"\n  },\n  \"devDependencies\": {\n    \"@vue/cli-plugin-babel\": \"5.0.8\",\n    \"@vue/cli-service\": \"5.0.8\"\n  }\n}\n"
+    },
+    "/public/index.html": {
+      "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width,initial-scale=1.0\" />\n    <title>Vue</title>\n  </head>\n  <body>\n    <div id=\"app\"></div>\n    <!-- Built files will be auto injected -->\n  </body>\n</html>\n"
+    },
+    "/src/App.vue": {
+      "code": "<script setup></script>\n\n<template>\n  <div>\n    <h1>Todo List</h1>\n    <div>\n      <input type=\"text\" placeholder=\"Add your task\" />\n      <div>\n        <button>Submit</button>\n      </div>\n    </div>\n    <ul>\n      <li>\n        <span>Walk the dog</span>\n        <button>Delete</button>\n      </li>\n      <li>\n        <span>Water the plants</span>\n        <button>Delete</button>\n      </li>\n      <li>\n        <span>Wash the dishes</span>\n        <button>Delete</button>\n      </li>\n    </ul>\n  </div>\n</template>\n"
+    },
+    "/src/main.js": {
+      "code": "import { createApp } from 'vue';\nimport App from './App.vue';\n\nimport './styles.css';\n\ncreateApp(App).mount('#app');\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/src/App.vue",
+      "/src/styles.css"
+    ],
+    "activeFile": "/src/App.vue",
+    "environment": "vue-cli"
+  },
+  "writeup": "var Component=(()=>{var f=Object.create;var s=Object.defineProperty;var g=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var y=Object.getPrototypeOf,b=Object.prototype.hasOwnProperty;var j=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),w=(t,e)=>{for(var i in e)s(t,i,{get:e[i],enumerable:!0})},c=(t,e,i,l)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of x(e))!b.call(t,o)&&o!==i&&s(t,o,{get:()=>e[o],enumerable:!(l=g(e,o))||l.enumerable});return t};var u=(t,e,i)=>(i=t!=null?f(y(t)):{},c(e||!t||!t.__esModule?s(i,\"default\",{value:t,enumerable:!0}):i,t)),_=t=>c(s({},\"__esModule\",{value:!0}),t);var r=j((L,d)=>{d.exports=_jsx_runtime});var D={};w(D,{default:()=>T});var a=u(r());var n=u(r());function h(t){let e=Object.assign({p:\"p\",ol:\"ol\",li:\"li\",ul:\"ul\",code:\"code\",h2:\"h2\"},t.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.p,{children:\"You're given some existing HTML for a Todo List app. Add the following functionality to the app:\"}),`\n`,(0,n.jsxs)(e.ol,{children:[`\n`,(0,n.jsxs)(e.li,{children:['Add new tasks on clicking the \"Submit\" button.',`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsxs)(e.li,{children:[\"The \",(0,n.jsx)(e.code,{children:\"<input>\"}),\" field should be cleared upon successful addition.\"]}),`\n`]}),`\n`]}),`\n`,(0,n.jsx)(e.li,{children:'Remove tasks from the Todo List upon clicking the \"Delete\" button.'}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"Notes\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"The focus of this question is on functionality, not the styling. There's no need to write any custom CSS.\"}),`\n`,(0,n.jsxs)(e.li,{children:[\"You may modify the markup (e.g. adding \",(0,n.jsx)(e.code,{children:\"id\"}),\"s, data attributes, replacing some tags, etc), but the result should remain the same visually.\"]}),`\n`,(0,n.jsx)(e.li,{children:\"You may want to think about ways to improve the user experience of the application and implement them (you get bonus credit for doing that during interviews).\"}),`\n`]})]})}function k(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(h,t)})):h(t)}var m=k;function p(t){return(0,a.jsx)(m,{})}function v(t={}){let{wrapper:e}=t.components||{};return e?(0,a.jsx)(e,Object.assign({},t,{children:(0,a.jsx)(p,t)})):p(t)}var T=v;return _(D);})();\n;return Component;"
+}

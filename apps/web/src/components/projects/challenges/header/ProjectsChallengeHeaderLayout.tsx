@@ -1,6 +1,6 @@
 'use client';
 
-import { useInView } from 'motion/react';
+import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 
 import type { ProjectsViewerProjectsProfile } from '../../types';

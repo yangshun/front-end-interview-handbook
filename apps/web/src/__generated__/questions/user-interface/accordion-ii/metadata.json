@@ -7,6 +7,7 @@
   "created": 1671580800,
   "difficulty": "medium",
   "duration": 20,
+  "excerpt": "Build an accessible accordion component that has the right ARIA roles, states, and properties",
   "featured": false,
   "format": "user-interface",
   "frameworkDefault": "react",
@@ -34,6 +35,7 @@
   "similarQuestions": [],
   "slug": "accordion-ii",
   "subtitle": null,
+  "title": "Accordion II",
   "topics": [
     "a11y"
   ]

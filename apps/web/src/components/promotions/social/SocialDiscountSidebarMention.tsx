@@ -36,7 +36,7 @@ function SocialDiscountSidebarMentionImpl({
     return (
       <div className={clsx('flex flex-col items-start gap-2', className)}>
         <Text
-          className="block text-pretty"
+          className="text-pretty block"
           color="subtitle"
           size="body3"
           weight="medium">
@@ -72,7 +72,7 @@ function SocialDiscountSidebarMentionImpl({
           <div>
             {promoCode.expires_at && (
               <Text
-                className="block text-pretty"
+                className="text-pretty block"
                 color="secondary"
                 size="body3"
                 weight="medium">
@@ -87,7 +87,7 @@ function SocialDiscountSidebarMentionImpl({
                 {socialDiscountLabels.existingPromoCtaLabel}{' '}
                 <RiArrowRightLine
                   aria-hidden={true}
-                  className={clsx('inline size-3.5 shrink-0')}
+                  className={clsx('size-3.5 inline shrink-0')}
                 />
               </Text>
             </Anchor>
@@ -128,7 +128,7 @@ function SocialDiscountSidebarMentionImpl({
           />{' '}
           <RiArrowRightLine
             aria-hidden={true}
-            className={clsx('-mt-0.5 inline-flex size-3.5 shrink-0')}
+            className={clsx('size-3.5 -mt-0.5 inline-flex shrink-0')}
           />
         </Text>
       </span>

@@ -13,6 +13,7 @@
   "created": 1683763200,
   "difficulty": "medium",
   "duration": 25,
+  "excerpt": "Build a tic-tac-toe game that is playable by two players",
   "featured": false,
   "format": "user-interface",
   "frameworkDefault": "react",
@@ -49,6 +50,7 @@
   "similarQuestions": [],
   "slug": "tic-tac-toe",
   "subtitle": null,
+  "title": "Tic-tac-toe",
   "topics": [
     "a11y"
   ]

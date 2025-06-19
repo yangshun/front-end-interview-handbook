@@ -9,6 +9,7 @@
   "created": 1658016000,
   "difficulty": "medium",
   "duration": 20,
+  "excerpt": "Build a star rating component that shows a row of star icons for users to select the number of filled stars corresponding to the rating",
   "featured": false,
   "format": "user-interface",
   "frameworkDefault": "react",
@@ -45,5 +46,6 @@
   ],
   "slug": "star-rating",
   "subtitle": null,
+  "title": "Star Rating",
   "topics": []
 }

@@ -2,7 +2,6 @@ import clsx from 'clsx';
 import { RiArrowRightLine } from 'react-icons/ri';
 
 import Anchor from '~/components/ui/Anchor';
-import Img from '~/components/ui/Img';
 import Text, { textVariants } from '~/components/ui/Text';
 import {
   themeBackgroundCardColor,
@@ -75,7 +74,7 @@ export default function ProjectsTrackChallengesList({
               themeOutlineElement_FocusVisible,
               themeOutlineElementBrandColor_FocusVisible,
             )}>
-            <Img
+            <img
               alt={challenge.info.title}
               className={clsx(
                 'h-full w-[104px] md:w-[130px]',

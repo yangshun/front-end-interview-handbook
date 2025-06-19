@@ -2,13 +2,9 @@ import fs from 'fs';
 import { globby } from 'globby';
 import path, { parse } from 'path';
 
-import {
-  readQuestionMetadataSystemDesign,
-  readQuestionSystemDesign,
-} from '../db/questions-bundlers/QuestionsBundlerSystemDesign';
+import { readQuestionSystemDesign } from '../db/questions-bundlers/QuestionsBundlerSystemDesign';
 import {
   getQuestionOutPathSystemDesign,
-  getQuestionOutPathSystemDesignLocaleContents,
   getQuestionSrcPathSystemDesign,
   QUESTIONS_SRC_DIR_SYSTEM_DESIGN,
 } from '../db/questions-bundlers/QuestionsBundlerSystemDesignConfig';
@@ -23,24 +19,15 @@ async function generateSetupForQuestion(slug: string) {
     // Files are named after their locales.
     .map((filePath) => parse(filePath).name);
 
-  const metadata = await readQuestionMetadataSystemDesign(slug);
-
   const outDir = getQuestionOutPathSystemDesign(slug);
-  const metadataPath = path.join(outDir, 'metadata.json');
 
   fs.mkdirSync(outDir, { recursive: true });
-  fs.writeFileSync(metadataPath, JSON.stringify(metadata, null, 2));
-
   await Promise.all(
     locales.map(async (locale) => {
       const content = await readQuestionSystemDesign(slug, locale);
-      const contentOutPath = getQuestionOutPathSystemDesignLocaleContents(
-        slug,
-        locale,
-      );
+      const outPath = path.join(outDir, `${locale}.json`);
 
-      fs.mkdirSync(path.dirname(contentOutPath), { recursive: true });
-      fs.writeFileSync(contentOutPath, JSON.stringify(content, null, 2));
+      fs.writeFileSync(outPath, JSON.stringify(content, null, 2));
     }),
   );
 }

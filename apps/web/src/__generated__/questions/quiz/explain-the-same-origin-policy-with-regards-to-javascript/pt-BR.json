@@ -1,0 +1,33 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "hard",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/explain-the-same-origin-policy-with-regards-to-javascript",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 999,
+    "similarQuestions": [],
+    "slug": "explain-the-same-origin-policy-with-regards-to-javascript",
+    "subtitle": null,
+    "title": "Explique a política de mesma origem em relação ao JavaScript",
+    "topics": [
+      "javascript",
+      "networking",
+      "security"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-same-origin-policy-with-regards-to-javascript/pt-BR.mdx"
+  },
+  "solution": "var Component=(()=>{var p=Object.create;var i=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var f=(e,o)=>()=>(o||e((o={exports:{}}).exports,o),o.exports),b=(e,o)=>{for(var a in o)i(e,a,{get:o[a],enumerable:!0})},s=(e,o,a,m)=>{if(o&&typeof o==\"object\"||typeof o==\"function\")for(let t of l(o))!x.call(e,t)&&t!==a&&i(e,t,{get:()=>o[t],enumerable:!(m=u(o,t))||m.enumerable});return e};var j=(e,o,a)=>(a=e!=null?p(g(e)):{},s(o||!e||!e.__esModule?i(a,\"default\",{value:e,enumerable:!0}):a,e)),_=e=>s(i({},\"__esModule\",{value:!0}),e);var r=f((O,c)=>{c.exports=_jsx_runtime});var v={};b(v,{default:()=>q,frontmatter:()=>h});var n=j(r()),h={title:\"Explique a pol\\xEDtica de mesma origem em rela\\xE7\\xE3o ao JavaScript\"};function d(e){let o=Object.assign({p:\"p\"},e.components);return(0,n.jsx)(o.p,{children:\"A pol\\xEDtica de mesma origem impede o JavaScript de fazer solicita\\xE7\\xF5es al\\xE9m dos limites de dom\\xEDnio. Uma origem \\xE9 definida como uma combina\\xE7\\xE3o de esquema URI, nome do host e n\\xFAmero da porta. Essa pol\\xEDtica impede que um script malicioso em uma p\\xE1gina obtenha acesso a dados sens\\xEDveis em outra p\\xE1gina da web por meio do Document Object Model dessa p\\xE1gina.\"})}function M(e={}){let{wrapper:o}=e.components||{};return o?(0,n.jsx)(o,Object.assign({},e,{children:(0,n.jsx)(d,e)})):d(e)}var q=M;return _(v);})();\n;return Component;"
+}

@@ -10,8 +10,8 @@ import { groupQuestionHashesByFormat } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
-async function getPageSEOMetadata({ locale }: Props['params']) {
-  const studyPlanDocument = await fetchInterviewsStudyList('blind75', locale);
+async function getPageSEOMetadata() {
+  const studyPlanDocument = await fetchInterviewsStudyList('blind75');
 
   if (studyPlanDocument == null) {
     return notFound();
@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const [intl, { description, href, socialTitle, title }] = await Promise.all([
     getIntlServerOnly(locale),
-    getPageSEOMetadata(params),
+    getPageSEOMetadata(),
   ]);
 
   return defaultMetadata({
@@ -56,7 +56,7 @@ type Props = Readonly<{
 
 export default async function Page({ params }: Props) {
   const { locale } = params;
-  const blind75 = await fetchInterviewsStudyList('blind75', locale);
+  const blind75 = await fetchInterviewsStudyList('blind75');
 
   if (blind75 == null) {
     return notFound();
@@ -68,7 +68,7 @@ export default async function Page({ params }: Props) {
 
   const [questions, bottomContent] = await Promise.all([
     fetchQuestionsListByHash(blind75?.questionHashes ?? [], locale),
-    fetchInterviewListingBottomContent('study-plans/blind75', locale),
+    fetchInterviewListingBottomContent('blind75'),
   ]);
 
   return (

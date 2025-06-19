@@ -87,7 +87,7 @@ export default async function Page({ params }: Props) {
         locale,
         slugs: InterviewsQuestionsFrameworkGuideSlugs,
       }),
-      fetchInterviewListingBottomContent('frameworks/svelte', locale),
+      fetchInterviewListingBottomContent('framework-svelte'),
     ]);
 
   return (

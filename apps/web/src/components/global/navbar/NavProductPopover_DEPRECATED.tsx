@@ -2,8 +2,9 @@
 
 import * as PopoverPrimitive from '@radix-ui/react-popover';
 import clsx from 'clsx';
+import { useState } from 'react';
 import { RiArrowDownSLine } from 'react-icons/ri';
-import { useDebounceValue } from 'usehooks-ts';
+import { useDebounce } from 'usehooks-ts';
 
 import LogoMark from '~/components/global/logos/LogoMark';
 import ProjectsLogo from '~/components/global/logos/ProjectsLogo';
@@ -48,9 +49,9 @@ export default function NavProductPopover_DEPRECATED({
   }
 
   const [showUnseenIndicator] = useProductMenuUnseenIndicator();
-  const [debouncedOpen, setOpen] = useDebounceValue(false, 100);
-
+  const [open, setOpen] = useState(false);
   // To debounce open state when quick hovering on and out
+  const debouncedOpen = useDebounce(open, 100);
 
   function handleMouseEnter() {
     setOpen(true);
@@ -120,7 +121,7 @@ export default function NavProductPopover_DEPRECATED({
             {showUnseenIndicator && (
               <span
                 className={clsx(
-                  'absolute size-1.5',
+                  'size-1.5 absolute',
                   'bg-red rounded-full',
                   'right-1 top-1',
                 )}

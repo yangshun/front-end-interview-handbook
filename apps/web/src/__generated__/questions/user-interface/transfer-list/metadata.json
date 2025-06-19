@@ -8,6 +8,7 @@
   "created": 1682208000,
   "difficulty": "medium",
   "duration": 30,
+  "excerpt": "Build a component that allows transferring of items between two lists",
   "featured": false,
   "format": "user-interface",
   "frameworkDefault": "react",
@@ -46,5 +47,6 @@
   ],
   "slug": "transfer-list",
   "subtitle": null,
+  "title": "Transfer List",
   "topics": []
 }

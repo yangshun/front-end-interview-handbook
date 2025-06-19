@@ -1,0 +1,58 @@
+{
+  "description": "var Component=(()=>{var i=Object.create;var d=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var y=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),b=(t,e)=>{for(var r in e)d(t,r,{get:e[r],enumerable:!0})},c=(t,e,r,a)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of p(e))!f.call(t,o)&&o!==r&&d(t,o,{get:()=>e[o],enumerable:!(a=h(e,o))||a.enumerable});return t};var v=(t,e,r)=>(r=t!=null?i(m(t)):{},c(e||!t||!t.__esModule?d(r,\"default\",{value:t,enumerable:!0}):r,t)),x=t=>c(d({},\"__esModule\",{value:!0}),t);var l=y((_,s)=>{s.exports=_jsx_runtime});var j={};b(j,{default:()=>D,frontmatter:()=>w});var n=v(l()),w={title:\"useDebounce\",excerpt:\"Implement a hook that debounces a value\"};function u(t){let e=Object.assign({p:\"p\",code:\"code\",pre:\"pre\",a:\"a\",h2:\"h2\",ol:\"ol\",li:\"li\"},t.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsxs)(e.p,{children:[\"Implement a \",(0,n.jsx)(e.code,{children:\"useDebounce\"}),\" hook that delays state updates until a specified \",(0,n.jsx)(e.code,{children:\"delay\"}),\" has passed without any further changes to the provided \",(0,n.jsx)(e.code,{children:\"value\"}),\".\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-jsx\",children:`export default function Component() {\n  const [keyword, setKeyword] = useState('');\n  const debouncedKeyword = useDebounce(keyword, 1000);\n\n  return (\n    <div>\n      <input value={keyword} onChange={(e) => setKeyword(e.target.value)} />\n      <p>Debounced keyword: {debouncedKeyword}</p>\n    </div>\n  );\n}\n`})}),`\n`,(0,n.jsxs)(e.p,{children:[\"The observable outcome of using \",(0,n.jsx)(e.code,{children:\"useDebounce\"}),\" is quite similar to React's \",(0,n.jsx)(e.a,{href:\"https://react.dev/reference/react/useDeferredValue\",children:(0,n.jsx)(e.code,{children:\"useDeferredValue\"})}),\", the former returns an updated value after a fixed duration while the latter always returns the updated value but updates to the DOM relies on React's priority system.\"]}),`\n`,(0,n.jsx)(e.h2,{children:\"Arguments\"}),`\n`,(0,n.jsxs)(e.ol,{children:[`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.code,{children:\"value\"}),\": The value to debounce\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.code,{children:\"delay: number\"}),\": The delay in milliseconds\"]}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"Returns\"}),`\n`,(0,n.jsx)(e.p,{children:\"The hook returns the debounced value.\"})]})}function g(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(u,t)})):u(t)}var D=g;return x(j);})();\n;return Component;",
+  "files": {
+    "/package.json": "{\n  \"name\": \"@gfe-questions/use-debounce\",\n  \"version\": \"0.0.1\",\n  \"main\": \"/src/use-debounce.ts\",\n  \"dependencies\": {\n    \"@sinonjs/fake-timers\": \"14.0.0\",\n    \"@testing-library/react\": \"14.0.0\",\n    \"react\": \"18.2.0\",\n    \"react-dom\": \"18.2.0\"\n  },\n  \"devDependencies\": {\n    \"@types/jest\": \"29.5.0\",\n    \"@types/react\": \"18.2.25\",\n    \"@types/react-dom\": \"18.2.10\",\n    \"typescript\": \"5.0.2\"\n  }\n}\n",
+    "/tsconfig.json": "{\n  \"include\": [\"./**/*\"],\n  \"compilerOptions\": {\n    \"strict\": true,\n    \"esModuleInterop\": true,\n    \"lib\": [\"dom\", \"dom.iterable\", \"esnext\"],\n    \"jsx\": \"react-jsx\",\n    \"target\": \"es2020\"\n  }\n}\n",
+    "/src/use-debounce.run.test.ts": "import { act, renderHook } from '@testing-library/react';\nimport FakeTimers from '@sinonjs/fake-timers';\n\nimport useDebounce from './use-debounce';\nimport { useState } from 'react';\n\nlet clock: FakeTimers.InstalledClock;\n\ndescribe('useDebounce', () => {\n  beforeEach(() => {\n    clock = FakeTimers.withGlobal(globalThis).install();\n  });\n\n  afterEach(() => {\n    clock.uninstall();\n  });\n\n  test('return values', () => {\n    const { result } = renderHook(() => useDebounce(1, 1));\n\n    expect(result.current).toBe(1);\n  });\n\n  test('debounce value', () => {\n    const { result } = renderHook(() => {\n      const [value, setValue] = useState(1);\n      const debouncedValue = useDebounce(value, 1000);\n      return { value, setValue, debouncedValue };\n    });\n\n    act(() => result.current.setValue(2));\n\n    expect(result.current.value).toBe(2);\n    expect(result.current.debouncedValue).toBe(1);\n\n    act(() => clock.tick(1000));\n\n    expect(result.current.debouncedValue).toBe(2);\n  });\n});\n",
+    "/src/use-debounce.submit.test.ts": "import { act, renderHook } from '@testing-library/react';\nimport FakeTimers from '@sinonjs/fake-timers';\n\nimport useDebounce from './use-debounce';\nimport { useState } from 'react';\n\nlet clock: FakeTimers.InstalledClock;\n\ndescribe('useDebounce', () => {\n  beforeEach(() => {\n    clock = FakeTimers.withGlobal(globalThis).install();\n  });\n\n  afterEach(() => {\n    clock.uninstall();\n  });\n\n  test('return values', () => {\n    const { result } = renderHook(() => useDebounce(1, 1));\n\n    expect(result.current).toBe(1);\n  });\n\n  test('debounce value', () => {\n    const { result } = renderHook(() => {\n      const [value, setValue] = useState(1);\n      const debouncedValue = useDebounce(value, 1000);\n      return { value, setValue, debouncedValue };\n    });\n\n    act(() => result.current.setValue(2));\n\n    expect(result.current.value).toBe(2);\n    expect(result.current.debouncedValue).toBe(1);\n\n    act(() => clock.tick(1000));\n\n    expect(result.current.debouncedValue).toBe(2);\n  });\n\n  test('debounce value multiple times', () => {\n    const { result } = renderHook(() => {\n      const [value, setValue] = useState(1);\n      const debouncedValue = useDebounce(value, 1000);\n      return { value, setValue, debouncedValue };\n    });\n\n    act(() => result.current.setValue(2));\n\n    expect(result.current.value).toBe(2);\n    expect(result.current.debouncedValue).toBe(1);\n\n    act(() => clock.tick(500));\n\n    expect(result.current.debouncedValue).toBe(1);\n\n    act(() => result.current.setValue(3));\n\n    expect(result.current.value).toBe(3);\n    expect(result.current.debouncedValue).toBe(1);\n\n    act(() => clock.tick(500));\n\n    expect(result.current.debouncedValue).toBe(1);\n\n    act(() => clock.tick(500));\n\n    expect(result.current.debouncedValue).toBe(3);\n  });\n\n  test('clear timeout on unmount', () => {\n    const { result, unmount } = renderHook(() => {\n      const [value, setValue] = useState(1);\n      const debouncedValue = useDebounce(value, 1000);\n      return { value, setValue, debouncedValue };\n    });\n\n    act(() => result.current.setValue(2));\n\n    expect(result.current.value).toBe(2);\n    expect(result.current.debouncedValue).toBe(1);\n\n    unmount();\n    act(() => clock.tick(1000));\n\n    expect(result.current.debouncedValue).toBe(1);\n  });\n});\n",
+    "/src/use-debounce.ts": "import { useState, useEffect } from 'react';\n\nexport default function useDebounce<T>(value: T, delay: number) {\n  const [debouncedValue, setDebouncedValue] = useState(value);\n\n  useEffect(() => {\n    const handler = setTimeout(() => {\n      setDebouncedValue(value);\n    }, delay);\n\n    return () => {\n      clearTimeout(handler);\n    };\n  }, [value, delay]);\n\n  return debouncedValue;\n}\n"
+  },
+  "metadata": {
+    "access": "standard",
+    "author": "phillmont",
+    "companies": [],
+    "created": 1742169600,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "Implement a hook that debounces a value",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-debounce"
+      }
+    ],
+    "href": "/questions/javascript/use-debounce",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "use-throttle"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "use-throttle"
+    ],
+    "slug": "use-debounce",
+    "subtitle": null,
+    "title": "useDebounce",
+    "topics": [
+      "react-hooks"
+    ]
+  },
+  "skeleton": {
+    "js": "/**\n * @template T\n * @param {T} value\n * @param {number} delay\n */\nexport default function useDebounce(value, delay) {\n  throw 'Not implemented';\n}",
+    "ts": "export default function useDebounce<T>(value: T, delay: number) {\n  throw 'Not implemented';\n}"
+  },
+  "solution": "var Component=(()=>{var m=Object.create;var c=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var b=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var D=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),v=(t,e)=>{for(var o in e)c(t,o,{get:e[o],enumerable:!0})},a=(t,e,o,d)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let u of p(e))!x.call(t,u)&&u!==o&&c(t,u,{get:()=>e[u],enumerable:!(d=f(e,u))||d.enumerable});return t};var j=(t,e,o)=>(o=t!=null?m(b(t)):{},a(e||!t||!t.__esModule?c(o,\"default\",{value:t,enumerable:!0}):o,t)),T=t=>a(c({},\"__esModule\",{value:!0}),t);var l=D((C,r)=>{r.exports=_jsx_runtime});var y={};v(y,{default:()=>g});var n=j(l());var s=MDXCodeBlock;var i=`import { useState, useEffect } from 'react';\n\nexport default function useDebounce<T>(value: T, delay: number) {\n  const [debouncedValue, setDebouncedValue] = useState(value);\n\n  useEffect(() => {\n    const handler = setTimeout(() => {\n      setDebouncedValue(value);\n    }, delay);\n\n    return () => {\n      clearTimeout(handler);\n    };\n  }, [value, delay]);\n\n  return debouncedValue;\n}\n`;function h(t){let e=Object.assign({h2:\"h2\",p:\"p\",code:\"code\"},t.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{children:\"Solution\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"The \",(0,n.jsx)(e.code,{children:\"useDebounce\"}),\" hook can be implemented with \",(0,n.jsx)(e.code,{children:\"useState\"}),\" to store the current debounced value and \",(0,n.jsx)(e.code,{children:\"useEffect\"}),\" to update the debounced value after the specified \",(0,n.jsx)(e.code,{children:\"delay\"}),\" with \",(0,n.jsx)(e.code,{children:\"setTimeout\"}),\". If \",(0,n.jsx)(e.code,{children:\"value\"}),\" changes, it must mean that there's a state update, so we clear the timeout with \",(0,n.jsx)(e.code,{children:\"clearTimeout\"}),\" on unmount and set a new timeout to update the current debounced value.\"]}),`\n`,(0,n.jsx)(s,{children:i})]})}function w(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(h,t)})):h(t)}var g=w;return T(y);})();\n;return Component;",
+  "workspace": {
+    "main": "/src/use-debounce.ts",
+    "run": "/src/use-debounce.run.test.ts",
+    "submit": "/src/use-debounce.submit.test.ts"
+  }
+}

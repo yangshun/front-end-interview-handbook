@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
+import { redirect } from 'next/navigation';
 import url from 'node:url';
 
 import RewardsCompletePage from '~/components/rewards/complete/RewardsCompletePage';
 
 import { getIntlServerOnly } from '~/i18n';
-import i18nRedirect from '~/next-i18nostic/src/utils/i18nRedirect';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
@@ -33,19 +33,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-export default async function Page({ params }: Props) {
+export default async function Page() {
   const viewer = await readViewerFromToken();
-  const { locale } = params;
 
   if (viewer == null) {
-    return i18nRedirect(
+    return redirect(
       url.format({
         pathname: '/login',
         query: {
           next: '/rewards/social',
         },
       }),
-      { locale },
     );
   }
 

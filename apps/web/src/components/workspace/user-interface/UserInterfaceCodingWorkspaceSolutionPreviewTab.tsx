@@ -27,7 +27,7 @@ export default function UserInterfaceCodingWorkspaceSolutionPreviewTab({
     useUserInterfaceCodingWorkspaceTilesContext();
 
   return (
-    <div className="flex size-full flex-col">
+    <div className="size-full flex flex-col">
       <Banner size="xs" variant="primary">
         {intl.formatMessage({
           defaultMessage: 'This is a preview of the solution.',

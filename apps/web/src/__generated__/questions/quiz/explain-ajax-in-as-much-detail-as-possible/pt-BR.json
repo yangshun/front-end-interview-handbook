@@ -1,0 +1,32 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "hard",
+    "duration": 5,
+    "excerpt": null,
+    "featured": true,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/explain-ajax-in-as-much-detail-as-possible",
+    "importance": "medium",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 270,
+    "similarQuestions": [],
+    "slug": "explain-ajax-in-as-much-detail-as-possible",
+    "subtitle": null,
+    "title": "Explique o Ajax com o máximo de detalhes possível.",
+    "topics": [
+      "javascript",
+      "networking"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-ajax-in-as-much-detail-as-possible/pt-BR.mdx"
+  },
+  "solution": "var Component=(()=>{var p=Object.create;var s=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var x=Object.getPrototypeOf,j=Object.prototype.hasOwnProperty;var v=(e,a)=>()=>(a||e((a={exports:{}}).exports,a),a.exports),b=(e,a)=>{for(var o in a)s(e,o,{get:a[o],enumerable:!0})},c=(e,a,o,r)=>{if(a&&typeof a==\"object\"||typeof a==\"function\")for(let t of l(a))!j.call(e,t)&&t!==o&&s(e,t,{get:()=>a[t],enumerable:!(r=u(a,t))||r.enumerable});return e};var g=(e,a,o)=>(o=e!=null?p(x(e)):{},c(a||!e||!e.__esModule?s(o,\"default\",{value:e,enumerable:!0}):o,e)),f=e=>c(s({},\"__esModule\",{value:!0}),e);var d=v((q,i)=>{i.exports=_jsx_runtime});var _={};b(_,{default:()=>w,frontmatter:()=>h});var n=g(d()),h={title:\"Explique o Ajax com o m\\xE1ximo de detalhes poss\\xEDvel.\"};function m(e){let a=Object.assign({p:\"p\",code:\"code\"},e.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(a.p,{children:\"Ajax (asynchronous JavaScript and XML) \\xE9 um conjunto de t\\xE9cnicas de desenvolvimento web que utilizam diversas tecnologias web no lado do cliente para criar aplica\\xE7\\xF5es web ass\\xEDncronas. Com o Ajax, as aplica\\xE7\\xF5es web podem enviar dados para e receber do servidor de forma ass\\xEDncrona (em segundo plano) sem interferir na exibi\\xE7\\xE3o e comportamento da p\\xE1gina existente. Ao separar a camada de interc\\xE2mbio de dados da camada de apresenta\\xE7\\xE3o, o Ajax permite que p\\xE1ginas web, e por extens\\xE3o, aplica\\xE7\\xF5es web, alterem o conte\\xFAdo dinamicamente sem precisar recarregar toda a p\\xE1gina. Na pr\\xE1tica, implementa\\xE7\\xF5es modernas comumente usam JSON em vez de XML, devido \\xE0s vantagens de o JSON ser nativo ao JavaScript.\"}),`\n`,(0,n.jsxs)(a.p,{children:[\"A API \",(0,n.jsx)(a.code,{children:\"XMLHttpRequest\"}),\" \\xE9 frequentemente usada para a comunica\\xE7\\xE3o ass\\xEDncrona ou hoje em dia, a API fetch.\"]})]})}function A(e={}){let{wrapper:a}=e.components||{};return a?(0,n.jsx)(a,Object.assign({},e,{children:(0,n.jsx)(m,e)})):m(e)}var w=A;return f(_);})();\n;return Component;"
+}

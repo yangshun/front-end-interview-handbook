@@ -19,7 +19,6 @@ import Text from '~/components/ui/Text';
 
 import SponsorsAdvertiseRequestForm from '../request/SponsorsAdvertiseRequestForm';
 import SponsorsAdvertiseRequestReadonly from '../request/SponsorsAdvertiseRequestReadonly';
-import { SponsorsPromoCodeConfig } from '../SponsorsPromoCodeConfig';
 import SponsorsAdminAdRequestStatus from './SponsorsAdminAdRequestStatus';
 
 type Props = Readonly<{
@@ -112,9 +111,6 @@ export default function SponsorsAdminAdRequestPage({ adRequestId }: Props) {
                     ads,
                     company,
                     emails: adRequest.emails,
-                    promoCode: adRequest.promoCode
-                      ? SponsorsPromoCodeConfig[adRequest.promoCode]
-                      : null,
                   }}
                   mode="edit"
                   requestId={adRequest.id}
@@ -138,9 +134,6 @@ export default function SponsorsAdminAdRequestPage({ adRequestId }: Props) {
               company,
               createdAt: adRequest.createdAt,
               emails: adRequest.emails,
-              promoCode: adRequest.promoCode
-                ? SponsorsPromoCodeConfig[adRequest.promoCode]
-                : null,
               review,
               updatedAt: adRequest.updatedAt,
             }}

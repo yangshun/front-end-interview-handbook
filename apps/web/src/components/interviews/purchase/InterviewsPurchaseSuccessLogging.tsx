@@ -1,69 +1,52 @@
 import { useSearchParams } from 'next/navigation';
 import { Suspense, useEffect } from 'react';
 
-import { trpc } from '~/hooks/trpc';
-
-import usePurchaseLastUsedPaymentProvider from '~/components/purchase/providers/usePurcahseLastUsedPaymentProvider';
 import { purchaseSuccessLogging } from '~/components/purchase/PurchaseLogging';
 
-import { useI18nRouter } from '~/next-i18nostic/src';
+import type {
+  InterviewsPricingPlanPaymentConfigLocalizedRecord,
+  InterviewsPricingPlanType,
+} from './InterviewsPricingPlans';
 
-import type { InterviewsPricingPlanType } from './InterviewsPricingPlans';
-
-export function useInterviewsPurchaseSuccessLogging() {
+export function useInterviewsPurchaseSuccessLogging(
+  plansPaymentConfig: InterviewsPricingPlanPaymentConfigLocalizedRecord,
+) {
   const searchParams = useSearchParams();
-  const { lastPaymentProvider } = usePurchaseLastUsedPaymentProvider();
-
-  trpc.purchases.lastSuccessfulPaymentThatHasntBeenLogged.useQuery({
-    checkoutId: lastPaymentProvider?.id ?? '',
-      paymentProvider: lastPaymentProvider?.provider ?? 'stripe',
-  }, {
-    onSuccess: (data) => {
-      if (data == null) {
-        return;
-      }
-
-      const planSearchParam = searchParams?.get(
-        'plan',
-      ) as InterviewsPricingPlanType;
-
-      purchaseSuccessLogging({
-        amount: data.amount,
-        currency: data.currency,
-        plan: planSearchParam,
-        product: 'interviews',
-      });
-    },
-  });
-}
-
-export function InterviewsPurchaseSuccessLoggingImpl() {
-  useInterviewsPurchaseSuccessLogging();
-
-  // Redirect to interviews dashboard after 24 hours,
-  // we don't want users to stay on the success page for too long
-  const router = useI18nRouter();
+  const planSearchParam = searchParams?.get(
+    'plan',
+  ) as InterviewsPricingPlanType | null;
 
   useEffect(() => {
-    const timer = setTimeout(
-      () => {
-        router.push('/interviews/dashboard');
-      },
-      24 * 3600 * 1000,
-    );
+    if (planSearchParam != null) {
+      const paymentConfig = plansPaymentConfig[planSearchParam];
 
-    return () => clearTimeout(timer);
-  }, [router]);
+      purchaseSuccessLogging({
+        plan: planSearchParam,
+        product: 'interviews',
+        purchasePrice: paymentConfig,
+      });
+    }
+  }, [planSearchParam, plansPaymentConfig]);
+}
+
+type Props = Readonly<{
+  plansPaymentConfig: InterviewsPricingPlanPaymentConfigLocalizedRecord;
+}>;
+
+export function InterviewsPurchaseSuccessLoggingImpl({
+  plansPaymentConfig,
+}: Props) {
+  useInterviewsPurchaseSuccessLogging(plansPaymentConfig);
 
   return null;
 }
 
 // UseSearchParams should be within a suspense boundary according to
 // https://nextjs.org/docs/messages/missing-suspense-with-csr-bailout
-export default function InterviewsPurchaseSuccessLogging() {
+export default function InterviewsPurchaseSuccessLogging(props: Props) {
   return (
     <Suspense>
-      <InterviewsPurchaseSuccessLoggingImpl />
+      <InterviewsPurchaseSuccessLoggingImpl {...props} />
     </Suspense>
   );
 }

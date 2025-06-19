@@ -2,8 +2,7 @@
 
 import NumberFlow from '@number-flow/react';
 import clsx from 'clsx';
-import type { PanInfo } from 'motion/react';
-import { AnimatePresence, motion, wrap } from 'motion/react';
+import { AnimatePresence, motion, wrap } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 
 import type { InterviewsMarketingTestimonial } from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonialCard';
@@ -12,7 +11,6 @@ import Anchor from '~/components/ui/Anchor';
 import Avatar from '~/components/ui/Avatar';
 import BorderBeam from '~/components/ui/BorderBeam/BorderBeam';
 import Heading from '~/components/ui/Heading';
-import Img from '~/components/ui/Img';
 import ScrollArea from '~/components/ui/ScrollArea';
 import Text, { textVariants } from '~/components/ui/Text';
 import {
@@ -197,9 +195,9 @@ export default function InterviewsTestimonialsSlider({ data }: Props) {
         intl.formatMessage(
           {
             defaultMessage:
-              '{offerCount, plural, =1 {1 offer} other {# offers}}',
+              '{offerCount, plural,=1 {1 offer} other {# offers}}',
             description: 'Testimonials overview',
-            id: 'JVjRDB',
+            id: 'GUGImr',
           },
           { offerCount: data[currentItemIndex].offers.length },
         ),
@@ -280,7 +278,7 @@ export default function InterviewsTestimonialsSlider({ data }: Props) {
                 x: { damping: 30, stiffness: 300, type: 'spring' },
               }}
               variants={carouselMotionVariants}
-              onDragEnd={(_: MouseEvent, { offset, velocity }: PanInfo) => {
+              onDragEnd={(_, { offset, velocity }) => {
                 const swipe = swipePower(offset.x, velocity.x);
 
                 // Stop auto-advancing if user interacts by swiping.
@@ -341,6 +339,7 @@ export default function InterviewsTestimonialsSlider({ data }: Props) {
                           label
                         )}
                       </Heading>
+
                       {logos && (
                         <div className="isolate flex">
                           {logos.map((logo, index) => (
@@ -359,7 +358,7 @@ export default function InterviewsTestimonialsSlider({ data }: Props) {
                                   'border border-neutral-200 dark:border-neutral-900',
                                   index > 0 && '-ml-2',
                                 )}>
-                                <Img
+                                <img
                                   alt={logo.name}
                                   className="size-4"
                                   decoding="async"

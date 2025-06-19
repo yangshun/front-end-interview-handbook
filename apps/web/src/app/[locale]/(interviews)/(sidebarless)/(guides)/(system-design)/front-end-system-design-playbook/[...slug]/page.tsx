@@ -16,7 +16,6 @@ import {
   readGuidesContents,
 } from '~/db/guides/GuidesReader';
 import { readMDXFileWithLocaleFallback } from '~/db/questions-bundlers/QuestionsBundler';
-import { fetchQuestionsList } from '~/db/QuestionsListReader';
 import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
 
@@ -70,10 +69,10 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 }
 
 export default async function Page(props: Props) {
-  const { directoryPath } = requestToPaths(props);
   const {
     params: { locale },
   } = props;
+  const { directoryPath } = requestToPaths(props);
 
   const code = await readMDXFileWithLocaleFallback(directoryPath, locale, {
     extractFrontmatter: true,
@@ -89,15 +88,9 @@ export default async function Page(props: Props) {
     MDXCodeBlock,
   });
 
-  const { questions } = await fetchQuestionsList(
-    { type: 'format', value: 'system-design' },
-    locale,
-  );
-
   return (
     <FrontEndSystemDesignPlaybookLayout
       description={description}
-      questions={questions}
       tableOfContents={tableOfContents}
       title={title}>
       <GuidesMarkdown markdown={Markdown} />

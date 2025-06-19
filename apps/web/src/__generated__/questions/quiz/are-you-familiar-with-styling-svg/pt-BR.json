@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "easy",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/are-you-familiar-with-styling-svg",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "are-you-familiar-with-styling-svg",
+    "subtitle": null,
+    "title": "Você conhece o estilo SVG?",
+    "topics": [
+      "css"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/are-you-familiar-with-styling-svg/pt-BR.mdx"
+  },
+  "solution": "var Component=(()=>{var m=Object.create;var a=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var b=(o,e)=>()=>(e||o((e={exports:{}}).exports,e),e.exports),x=(o,e)=>{for(var r in e)a(o,r,{get:e[r],enumerable:!0})},i=(o,e,r,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let t of p(e))!f.call(o,t)&&t!==r&&a(o,t,{get:()=>e[t],enumerable:!(s=u(e,t))||s.enumerable});return o};var g=(o,e,r)=>(r=o!=null?m(h(o)):{},i(e||!o||!o.__esModule?a(r,\"default\",{value:o,enumerable:!0}):r,o)),v=o=>i(a({},\"__esModule\",{value:!0}),o);var d=b((_,c)=>{c.exports=_jsx_runtime});var y={};x(y,{default:()=>q,frontmatter:()=>S});var n=g(d()),S={title:\"Voc\\xEA conhece o estilo SVG?\"};function l(o){let e=Object.assign({p:\"p\",code:\"code\",pre:\"pre\",em:\"em\",a:\"a\"},o.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.p,{children:\"Se voc\\xEA usa alguma ferramenta de an\\xE1lise est\\xE1tica em seu fluxo de trabalho (por exemplo, ESLint, TypeScript Compiler), geralmente ela tamb\\xE9m pode verificar se voc\\xEA est\\xE1 referenciando vari\\xE1veis n\\xE3o declaradas. A maioria dos SVGs que voc\\xEA encontra na web usa CSS inline, mas existem vantagens e desvantagens associadas a cada tipo.\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"A colora\\xE7\\xE3o b\\xE1sica pode ser feita definindo dois atributos no n\\xF3: \",(0,n.jsx)(e.code,{children:\"fill\"}),\" e \",(0,n.jsx)(e.code,{children:\"stroke\"}),\". \",(0,n.jsx)(e.code,{children:\"fill\"}),\" define a cor dentro do objeto e \",(0,n.jsx)(e.code,{children:\"stroke\"}),\" define a cor da linha desenhada ao redor do objeto. Voc\\xEA pode usar os mesmos esquemas de nomenclatura de cores CSS que voc\\xEA usa em HTML, independentemente de serem nomes de cores (que \\xE9 \",(0,n.jsx)(e.code,{children:\"red\"}),\"), Valores RGB (que s\\xE3o \",(0,n.jsx)(e.code,{children:\"rgb(255,0,0)\"}),\"), valores de Hex, valores RGBA, etc.\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-html\",children:`<rect\n  x=\"10\"\n  y=\"10\"\n  width=\"100\"\n  height=\"100\"\n  stroke=\"blue\"\n  fill=\"purple\"\n  fill-opacity=\"0.5\"\n  stroke-opacity=\"0.8\" />\n`})}),`\n`,(0,n.jsxs)(e.p,{children:[\"O \",(0,n.jsx)(e.code,{children:'fill=\"purple\"'}),\" acima \\xE9 um exemplo de um \",(0,n.jsx)(e.em,{children:\"atributo apresentacional\"}),\". Curiosamente, e ao contr\\xE1rio de estilos embutidos como \",(0,n.jsx)(e.code,{children:'style=\"fill: purple\"'}),\" que tamb\\xE9m \\xE9 um atributo, os atributos de apresenta\\xE7\\xE3o podem ser \",(0,n.jsx)(e.a,{href:\"https://css-tricks.com/presentation-attributes-vs-inline-styles/\",children:\"sobrescritos pelo CSS\"}),\" definidos em uma folha de estilos. Da\\xED se voc\\xEA fez algo como \",(0,n.jsx)(e.code,{children:\"svg { fill: blue; }\"}),\" ele ir\\xE1 substituir o preenchimento roxo que foi definido.\"]})]})}function j(o={}){let{wrapper:e}=o.components||{};return e?(0,n.jsx)(e,Object.assign({},o,{children:(0,n.jsx)(l,o)})):l(o)}var q=j;return v(y);})();\n;return Component;"
+}

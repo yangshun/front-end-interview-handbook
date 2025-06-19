@@ -4,7 +4,6 @@ import clsx from 'clsx';
 
 import { FormattedMessage, useIntl } from '~/components/intl';
 import { SponsorAdFormatConfigs } from '~/components/sponsors/SponsorsAdFormatConfigs';
-import Img from '~/components/ui/Img';
 import { themeBorderElementColor } from '~/components/ui/theme';
 
 import SponsorsAdFormatAvailableSlotInfo from './SponsorsAdFormatAvailableSlotInfo';
@@ -123,7 +122,7 @@ function Asset() {
           media="(min-width: 640px)"
           srcSet="/img/sponsors/spotlight-ad-placement-light.png"
         />
-        <Img
+        <img
           alt={intl.formatMessage({
             defaultMessage: 'Spotlight ad placement preview',
             description: 'Alt text for spotlight ad placement preview',
@@ -145,7 +144,7 @@ function Asset() {
           media="(min-width: 640px)"
           srcSet="/img/sponsors/spotlight-ad-placement-dark.png"
         />
-        <Img
+        <img
           alt={intl.formatMessage({
             defaultMessage: 'Spotlight ad placement preview',
             description: 'Alt text for spotlight ad placement preview',

@@ -14,15 +14,8 @@ import { getIntlServerOnly } from '~/i18n';
 import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
 
-type Props = Readonly<{
-  params: {
-    locale: string;
-    plan: string;
-  };
-}>;
-
-async function getPageSEOMetadata({ locale, plan }: Props['params']) {
-  const studyPlanDocument = await fetchInterviewsStudyList(plan, locale);
+async function getPageSEOMetadata({ plan }: Props['params']) {
+  const studyPlanDocument = await fetchInterviewsStudyList(plan);
 
   if (studyPlanDocument == null) {
     return notFound();
@@ -38,12 +31,19 @@ async function getPageSEOMetadata({ locale, plan }: Props['params']) {
 }
 
 export async function generateStaticParams() {
-  const studyPlans = await fetchInterviewsStudyLists('study-plan', 'en-US');
+  const studyPlans = await fetchInterviewsStudyLists('study-plan');
 
   return generateStaticParamsWithLocale(
     studyPlans.map((plan) => ({ plan: plan.slug })),
   );
 }
+
+type Props = Readonly<{
+  params: {
+    locale: string;
+    plan: string;
+  };
+}>;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
@@ -67,7 +67,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const { locale, plan } = params;
-  const studyPlan = await fetchInterviewsStudyList(plan, locale);
+  const studyPlan = await fetchInterviewsStudyList(plan);
 
   if (studyPlan == null) {
     return notFound();
@@ -79,7 +79,7 @@ export default async function Page({ params }: Props) {
 
   const [questions, bottomContent] = await Promise.all([
     fetchQuestionsListByHash(studyPlan?.questionHashes ?? [], locale),
-    fetchInterviewListingBottomContent(`study-plans/${plan}`, locale),
+    fetchInterviewListingBottomContent(`${plan}-study-plan`),
   ]);
 
   return (

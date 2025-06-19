@@ -8,6 +8,7 @@
   "created": 1681430400,
   "difficulty": "easy",
   "duration": 20,
+  "excerpt": "Build a calculator that computes the monthly mortgage for a loan",
   "featured": false,
   "format": "user-interface",
   "frameworkDefault": "react",
@@ -45,5 +46,6 @@
   "similarQuestions": [],
   "slug": "mortgage-calculator",
   "subtitle": null,
+  "title": "Mortgage Calculator",
   "topics": []
 }

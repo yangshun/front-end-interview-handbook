@@ -2,15 +2,11 @@ import { defineDocumentType } from 'contentlayer/source-files';
 import path from 'node:path';
 
 function parseCategory(sourceFilePath: string) {
-  return sourceFilePath.split(path.posix.sep)[2];
+  return sourceFilePath.split(path.posix.sep)[2].replace(/\.mdx$/, '');
 }
 
 function parseSlug(sourceFilePath: string) {
-  return sourceFilePath.split(path.posix.sep)[3];
-}
-
-function parseLocale(sourceFilePath: string) {
-  return path.basename(sourceFilePath).split('.')[0];
+  return sourceFilePath.split(path.posix.sep)[3].replace(/\.mdx$/, '');
 }
 
 const Schedule = {
@@ -54,11 +50,6 @@ export const InterviewsStudyListDocument = defineDocumentType(() => ({
           }
         }
       },
-      type: 'string',
-    },
-    locale: {
-      description: 'Locale',
-      resolve: (doc) => parseLocale(doc._raw.sourceFilePath),
       type: 'string',
     },
     slug: {

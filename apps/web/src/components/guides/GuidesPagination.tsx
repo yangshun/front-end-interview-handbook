@@ -29,7 +29,7 @@ import {
 import { useI18nPathname } from '~/next-i18nostic/src';
 
 import QuestionReportIssueButton from '../interviews/questions/common/QuestionReportIssueButton';
-import type { InterviewsQuestionMetadata } from '../interviews/questions/common/QuestionsTypes';
+import type { QuestionMetadata } from '../interviews/questions/common/QuestionsTypes';
 import { useGuidesContext } from './GuidesLayout';
 import GuidesProgressAction from './GuidesProgressAction';
 import type { GuideMetadata, GuideNavigation } from './types';
@@ -45,7 +45,7 @@ type PaginationItem = Readonly<{
 type Props<GuideSlug extends string> = Readonly<{
   guide: GuidebookItem;
   navigation: GuideNavigation<GuideSlug>;
-  questionMetadata?: InterviewsQuestionMetadata;
+  questionMetadata?: QuestionMetadata;
   studyListKey?: string;
 }>;
 

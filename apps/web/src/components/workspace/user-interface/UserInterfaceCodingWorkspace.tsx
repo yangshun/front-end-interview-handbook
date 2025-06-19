@@ -8,14 +8,11 @@ import { useCallback, useEffect, useState } from 'react';
 import { RiCodeLine } from 'react-icons/ri';
 
 import InterviewsPremiumBadge from '~/components/interviews/common/InterviewsPremiumBadge';
-import {
-  questionHrefWithListType,
-  QuestionListTypeDefault,
-} from '~/components/interviews/questions/common/QuestionHrefUtils';
+import { questionHrefWithListType } from '~/components/interviews/questions/common/QuestionHrefUtils';
 import type {
-  InterviewsQuestionItemMinimal,
-  InterviewsQuestionItemUserInterface,
   QuestionFramework,
+  QuestionMetadata,
+  QuestionUserInterface,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
 import useQuestionsAutoMarkAsComplete from '~/components/interviews/questions/common/useQuestionsAutoMarkAsComplete';
@@ -78,36 +75,16 @@ import useUserInterfaceCodingWorkspaceTilesContext from './useUserInterfaceCodin
 const UserInterfaceCodingWorkspaceTilesPanelRoot =
   TilesPanelRoot<UserInterfaceCodingWorkspaceTabsType>;
 
-// Find files that are not in defaultFiles but exist in sandpack.files
-const getNonDefaultFiles = (
-  sandpackFiles: SandpackFiles,
-  defaultFiles: SandpackFiles,
-) => {
-  const nonDefaultFiles: Array<string> = [];
-
-  if (sandpackFiles) {
-    Object.keys(sandpackFiles).forEach((filePath) => {
-      if (!defaultFiles[filePath]) {
-        nonDefaultFiles.push(filePath);
-      }
-    });
-  }
-
-  return nonDefaultFiles;
-};
-
 function UserInterfaceCodingWorkspaceImpl({
   canViewPremiumContent,
   defaultFiles,
   embed,
   frameworkSolutionPath,
-  isViewingSave,
   loadedFilesFromLocalStorage,
   mode,
   nextQuestions,
   onFrameworkChange,
   question,
-  saveFilesToLocalStorage,
   similarQuestions,
   studyListKey,
 }: Readonly<{
@@ -115,27 +92,19 @@ function UserInterfaceCodingWorkspaceImpl({
   defaultFiles: SandpackFiles;
   embed: boolean;
   frameworkSolutionPath: string;
-  isViewingSave: boolean;
   loadedFilesFromLocalStorage: boolean;
   mode: QuestionUserInterfaceMode;
-  nextQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+  nextQuestions: ReadonlyArray<QuestionMetadata>;
   onFrameworkChange: (
     framework: QuestionFramework,
     contentType: 'description' | 'solution',
   ) => void;
-  question: InterviewsQuestionItemUserInterface;
-  saveFilesToLocalStorage: boolean;
-  similarQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+  question: QuestionUserInterface;
+  similarQuestions: ReadonlyArray<QuestionMetadata>;
   studyListKey?: string;
 }>) {
   const intl = useIntl();
-  const {
-    description,
-    framework,
-    info,
-    metadata: rawMetadata,
-    solution,
-  } = question;
+  const { description, framework, metadata: rawMetadata, solution } = question;
 
   const metadata = {
     ...rawMetadata,
@@ -153,7 +122,7 @@ function UserInterfaceCodingWorkspaceImpl({
   useSandpackModuleErrorRefreshBrowser();
 
   useEffect(() => {
-    if (mode === 'practice' && saveFilesToLocalStorage) {
+    if (mode === 'practice') {
       saveUserInterfaceQuestionCodeLocally(question, sandpack.files);
     }
   });
@@ -207,14 +176,6 @@ function UserInterfaceCodingWorkspaceImpl({
 
   function resetToDefaultCode() {
     deleteCodeFromLocalStorage();
-
-    const nonDefaultFiles = getNonDefaultFiles(sandpack.files, defaultFiles);
-
-    if (nonDefaultFiles.length > 0) {
-      nonDefaultFiles.forEach((filePath) => {
-        sandpack.deleteFile(filePath);
-      });
-    }
     sandpack.updateFile(defaultFiles);
   }
 
@@ -227,7 +188,6 @@ function UserInterfaceCodingWorkspaceImpl({
         contents: (
           <UserInterfaceCodingWorkspaceCodeEditor
             filePath={filePath}
-            isViewingSave={isViewingSave}
             showNotSavedBanner={mode === 'solution'}
           />
         ),
@@ -294,7 +254,6 @@ function UserInterfaceCodingWorkspaceImpl({
           canViewPremiumContent={canViewPremiumContent}
           contentType="description"
           framework={framework}
-          info={info}
           metadata={metadata}
           mode={mode}
           nextQuestions={nextQuestions}
@@ -365,7 +324,6 @@ function UserInterfaceCodingWorkspaceImpl({
             canViewPremiumContent={canViewPremiumContent}
             contentType="solution"
             framework={framework}
-            info={info}
             metadata={metadata}
             mode={mode}
             nextQuestions={nextQuestions}
@@ -423,7 +381,6 @@ function UserInterfaceCodingWorkspaceImpl({
             contents: (
               <UserInterfaceCodingWorkspaceCodeEditor
                 filePath={filePath}
-                isViewingSave={isViewingSave}
                 showNotSavedBanner={mode === 'solution'}
               />
             ),
@@ -438,7 +395,6 @@ function UserInterfaceCodingWorkspaceImpl({
 
   return (
     <CodingWorkspaceProvider
-      embed={embed}
       loadedFilesFromLocalStorage={loadedFilesFromLocalStorage}
       value={{
         defaultFiles,
@@ -460,7 +416,6 @@ function UserInterfaceCodingWorkspaceImpl({
                 canViewPremiumContent={canViewPremiumContent}
                 contentType="description"
                 framework={framework}
-                info={info}
                 metadata={metadata}
                 mode={mode}
                 nextQuestions={[]}
@@ -476,7 +431,6 @@ function UserInterfaceCodingWorkspaceImpl({
                 canViewPremiumContent={canViewPremiumContent}
                 contentType="solution"
                 framework={framework}
-                info={info}
                 metadata={metadata}
                 mode={mode}
                 nextQuestions={[]}
@@ -520,9 +474,9 @@ function UserInterfaceCodingWorkspaceImpl({
           <UserInterfaceCodingWorkspaceBottomBar
             framework={framework}
             frameworkSolutionPath={frameworkSolutionPath}
-            isViewingSave={isViewingSave}
             metadata={metadata}
             mode={mode}
+            nextQuestions={nextQuestions}
             question={question}
             resetToDefaultCode={resetToDefaultCode}
             slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE="qns_slideout_mobile"
@@ -559,7 +513,7 @@ function UserInterfaceCodingWorkspaceImpl({
               renderTab={(tabId) => (
                 <CodingWorkspaceErrorBoundary>
                   {tabContents[tabId] != null ? (
-                    <div className="flex size-full">
+                    <div className="size-full flex">
                       {tabContents[tabId]!.contents}
                     </div>
                   ) : (
@@ -584,7 +538,6 @@ function UserInterfaceCodingWorkspaceImpl({
                               contents: (
                                 <UserInterfaceCodingWorkspaceCodeEditor
                                   filePath={data.payload.file}
-                                  isViewingSave={isViewingSave}
                                   showNotSavedBanner={mode === 'solution'}
                                 />
                               ),
@@ -617,9 +570,9 @@ function UserInterfaceCodingWorkspaceImpl({
           <UserInterfaceCodingWorkspaceBottomBar
             framework={framework}
             frameworkSolutionPath={frameworkSolutionPath}
-            isViewingSave={isViewingSave}
             metadata={metadata}
             mode={mode}
+            nextQuestions={nextQuestions}
             question={question}
             resetToDefaultCode={resetToDefaultCode}
             slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE="qns_slideout"
@@ -636,13 +589,11 @@ export default function UserInterfaceCodingWorkspace({
   canViewPremiumContent,
   defaultFiles,
   embed,
-  isViewingSave = false,
   loadedFilesFromLocalStorage,
   mode,
   nextQuestions,
   onFrameworkChange,
   question,
-  saveFilesToLocalStorage = true,
   similarQuestions,
   studyListKey,
 }: Readonly<{
@@ -650,26 +601,22 @@ export default function UserInterfaceCodingWorkspace({
   canViewPremiumContent: boolean;
   defaultFiles: SandpackFiles;
   embed: boolean;
-  isViewingSave?: boolean;
   loadedFilesFromLocalStorage: boolean;
   mode: QuestionUserInterfaceMode;
-  nextQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+  nextQuestions: ReadonlyArray<QuestionMetadata>;
   onFrameworkChange: (
     framework: QuestionFramework,
     contentType: 'description' | 'solution',
   ) => void;
-  question: InterviewsQuestionItemUserInterface;
-  saveFilesToLocalStorage?: boolean;
-  similarQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+  question: QuestionUserInterface;
+  similarQuestions: ReadonlyArray<QuestionMetadata>;
   studyListKey?: string;
 }>) {
   const { sandpack } = useSandpack();
   const { activeFile, visibleFiles } = sandpack;
   const { framework, metadata } = question;
 
-  const listType =
-    useQuestionsListTypeCurrent(studyListKey, framework) ??
-    QuestionListTypeDefault;
+  const listType = useQuestionsListTypeCurrent(studyListKey, framework);
   const frameworkSolutionPath = questionHrefWithListType(
     questionUserInterfaceSolutionPath(metadata, framework),
     listType,
@@ -689,12 +636,10 @@ export default function UserInterfaceCodingWorkspace({
         defaultFiles={defaultFiles}
         embed={embed}
         frameworkSolutionPath={frameworkSolutionPath}
-        isViewingSave={isViewingSave}
         loadedFilesFromLocalStorage={loadedFilesFromLocalStorage}
         mode={mode}
         nextQuestions={nextQuestions}
         question={question}
-        saveFilesToLocalStorage={saveFilesToLocalStorage}
         similarQuestions={similarQuestions}
         studyListKey={studyListKey}
         onFrameworkChange={onFrameworkChange}

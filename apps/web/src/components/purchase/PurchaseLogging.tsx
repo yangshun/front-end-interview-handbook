@@ -78,48 +78,12 @@ export function purchaseInitiateLogging({
   });
 }
 
-export function purchaseSessionGenerateLogging({
-  plan,
-  product,
-  purchasePrice,
-}: Props) {
-  gtag.event({
-    action: 'checkout.generate',
-    category: 'ecommerce',
-    label: plan,
-  });
-  logEvent('checkout.generate', {
-    currency: purchasePrice.currency.toLocaleUpperCase(),
-    namespace: product,
-    plan: `${product}.${plan}`,
-    value: purchasePrice.unitCostCurrency.withPPP.after,
-  });
-}
-
-export function purchaseSessionGeneratedLogging({
-  plan,
-  product,
-  purchasePrice,
-}: Props) {
-  gtag.event({
-    action: 'checkout.generated',
-    category: 'ecommerce',
-    label: plan,
-  });
-  logEvent('checkout.generated', {
-    currency: purchasePrice.currency.toLocaleUpperCase(),
-    namespace: product,
-    plan: `${product}.${plan}`,
-    value: purchasePrice.unitCostCurrency.withPPP.after,
-  });
-}
-
 export function purchaseFailureLogging({
   error,
   plan,
   product,
   purchasePrice,
-}: Props & Readonly<{ error: Error }>) {
+}: Props & Readonly<{ error: unknown }>) {
   gtag.event({
     action: 'checkout.failure',
     category: 'ecommerce',
@@ -129,15 +93,12 @@ export function purchaseFailureLogging({
     level: 'error',
     message: getErrorMessage(error),
     namespace: product,
-    title: 'Checkout error',
+    title: 'Checkout attempt error',
   });
   logEvent('checkout.fail', {
     currency: purchasePrice.currency.toLocaleUpperCase(),
-    message: error.message,
-    name: error.name,
     namespace: product,
     plan: `${product}.${plan}`,
-    stack: error.stack,
     value: purchasePrice.unitCostCurrency.withPPP.after,
   });
 }
@@ -168,24 +129,16 @@ export function purchaseCancelLogging({ plan, product, purchasePrice }: Props) {
 }
 
 export function purchaseSuccessLogging({
-  amount,
-  currency: currencyLowerCase,
   plan,
   product,
-}: Readonly<{
-  amount: number;
-  currency: string;
-  plan: string;
-  product: 'interviews' | 'projects';
-}>) {
-  const currency = currencyLowerCase.toLocaleUpperCase();
-
-  // Special conversion event expected by GA
+  purchasePrice,
+}: Props) {
+  // Special conversion event expected by GA.
   gtag.event({
     action: 'purchase',
     category: 'ecommerce',
     extra: {
-      currency,
+      currency: purchasePrice.currency.toLocaleUpperCase(),
       ignore_referrer: 'true',
       items: [
         {
@@ -195,49 +148,48 @@ export function purchaseSuccessLogging({
       ],
     },
     label: `${product}.${plan}`,
-    value: amount,
+    value: purchasePrice.unitCostCurrency.withPPP.after,
   });
 
-  // Custom event logging
+  // Custom event logging.
   gtag.event({
     action: 'checkout.success',
     category: 'ecommerce',
     extra: {
-      currency,
       ignore_referrer: 'true',
     },
     label: `${product}.${plan}`,
-    value: amount,
   });
 
   gtag.event({
     action: 'conversion',
     extra: {
-      currency,
+      currency: purchasePrice.currency.toLocaleUpperCase(),
       ignore_referrer: 'true',
       send_to: 'AW-11039716901/SrTfCIrox5UYEKXskpAp',
       transaction_id: '',
+      value: purchasePrice.unitCostCurrency.withPPP.after,
     },
-    value: amount,
   });
 
   fbqGFE('track', 'Purchase', {
     content_name: `${product}.${plan}`,
-    currency,
-    value: amount,
+    currency: purchasePrice.currency.toLocaleUpperCase(),
+    value: purchasePrice.unitCostCurrency.withPPP.after,
   });
 
   logMessage({
     level: 'success',
-    message: `[${product}] Purchased ${plan} plan for ${currency} ${amount}`,
+    message: `[${product}] Purchased ${plan} plan for ${purchasePrice.currency.toLocaleUpperCase()} ${
+      purchasePrice.unitCostCurrency.withPPP.after
+    }`,
     namespace: product,
     title: 'Purchase',
   });
-
   logEvent('checkout.success', {
-    currency,
+    currency: purchasePrice.currency.toLocaleUpperCase(),
     namespace: product,
     plan: `${product}.${plan}`,
-    value: amount,
+    value: purchasePrice.unitCostCurrency.withPPP.after,
   });
 }

@@ -1,0 +1,34 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [
+      "bytedance"
+    ],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/what-are-the-different-ways-to-visually-hide-content-and-make-it-available-only-for-screen-readers",
+    "importance": "medium",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "what-are-the-different-ways-to-visually-hide-content-and-make-it-available-only-for-screen-readers",
+    "subtitle": null,
+    "title": "Quais são as diferentes maneiras de esconder conteúdo visualmente (e torná-lo disponível apenas para leitores de tela)?",
+    "topics": [
+      "a11y",
+      "css"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/what-are-the-different-ways-to-visually-hide-content-and-make-it-available-only-for-screen-readers/pt-BR.mdx"
+  },
+  "solution": "var Component=(()=>{var m=Object.create;var s=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var u=Object.getPrototypeOf,v=Object.prototype.hasOwnProperty;var b=(o,e)=>()=>(e||o((e={exports:{}}).exports,e),e.exports),f=(o,e)=>{for(var a in e)s(o,a,{get:e[a],enumerable:!0})},t=(o,e,a,r)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let i of h(e))!v.call(o,i)&&i!==a&&s(o,i,{get:()=>e[i],enumerable:!(r=p(e,i))||r.enumerable});return o};var g=(o,e,a)=>(a=o!=null?m(u(o)):{},t(e||!o||!o.__esModule?s(a,\"default\",{value:o,enumerable:!0}):a,o)),x=o=>t(s({},\"__esModule\",{value:!0}),o);var c=b((z,d)=>{d.exports=_jsx_runtime});var j={};f(j,{default:()=>S,frontmatter:()=>q});var n=g(c()),q={title:\"Quais s\\xE3o as diferentes maneiras de esconder conte\\xFAdo visualmente (e torn\\xE1-lo dispon\\xEDvel apenas para leitores de tela)?\"};function l(o){let e=Object.assign({p:\"p\",h2:\"h2\",code:\"code\",a:\"a\",blockquote:\"blockquote\",ul:\"ul\",li:\"li\",h3:\"h3\",pre:\"pre\"},o.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.p,{children:\"Essas t\\xE9cnicas est\\xE3o relacionadas \\xE0 acessibilidade (a11y).\"}),`\n`,(0,n.jsx)(e.h2,{children:\"Tamanho pequeno/zero\"}),`\n`,(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.code,{children:\"width: 1px; height: 1px\"}),\" e uma combina\\xE7\\xE3o do uso do clip do CSS para fazer com que o elemento ocupe (quase nenhum) espa\\xE7o na tela.\"]}),`\n`,(0,n.jsxs)(e.p,{children:[\"Usar a \",(0,n.jsx)(e.code,{children:\"largura: 0; altura; 0\"}),\" n\\xE3o \\xE9 recomendado porque os motores de busca podem penalizar isso, pensando que tem uma inten\\xE7\\xE3o maliciosa, como encher de palavras-chave (keyword stuffing).\"]}),`\n`,(0,n.jsx)(e.h2,{children:\"Posicionamento absoluto\"}),`\n`,(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.code,{children:\"position: absolute; left: -99999px\"}),\" posicionar\\xE1 um elemento fora da tela. No entanto, de acordo com \",(0,n.jsx)(e.a,{href:\"https://webaim.org/techniques/css/invisiblecontent/\",children:\"o artigo da WebAIM\"}),\":\"]}),`\n`,(0,n.jsxs)(e.blockquote,{children:[`\n`,(0,n.jsx)(e.p,{children:\"Elementos naveg\\xE1veis, como links e controles de formul\\xE1rio, n\\xE3o devem ser escondidos fora da tela. Eles ainda seriam naveg\\xE1veis por usu\\xE1rios de teclado com vis\\xE3o, mas n\\xE3o seriam vis\\xEDveis para eles, a menos que sejam estilizados para se tornarem vis\\xEDveis quando receberem foco do teclado.\"}),`\n`]}),`\n`,(0,n.jsx)(e.p,{children:\"Use isso apenas quando seus conte\\xFAdos contiverem apenas texto.\"}),`\n`,(0,n.jsx)(e.h2,{children:\"Indenta\\xE7\\xE3o de texto\"}),`\n`,(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.code,{children:\"text-indent: -9999px\"}),\". Isso s\\xF3 funciona em texto dentro dos elementos \",(0,n.jsx)(e.code,{children:\"block\"}),\". Semelhante \\xE0 t\\xE9cnica de posicionamento absoluto mencionada acima, os elementos focaliz\\xE1veis com esse estilo ainda poder\\xE3o ser focalizados, causando confus\\xE3o para os usu\\xE1rios com vis\\xE3o que usam a navega\\xE7\\xE3o por teclado.\"]}),`\n`,(0,n.jsx)(e.h2,{children:\"Formas incorretas\"}),`\n`,(0,n.jsx)(e.p,{children:\"As seguintes maneiras est\\xE3o incorretas porque escondem o conte\\xFAdo do usu\\xE1rio E dos leitores de tela, o que \\xE9 incorreto se o objetivo \\xE9 expor apenas aos leitores de tela.\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.code,{children:\"display: none\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.code,{children:\"visibility: hidden\"})}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.code,{children:\"hidden\"}),\" attribute\"]}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"T\\xE9cnicas no mundo real\"}),`\n`,(0,n.jsx)(e.p,{children:\"Idealmente, \\xE9 recomendado combinar as abordagens acima para garantir que funcione corretamente em todos os navegadores.\"}),`\n`,(0,n.jsx)(e.p,{children:\"Em vez de implementar sua pr\\xF3pria maneira de remover um elemento da \\xE1rvore de renderiza\\xE7\\xE3o e da \\xE1rvore de acessibilidade (a11y), recomenda-se usar uma das seguintes abordagens de frameworks CSS maduros, que foram testadas em muitos sites.\"}),`\n`,(0,n.jsx)(e.h3,{children:\"Tailwind CSS\"}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-css\",children:`.sr-only {\n  posi\\xE7\\xE3o: absolute;\n  width: 1px;\n  height: 1px;\n  padding: 0;\n  margin: -1px;\n  overflow: oculto;\n  clip: rect(0, 0, 0, 0);\n  white-space: nowrap;\n  border-width: 0;\n}\n`})}),`\n`,(0,n.jsx)(e.h3,{children:\"Bootstrap CSS\"}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-css\",children:`.visually-hidden,\n.visually-hidden-focusable:not(:focus):not(:focus-within) {\n  position: absolute !important;\n  width: 1px !important;\n  height: 1px !important;\n  padding: 0 !important;\n  margin: -1px !important;\n  overflow: hidden !important;\n  clip: rect(0, 0, 0, 0) !important;\n  white-space: nowrap !important;\n  border: 0 !important;\n}\n`})}),`\n`,(0,n.jsx)(e.h2,{children:\"Refer\\xEAncias\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://webaim.org/techniques/css/invisiblecontent/\",children:\"CSS em A\\xE7\\xE3o - Conte\\xFAdo invis\\xEDvel apenas para usu\\xE1rios do Leitor de tela\"})}),`\n`]})]})}function w(o={}){let{wrapper:e}=o.components||{};return e?(0,n.jsx)(e,Object.assign({},o,{children:(0,n.jsx)(l,o)})):l(o)}var S=w;return x(j);})();\n;return Component;"
+}

@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-import order from '../__data/sample-order.json' with { type: 'json' };
+import order from '../__data/sample-order.json' assert { type: 'json' };
 
 export async function OPTIONS() {
   return NextResponse.json({});

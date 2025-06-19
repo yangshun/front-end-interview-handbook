@@ -39,10 +39,7 @@ export default function ProjectsChallengeSubmissionDeploymentUrlsField({
 
   const attrs = getProjectsChallengeSubmissionDeploymentUrlsAttributes(intl);
   // TODO(projects): show error state for empty form and check validation.
-  const {
-    field,
-    formState: { dirtyFields, errors, submitCount },
-  } = useController({
+  const { field, formState } = useController({
     control,
     name: fieldName,
     rules: { required: true },
@@ -82,9 +79,10 @@ export default function ProjectsChallengeSubmissionDeploymentUrlsField({
                 <div className="grow">
                   <TextInput
                     errorMessage={
-                      dirtyFields.deploymentUrls?.[index]?.href ||
-                      submitCount > 0
-                        ? errors.deploymentUrls?.[index]?.href?.message
+                      formState.dirtyFields.deploymentUrls?.[index]?.href ||
+                      formState.submitCount > 0
+                        ? formState.errors.deploymentUrls?.[index]?.href
+                            ?.message
                         : undefined
                     }
                     label={
@@ -182,9 +180,9 @@ export default function ProjectsChallengeSubmissionDeploymentUrlsField({
           />
         </div>
       )}
-      {errors.deploymentUrls?.message && (
+      {formState.errors.deploymentUrls?.message && (
         <Text className="block" color="error" id={messageId} size="body3">
-          {errors.deploymentUrls?.message}
+          {formState.errors.deploymentUrls?.message}
         </Text>
       )}
       <ProjectsChallengeSubmissionDeploymentUrlItemFormDialog

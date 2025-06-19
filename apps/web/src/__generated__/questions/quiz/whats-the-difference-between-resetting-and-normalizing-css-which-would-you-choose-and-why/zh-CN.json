@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "hard",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/whats-the-difference-between-resetting-and-normalizing-css-which-would-you-choose-and-why",
+    "importance": "medium",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "whats-the-difference-between-resetting-and-normalizing-css-which-would-you-choose-and-why",
+    "subtitle": "你会选择哪一个，为什么？",
+    "title": "“重置”和“标准化”CSS有什么区别？",
+    "topics": [
+      "css"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/whats-the-difference-between-resetting-and-normalizing-css-which-would-you-choose-and-why/zh-CN.mdx"
+  },
+  "solution": "var Component=(()=>{var a=Object.create;var c=Object.defineProperty;var g=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var b=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var u=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var r in t)c(n,r,{get:t[r],enumerable:!0})},h=(n,t,r,i)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let d of m(t))!x.call(n,d)&&d!==r&&c(n,d,{get:()=>t[d],enumerable:!(i=g(t,d))||i.enumerable});return n};var p=(n,t,r)=>(r=n!=null?a(b(n)):{},h(t||!n||!n.__esModule?c(r,\"default\",{value:n,enumerable:!0}):r,n)),_=n=>h(c({},\"__esModule\",{value:!0}),n);var l=u((F,o)=>{o.exports=_jsx_runtime});var M={};j(M,{default:()=>C,frontmatter:()=>f});var e=p(l()),f={title:\"\\u201C\\u91CD\\u7F6E\\u201D\\u548C\\u201C\\u6807\\u51C6\\u5316\\u201DCSS\\u6709\\u4EC0\\u4E48\\u533A\\u522B\\uFF1F\",subtitle:\"\\u4F60\\u4F1A\\u9009\\u62E9\\u54EA\\u4E00\\u4E2A\\uFF0C\\u4E3A\\u4EC0\\u4E48\\uFF1F\"};function s(n){let t=Object.assign({table:\"table\",thead:\"thead\",tr:\"tr\",th:\"th\",tbody:\"tbody\",td:\"td\",strong:\"strong\",code:\"code\",h2:\"h2\",p:\"p\"},n.components);return(0,e.jsxs)(e.Fragment,{children:[(0,e.jsxs)(t.table,{children:[(0,e.jsx)(t.thead,{children:(0,e.jsxs)(t.tr,{children:[(0,e.jsx)(t.th,{children:\"\\u672F\\u8BED\"}),(0,e.jsx)(t.th,{children:\"\\u5B9A\\u4E49\"})]})}),(0,e.jsxs)(t.tbody,{children:[(0,e.jsxs)(t.tr,{children:[(0,e.jsx)(t.td,{children:(0,e.jsx)(t.strong,{children:\"\\u91CD\\u7F6E\"})}),(0,e.jsxs)(t.td,{children:[\"\\u91CD\\u7F6E\\u65E8\\u5728\\u53BB\\u9664\\u5143\\u7D20\\u4E0A\\u7684\\u6240\\u6709\\u9ED8\\u8BA4\\u6D4F\\u89C8\\u5668\\u6837\\u5F0F\\u3002\\u4F8B\\u5982\\uFF0C\\u6240\\u6709\\u5143\\u7D20\\u7684 \",(0,e.jsx)(t.code,{children:\"margin\"}),\"\\u3001\",(0,e.jsx)(t.code,{children:\"padding\"}),\"\\u3001\",(0,e.jsx)(t.code,{children:\"font-size\"}),\" \\u90FD\\u88AB\\u91CD\\u7F6E\\u4E3A\\u76F8\\u540C\\u3002\\u60A8\\u5C06\\u4E0D\\u5F97\\u4E0D\\u4E3A\\u5E38\\u89C1\\u7684\\u6392\\u7248\\u5143\\u7D20\\u91CD\\u65B0\\u58F0\\u660E\\u6837\\u5F0F\\u3002\"]})]}),(0,e.jsxs)(t.tr,{children:[(0,e.jsx)(t.td,{children:(0,e.jsx)(t.strong,{children:\"\\u6807\\u51C6\\u5316\"})}),(0,e.jsx)(t.td,{children:\"\\u6807\\u51C6\\u5316\\u4FDD\\u7559\\u6709\\u7528\\u7684\\u9ED8\\u8BA4\\u6837\\u5F0F\\uFF0C\\u800C\\u4E0D\\u662F\\u201C\\u53D6\\u6D88\\u6837\\u5F0F\\u201D\\u6240\\u6709\\u5185\\u5BB9\\u3002\\u5B83\\u8FD8\\u7EA0\\u6B63\\u4E86\\u5E38\\u89C1\\u6D4F\\u89C8\\u5668\\u4F9D\\u8D56\\u9879\\u7684\\u9519\\u8BEF\\u3002\"})]})]})]}),`\n`,(0,e.jsx)(t.h2,{children:\"\\u9009\\u62E9\\u54EA\\u4E2A\\u4EE5\\u53CA\\u4E3A\\u4EC0\\u4E48\\uFF1F\"}),`\n`,(0,e.jsx)(t.p,{children:\"\\u5F53\\u60A8\\u9700\\u8981\\u4E00\\u4E2A\\u975E\\u5E38\\u5B9A\\u5236\\u6216\\u975E\\u4F20\\u7EDF\\u7684\\u7F51\\u7AD9\\u8BBE\\u8BA1\\u65F6\\uFF0C\\u8BF7\\u9009\\u62E9\\u91CD\\u7F6E\\uFF0C\\u8FD9\\u6837\\u60A8\\u5C31\\u9700\\u8981\\u505A\\u5F88\\u591A\\u81EA\\u5DF1\\u7684\\u6837\\u5F0F\\uFF0C\\u5E76\\u4E14\\u4E0D\\u9700\\u8981\\u4FDD\\u7559\\u4EFB\\u4F55\\u9ED8\\u8BA4\\u6837\\u5F0F\\u3002\"})]})}function y(n={}){let{wrapper:t}=n.components||{};return t?(0,e.jsx)(t,Object.assign({},n,{children:(0,e.jsx)(s,n)})):s(n)}var C=y;return _(M);})();\n;return Component;"
+}

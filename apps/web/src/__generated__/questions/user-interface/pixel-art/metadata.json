@@ -5,6 +5,7 @@
   "created": 1723766400,
   "difficulty": "medium",
   "duration": 30,
+  "excerpt": "Build a pixel art drawing tool where users can paint pixels with selected colors",
   "featured": false,
   "format": "user-interface",
   "frameworkDefault": "react",
@@ -39,6 +40,7 @@
   "similarQuestions": [],
   "slug": "pixel-art",
   "subtitle": null,
+  "title": "Pixel Art",
   "topics": [
     "a11y"
   ]

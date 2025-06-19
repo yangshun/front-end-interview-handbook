@@ -21,9 +21,7 @@ export function createDirectoriesFromFilePaths(filePaths: Array<string>): {
     }
 
     const directoryName = pathSegments[0];
-    const basePath =
-      currentDirectory.fullPath === '/' ? '' : currentDirectory.fullPath;
-    const innerDirectoryFullPath = basePath + '/' + directoryName;
+    const innerDirectoryFullPath = currentDirectory.name + '/' + directoryName;
     const innerDirectory = (currentDirectory.contents[
       directoryName
     ] as FileExplorerDirectory) ?? {

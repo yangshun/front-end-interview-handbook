@@ -7,11 +7,11 @@ import { useCallback, useState } from 'react';
 import { RiCodeLine } from 'react-icons/ri';
 
 import type {
-  InterviewsQuestionItemJavaScript,
-  InterviewsQuestionItemMinimal,
   QuestionCodingWorkingLanguage,
+  QuestionJavaScript,
   QuestionJavaScriptSkeleton,
   QuestionJavaScriptWorkspace,
+  QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import useQuestionsAutoMarkAsComplete from '~/components/interviews/questions/common/useQuestionsAutoMarkAsComplete';
 import { useIntl } from '~/components/intl';
@@ -89,16 +89,16 @@ function JavaScriptCodingWorkspaceImpl({
   embed: boolean;
   language: QuestionCodingWorkingLanguage;
   loadedFilesFromLocalStorage: boolean;
-  nextQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+  nextQuestions: ReadonlyArray<QuestionMetadata>;
   onLanguageChange: (newLanguage: QuestionCodingWorkingLanguage) => void;
-  question: InterviewsQuestionItemJavaScript;
-  similarQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+  question: QuestionJavaScript;
+  similarQuestions: ReadonlyArray<QuestionMetadata>;
   skeleton: QuestionJavaScriptSkeleton;
   studyListKey?: string;
   workspace: QuestionJavaScriptWorkspace;
 }>) {
   const intl = useIntl();
-  const { description, info, metadata, solution } = question;
+  const { description, metadata, solution } = question;
   const { dispatch } = useJavaScriptCodingWorkspaceTilesContext();
 
   const { sandpack } = useSandpack();
@@ -140,7 +140,7 @@ function JavaScriptCodingWorkspaceImpl({
       [tabIdForSubmission]: {
         contents: (
           <JavaScriptCodingWorkspaceSubmissionTab
-            info={info}
+            metadata={metadata}
             submissionId={submissionId}
           />
         ),
@@ -233,7 +233,6 @@ function JavaScriptCodingWorkspaceImpl({
         <JavaScriptCodingWorkspaceDescription
           canViewPremiumContent={canViewPremiumContent}
           description={description}
-          info={info}
           metadata={metadata}
           nextQuestions={nextQuestions}
           showAd={!embed}
@@ -368,9 +367,7 @@ function JavaScriptCodingWorkspaceImpl({
 
   return (
     <CodingWorkspaceProvider
-      embed={embed}
       loadedFilesFromLocalStorage={loadedFilesFromLocalStorage}
-      metadata={metadata}
       value={{
         defaultFiles,
         deleteCodeFromLocalStorage,
@@ -395,7 +392,6 @@ function JavaScriptCodingWorkspaceImpl({
               <JavaScriptCodingWorkspaceDescription
                 canViewPremiumContent={canViewPremiumContent}
                 description={description}
-                info={info}
                 metadata={metadata}
                 nextQuestions={[]}
                 showAd={!embed}
@@ -422,6 +418,7 @@ function JavaScriptCodingWorkspaceImpl({
             <JavaScriptCodingWorkspaceBottomBar
               layout={embed ? 'minimal' : 'full'}
               metadata={metadata}
+              nextQuestions={nextQuestions}
               slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE="qns_slideout_mobile"
               studyListKey={studyListKey}
             />
@@ -456,7 +453,7 @@ function JavaScriptCodingWorkspaceImpl({
                 renderTab={(tabId) => (
                   <CodingWorkspaceErrorBoundary>
                     {tabContents[tabId] != null ? (
-                      <div className="flex size-full">
+                      <div className="size-full flex">
                         {tabContents[tabId]!.contents}
                       </div>
                     ) : (
@@ -478,6 +475,7 @@ function JavaScriptCodingWorkspaceImpl({
           <JavaScriptCodingWorkspaceBottomBar
             layout={embed ? 'minimal' : 'full'}
             metadata={metadata}
+            nextQuestions={nextQuestions}
             slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE="qns_slideout"
             studyListKey={studyListKey}
           />
@@ -506,10 +504,10 @@ export default function JavaScriptCodingWorkspace({
   embed: boolean;
   language: QuestionCodingWorkingLanguage;
   loadedFilesFromLocalStorage: boolean;
-  nextQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+  nextQuestions: ReadonlyArray<QuestionMetadata>;
   onLanguageChange: (newLanguage: QuestionCodingWorkingLanguage) => void;
-  question: InterviewsQuestionItemJavaScript;
-  similarQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+  question: QuestionJavaScript;
+  similarQuestions: ReadonlyArray<QuestionMetadata>;
   skeleton: QuestionJavaScriptSkeleton;
   studyListKey?: string;
   workspace: QuestionJavaScriptWorkspace;

@@ -4,11 +4,9 @@ import grayMatter from 'gray-matter';
 import path from 'path';
 
 import type {
-  InterviewsQuestionInfo,
-  InterviewsQuestionItemJavaScript,
-  InterviewsQuestionItemMinimal,
-  InterviewsQuestionMetadata,
   QuestionCodingWorkingLanguage,
+  QuestionJavaScript,
+  QuestionMetadata,
 } from '../../components/interviews/questions/common/QuestionsTypes';
 import { normalizeQuestionFrontMatter } from '../QuestionsUtils';
 import { readMDXFile } from './QuestionsBundler';
@@ -34,18 +32,8 @@ async function readQuestionAlgoSkeleton(
 
 async function readQuestionMetadataAlgo(
   slug: string,
-): Promise<InterviewsQuestionMetadata> {
-  const questionPath = getQuestionSrcPathAlgo(slug);
-  const metadataPath = path.join(questionPath, 'metadata.json');
-  const metadataJSON = JSON.parse(String(fs.readFileSync(metadataPath)));
-
-  return normalizeQuestionFrontMatter(metadataJSON, 'algo').metadata;
-}
-
-async function readQuestionInfoAlgo(
-  slug: string,
   locale = 'en-US',
-): Promise<InterviewsQuestionInfo> {
+): Promise<QuestionMetadata> {
   const questionPath = getQuestionSrcPathAlgo(slug);
 
   // Read frontmatter from MDX file.
@@ -53,42 +41,37 @@ async function readQuestionInfoAlgo(
   const source = fs.readFileSync(filePath).toString().trim();
   const { data: frontMatter } = grayMatter(source);
 
-  return normalizeQuestionFrontMatter(frontMatter, 'algo').info;
-}
+  // Read locale-agnostic metadata file.
+  const metadataPath = path.join(questionPath, 'metadata.json');
+  const metadataJSON = JSON.parse(String(fs.readFileSync(metadataPath)));
 
-async function readQuestionItemAlgo(
-  slug: string,
-  locale = 'en-US',
-): Promise<InterviewsQuestionItemMinimal> {
-  const [metadata, info] = await Promise.all([
-    readQuestionMetadataAlgo(slug),
-    readQuestionInfoAlgo(slug, locale),
-  ]);
+  // Combine them together.
+  const metadata = normalizeQuestionFrontMatter(
+    { ...frontMatter, ...metadataJSON },
+    'algo',
+  );
 
-  return {
-    info,
-    metadata,
-  };
+  return metadata;
 }
 
 async function readQuestionMetadataWithFallbackAlgo(
   slug: string,
   requestedLocale = 'en-US',
-): Promise<{ content: InterviewsQuestionItemMinimal; loadedLocale: string }> {
+): Promise<{ loadedLocale: string; metadata: QuestionMetadata }> {
   let loadedLocale = requestedLocale;
-  const content = await (async () => {
+  const metadata = await (async () => {
     try {
-      return await readQuestionItemAlgo(slug, requestedLocale);
+      return await readQuestionMetadataAlgo(slug, requestedLocale);
     } catch {
       loadedLocale = 'en-US';
 
-      return await readQuestionItemAlgo(slug, loadedLocale);
+      return await readQuestionMetadataAlgo(slug, loadedLocale);
     }
   })();
 
   return {
-    content,
     loadedLocale,
+    metadata,
   };
 }
 
@@ -186,54 +169,45 @@ async function readQuestionAlgoWorkspaceConfig(slug: string): Promise<
   };
 }
 
-export async function readQuestionAlgoLocaleAgnostic(
+export async function readQuestionAlgo(
   slug: string,
-): Promise<
-  Omit<InterviewsQuestionItemJavaScript, 'description' | 'info' | 'solution'>
-> {
-  const [metadata, skeletonJS, skeletonTS, files, workspace] =
-    await Promise.all([
-      readQuestionMetadataAlgo(slug),
-      readQuestionAlgoSkeleton(slug, 'js'),
-      readQuestionAlgoSkeleton(slug, 'ts'),
-      readQuestionAlgoFiles(slug),
-      readQuestionAlgoWorkspaceConfig(slug),
-    ]);
+  locale = 'en-US',
+): Promise<QuestionJavaScript> {
+  const questionPath = getQuestionSrcPathAlgo(slug);
+  const [
+    metadata,
+    description,
+    solution,
+    skeletonJS,
+    skeletonTS,
+    files,
+    workspace,
+  ] = await Promise.all([
+    readQuestionMetadataAlgo(slug, locale),
+    readMDXFile(path.join(questionPath, 'description', `${locale}.mdx`), {}),
+    readMDXFile(path.join(questionPath, 'solution', `${locale}.mdx`), {}),
+    readQuestionAlgoSkeleton(slug, 'js'),
+    readQuestionAlgoSkeleton(slug, 'ts'),
+    readQuestionAlgoFiles(slug),
+    readQuestionAlgoWorkspaceConfig(slug),
+  ]);
 
   return {
+    description,
     files,
     metadata,
     skeleton: {
       js: skeletonJS,
       ts: skeletonTS,
     },
-    workspace,
-  };
-}
-
-export async function readQuestionAlgo(
-  slug: string,
-  locale = 'en-US',
-): Promise<
-  Pick<InterviewsQuestionItemJavaScript, 'description' | 'info' | 'solution'>
-> {
-  const questionPath = getQuestionSrcPathAlgo(slug);
-  const [info, description, solution] = await Promise.all([
-    readQuestionInfoAlgo(slug, locale),
-    readMDXFile(path.join(questionPath, 'description', `${locale}.mdx`), {}),
-    readMDXFile(path.join(questionPath, 'solution', `${locale}.mdx`), {}),
-  ]);
-
-  return {
-    description,
-    info,
     solution,
+    workspace,
   };
 }
 
 export async function readQuestionListMetadataAlgo(
   locale = 'en-US',
-): Promise<ReadonlyArray<InterviewsQuestionItemMinimal>> {
+): Promise<ReadonlyArray<QuestionMetadata>> {
   const directories = fs
     .readdirSync(QUESTIONS_SRC_DIR_ALGO, {
       withFileTypes: true,
@@ -244,14 +218,14 @@ export async function readQuestionListMetadataAlgo(
     directories.map(async (dirent) => {
       const slug = dirent.name;
 
-      const { content } = await readQuestionMetadataWithFallbackAlgo(
+      const { metadata } = await readQuestionMetadataWithFallbackAlgo(
         slug,
         locale,
       );
 
-      return content;
+      return metadata;
     }),
   );
 
-  return questions.filter(({ metadata }) => metadata.published);
+  return questions.filter(({ published }) => published);
 }

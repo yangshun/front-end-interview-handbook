@@ -50,7 +50,6 @@ export default function InterviewsMarketingGeneralFAQSection() {
                 <Anchor
                   className="whitespace-nowrap"
                   href="/interviews/faq"
-                  target="_blank"
                   weight="medium">
                   {chunks}
                 </Anchor>

@@ -1,5 +1,4 @@
-import { Octokit } from '@octokit/core';
-import { restEndpointMethods } from '@octokit/plugin-rest-endpoint-methods';
+import { Octokit } from 'octokit';
 import Stripe from 'stripe';
 import type { ZodError } from 'zod';
 import { z } from 'zod';
@@ -133,8 +132,7 @@ export const promotionsRouter = router({
       }),
     )
     .mutation(async ({ ctx: { viewer }, input: { action, username } }) => {
-      const MyOctokit = Octokit.plugin(restEndpointMethods);
-      const octokit = new MyOctokit({
+      const octokit = new Octokit({
         auth: process.env.GITHUB_TOKEN,
       });
       const repoId = GitHubStarActionToRepoId[action];
@@ -397,7 +395,6 @@ export const promotionsRouter = router({
 
       const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
         apiVersion: '2023-10-16',
-        maxNetworkRetries: 2,
       });
 
       let stripeCustomer = profile?.stripeCustomer;
@@ -415,10 +412,9 @@ export const promotionsRouter = router({
         }
 
         const newCustomer = await stripe.customers.create(
-          // Keep parameters across customer creation synced
-          // because they use the same idempotency key
           {
             email: user.email,
+            name: user.user_metadata.name,
           },
           {
             idempotencyKey: user.id,
@@ -499,7 +495,7 @@ export const promotionsRouter = router({
         },
       });
 
-      if (!profile?.stripeCustomer) {
+      if (profile == null || !profile?.stripeCustomer) {
         return null;
       }
 
@@ -548,49 +544,6 @@ export const promotionsRouter = router({
       return promotionCode;
     },
   ),
-  getPromoCode: userProcedure
-    .input(
-      z.object({
-        code: z.string().trim(),
-      }),
-    )
-    .mutation(async ({ ctx: { viewer }, input: { code } }) => {
-      const userId = viewer.id;
-      const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
-        apiVersion: '2023-10-16',
-      });
-      const [promoCodeList, profile] = await Promise.all([
-        stripe.promotionCodes.list({
-          active: true,
-          code,
-          limit: 1,
-        }),
-        prisma.profile.findFirst({
-          select: {
-            stripeCustomer: true,
-          },
-          where: {
-            id: userId,
-          },
-        }),
-      ]);
-
-      if (promoCodeList.data.length === 0) {
-        return null;
-      }
-
-      const promoCode = promoCodeList.data[0];
-
-      // If promo code is not for the user, return null
-      if (
-        promoCode.customer &&
-        promoCode.customer !== profile?.stripeCustomer
-      ) {
-        return null;
-      }
-
-      return promoCode;
-    }),
   getSocialTasksPromoCode: userProcedure.query(async ({ ctx: { viewer } }) => {
     const userId = viewer.id;
     const profile = await prisma.profile.findFirst({
@@ -599,7 +552,7 @@ export const promotionsRouter = router({
       },
     });
 
-    if (profile?.stripeCustomer == null) {
+    if (profile == null || profile?.stripeCustomer == null) {
       throw 'No profile or Stripe customer found';
     }
 
@@ -648,7 +601,7 @@ export const promotionsRouter = router({
         },
       });
 
-      if (profile?.stripeCustomer == null) {
+      if (profile == null || profile?.stripeCustomer == null) {
         throw 'No profile or Stripe customer found';
       }
 

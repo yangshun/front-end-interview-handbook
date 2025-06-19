@@ -8,6 +8,7 @@
   "created": 1671062400,
   "difficulty": "medium",
   "duration": 20,
+  "excerpt": "Build a fully accessible tabs component that has keyboard support according to ARIA specifications",
   "featured": false,
   "format": "user-interface",
   "frameworkDefault": "react",
@@ -37,6 +38,7 @@
   "similarQuestions": [],
   "slug": "tabs-iii",
   "subtitle": null,
+  "title": "Tabs III",
   "topics": [
     "a11y"
   ]

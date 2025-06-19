@@ -11,7 +11,6 @@ import {
 } from '~/components/interviews/questions/listings/stats/QuestionCount';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import { SponsorAdFormatConfigs } from '~/components/sponsors/SponsorsAdFormatConfigs';
-import Img from '~/components/ui/Img';
 import Text from '~/components/ui/Text';
 import { themeTextSuccessColor } from '~/components/ui/theme';
 
@@ -321,7 +320,7 @@ function Asset() {
   return (
     <>
       {/* Light mode image */}
-      <Img
+      <img
         alt={intl.formatMessage({
           defaultMessage: 'In content ad placement preview',
           description: 'Alt text for ads in content placement preview',
@@ -331,7 +330,7 @@ function Asset() {
         src="/img/sponsors/in-content-ad-placement-light.png"
       />
       {/* Dark mode image */}
-      <Img
+      <img
         alt={intl.formatMessage({
           defaultMessage: 'In content ad placement preview',
           description: 'Alt text for ads in content placement preview',

@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "easy",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/explain-the-concept-of-hoisting-with-regards-to-functions",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 999,
+    "similarQuestions": [],
+    "slug": "explain-the-concept-of-hoisting-with-regards-to-functions",
+    "subtitle": null,
+    "title": "解释关于函数的提升概念",
+    "topics": [
+      "javascript"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-hoisting-with-regards-to-functions/zh-CN.mdx"
+  },
+  "solution": "var Component=(()=>{var d=Object.create;var t=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var F=(o,n)=>()=>(n||o((n={exports:{}}).exports,n),n.exports),m=(o,n)=>{for(var i in n)t(o,i,{get:n[i],enumerable:!0})},s=(o,n,i,c)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let r of p(n))!g.call(o,r)&&r!==i&&t(o,r,{get:()=>n[r],enumerable:!(c=u(n,r))||c.enumerable});return o};var v=(o,n,i)=>(i=o!=null?d(f(o)):{},s(n||!o||!o.__esModule?t(i,\"default\",{value:o,enumerable:!0}):i,o)),j=o=>s(t({},\"__esModule\",{value:!0}),o);var h=F((H,l)=>{l.exports=_jsx_runtime});var S={};m(S,{default:()=>D,frontmatter:()=>x});var e=v(h()),x={title:\"\\u89E3\\u91CA\\u5173\\u4E8E\\u51FD\\u6570\\u7684\\u63D0\\u5347\\u6982\\u5FF5\"};function a(o){let n=Object.assign({h2:\"h2\",p:\"p\",pre:\"pre\",code:\"code\",hr:\"hr\",h3:\"h3\",ul:\"ul\",li:\"li\",a:\"a\"},o.components);return(0,e.jsxs)(e.Fragment,{children:[(0,e.jsx)(n.h2,{children:\"TL;DR\"}),`\n`,(0,e.jsx)(n.p,{children:\"JavaScript \\u4E2D\\u7684\\u63D0\\u5347\\u662F\\u4E00\\u79CD\\u884C\\u4E3A\\uFF0C\\u5728\\u7F16\\u8BD1\\u9636\\u6BB5\\uFF0C\\u51FD\\u6570\\u58F0\\u660E\\u4F1A\\u88AB\\u79FB\\u52A8\\u5230\\u5176\\u5305\\u542B\\u4F5C\\u7528\\u57DF\\u7684\\u9876\\u90E8\\u3002\\u8FD9\\u610F\\u5473\\u7740\\u4F60\\u53EF\\u4EE5\\u5728\\u4EE3\\u7801\\u4E2D\\u5B9A\\u4E49\\u51FD\\u6570\\u4E4B\\u524D\\u8C03\\u7528\\u5B83\\u3002\\u4F46\\u662F\\uFF0C\\u8FD9\\u4E0D\\u9002\\u7528\\u4E8E\\u51FD\\u6570\\u8868\\u8FBE\\u5F0F\\u6216\\u7BAD\\u5934\\u51FD\\u6570\\uFF0C\\u5B83\\u4EEC\\u4E0D\\u4F1A\\u4EE5\\u76F8\\u540C\\u7684\\u65B9\\u5F0F\\u88AB\\u63D0\\u5347\\u3002\"}),`\n`,(0,e.jsx)(n.pre,{live:!0,children:(0,e.jsx)(n.code,{className:\"language-js\",children:`// Function declaration\nhoistedFunction(); // Works fine\nfunction hoistedFunction() {\n  console.log('This function is hoisted');\n}\n\n// Function expression\nnonHoistedFunction(); // Throws an error\nvar nonHoistedFunction = function () {\n  console.log('This function is not hoisted');\n};\n`})}),`\n`,(0,e.jsx)(n.hr,{}),`\n`,(0,e.jsx)(n.h2,{children:\"\\u4EC0\\u4E48\\u662F\\u63D0\\u5347\\uFF1F\"}),`\n`,(0,e.jsx)(n.p,{children:\"\\u63D0\\u5347\\u662F\\u4E00\\u79CD JavaScript \\u673A\\u5236\\uFF0C\\u5728\\u7F16\\u8BD1\\u9636\\u6BB5\\uFF0C\\u53D8\\u91CF\\u548C\\u51FD\\u6570\\u58F0\\u660E\\u4F1A\\u88AB\\u79FB\\u52A8\\u5230\\u5176\\u5305\\u542B\\u4F5C\\u7528\\u57DF\\u7684\\u9876\\u90E8\\u3002\\u8FD9\\u5141\\u8BB8\\u5728\\u4EE3\\u7801\\u4E2D\\u5B9A\\u4E49\\u51FD\\u6570\\u4E4B\\u524D\\u8C03\\u7528\\u5B83\\u4EEC\\u3002\"}),`\n`,(0,e.jsx)(n.h3,{children:\"\\u51FD\\u6570\\u58F0\\u660E\"}),`\n`,(0,e.jsx)(n.p,{children:\"\\u51FD\\u6570\\u58F0\\u660E\\u4F1A\\u88AB\\u5B8C\\u5168\\u63D0\\u5347\\u3002\\u8FD9\\u610F\\u5473\\u7740\\u4F60\\u53EF\\u4EE5\\u5728\\u4EE3\\u7801\\u4E2D\\u58F0\\u660E\\u51FD\\u6570\\u4E4B\\u524D\\u8C03\\u7528\\u5B83\\u3002\"}),`\n`,(0,e.jsx)(n.pre,{live:!0,children:(0,e.jsx)(n.code,{className:\"language-js\",children:`hoistedFunction(); // Works fine\n\nfunction hoistedFunction() {\n  console.log('This function is hoisted');\n}\n`})}),`\n`,(0,e.jsx)(n.h3,{children:\"\\u51FD\\u6570\\u8868\\u8FBE\\u5F0F\"}),`\n`,(0,e.jsx)(n.p,{children:\"\\u51FD\\u6570\\u8868\\u8FBE\\u5F0F\\uFF08\\u5305\\u62EC\\u7BAD\\u5934\\u51FD\\u6570\\uFF09\\u4E0D\\u4F1A\\u4EE5\\u76F8\\u540C\\u7684\\u65B9\\u5F0F\\u88AB\\u63D0\\u5347\\u3002\\u5B83\\u4EEC\\u88AB\\u89C6\\u4E3A\\u53D8\\u91CF\\u8D4B\\u503C\\uFF0C\\u5E76\\u4E14\\u4EC5\\u88AB\\u63D0\\u5347\\u4E3A undefined\\u3002\"}),`\n`,(0,e.jsx)(n.pre,{live:!0,children:(0,e.jsx)(n.code,{className:\"language-js\",children:`nonHoistedFunction(); // Throws an error: TypeError: nonHoistedFunction is not a function\n\nvar nonHoistedFunction = function () {\n  console.log('This function is not hoisted');\n};\n`})}),`\n`,(0,e.jsx)(n.h3,{children:\"\\u7BAD\\u5934\\u51FD\\u6570\"}),`\n`,(0,e.jsx)(n.p,{children:\"\\u5C31\\u63D0\\u5347\\u800C\\u8A00\\uFF0C\\u7BAD\\u5934\\u51FD\\u6570\\u7684\\u884C\\u4E3A\\u7C7B\\u4F3C\\u4E8E\\u51FD\\u6570\\u8868\\u8FBE\\u5F0F\\u3002\"}),`\n`,(0,e.jsx)(n.pre,{live:!0,children:(0,e.jsx)(n.code,{className:\"language-js\",children:`arrowFunction(); // Throws an error: TypeError: arrowFunction is not a function\n\nvar arrowFunction = () => {\n  console.log('This arrow function is not hoisted');\n};\n`})}),`\n`,(0,e.jsx)(n.h2,{children:\"\\u5EF6\\u4F38\\u9605\\u8BFB\"}),`\n`,(0,e.jsxs)(n.ul,{children:[`\n`,(0,e.jsx)(n.li,{children:(0,e.jsx)(n.a,{href:\"https://developer.mozilla.org/en-US/docs/Glossary/Hoisting\",children:\"MDN Web Docs on Hoisting\"})}),`\n`,(0,e.jsx)(n.li,{children:(0,e.jsx)(n.a,{href:\"https://javascript.info/hoisting\",children:\"JavaScript.info on Hoisting\"})}),`\n`,(0,e.jsx)(n.li,{children:(0,e.jsx)(n.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function\",children:\"MDN Web Docs on Function Declarations\"})}),`\n`,(0,e.jsx)(n.li,{children:(0,e.jsx)(n.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function\",children:\"MDN Web Docs on Function Expressions\"})}),`\n`]})]})}function T(o={}){let{wrapper:n}=o.components||{};return n?(0,e.jsx)(n,Object.assign({},o,{children:(0,e.jsx)(a,o)})):a(o)}var D=T;return j(S);})();\n;return Component;"
+}

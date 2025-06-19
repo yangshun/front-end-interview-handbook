@@ -3,7 +3,7 @@ import { RiArrowRightLine } from 'react-icons/ri';
 
 import InterviewsPageFeatures from '~/components/interviews/common/InterviewsPageFeatures';
 import useInterviewsQuestionsFeatures from '~/components/interviews/common/useInterviewsQuestionsFeatures';
-import type { InterviewsQuestionItemMinimal } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import { QuestionCountTotal } from '~/components/interviews/questions/listings/stats/QuestionCount';
 import { FormattedMessage } from '~/components/intl';
 import { useIntl } from '~/components/intl';
@@ -18,9 +18,9 @@ import InterviewsDashboardPracticeQuestionsPreviewQuestionsList from './Intervie
 
 type Props = Readonly<{
   questions: {
-    codingQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
-    quizQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
-    systemDesignQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+    codingQuestions: ReadonlyArray<QuestionMetadata>;
+    quizQuestions: ReadonlyArray<QuestionMetadata>;
+    systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
   };
 }>;
 

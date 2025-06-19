@@ -5,11 +5,14 @@ import { useUser } from '@supabase/auth-helpers-react';
 import { trpc } from '~/hooks/trpc';
 
 import { useToast } from '~/components/global/toasts/useToast';
-import type { InterviewsQuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import type {
+  QuestionFormat,
+  QuestionMetadata,
+} from '~/components/interviews/questions/common/QuestionsTypes';
 import { useIntl } from '~/components/intl';
 
 export function useQueryQuestionProgress(
-  metadata: Pick<InterviewsQuestionMetadata, 'format' | 'slug'>,
+  metadata: Pick<QuestionMetadata, 'format' | 'slug'>,
   studyListKey: string | null,
 ) {
   const user = useUser();
@@ -35,6 +38,8 @@ export function useMutationQuestionProgressAdd() {
 
   return trpc.questionProgress.add.useMutation({
     onSuccess: (data) => {
+      // TODO(interviews): find out why setData is not working
+      // trpcUtils.questionProgress.get.setData({ question: variables }, data);
       trpcUtils.questionProgress.invalidate();
       trpcUtils.questionSessions.invalidate();
 
@@ -89,4 +94,20 @@ export function useMutationQuestionProgressDeleteAll() {
       trpcUtils.questionSessions.invalidate();
     },
   });
+}
+
+export function getQuestionMetadata(
+  questions: ReadonlyArray<QuestionMetadata>,
+  format: QuestionFormat,
+  slug: string,
+): QuestionMetadata | null {
+  // TODO(interviews): This is a really inefficient O(n) lookup and doesn't scale when
+  // the number of questions increase.
+  // Combine on server when we hit scaling limits.
+  const question = questions.find(
+    (questionItem) =>
+      questionItem.format === format && questionItem.slug === slug,
+  );
+
+  return question ?? null;
 }

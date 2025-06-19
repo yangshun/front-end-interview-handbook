@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/what-are-the-various-clearing-techniques-and-which-is-appropriate-for-what-context",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "what-are-the-various-clearing-techniques-and-which-is-appropriate-for-what-context",
+    "subtitle": null,
+    "title": "What are the various clearing techniques and which is appropriate for what context?",
+    "topics": [
+      "css"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/what-are-the-various-clearing-techniques-and-which-is-appropriate-for-what-context/en-US.mdx"
+  },
+  "solution": "var Component=(()=>{var s=Object.create;var l=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,u=Object.prototype.hasOwnProperty;var x=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),v=(n,e)=>{for(var i in e)l(n,i,{get:e[i],enumerable:!0})},c=(n,e,i,o)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of m(e))!u.call(n,r)&&r!==i&&l(n,r,{get:()=>e[r],enumerable:!(o=f(e,r))||o.enumerable});return n};var g=(n,e,i)=>(i=n!=null?s(p(n)):{},c(e||!n||!n.__esModule?l(i,\"default\",{value:n,enumerable:!0}):i,n)),w=n=>c(l({},\"__esModule\",{value:!0}),n);var d=x((M,a)=>{a.exports=_jsx_runtime});var y={};v(y,{default:()=>_,frontmatter:()=>j});var t=g(d()),j={title:\"What are the various clearing techniques and which is appropriate for what context?\"};function h(n){let e=Object.assign({ul:\"ul\",li:\"li\",code:\"code\",p:\"p\"},n.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsxs)(e.li,{children:[\"Empty \",(0,t.jsx)(e.code,{children:\"div\"}),\" method: \",(0,t.jsx)(e.code,{children:'<div style=\"clear:both;\"></div>'}),\".\"]}),`\n`,(0,t.jsxs)(e.li,{children:[\"Clearfix method: Refer to the \",(0,t.jsx)(e.code,{children:\".clearfix\"}),\" class above.\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.code,{children:\"overflow: auto\"}),\" or \",(0,t.jsx)(e.code,{children:\"overflow: hidden\"}),\" method: Parent will establish a new block formatting context and expand to contains its floated children.\"]}),`\n`]}),`\n`,(0,t.jsxs)(e.p,{children:[\"In large projects, having a utility \",(0,t.jsx)(e.code,{children:\".clearfix\"}),\" class will be very helpful. \",(0,t.jsx)(e.code,{children:\"overflow: hidden\"}),\" might clip children if the children is taller than the parent and is not very ideal.\"]})]})}function b(n={}){let{wrapper:e}=n.components||{};return e?(0,t.jsx)(e,Object.assign({},n,{children:(0,t.jsx)(h,n)})):h(n)}var _=b;return w(y);})();\n;return Component;"
+}

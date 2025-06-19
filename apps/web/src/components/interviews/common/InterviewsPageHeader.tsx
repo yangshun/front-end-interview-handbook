@@ -4,7 +4,6 @@ import type { ReactNode } from 'react';
 import InterviewsPageHeaderLogo from '~/components/interviews/common/InterviewsPageHeaderLogo';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
-import Img from '~/components/ui/Img';
 import Text from '~/components/ui/Text';
 
 import InterviewsPageFeatures from './InterviewsPageFeatures';
@@ -15,7 +14,6 @@ type Props = Readonly<{
   children?: ReactNode;
   className?: string;
   description: ReactNode;
-  descriptionWidthFull?: boolean;
   features: ReadonlyArray<{
     icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
     label: string;
@@ -38,7 +36,6 @@ export default function InterviewsPageHeader({
   children,
   className,
   description,
-  descriptionWidthFull,
   features,
   headingAddOnElement,
   logoImgSrc,
@@ -54,10 +51,10 @@ export default function InterviewsPageHeader({
       <div
         className={clsx(
           'inline-flex shrink-0 items-center justify-center',
-          'size-12 rounded-lg shadow-md sm:size-14 xl:size-16',
+          'size-12 sm:size-14 xl:size-16 rounded-lg shadow-md',
           'bg-white',
         )}>
-        <Img
+        <img
           alt={title}
           className="size-7 sm:size-9"
           decoding="async"
@@ -97,10 +94,7 @@ export default function InterviewsPageHeader({
               </div>
             </div>
             <Text
-              className={clsx(
-                'block text-sm xl:text-base',
-                !descriptionWidthFull && 'max-w-2xl',
-              )}
+              className={clsx('block max-w-2xl text-sm xl:text-base')}
               color="subtitle"
               size="inherit"
               weight="medium">

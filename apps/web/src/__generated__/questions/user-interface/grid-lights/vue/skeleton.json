@@ -1,0 +1,28 @@
+{
+  "author": "willnguyen1312",
+  "files": {
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/grid-lights-vue-skeleton\",\n  \"author\": \"willnguyen1312\",\n  \"version\": \"0.0.1\",\n  \"main\": \"/src/main.js\",\n  \"scripts\": {\n    \"serve\": \"vue-cli-service serve\",\n    \"build\": \"vue-cli-service build\"\n  },\n  \"dependencies\": {\n    \"core-js\": \"3.32.2\",\n    \"vue\": \"3.3.4\"\n  },\n  \"devDependencies\": {\n    \"@vue/cli-plugin-babel\": \"5.0.8\",\n    \"@vue/cli-service\": \"5.0.8\"\n  }\n}\n"
+    },
+    "/public/index.html": {
+      "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width,initial-scale=1.0\" />\n    <title>Vue</title>\n  </head>\n  <body>\n    <div id=\"app\"></div>\n    <!-- Built files will be auto injected -->\n  </body>\n</html>\n"
+    },
+    "/src/App.vue": {
+      "code": "<script setup>\nimport { ref } from 'vue';\nconst msg = ref('world');\n</script>\n\n<template>\n  <h1>Hello {{ msg }}</h1>\n</template>\n"
+    },
+    "/src/main.js": {
+      "code": "import { createApp } from 'vue';\nimport App from './App.vue';\n\nimport './styles.css';\n\ncreateApp(App).mount('#app');\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/src/App.vue"
+    ],
+    "activeFile": "/src/App.vue",
+    "environment": "vue-cli"
+  },
+  "writeup": "var Component=(()=>{var p=Object.create;var a=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var v=Object.getPrototypeOf,w=Object.prototype.hasOwnProperty;var j=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),y=(e,t)=>{for(var i in t)a(e,i,{get:t[i],enumerable:!0})},l=(e,t,i,o)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let r of f(t))!w.call(e,r)&&r!==i&&a(e,r,{get:()=>t[r],enumerable:!(o=x(t,r))||o.enumerable});return e};var h=(e,t,i)=>(i=e!=null?p(v(e)):{},l(t||!e||!e.__esModule?a(i,\"default\",{value:e,enumerable:!0}):i,e)),b=e=>l(a({},\"__esModule\",{value:!0}),e);var c=j((X,m)=>{m.exports=_jsx_runtime});var C={};y(C,{default:()=>M});var s=h(c());var n=h(c());function d(e){let t=Object.assign({p:\"p\",img:\"img\"},e.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(t.p,{children:\"Build a 3x3 grid of light cells (omitting the center cell) where you can click on the cells to activate them, turning them green. When all the cells have been activated, they will be deactivated one by one in the reverse order they were activated with a 300ms interval in between.\"}),`\n`,(0,n.jsx)(t.p,{children:(0,n.jsx)(t.img,{src:\"/img/questions/grid-lights/grid-lights-example.png\",alt:\"Grid Lights Example\"})})]})}function _(e={}){let{wrapper:t}=e.components||{};return t?(0,n.jsx)(t,Object.assign({},e,{children:(0,n.jsx)(d,e)})):d(e)}var g=_;function u(e){return(0,s.jsx)(g,{})}function D(e={}){let{wrapper:t}=e.components||{};return t?(0,s.jsx)(t,Object.assign({},e,{children:(0,s.jsx)(u,e)})):u(e)}var M=D;return b(C);})();\n;return Component;"
+}

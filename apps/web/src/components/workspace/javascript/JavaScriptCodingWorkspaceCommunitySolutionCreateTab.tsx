@@ -7,8 +7,8 @@ import { trpc } from '~/hooks/trpc';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import type {
-  InterviewsQuestionMetadata,
   QuestionCodingWorkingLanguage,
+  QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
@@ -17,12 +17,11 @@ import Text from '~/components/ui/Text';
 import TextArea from '~/components/ui/TextArea';
 import TextInput from '~/components/ui/TextInput';
 
-import { useVimMode } from '../common/editor/hooks/useVimMode';
 import MonacoCodeEditor from '../common/editor/MonacoCodeEditor';
 import JavaScriptCodingWorkspaceWorkingLanguageSelect from './JavaScriptCodingWorkspaceWorkingLanguageSelect';
 
 type Props = Readonly<{
-  metadata: InterviewsQuestionMetadata;
+  metadata: QuestionMetadata;
 }>;
 
 type CommunitySolutionDraft = Readonly<{
@@ -38,8 +37,6 @@ function JavaScriptCodingWorkspaceCommunitySolutionCreateTabImpl({
   const intl = useIntl();
   const trpcUtils = trpc.useUtils();
 
-  const { isVimModeEnabled } = useVimMode();
-
   const { isLoading, mutateAsync: addSolution } =
     trpc.questionCommunitySolution.javaScriptAdd.useMutation({
       onSuccess: () => {
@@ -48,11 +45,7 @@ function JavaScriptCodingWorkspaceCommunitySolutionCreateTabImpl({
       },
     });
 
-  const {
-    control,
-    formState: { dirtyFields, errors, isDirty, submitCount },
-    handleSubmit,
-  } = useForm<CommunitySolutionDraft>({
+  const { control, formState, handleSubmit } = useForm<CommunitySolutionDraft>({
     defaultValues: {
       code: '',
       language: 'ts',
@@ -77,7 +70,7 @@ function JavaScriptCodingWorkspaceCommunitySolutionCreateTabImpl({
       <div className="flex flex-row-reverse gap-2">
         <Button
           className="mt-0.5 shrink-0"
-          isDisabled={!isDirty || isLoading}
+          isDisabled={!formState.isDirty || isLoading}
           label={intl.formatMessage({
             defaultMessage: 'Post',
             description: 'Coding workspace post solution button label',
@@ -93,8 +86,8 @@ function JavaScriptCodingWorkspaceCommunitySolutionCreateTabImpl({
             <div className="flex-1">
               <TextInput
                 errorMessage={
-                  dirtyFields.title || submitCount > 0
-                    ? errors.title?.message
+                  formState.dirtyFields.title || formState.submitCount > 0
+                    ? formState.errors.title?.message
                     : undefined
                 }
                 isLabelHidden={true}
@@ -127,8 +120,8 @@ function JavaScriptCodingWorkspaceCommunitySolutionCreateTabImpl({
         render={({ field }) => (
           <TextArea
             errorMessage={
-              dirtyFields.writeup || submitCount > 0
-                ? errors.writeup?.message
+              formState.dirtyFields.writeup || formState.submitCount > 0
+                ? formState.errors.writeup?.message
                 : undefined
             }
             isLabelHidden={true}
@@ -165,14 +158,10 @@ function JavaScriptCodingWorkspaceCommunitySolutionCreateTabImpl({
         name="code"
         render={({ field: { ref: _, ...field } }) => (
           <div className="flex flex-1 flex-col">
-            <MonacoCodeEditor
-              filePath="community-solution.ts"
-              isVimModeEnabled={isVimModeEnabled}
-              {...field}
-            />
-            {isDirty && errors.code?.message && (
+            <MonacoCodeEditor filePath="community-solution.ts" {...field} />
+            {formState.isDirty && formState.errors.code?.message && (
               <Text color="error" size="body2" weight="medium">
-                {errors.code?.message}
+                {formState.errors.code?.message}
               </Text>
             )}
           </div>

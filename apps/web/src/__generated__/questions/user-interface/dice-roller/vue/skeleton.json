@@ -1,0 +1,28 @@
+{
+  "author": "willnguyen1312",
+  "files": {
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/dice-roller-vue-skeleton\",\n  \"author\": \"willnguyen1312\",\n  \"version\": \"0.0.1\",\n  \"main\": \"/src/main.js\",\n  \"scripts\": {\n    \"serve\": \"vue-cli-service serve\",\n    \"build\": \"vue-cli-service build\"\n  },\n  \"dependencies\": {\n    \"core-js\": \"3.32.2\",\n    \"vue\": \"3.3.4\"\n  },\n  \"devDependencies\": {\n    \"@vue/cli-plugin-babel\": \"5.0.8\",\n    \"@vue/cli-service\": \"5.0.8\"\n  }\n}\n"
+    },
+    "/public/index.html": {
+      "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width,initial-scale=1.0\" />\n    <title>Vue</title>\n  </head>\n  <body>\n    <div id=\"app\"></div>\n    <!-- Built files will be auto injected -->\n  </body>\n</html>\n"
+    },
+    "/src/App.vue": {
+      "code": "<script setup>\nimport { ref } from 'vue';\nconst msg = ref('world');\n</script>\n\n<template>\n  <h1>Hello {{ msg }}</h1>\n</template>\n"
+    },
+    "/src/main.js": {
+      "code": "import { createApp } from 'vue';\nimport App from './App.vue';\n\nimport './styles.css';\n\ncreateApp(App).mount('#app');\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/src/App.vue"
+    ],
+    "activeFile": "/src/App.vue",
+    "environment": "vue-cli"
+  },
+  "writeup": "var Component=(()=>{var f=Object.create;var r=Object.defineProperty;var g=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var b=Object.getPrototypeOf,j=Object.prototype.hasOwnProperty;var w=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),D=(n,e)=>{for(var i in e)r(n,i,{get:e[i],enumerable:!0})},a=(n,e,i,c)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let l of x(e))!j.call(n,l)&&l!==i&&r(n,l,{get:()=>e[l],enumerable:!(c=g(e,l))||c.enumerable});return n};var d=(n,e,i)=>(i=n!=null?f(b(n)):{},a(e||!n||!n.__esModule?r(i,\"default\",{value:n,enumerable:!0}):i,n)),_=n=>a(r({},\"__esModule\",{value:!0}),n);var o=w((R,u)=>{u.exports=_jsx_runtime});var q={};D(q,{default:()=>M});var s=d(o());var t=d(o());function h(n){let e=Object.assign({p:\"p\",h2:\"h2\",ul:\"ul\",li:\"li\",img:\"img\",a:\"a\"},n.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(e.p,{children:\"Build a dice roller app that simulates the results of rolling a specified number of 6-sided dice.\"}),`\n`,(0,t.jsx)(e.h2,{children:\"Requirements\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsx)(e.li,{children:\"The user can specify the number of dice to roll using the input field and the value can be an integer between 1 to 12 inclusive.\"}),`\n`,(0,t.jsx)(e.li,{children:'Upon clicking the \"Roll\" button, the dice roll is simulated and the results are displayed.'}),`\n`,(0,t.jsx)(e.li,{children:\"The results of the dice roll should be displayed in rows of three.\"}),`\n`]}),`\n`,(0,t.jsx)(e.p,{children:\"The example below shows a potential result of rolling 6 dice.\"}),`\n`,(0,t.jsx)(e.p,{children:(0,t.jsx)(e.img,{src:\"/img/questions/dice-roller/dice-roller-example.png\",alt:\"Dice roller example\"})}),`\n`,(0,t.jsx)(e.h2,{children:\"Source\"}),`\n`,(0,t.jsxs)(e.p,{children:[\"This question is adapted from \",(0,t.jsx)(e.a,{href:\"https://frontendeval.com/questions/rolling-dice\",children:\"FrontendEval's Rolling Dice question\"}),\".\"]})]})}function y(n={}){let{wrapper:e}=n.components||{};return e?(0,t.jsx)(e,Object.assign({},n,{children:(0,t.jsx)(h,n)})):h(n)}var m=y;function p(n){return(0,s.jsx)(m,{})}function v(n={}){let{wrapper:e}=n.components||{};return e?(0,s.jsx)(e,Object.assign({},n,{children:(0,s.jsx)(p,n)})):p(n)}var M=v;return _(q);})();\n;return Component;"
+}

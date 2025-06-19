@@ -2,7 +2,7 @@
 
 import NumberFlow from '@number-flow/react';
 import clsx from 'clsx';
-import { useInView } from 'motion/react';
+import { useInView } from 'framer-motion';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { RiArrowRightSLine } from 'react-icons/ri';
 
@@ -131,7 +131,7 @@ export default function MarketingCommunitySection() {
                   )}>
                   <div
                     className={clsx(
-                      '!absolute inset-0 z-[1] size-full rounded-[inherit] before:m-[-1px]',
+                      'size-full !absolute inset-0 z-[1] rounded-[inherit] before:m-[-1px]',
                       themeGlassyBorder,
                     )}
                   />
@@ -148,7 +148,6 @@ export default function MarketingCommunitySection() {
                     iconSecondary_USE_SPARINGLY={RiArrowRightSLine}
                     label={name}
                     size="md"
-                    target="_blank"
                     variant="tertiary"
                     onClick={() => {
                       gtag.event({

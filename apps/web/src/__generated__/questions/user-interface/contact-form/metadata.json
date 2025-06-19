@@ -10,6 +10,7 @@
   "created": 1658880000,
   "difficulty": "easy",
   "duration": 15,
+  "excerpt": "Build a contact form which submits user feedback and contact details to a back end API",
   "featured": true,
   "format": "user-interface",
   "frameworkDefault": "react",
@@ -51,6 +52,7 @@
   ],
   "slug": "contact-form",
   "subtitle": null,
+  "title": "Contact Form",
   "topics": [
     "a11y"
   ]

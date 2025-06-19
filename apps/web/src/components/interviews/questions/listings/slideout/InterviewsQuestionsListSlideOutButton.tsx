@@ -4,15 +4,11 @@ import clsx from 'clsx';
 import { Suspense } from 'react';
 import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
 
-import {
-  questionHrefFrameworkSpecificAndListType,
-  QuestionListTypeDefault,
-} from '~/components/interviews/questions/common/QuestionHrefUtils';
+import { questionHrefFrameworkSpecificAndListType } from '~/components/interviews/questions/common/QuestionHrefUtils';
 import type {
-  InterviewsQuestionItemWithCompletedStatus,
   QuestionFramework,
   QuestionHash,
-  QuestionListTypeData,
+  QuestionMetadataWithCompletedStatus,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import useQuestionCodingSorting from '~/components/interviews/questions/listings/filters/hooks/useQuestionCodingSorting';
 import useQuestionUnifiedFilters from '~/components/interviews/questions/listings/filters/hooks/useQuestionUnifiedFilters';
@@ -36,7 +32,6 @@ import type { QuestionListTypeWithLabel } from './InterviewsQuestionsListSlideOu
 type Props = Readonly<{
   currentQuestionHash: QuestionHash;
   framework?: QuestionFramework;
-  initialListType?: QuestionListTypeData;
   listIsShownInSidebarOnDesktop: boolean;
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE: string;
   studyListKey?: string;
@@ -53,15 +48,11 @@ export default function InterviewsQuestionsListSlideOutButton(props: Props) {
 function InterviewsQuestionsListSlideOutButtonWithLoader({
   currentQuestionHash,
   framework,
-  initialListType,
   listIsShownInSidebarOnDesktop,
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE,
   studyListKey,
 }: Props) {
-  const listType =
-    useQuestionsListTypeCurrent(studyListKey, framework) ??
-    initialListType ??
-    QuestionListTypeDefault;
+  const listType = useQuestionsListTypeCurrent(studyListKey, framework);
   const { data, isLoading } = useQuestionsListDataForType(listType);
 
   const questionsWithCompletionStatus = useQuestionsWithCompletionStatus(
@@ -109,7 +100,7 @@ function InterviewsQuestionsListSlideOutButtonImpl({
 }: Omit<Props, 'studyListKey'> &
   Readonly<{
     listType: QuestionListTypeWithLabel;
-    questions: ReadonlyArray<InterviewsQuestionItemWithCompletedStatus>;
+    questions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
   }>) {
   const intl = useIntl();
 
@@ -131,7 +122,7 @@ function InterviewsQuestionsListSlideOutButtonImpl({
   );
 
   const currentQuestionIndex = processedQuestions.findIndex(
-    (question) => hashQuestion(question.metadata) === currentQuestionHash,
+    (question) => hashQuestion(question) === currentQuestionHash,
   );
 
   // The current question might not appear in the filtered list,
@@ -147,7 +138,7 @@ function InterviewsQuestionsListSlideOutButtonImpl({
         href={
           prevQuestion
             ? questionHrefFrameworkSpecificAndListType(
-                prevQuestion.metadata,
+                prevQuestion,
                 listType,
                 framework,
               )
@@ -162,7 +153,7 @@ function InterviewsQuestionsListSlideOutButtonImpl({
           id: 'WPfIhl',
         })}
         size="xs"
-        tooltip={prevQuestion ? prevQuestion?.info.title : undefined}
+        tooltip={prevQuestion ? prevQuestion?.title : undefined}
         variant="tertiary"
       />
       <InterviewsQuestionsListSlideOut
@@ -183,7 +174,7 @@ function InterviewsQuestionsListSlideOutButtonImpl({
         href={
           nextQuestion
             ? questionHrefFrameworkSpecificAndListType(
-                nextQuestion.metadata,
+                nextQuestion,
                 listType,
                 framework,
               )
@@ -198,7 +189,7 @@ function InterviewsQuestionsListSlideOutButtonImpl({
           id: 'DqvEKB',
         })}
         size="xs"
-        tooltip={nextQuestion ? nextQuestion?.info.title : undefined}
+        tooltip={nextQuestion ? nextQuestion?.title : undefined}
         variant="tertiary"
       />
     </div>

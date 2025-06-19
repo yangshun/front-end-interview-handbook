@@ -6,7 +6,7 @@ import { trpc } from '~/hooks/trpc';
 
 import Timestamp from '~/components/common/datetime/Timestamp';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
-import type { InterviewsQuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionLanguages from '~/components/interviews/questions/metadata/QuestionLanguages';
 import { useIntl } from '~/components/intl';
 import Badge from '~/components/ui/Badge';
@@ -23,7 +23,7 @@ import { staticLowerCase } from '~/utils/typescript/stringTransform';
 import { useCodingWorkspaceContext } from '../common/CodingWorkspaceContext';
 
 type Props = Readonly<{
-  metadata: InterviewsQuestionMetadata;
+  metadata: QuestionMetadata;
 }>;
 
 export default function JavaScriptCodingWorkspaceSubmissionList({

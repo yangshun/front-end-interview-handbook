@@ -12,8 +12,8 @@ import useGuidesWithCompletionStatus from '~/components/guides/useGuidesWithComp
 import InterviewsPageHeader from '~/components/interviews/common/InterviewsPageHeader';
 import useInterviewsSidebarCollapsed from '~/components/interviews/common/useInterviewsSidebarCollapsed';
 import type {
-  InterviewsQuestionItemMinimal,
   QuestionFormat,
+  QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionsUnifiedListWithFiltersAndProgress from '~/components/interviews/questions/listings/items/QuestionsUnifiedListWithFiltersAndProgress';
 import { useIntl } from '~/components/intl';
@@ -32,7 +32,7 @@ type Props = Readonly<{
   format: QuestionFormat;
   guides: ReadonlyArray<GuideCardMetadata>;
   questionCompletionCount?: QuestionCompletionCount;
-  questions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+  questions: ReadonlyArray<QuestionMetadata>;
   title: string;
 }>;
 

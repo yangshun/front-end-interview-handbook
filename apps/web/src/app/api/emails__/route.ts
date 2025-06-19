@@ -55,7 +55,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    if (user?.email == null) {
+    if (user == null || user.email == null) {
       return NextResponse.json(
         { error: `No user found for ${userId}` },
         { status: 500 },

@@ -15,7 +15,6 @@ import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-import Img from '~/components/ui/Img';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundChipColor,
@@ -107,7 +106,7 @@ function ProductSection() {
             'inline-flex items-center gap-1 rounded-lg px-4 py-2',
             'bg-neutral-100 dark:bg-neutral-800/40',
           )}>
-          <FaCheck aria-hidden={true} className="text-success -ml-1 size-4" />
+          <FaCheck aria-hidden={true} className="text-success size-4 -ml-1" />
           <Text color="secondary" size="body2" weight="medium">
             {feature}
           </Text>
@@ -156,7 +155,7 @@ function SliderSection() {
           )}>
           <SliderPrimitive.Range className="bg-brand-dark absolute h-full rounded" />
         </SliderPrimitive.Track>
-        <SliderPrimitive.Thumb className="bg-brand-dark hover:bg-brand-darker focus:ring-brand-darker block size-8 rounded-full shadow-sm focus:outline-none focus:ring-4 focus:ring-offset-2" />
+        <SliderPrimitive.Thumb className="bg-brand-dark hover:bg-brand-darker focus:ring-brand-darker size-8 block rounded-full shadow-sm focus:outline-none focus:ring-4 focus:ring-offset-2" />
       </SliderPrimitive.Root>
       <Text
         className="mt-8 block text-center text-2xl"
@@ -255,8 +254,10 @@ function useReasons() {
           id: 'VVq82g',
         }),
       },
+
       icon: RiThumbUpLine,
       media: <ProductSection />,
+
       secondaryAction: {
         href: '/get-started',
         label: intl.formatMessage({
@@ -265,12 +266,14 @@ function useReasons() {
           id: '4+KbJS',
         }),
       },
+
       subtitle: intl.formatMessage({
         defaultMessage:
           'Our platform has many unique advantages, making it easily recommendable to users looking for front end interview preparation.',
         description: 'Affiliate program why section subtitle',
         id: 'yAxqQL',
       }),
+
       title: intl.formatMessage({
         defaultMessage: 'A great product worth recommending',
         description: 'Affiliate program why section title',
@@ -280,6 +283,7 @@ function useReasons() {
     {
       icon: RiHandCoinLine,
       media: <SliderSection />,
+
       subtitle: intl.formatMessage(
         {
           defaultMessage:
@@ -289,6 +293,7 @@ function useReasons() {
         },
         { days: 7, percent: 15 },
       ),
+
       title: intl.formatMessage(
         {
           defaultMessage: 'Simple {percent}% commission, no limit',
@@ -300,19 +305,22 @@ function useReasons() {
     },
     {
       icon: RiMoneyDollarBoxLine,
+
       media: (
-        <Img
+        <img
           alt="PayPal logo"
           className="mx-auto max-w-[400px]"
           src="/img/affiliate/paypal-logo.png"
         />
       ),
+
       subtitle: intl.formatMessage({
         defaultMessage:
           'Easily get paid with PayPal at the end of every month.',
         description: 'Affiliate program payout section subtitle',
         id: 'Q44acV',
       }),
+
       title: intl.formatMessage({
         defaultMessage: 'Regular payouts through PayPal',
         description: 'Affiliate program payout section title',

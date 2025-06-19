@@ -28,6 +28,10 @@ export type ProjectsMotivationReasonFormChoice =
       value: Exclude<ProjectsMotivationReasonValue, 'other'>;
     };
 
+export type ProjectsMotivationReasonFormValues = Readonly<{
+  motivations: Array<ProjectsMotivationReasonFormChoice>;
+}>;
+
 // TODO(projects): generalize this field.
 export type ProjectsYoeReplacement = z.infer<typeof yoeReplacementSchema>;
 

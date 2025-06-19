@@ -14,7 +14,6 @@ import { v4 as uuidv4 } from 'uuid';
 import ConfirmationDialog from '~/components/common/ConfirmationDialog';
 import type { StepsTabItemStatus } from '~/components/common/StepsTabs';
 import { FormattedMessage, useIntl } from '~/components/intl';
-import { getDiscountedPrice } from '~/components/purchase/PurchasePricingUtils';
 import { useSponsorsAdFormatData } from '~/components/sponsors/SponsorsAdFormatConfigs';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
@@ -32,24 +31,18 @@ import {
 
 import { themeBackgroundElementEmphasizedStateColor_Hover } from '../../../ui/theme';
 import { SponsorAdFormatConfigs } from '../../SponsorsAdFormatConfigs';
-import type { SponsorsAdFormatFormItem, SponsorsPromoCode } from '../types';
+import type { SponsorsAdFormatFormItem } from '../types';
 import SponsorsAdvertiseRequestFormAdsSectionGlobalBanner from './formats/SponsorsAdvertiseRequestFormAdsSectionGlobalBanner';
 import SponsorsAdvertiseRequestFormAdsSectionInContent from './formats/SponsorsAdvertiseRequestFormAdsSectionInContent';
 import SponsorsAdvertiseRequestFormAdsSectionSpotlight from './formats/SponsorsAdvertiseRequestFormAdsSectionSpotlight';
-import SponsorsAdvertiseRequestPromoCode from './SponsorsAdvertiseRequestPromoCode';
 
 type Props = Readonly<{
   ads: Array<SponsorsAdFormatFormItem>;
   mode: 'create' | 'edit' | 'readonly';
   onPrevious: () => void;
   onSubmit: () => void;
-  promoCode: SponsorsPromoCode;
   sessionId: string;
   updateAds(ads: Array<SponsorsAdFormatFormItem>): void;
-  updatePromoCode: ({
-    code,
-    percentOff,
-  }: Readonly<{ code: string; percentOff: number }>) => void;
   updateStepStatus(status: StepsTabItemStatus): void;
 }>;
 
@@ -58,10 +51,8 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
   mode,
   onPrevious,
   onSubmit,
-  promoCode,
   sessionId,
   updateAds,
-  updatePromoCode,
   updateStepStatus,
 }: Props) {
   const intl = useIntl();
@@ -161,32 +152,11 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                     />
                   </Text>
                   <div className="flex items-center gap-2 max-md:order-4 max-md:-mb-0.5 max-md:-mr-1">
-                    <div className="flex items-center gap-1.5">
-                      {promoCode?.percentOff && (
-                        <Text
-                          className="line-through"
-                          color="secondary"
-                          size="body2">
-                          $
-                          {ad.weeks.length *
-                            SponsorAdFormatConfigs[ad.format].pricePerWeekUSD}
-                        </Text>
-                      )}
-
-                      <Text size="body2" weight="bold">
-                        $
-                        {ad.weeks.length *
-                          (promoCode?.percentOff
-                            ? getDiscountedPrice({
-                                percentOff: promoCode?.percentOff,
-                                price:
-                                  SponsorAdFormatConfigs[ad.format]
-                                    .pricePerWeekUSD,
-                              })
-                            : SponsorAdFormatConfigs[ad.format]
-                                .pricePerWeekUSD)}
-                      </Text>
-                    </div>
+                    <Text size="body2" weight="bold">
+                      $
+                      {ad.weeks.length *
+                        SponsorAdFormatConfigs[ad.format].pricePerWeekUSD}
+                    </Text>
                     <div className="flex items-center">
                       {isReadonly ? (
                         <Button
@@ -268,15 +238,7 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                       (acc, curr) =>
                         acc +
                         curr.weeks.length *
-                          (promoCode?.percentOff
-                            ? getDiscountedPrice({
-                                percentOff: promoCode?.percentOff,
-                                price:
-                                  SponsorAdFormatConfigs[curr.format]
-                                    .pricePerWeekUSD,
-                              })
-                            : SponsorAdFormatConfigs[curr.format]
-                                .pricePerWeekUSD),
+                          SponsorAdFormatConfigs[curr.format].pricePerWeekUSD,
                       0,
                     ),
                   }}
@@ -591,29 +553,20 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                 onPrevious();
               }}
             />
-            <div className="flex items-start gap-3">
-              <SponsorsAdvertiseRequestPromoCode
-                appliedPromoCode={promoCode?.code}
-                className="mt-0.5"
-                onApplyPromoCode={(_promoCode) => {
-                  updatePromoCode(_promoCode);
-                }}
-              />
-              <Button
-                icon={RiArrowRightLine}
-                isDisabled={ads.length === 0}
-                label={intl.formatMessage({
-                  defaultMessage: 'Company details',
-                  description: 'Label for company details button',
-                  id: 'OY0i/0',
-                })}
-                size="md"
-                variant="primary"
-                onClick={() => {
-                  onSubmit();
-                }}
-              />
-            </div>
+            <Button
+              icon={RiArrowRightLine}
+              isDisabled={ads.length === 0}
+              label={intl.formatMessage({
+                defaultMessage: 'Company details',
+                description: 'Label for company details button',
+                id: 'OY0i/0',
+              })}
+              size="md"
+              variant="primary"
+              onClick={() => {
+                onSubmit();
+              }}
+            />
           </div>
         )}
       </Section>

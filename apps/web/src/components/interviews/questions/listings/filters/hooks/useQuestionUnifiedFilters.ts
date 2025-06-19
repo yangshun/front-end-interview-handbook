@@ -1,8 +1,8 @@
 import { questionListFilterNamespace } from '~/components/interviews/questions/common/QuestionHrefUtils';
 import type {
-  InterviewsQuestionItemWithCompletedStatus,
   QuestionFormat,
   QuestionListTypeData,
+  QuestionMetadataWithCompletedStatus,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 
 import questionMatchesTextQuery from '../questionMatchesTextQuery';
@@ -78,7 +78,7 @@ export default function useQuestionUnifiedFilters({
   }
 
   const filters: ReadonlyArray<
-    [number, (question: InterviewsQuestionItemWithCompletedStatus) => boolean]
+    [number, (question: QuestionMetadataWithCompletedStatus) => boolean]
   > = [
     // Query.
     [

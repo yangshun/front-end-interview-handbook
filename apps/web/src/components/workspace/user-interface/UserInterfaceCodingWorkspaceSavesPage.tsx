@@ -7,9 +7,9 @@ import clsx from 'clsx';
 import CodingPreferencesProvider from '~/components/global/CodingPreferencesProvider';
 import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
 import type {
-  InterviewsQuestionItemMinimal,
-  InterviewsQuestionItemUserInterface,
   QuestionFramework,
+  QuestionMetadata,
+  QuestionUserInterface,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import {
   questionUserInterfaceDescriptionPath,
@@ -26,17 +26,15 @@ import { UserInterfaceCodingWorkspaceSavesContextProvider } from './UserInterfac
 type Props = Readonly<{
   canViewPremiumContent: boolean;
   embed?: boolean;
-  isViewingSave: boolean;
-  nextQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
-  question: InterviewsQuestionItemUserInterface;
+  nextQuestions: ReadonlyArray<QuestionMetadata>;
+  question: QuestionUserInterface;
   save: QuestionUserInterfaceSave;
-  similarQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+  similarQuestions: ReadonlyArray<QuestionMetadata>;
 }>;
 
 export default function UserInterfaceCodingWorkspaceSavesPage({
   canViewPremiumContent,
   embed = false,
-  isViewingSave,
   nextQuestions,
   question,
   save,
@@ -77,12 +75,10 @@ export default function UserInterfaceCodingWorkspaceSavesPage({
             canViewPremiumContent={canViewPremiumContent}
             defaultFiles={defaultFiles}
             embed={embed}
-            isViewingSave={isViewingSave}
             loadedFilesFromLocalStorage={false}
             mode="practice"
             nextQuestions={nextQuestions}
             question={question}
-            saveFilesToLocalStorage={false}
             similarQuestions={similarQuestions}
             onFrameworkChange={(value, contentType) => {
               const frameworkValue = value as QuestionFramework;

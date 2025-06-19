@@ -19,23 +19,3 @@ export function priceRoundToNearestNiceNumber(priceParam: number) {
   // Round to nearest 1000.
   return Math.ceil(price / 1000) * 1000;
 }
-
-export function getDiscountedPrice({
-  amountOff,
-  percentOff,
-  price,
-}: Readonly<{
-  amountOff?: number | null;
-  percentOff?: number | null;
-  price: number;
-}>) {
-  if (amountOff) {
-    return price - amountOff;
-  }
-
-  if (percentOff) {
-    return price - (price * percentOff) / 100;
-  }
-
-  return price;
-}

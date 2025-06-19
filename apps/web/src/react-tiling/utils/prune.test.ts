@@ -1,4 +1,4 @@
-import { describe, expect, test } from 'vitest';
+import { describe, expect, test } from '@jest/globals';
 
 import prune from './prune';
 
@@ -75,7 +75,6 @@ describe('prune', () => {
                     type: 'item',
                   },
                 ],
-
                 type: 'group',
               },
               {
@@ -85,40 +84,39 @@ describe('prune', () => {
                 type: 'item',
               },
             ],
-
             type: 'group',
           }),
         ).toMatchInlineSnapshot(`
-{
-  "direction": "horizontal",
-  "id": "foo",
-  "items": [
-    {
-      "activeTabId": "tab-1",
-      "id": "bar",
-      "tabs": [
-        {
-          "closeable": true,
-          "id": "tab-1",
-        },
-      ],
-      "type": "item",
-    },
-    {
-      "activeTabId": "tab-1",
-      "id": "foozx",
-      "tabs": [
-        {
-          "closeable": true,
-          "id": "tab-1",
-        },
-      ],
-      "type": "item",
-    },
-  ],
-  "type": "group",
-}
-`);
+          {
+            "direction": "horizontal",
+            "id": "foo",
+            "items": [
+              {
+                "activeTabId": "tab-1",
+                "id": "bar",
+                "tabs": [
+                  {
+                    "closeable": true,
+                    "id": "tab-1",
+                  },
+                ],
+                "type": "item",
+              },
+              {
+                "activeTabId": "tab-1",
+                "id": "foozx",
+                "tabs": [
+                  {
+                    "closeable": true,
+                    "id": "tab-1",
+                  },
+                ],
+                "type": "item",
+              },
+            ],
+            "type": "group",
+          }
+        `);
       });
 
       test('remove multiple levels', () => {
@@ -186,22 +184,21 @@ describe('prune', () => {
               type: 'item',
             },
           ],
-
           type: 'group',
         }),
       ).toMatchInlineSnapshot(`
-{
-  "activeTabId": "tab-1",
-  "id": "foo",
-  "tabs": [
-    {
-      "closeable": true,
-      "id": "tab-1",
-    },
-  ],
-  "type": "item",
-}
-`);
+        {
+          "activeTabId": "tab-1",
+          "id": "foo",
+          "tabs": [
+            {
+              "closeable": true,
+              "id": "tab-1",
+            },
+          ],
+          "type": "item",
+        }
+      `);
     });
 
     describe('same direction parents', () => {
@@ -403,26 +400,24 @@ describe('prune', () => {
                   type: 'item',
                 },
               ],
-
               type: 'group',
             },
           ],
-
           type: 'group',
         }),
       ).toMatchInlineSnapshot(`
-{
-  "activeTabId": "tab-1",
-  "id": "foo",
-  "tabs": [
-    {
-      "closeable": true,
-      "id": "tab-1",
-    },
-  ],
-  "type": "item",
-}
-`);
+        {
+          "activeTabId": "tab-1",
+          "id": "foo",
+          "tabs": [
+            {
+              "closeable": true,
+              "id": "tab-1",
+            },
+          ],
+          "type": "item",
+        }
+      `);
     });
   });
 

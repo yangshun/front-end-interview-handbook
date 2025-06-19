@@ -63,9 +63,9 @@ export function useBehavioralInterviewPlaybookNavigation() {
               icon: RiPlayFill,
               id: 'introduction',
               label: intl.formatMessage({
-                defaultMessage: 'Introduction to behavioral interviews',
+                defaultMessage: 'Intro to behavioral interviews',
                 description: 'Introduction to behavioral interviews',
-                id: 'Vf5vZK',
+                id: 'dKaQQ+',
               }),
               type: 'link',
             },
@@ -139,6 +139,25 @@ export function useBehavioralInterviewPlaybookNavigation() {
             {
               description: intl.formatMessage({
                 defaultMessage:
+                  'Learn to ask insightful questions at the end of the interview',
+                description:
+                  'How to ask insightful questions during behavioral interviews',
+                id: 'U9XHwD',
+              }),
+              href: `${basePath}/questions-to-ask`,
+              icon: RiQuestionnaireLine,
+              id: 'questions-to-ask',
+              label: intl.formatMessage({
+                defaultMessage: 'Questions to ask (end of interview)',
+                description:
+                  'Best questions to ask at the end of a behavioral interviews',
+                id: 'rg3DjU',
+              }),
+              type: 'link',
+            },
+            {
+              description: intl.formatMessage({
+                defaultMessage:
                   'Learn to answer "Tell me about a time.." problem solving questions',
                 description:
                   'How to answer problem solving situation questions in behavioral interviews',
@@ -189,26 +208,6 @@ export function useBehavioralInterviewPlaybookNavigation() {
                 defaultMessage: 'Growth mindset questions',
                 description: 'Title for growth mindset collaboration questions',
                 id: '592QG3',
-              }),
-              type: 'link',
-            },
-
-            {
-              description: intl.formatMessage({
-                defaultMessage:
-                  'Learn to ask insightful questions at the end of the interview',
-                description:
-                  'How to ask insightful questions during behavioral interviews',
-                id: 'U9XHwD',
-              }),
-              href: `${basePath}/questions-to-ask`,
-              icon: RiQuestionnaireLine,
-              id: 'questions-to-ask',
-              label: intl.formatMessage({
-                defaultMessage: 'Questions to ask (end of interview)',
-                description:
-                  'Best questions to ask at the end of a behavioral interviews',
-                id: 'rg3DjU',
               }),
               type: 'link',
             },

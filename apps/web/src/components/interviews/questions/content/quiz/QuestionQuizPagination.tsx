@@ -9,13 +9,13 @@ import Text from '~/components/ui/Text';
 import { hashQuestion } from '~/db/QuestionsUtils';
 
 import type {
-  InterviewsQuestionItemMinimal,
   QuestionHash,
+  QuestionMetadata,
 } from '../../common/QuestionsTypes';
 
 type Props = Readonly<{
   questionHash?: QuestionHash;
-  questionList: ReadonlyArray<InterviewsQuestionItemMinimal>;
+  questionList: ReadonlyArray<QuestionMetadata>;
 }>;
 
 export default function QuestionQuizPagination({
@@ -32,7 +32,7 @@ export default function QuestionQuizPagination({
   for (let i = 0; i < questionList.length; i++) {
     currentQuestionPosition++;
 
-    if (hashQuestion(questionList[i].metadata) !== questionHash) {
+    if (hashQuestion(questionList[i]) !== questionHash) {
       continue;
     }
     // We have found the active item.
@@ -56,9 +56,9 @@ export default function QuestionQuizPagination({
       <div className="flex">
         <Button
           addonPosition="start"
-          href={prevQuestion?.metadata.href}
+          href={prevQuestion?.href}
           icon={RiArrowLeftSLine}
-          isDisabled={!prevQuestion?.metadata.href}
+          isDisabled={!prevQuestion?.href}
           label={intl.formatMessage({
             defaultMessage: 'Prev',
             description: 'Label for button leading to the previous page',
@@ -72,9 +72,9 @@ export default function QuestionQuizPagination({
           <span>{totalNumQuestions}</span>
         </Text>
         <Button
-          href={nextQuestion?.metadata.href}
+          href={nextQuestion?.href}
           icon={RiArrowRightSLine}
-          isDisabled={!nextQuestion?.metadata.href}
+          isDisabled={!nextQuestion?.href}
           label={intl.formatMessage({
             defaultMessage: 'Next',
             description: 'Label for button leading to the next page',

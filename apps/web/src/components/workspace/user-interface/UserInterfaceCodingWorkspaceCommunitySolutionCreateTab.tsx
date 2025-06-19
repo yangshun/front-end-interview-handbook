@@ -8,8 +8,8 @@ import { trpc } from '~/hooks/trpc';
 import { useToast } from '~/components/global/toasts/useToast';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import type {
-  InterviewsQuestionMetadata,
   QuestionFramework,
+  QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
@@ -21,7 +21,7 @@ import { staticUpperCase } from '~/utils/typescript/stringTransform';
 
 type Props = Readonly<{
   framework: QuestionFramework;
-  metadata: InterviewsQuestionMetadata;
+  metadata: QuestionMetadata;
 }>;
 
 type CommunitySolutionDraft = Readonly<{
@@ -41,18 +41,14 @@ function UserInterfaceCodingWorkspaceCommunitySolutionCreateTabImpl({
     sandpack: { files },
   } = useSandpack();
 
-  const {
-    control,
-    formState: { dirtyFields, errors, isDirty, submitCount },
-    handleSubmit,
-    reset,
-  } = useForm<CommunitySolutionDraft>({
-    defaultValues: {
-      title: '',
-      writeup: '',
-    },
-    mode: 'onTouched',
-  });
+  const { control, formState, handleSubmit, reset } =
+    useForm<CommunitySolutionDraft>({
+      defaultValues: {
+        title: '',
+        writeup: '',
+      },
+      mode: 'onTouched',
+    });
 
   const { isLoading, mutateAsync: addSolution } =
     trpc.questionCommunitySolution.userInterfaceAdd.useMutation({
@@ -90,7 +86,7 @@ function UserInterfaceCodingWorkspaceCommunitySolutionCreateTabImpl({
       <div className="flex flex-row-reverse gap-2">
         <Button
           className="mt-0.5 shrink-0"
-          isDisabled={!isDirty || isLoading}
+          isDisabled={!formState.isDirty || isLoading}
           label={intl.formatMessage({
             defaultMessage: 'Post',
             description: 'Community solution post button label',
@@ -106,8 +102,8 @@ function UserInterfaceCodingWorkspaceCommunitySolutionCreateTabImpl({
             <div className="flex-1">
               <TextInput
                 errorMessage={
-                  dirtyFields.title || submitCount > 0
-                    ? errors.title?.message
+                  formState.dirtyFields.title || formState.submitCount > 0
+                    ? formState.errors.title?.message
                     : undefined
                 }
                 isLabelHidden={true}
@@ -140,8 +136,8 @@ function UserInterfaceCodingWorkspaceCommunitySolutionCreateTabImpl({
         render={({ field }) => (
           <TextArea
             errorMessage={
-              dirtyFields.writeup || submitCount > 0
-                ? errors.writeup?.message
+              formState.dirtyFields.writeup || formState.submitCount > 0
+                ? formState.errors.writeup?.message
                 : undefined
             }
             isLabelHidden={true}

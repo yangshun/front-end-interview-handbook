@@ -97,7 +97,6 @@ export default function InterviewsMarketingTestimonialsSection({
               })}
               prefetch={null}
               size="md"
-              target="_blank"
               variant="secondary"
             />
           </div>

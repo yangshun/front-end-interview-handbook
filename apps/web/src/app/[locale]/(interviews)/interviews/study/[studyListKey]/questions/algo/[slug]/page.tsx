@@ -31,11 +31,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { question } = readQuestionAlgoContents(slug, false, locale);
 
     return defaultMetadata({
-      description: question.info.excerpt!,
+      description: question.metadata.excerpt!,
       locale,
-      ogImageTitle: question.info.title,
+      ogImageTitle: question.metadata.title,
       pathname: question.metadata.href,
-      socialTitle: question.info.title,
+      socialTitle: question.metadata.title,
       title: intl.formatMessage(
         {
           defaultMessage:
@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           description: 'Title of Algorithms Front End interview questions page',
           id: 'JMBOyp',
         },
-        { questionTitle: question.info.title },
+        { questionTitle: question.metadata.title },
       ),
     });
   } catch {
@@ -76,7 +76,7 @@ export default async function Page({ params }: Props) {
     return profile?.premium ?? false;
   })();
 
-  const studyList = await fetchInterviewsStudyList(studyListKey, locale);
+  const studyList = await fetchInterviewsStudyList(studyListKey);
 
   if (studyList == null) {
     return notFound();
@@ -95,7 +95,7 @@ export default async function Page({ params }: Props) {
   ]);
   const nextQuestions = sortQuestionsMultiple(
     questions.filter((questionItem) =>
-      question.metadata.nextQuestions.includes(questionItem.metadata.slug),
+      question.metadata.nextQuestions.includes(questionItem.slug),
     ),
     [
       {
@@ -110,7 +110,7 @@ export default async function Page({ params }: Props) {
   );
   const similarQuestions = sortQuestionsMultiple(
     questions.filter((questionItem) =>
-      question.metadata.similarQuestions.includes(questionItem.metadata.slug),
+      question.metadata.similarQuestions.includes(questionItem.slug),
     ),
     [
       {
@@ -133,7 +133,6 @@ export default async function Page({ params }: Props) {
       metadata={question.metadata}
       mode="practice"
       studyListKey={studyListKey}
-      title={question.info.title}
     />
   ) : (
     <JavaScriptCodingWorkspacePage

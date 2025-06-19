@@ -82,7 +82,7 @@ function NavProductMenuItem({
             <span
               aria-hidden={true}
               className={clsx(
-                'inline-block size-1',
+                'size-1 inline-block',
                 'bg-red rounded-full',
                 'absolute -right-1.5 top-1',
               )}

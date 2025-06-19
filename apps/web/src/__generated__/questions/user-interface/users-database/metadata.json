@@ -7,6 +7,7 @@
   "created": 1723766400,
   "difficulty": "medium",
   "duration": 30,
+  "excerpt": "Build a UI to filter, create, update, and delete users",
   "featured": false,
   "format": "user-interface",
   "frameworkDefault": "react",
@@ -29,5 +30,6 @@
   "similarQuestions": [],
   "slug": "users-database",
   "subtitle": null,
+  "title": "Users Database",
   "topics": []
 }

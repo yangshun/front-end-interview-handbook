@@ -1,0 +1,45 @@
+---
+slug: signup-form
+title: Signup Form
+author: yangshun
+excerpt: Build a signup form that does validation on user details and submits to a back end API
+created: 2022-07-25
+languages: [html, js]
+companies: [lyft, toptal, amazon, openai, reddit]
+access: premium
+duration: 30
+published: true
+importance: high
+difficulty: medium
+featured: false
+frameworks: [vanilla]
+similar_questions:
+  - contact-form
+---
+
+Building robust forms is one of core skills that a Front End developer should have. One of the most common forms people encounter everyday is a signup form.
+
+Implement a signup form to allow users to fill in their details and submit the form.
+
+## Requirements
+
+The form should contain the following elements with the following criteria:
+
+- Username field
+  - Minimum of 4 characters.
+  - Alphanumeric only.
+- Email field
+  - Valid email format. A reasonable validation will suffice, you don't have to strictly follow any specification.
+- Password field
+  - Minimum of 6 characters.
+- Confirm password field
+  - Must match the password field.
+- Submit button
+  - Contains the text "Sign Up".
+  - Clicking on the submit button submits the form.
+
+You are free to decide when (during typing/after blur/upon submission) and how (native HTML validation or custom validation) to validate the form. If the validation fails, show the relevant errors near (beside or below) the corresponding `<input>` fields.
+
+## Submission API
+
+A `submitForm` function has been implemented for you in `index.js` which makes an AJAX `POST` request to a server-side API which validates the fields using the same criteria. You can use it to verify that your form is not allowing invalid input.

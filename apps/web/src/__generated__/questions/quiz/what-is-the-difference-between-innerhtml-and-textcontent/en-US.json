@@ -1,0 +1,33 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "easy",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/what-is-the-difference-between-innerhtml-and-textcontent",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 999,
+    "similarQuestions": [],
+    "slug": "what-is-the-difference-between-innerhtml-and-textcontent",
+    "subtitle": null,
+    "title": "What is the difference between `innerHTML` and `textContent`?",
+    "topics": [
+      "web-api",
+      "html",
+      "javascript"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-difference-between-innerhtml-and-textcontent/en-US.mdx"
+  },
+  "solution": "var Component=(()=>{var h=Object.create;var o=Object.defineProperty;var g=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,u=Object.prototype.hasOwnProperty;var x=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),T=(t,e)=>{for(var r in e)o(t,r,{get:e[r],enumerable:!0})},l=(t,e,r,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let i of p(e))!u.call(t,i)&&i!==r&&o(t,i,{get:()=>e[i],enumerable:!(s=g(e,i))||s.enumerable});return t};var f=(t,e,r)=>(r=t!=null?h(m(t)):{},l(e||!t||!t.__esModule?o(r,\"default\",{value:t,enumerable:!0}):r,t)),M=t=>l(o({},\"__esModule\",{value:!0}),t);var a=x((b,d)=>{d.exports=_jsx_runtime});var w={};T(w,{default:()=>y,frontmatter:()=>L});var n=f(a()),L={title:\"What is the difference between `innerHTML` and `textContent`?\"};function c(t){let e=Object.assign({h2:\"h2\",p:\"p\",code:\"code\",pre:\"pre\",hr:\"hr\",h3:\"h3\",h4:\"h4\",ul:\"ul\",li:\"li\",a:\"a\"},t.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{children:\"TL;DR\"}),`\n`,(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.code,{children:\"innerHTML\"}),\" and \",(0,n.jsx)(e.code,{children:\"textContent\"}),\" are both properties used to get or set the content of an HTML element, but they serve different purposes. \",(0,n.jsx)(e.code,{children:\"innerHTML\"}),\" returns or sets the HTML markup contained within the element, which means it can parse and render HTML tags. On the other hand, \",(0,n.jsx)(e.code,{children:\"textContent\"}),\" returns or sets the text content of the element, ignoring any HTML tags and rendering them as plain text.\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`// Example of innerHTML\nelement.innerHTML = '<strong>Bold Text</strong>'; // Renders as bold text\n\n// Example of textContent\nelement.textContent = '<strong>Bold Text</strong>'; // Renders as plain text: <strong>Bold Text</strong>\n`})}),`\n`,(0,n.jsx)(e.hr,{}),`\n`,(0,n.jsxs)(e.h2,{children:[\"Difference between \",(0,n.jsx)(e.code,{children:\"innerHTML\"}),\" and \",(0,n.jsx)(e.code,{children:\"textContent\"})]}),`\n`,(0,n.jsx)(e.h3,{children:(0,n.jsx)(e.code,{children:\"innerHTML\"})}),`\n`,(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.code,{children:\"innerHTML\"}),\" is a property that allows you to get or set the HTML markup contained within an element. It can parse and render HTML tags, making it useful for dynamically updating the structure of a webpage.\"]}),`\n`,(0,n.jsx)(e.h4,{children:\"Example\"}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`const element = document.getElementById('example');\nelement.innerHTML = '<strong>Bold Text</strong>'; // This will render as bold text\n`})}),`\n`,(0,n.jsx)(e.h4,{children:\"Use cases\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"Dynamically adding or updating HTML content\"}),`\n`,(0,n.jsx)(e.li,{children:\"Rendering HTML tags and elements\"}),`\n`]}),`\n`,(0,n.jsx)(e.h4,{children:\"Security considerations\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"Using \",(0,n.jsx)(e.code,{children:\"innerHTML\"}),\" can expose your application to Cross-Site Scripting (XSS) attacks if you insert untrusted content. Always sanitize any user input before setting it as \",(0,n.jsx)(e.code,{children:\"innerHTML\"}),\".\"]}),`\n`,(0,n.jsx)(e.h3,{children:(0,n.jsx)(e.code,{children:\"textContent\"})}),`\n`,(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.code,{children:\"textContent\"}),\" is a property that allows you to get or set the text content of an element. It ignores any HTML tags and renders them as plain text, making it safer for inserting user-generated content.\"]}),`\n`,(0,n.jsx)(e.h4,{children:\"Example\"}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`const element = document.getElementById('example');\nelement.textContent = '<strong>Bold Text</strong>'; // This will render as plain text: <strong>Bold Text</strong>\n`})}),`\n`,(0,n.jsx)(e.h4,{children:\"Use cases\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"Safely inserting user-generated content\"}),`\n`,(0,n.jsx)(e.li,{children:\"Stripping HTML tags from a string\"}),`\n`]}),`\n`,(0,n.jsx)(e.h4,{children:\"Performance considerations\"}),`\n`,(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.code,{children:\"textContent\"}),\" is generally faster than \",(0,n.jsx)(e.code,{children:\"innerHTML\"}),\" because it does not parse and render HTML tags. It simply updates the text content of the element.\"]}),`\n`,(0,n.jsx)(e.h2,{children:\"Further reading\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML\",children:\"MDN Web Docs: innerHTML\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent\",children:\"MDN Web Docs: textContent\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://owasp.org/www-community/attacks/xss/\",children:\"Cross-Site Scripting (XSS)\"})}),`\n`]})]})}function H(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(c,t)})):c(t)}var y=H;return M(w);})();\n;return Component;"
+}

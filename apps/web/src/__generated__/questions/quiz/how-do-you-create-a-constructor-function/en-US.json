@@ -1,0 +1,32 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "easy",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/how-do-you-create-a-constructor-function",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 999,
+    "similarQuestions": [],
+    "slug": "how-do-you-create-a-constructor-function",
+    "subtitle": null,
+    "title": "How do you create a constructor function?",
+    "topics": [
+      "javascript",
+      "oop"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-create-a-constructor-function/en-US.mdx"
+  },
+  "solution": "var Component=(()=>{var d=Object.create;var r=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var f=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),j=(t,n)=>{for(var o in n)r(t,o,{get:n[o],enumerable:!0})},i=(t,n,o,c)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let a of g(n))!p.call(t,a)&&a!==o&&r(t,a,{get:()=>n[a],enumerable:!(c=u(n,a))||c.enumerable});return t};var y=(t,n,o)=>(o=t!=null?d(m(t)):{},i(n||!t||!t.__esModule?r(o,\"default\",{value:t,enumerable:!0}):o,t)),w=t=>i(r({},\"__esModule\",{value:!0}),t);var h=f((k,s)=>{s.exports=_jsx_runtime});var J={};j(J,{default:()=>P,frontmatter:()=>b});var e=y(h()),b={title:\"How do you create a constructor function?\"};function l(t){let n=Object.assign({h2:\"h2\",p:\"p\",code:\"code\",pre:\"pre\",hr:\"hr\",h3:\"h3\",ul:\"ul\",li:\"li\",a:\"a\"},t.components);return(0,e.jsxs)(e.Fragment,{children:[(0,e.jsx)(n.h2,{children:\"TL;DR\"}),`\n`,(0,e.jsxs)(n.p,{children:[\"To create a constructor function in JavaScript, define a regular function with a capitalized name to indicate it's a constructor. Use the \",(0,e.jsx)(n.code,{children:\"this\"}),\" keyword to set properties and methods. When creating an instance, use the \",(0,e.jsx)(n.code,{children:\"new\"}),\" keyword.\"]}),`\n`,(0,e.jsx)(n.pre,{live:!0,children:(0,e.jsx)(n.code,{className:\"language-js\",children:`function Person(name, age) {\n  this.name = name;\n  this.age = age;\n}\n\nconst john = new Person('John', 30);\nconsole.log(john.age); // 30\n`})}),`\n`,(0,e.jsx)(n.hr,{}),`\n`,(0,e.jsx)(n.h2,{children:\"How do you create a constructor function?\"}),`\n`,(0,e.jsx)(n.h3,{children:\"Defining a constructor function\"}),`\n`,(0,e.jsx)(n.p,{children:\"A constructor function in JavaScript is a regular function that is used to create objects. By convention, the name of the constructor function starts with a capital letter to distinguish it from regular functions.\"}),`\n`,(0,e.jsx)(n.pre,{live:!0,children:(0,e.jsx)(n.code,{className:\"language-js\",children:`function Person(name, age) {\n  this.name = name;\n  this.age = age;\n}\n`})}),`\n`,(0,e.jsxs)(n.h3,{children:[\"Using the \",(0,e.jsx)(n.code,{children:\"this\"}),\" keyword\"]}),`\n`,(0,e.jsxs)(n.p,{children:[\"Within the constructor function, the \",(0,e.jsx)(n.code,{children:\"this\"}),\" keyword is used to refer to the object that will be created. Properties and methods can be assigned to \",(0,e.jsx)(n.code,{children:\"this\"}),\".\"]}),`\n`,(0,e.jsx)(n.pre,{live:!0,children:(0,e.jsx)(n.code,{className:\"language-js\",children:`function Person(name, age) {\n  this.name = name;\n  this.age = age;\n  this.greet = function () {\n    console.log(\n      \\`Hello, my name is \\${this.name} and I am \\${this.age} years old.\\`,\n    );\n  };\n}\n`})}),`\n`,(0,e.jsx)(n.h3,{children:\"Creating an instance\"}),`\n`,(0,e.jsxs)(n.p,{children:[\"To create an instance of the object, use the \",(0,e.jsx)(n.code,{children:\"new\"}),\" keyword followed by the constructor function.\"]}),`\n`,(0,e.jsx)(n.pre,{live:!0,children:(0,e.jsx)(n.code,{className:\"language-js\",children:`function Person(name, age) {\n  this.name = name;\n  this.age = age;\n  this.greet = function () {\n    console.log(\n      \\`Hello, my name is \\${this.name} and I am \\${this.age} years old.\\`,\n    );\n  };\n}\n\nconst john = new Person('John', 30);\njohn.greet(); // Output: Hello, my name is John and I am 30 years old.\n`})}),`\n`,(0,e.jsx)(n.h3,{children:\"Adding methods to the prototype\"}),`\n`,(0,e.jsx)(n.p,{children:\"To save memory, it's a good practice to add methods to the constructor's prototype instead of defining them inside the constructor function.\"}),`\n`,(0,e.jsx)(n.pre,{live:!0,children:(0,e.jsx)(n.code,{className:\"language-js\",children:`function Person(name, age) {\n  this.name = name;\n  this.age = age;\n}\n\nPerson.prototype.greet = function () {\n  console.log(\\`Hello, my name is \\${this.name} and I am \\${this.age} years old.\\`);\n};\n\nconst jane = new Person('Jane', 25);\njane.greet(); // Output: Hello, my name is Jane and I am 25 years old.\n`})}),`\n`,(0,e.jsx)(n.h3,{children:\"Checking the instance type\"}),`\n`,(0,e.jsxs)(n.p,{children:[\"You can check if an object is an instance of a constructor function using the \",(0,e.jsx)(n.code,{children:\"instanceof\"}),\" operator.\"]}),`\n`,(0,e.jsx)(n.pre,{live:!0,children:(0,e.jsx)(n.code,{className:\"language-js\",children:`function Person(name, age) {\n  this.name = name;\n  this.age = age;\n}\nconst jane = new Person('Jane', 25);\n\nconsole.log(jane instanceof Person); // Output: true\n`})}),`\n`,(0,e.jsx)(n.h2,{children:\"Further reading\"}),`\n`,(0,e.jsxs)(n.ul,{children:[`\n`,(0,e.jsx)(n.li,{children:(0,e.jsx)(n.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects\",children:\"MDN Web Docs: Working with objects\"})}),`\n`,(0,e.jsx)(n.li,{children:(0,e.jsx)(n.a,{href:\"https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes\",children:\"MDN Web Docs: Object prototypes\"})}),`\n`,(0,e.jsx)(n.li,{children:(0,e.jsx)(n.a,{href:\"https://javascript.info/constructor-new\",children:'JavaScript.info: Constructor, operator \"new\"'})}),`\n`]})]})}function v(t={}){let{wrapper:n}=t.components||{};return n?(0,e.jsx)(n,Object.assign({},t,{children:(0,e.jsx)(l,t)})):l(t)}var P=v;return w(J);})();\n;return Component;"
+}

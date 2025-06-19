@@ -3,7 +3,6 @@
 import { useIntl } from '~/components/intl';
 import ProjectsChallengeBriefSupportCard from '~/components/projects/challenges/brief/support/ProjectsChallengeBriefSupportCard';
 import ProjectsSkillList from '~/components/projects/skills/metadata/ProjectsSkillList';
-import Img from '~/components/ui/Img';
 import Text from '~/components/ui/Text';
 
 export default function ProjectsChallengeBriefSubmissionSupportCard() {
@@ -25,7 +24,7 @@ export default function ProjectsChallengeBriefSubmissionSupportCard() {
             skills={['react', 'tailwind', 'nextjs']}
           />
         </div>
-        <Img
+        <img
           alt={intl.formatMessage({
             defaultMessage: 'Submission support card image',
             description: 'Submission support card image alt',

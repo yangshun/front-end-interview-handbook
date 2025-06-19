@@ -20,8 +20,8 @@ function reduceStudyListData(studyList: ReadonlyArray<InterviewsStudyList>) {
   );
 }
 
-export async function fetchQuestionLists(intl: IntlShape, locale: string) {
-  const studyLists = await fetchInterviewsAllStudyLists(locale);
+export async function fetchQuestionLists(intl: IntlShape) {
+  const studyLists = await fetchInterviewsAllStudyLists();
 
   const formatsData = getQuestionFormatsData(intl);
   const frameworksData = getQuestionFrameworksData(intl);

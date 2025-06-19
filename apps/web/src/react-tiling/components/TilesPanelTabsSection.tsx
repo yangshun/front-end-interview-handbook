@@ -183,7 +183,7 @@ export default function TilesPanelTabsSection<TabType extends string>({
         size="thin"
         viewportClass="flex items-center"
         widthClass="w-fit">
-        <div className="flex size-full gap-x-2 overflow-y-hidden py-1.5">
+        <div className="size-full flex gap-x-2 overflow-y-hidden py-1.5">
           {tabs.map((tabItem, index) => {
             const isActive =
               mode === 'interactive' && activeTabId === tabItem.id;

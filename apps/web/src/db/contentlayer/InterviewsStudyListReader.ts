@@ -4,57 +4,25 @@ import { allInterviewsStudyLists } from '~/../.contentlayer/generated/Interviews
 
 export async function fetchInterviewsStudyList(
   slug: string,
-  locale: string,
 ): Promise<InterviewsStudyList | undefined> {
-  const studyLists = (
-    allInterviewsStudyLists as ReadonlyArray<InterviewsStudyList>
-  ).filter((content) => content.slug === slug);
-
-  return (
-    studyLists.find((content) => content.locale === locale) ??
-    studyLists.find((content) => content.locale === 'en-US')!
+  return (allInterviewsStudyLists as ReadonlyArray<InterviewsStudyList>).find(
+    (content) => content.slug === slug,
   );
 }
 
 export async function fetchInterviewsStudyLists(
   categoryParam: InterviewsStudyList['category'],
-  locale: string,
 ): Promise<ReadonlyArray<InterviewsStudyList>> {
-  const studyLists =
-    allInterviewsStudyLists as ReadonlyArray<InterviewsStudyList>;
-  const fallbackLocaleItems = studyLists.filter(
-    ({ category, locale: locale_ }) =>
-      categoryParam === category && locale_ === 'en-US',
-  );
-
-  if (locale === 'en-US') {
-    return fallbackLocaleItems;
-  }
-
-  // Load items with fallback locale
-  const requestedLocaleItems = studyLists.filter(
-    ({ category, locale: locale_ }) =>
-      categoryParam === category && locale_ === locale,
-  );
-
-  const requestedLocaleItemsMap: Record<string, InterviewsStudyList> = {};
-
-  requestedLocaleItems.forEach((item) => {
-    requestedLocaleItemsMap[item.slug] = item;
-  });
-
-  return fallbackLocaleItems.map((item) =>
-    item.slug in requestedLocaleItemsMap
-      ? requestedLocaleItemsMap[item.slug]
-      : item,
+  return (allInterviewsStudyLists as ReadonlyArray<InterviewsStudyList>).filter(
+    ({ category }) => categoryParam === category,
   );
 }
 
-export async function fetchInterviewsAllStudyLists(locale: string) {
+export async function fetchInterviewsAllStudyLists() {
   const [focusAreas, studyPlans, companies] = await Promise.all([
-    fetchInterviewsStudyLists('focus-area', locale),
-    fetchInterviewsStudyLists('study-plan', locale),
-    fetchInterviewsStudyLists('company', locale),
+    fetchInterviewsStudyLists('focus-area'),
+    fetchInterviewsStudyLists('study-plan'),
+    fetchInterviewsStudyLists('company'),
   ]);
 
   return { companies, focusAreas, studyPlans };

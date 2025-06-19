@@ -37,7 +37,7 @@ export const questionProgressRouter = router({
     )
     .mutation(
       async ({
-        ctx: { locale, viewer },
+        ctx: { viewer },
         input: {
           question: { format, slug },
           studyListKey,
@@ -116,7 +116,7 @@ export const questionProgressRouter = router({
 
             return { newSessionCreated: true, session: session__ };
           })(),
-          fetchInterviewsStudyList(studyListKey, locale),
+          fetchInterviewsStudyList(studyListKey),
         ]);
 
         const key = hashQuestion({ format, slug });
@@ -208,23 +208,25 @@ export const questionProgressRouter = router({
     )
     .query(
       async ({
-        ctx: { locale, viewer },
+        ctx: { viewer },
         input: { question: questionParam, studyListKey },
       }) => {
-        const [userProfile, { question }] = await Promise.all([
-          prisma.profile.findFirstOrThrow({
-            select: {
-              premium: true,
-            },
-            where: {
-              id: viewer.id,
-            },
-          }),
-          fetchQuestion(questionParam, locale),
-        ]);
-        const { metadata } = question;
+        const [userProfile, { question: questionMetadata }] = await Promise.all(
+          [
+            prisma.profile.findFirstOrThrow({
+              select: {
+                premium: true,
+              },
+              where: {
+                id: viewer.id,
+              },
+            }),
+            fetchQuestion(questionParam),
+          ],
+        );
+
         const isQuestionLockedForViewer =
-          metadata?.access === 'premium' && !userProfile.premium;
+          questionMetadata?.access === 'premium' && !userProfile.premium;
 
         if (studyListKey) {
           const session = await prisma.learningSession.findFirst({
@@ -242,7 +244,7 @@ export const questionProgressRouter = router({
           const [sessionProgress, questionProgress] = await Promise.all([
             prisma.learningSessionProgress.findFirst({
               where: {
-                key: hashQuestion(metadata),
+                key: hashQuestion(questionMetadata),
                 sessionId: session.id,
               },
             }),
@@ -258,8 +260,8 @@ export const questionProgressRouter = router({
                 status: true,
               },
               where: {
-                format: metadata.format,
-                slug: metadata.slug,
+                format: questionMetadata.format,
+                slug: questionMetadata.slug,
                 userId: viewer.id,
               },
             }),
@@ -296,8 +298,8 @@ export const questionProgressRouter = router({
             status: true,
           },
           where: {
-            format: metadata.format,
-            slug: metadata.slug,
+            format: questionMetadata.format,
+            slug: questionMetadata.slug,
             userId: viewer.id,
           },
         });
@@ -339,60 +341,57 @@ export const questionProgressRouter = router({
       status: questionProgress.status as QuestionProgressStatus,
     }));
   }),
-  getAllIncludingMetadata: userProcedure.query(
-    async ({ ctx: { locale, viewer } }) => {
-      const questionProgressList = await prisma.questionProgress.findMany({
-        orderBy: {
-          createdAt: 'desc',
-        },
-        select: {
-          createdAt: true,
-          format: true,
-          id: true,
-          slug: true,
-          status: true,
-        },
-        where: {
-          userId: viewer.id,
-        },
-      });
+  getAllIncludingMetadata: userProcedure.query(async ({ ctx: { viewer } }) => {
+    const questionProgressList = await prisma.questionProgress.findMany({
+      orderBy: {
+        createdAt: 'desc',
+      },
+      select: {
+        createdAt: true,
+        format: true,
+        id: true,
+        slug: true,
+        status: true,
+      },
+      where: {
+        userId: viewer.id,
+      },
+    });
 
-      const questionProgressMetadata = await fetchQuestionsListByHash(
-        questionProgressList.map((qn) =>
-          hashQuestion({ format: qn.format as QuestionFormat, slug: qn.slug }),
-        ),
-        locale,
-      );
+    const questionProgressMetadata = await fetchQuestionsListByHash(
+      questionProgressList.map((qn) =>
+        hashQuestion({ format: qn.format as QuestionFormat, slug: qn.slug }),
+      ),
+    );
 
-      const metadataMap = new Map(
-        questionProgressMetadata.map(({ info, metadata }) => [
-          hashQuestion(metadata),
-          { info, metadata },
-        ]),
-      );
+    const metadataMap = new Map(
+      questionProgressMetadata.map((metadata) => [
+        hashQuestion(metadata),
+        metadata,
+      ]),
+    );
 
-      return questionProgressList
-        .map((progress) => {
-          const content = metadataMap.get(
-            hashQuestion({
-              format: progress.format as QuestionFormat,
-              slug: progress.slug,
-            }),
-          );
+    return questionProgressList
+      .map((progress) => {
+        const metadata = metadataMap.get(
+          hashQuestion({
+            format: progress.format as QuestionFormat,
+            slug: progress.slug,
+          }),
+        );
 
-          if (content == null) {
-            return null;
-          }
+        if (metadata == null) {
+          return null;
+        }
 
-          return {
-            createdAt: progress.createdAt,
-            id: progress.id,
-            ...content,
-          };
-        })
-        .flatMap((progress) => (progress == null ? [] : [progress]));
-    },
-  ),
+        return {
+          createdAt: progress.createdAt,
+          id: progress.id,
+          metadata,
+        };
+      })
+      .flatMap((progress) => (progress == null ? [] : [progress]));
+  }),
   getContributionsCount: userProcedure
     .input(
       z.object({

@@ -3,8 +3,10 @@ import ScrollArea from '~/components/ui/ScrollArea';
 type Props = Readonly<{
   testCases: ReadonlyArray<{
     explanation: string;
-    input: [string, AnyIntentional];
-    output: AnyIntentional;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    input: [string, any];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    output: any;
   }>;
 }>;
 

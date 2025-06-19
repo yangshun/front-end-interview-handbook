@@ -7,6 +7,7 @@
   "created": 1670198400,
   "difficulty": "medium",
   "duration": 20,
+  "excerpt": "Build an analog clock where the hands update and move like a real clock",
   "featured": false,
   "format": "user-interface",
   "frameworkDefault": "react",
@@ -47,6 +48,7 @@
   ],
   "slug": "analog-clock",
   "subtitle": null,
+  "title": "Analog Clock",
   "topics": [
     "a11y",
     "async"

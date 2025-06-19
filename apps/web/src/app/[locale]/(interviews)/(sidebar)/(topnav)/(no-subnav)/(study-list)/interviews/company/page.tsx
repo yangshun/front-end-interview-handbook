@@ -15,7 +15,8 @@ type Props = Readonly<{
   };
 }>;
 
-async function getPageSEOMetadata({ locale }: Props['params']) {
+async function getPageSEOMetadata({ params }: Props) {
+  const { locale } = params;
   const intl = await getIntlServerOnly(locale);
 
   return {
@@ -47,7 +48,9 @@ async function getPageSEOMetadata({ locale }: Props['params']) {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
   const { description, href, ogImagePageType, socialTitle, title } =
-    await getPageSEOMetadata(params);
+    await getPageSEOMetadata({
+      params,
+    });
 
   return defaultMetadata({
     description,
@@ -81,8 +84,8 @@ export default async function Page({ params }: Props) {
       { tab: 'system-design', type: 'practice', value: 'practice' },
       locale,
     ),
-    fetchInterviewsStudyLists('company', locale),
-    fetchInterviewListingBottomContent('company/company', locale),
+    fetchInterviewsStudyLists('company'),
+    fetchInterviewListingBottomContent('company'),
   ]);
 
   const categorizedCompanyQuestions = categorizeQuestionsByCompany({

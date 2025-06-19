@@ -5,8 +5,6 @@ import { useEffect } from 'react';
 
 import { FB_PIXEL_ID, fbqGFE } from '~/lib/fbq';
 
-import Img from '~/components/ui/Img';
-
 import { useI18nPathname } from '~/next-i18nostic/src';
 
 export default function MetaPixel() {
@@ -40,7 +38,7 @@ export default function MetaPixel() {
         strategy="afterInteractive"
       />
       <noscript>
-        <Img
+        <img
           alt=""
           height="1"
           src={`https://www.facebook.com/tr?id=${FB_PIXEL_ID}&ev=PageView&noscript=1`}

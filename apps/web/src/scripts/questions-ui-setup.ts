@@ -13,19 +13,10 @@ import type {
 } from '../components/interviews/questions/common/QuestionsTypes';
 import { type QuestionFramework } from '../components/interviews/questions/common/QuestionsTypes';
 import { readMDXFile } from '../db/questions-bundlers/QuestionsBundler';
-import {
-  readQuestionInfoUserInterface,
-  readQuestionMetadataUserInterface,
-} from '../db/questions-bundlers/QuestionsBundlerUserInterface';
+import { readQuestionMetadataUserInterface } from '../db/questions-bundlers/QuestionsBundlerUserInterface';
 import {
   getQuestionOutPathUserInterface,
-  getQuestionOutPathUserInterfaceFrameworkLocaleWriteup,
-  getQuestionOutPathUserInterfaceFrameworkSetup,
-  getQuestionOutPathUserInterfaceLocaleInfo,
   getQuestionSrcPathUserInterface,
-  getQuestionSrcPathUserInterfaceWriteups,
-  getQuestionSrcPathUserInterfaceWriteupsForFramework,
-  getQuestionSrcPathUserInterfaceWriteupsFrameworkDirectory,
   QUESTIONS_SRC_DIR_USER_INTERFACE,
 } from '../db/questions-bundlers/QuestionsBundlerUserInterfaceConfig';
 
@@ -41,24 +32,21 @@ async function generateSetupForQuestion(slug: string) {
   // TODO(interviews): Make this work.
   // const { default: remarkGfm } = await import('remark-gfm');
 
-  const localeDirs = await globby('*/', {
-    cwd: getQuestionSrcPathUserInterfaceWriteups(slug),
-    deep: 0,
-    ignore: ['setup'],
-    onlyDirectories: true, // Ignore known non-locale folders
-  });
-  const locales = Array.from(
-    new Set(localeDirs.map((dir) => dir.split('/')[0])),
+  const frameworksPath = path.join(
+    getQuestionSrcPathUserInterface(slug),
+    'frameworks',
   );
 
-  const setupPath = path.join(getQuestionSrcPathUserInterface(slug), 'setup');
-
-  const allSetupFilesForQuestion = await globby(path.join('**', '*'), {
-    cwd: setupPath,
-  });
+  const allFilesForQuestion = (
+    await globby(path.join('**', '*'), {
+      cwd: frameworksPath,
+    })
+  ).filter(
+    (path_) => !(path_.endsWith('mdx') || path_.endsWith('greatfrontend.json')),
+  );
 
   // Group folders for a question by (framework, setup).
-  const groupedFiles = groupBy(allSetupFilesForQuestion, (filePath) => {
+  const groupedFiles = groupBy(allFilesForQuestion, (filePath) => {
     const parts = filePath.split('/');
 
     return parts[0] + '/' + parts[1];
@@ -78,15 +66,20 @@ async function generateSetupForQuestion(slug: string) {
 
       paths.sort((a, b) => a.localeCompare(b));
 
-      const [files, workspace] = await Promise.all([
+      const [writeupMdx, files, workspace] = await Promise.all([
+        // Read either description or solution Markdown file.
+        readMDXFile(
+          path.join(frameworksPath, framework, setupType, 'index.mdx'),
+          {},
+        ),
         // Read files needed.
         paths.reduce<Record<string, SandpackFile>>((accFiles, filePath) => {
           const relativePath = path.relative(
-            path.join(framework, setupType),
+            path.join(framework, setupType, 'setup'),
             filePath,
           );
 
-          const fullPath = path.join(setupPath, filePath);
+          const fullPath = path.join(frameworksPath, filePath);
           const contents = fs.readFileSync(fullPath).toString();
 
           // Sandpack requires all file paths to be from the root,
@@ -100,9 +93,10 @@ async function generateSetupForQuestion(slug: string) {
         // Read greatfrontend.json.
         (() => {
           const greatfrontendConfigPath = path.join(
-            setupPath,
+            frameworksPath,
             framework,
             setupType,
+            'setup',
             'greatfrontend.json',
           );
 
@@ -121,77 +115,10 @@ async function generateSetupForQuestion(slug: string) {
         framework,
         setupType,
         workspace: nullthrows(workspace),
+        writeup: nullthrows(writeupMdx),
       };
     }),
   );
-
-  async function writeupFile() {
-    await Promise.all(
-      locales.map(async (locale) => {
-        const frameworkDirs = await globby('*/', {
-          cwd: getQuestionSrcPathUserInterfaceWriteupsFrameworkDirectory(
-            slug,
-            locale,
-          ),
-          deep: 0,
-          onlyDirectories: true,
-        });
-        const frameworks = Array.from(
-          new Set(frameworkDirs.map((dir) => dir.split('/')[0])),
-        ) as ReadonlyArray<QuestionFramework>;
-
-        await Promise.all(
-          frameworks.map(async (framework) => {
-            assert(
-              SUPPORTED_FRAMEWORKS.has(framework),
-              `Unsupported framework: ${framework}`,
-            );
-
-            const frameworkPath =
-              getQuestionSrcPathUserInterfaceWriteupsForFramework(
-                slug,
-                framework,
-                locale,
-              );
-            const writeupDirs = await globby('*/', {
-              cwd: frameworkPath,
-              deep: 0,
-              onlyDirectories: true,
-            });
-            const writeupTypes = Array.from(
-              new Set(writeupDirs.map((dir) => dir.split('/')[0])),
-            );
-            const filesArray = await Promise.all(
-              writeupTypes.map(async (writeupType) => {
-                const writeupMDX = await readMDXFile(
-                  path.join(frameworkPath, writeupType, 'index.mdx'),
-                  {},
-                );
-
-                return {
-                  [writeupType]: writeupMDX,
-                };
-              }),
-            );
-
-            const writeupFilesObj = filesArray.reduce((acc, curr) => {
-              return { ...acc, ...curr };
-            }, {});
-
-            const outPath =
-              getQuestionOutPathUserInterfaceFrameworkLocaleWriteup(
-                slug,
-                framework,
-                locale,
-              );
-
-            fs.mkdirSync(path.dirname(outPath), { recursive: true });
-            fs.writeFileSync(outPath, JSON.stringify(writeupFilesObj, null, 2));
-          }),
-        );
-      }),
-    );
-  }
 
   await Promise.all([
     (async () => {
@@ -199,54 +126,50 @@ async function generateSetupForQuestion(slug: string) {
 
       const outPath = path.join(
         getQuestionOutPathUserInterface(slug),
-        'metadata.json',
+        `metadata.json`,
       );
 
       fs.mkdirSync(path.dirname(outPath), { recursive: true });
       fs.writeFileSync(outPath, JSON.stringify(metadata, null, 2));
     })(),
-    ...locales.map(async (locale) => {
-      const info = await readQuestionInfoUserInterface(slug, locale);
-      const outPath = getQuestionOutPathUserInterfaceLocaleInfo(slug, locale);
+    ...setups.map(
+      async ({ files, framework, setupType, workspace, writeup }) => {
+        workspace?.visibleFiles?.forEach((file) => {
+          if (!(file in files)) {
+            throw Error(
+              `Visible file "${file}" not found in files for ${setupType} of ${framework} for ${slug}`,
+            );
+          }
+        });
 
-      fs.mkdirSync(path.dirname(outPath), { recursive: true });
-      fs.writeFileSync(outPath, JSON.stringify(info, null, 2));
-    }),
-    ...setups.map(async ({ files, framework, setupType, workspace }) => {
-      workspace?.visibleFiles?.forEach((file) => {
-        if (!(file in files)) {
-          throw Error(
-            `Visible file "${file}" not found in files for ${setupType} of ${framework} for ${slug}`,
-          );
-        }
-      });
+        const outPath = path.join(
+          getQuestionOutPathUserInterface(slug),
+          framework,
+          `${setupType}.json`,
+        );
 
-      const author: string | null = (() => {
-        try {
-          const pkgJSON = JSON.parse(files['/package.json'].code);
+        fs.mkdirSync(path.dirname(outPath), { recursive: true });
 
-          return pkgJSON.author ?? null;
-        } catch {
-          return null;
-        }
-      })();
+        const author: string | null = (() => {
+          try {
+            const pkgJSON = JSON.parse(files['/package.json'].code);
 
-      const bundle: Omit<QuestionUserInterfaceBundle, 'writeup'> = {
-        author,
-        files,
-        workspace,
-      };
+            return pkgJSON.author ?? null;
+          } catch {
+            return null;
+          }
+        })();
 
-      const outPath = getQuestionOutPathUserInterfaceFrameworkSetup(
-        slug,
-        framework,
-        setupType,
-      );
+        const bundle: QuestionUserInterfaceBundle = {
+          author,
+          files,
+          workspace,
+          writeup,
+        };
 
-      fs.mkdirSync(path.dirname(outPath), { recursive: true });
-      fs.writeFileSync(outPath, JSON.stringify(bundle, null, 2));
-    }),
-    writeupFile(),
+        fs.writeFileSync(outPath, JSON.stringify(bundle, null, 2));
+      },
+    ),
   ]);
 }
 

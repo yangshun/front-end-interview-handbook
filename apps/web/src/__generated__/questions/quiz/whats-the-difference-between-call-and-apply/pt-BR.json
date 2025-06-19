@@ -1,0 +1,33 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [
+      "atlassian"
+    ],
+    "created": 1630800000,
+    "difficulty": "easy",
+    "duration": 5,
+    "excerpt": null,
+    "featured": true,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/whats-the-difference-between-call-and-apply",
+    "importance": "high",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "whats-the-difference-between-call-and-apply",
+    "subtitle": null,
+    "title": "Qual é a diferença entre `.call` e `.apply`?",
+    "topics": [
+      "javascript"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/whats-the-difference-between-call-and-apply/pt-BR.mdx"
+  },
+  "solution": "var Component=(()=>{var m=Object.create;var c=Object.defineProperty;var i=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var x=(a,e)=>()=>(e||a((e={exports:{}}).exports,e),e.exports),f=(a,e)=>{for(var o in e)c(a,o,{get:e[o],enumerable:!0})},s=(a,e,o,t)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of u(e))!h.call(a,r)&&r!==o&&c(a,r,{get:()=>e[r],enumerable:!(t=i(e,r))||t.enumerable});return a};var j=(a,e,o)=>(o=a!=null?m(g(a)):{},s(e||!a||!a.__esModule?c(o,\"default\",{value:a,enumerable:!0}):o,a)),y=a=>s(c({},\"__esModule\",{value:!0}),a);var d=x((D,l)=>{l.exports=_jsx_runtime});var C={};f(C,{default:()=>v,frontmatter:()=>b});var n=j(d()),b={title:\"Qual \\xE9 a diferen\\xE7a entre `.call` e `.apply`?\"};function p(a){let e=Object.assign({p:\"p\",code:\"code\",pre:\"pre\"},a.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.code,{children:\".call\"}),\" e \",(0,n.jsx)(e.code,{children:\".apply\"}),\" s\\xE3o usados para invocar fun\\xE7\\xF5es e o primeiro par\\xE2metro ser\\xE1 usado como o valor de \",(0,n.jsx)(e.code,{children:\"this\"}),\" dentro da fun\\xE7\\xE3o. No entanto, \",(0,n.jsx)(e.code,{children:\".call\"}),\" recebe argumentos separados por v\\xEDrgulas como os pr\\xF3ximos argumentos enquanto \",(0,n.jsx)(e.code,{children:\".apply\"}),\" recebe um array de argumentos como o pr\\xF3ximo argumento. Uma maneira f\\xE1cil de lembrar este \\xE9 C para \",(0,n.jsx)(e.code,{children:\"chamada\"}),\" e par\\xE2metros separados por v\\xEDrgulas e A para 'apply' e um array de argumentos.\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`function add(a, b) {\n  return a + b;\n}\n\nconsole.log(add.call(null, 1, 2)); // 3\nconsole.log(add.apply(null, [1, 2])); // 3\n`})})]})}function _(a={}){let{wrapper:e}=a.components||{};return e?(0,n.jsx)(e,Object.assign({},a,{children:(0,n.jsx)(p,a)})):p(a)}var v=_;return y(C);})();\n;return Component;"
+}

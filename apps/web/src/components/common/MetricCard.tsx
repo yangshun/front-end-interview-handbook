@@ -25,7 +25,7 @@ export default function MetricCard({ count, icon: Icon, label }: Props) {
       <div className="flex items-center gap-2">
         <span
           className={clsx(
-            'hidden size-9 items-center justify-center rounded-md md:inline-flex',
+            'size-9 hidden items-center justify-center rounded-md md:inline-flex',
             themeBackgroundChipColor,
             themeTextSecondaryColor,
             'border border-transparent transition',

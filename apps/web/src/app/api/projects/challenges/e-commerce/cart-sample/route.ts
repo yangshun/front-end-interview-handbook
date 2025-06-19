@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-import cart from '../__data/sample-cart.json' with { type: 'json' };
+import cart from '../__data/sample-cart.json' assert { type: 'json' };
 
 export async function OPTIONS() {
   return NextResponse.json({});

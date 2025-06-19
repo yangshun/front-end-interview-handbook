@@ -2,9 +2,9 @@ import type { GuideProgress } from '@prisma/client';
 import clsx from 'clsx';
 
 import type {
-  InterviewsQuestionItemMinimal,
   QuestionFramework,
   QuestionLanguage,
+  QuestionMetadata,
   QuestionSlug,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsFormatsSection from '~/components/interviews/questions/listings/category/InterviewsQuestionsFormatsSection';
@@ -18,17 +18,17 @@ import { themeTextColor } from '~/components/ui/theme';
 type Props = Readonly<{
   guidesProgress: ReadonlyArray<GuideProgress>;
   questions: {
-    codingQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+    codingQuestions: ReadonlyArray<QuestionMetadata>;
     frameworkQuestions: Record<
       QuestionFramework,
-      ReadonlyArray<InterviewsQuestionItemMinimal>
+      ReadonlyArray<QuestionMetadata>
     >;
     languageQuestions: Record<
       QuestionLanguage,
-      ReadonlyArray<InterviewsQuestionItemMinimal>
+      ReadonlyArray<QuestionMetadata>
     >;
-    quizQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
-    systemDesignQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+    quizQuestions: ReadonlyArray<QuestionMetadata>;
+    systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
   };
   questionsProgress: ReadonlyArray<
     Readonly<{ format: string; id: string; slug: QuestionSlug }>

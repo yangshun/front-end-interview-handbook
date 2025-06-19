@@ -9,7 +9,7 @@ import { trpc } from '~/hooks/trpc';
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
 import { useToast } from '~/components/global/toasts/useToast';
-import type { InterviewsQuestionItemUserInterface } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { QuestionUserInterface } from '~/components/interviews/questions/common/QuestionsTypes';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Dialog from '~/components/ui/Dialog';
@@ -69,7 +69,7 @@ function UpdateSaveButton({
 function NewSaveButton({
   question,
 }: Readonly<{
-  question: InterviewsQuestionItemUserInterface;
+  question: QuestionUserInterface;
   studyListKey?: string; // TODO(interviews): make save URLs study list-specific
 }>) {
   const intl = useIntl();
@@ -193,9 +193,9 @@ function NewSaveButton({
         <div className="flex flex-col gap-y-3">
           <Text className="block" color="secondary" size="inherit">
             <FormattedMessage
-              defaultMessage='Your code will be saved into the database and can be retrieved from the <bold>"Saved versions"</bold> tab.'
+              defaultMessage='Your code will be saved into the database and can be retrieved from the <bold>"{Saved versions}"</bold> tab.'
               description="Coding workspace save code dialog description"
-              id="4IaHW9"
+              id="4zR7Wh"
               values={{
                 bold: (chunks) => <Text weight="medium">{chunks}</Text>,
               }}
@@ -234,7 +234,7 @@ export default function UserInterfaceCodingWorkspaceSaveButton({
   question,
   studyListKey,
 }: Readonly<{
-  question: InterviewsQuestionItemUserInterface;
+  question: QuestionUserInterface;
   studyListKey?: string;
 }>) {
   const { save } = useUserInterfaceCodingWorkspaceSavesContext();

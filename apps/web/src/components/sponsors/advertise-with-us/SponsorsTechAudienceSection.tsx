@@ -6,7 +6,6 @@ import { UsersCountLastYear } from '~/data/Stats';
 
 import { FormattedMessage } from '~/components/intl';
 import Heading from '~/components/ui/Heading';
-import Img from '~/components/ui/Img';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundColor,
@@ -85,7 +84,7 @@ function Asset() {
       />
       <div
         className={clsx(
-          'absolute inset-x-px inset-y-0.5',
+          'absolute inset-x-px  inset-y-0.5',
           'flex items-center justify-center',
           'overflow-hidden rounded-[inherit]',
         )}>
@@ -99,7 +98,7 @@ function Asset() {
             media="(min-width: 501px)"
             srcSet="/img/sponsors/global-tech-audience-light.png"
           />
-          <Img
+          <img
             alt="Globe"
             className={clsx(
               'block sm:h-full sm:w-auto',
@@ -121,7 +120,7 @@ function Asset() {
             media="(min-width: 501px)"
             srcSet="/img/sponsors/global-tech-audience-dark.png"
           />
-          <Img
+          <img
             alt="Globe"
             className={clsx(
               'block sm:h-full sm:w-auto',

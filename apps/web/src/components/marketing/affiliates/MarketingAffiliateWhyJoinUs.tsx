@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useInView } from 'motion/react';
+import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 
 import { FormattedMessage } from '~/components/intl';

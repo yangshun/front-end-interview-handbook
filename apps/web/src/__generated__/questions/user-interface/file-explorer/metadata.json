@@ -10,6 +10,7 @@
   "created": 1723766400,
   "difficulty": "medium",
   "duration": 20,
+  "excerpt": "Build a file explorer component to navigate files and directories in a tree-like hierarchical viewer",
   "featured": false,
   "format": "user-interface",
   "frameworkDefault": "react",
@@ -36,6 +37,7 @@
   ],
   "slug": "file-explorer",
   "subtitle": null,
+  "title": "File Explorer",
   "topics": [
     "a11y"
   ]

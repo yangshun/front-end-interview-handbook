@@ -10,14 +10,8 @@ import { groupQuestionHashesByFormat } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
-type Props = Readonly<{
-  params: {
-    locale: string;
-  };
-}>;
-
-async function getPageSEOMetadata({ locale }: Props['params']) {
-  const studyPlanDocument = await fetchInterviewsStudyList('gfe75', locale);
+async function getPageSEOMetadata() {
+  const studyPlanDocument = await fetchInterviewsStudyList('gfe75');
 
   if (studyPlanDocument == null) {
     return notFound();
@@ -31,12 +25,17 @@ async function getPageSEOMetadata({ locale }: Props['params']) {
   };
 }
 
+type Props = Readonly<{
+  params: {
+    locale: string;
+  };
+}>;
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
   const intl = await getIntlServerOnly(locale);
 
-  const { description, href, socialTitle, title } =
-    await getPageSEOMetadata(params);
+  const { description, href, socialTitle, title } = await getPageSEOMetadata();
 
   return defaultMetadata({
     description,
@@ -55,7 +54,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const { locale } = params;
-  const gfe75 = await fetchInterviewsStudyList('gfe75', locale);
+  const gfe75 = await fetchInterviewsStudyList('gfe75');
 
   if (gfe75 == null) {
     return notFound();
@@ -67,7 +66,7 @@ export default async function Page({ params }: Props) {
 
   const [questions, bottomContent] = await Promise.all([
     fetchQuestionsListByHash(gfe75?.questionHashes ?? [], locale),
-    fetchInterviewListingBottomContent('study-plans/gfe75', locale),
+    fetchInterviewListingBottomContent('gfe75'),
   ]);
 
   return (

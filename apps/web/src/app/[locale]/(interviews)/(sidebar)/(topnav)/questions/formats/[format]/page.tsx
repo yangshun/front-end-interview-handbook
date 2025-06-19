@@ -258,7 +258,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         id: 'Pp+bFM',
       }),
       ogImageTitle,
-      pathname: `/questions/formats/${format}`,
+      pathname: `/questions/${format}`,
       socialTitle,
       title: seoTitle,
     });
@@ -296,7 +296,7 @@ export default async function Page({ params }: Props) {
   ] = await Promise.all([
     processParams(params),
     fetchQuestionsCompletionCount([questionFormat]),
-    fetchInterviewListingBottomContent(`formats/${questionFormat}`, locale),
+    fetchInterviewListingBottomContent(`${format}-question-format`),
     format === 'system-design'
       ? readFrontEndSystemDesignGuides(locale)
       : readFrontEndInterviewPlaybookGuides({ locale }),

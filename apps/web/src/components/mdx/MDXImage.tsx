@@ -5,15 +5,9 @@ import clsx from 'clsx';
 import type { ComponentProps } from 'react';
 import { useEffect, useRef, useState } from 'react';
 
-import Img from '~/components/ui/Img';
-
 import DialogBaseOverlay from '../ui/Dialog/DialogBaseOverlay';
 
-export default function MDXImage({
-  alt,
-  ref: _ref, // TODO(ui): merge refs
-  ...props
-}: ComponentProps<'img'>) {
+export default function MDXImage({ alt, ...props }: ComponentProps<'img'>) {
   const [canExpand, setCanExpand] = useState(false);
   const ref = useRef<HTMLImageElement>(null);
 
@@ -30,7 +24,7 @@ export default function MDXImage({
   }, [props.src]);
 
   const image = (
-    <Img
+    <img
       ref={ref}
       alt={alt}
       className={clsx('mx-auto w-full max-w-lg', canExpand && 'cursor-zoom-in')}
@@ -63,7 +57,7 @@ export default function MDXImage({
             'data-[state=open]:slide-in-from-top-[48%] data-[state=closed]:slide-out-to-top-[48%]',
           )}>
           <DialogPrimitive.Close asChild={true}>
-            <Img
+            <img
               alt={alt}
               className="inline-block h-full cursor-zoom-out object-contain"
               {...props}

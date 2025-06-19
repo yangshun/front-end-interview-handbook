@@ -4,9 +4,9 @@ import clsx from 'clsx';
 import CodingPreferencesProvider from '~/components/global/CodingPreferencesProvider';
 import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
 import type {
-  InterviewsQuestionItemMinimal,
-  InterviewsQuestionItemUserInterface,
   QuestionFramework,
+  QuestionMetadata,
+  QuestionUserInterface,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
 import sandpackProviderOptions from '~/components/workspace/common/sandpack/sandpackProviderOptions';
@@ -20,13 +20,13 @@ type Props = Readonly<{
   canViewPremiumContent: boolean;
   embed?: boolean;
   mode: QuestionUserInterfaceMode;
-  nextQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+  nextQuestions: ReadonlyArray<QuestionMetadata>;
   onFrameworkChange: (
     framework: QuestionFramework,
     contentType: 'description' | 'solution',
   ) => void;
-  question: InterviewsQuestionItemUserInterface;
-  similarQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+  question: QuestionUserInterface;
+  similarQuestions: ReadonlyArray<QuestionMetadata>;
   studyListKey?: string;
   timeoutLoggerInstance: string;
 }>;
@@ -58,7 +58,7 @@ export default function UserInterfaceCodingWorkspaceSection({
       : question.solutionBundle.files;
 
   const files =
-    mode === 'practice' ? (loadedFiles ?? defaultFiles) : defaultFiles;
+    mode === 'practice' ? loadedFiles ?? defaultFiles : defaultFiles;
 
   const workspace =
     mode === 'practice'

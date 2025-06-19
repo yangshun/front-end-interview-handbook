@@ -5,7 +5,6 @@ import { RiCloseFill, RiImageLine } from 'react-icons/ri';
 
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
-import Img from '~/components/ui/Img';
 import Label from '~/components/ui/Label';
 import Text from '~/components/ui/Text';
 import {
@@ -137,7 +136,7 @@ export default function SponsorsAdvertiseRequestFormAdsImageUpload({
               onClick={() => setImageUrl('')}
             />
           )}
-          <Img
+          <img
             alt={intl.formatMessage({
               defaultMessage: 'Uploaded image',
               description: 'Uploaded ad image label',
@@ -183,7 +182,7 @@ export default function SponsorsAdvertiseRequestFormAdsImageUpload({
             <RiImageLine
               aria-hidden="true"
               className={clsx(
-                'mx-auto mb-2 size-10 shrink-0',
+                'size-10 mx-auto mb-2 shrink-0',
                 themeTextPlaceholderColor,
               )}
             />

@@ -9,6 +9,7 @@
   "created": 1723766400,
   "difficulty": "medium",
   "duration": 20,
+  "excerpt": "Build a users data table with pagination features",
   "featured": false,
   "format": "user-interface",
   "frameworkDefault": "react",
@@ -32,5 +33,6 @@
   "similarQuestions": [],
   "slug": "data-table",
   "subtitle": null,
+  "title": "Data Table",
   "topics": []
 }

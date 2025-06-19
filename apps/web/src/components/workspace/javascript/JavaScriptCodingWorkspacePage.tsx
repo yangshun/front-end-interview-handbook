@@ -1,8 +1,8 @@
 'use client';
 
 import type {
-  InterviewsQuestionItemJavaScript,
-  InterviewsQuestionItemMinimal,
+  QuestionJavaScript,
+  QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 
 import useCodingWorkspaceWorkingLanguage from '../common/useCodingWorkspaceWorkingLanguage';
@@ -10,9 +10,9 @@ import JavaScriptCodingWorkspaceSection from './JavaScriptCodingWorkspaceSection
 
 type Props = Readonly<{
   canViewPremiumContent: boolean;
-  nextQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
-  question: InterviewsQuestionItemJavaScript;
-  similarQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+  nextQuestions: ReadonlyArray<QuestionMetadata>;
+  question: QuestionJavaScript;
+  similarQuestions: ReadonlyArray<QuestionMetadata>;
   studyListKey?: string;
 }>;
 

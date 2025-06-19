@@ -37,7 +37,7 @@ function OnlineUsers({ count }: Readonly<{ count: number }>) {
       <div className="flex items-center gap-2 px-2">
         <span
           className={clsx(
-            'bg-success relative inline-flex size-2.5 rounded-full',
+            'bg-success size-2.5 relative inline-flex rounded-full',
             'animate-pulse-slow',
           )}
         />

@@ -1,0 +1,52 @@
+---
+slug: accordion-iii
+author: yangshun
+title: Accordion III
+excerpt: Build a fully accessible accordion component that has keyboard support according to ARIA specifications
+created: 2022-12-21
+languages: [html, js]
+companies: [amazon]
+access: premium
+duration: 20
+published: true
+importance: low
+difficulty: medium
+frameworks: [react]
+topics: [a11y]
+---
+
+**Note:** This is an advanced version of [Accordion II](/questions/user-interface/accordion-ii), you should complete that question first before attempting this question. This question is not available in Vanilla JavaScript as it will require a fair bit of code to add keyboard interactions without a JavaScript framework.
+
+In [Accordion II](/questions/user-interface/accordion-ii), we built a functional accordion component that has the necessary [WAI-ARIA roles, states, and properties](https://www.w3.org/WAI/ARIA/apg/patterns/accordion/), which is actually pretty accessible. However, we can go one step further and add some optional keyboard interactions.
+
+## Requirements
+
+We'll be following a modified subset of the [necessary keyboard interactions for accordions](https://www.w3.org/WAI/ARIA/apg/patterns/accordion/):
+
+- When <kbd>Enter</kbd> or <kbd>Space</kbd> is hit and focus is on the accordion header
+  - For a collapsed panel, expands the associated panel.
+  - For an expanded panel, collapses the associated panel.
+- <kbd>Tab</kbd>: Moves focus to the next focusable element;
+  all focusable elements in the accordion are included in
+  the page <kbd>Tab</kbd> sequence.
+- <kbd>Shift</kbd> + <kbd>Tab</kbd>: Moves focus to the
+  previous focusable element; all focusable elements in the
+  accordion are included in the page <kbd>
+    Tab
+  </kbd> sequence.
+- <kbd>Down Arrow</kbd>: If focus is on an accordion header,
+  moves focus to the next accordion header. If focus is on
+  the last accordion header, either does nothing or moves
+  focus to the first accordion header.
+- <kbd>Up Arrow</kbd>: If focus is on an accordion header,
+  moves focus to the previous accordion header. If focus is
+  on the first accordion header, either does nothing or
+  moves focus to the last accordion header.
+- <kbd>Home</kbd>: When focus is on an accordion header,
+  moves focus to the first accordion header.
+- <kbd>End</kbd>: When focus is on an accordion header,
+  moves focus to the last accordion header.
+
+## Notes
+
+- The focus of this question is on adding keyboard functionality, not the styling. We have provided the solution to [Accordion II](/questions/user-interface/accordion-ii) here for you to build on top of. You can reuse the existing styling.

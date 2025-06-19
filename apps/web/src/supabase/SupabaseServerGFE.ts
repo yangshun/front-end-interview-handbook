@@ -61,7 +61,7 @@ export async function fetchUser_DO_NOT_USE_IF_ONLY_USER_ID_OR_EMAIL_NEEDED(
 
     const tokens = decodeSupabaseAuthTokens(supabaseAuthToken);
 
-    if (tokens?.accessToken == null) {
+    if (tokens == null || tokens.accessToken == null) {
       return null;
     }
 
@@ -146,7 +146,9 @@ type SupabaseJwtPayload = Readonly<{
   sub: string; // User ID.
 }>;
 
-const encodedSecret = new TextEncoder().encode(process.env.SUPABASE_JWT_SECRET);
+const encodedSecret = new TextEncoder().encode(
+  process.env.SUPABASE_JWT_SECRET!,
+);
 
 export async function parseJWTAccessToken(
   token: string,

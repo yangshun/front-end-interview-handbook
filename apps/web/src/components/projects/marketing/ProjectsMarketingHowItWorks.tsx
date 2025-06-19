@@ -158,10 +158,10 @@ function CardStackCard({
   shadow?: boolean;
 }) {
   return (
-    <div className={clsx('absolute top-0 size-full', className)}>
+    <div className={clsx('size-full absolute top-0', className)}>
       <div
         className={clsx(
-          'relative size-full overflow-clip rounded-lg border',
+          'size-full relative overflow-clip rounded-lg border',
           themeBorderColor,
           themeBackgroundElementColor,
         )}

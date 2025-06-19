@@ -34,7 +34,6 @@ export type PurchasePricingPlanPaymentConfigBase = Readonly<{
     count: number;
     interval: Stripe.Price.Recurring.Interval;
   }> | null;
-  tazapayEnabled: boolean;
   urls: {
     cancel: string;
     success: string;
@@ -43,5 +42,3 @@ export type PurchasePricingPlanPaymentConfigBase = Readonly<{
 
 export type PurchasePricingPlanPaymentConfigLocalized = PurchasePrice &
   PurchasePricingPlanPaymentConfigBase;
-
-export type PurchasePaymentProvider = 'stripe' | 'tazapay';

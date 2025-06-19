@@ -18,7 +18,6 @@ import {
   HovercardPortal,
   HovercardTrigger,
 } from '~/components/ui/Hovercard/Hovercard';
-import Img from '~/components/ui/Img';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundCardAltColor,
@@ -157,7 +156,7 @@ export default function ProjectsChallengeSubmissionCard({
             />
           </div>
         ) : (
-          <Img
+          <img
             alt={title}
             className={clsx('size-full object-cover')}
             decoding="async"

@@ -47,14 +47,12 @@ import useInterviewsNavLinks from './useInterviewsNavLinks';
 import useInterviewsSidebarLinks from './useInterviewsSidebarLinks';
 
 type Props = Readonly<{
-  bgClassName?: string;
   bottomBorder?: boolean;
   hideAdvertiseWithUsBadge?: boolean;
   hideOnDesktop?: boolean;
 }>;
 
 export default function InterviewsNavbar({
-  bgClassName = 'bg-white dark:bg-neutral-900/60',
   bottomBorder = true,
   hideAdvertiseWithUsBadge,
   hideOnDesktop = false,
@@ -99,7 +97,7 @@ export default function InterviewsNavbar({
       className={clsx(
         'z-fixed sticky top-[var(--banner-height)]',
         bottomBorder && ['border-b', themeBorderColor],
-        translucent ? 'backdrop-blur' : bgClassName,
+        translucent ? 'backdrop-blur' : 'bg-white dark:bg-neutral-900/60',
         'transition-[background-color]',
         hideOnDesktop && 'lg:hidden',
       )}>

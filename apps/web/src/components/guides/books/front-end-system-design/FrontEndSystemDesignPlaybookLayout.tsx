@@ -1,25 +1,21 @@
 'use client';
 
-import GuidesArticle from '~/components/guides/GuidesArticle';
-import GuidesArticleJsonLd from '~/components/guides/GuidesArticleJsonLd';
-import GuidesMainLayout from '~/components/guides/GuidesMainLayout';
-import type { TableOfContents } from '~/components/guides/GuidesTableOfContents';
-import type { GuideMetadata } from '~/components/guides/types';
-import useFlattenedNavigationItems from '~/components/guides/useFlattenedNavigationItems';
-import type { InterviewsQuestionItemMinimal } from '~/components/interviews/questions/common/QuestionsTypes';
-import InterviewsQuestionsSystemDesignPaywall from '~/components/interviews/questions/content/system-design/InterviewsQuestionsSystemDesignPaywall';
-import { useIntl } from '~/components/intl';
-
 import { useQueryGuideProgress } from '~/db/guides/GuidesProgressClient';
 import { useI18nPathname } from '~/next-i18nostic/src';
 
+import SystemDesignPaywall from '../../../interviews/questions/content/system-design/SystemDesignPaywall';
+import GuidesArticle from '../../GuidesArticle';
+import GuidesArticleJsonLd from '../../GuidesArticleJsonLd';
+import GuidesMainLayout from '../../GuidesMainLayout';
+import type { TableOfContents } from '../../GuidesTableOfContents';
+import type { GuideMetadata } from '../../types';
+import useFlattenedNavigationItems from '../../useFlattenedNavigationItems';
 import { useFrontEndSystemDesignPlaybookNavigation } from './FrontEndSystemDesignPlaybookNavigation';
 
 type Props = Readonly<{
   children?: React.ReactNode;
   description: string;
   isAccessibleForFree?: boolean;
-  questions: ReadonlyArray<InterviewsQuestionItemMinimal>;
   tableOfContents?: TableOfContents;
   title: string;
 }>;
@@ -30,12 +26,10 @@ export default function FrontEndSystemDesignPlaybookLayout({
   children,
   description,
   isAccessibleForFree = true,
-  questions,
   tableOfContents,
   title,
 }: Props) {
-  const intl = useIntl();
-  const navigation = useFrontEndSystemDesignPlaybookNavigation(questions);
+  const navigation = useFrontEndSystemDesignPlaybookNavigation();
   const { pathname } = useI18nPathname();
 
   const flatNavigationItems = useFlattenedNavigationItems(navigation);
@@ -58,16 +52,8 @@ export default function FrontEndSystemDesignPlaybookLayout({
         description={description}
         isAccessibleForFree={isAccessibleForFree}
         pathname={pathname}
-        title={intl.formatMessage(
-          {
-            defaultMessage: 'Front End System Design: {title}',
-            description: 'Title for Front End System Design',
-            id: 'B8s6N1',
-          },
-          {
-            title,
-          },
-        )}
+        // TODO: i18n
+        title={`Front End System Design: ${title}`}
       />
       <GuidesMainLayout
         guide={guide}
@@ -76,14 +62,14 @@ export default function FrontEndSystemDesignPlaybookLayout({
         isGuideProgressLoaded={isSuccess}
         navigation={navigation}
         tableOfContents={tableOfContents}>
-        <InterviewsQuestionsSystemDesignPaywall isPremium={currentItem.premium}>
+        <SystemDesignPaywall isPremium={currentItem.premium}>
           <GuidesArticle
             description={description}
             metadata={guideMetadata}
             title={title}>
             {children}
           </GuidesArticle>
-        </InterviewsQuestionsSystemDesignPaywall>
+        </SystemDesignPaywall>
       </GuidesMainLayout>
     </>
   );

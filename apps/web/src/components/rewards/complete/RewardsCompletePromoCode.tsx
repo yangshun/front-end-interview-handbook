@@ -86,7 +86,7 @@ export default function RewardsCompletePromoCode({
             width={350}
           />
           <Text
-            className="block max-w-60 text-center"
+            className="max-w-60 block text-center"
             color="secondary"
             size="body1">
             <FormattedMessage

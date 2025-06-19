@@ -4,7 +4,7 @@ import path from 'path';
 import { readQuestionListMetadataAlgo } from '~/db/questions-bundlers/QuestionsBundlerAlgo';
 import { getQuestionsListOutFilenameAlgo } from '~/db/questions-bundlers/QuestionsBundlerAlgoConfig';
 
-import type { InterviewsQuestionItemMinimal } from '../components/interviews/questions/common/QuestionsTypes';
+import type { QuestionMetadata } from '../components/interviews/questions/common/QuestionsTypes';
 import { getQuestionsListOutFilenameCoding } from '../db/questions-bundlers/QuestionsBundlerCodingConfig';
 import { readQuestionListMetadataJavaScript } from '../db/questions-bundlers/QuestionsBundlerJavaScript';
 import { getQuestionsListOutFilenameJavaScript } from '../db/questions-bundlers/QuestionsBundlerJavaScriptConfig';
@@ -16,9 +16,7 @@ import { readQuestionListMetadataUserInterface } from '../db/questions-bundlers/
 import { getQuestionsListOutFilenameUserInterface } from '../db/questions-bundlers/QuestionsBundlerUserInterfaceConfig';
 
 async function generateQuestionsMetadata(
-  genFn: (
-    locale_: string,
-  ) => Promise<ReadonlyArray<InterviewsQuestionItemMinimal>>,
+  genFn: (locale_: string) => Promise<ReadonlyArray<QuestionMetadata>>,
   outPath: string,
   locale = 'en-US',
 ) {
@@ -41,7 +39,7 @@ async function codingQuestionsMetadata(outPath: string, locale = 'en-US') {
     ...algoQuestions,
     ...javaScriptQuestions,
     ...userInterfaceQuestions,
-  ].sort((a, b) => a.info.title.localeCompare(b.info.title));
+  ].sort((a, b) => a.title.localeCompare(b.title));
 
   const dir = path.dirname(outPath);
 
@@ -49,7 +47,7 @@ async function codingQuestionsMetadata(outPath: string, locale = 'en-US') {
   fs.writeFileSync(
     outPath,
     JSON.stringify(
-      combinedQuestions.filter((file) => file.metadata.published),
+      combinedQuestions.filter((file) => file.published),
       null,
       2,
     ),
@@ -74,19 +72,15 @@ const locales = [sourceLocale, 'zh-CN'];
 export async function generateAllMetadata() {
   return await Promise.all([
     generateQuizMetadata(),
-    ...locales.map((locale) =>
-      generateQuestionsMetadata(
-        readQuestionListMetadataSystemDesign,
-        getQuestionsListOutFilenameSystemDesign(locale),
-        locale,
-      ),
+    generateQuestionsMetadata(
+      readQuestionListMetadataSystemDesign,
+      getQuestionsListOutFilenameSystemDesign(sourceLocale),
+      sourceLocale,
     ),
-    ...locales.map((locale) =>
-      generateQuestionsMetadata(
-        readQuestionListMetadataAlgo,
-        getQuestionsListOutFilenameAlgo(locale),
-        locale,
-      ),
+    generateQuestionsMetadata(
+      readQuestionListMetadataAlgo,
+      getQuestionsListOutFilenameAlgo(sourceLocale),
+      sourceLocale,
     ),
     ...locales.map((locale) =>
       generateQuestionsMetadata(
@@ -95,12 +89,10 @@ export async function generateAllMetadata() {
         locale,
       ),
     ),
-    ...locales.map((locale) =>
-      generateQuestionsMetadata(
-        readQuestionListMetadataUserInterface,
-        getQuestionsListOutFilenameUserInterface(locale),
-        locale,
-      ),
+    generateQuestionsMetadata(
+      readQuestionListMetadataUserInterface,
+      getQuestionsListOutFilenameUserInterface(sourceLocale),
+      sourceLocale,
     ),
     ...locales.map((locale) =>
       codingQuestionsMetadata(

@@ -1,90 +1,82 @@
 'use client';
 
+import { useUser } from '@supabase/auth-helpers-react';
 import clsx from 'clsx';
-import type { ReactNode } from 'react';
 import { Suspense } from 'react';
 
 import QuestionProgressAction from '~/components/interviews/questions/common/QuestionProgressAction';
 import QuestionReportIssueButton from '~/components/interviews/questions/common/QuestionReportIssueButton';
 import InterviewsQuestionsListSlideOutButton from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOutButton';
-import Text from '~/components/ui/Text';
 import {
   themeBackgroundDarkColor,
   themeBorderColor,
 } from '~/components/ui/theme';
 
+import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
 import { hashQuestion } from '~/db/QuestionsUtils';
-
-import type { QuestionListTypeData } from '../../common/QuestionsTypes';
 
 type Props = Readonly<{
   allowMarkComplete?: boolean;
-  initialListType?: QuestionListTypeData;
-  leftAddOnItem?: ReactNode;
   listIsShownInSidebarOnDesktop: boolean;
   metadata: React.ComponentProps<typeof QuestionProgressAction>['metadata'];
-  questionTitle?: string;
   studyListKey?: string;
 }>;
 
 export default function InterviewsStudyListBottomBar({
   allowMarkComplete = true,
-  initialListType,
-  leftAddOnItem,
   listIsShownInSidebarOnDesktop,
   metadata,
-  questionTitle,
   studyListKey,
 }: Props) {
+  const user = useUser();
+  const { isLoading } = useQueryQuestionProgress(
+    metadata,
+    studyListKey ?? null,
+  );
+
   return (
     <div
       className={clsx(
         'sticky inset-x-0 bottom-0',
-        'px-6 py-2.5',
+        'flex items-center justify-between gap-2 px-3 py-3',
         ['border-t', themeBorderColor],
         themeBackgroundDarkColor,
       )}>
-      {questionTitle && (
-        <Text className="block pb-2.5 lg:hidden" size="body3">
-          {questionTitle}
-        </Text>
-      )}
-      <div className={clsx('flex items-center justify-between gap-2')}>
-        <div className="flex shrink-0 justify-center sm:order-2 sm:flex-1">
-          <Suspense>
-            <InterviewsQuestionsListSlideOutButton
-              currentQuestionHash={hashQuestion(metadata)}
-              initialListType={initialListType}
-              listIsShownInSidebarOnDesktop={listIsShownInSidebarOnDesktop}
-              slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE="qns_slideout"
-              studyListKey={studyListKey}
-            />
-          </Suspense>
-        </div>
-        <div className="hidden gap-2 sm:flex sm:flex-1">
-          <QuestionReportIssueButton
-            entity="question"
-            format={metadata.format}
-            slug={metadata.slug}
+      <div className="flex shrink-0 justify-center sm:order-2 sm:flex-1">
+        <Suspense>
+          <InterviewsQuestionsListSlideOutButton
+            currentQuestionHash={hashQuestion(metadata)}
+            listIsShownInSidebarOnDesktop={listIsShownInSidebarOnDesktop}
+            slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE="qns_slideout"
+            studyListKey={studyListKey}
           />
-          {leftAddOnItem}
-        </div>
-        <div className={clsx('flex justify-end gap-3 sm:order-3 sm:flex-1')}>
-          <div className="flex gap-3 sm:hidden">
-            <QuestionReportIssueButton
-              entity="question"
-              format={metadata.format}
-              slug={metadata.slug}
-            />
-            {leftAddOnItem}
-          </div>
-          {allowMarkComplete && (
-            <QuestionProgressAction
-              metadata={metadata}
-              studyListKey={studyListKey}
-            />
-          )}
-        </div>
+        </Suspense>
+      </div>
+      <div className="hidden sm:flex sm:flex-1">
+        <QuestionReportIssueButton
+          entity="question"
+          format={metadata.format}
+          slug={metadata.slug}
+        />
+      </div>
+      <div
+        className={clsx(
+          'flex justify-end sm:order-3 sm:flex-1',
+          'transition-colors',
+          isLoading && user != null ? 'opacity-0' : 'opacity-100',
+        )}>
+        <QuestionReportIssueButton
+          className="mr-2 sm:hidden"
+          entity="question"
+          format={metadata.format}
+          slug={metadata.slug}
+        />
+        {allowMarkComplete && (
+          <QuestionProgressAction
+            metadata={metadata}
+            studyListKey={studyListKey}
+          />
+        )}
       </div>
     </div>
   );

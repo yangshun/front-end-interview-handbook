@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": true,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor",
+    "importance": "high",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 120,
+    "similarQuestions": [],
+    "slug": "what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor",
+    "subtitle": null,
+    "title": "Qual é a vantagem de usar a sintaxe de seta para um método em um constructor?",
+    "topics": [
+      "javascript"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor/pt-BR.mdx"
+  },
+  "solution": "var Component=(()=>{var u=Object.create;var t=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,v=Object.prototype.hasOwnProperty;var f=(e,o)=>()=>(o||e((o={exports:{}}).exports,o),o.exports),j=(e,o)=>{for(var n in o)t(e,n,{get:o[n],enumerable:!0})},m=(e,o,n,s)=>{if(o&&typeof o==\"object\"||typeof o==\"function\")for(let r of l(o))!v.call(e,r)&&r!==n&&t(e,r,{get:()=>o[r],enumerable:!(s=p(o,r))||s.enumerable});return e};var g=(e,o,n)=>(n=e!=null?u(h(e)):{},m(o||!e||!e.__esModule?t(n,\"default\",{value:e,enumerable:!0}):n,e)),N=e=>m(t({},\"__esModule\",{value:!0}),e);var c=f((J,i)=>{i.exports=_jsx_runtime});var x={};j(x,{default:()=>w,frontmatter:()=>b});var a=g(c()),b={title:\"Qual \\xE9 a vantagem de usar a sintaxe de seta para um m\\xE9todo em um constructor?\"};function d(e){let o=Object.assign({p:\"p\",code:\"code\",pre:\"pre\",a:\"a\"},e.components);return(0,a.jsxs)(a.Fragment,{children:[(0,a.jsxs)(o.p,{children:[\"A principal vantagem de usar uma arrow function como um m\\xE9todo dentro de um construtor \\xE9 que o valor de \",(0,a.jsx)(o.code,{children:\"this\"}),\" \\xE9 definido no momento da cria\\xE7\\xE3o da fun\\xE7\\xE3o e n\\xE3o pode mudar depois disso. Ent\\xE3o, quando o construtor \\xE9 usado para criar um novo objeto, \",(0,a.jsx)(o.code,{children:\"this\"}),\" sempre ir\\xE1 referir-se ao objeto. Por exemplo, digamos que temos um construtor \",(0,a.jsx)(o.code,{children:\"Person\"}),\" que toma o primeiro nome como um argumento tem dois m\\xE9todos para dar um \",(0,a.jsx)(o.code,{children:\"console.log\"}),\" nesse nome, um como uma fun\\xE7\\xE3o normal e um como uma fun\\xE7\\xE3o de seta:\"]}),`\n`,(0,a.jsx)(o.pre,{children:(0,a.jsx)(o.code,{className:\"language-js\",children:`const Person = function (firstName) {\n  this.firstName = firstName;\n  this.sayName1 = function () {\n    console.log(this.firstName);\n  };\n  this.sayName2 = () => {\n    console.log(this.firstName);\n  };\n};\n\nconst john = new Person('John');\nconst dave = new Person('Dave');\n\njohn.sayName1(); // John\njohn.sayName2(); // John\n\n// A fun\\xE7\\xE3o regular pode ter seu valor 'this' alterado, mas a arrow function n\\xE3o pode\njohn.sayName1.call(dave); // Dave (porque \"this\" \\xE9 agora o objeto dave)\njohn.sayName2.call(dave); // John\n\njohn.sayName1.apply(dave); // Dave (porque 'this' \\xE9 agora o objeto dave)\njohn.sayName2.apply(dave); // Jo\\xE3o\n\njohn.sayName1.bind(dave)(); // Dave (porque 'this' \\xE9 agora o dave object)\njohn.sayName2.bind(dave)(); // Jo\\xE3o\n\nvar sayNameFromWindow1 = john.sayName1;\nsayNameFromWindow1(); // undefined (porque 'this' agora \\xE9 o objeto da window)\n\nvar sayNameFromWindow2 = john.sayName2;\nsayNameFromWindow2(); // John\n`})}),`\n`,(0,a.jsxs)(o.p,{children:[\"O principal tirada aqui \\xE9 que \",(0,a.jsx)(o.code,{children:\"this\"}),\" pode ser alterado para uma fun\\xE7\\xE3o normal, mas o contexto sempre permanece o mesmo para uma arrow function. Ent\\xE3o, mesmo que voc\\xEA esteja passando pela arrow function para diferentes partes do seu aplicativo, voc\\xEA n\\xE3o precisaria se preocupar com a mudan\\xE7a de contexto.\"]}),`\n`,(0,a.jsxs)(o.p,{children:[\"Isso pode ser particularmente \\xFAtil em componentes de classe React. Se voc\\xEA definir um m\\xE9todo de classe para algo como um manipulador de cliques usando uma fun\\xE7\\xE3o normal, e, em seguida, voc\\xEA passa que clica manipulando em um componente filho como uma propriedade, voc\\xEA tamb\\xE9m precisar\\xE1 vincular o \",(0,a.jsx)(o.code,{children:\"this\"}),' no construtor do componente pai. Se voc\\xEA ao inv\\xE9s disso usar uma arrow function, n\\xE3o h\\xE1 necessidade de vincular tamb\\xE9m \"this\", como o m\\xE9todo ir\\xE1 automaticamente obter seu valor \"this\" no contexto l\\xE9xico que est\\xE1 encapsulado. (Veja esse artigo para uma excelente demonstra\\xE7\\xE3o e c\\xF3digo de amostra: ',(0,a.jsx)(o.a,{href:\"https://medium.com/@machnicki/handle-events-in-react-with-arrow-functions-ede88184bbb\",children:\"https://medium.com/@machnicki/handle-events-in-react-with-arrow-functions-ede88184bbb\"}),\")\"]})]})}function y(e={}){let{wrapper:o}=e.components||{};return o?(0,a.jsx)(o,Object.assign({},e,{children:(0,a.jsx)(d,e)})):d(e)}var w=y;return N(x);})();\n;return Component;"
+}

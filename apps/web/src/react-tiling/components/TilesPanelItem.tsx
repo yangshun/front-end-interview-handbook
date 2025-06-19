@@ -95,24 +95,14 @@ export default function TilesPanelItem<TabType extends string>({
     collapsible,
     defaultSize,
     id: panelId,
-    onCollapse: () => {
+    onCollapse: (collapsedValue: boolean) =>
       dispatch({
         payload: {
-          collapsed: true,
+          collapsed: collapsedValue,
           panelId,
         },
         type: 'panel-collapse',
-      });
-    },
-    onExpand: () => {
-      dispatch({
-        payload: {
-          collapsed: false,
-          panelId,
-        },
-        type: 'panel-collapse',
-      });
-    },
+      }),
     order,
     ref,
   };
@@ -140,8 +130,7 @@ export default function TilesPanelItem<TabType extends string>({
           ['border', themeBorderColor],
           themeBackgroundColor,
         )}
-        collapsedSize={5}
-        minSize={5}>
+        collapsedSize={5}>
         <div className="flex justify-center">
           <Button
             icon={RiExpandLeftRightFill}
@@ -214,9 +203,8 @@ export default function TilesPanelItem<TabType extends string>({
         ['divide-y', themeDivideColor],
         fullScreen && 'absolute inset-0 z-20',
       )}
-      collapsedSize={5}
-      minSize={5}>
-      <div ref={panelRef} className="flex size-full flex-col">
+      collapsedSize={5}>
+      <div ref={panelRef} className="size-full flex flex-col">
         <div
           className={clsx(
             'flex shrink-0 items-center justify-between',

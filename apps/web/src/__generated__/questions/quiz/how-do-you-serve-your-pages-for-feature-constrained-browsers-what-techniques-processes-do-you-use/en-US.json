@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "hard",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/how-do-you-serve-your-pages-for-feature-constrained-browsers-what-techniques-processes-do-you-use",
+    "importance": "medium",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "how-do-you-serve-your-pages-for-feature-constrained-browsers-what-techniques-processes-do-you-use",
+    "subtitle": "What techniques/processes do you use?",
+    "title": "How do you serve your pages for feature-constrained browsers?",
+    "topics": [
+      "css"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/how-do-you-serve-your-pages-for-feature-constrained-browsers-what-techniques-processes-do-you-use/en-US.mdx"
+  },
+  "solution": "var Component=(()=>{var d=Object.create;var o=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,m=Object.prototype.hasOwnProperty;var g=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),b=(n,e)=>{for(var t in e)o(n,t,{get:e[t],enumerable:!0})},a=(n,e,t,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let i of p(e))!m.call(n,i)&&i!==t&&o(n,i,{get:()=>e[i],enumerable:!(s=h(e,i))||s.enumerable});return n};var x=(n,e,t)=>(t=n!=null?d(f(n)):{},a(e||!n||!n.__esModule?o(t,\"default\",{value:n,enumerable:!0}):t,n)),w=n=>a(o({},\"__esModule\",{value:!0}),n);var l=g((C,c)=>{c.exports=_jsx_runtime});var S={};b(S,{default:()=>v,frontmatter:()=>j});var r=x(l()),j={title:\"How do you serve your pages for feature-constrained browsers?\",subtitle:\"What techniques/processes do you use?\"};function u(n){let e=Object.assign({h2:\"h2\",ul:\"ul\",li:\"li\",a:\"a\"},n.components);return(0,r.jsxs)(r.Fragment,{children:[(0,r.jsx)(e.h2,{children:\"Techniques\"}),`\n`,(0,r.jsxs)(e.ul,{children:[`\n`,(0,r.jsx)(e.li,{children:\"Graceful degradation: The practice of building an application for modern browsers while ensuring it remains functional in older browsers.\"}),`\n`,(0,r.jsx)(e.li,{children:\"Progressive enhancement: The practice of building an application for a base level of user experience, but adding functional enhancements when a browser supports it.\"}),`\n`,(0,r.jsxs)(e.li,{children:[\"Use \",(0,r.jsx)(e.a,{href:\"https://caniuse.com/\",children:\"caniuse.com\"}),\" to check for feature support.\"]}),`\n`,(0,r.jsx)(e.li,{children:\"Autoprefixer for automatic vendor prefix insertion.\"}),`\n`,(0,r.jsxs)(e.li,{children:[\"Feature detection using \",(0,r.jsx)(e.a,{href:\"https://modernizr.com/\",children:\"Modernizr\"}),\".\"]}),`\n`,(0,r.jsxs)(e.li,{children:[\"Use CSS Feature queries via \",(0,r.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/CSS/@supports\",children:\"`@support``\"})]}),`\n`]})]})}function _(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,Object.assign({},n,{children:(0,r.jsx)(u,n)})):u(n)}var v=_;return w(S);})();\n;return Component;"
+}

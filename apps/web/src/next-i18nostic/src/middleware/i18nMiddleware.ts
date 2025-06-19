@@ -9,7 +9,6 @@ import pathnameStartsWithLocale from '../utils/pathnameStartsWithLocale';
 import stripTrailingSlashFromPathname from '../utils/stripTrailingSlashFromPathname';
 
 type Rewrites = Record<string, string>;
-type Redirects = Record<string, string>;
 
 function stripTrailingSlashFromPathnameIfNecessary(pathname: string) {
   return nextI18nosticConfig.trailingSlash
@@ -21,19 +20,12 @@ function rewritePathnameIfNecessary(pathname: string, rewrites: Rewrites) {
   return rewrites[pathname] ?? pathname;
 }
 
-function redirectPathnameIfNecessary(pathname: string, redirects: Rewrites) {
-  return redirects[pathname] ?? pathname;
-}
-
 export default function i18nMiddleware(
   request: NextRequest,
   // Rewrites won't get processed by middleware again, so we
   // need to rewrite to the final destination directly.
   // TODO: Support Next.js-style rewrites config (array).
-  {
-    rewrites = {},
-    redirects = {},
-  }: Readonly<{ redirects?: Redirects; rewrites?: Rewrites }> = {},
+  rewrites: Rewrites = {},
 ) {
   const { pathname, search } = request.nextUrl;
 
@@ -48,17 +40,12 @@ export default function i18nMiddleware(
       ? inferLocale(request)
       : nextI18nosticConfig.defaultLocale;
 
-    const finalPathnameAfterRedirect = redirectPathnameIfNecessary(
-      pathname,
-      redirects,
-    );
-    // For non-default locales, redirect users to the localized URLs.
+    // For non-default locales, we redirect users to the localized URLs.
     if (locale !== nextI18nosticConfig.defaultLocale) {
       return NextResponse.redirect(
         new URL(
-          stripTrailingSlashFromPathnameIfNecessary(
-            `/${locale}${finalPathnameAfterRedirect}`,
-          ) + search,
+          stripTrailingSlashFromPathnameIfNecessary(`/${locale}${pathname}`) +
+            search,
           request.url,
         ),
       );
@@ -71,7 +58,7 @@ export default function i18nMiddleware(
     return NextResponse.rewrite(
       new URL(
         stripTrailingSlashFromPathnameIfNecessary(
-          `/${locale}${rewritePathnameIfNecessary(finalPathnameAfterRedirect, rewrites)}`,
+          `/${locale}${rewritePathnameIfNecessary(pathname, rewrites)}`,
         ) + search,
         request.url,
       ),
@@ -101,18 +88,6 @@ export default function i18nMiddleware(
       new URL(
         i18nHref(
           rewritePathnameIfNecessary(rawPathname, rewrites),
-          locale ?? nextI18nosticConfig.defaultLocale,
-        ).toString() + search,
-        request.url,
-      ),
-    );
-  }
-
-  if (Object.hasOwn(redirects, rawPathname)) {
-    return NextResponse.redirect(
-      new URL(
-        i18nHref(
-          redirectPathnameIfNecessary(rawPathname, redirects),
           locale ?? nextI18nosticConfig.defaultLocale,
         ).toString() + search,
         request.url,

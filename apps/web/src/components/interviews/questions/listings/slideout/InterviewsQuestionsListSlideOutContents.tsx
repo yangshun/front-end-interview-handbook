@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import type { ReactNode } from 'react';
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import {
   RiArrowDownSLine,
@@ -29,15 +29,13 @@ import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 import { themeBackgroundCardColor } from '~/components/ui/theme';
 
-import { useI18nRouter } from '~/next-i18nostic/src';
-
 import { questionHrefFrameworkSpecificAndListType } from '../../common/QuestionHrefUtils';
 import type {
-  InterviewsQuestionItemMinimal,
   QuestionFramework,
   QuestionHash,
   QuestionLanguage,
   QuestionListTypeData,
+  QuestionMetadata,
   QuestionPracticeFormat,
 } from '../../common/QuestionsTypes';
 import QuestionListingFilterButtonBadgeWrapper from '../filters/QuestionListingFilterButtonBadgeWrapper';
@@ -52,10 +50,7 @@ import { questionsListTabsConfig } from '../utils/QuestionsListTabsConfig';
 import { useQuestionsListDataForType } from '../utils/useQuestionsListDataForType';
 import InterviewsQuestionsListSlideOutQuestionList from './InterviewsQuestionsListSlideOutQuestionList';
 
-function FilterSection<
-  T extends string,
-  Q extends InterviewsQuestionItemMinimal,
->({
+function FilterSection<T extends string, Q extends QuestionMetadata>({
   coveredValues,
   filterOptions,
   filters,
@@ -93,9 +88,7 @@ function FilterSection<
   );
 }
 
-function FrameworkAndLanguageFilterSection<
-  Q extends InterviewsQuestionItemMinimal,
->({
+function FrameworkAndLanguageFilterSection<Q extends QuestionMetadata>({
   frameworkCoveredValues,
   frameworkFilterOptions,
   frameworkFilters,
@@ -195,13 +188,6 @@ type Props = Readonly<{
   >['onClickQuestion'];
   onCloseSwitchQuestionListDialog: () => void;
   onListTabChange?: (newTab: QuestionPracticeFormat) => void;
-  renderQuestionsListTopAddOnItem?: ({
-    listType,
-    tab,
-  }: {
-    listType: QuestionListTypeData;
-    tab: QuestionPracticeFormat | undefined;
-  }) => ReactNode;
   setFirstQuestionHref?: (href: string) => void;
   showSwitchQuestionListDialog: Readonly<{
     href: string | null;
@@ -220,12 +206,11 @@ export default function InterviewsQuestionsListSlideOutContents({
   onClickQuestion,
   onCloseSwitchQuestionListDialog,
   onListTabChange,
-  renderQuestionsListTopAddOnItem,
   setFirstQuestionHref,
   showSwitchQuestionListDialog,
 }: Props) {
   const intl = useIntl();
-  const router = useI18nRouter();
+  const router = useRouter();
   const { userProfile } = useUserProfile();
 
   const [showFilters, setShowFilters] = useState(false);
@@ -382,7 +367,7 @@ export default function InterviewsQuestionsListSlideOutContents({
     if (processedQuestions.length > 0 && !showCompanyPaywall) {
       setFirstQuestionHref?.(
         questionHrefFrameworkSpecificAndListType(
-          processedQuestions[0].metadata,
+          processedQuestions[0],
           listType,
           framework,
         ),
@@ -404,13 +389,13 @@ export default function InterviewsQuestionsListSlideOutContents({
 
   return (
     <>
-      <div className={clsx('flex flex-col', 'h-full')}>
+      <div className={clsx('flex flex-col gap-4', 'h-full')}>
         <form
-          className="flex w-full flex-col gap-4 pb-5"
+          className="flex w-full flex-col gap-4"
           onSubmit={(event) => {
             event.preventDefault();
           }}>
-          <div className={clsx('flex w-full items-center gap-3', 'px-6')}>
+          <div className={clsx('flex w-full items-center gap-3', 'px-6 pt-2')}>
             <div className="flex-1">
               <TextInput
                 autoComplete="off"
@@ -462,9 +447,8 @@ export default function InterviewsQuestionsListSlideOutContents({
           {showFilters && embedFilters}
         </form>
         {listTabs && (
-          <div>
+          <div className="px-6">
             <TabsUnderline
-              className="px-6"
               size="xs"
               tabs={listTabs.map((listTabValue) => {
                 const labels: Record<QuestionPracticeFormat, string> = {
@@ -498,7 +482,7 @@ export default function InterviewsQuestionsListSlideOutContents({
           </div>
         )}
         {questionAttributesUnion.formats.size > 1 && (
-          <div className="my-3 px-6">
+          <div className="mb-3 px-6">
             <QuestionListFilterFormats
               formatFilterOptions={formatFilterOptions}
               formatFilters={formatFilters}
@@ -525,68 +509,58 @@ export default function InterviewsQuestionsListSlideOutContents({
                   ? sortedQuestions.slice(0, 4)
                   : processedQuestions
               }
-              renderQuestionsListTopAddOnItem={() =>
-                renderQuestionsListTopAddOnItem?.({
-                  listType,
-                  tab: data?.listType.tab,
-                })
-              }
               showCompanyPaywall={showCompanyPaywall}
               onClickQuestion={onClickQuestion}
             />
           )}
         </ScrollArea>
       </div>
-      {/* Wrapped with showSwitchQuestionListDialog.show condition to avoid
-      dialog appearing twice when we trigger this */}
-      {showSwitchQuestionListDialog.show && (
-        <ConfirmationDialog
-          cancelButtonLabel={intl.formatMessage({
-            defaultMessage: 'Stay on previous list',
-            description: 'Stay on previous question list',
-            id: 'IEnLEU',
-          })}
-          confirmButtonLabel={intl.formatMessage({
-            defaultMessage: 'Switch',
-            description: 'Button label for switch study list',
-            id: '09QDZQ',
-          })}
-          isShown={showSwitchQuestionListDialog.show}
-          title={intl.formatMessage({
-            defaultMessage: 'Switch study list',
-            description: 'Change study list dialog title',
-            id: '6rN7CN',
-          })}
-          onCancel={() => {
-            onCloseSwitchQuestionListDialog();
-            onCancelSwitchStudyList?.();
-          }}
-          onClose={() => {
-            onCloseSwitchQuestionListDialog();
-          }}
-          onConfirm={() => {
-            if (!showSwitchQuestionListDialog.href) {
-              return;
-            }
+      <ConfirmationDialog
+        cancelButtonLabel={intl.formatMessage({
+          defaultMessage: 'Stay on previous list',
+          description: 'Stay on previous question list',
+          id: 'IEnLEU',
+        })}
+        confirmButtonLabel={intl.formatMessage({
+          defaultMessage: 'Switch',
+          description: 'Button label for switch study list',
+          id: '09QDZQ',
+        })}
+        isShown={showSwitchQuestionListDialog.show}
+        title={intl.formatMessage({
+          defaultMessage: 'Switch study list',
+          description: 'Change study list dialog title',
+          id: '6rN7CN',
+        })}
+        onCancel={() => {
+          onCloseSwitchQuestionListDialog();
+          onCancelSwitchStudyList?.();
+        }}
+        onClose={() => {
+          onCloseSwitchQuestionListDialog();
+        }}
+        onConfirm={() => {
+          if (!showSwitchQuestionListDialog.href) {
+            return;
+          }
 
-            onCloseSwitchQuestionListDialog();
-            router.push(showSwitchQuestionListDialog.href);
-          }}>
-          {showSwitchQuestionListDialog.type === 'question-click' ? (
-            <FormattedMessage
-              defaultMessage="You've selected a question from a different study list than the one you're currently using. Navigating to it will switch your current list. Do you want to proceed?"
-              description="Confirmation text for switching study list"
-              id="+C/8iu"
-            />
-          ) : (
-            <FormattedMessage
-              defaultMessage="You've selected a different study list than the one you're currently using. Navigating to it will switch your current list. Do you want to proceed?"
-              description="Confirmation text for switching study list"
-              id="/D6EXa"
-            />
-          )}
-        </ConfirmationDialog>
-      )}
+          onCloseSwitchQuestionListDialog();
+          router.push(showSwitchQuestionListDialog.href);
+        }}>
+        {showSwitchQuestionListDialog.type === 'question-click' ? (
+          <FormattedMessage
+            defaultMessage="You've selected a question from a different study list than the one you're currently using. Navigating to it will switch your current list. Do you want to proceed?"
+            description="Confirmation text for switching study list"
+            id="+C/8iu"
+          />
+        ) : (
+          <FormattedMessage
+            defaultMessage="You've selected a different study list than the one you're currently using. Navigating to it will switch your current list. Do you want to proceed?"
+            description="Confirmation text for switching study list"
+            id="/D6EXa"
+          />
+        )}
+      </ConfirmationDialog>
     </>
   );
 }

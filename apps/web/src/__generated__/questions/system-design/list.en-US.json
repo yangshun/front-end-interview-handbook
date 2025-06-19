@@ -1,626 +1,550 @@
 [
   {
-    "info": {
-      "excerpt": "Design an autocomplete component seen on Google and Facebook search",
-      "title": "Autocomplete"
-    },
-    "metadata": {
-      "access": "free",
-      "author": null,
-      "companies": [
-        "apple",
-        "airbnb",
-        "google",
-        "linkedin",
-        "lyft",
-        "microsoft",
-        "openai",
-        "twitter",
-        "uber"
-      ],
-      "created": 1650326400,
-      "difficulty": "medium",
-      "duration": 30,
-      "featured": true,
-      "format": "system-design",
-      "frameworkDefault": null,
-      "frameworks": [],
-      "href": "/questions/system-design/autocomplete",
-      "importance": "high",
-      "languages": [],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 2,
-      "similarQuestions": [],
-      "slug": "autocomplete",
-      "subtitle": null,
-      "topics": [
-        "a11y",
-        "ui-component"
-      ]
-    }
+    "access": "free",
+    "author": null,
+    "companies": [
+      "apple",
+      "airbnb",
+      "google",
+      "linkedin",
+      "lyft",
+      "microsoft",
+      "openai",
+      "twitter",
+      "uber"
+    ],
+    "created": 1650326400,
+    "difficulty": "medium",
+    "duration": 30,
+    "excerpt": "Design an autocomplete component seen on Google and Facebook search",
+    "featured": true,
+    "format": "system-design",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/system-design/autocomplete",
+    "importance": "high",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 2,
+    "similarQuestions": [],
+    "slug": "autocomplete",
+    "subtitle": null,
+    "title": "Autocomplete",
+    "topics": [
+      "a11y",
+      "ui-component"
+    ]
   },
   {
-    "info": {
-      "excerpt": "Design a chat application like Messenger and Slack",
-      "title": "Chat App (e.g. Messenger)"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": null,
-      "companies": [
-        "openai"
-      ],
-      "created": 1668211200,
-      "difficulty": "hard",
-      "duration": 30,
-      "featured": false,
-      "format": "system-design",
-      "frameworkDefault": null,
-      "frameworks": [],
-      "href": "/questions/system-design/chat-application-messenger",
-      "importance": "medium",
-      "languages": [],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 9,
-      "similarQuestions": [],
-      "slug": "chat-application-messenger",
-      "subtitle": null,
-      "topics": [
-        "networking"
-      ]
-    }
+    "access": "premium",
+    "author": null,
+    "companies": [
+      "openai"
+    ],
+    "created": 1668211200,
+    "difficulty": "hard",
+    "duration": 30,
+    "excerpt": "Design a chat application like Messenger and Slack",
+    "featured": false,
+    "format": "system-design",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/system-design/chat-application-messenger",
+    "importance": "medium",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 9,
+    "similarQuestions": [],
+    "slug": "chat-application-messenger",
+    "subtitle": null,
+    "title": "Chat App (e.g. Messenger)",
+    "topics": [
+      "networking"
+    ]
   },
   {
-    "info": {
-      "excerpt": "Design a collaborative editor like Google Docs and Notion",
-      "title": "Google Docs"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": "yangshun",
-      "companies": [
-        "asana",
-        "atlassian",
-        "openai"
-      ],
-      "created": 1724371200,
-      "difficulty": "hard",
-      "duration": 40,
-      "featured": false,
-      "format": "system-design",
-      "frameworkDefault": null,
-      "frameworks": [],
-      "href": "/questions/system-design/collaborative-editor-google-docs",
-      "importance": "medium",
-      "languages": [],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 5,
-      "similarQuestions": [],
-      "slug": "collaborative-editor-google-docs",
-      "subtitle": null,
-      "topics": [
-        "networking"
-      ]
-    }
+    "access": "premium",
+    "author": "yangshun",
+    "companies": [
+      "asana",
+      "atlassian",
+      "openai"
+    ],
+    "created": 1724371200,
+    "difficulty": "hard",
+    "duration": 40,
+    "excerpt": "Design a collaborative editor like Google Docs and Notion",
+    "featured": false,
+    "format": "system-design",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/system-design/collaborative-editor-google-docs",
+    "importance": "medium",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 5,
+    "similarQuestions": [],
+    "slug": "collaborative-editor-google-docs",
+    "subtitle": null,
+    "title": "Google Docs",
+    "topics": [
+      "networking"
+    ]
   },
   {
-    "info": {
-      "excerpt": "Design a collaborative spreadsheet like Google Sheet and Excel",
-      "title": "Google Sheets"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": null,
-      "companies": [],
-      "created": 1630800000,
-      "difficulty": "hard",
-      "duration": 40,
-      "featured": false,
-      "format": "system-design",
-      "frameworkDefault": null,
-      "frameworks": [],
-      "href": "/questions/system-design/collaborative-spreadsheet-google-sheets",
-      "importance": "low",
-      "languages": [],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 14,
-      "similarQuestions": [],
-      "slug": "collaborative-spreadsheet-google-sheets",
-      "subtitle": null,
-      "topics": []
-    }
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "hard",
+    "duration": 40,
+    "excerpt": "Design a collaborative spreadsheet like Google Sheet and Excel",
+    "featured": false,
+    "format": "system-design",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/system-design/collaborative-spreadsheet-google-sheets",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 14,
+    "similarQuestions": [],
+    "slug": "collaborative-spreadsheet-google-sheets",
+    "subtitle": null,
+    "title": "Google Sheets",
+    "topics": []
   },
   {
-    "info": {
-      "excerpt": "Design a design tool like Lucidchart",
-      "title": "Diagram Tool (e.g. Lucidchart)"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": null,
-      "companies": [],
-      "created": 1630800000,
-      "difficulty": "hard",
-      "duration": 30,
-      "featured": false,
-      "format": "system-design",
-      "frameworkDefault": null,
-      "frameworks": [],
-      "href": "/questions/system-design/diagram-tool-lucidchart",
-      "importance": "medium",
-      "languages": [],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 15,
-      "similarQuestions": [],
-      "slug": "diagram-tool-lucidchart",
-      "subtitle": null,
-      "topics": []
-    }
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "hard",
+    "duration": 30,
+    "excerpt": "Design a design tool like Lucidchart",
+    "featured": false,
+    "format": "system-design",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/system-design/diagram-tool-lucidchart",
+    "importance": "medium",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 15,
+    "similarQuestions": [],
+    "slug": "diagram-tool-lucidchart",
+    "subtitle": null,
+    "title": "Diagram Tool (e.g. Lucidchart)",
+    "topics": []
   },
   {
-    "info": {
-      "excerpt": "Design a dropdown menu component that reveals a menu containing a list of actions",
-      "title": "Dropdown Menu"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": null,
-      "companies": [
-        "google",
-        "bytedance"
-      ],
-      "created": 1674604800,
-      "difficulty": "medium",
-      "duration": 30,
-      "featured": false,
-      "format": "system-design",
-      "frameworkDefault": null,
-      "frameworks": [],
-      "href": "/questions/system-design/dropdown-menu",
-      "importance": "low",
-      "languages": [],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 11,
-      "similarQuestions": [],
-      "slug": "dropdown-menu",
-      "subtitle": null,
-      "topics": [
-        "a11y",
-        "ui-component"
-      ]
-    }
+    "access": "premium",
+    "author": null,
+    "companies": [
+      "google",
+      "bytedance"
+    ],
+    "created": 1674604800,
+    "difficulty": "medium",
+    "duration": 30,
+    "excerpt": "Design a dropdown menu component that reveals a menu containing a list of actions",
+    "featured": false,
+    "format": "system-design",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/system-design/dropdown-menu",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 11,
+    "similarQuestions": [],
+    "slug": "dropdown-menu",
+    "subtitle": null,
+    "title": "Dropdown Menu",
+    "topics": [
+      "a11y",
+      "ui-component"
+    ]
   },
   {
-    "info": {
-      "excerpt": "Design an e-commerce marketplace website like Amazon and eBay",
-      "title": "E-commerce Marketplace (e.g. Amazon)"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": null,
-      "companies": [],
-      "created": 1666396800,
-      "difficulty": "medium",
-      "duration": 40,
-      "featured": true,
-      "format": "system-design",
-      "frameworkDefault": null,
-      "frameworks": [],
-      "href": "/questions/system-design/e-commerce-amazon",
-      "importance": "medium",
-      "languages": [],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 7,
-      "similarQuestions": [],
-      "slug": "e-commerce-amazon",
-      "subtitle": null,
-      "topics": [
-        "seo"
-      ]
-    }
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1666396800,
+    "difficulty": "medium",
+    "duration": 40,
+    "excerpt": "Design an e-commerce marketplace website like Amazon and eBay",
+    "featured": true,
+    "format": "system-design",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/system-design/e-commerce-amazon",
+    "importance": "medium",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 7,
+    "similarQuestions": [],
+    "slug": "e-commerce-amazon",
+    "subtitle": null,
+    "title": "E-commerce Marketplace (e.g. Amazon)",
+    "topics": [
+      "seo"
+    ]
   },
   {
-    "info": {
-      "excerpt": "Design a desktop email client like Microsoft Outlook and Apple Mail",
-      "title": "Email Client (e.g. Microsoft Outlook)"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": null,
-      "companies": [
-        "microsoft"
-      ],
-      "created": 1630800000,
-      "difficulty": "medium",
-      "duration": 30,
-      "featured": false,
-      "format": "system-design",
-      "frameworkDefault": null,
-      "frameworks": [],
-      "href": "/questions/system-design/email-client-outlook",
-      "importance": "low",
-      "languages": [],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 14,
-      "similarQuestions": [],
-      "slug": "email-client-outlook",
-      "subtitle": null,
-      "topics": []
-    }
+    "access": "premium",
+    "author": null,
+    "companies": [
+      "microsoft"
+    ],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 30,
+    "excerpt": "Design a desktop email client like Microsoft Outlook and Apple Mail",
+    "featured": false,
+    "format": "system-design",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/system-design/email-client-outlook",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 14,
+    "similarQuestions": [],
+    "slug": "email-client-outlook",
+    "subtitle": null,
+    "title": "Email Client (e.g. Microsoft Outlook)",
+    "topics": []
   },
   {
-    "info": {
-      "excerpt": "Design a horizontally-scrolling image carousel component",
-      "title": "Image Carousel"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": null,
-      "companies": [
-        "amazon",
-        "doordash",
-        "dropbox",
-        "google",
-        "microsoft"
-      ],
-      "created": 1665878400,
-      "difficulty": "medium",
-      "duration": 30,
-      "featured": true,
-      "format": "system-design",
-      "frameworkDefault": null,
-      "frameworks": [],
-      "href": "/questions/system-design/image-carousel",
-      "importance": "low",
-      "languages": [],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 11,
-      "similarQuestions": [],
-      "slug": "image-carousel",
-      "subtitle": null,
-      "topics": [
-        "a11y",
-        "performance",
-        "ui-component"
-      ]
-    }
+    "access": "premium",
+    "author": null,
+    "companies": [
+      "amazon",
+      "doordash",
+      "dropbox",
+      "google",
+      "microsoft"
+    ],
+    "created": 1665878400,
+    "difficulty": "medium",
+    "duration": 30,
+    "excerpt": "Design a horizontally-scrolling image carousel component",
+    "featured": true,
+    "format": "system-design",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/system-design/image-carousel",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 11,
+    "similarQuestions": [],
+    "slug": "image-carousel",
+    "subtitle": null,
+    "title": "Image Carousel",
+    "topics": [
+      "a11y",
+      "performance",
+      "ui-component"
+    ]
   },
   {
-    "info": {
-      "excerpt": "Design a modal/dialog component that shows a window overlaying the contents on the page",
-      "title": "Modal Dialog"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": null,
-      "companies": [
-        "tiktok"
-      ],
-      "created": 1674950400,
-      "difficulty": "medium",
-      "duration": 30,
-      "featured": false,
-      "format": "system-design",
-      "frameworkDefault": null,
-      "frameworks": [],
-      "href": "/questions/system-design/modal-dialog",
-      "importance": "low",
-      "languages": [],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 11,
-      "similarQuestions": [],
-      "slug": "modal-dialog",
-      "subtitle": null,
-      "topics": [
-        "a11y",
-        "ui-component"
-      ]
-    }
+    "access": "premium",
+    "author": null,
+    "companies": [
+      "tiktok"
+    ],
+    "created": 1674950400,
+    "difficulty": "medium",
+    "duration": 30,
+    "excerpt": "Design a modal/dialog component that shows a window overlaying the contents on the page",
+    "featured": false,
+    "format": "system-design",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/system-design/modal-dialog",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 11,
+    "similarQuestions": [],
+    "slug": "modal-dialog",
+    "subtitle": null,
+    "title": "Modal Dialog",
+    "topics": [
+      "a11y",
+      "ui-component"
+    ]
   },
   {
-    "info": {
-      "excerpt": "Design a music streaming website like Spotify and Pandora",
-      "title": "Music Streaming (e.g. Spotify)"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": null,
-      "companies": [],
-      "created": 1630800000,
-      "difficulty": "hard",
-      "duration": 30,
-      "featured": false,
-      "format": "system-design",
-      "frameworkDefault": null,
-      "frameworks": [],
-      "href": "/questions/system-design/music-streaming-spotify",
-      "importance": "medium",
-      "languages": [],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 15,
-      "similarQuestions": [],
-      "slug": "music-streaming-spotify",
-      "subtitle": null,
-      "topics": [
-        "networking"
-      ]
-    }
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "hard",
+    "duration": 30,
+    "excerpt": "Design a music streaming website like Spotify and Pandora",
+    "featured": false,
+    "format": "system-design",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/system-design/music-streaming-spotify",
+    "importance": "medium",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 15,
+    "similarQuestions": [],
+    "slug": "music-streaming-spotify",
+    "subtitle": null,
+    "title": "Music Streaming (e.g. Spotify)",
+    "topics": [
+      "networking"
+    ]
   },
   {
-    "info": {
-      "excerpt": "Design a news feed user interface similar to Facebook and Twitter",
-      "title": "News Feed (e.g. Facebook)"
-    },
-    "metadata": {
-      "access": "free",
-      "author": "yangshun",
-      "companies": [
-        "facebook",
-        "twitter",
-        "google",
-        "amazon",
-        "tiktok",
-        "linkedin",
-        "openai"
-      ],
-      "created": 1664064000,
-      "difficulty": "medium",
-      "duration": 30,
-      "featured": true,
-      "format": "system-design",
-      "frameworkDefault": null,
-      "frameworks": [],
-      "href": "/questions/system-design/news-feed-facebook",
-      "importance": "high",
-      "languages": [],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 1,
-      "similarQuestions": [],
-      "slug": "news-feed-facebook",
-      "subtitle": null,
-      "topics": [
-        "a11y",
-        "performance"
-      ]
-    }
+    "access": "free",
+    "author": "yangshun",
+    "companies": [
+      "facebook",
+      "twitter",
+      "google",
+      "amazon",
+      "tiktok",
+      "linkedin",
+      "openai"
+    ],
+    "created": 1664064000,
+    "difficulty": "medium",
+    "duration": 30,
+    "excerpt": "Design a news feed user interface similar to Facebook and Twitter",
+    "featured": true,
+    "format": "system-design",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/system-design/news-feed-facebook",
+    "importance": "high",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 1,
+    "similarQuestions": [],
+    "slug": "news-feed-facebook",
+    "subtitle": null,
+    "title": "News Feed (e.g. Facebook)",
+    "topics": [
+      "a11y",
+      "performance"
+    ]
   },
   {
-    "info": {
-      "excerpt": "Design a photo sharing application like Instagram",
-      "title": "Photo Sharing (e.g. Instagram)"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": null,
-      "companies": [
-        "facebook"
-      ],
-      "created": 1666137600,
-      "difficulty": "medium",
-      "duration": 30,
-      "featured": true,
-      "format": "system-design",
-      "frameworkDefault": null,
-      "frameworks": [],
-      "href": "/questions/system-design/photo-sharing-instagram",
-      "importance": "low",
-      "languages": [],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 10,
-      "similarQuestions": [],
-      "slug": "photo-sharing-instagram",
-      "subtitle": null,
-      "topics": [
-        "a11y",
-        "networking",
-        "performance"
-      ]
-    }
+    "access": "premium",
+    "author": null,
+    "companies": [
+      "facebook"
+    ],
+    "created": 1666137600,
+    "difficulty": "medium",
+    "duration": 30,
+    "excerpt": "Design a photo sharing application like Instagram",
+    "featured": true,
+    "format": "system-design",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/system-design/photo-sharing-instagram",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 10,
+    "similarQuestions": [],
+    "slug": "photo-sharing-instagram",
+    "subtitle": null,
+    "title": "Photo Sharing (e.g. Instagram)",
+    "topics": [
+      "a11y",
+      "networking",
+      "performance"
+    ]
   },
   {
-    "info": {
-      "excerpt": "Design Pinterest homepage, focusing on the masonry layout",
-      "title": "Pinterest"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": null,
-      "companies": [
-        "notion"
-      ],
-      "created": 1630800000,
-      "difficulty": "hard",
-      "duration": 30,
-      "featured": false,
-      "format": "system-design",
-      "frameworkDefault": null,
-      "frameworks": [],
-      "href": "/questions/system-design/pinterest",
-      "importance": "medium",
-      "languages": [],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 3,
-      "similarQuestions": [],
-      "slug": "pinterest",
-      "subtitle": null,
-      "topics": [
-        "a11y",
-        "networking",
-        "performance"
-      ]
-    }
+    "access": "premium",
+    "author": null,
+    "companies": [
+      "notion"
+    ],
+    "created": 1630800000,
+    "difficulty": "hard",
+    "duration": 30,
+    "excerpt": "Design Pinterest homepage, focusing on the masonry layout",
+    "featured": false,
+    "format": "system-design",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/system-design/pinterest",
+    "importance": "medium",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 3,
+    "similarQuestions": [],
+    "slug": "pinterest",
+    "subtitle": null,
+    "title": "Pinterest",
+    "topics": [
+      "a11y",
+      "networking",
+      "performance"
+    ]
   },
   {
-    "info": {
-      "excerpt": "Design a poll widget that can be embedded on websites",
-      "title": "Poll Widget"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": null,
-      "companies": [],
-      "created": 1662854400,
-      "difficulty": "easy",
-      "duration": 30,
-      "featured": true,
-      "format": "system-design",
-      "frameworkDefault": null,
-      "frameworks": [],
-      "href": "/questions/system-design/poll-widget",
-      "importance": "low",
-      "languages": [],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 12,
-      "similarQuestions": [],
-      "slug": "poll-widget",
-      "subtitle": null,
-      "topics": [
-        "ui-component"
-      ]
-    }
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1662854400,
+    "difficulty": "easy",
+    "duration": 30,
+    "excerpt": "Design a poll widget that can be embedded on websites",
+    "featured": true,
+    "format": "system-design",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/system-design/poll-widget",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 12,
+    "similarQuestions": [],
+    "slug": "poll-widget",
+    "subtitle": null,
+    "title": "Poll Widget",
+    "topics": [
+      "ui-component"
+    ]
   },
   {
-    "info": {
-      "excerpt": "Design a rich text editor component used on websites like Medium and Gmail",
-      "title": "Rich Text Editor"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": "yangshun",
-      "companies": [
-        "meta",
-        "openai"
-      ],
-      "created": 1724371200,
-      "difficulty": "hard",
-      "duration": 40,
-      "featured": false,
-      "format": "system-design",
-      "frameworkDefault": null,
-      "frameworks": [],
-      "href": "/questions/system-design/rich-text-editor",
-      "importance": "medium",
-      "languages": [],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 4,
-      "similarQuestions": [],
-      "slug": "rich-text-editor",
-      "subtitle": null,
-      "topics": [
-        "performance",
-        "ui-component"
-      ]
-    }
+    "access": "premium",
+    "author": "yangshun",
+    "companies": [
+      "meta",
+      "openai"
+    ],
+    "created": 1724371200,
+    "difficulty": "hard",
+    "duration": 40,
+    "excerpt": "Design a rich text editor component used on websites like Medium and Gmail",
+    "featured": false,
+    "format": "system-design",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/system-design/rich-text-editor",
+    "importance": "medium",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 4,
+    "similarQuestions": [],
+    "slug": "rich-text-editor",
+    "subtitle": null,
+    "title": "Rich Text Editor",
+    "topics": [
+      "performance",
+      "ui-component"
+    ]
   },
   {
-    "info": {
-      "excerpt": "Design a travel booking website like Airbnb and Expedia",
-      "title": "Travel Booking (e.g. Airbnb)"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": null,
-      "companies": [],
-      "created": 1673395200,
-      "difficulty": "medium",
-      "duration": 30,
-      "featured": false,
-      "format": "system-design",
-      "frameworkDefault": null,
-      "frameworks": [],
-      "href": "/questions/system-design/travel-booking-airbnb",
-      "importance": "medium",
-      "languages": [],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 8,
-      "similarQuestions": [],
-      "slug": "travel-booking-airbnb",
-      "subtitle": null,
-      "topics": [
-        "performance",
-        "seo"
-      ]
-    }
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1673395200,
+    "difficulty": "medium",
+    "duration": 30,
+    "excerpt": "Design a travel booking website like Airbnb and Expedia",
+    "featured": false,
+    "format": "system-design",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/system-design/travel-booking-airbnb",
+    "importance": "medium",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 8,
+    "similarQuestions": [],
+    "slug": "travel-booking-airbnb",
+    "subtitle": null,
+    "title": "Travel Booking (e.g. Airbnb)",
+    "topics": [
+      "performance",
+      "seo"
+    ]
   },
   {
-    "info": {
-      "excerpt": "Design a video conferencing app like Zoom and Google Meet",
-      "title": "Video Conferencing (e.g. Zoom)"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": null,
-      "companies": [],
-      "created": 1630800000,
-      "difficulty": "hard",
-      "duration": 30,
-      "featured": false,
-      "format": "system-design",
-      "frameworkDefault": null,
-      "frameworks": [],
-      "href": "/questions/system-design/video-conferencing-zoom",
-      "importance": "low",
-      "languages": [],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 15,
-      "similarQuestions": [],
-      "slug": "video-conferencing-zoom",
-      "subtitle": null,
-      "topics": [
-        "networking",
-        "performance"
-      ]
-    }
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "hard",
+    "duration": 30,
+    "excerpt": "Design a video conferencing app like Zoom and Google Meet",
+    "featured": false,
+    "format": "system-design",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/system-design/video-conferencing-zoom",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 15,
+    "similarQuestions": [],
+    "slug": "video-conferencing-zoom",
+    "subtitle": null,
+    "title": "Video Conferencing (e.g. Zoom)",
+    "topics": [
+      "networking",
+      "performance"
+    ]
   },
   {
-    "info": {
-      "excerpt": "Design a video streaming application like Netflix and YouTube",
-      "title": "Video Streaming (e.g. Netflix)"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": null,
-      "companies": [
-        "openai"
-      ],
-      "created": 1630800000,
-      "difficulty": "hard",
-      "duration": 45,
-      "featured": false,
-      "format": "system-design",
-      "frameworkDefault": null,
-      "frameworks": [],
-      "href": "/questions/system-design/video-streaming-netflix",
-      "importance": "medium",
-      "languages": [],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 6,
-      "similarQuestions": [],
-      "slug": "video-streaming-netflix",
-      "subtitle": null,
-      "topics": [
-        "networking",
-        "performance"
-      ]
-    }
+    "access": "premium",
+    "author": null,
+    "companies": [
+      "openai"
+    ],
+    "created": 1630800000,
+    "difficulty": "hard",
+    "duration": 45,
+    "excerpt": "Design a video streaming application like Netflix and YouTube",
+    "featured": false,
+    "format": "system-design",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/system-design/video-streaming-netflix",
+    "importance": "medium",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 6,
+    "similarQuestions": [],
+    "slug": "video-streaming-netflix",
+    "subtitle": null,
+    "title": "Video Streaming (e.g. Netflix)",
+    "topics": [
+      "networking",
+      "performance"
+    ]
   }
 ]

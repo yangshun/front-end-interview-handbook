@@ -88,7 +88,7 @@ export default function PurchasePaymentSuccessSection({
                     <div className="shrink-0">
                       <span
                         className={clsx(
-                          'inline-flex size-12 items-center justify-center rounded-md',
+                          'size-12 inline-flex items-center justify-center rounded-md',
                           themeTextSubtleColor,
                           themeBackgroundCardColor,
                           [

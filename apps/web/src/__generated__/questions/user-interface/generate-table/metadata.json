@@ -7,6 +7,7 @@
   "created": 1675123200,
   "difficulty": "easy",
   "duration": 15,
+  "excerpt": "Generate a table of numbers given the rows and columns",
   "featured": false,
   "format": "user-interface",
   "frameworkDefault": "react",
@@ -44,5 +45,6 @@
   "similarQuestions": [],
   "slug": "generate-table",
   "subtitle": null,
+  "title": "Generate Table",
   "topics": []
 }

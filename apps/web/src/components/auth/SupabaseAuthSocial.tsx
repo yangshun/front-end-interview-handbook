@@ -1,14 +1,16 @@
 import type { Provider } from '@supabase/supabase-js';
 import clsx from 'clsx';
+import { useState } from 'react';
 import { RiGithubFill, RiGoogleFill } from 'react-icons/ri';
+import url from 'url';
 
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 
 import logEvent from '~/logging/logEvent';
+import type { SupabaseClientGFE } from '~/supabase/SupabaseServerGFE';
 
 import Alert from '../ui/Alert';
-import { useOAuthSignIn } from './useOAuthSignIn';
 
 export type SupabaseProviderGFE = 'github' | 'google';
 
@@ -41,17 +43,49 @@ export type SocialAuthProps = {
   layout?: 'horizontal' | 'vertical';
   next: string;
   providers?: Array<SupabaseProviderGFE>;
+  supabaseClient: SupabaseClientGFE;
 };
 
 export default function SupabaseAuthSocial({
   layout,
   next,
   providers,
+  supabaseClient,
 }: SocialAuthProps) {
   const intl = useIntl();
-  const { errorMessage, loading, signInWithProvider } = useOAuthSignIn({
-    next,
-  });
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+
+  async function handleProviderSignIn(provider: SupabaseProviderGFE) {
+    setLoading(true);
+
+    const redirectTo =
+      window.location.origin +
+      url.format({
+        pathname: '/auth/login-redirect',
+        query: {
+          next,
+        },
+      });
+
+    const { error } = await supabaseClient.auth.signInWithOAuth({
+      options: { redirectTo },
+      provider,
+    });
+
+    if (error) {
+      setErrorMessage(error.message);
+      logEvent('auth.sign_in.fail', {
+        message: error.message,
+        name: error.name,
+        namespace: 'auth',
+        stack: error.stack,
+        type: provider,
+      });
+    }
+
+    setLoading(false);
+  }
 
   if (!providers || providers.length === 0) {
     return null;
@@ -61,7 +95,7 @@ export default function SupabaseAuthSocial({
     <div className="flex flex-col gap-y-2">
       <div
         className={clsx(
-          'flex flex-col gap-y-4',
+          'flex flex-col gap-y-3',
           layout === 'horizontal' && 'gap-x-4 lg:flex-row',
         )}>
         {providers.map((provider) => {
@@ -73,7 +107,7 @@ export default function SupabaseAuthSocial({
               className={clsx(layout === 'horizontal' && 'grow')}>
               <Button
                 addonPosition="start"
-                className="rounded-md dark:!bg-neutral-800/40 dark:hover:!bg-neutral-700/40 dark:active:!bg-neutral-600/40"
+                className="rounded-lg dark:!bg-neutral-800/40 dark:hover:!bg-neutral-700/40 dark:active:!bg-neutral-600/40"
                 display="block"
                 icon={icon}
                 isDisabled={loading}
@@ -97,7 +131,7 @@ export default function SupabaseAuthSocial({
                     label,
                     namespace: 'auth',
                   });
-                  signInWithProvider(provider);
+                  handleProviderSignIn(provider);
                 }}
               />
             </div>

@@ -6,7 +6,6 @@ import Card from '~/components/ui/Card';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-import Img from '~/components/ui/Img';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundCardColor,
@@ -87,7 +86,7 @@ function FeatureSection({ feature }: { feature: ProjectMarketingFeature }) {
                   </Text>
                 </div>
               )}
-              <Img
+              <img
                 alt={'title' in item ? item.title : ''}
                 decoding="async"
                 loading="lazy"

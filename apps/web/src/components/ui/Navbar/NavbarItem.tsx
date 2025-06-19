@@ -2,7 +2,7 @@ import * as PopoverPrimitive from '@radix-ui/react-popover';
 import clsx from 'clsx';
 import React, { useState } from 'react';
 import { RiArrowDownSLine } from 'react-icons/ri';
-import { useDebounceValue } from 'usehooks-ts';
+import { useDebounce } from 'usehooks-ts';
 
 import {
   themeOutlineElement_FocusVisible,
@@ -25,7 +25,9 @@ export default function NavbarItem({
   onClick,
   ...props
 }: NavbarTopLevelItem) {
-  const [debouncedOpen, setOpen] = useDebounceValue(false, 100);
+  const [open, setOpen] = useState(false);
+  // To debounce open state when quick hovering on and out
+  const debouncedOpen = useDebounce(open, 100);
   const [isClicked, setIsClicked] = useState(false);
 
   function handleMouseEnter() {
@@ -74,7 +76,7 @@ export default function NavbarItem({
         className={clsx(
           commonStyles,
           anchorVariants({ variant: 'unstyled' }),
-          debouncedOpen
+          open
             ? clsx(themeTextBrandColor, 'underline dark:no-underline')
             : clsx(themeTextColor, themeTextBrandColor_Hover),
         )}
@@ -85,9 +87,7 @@ export default function NavbarItem({
         <RiArrowDownSLine
           aria-hidden="true"
           className={clsx(
-            debouncedOpen
-              ? themeTextSecondaryColor
-              : themeTextSecondaryInvertColor,
+            open ? themeTextSecondaryColor : themeTextSecondaryInvertColor,
             'size-5 group-hover:text-neutral-500',
           )}
         />

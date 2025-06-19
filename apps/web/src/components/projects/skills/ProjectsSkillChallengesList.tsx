@@ -5,7 +5,6 @@ import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Chip from '~/components/ui/Chip';
-import Img from '~/components/ui/Img';
 import Text from '~/components/ui/Text';
 import { themeBorderElementColor } from '~/components/ui/theme';
 
@@ -65,7 +64,7 @@ export default function ProjectsSkillChallengesList({
                 'group flex grow items-center gap-4 md:gap-6',
                 'pe-6',
               )}>
-              <Img
+              <img
                 alt={challenge.info.title}
                 className={clsx(
                   'h-full w-20 md:w-[110px]',

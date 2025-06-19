@@ -1,6 +1,5 @@
 // @ts-check
 
-import remarkAlerts from '@gfe/remark-alerts';
 import { makeSource } from 'contentlayer/source-files';
 import remarkFrontmatter from 'remark-frontmatter';
 import remarkGfm from 'remark-gfm';
@@ -12,7 +11,6 @@ import { BlogPostDocument } from '../components/blog/contentlayer/BlogPostDocume
 import { BlogSeriesDocument } from '../components/blog/contentlayer/BlogSeriesDocument';
 import { BlogSubseriesDocument } from '../components/blog/contentlayer/BlogSubseriesDocument';
 import { JobsPostingDocument } from '../components/hiring/contentlayer/JobsPostingDocument';
-import { InterviewsQuestionQuizScrollableContentDocument } from '../components/interviews/questions/content/quiz/InterviewsQuestionQuizScrollableContentDocument';
 import { InterviewsListingBottomContentDocument } from '../components/interviews/questions/listings/InterviewsListingBottomContentDocument';
 import { InterviewsStudyListDocument } from '../components/interviews/questions/listings/study-list/InterviewsStudyListDocument';
 import { ProjectsChallengeAPIWriteupDocument } from '../components/projects/contentlayer/ProjectsChallengeAPIWriteupDocument';
@@ -38,7 +36,6 @@ export default makeSource({
     BlogSubseriesDocument,
     InterviewsStudyListDocument,
     InterviewsListingBottomContentDocument,
-    InterviewsQuestionQuizScrollableContentDocument,
     ProjectsCommonGuideDocument,
     ProjectsChallengeAppendixDocument,
     ProjectsChallengeBriefDocument,
@@ -54,11 +51,6 @@ export default makeSource({
     JobsPostingDocument,
   ],
   mdx: {
-    remarkPlugins: [
-      remarkGfm,
-      remarkFrontmatter,
-      remarkMdxFrontmatter,
-      remarkAlerts,
-    ],
+    remarkPlugins: [remarkGfm, remarkFrontmatter, remarkMdxFrontmatter],
   },
 });

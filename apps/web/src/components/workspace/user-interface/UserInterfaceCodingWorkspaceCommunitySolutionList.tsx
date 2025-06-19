@@ -1,11 +1,11 @@
 import { trpc } from '~/hooks/trpc';
 
-import type { InterviewsQuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 
 import CodingWorkspaceCommunitySolutionList from '../common/CodingWorkspaceCommunitySolutionList';
 
 type Props = Readonly<{
-  metadata: InterviewsQuestionMetadata;
+  metadata: QuestionMetadata;
 }>;
 
 export default function UserInterfaceCodingWorkspaceCommunitySolutionList({

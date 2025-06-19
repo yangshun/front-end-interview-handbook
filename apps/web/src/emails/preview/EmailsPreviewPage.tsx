@@ -45,9 +45,8 @@ export default function EmailsPreviewPage({ emailKey, html, text }: Props) {
     (itemConfig) => itemConfig.id === emailKey,
   )!;
 
-  const [emailProps, setEmailProps] = useState<AnyWhichShouldBeFixed>(
-    emailConfig.defaultProps,
-  );
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [emailProps, setEmailProps] = useState<any>(emailConfig.defaultProps);
   const [emailPropsTextarea, setEmailPropsTextarea] = useState<string>(
     JSON.stringify(emailConfig.defaultProps, null, 2),
   );
@@ -66,7 +65,8 @@ export default function EmailsPreviewPage({ emailKey, html, text }: Props) {
   }, [emailProps]);
 
   async function renderPreviewEmail(
-    emailItemConfig_: EmailItemConfig<React.FC<AnyWhichShouldBeFixed>>,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    emailItemConfig_: EmailItemConfig<React.FC<any>>,
   ) {
     const Component = emailItemConfig_?.component;
     const props = emailItemConfig_.defaultProps;
@@ -76,8 +76,10 @@ export default function EmailsPreviewPage({ emailKey, html, text }: Props) {
   }
 
   async function updatePreviewEmail(
-    emailItemConfig_: EmailItemConfig<React.FC<AnyWhichShouldBeFixed>>,
-    emailProps_: AnyWhichShouldBeFixed,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    emailItemConfig_: EmailItemConfig<React.FC<any>>,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    emailProps_: any,
   ) {
     const Component = emailItemConfig_.component;
 
@@ -127,7 +129,10 @@ export default function EmailsPreviewPage({ emailKey, html, text }: Props) {
         </div>
         <InterviewsNavbarEnd />
       </div>
-      <PanelGroup className="flex h-full w-full p-3" direction="horizontal">
+      <PanelGroup
+        className="flex h-full w-full p-3"
+        direction="horizontal"
+        disablePointerEventsDuringResize={true}>
         <Panel
           className={clsx(
             'flex flex-col',
@@ -237,7 +242,8 @@ export default function EmailsPreviewPage({ emailKey, html, text }: Props) {
           minSize={20}>
           <div className="flex flex-col gap-1">
             <Text className="block" size="body0" weight="bold">
-              {emailConfig?.subject(emailProps as AnyWhichShouldBeFixed)}
+              {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+              {emailConfig?.subject(emailProps as any)}
             </Text>
             <div>
               <Text size="body2">From:</Text>{' '}

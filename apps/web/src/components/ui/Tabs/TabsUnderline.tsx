@@ -27,7 +27,6 @@ type TabAlignment = 'start' | 'stretch';
 
 type Props<T> = Readonly<{
   alignment?: TabAlignment;
-  className?: string;
   display?: TabDisplay;
   label: string;
   onSelect?: (value: T) => void;
@@ -77,7 +76,6 @@ const sizeClasses: Record<
 function TabsUnderline<T>(
   {
     alignment = 'start',
-    className,
     display = 'block',
     label,
     onSelect,
@@ -97,7 +95,6 @@ function TabsUnderline<T>(
         className={clsx('overflow-y-hidden', displayClasses[display], [
           'border-b',
           themeBorderElementColor,
-          className,
         ])}>
         <nav aria-label={label} className={clsx('-mb-px flex', tabGapSize)}>
           {tabs.map((tabItem) => {

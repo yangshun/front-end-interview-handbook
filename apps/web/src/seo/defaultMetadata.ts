@@ -4,7 +4,6 @@ import type { Metadata } from 'next/types';
 import url from 'node:url';
 
 import { i18nMetadata } from '~/next-i18nostic/src';
-import { cdnUrl } from '~/utils/cdnUrl';
 
 import { getSiteOrigin } from './siteUrl';
 
@@ -46,7 +45,7 @@ export default function defaultMetadata({
           title: ogImageTitle,
         },
       })
-    : cdnUrl(imageUrl || '/img/seo/og.jpg');
+    : imageUrl || '/img/seo/og.jpg';
 
   return i18nMetadata(
     {

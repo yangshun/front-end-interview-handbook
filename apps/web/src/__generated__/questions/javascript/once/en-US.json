@@ -1,0 +1,53 @@
+{
+  "description": "var Component=(()=>{var u=Object.create;var o=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var g=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),x=(e,n)=>{for(var i in n)o(e,i,{get:n[i],enumerable:!0})},r=(e,n,i,s)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let c of f(n))!p.call(e,c)&&c!==i&&o(e,c,{get:()=>n[c],enumerable:!(s=d(n,c))||s.enumerable});return e};var v=(e,n,i)=>(i=e!=null?u(m(e)):{},r(n||!e||!e.__esModule?o(i,\"default\",{value:e,enumerable:!0}):i,e)),b=e=>r(o({},\"__esModule\",{value:!0}),e);var l=g((B,a)=>{a.exports=_jsx_runtime});var _={};x(_,{default:()=>w,frontmatter:()=>y});var t=v(l()),y={title:\"Once\",excerpt:\"Implement a function that accepts a callback and restricts its invocation to at most once\"};function h(e){let n=Object.assign({p:\"p\",code:\"code\",h2:\"h2\",pre:\"pre\",ul:\"ul\",li:\"li\",a:\"a\"},e.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(n.p,{children:\"Sometimes it's helpful to ensure a function runs only once during the lifecycle of the website, e.g. for setting up logging, initializing an environment, etc.\"}),`\n`,(0,t.jsxs)(n.p,{children:[\"Implement a function that accepts a callback and restricts its invocation to at most once. Subsequent calls of the function will return the result of the first invocation of the callback function. The callback function is invoked with the \",(0,t.jsx)(n.code,{children:\"this\"}),\" binding and arguments of the created function.\"]}),`\n`,(0,t.jsx)(n.h2,{children:\"Examples\"}),`\n`,(0,t.jsx)(n.pre,{children:(0,t.jsx)(n.code,{className:\"language-js\",children:`let i = 1;\n\nfunction incrementBy(value) {\n  i += value;\n  return i;\n}\n\nconst incrementByOnce = once(incrementBy);\nincrementByOnce(2); // i is now 3; The function returns 3.\nincrementByOnce(3); // i is still 3; The function returns the result of the first invocation, which is 3.\ni = 4;\nincrementByOnce(2); // i is still 4 as it is not modified. However, the function returns the result of the first invocation, which is 3.\n`})}),`\n`,(0,t.jsx)(n.h2,{children:\"Resources\"}),`\n`,(0,t.jsxs)(n.ul,{children:[`\n`,(0,t.jsx)(n.li,{children:(0,t.jsxs)(n.a,{href:\"https://lodash.com/docs/4.17.15#once\",children:[\"Lodash \",(0,t.jsx)(n.code,{children:\"_.once\"})]})}),`\n`]})]})}function j(e={}){let{wrapper:n}=e.components||{};return n?(0,t.jsx)(n,Object.assign({},e,{children:(0,t.jsx)(h,e)})):h(e)}var w=j;return b(_);})();\n;return Component;",
+  "files": {
+    "/package.json": "{\n  \"name\": \"@gfe-questions/once\",\n  \"version\": \"0.0.1\",\n  \"main\": \"/src/once.ts\",\n  \"devDependencies\": {\n    \"@types/jest\": \"29.5.0\",\n    \"typescript\": \"5.0.2\"\n  }\n}\n",
+    "/tsconfig.json": "{\n  \"include\": [\"./**/*\"],\n  \"compilerOptions\": {\n    \"strict\": true,\n    \"esModuleInterop\": true,\n    \"lib\": [\"dom\", \"dom.iterable\", \"esnext\"],\n    \"jsx\": \"react-jsx\",\n    \"target\": \"es2020\"\n  }\n}\n",
+    "/src/once.run.test.ts": "import once from './once';\n\ndescribe('once', () => {\n  test('returns function', () => {\n    const onced = once(() => {});\n    expect(onced).toBeInstanceOf(Function);\n  });\n\n  test('only run once', () => {\n    let i = 0;\n    const onced = once(() => ++i);\n\n    onced();\n    onced();\n    expect(i).toBe(1);\n  });\n\n  test('returns the value of the first invocation', () => {\n    let i = 0;\n    const onced = once(() => ++i);\n    expect(onced()).toBe(1);\n    expect(onced()).toBe(1);\n    expect(i).toBe(1);\n\n    i = 99;\n    expect(onced()).toBe(1);\n    expect(i).toBe(99);\n  });\n});\n",
+    "/src/once.submit.test.ts": "import once from './once';\n\ndescribe('once', () => {\n  test('returns function', () => {\n    const onced = once(() => {});\n    expect(onced).toBeInstanceOf(Function);\n  });\n\n  test('only run once', () => {\n    let i = 0;\n    const onced = once(() => ++i);\n\n    onced();\n    onced();\n    expect(i).toBe(1);\n  });\n\n  test('returns the value of the first invocation', () => {\n    let i = 0;\n    const onced = once(() => ++i);\n    expect(onced()).toBe(1);\n    expect(onced()).toBe(1);\n    expect(i).toBe(1);\n\n    i = 99;\n    expect(onced()).toBe(1);\n    expect(i).toBe(99);\n  });\n\n  describe('accepts arguments', () => {\n    test('single arguments', () => {\n      const onced = once((a) => a * 2);\n\n      expect(onced(2)).toBe(4);\n      expect(onced(6)).toBe(4);\n      expect(onced(100)).toBe(4);\n    });\n\n    test('two arguments', () => {\n      const onced = once((a, b) => a + b);\n\n      expect(onced(2, 3)).toBe(5);\n      expect(onced(6, 7)).toBe(5);\n    });\n  });\n\n  test('can access this', () => {\n    const onced = once(function (val) {\n      return this.multiplier * val;\n    });\n\n    const obj = { multiplier: 5, mul: onced };\n    expect(obj.mul(7)).toBe(35);\n    expect(obj.mul(10)).toBe(35);\n  });\n});\n",
+    "/src/once.ts": "type Fn<T> = (this: any, ...args: Array<any>) => T;\n\nexport default function once<T>(func: Fn<T>): Fn<T> {\n  let ranOnce = false;\n  let value: T;\n\n  return function (...args): T {\n    if (!ranOnce) {\n      value = func.apply(this, args);\n      ranOnce = true;\n    }\n\n    return value;\n  };\n}\n"
+  },
+  "metadata": {
+    "access": "premium",
+    "author": "yangshun",
+    "companies": [
+      "amazon"
+    ],
+    "created": 1670803200,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "Implement a function that accepts a callback and restricts its invocation to at most once",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/once",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "limit"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "once",
+    "subtitle": null,
+    "title": "Once",
+    "topics": [
+      "closure"
+    ]
+  },
+  "skeleton": {
+    "js": "/**\n * @template {Function} T\n * @param {T} func\n * @return {T}\n */\nexport default function once(func) {\n  throw 'Not implemented!';\n}",
+    "ts": "type Fn<T> = (this: any, args: Array<any>) => T;\n\nexport default function once<T>(func: Fn<T>): Fn<T> {\n  throw 'Not implemented!';\n}"
+  },
+  "solution": "var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var v=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var b=Object.getPrototypeOf,m=Object.prototype.hasOwnProperty;var w=(c,e)=>()=>(e||c((e={exports:{}}).exports,e),e.exports),x=(c,e)=>{for(var t in e)r(c,t,{get:e[t],enumerable:!0})},l=(c,e,t,i)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of g(e))!m.call(c,o)&&o!==t&&r(c,o,{get:()=>e[o],enumerable:!(i=v(e,o))||i.enumerable});return c};var k=(c,e,t)=>(t=c!=null?p(b(c)):{},l(e||!c||!c.__esModule?r(t,\"default\",{value:c,enumerable:!0}):t,c)),y=c=>l(r({},\"__esModule\",{value:!0}),c);var u=w((M,a)=>{a.exports=_jsx_runtime});var _={};x(_,{default:()=>O});var n=k(u());var h=MDXCodeBlock;var s=`/**\n * @callback func\n * @return {Function}\n */\nexport default function once(func) {\n  let ranOnce = false;\n  let value;\n\n  return function (...args) {\n    if (!ranOnce) {\n      value = func.apply(this, args);\n      ranOnce = true;\n    }\n\n    return value;\n  };\n}\n`;var d=`type Fn<T> = (this: any, ...args: Array<any>) => T;\n\nexport default function once<T>(func: Fn<T>): Fn<T> {\n  let ranOnce = false;\n  let value: T;\n\n  return function (...args): T {\n    if (!ranOnce) {\n      value = func.apply(this, args);\n      ranOnce = true;\n    }\n\n    return value;\n  };\n}\n`;function f(c){let e=Object.assign({h2:\"h2\",p:\"p\",ul:\"ul\",li:\"li\",code:\"code\",a:\"a\"},c.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{children:\"Solution\"}),`\n`,(0,n.jsx)(e.p,{children:\"We can use closures to capture state required by the returned function. The returned function's closure has access to the following variables:\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.code,{children:\"func\"}),\": The argument to \",(0,n.jsx)(e.code,{children:\"once()\"}),\", the callback function to be invoked.\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.code,{children:\"ranOnce\"}),\": A boolean variable indicating if the callback function has been invoked before. If the value is \",(0,n.jsx)(e.code,{children:\"true\"}),\", \",(0,n.jsx)(e.code,{children:\"func\"}),\" will not be invoked again.\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.code,{children:\"value\"}),\": Since we need to return the value of the first invocation for subsequent invocations, we have to save the result of the first invocation and return it directly for subsequent invocations.\"]}),`\n`]}),`\n`,(0,n.jsx)(h,{languages:{jsx:s,tsx:d}}),`\n`,(0,n.jsxs)(e.p,{children:[\"Note that the callback function is invoked with the \",(0,n.jsx)(e.code,{children:\"this\"}),\" binding and arguments of the created function, hence we cannot return an arrow function if we want the value of \",(0,n.jsx)(e.code,{children:\"this\"}),\" to refer to the object calling the created function.\"]}),`\n`,(0,n.jsx)(e.h2,{children:\"Edge cases\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsxs)(e.li,{children:[\"Functions which access \",(0,n.jsx)(e.code,{children:\"this\"}),\".\"]}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"Techniques\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"Closures.\"}),`\n`,(0,n.jsxs)(e.li,{children:[\"How \",(0,n.jsx)(e.code,{children:\"this\"}),\" works.\"]}),`\n`,(0,n.jsxs)(e.li,{children:[\"Invoking functions via \",(0,n.jsx)(e.code,{children:\"Function.prototype.apply()\"}),\"/\",(0,n.jsx)(e.code,{children:\"Function.prototype.call()\"}),\".\"]}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"Resources\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsxs)(e.a,{href:\"https://lodash.com/docs/4.17.15#once\",children:[\"Lodash \",(0,n.jsx)(e.code,{children:\"_.once\"})]})}),`\n`]})]})}function F(c={}){let{wrapper:e}=c.components||{};return e?(0,n.jsx)(e,Object.assign({},c,{children:(0,n.jsx)(f,c)})):f(c)}var O=F;return y(_);})();\n;return Component;",
+  "workspace": {
+    "main": "/src/once.ts",
+    "run": "/src/once.run.test.ts",
+    "submit": "/src/once.submit.test.ts"
+  }
+}

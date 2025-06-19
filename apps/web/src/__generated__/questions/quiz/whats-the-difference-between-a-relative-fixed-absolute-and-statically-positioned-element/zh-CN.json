@@ -1,0 +1,35 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [
+      "rippling",
+      "salesforce",
+      "amazon"
+    ],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/whats-the-difference-between-a-relative-fixed-absolute-and-statically-positioned-element",
+    "importance": "high",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 2,
+    "similarQuestions": [],
+    "slug": "whats-the-difference-between-a-relative-fixed-absolute-and-statically-positioned-element",
+    "subtitle": null,
+    "title": "relative、fixed、absolute、sticky 和 static 定位元素有什么区别？",
+    "topics": [
+      "css"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/whats-the-difference-between-a-relative-fixed-absolute-and-statically-positioned-element/zh-CN.mdx"
+  },
+  "solution": "var Component=(()=>{var a=Object.create;var t=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,m=Object.prototype.hasOwnProperty;var p=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var i in e)t(n,i,{get:e[i],enumerable:!0})},r=(n,e,i,l)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let d of u(e))!m.call(n,d)&&d!==i&&t(n,d,{get:()=>e[d],enumerable:!(l=x(e,d))||l.enumerable});return n};var _=(n,e,i)=>(i=n!=null?a(f(n)):{},r(e||!n||!n.__esModule?t(i,\"default\",{value:n,enumerable:!0}):i,n)),b=n=>r(t({},\"__esModule\",{value:!0}),n);var h=p((C,o)=>{o.exports=_jsx_runtime});var k={};j(k,{default:()=>y,frontmatter:()=>g});var c=_(h()),g={title:\"relative\\u3001fixed\\u3001absolute\\u3001sticky \\u548C static \\u5B9A\\u4F4D\\u5143\\u7D20\\u6709\\u4EC0\\u4E48\\u533A\\u522B\\uFF1F\"};function s(n){let e=Object.assign({p:\"p\",code:\"code\",ul:\"ul\",li:\"li\"},n.components);return(0,c.jsxs)(c.Fragment,{children:[(0,c.jsxs)(e.p,{children:[\"\\u5B9A\\u4F4D\\u5143\\u7D20\\u662F\\u6307\\u5176\\u8BA1\\u7B97\\u540E\\u7684 \",(0,c.jsx)(e.code,{children:\"position\"}),\" \\u5C5E\\u6027\\u4E3A \",(0,c.jsx)(e.code,{children:\"relative\"}),\"\\u3001\",(0,c.jsx)(e.code,{children:\"absolute\"}),\"\\u3001\",(0,c.jsx)(e.code,{children:\"fixed\"}),\" \\u6216 \",(0,c.jsx)(e.code,{children:\"sticky\"}),\" \\u7684\\u5143\\u7D20\\u3002\"]}),`\n`,(0,c.jsxs)(e.ul,{children:[`\n`,(0,c.jsxs)(e.li,{children:[(0,c.jsx)(e.code,{children:\"static\"}),\"\\uFF1A\\u9ED8\\u8BA4\\u4F4D\\u7F6E\\uFF1B\\u5143\\u7D20\\u5C06\\u50CF\\u901A\\u5E38\\u4E00\\u6837\\u6D41\\u5165\\u9875\\u9762\\u3002\",(0,c.jsx)(e.code,{children:\"top\"}),\"\\u3001\",(0,c.jsx)(e.code,{children:\"right\"}),\"\\u3001\",(0,c.jsx)(e.code,{children:\"bottom\"}),\"\\u3001\",(0,c.jsx)(e.code,{children:\"left\"}),\" \\u548C \",(0,c.jsx)(e.code,{children:\"z-index\"}),\" \\u5C5E\\u6027\\u4E0D\\u9002\\u7528\\u3002\"]}),`\n`,(0,c.jsxs)(e.li,{children:[(0,c.jsx)(e.code,{children:\"relative\"}),\"\\uFF1A\\u5143\\u7D20\\u7684\\u4F4D\\u7F6E\\u76F8\\u5BF9\\u4E8E\\u81EA\\u8EAB\\u8FDB\\u884C\\u8C03\\u6574\\uFF0C\\u4E0D\\u6539\\u53D8\\u5E03\\u5C40\\uFF08\\u56E0\\u6B64\\u4E3A\\u5143\\u7D20\\u7559\\u51FA\\u4E00\\u4E2A\\u95F4\\u9699\\uFF0C\\u5C31\\u50CF\\u5B83\\u6CA1\\u6709\\u88AB\\u5B9A\\u4F4D\\u4E00\\u6837\\uFF09\\u3002\"]}),`\n`,(0,c.jsxs)(e.li,{children:[(0,c.jsx)(e.code,{children:\"absolute\"}),\"\\uFF1A\\u5143\\u7D20\\u4ECE\\u9875\\u9762\\u6D41\\u4E2D\\u79FB\\u9664\\uFF0C\\u5E76\\u76F8\\u5BF9\\u4E8E\\u5176\\u6700\\u8FD1\\u7684\\u5DF2\\u5B9A\\u4F4D\\u7956\\u5148\\uFF08\\u5982\\u679C\\u6709\\uFF09\\u6216\\u76F8\\u5BF9\\u4E8E\\u521D\\u59CB\\u5305\\u542B\\u5757\\u5B9A\\u4F4D\\u3002\\u7EDD\\u5BF9\\u5B9A\\u4F4D\\u7684\\u6846\\u53EF\\u4EE5\\u6709\\u8FB9\\u8DDD\\uFF0C\\u5E76\\u4E14\\u5B83\\u4EEC\\u4E0D\\u4F1A\\u4E0E\\u5176\\u4ED6\\u4EFB\\u4F55\\u8FB9\\u8DDD\\u5408\\u5E76\\u3002\\u8FD9\\u4E9B\\u5143\\u7D20\\u4E0D\\u4F1A\\u5F71\\u54CD\\u5176\\u4ED6\\u5143\\u7D20\\u7684\\u4F4D\\u7F6E\\u3002\"]}),`\n`,(0,c.jsxs)(e.li,{children:[(0,c.jsx)(e.code,{children:\"fixed\"}),\"\\uFF1A\\u5143\\u7D20\\u4ECE\\u9875\\u9762\\u6D41\\u4E2D\\u79FB\\u9664\\uFF0C\\u5E76\\u76F8\\u5BF9\\u4E8E\\u89C6\\u53E3\\u4E2D\\u7684\\u6307\\u5B9A\\u4F4D\\u7F6E\\u5B9A\\u4F4D\\uFF0C\\u5E76\\u4E14\\u5728\\u6EDA\\u52A8\\u65F6\\u4E0D\\u4F1A\\u79FB\\u52A8\\u3002\"]}),`\n`,(0,c.jsxs)(e.li,{children:[(0,c.jsx)(e.code,{children:\"sticky\"}),\"\\uFF1A\\u7C98\\u6027\\u5B9A\\u4F4D\\u662F\\u76F8\\u5BF9\\u5B9A\\u4F4D\\u548C\\u56FA\\u5B9A\\u5B9A\\u4F4D\\u7684\\u6DF7\\u5408\\u3002\\u8BE5\\u5143\\u7D20\\u88AB\\u89C6\\u4E3A \",(0,c.jsx)(e.code,{children:\"relative\"}),\" \\u5B9A\\u4F4D\\uFF0C\\u76F4\\u5230\\u5B83\\u7A7F\\u8FC7\\u6307\\u5B9A\\u7684\\u9608\\u503C\\uFF0C\\u6B64\\u65F6\\u5B83\\u88AB\\u89C6\\u4E3A \",(0,c.jsx)(e.code,{children:\"fixed\"}),\" \\u5B9A\\u4F4D\\u3002\"]}),`\n`]})]})}function v(n={}){let{wrapper:e}=n.components||{};return e?(0,c.jsx)(e,Object.assign({},n,{children:(0,c.jsx)(s,n)})):s(n)}var y=v;return b(k);})();\n;return Component;"
+}

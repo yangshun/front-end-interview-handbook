@@ -1,11 +1,11 @@
 // @ts-check
 
-import allInterviewsStudyListMetadata from './.contentlayer/generated/InterviewsStudyList/_index.json' with { type: 'json' };
-import allProjectsChallengeMetadata from './.contentlayer/generated/ProjectsChallengeMetadata/_index.json' with { type: 'json' };
-import allProjectsSkillMetadata from './.contentlayer/generated/ProjectsSkillMetadata/_index.json' with { type: 'json' };
-import allProjectsTrackMetadata from './.contentlayer/generated/ProjectsTrackMetadata/_index.json' with { type: 'json' };
-import codingQuestionsList from './src/__generated__/questions/coding/list.en-US.json' with { type: 'json' };
-import i18nConfig from './src/next-i18nostic/config.json' with { type: 'json' };
+import allInterviewsStudyListMetadata from './.contentlayer/generated/InterviewsStudyList/_index.json' assert { type: 'json' };
+import allProjectsChallengeMetadata from './.contentlayer/generated/ProjectsChallengeMetadata/_index.json' assert { type: 'json' };
+import allProjectsSkillMetadata from './.contentlayer/generated/ProjectsSkillMetadata/_index.json' assert { type: 'json' };
+import allProjectsTrackMetadata from './.contentlayer/generated/ProjectsTrackMetadata/_index.json' assert { type: 'json' };
+import codingQuestionsList from './src/__generated__/questions/coding/list.en-US.json' assert { type: 'json' };
+import i18nConfig from './src/next-i18nostic/config.json' assert { type: 'json' };
 
 const priority = 0.7;
 const changefreq = 'daily';
@@ -68,33 +68,34 @@ export default {
       '/interviews/pricing',
       '/interviews/testimonials',
       '/interviews/faq',
-      '/interviews/roadmap',
       // Interviews / Dashboard
       '/interviews/get-started',
       // Interviews / Formats
       '/questions',
-      '/questions/formats/algo-coding',
-      '/questions/formats/javascript-functions',
-      '/questions/formats/ui-coding',
-      '/questions/formats/system-design',
-      '/questions/formats/quiz',
+      '/questions/algo',
+      '/questions/javascript',
+      '/questions/user-interface',
+      '/questions/system-design',
+      '/questions/quiz',
       // Interviews / Languages
-      '/questions/html-interview-questions',
-      '/questions/css-interview-questions',
-      '/questions/javascript-interview-questions',
-      '/questions/typescript-interview-questions',
+      '/questions/html',
+      '/questions/css',
+      '/questions/js',
+      '/questions/ts',
       // Interviews / Frameworks
-      '/questions/react-interview-questions',
-      '/questions/vue-interview-questions',
-      '/questions/angular-interview-questions',
-      '/questions/svelte-interview-questions',
+      '/questions/react',
+      '/questions/vue',
+      '/questions/angular',
+      '/questions/svelte',
+      '/questions/vanilla',
       // Interviews / Study Lists
+      ...allInterviewsStudyListMetadata.map(({ href }) => href),
       '/interviews/focus-areas',
       '/interviews/study-plans',
       '/interviews/company',
-      ...allInterviewsStudyListMetadata.map(({ href }) => href),
+      '/interviews/roadmap',
       // Interviews / Questions
-      ...codingQuestionsList.map(({ metadata }) => metadata.href),
+      ...codingQuestionsList.map(({ href }) => href),
       // Projects
       '/projects',
       '/projects/pricing',

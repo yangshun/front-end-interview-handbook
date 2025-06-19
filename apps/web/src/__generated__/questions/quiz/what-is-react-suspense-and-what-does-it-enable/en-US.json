@@ -1,0 +1,36 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": true,
+    "format": "quiz",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-is-react-suspense-and-what-does-it-enable"
+      }
+    ],
+    "href": "/questions/quiz/what-is-react-suspense-and-what-does-it-enable",
+    "importance": "medium",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 490,
+    "similarQuestions": [],
+    "slug": "what-is-react-suspense-and-what-does-it-enable",
+    "subtitle": null,
+    "title": "What is React Suspense and what does it enable?",
+    "topics": [
+      "react"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-reactjs-interview-questions/blob/main/questions/what-is-react-suspense-and-what-does-it-enable/en-US.mdx"
+  },
+  "solution": "var Component=(()=>{var h=Object.create;var i=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var y=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),g=(t,e)=>{for(var a in e)i(t,a,{get:e[a],enumerable:!0})},r=(t,e,a,c)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of u(e))!f.call(t,o)&&o!==a&&i(t,o,{get:()=>e[o],enumerable:!(c=p(e,o))||c.enumerable});return t};var R=(t,e,a)=>(a=t!=null?h(m(t)):{},r(e||!t||!t.__esModule?i(a,\"default\",{value:t,enumerable:!0}):a,t)),w=t=>r(i({},\"__esModule\",{value:!0}),t);var l=y((z,s)=>{s.exports=_jsx_runtime});var x={};g(x,{default:()=>v,frontmatter:()=>S});var n=R(l()),S={title:\"What is React Suspense and what does it enable?\"};function d(t){let e=Object.assign({h2:\"h2\",p:\"p\",code:\"code\",pre:\"pre\",hr:\"hr\",h3:\"h3\",ul:\"ul\",li:\"li\",strong:\"strong\",a:\"a\"},t.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{children:\"TL;DR\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"React Suspense is a feature that allows you to handle asynchronous operations in your React components more gracefully. It enables you to show fallback content while waiting for something to load, such as data fetching or code splitting. You can use it with \",(0,n.jsx)(e.code,{children:\"React.lazy\"}),\" for code splitting and with libraries like \",(0,n.jsx)(e.code,{children:\"react-query\"}),\" for data fetching.\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-jsx\",children:`const LazyComponent = React.lazy(() => import('./LazyComponent'));\n\nfunction MyComponent() {\n  return (\n    <React.Suspense fallback={<div>Loading...</div>}>\n      <LazyComponent />\n    </React.Suspense>\n  );\n}\n`})}),`\n`,(0,n.jsx)(e.hr,{}),`\n`,(0,n.jsx)(e.h2,{children:\"What is React Suspense and what does it enable?\"}),`\n`,(0,n.jsx)(e.h3,{children:\"Introduction to React Suspense\"}),`\n`,(0,n.jsx)(e.p,{children:\"React Suspense is a feature introduced by the React team to help manage asynchronous operations in a more declarative way. It allows you to specify a loading state (fallback) while waiting for some asynchronous operation to complete, such as data fetching or code splitting.\"}),`\n`,(0,n.jsx)(e.h3,{children:\"Code splitting with React.lazy\"}),`\n`,(0,n.jsx)(e.p,{children:\"One of the primary use cases for React Suspense is code splitting. Code splitting allows you to load parts of your application on demand, which can significantly improve the initial load time of your application.\"}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-jsx\",children:`import React, { Suspense } from 'react';\n\nconst LazyComponent = React.lazy(() => import('./LazyComponent'));\n\nfunction MyComponent() {\n  return (\n    <Suspense fallback={<div>Loading...</div>}>\n      <LazyComponent />\n    </Suspense>\n  );\n}\n`})}),`\n`,(0,n.jsxs)(e.p,{children:[\"In this example, \",(0,n.jsx)(e.code,{children:\"React.lazy\"}),\" is used to dynamically import the \",(0,n.jsx)(e.code,{children:\"LazyComponent\"}),\". The \",(0,n.jsx)(e.code,{children:\"Suspense\"}),\" component wraps the lazy-loaded component and provides a fallback UI (\",(0,n.jsx)(e.code,{children:\"<div>Loading...</div>\"}),\") to display while the component is being loaded.\"]}),`\n`,(0,n.jsx)(e.h3,{children:\"Data fetching with Suspense\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"React Suspense can also be used for data fetching, although this feature is still experimental and requires additional libraries like \",(0,n.jsx)(e.code,{children:\"react-query\"}),\" or \",(0,n.jsx)(e.code,{children:\"Relay\"}),\".\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-jsx\",children:`import React, { Suspense } from 'react';\nimport { useQuery } from 'react-query';\n\nfunction fetchData() {\n  return fetch('https://api.example.com/data').then((response) =>\n    response.json(),\n  );\n}\n\nfunction DataComponent() {\n  const { data } = useQuery('data', fetchData);\n  return <div>{data}</div>;\n}\n\nfunction MyComponent() {\n  return (\n    <Suspense fallback={<div>Loading data...</div>}>\n      <DataComponent />\n    </Suspense>\n  );\n}\n`})}),`\n`,(0,n.jsxs)(e.p,{children:[\"In this example, \",(0,n.jsx)(e.code,{children:\"react-query\"}),\" is used to fetch data, and \",(0,n.jsx)(e.code,{children:\"Suspense\"}),\" provides a fallback UI while the data is being loaded.\"]}),`\n`,(0,n.jsx)(e.h3,{children:\"Benefits of React Suspense\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Improved user experience\"}),\": By showing fallback content, you can keep the user engaged while waiting for asynchronous operations to complete.\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Simplified code\"}),\": Suspense allows you to handle loading states declaratively, reducing the need for complex state management.\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Better performance\"}),\": Code splitting with \",(0,n.jsx)(e.code,{children:\"React.lazy\"}),\" can significantly reduce the initial load time of your application.\"]}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"Further reading\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://react.dev/reference/react/Suspense\",children:\"React Suspense documentation\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://react.dev/reference/react/lazy\",children:\"React.lazy documentation\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://react-query.tanstack.com/\",children:\"React Query documentation\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://relay.dev/docs/en/experimental/api-reference#suspense\",children:\"Relay documentation\"})}),`\n`]})]})}function b(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(d,t)})):d(t)}var v=b;return w(x);})();\n;return Component;"
+}

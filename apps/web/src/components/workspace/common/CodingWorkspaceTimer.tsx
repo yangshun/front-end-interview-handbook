@@ -8,7 +8,7 @@ import { RxPause, RxPlay, RxStopwatch } from 'react-icons/rx';
 
 import { useGreatStorageLocal } from '~/hooks/useGreatStorageLocal';
 
-import type { InterviewsQuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import {
@@ -23,7 +23,7 @@ import { hashQuestion } from '~/db/QuestionsUtils';
 import CodingWorkspaceBottomBarEmitter from './CodingWorkspaceBottomBarEmitter';
 
 type Props = Readonly<{
-  qnMetadata: InterviewsQuestionMetadata;
+  qnMetadata: QuestionMetadata;
 }>;
 
 export default function CodingWorkspaceTimer({ qnMetadata }: Props) {
@@ -130,11 +130,7 @@ export default function CodingWorkspaceTimer({ qnMetadata }: Props) {
         title={timerRef.current === null ? 'Start' : 'Pause'}
         type="button"
         onClick={() => {
-          if (timerRef.current === null) {
-            startTimer();
-          } else {
-            pauseTimer();
-          }
+          timerRef.current === null ? startTimer() : pauseTimer();
         }}
         onMouseEnter={() => setIsTimerHovered(true)}
         onMouseLeave={() => setIsTimerHovered(false)}>

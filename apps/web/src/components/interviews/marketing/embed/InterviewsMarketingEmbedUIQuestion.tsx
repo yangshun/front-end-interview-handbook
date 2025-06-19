@@ -8,9 +8,8 @@ import { useMediaQuery } from 'usehooks-ts';
 import gtag from '~/lib/gtag';
 
 import type {
-  InterviewsQuestionInfo,
-  InterviewsQuestionItemUserInterface,
-  InterviewsQuestionMetadata,
+  QuestionMetadata,
+  QuestionUserInterface,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
@@ -23,14 +22,13 @@ import type { QuestionFramework } from '../../questions/common/QuestionsTypes';
 
 export type EmbedUIQuestion = Readonly<{
   frameworks: {
-    angular: InterviewsQuestionItemUserInterface;
-    react: InterviewsQuestionItemUserInterface;
-    svelte: InterviewsQuestionItemUserInterface;
-    vanilla: InterviewsQuestionItemUserInterface;
-    vue: InterviewsQuestionItemUserInterface;
+    angular: QuestionUserInterface;
+    react: QuestionUserInterface;
+    svelte: QuestionUserInterface;
+    vanilla: QuestionUserInterface;
+    vue: QuestionUserInterface;
   };
-  info: InterviewsQuestionInfo;
-  metadata: InterviewsQuestionMetadata;
+  metadata: QuestionMetadata;
 }>;
 
 type Props = Readonly<{
@@ -60,7 +58,7 @@ export default function InterviewsMarketingEmbedUIQuestion({
   return (
     <div
       className={clsx(
-        'flex size-full flex-col',
+        'size-full flex flex-col',
         'bg-neutral-50 dark:bg-neutral-950',
       )}>
       <div className="relative flex h-0 grow flex-col lg:py-3">
@@ -83,7 +81,6 @@ export default function InterviewsMarketingEmbedUIQuestion({
             contentType="description"
             environment="embed"
             framework={framework}
-            info={question.info}
             metadata={question.metadata}
             mode="practice"
             nextQuestions={[]}

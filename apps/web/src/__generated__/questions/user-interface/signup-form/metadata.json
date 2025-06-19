@@ -11,6 +11,7 @@
   "created": 1658707200,
   "difficulty": "medium",
   "duration": 30,
+  "excerpt": "Build a signup form that does validation on user details and submits to a back end API",
   "featured": false,
   "format": "user-interface",
   "frameworkDefault": "vanilla",
@@ -34,5 +35,6 @@
   ],
   "slug": "signup-form",
   "subtitle": null,
+  "title": "Signup Form",
   "topics": []
 }

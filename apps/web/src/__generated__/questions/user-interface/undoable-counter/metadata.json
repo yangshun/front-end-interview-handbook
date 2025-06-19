@@ -5,6 +5,7 @@
   "created": 1681257600,
   "difficulty": "medium",
   "duration": 30,
+  "excerpt": "Build a counter with a history of the values and ability to undo/redo actions",
   "featured": false,
   "format": "user-interface",
   "frameworkDefault": "react",
@@ -40,5 +41,6 @@
   ],
   "slug": "undoable-counter",
   "subtitle": null,
+  "title": "Undoable Counter",
   "topics": []
 }

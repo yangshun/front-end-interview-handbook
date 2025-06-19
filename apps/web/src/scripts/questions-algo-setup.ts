@@ -2,24 +2,21 @@ import fs from 'fs';
 import { globby } from 'globby';
 import path, { parse } from 'path';
 
-import {
-  readQuestionAlgo,
-  readQuestionAlgoLocaleAgnostic,
-} from '../db/questions-bundlers/QuestionsBundlerAlgo';
+import { readQuestionAlgo } from '../db/questions-bundlers/QuestionsBundlerAlgo';
 import {
   getQuestionOutPathAlgo,
-  getQuestionOutPathAlgoLocaleContents,
   getQuestionSrcPathAlgo,
   QUESTIONS_SRC_DIR_ALGO,
 } from '../db/questions-bundlers/QuestionsBundlerAlgoConfig';
 
 async function generateSetupForQuestion(slug: string) {
   const questionPath = getQuestionSrcPathAlgo(slug);
+  // This assumes that if the locale file is present for the description
+  // it's also present for the solution.
+
   const globPattern = path.posix.join(
     // Globby only supports forward slashes.
     questionPath.replaceAll(path.sep, path.posix.sep),
-    // Assume that if the locale file is present for the description
-    // it's also present for the solution
     'description',
     '*.mdx',
   );
@@ -28,35 +25,16 @@ async function generateSetupForQuestion(slug: string) {
     // Files are named after their locales.
     .map((filePath) => parse(filePath).name);
 
-  const { files, metadata, skeleton, workspace } =
-    await readQuestionAlgoLocaleAgnostic(slug);
-
   const outDir = getQuestionOutPathAlgo(slug);
-  const metadataPath = path.join(outDir, 'metadata.json');
-  const setupPath = path.join(outDir, 'setup.json');
 
   fs.mkdirSync(outDir, { recursive: true });
-  fs.writeFileSync(metadataPath, JSON.stringify(metadata, null, 2));
-  fs.writeFileSync(
-    setupPath,
-    JSON.stringify(
-      {
-        files,
-        skeleton,
-        workspace,
-      },
-      null,
-      2,
-    ),
-  );
 
   await Promise.all(
     locales.map(async (locale) => {
-      const content = await readQuestionAlgo(slug, locale);
-      const contentOutPath = getQuestionOutPathAlgoLocaleContents(slug, locale);
+      const content = await readQuestionAlgo(slug);
+      const outPath = path.join(outDir, `${locale}.json`);
 
-      fs.mkdirSync(path.dirname(contentOutPath), { recursive: true });
-      fs.writeFileSync(contentOutPath, JSON.stringify(content, null, 2));
+      fs.writeFileSync(outPath, JSON.stringify(content, null, 2));
     }),
   );
 }

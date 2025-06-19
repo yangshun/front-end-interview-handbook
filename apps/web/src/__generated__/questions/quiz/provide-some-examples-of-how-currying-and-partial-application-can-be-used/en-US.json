@@ -1,0 +1,32 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "easy",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/provide-some-examples-of-how-currying-and-partial-application-can-be-used",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 999,
+    "similarQuestions": [],
+    "slug": "provide-some-examples-of-how-currying-and-partial-application-can-be-used",
+    "subtitle": null,
+    "title": "Provide some examples of how currying and partial application can be used",
+    "topics": [
+      "closure",
+      "javascript"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/provide-some-examples-of-how-currying-and-partial-application-can-be-used/en-US.mdx"
+  },
+  "solution": "var Component=(()=>{var u=Object.create;var t=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var m=(a,n)=>()=>(n||a((n={exports:{}}).exports,n),n.exports),w=(a,n)=>{for(var i in n)t(a,i,{get:n[i],enumerable:!0})},l=(a,n,i,o)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let r of p(n))!g.call(a,r)&&r!==i&&t(a,r,{get:()=>n[r],enumerable:!(o=h(n,r))||o.enumerable});return a};var b=(a,n,i)=>(i=a!=null?u(f(a)):{},l(n||!a||!a.__esModule?t(i,\"default\",{value:a,enumerable:!0}):i,a)),x=a=>l(t({},\"__esModule\",{value:!0}),a);var d=m((_,c)=>{c.exports=_jsx_runtime});var j={};w(j,{default:()=>C,frontmatter:()=>y});var e=b(d()),y={title:\"Provide some examples of how currying and partial application can be used\"};function s(a){let n=Object.assign({h2:\"h2\",p:\"p\",code:\"code\",pre:\"pre\",hr:\"hr\",h3:\"h3\",h4:\"h4\",ul:\"ul\",li:\"li\",a:\"a\"},a.components);return(0,e.jsxs)(e.Fragment,{children:[(0,e.jsx)(n.h2,{children:\"TL;DR\"}),`\n`,(0,e.jsxs)(n.p,{children:[\"Currying transforms a function with multiple arguments into a sequence of functions, each taking a single argument. Partial application fixes a few arguments of a function, producing another function with a smaller number of arguments. For example, currying a function \",(0,e.jsx)(n.code,{children:\"add(a, b)\"}),\" would look like \",(0,e.jsx)(n.code,{children:\"add(a)(b)\"}),\", while partial application of \",(0,e.jsx)(n.code,{children:\"add(2, b)\"}),\" would fix the first argument to 2, resulting in a function that only needs the second argument.\"]}),`\n`,(0,e.jsx)(n.p,{children:\"Currying example:\"}),`\n`,(0,e.jsx)(n.pre,{live:!0,children:(0,e.jsx)(n.code,{className:\"language-js\",children:`const add = (a) => (b) => a + b;\nconst addTwo = add(2);\nconsole.log(addTwo(3)); // 5\n`})}),`\n`,(0,e.jsx)(n.p,{children:\"Partial application example:\"}),`\n`,(0,e.jsx)(n.pre,{live:!0,children:(0,e.jsx)(n.code,{className:\"language-js\",children:`const add = (a, b) => a + b;\nconst addTwo = add.bind(null, 2);\nconsole.log(addTwo(3)); // 5\n`})}),`\n`,(0,e.jsx)(n.hr,{}),`\n`,(0,e.jsx)(n.h2,{children:\"Currying and partial application\"}),`\n`,(0,e.jsx)(n.h3,{children:\"Currying\"}),`\n`,(0,e.jsx)(n.p,{children:\"Currying is a technique where a function with multiple arguments is transformed into a sequence of functions, each taking a single argument. This allows for more flexible function composition and reuse.\"}),`\n`,(0,e.jsx)(n.h4,{children:\"Example\"}),`\n`,(0,e.jsx)(n.pre,{live:!0,children:(0,e.jsx)(n.code,{className:\"language-js\",children:`// Consider a simple function that adds two numbers:\nfunction add(a, b) {\n  return a + b;\n}\n\n// To curry this function, we transform it into a series of functions,\n// each taking one argument:\nconst curriedAdd = (a) => (b) => a + b;\n\n// Now, you can use the curried function like this:\nconst addTwo = curriedAdd(2);\nconsole.log(addTwo(3)); // 5\n`})}),`\n`,(0,e.jsx)(n.h3,{children:\"Partial application\"}),`\n`,(0,e.jsx)(n.p,{children:\"Partial application is a technique where you fix a few arguments of a function, producing another function with a smaller number of arguments. This is useful for creating specialized functions from more general ones.\"}),`\n`,(0,e.jsx)(n.h4,{children:\"Example\"}),`\n`,(0,e.jsx)(n.pre,{live:!0,children:(0,e.jsx)(n.code,{className:\"language-js\",children:`// Consider the same add function:\nfunction add(a, b) {\n  return a + b;\n}\n\n// To partially apply this function\n// you can use the \\`bind\\` method to fix the first argument:\nconst addTwo = add.bind(null, 2);\nconsole.log(addTwo(3)); // 5\n\n// Alternatively, you can create a custom partial application function:\nfunction partial(fn, ...fixedArgs) {\n  return function (...remainingArgs) {\n    return fn(...fixedArgs, ...remainingArgs);\n  };\n}\n\nconst addTwoCustom = partial(add, 2);\nconsole.log(addTwoCustom(3)); // 5\n`})}),`\n`,(0,e.jsx)(n.h2,{children:\"Further reading\"}),`\n`,(0,e.jsxs)(n.ul,{children:[`\n`,(0,e.jsx)(n.li,{children:(0,e.jsx)(n.a,{href:\"https://developer.mozilla.org/en-US/docs/Glossary/Currying\",children:\"Currying on MDN\"})}),`\n`,(0,e.jsx)(n.li,{children:(0,e.jsx)(n.a,{href:\"https://developer.mozilla.org/en-US/docs/Glossary/Partial_application\",children:\"Partial application on MDN\"})}),`\n`,(0,e.jsx)(n.li,{children:(0,e.jsx)(n.a,{href:\"https://eloquentjavascript.net/1st_edition/chapter6.html\",children:\"Functional programming in JavaScript\"})}),`\n`]})]})}function T(a={}){let{wrapper:n}=a.components||{};return n?(0,e.jsx)(n,Object.assign({},a,{children:(0,e.jsx)(s,a)})):s(a)}var C=T;return x(j);})();\n;return Component;"
+}

@@ -1,6 +1,5 @@
 import clsx from 'clsx';
-import type { PanInfo } from 'motion/react';
-import { AnimatePresence, motion, wrap } from 'motion/react';
+import { AnimatePresence, motion, wrap } from 'framer-motion';
 import React, { useState } from 'react';
 import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
 
@@ -117,7 +116,7 @@ export default function ProjectsChallengeBriefImageCarousel({ images }: Props) {
                 x: { damping: 30, stiffness: 300, type: 'spring' },
               }}
               variants={variants}
-              onDragEnd={(_: MouseEvent, { offset, velocity }: PanInfo) => {
+              onDragEnd={(_, { offset, velocity }) => {
                 const swipe = swipePower(offset.x, velocity.x);
 
                 if (swipe < -swipeConfidenceThreshold) {

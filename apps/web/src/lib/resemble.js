@@ -1,9 +1,9 @@
 /* eslint-disable no-undef */
-
+ 
 /* eslint-disable no-prototype-builtins */
 /* eslint-disable func-names */
 /* eslint-disable prefer-destructuring */
-
+ 
 /* eslint-disable init-declarations */
 /* eslint-disable func-style */
 /*
@@ -40,11 +40,12 @@ var getGlobalThis = function () {
     return naiveFallback();
   }
   try {
+     
     if (!__global__) {
       return naiveFallback();
     }
 
-    return __global__;
+    return __global__;  
   } finally {
     delete Object.prototype.__global__;
   }

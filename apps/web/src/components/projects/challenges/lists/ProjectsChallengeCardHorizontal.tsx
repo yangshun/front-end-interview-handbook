@@ -6,7 +6,6 @@ import { useIntl } from '~/components/intl';
 import ProjectsChallengeDifficultyTag from '~/components/projects/challenges/metadata/ProjectsChallengeDifficultyTag';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
-import Img from '~/components/ui/Img';
 import Text, { textVariants } from '~/components/ui/Text';
 import {
   themeBackgroundCardAltColor,
@@ -59,7 +58,7 @@ export default function ProjectsChallengeCard({
         [themeGlassyBorder, themeBackgroundCardAltColor],
       )}>
       <div className="relative shrink-0">
-        <Img
+        <img
           alt={title}
           className={clsx('h-full w-full sm:w-[188px]', 'object-cover')}
           decoding="async"
@@ -89,7 +88,7 @@ export default function ProjectsChallengeCard({
             variant="flat">
             {title}
           </Anchor>
-          <Text className="grow text-pretty" color="secondary" size="body3">
+          <Text className="text-pretty grow" color="secondary" size="body3">
             {description}
           </Text>
         </div>

@@ -15,7 +15,6 @@ import InterviewsMarketingFeaturesRow from '~/components/interviews/marketing/In
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
-import Img from '~/components/ui/Img';
 
 const summaryFeatures = [
   {
@@ -50,7 +49,7 @@ export default function ResumeReviewHero() {
       <Container>
         <svg
           aria-hidden="true"
-          className="absolute inset-0 -z-10 size-full stroke-white/10 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]">
+          className="size-full absolute inset-0 -z-10 stroke-white/10 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]">
           <defs>
             <pattern
               height={200}
@@ -114,7 +113,7 @@ export default function ResumeReviewHero() {
                     id: 'VdCQVS',
                   })}
                 </h1>
-                <div className="space-y-4 py-8 pb-6 text-left text-sm font-medium text-neutral-400 sm:text-base">
+                <div className="space-y-4 py-8 pb-6 text-left text-sm font-medium text-neutral-400 sm:text-base ">
                   <p>
                     {intl.formatMessage({
                       defaultMessage: 'By ex-interviewers at',
@@ -213,36 +212,42 @@ function useFeaturedReviews() {
   return [
     {
       designation: 'Now Software Engineer at Meta',
+
       pic: (
-        <Img
+        <img
           alt="Meta logo mark"
           className="size-6 flex-none rounded-full"
           src="/img/company-logos/meta-logomark.png"
         />
       ),
+
       review: intl.formatMessage({
         defaultMessage:
           'This service was super helpful and well worth the investment! Not only did it help me address glaring issues with my old resume, but they also gave me comprehensive suggestions on how to improve my overall profile and land more FAANG interviews. My application-to-interview rate has never been higher!',
         description: 'Testimonial from a user for resume review',
         id: 'VgF5JV',
       }),
+
       reviewerName: '',
     },
     {
       designation: 'Now Senior Software Engineer at Credit Karma',
+
       pic: (
-        <Img
+        <img
           alt="Credit karma logo mark"
           className="size-6 flex-none rounded-full"
           src="/img/company-logos/creditkarma-logomark.png"
         />
       ),
+
       review: intl.formatMessage({
         defaultMessage:
           'This service was instrumental in improving my resume to better highlight my significant work experience. It has come a long way from my previous version. The reviewer was very friendly and helpful from the moment we first started communicating and even gave valuable career advice on Software Engineering.',
         description: 'Testimonial from a user for resume review',
         id: '3i/5VW',
       }),
+
       reviewerName: '',
     },
   ];

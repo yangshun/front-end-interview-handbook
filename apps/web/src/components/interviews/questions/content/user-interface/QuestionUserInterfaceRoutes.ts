@@ -1,11 +1,11 @@
 import type {
-  InterviewsQuestionMetadata,
   QuestionFramework,
+  QuestionMetadata,
 } from '../../common/QuestionsTypes';
 
 // TODO(interviews): see if still needed since there's questionHrefFrameworkSpecificAndListType
 export function questionUserInterfaceDescriptionPath(
-  metadata: InterviewsQuestionMetadata,
+  metadata: QuestionMetadata,
   framework: QuestionFramework,
 ): string {
   return (
@@ -15,7 +15,7 @@ export function questionUserInterfaceDescriptionPath(
 }
 
 export function questionUserInterfaceSolutionPath(
-  metadata: InterviewsQuestionMetadata,
+  metadata: QuestionMetadata,
   framework: QuestionFramework,
 ): string {
   return (

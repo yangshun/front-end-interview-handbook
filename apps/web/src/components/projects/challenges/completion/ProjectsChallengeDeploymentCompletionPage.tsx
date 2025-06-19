@@ -104,7 +104,7 @@ export default function ProjectsChallengeDeploymentCompletionPage({
         </Heading>
         <Section>
           <div className="flex max-w-2xl flex-col">
-            <Text className="mt-4 text-pretty" color="secondary" size="body2">
+            <Text className="text-pretty mt-4" color="secondary" size="body2">
               <FormattedMessage
                 defaultMessage="Once you're done developing, follow this step-by-step guide to host your solution and submit the challenge."
                 description="Description for the project submission checklist section"

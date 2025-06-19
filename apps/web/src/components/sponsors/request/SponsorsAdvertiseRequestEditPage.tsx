@@ -22,7 +22,6 @@ import TextInput from '~/components/ui/TextInput';
 
 import { useI18nRouter } from '~/next-i18nostic/src';
 
-import { SponsorsPromoCodeConfig } from '../SponsorsPromoCodeConfig';
 import SponsorsAdvertiseRequestForm from './SponsorsAdvertiseRequestForm';
 import SponsorsAdvertiseRequestReadonly from './SponsorsAdvertiseRequestReadonly';
 import type {
@@ -145,9 +144,6 @@ export default function SponsorsAdvertiseRequestEditPage({ adRequest }: Props) {
                     ads,
                     company,
                     emails: adRequest.emails,
-                    promoCode: adRequest.promoCode
-                      ? SponsorsPromoCodeConfig[adRequest.promoCode]
-                      : null,
                   }}
                   mode={adRequest.status === 'PENDING' ? 'edit' : 'readonly'}
                   requestId={adRequest.id}
@@ -180,9 +176,6 @@ export default function SponsorsAdvertiseRequestEditPage({ adRequest }: Props) {
               company,
               createdAt: adRequest.createdAt,
               emails: adRequest.emails,
-              promoCode: adRequest.promoCode
-                ? SponsorsPromoCodeConfig[adRequest.promoCode]
-                : null,
               review: null,
               updatedAt: adRequest.updatedAt,
             }}

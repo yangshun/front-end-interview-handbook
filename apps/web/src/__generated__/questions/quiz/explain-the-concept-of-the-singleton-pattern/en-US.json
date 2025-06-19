@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "easy",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/explain-the-concept-of-the-singleton-pattern",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 999,
+    "similarQuestions": [],
+    "slug": "explain-the-concept-of-the-singleton-pattern",
+    "subtitle": null,
+    "title": "Explain the concept of the Singleton pattern",
+    "topics": [
+      "javascript"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-the-singleton-pattern/en-US.mdx"
+  },
+  "solution": "var Component=(()=>{var g=Object.create;var c=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,S=Object.prototype.hasOwnProperty;var m=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),f=(t,n)=>{for(var i in n)c(t,i,{get:n[i],enumerable:!0})},o=(t,n,i,a)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let s of u(n))!S.call(t,s)&&s!==i&&c(t,s,{get:()=>n[s],enumerable:!(a=d(n,s))||a.enumerable});return t};var j=(t,n,i)=>(i=t!=null?g(p(t)):{},o(n||!t||!t.__esModule?c(i,\"default\",{value:t,enumerable:!0}):i,t)),b=t=>o(c({},\"__esModule\",{value:!0}),t);var l=m((_,r)=>{r.exports=_jsx_runtime});var x={};f(x,{default:()=>v,frontmatter:()=>w});var e=j(l()),w={title:\"Explain the concept of the Singleton pattern\"};function h(t){let n=Object.assign({h2:\"h2\",p:\"p\",pre:\"pre\",code:\"code\",hr:\"hr\",h3:\"h3\",ul:\"ul\",li:\"li\",strong:\"strong\",h4:\"h4\",a:\"a\"},t.components);return(0,e.jsxs)(e.Fragment,{children:[(0,e.jsx)(n.h2,{children:\"TL;DR\"}),`\n`,(0,e.jsx)(n.p,{children:\"The Singleton pattern ensures that a class has only one instance and provides a global point of access to that instance. This is useful when exactly one object is needed to coordinate actions across the system. In JavaScript, this can be implemented using closures or ES6 classes.\"}),`\n`,(0,e.jsx)(n.pre,{live:!0,children:(0,e.jsx)(n.code,{className:\"language-js\",children:`class Singleton {\n  constructor() {\n    if (!Singleton.instance) {\n      Singleton.instance = this;\n    }\n    return Singleton.instance;\n  }\n}\n\nconst instance1 = new Singleton();\nconst instance2 = new Singleton();\n\nconsole.log(instance1 === instance2); // true\n`})}),`\n`,(0,e.jsx)(n.hr,{}),`\n`,(0,e.jsx)(n.h2,{children:\"Singleton pattern\"}),`\n`,(0,e.jsx)(n.p,{children:\"The Singleton pattern is a design pattern that restricts the instantiation of a class to one single instance. This is particularly useful when exactly one object is needed to coordinate actions across the system.\"}),`\n`,(0,e.jsx)(n.h3,{children:\"Key characteristics\"}),`\n`,(0,e.jsxs)(n.ul,{children:[`\n`,(0,e.jsxs)(n.li,{children:[(0,e.jsx)(n.strong,{children:\"Single instance\"}),\": Ensures that a class has only one instance.\"]}),`\n`,(0,e.jsxs)(n.li,{children:[(0,e.jsx)(n.strong,{children:\"Global access\"}),\": Provides a global point of access to the instance.\"]}),`\n`,(0,e.jsxs)(n.li,{children:[(0,e.jsx)(n.strong,{children:\"Lazy initialization\"}),\": The instance is created only when it is needed.\"]}),`\n`]}),`\n`,(0,e.jsx)(n.h3,{children:\"Implementation in JavaScript\"}),`\n`,(0,e.jsx)(n.p,{children:\"There are several ways to implement the Singleton pattern in JavaScript. Here are two common methods:\"}),`\n`,(0,e.jsx)(n.h4,{children:\"Using closures\"}),`\n`,(0,e.jsx)(n.pre,{live:!0,children:(0,e.jsx)(n.code,{className:\"language-js\",children:`const Singleton = (function () {\n  let instance;\n\n  function createInstance() {\n    const object = new Object('I am the instance');\n    return object;\n  }\n\n  return {\n    getInstance: function () {\n      if (!instance) {\n        instance = createInstance();\n      }\n      return instance;\n    },\n  };\n})();\n\nconst instance1 = Singleton.getInstance();\nconst instance2 = Singleton.getInstance();\n\nconsole.log(instance1 === instance2); // true\n`})}),`\n`,(0,e.jsx)(n.h4,{children:\"Using ES6 classes\"}),`\n`,(0,e.jsx)(n.pre,{live:!0,children:(0,e.jsx)(n.code,{className:\"language-js\",children:`class Singleton {\n  constructor() {\n    if (!Singleton.instance) {\n      Singleton.instance = this;\n    }\n    return Singleton.instance;\n  }\n}\n\nconst instance1 = new Singleton();\nconst instance2 = new Singleton();\n\nconsole.log(instance1 === instance2); // true\n`})}),`\n`,(0,e.jsx)(n.h3,{children:\"Use cases\"}),`\n`,(0,e.jsxs)(n.ul,{children:[`\n`,(0,e.jsxs)(n.li,{children:[(0,e.jsx)(n.strong,{children:\"Configuration objects\"}),\": When you need a single configuration object shared across the application.\"]}),`\n`,(0,e.jsxs)(n.li,{children:[(0,e.jsx)(n.strong,{children:\"Logging\"}),\": A single logging instance to manage log entries.\"]}),`\n`,(0,e.jsxs)(n.li,{children:[(0,e.jsx)(n.strong,{children:\"Database connections\"}),\": Ensuring only one connection is made to the database.\"]}),`\n`]}),`\n`,(0,e.jsx)(n.h2,{children:\"Further reading\"}),`\n`,(0,e.jsxs)(n.ul,{children:[`\n`,(0,e.jsx)(n.li,{children:(0,e.jsx)(n.a,{href:\"https://en.wikipedia.org/wiki/Singleton_pattern\",children:\"Singleton pattern on Wikipedia\"})}),`\n`,(0,e.jsx)(n.li,{children:(0,e.jsx)(n.a,{href:\"https://www.dofactory.com/javascript/design-patterns/singleton\",children:\"JavaScript Design Patterns: Singleton\"})}),`\n`,(0,e.jsx)(n.li,{children:(0,e.jsx)(n.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes\",children:\"MDN Web Docs: Classes\"})}),`\n`]})]})}function y(t={}){let{wrapper:n}=t.components||{};return n?(0,e.jsx)(n,Object.assign({},t,{children:(0,e.jsx)(h,t)})):h(t)}var v=y;return b(x);})();\n;return Component;"
+}

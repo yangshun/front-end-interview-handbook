@@ -12,7 +12,6 @@ import { themeBorderColor } from '~/components/ui/theme';
 import CodingWorkspaceEditorShortcutsButton from '~/components/workspace/common/editor/CodingWorkspaceEditorShortcutsButton';
 import CodingWorkspaceResetButton from '~/components/workspace/common/editor/CodingWorkspaceResetButton';
 import CodingWorkspaceThemeSelect from '~/components/workspace/common/editor/CodingWorkspaceThemeSelect';
-import { useVimMode } from '~/components/workspace/common/editor/hooks/useVimMode';
 import MonacoCodeEditor from '~/components/workspace/common/editor/MonacoCodeEditor';
 
 import { useCodingWorkspaceContext } from '../common/CodingWorkspaceContext';
@@ -23,11 +22,9 @@ import useUserInterfaceCodingWorkspaceTilesContext from './useUserInterfaceCodin
 
 export default function UserInterfaceCodingWorkspaceCodeEditor({
   filePath,
-  isViewingSave = false,
   showNotSavedBanner,
 }: Readonly<{
   filePath: string;
-  isViewingSave?: boolean;
   showNotSavedBanner: boolean;
 }>) {
   const { sandpack } = useSandpack();
@@ -41,7 +38,6 @@ export default function UserInterfaceCodingWorkspaceCodeEditor({
     setShowLoadedFilesFromLocalStorageMessage,
     showLoadedFilesFromLocalStorageMessage,
   } = useCodingWorkspaceContext();
-  const { isVimModeEnabled } = useVimMode();
   const isMounted = useIsMounted();
 
   const onFocus = useCallback(() => {
@@ -64,21 +60,6 @@ export default function UserInterfaceCodingWorkspaceCodeEditor({
     }
 
     resetToDefaultCode();
-  }
-
-  if (files[filePath] == null) {
-    return (
-      <div className="flex size-full items-center justify-center">
-        <Text color="subtle" size="body2">
-          {intl.formatMessage({
-            defaultMessage: 'This file has been deleted or renamed.',
-            description:
-              'Message shown when a file in the code editor no longer exists',
-            id: 'M9GFCh',
-          })}
-        </Text>
-      </div>
-    );
   }
 
   return (
@@ -191,16 +172,6 @@ export default function UserInterfaceCodingWorkspaceCodeEditor({
           })}
         </Banner>
       )}
-      {isViewingSave && (
-        <Banner size="xs" truncate={true} variant="primary">
-          {intl.formatMessage({
-            defaultMessage:
-              'You are viewing save from a user. The modifications will not be persisted.',
-            description: 'Coding workspace viewing solution code message',
-            id: 'Rhsmgb',
-          })}
-        </Banner>
-      )}
       {showLoadedFilesFromLocalStorageMessage && isMounted() && (
         <CodingWorkspaceLoadedFilesBanner
           onHide={() => {
@@ -211,8 +182,7 @@ export default function UserInterfaceCodingWorkspaceCodeEditor({
       )}
       <MonacoCodeEditor
         filePath={filePath}
-        isVimModeEnabled={isVimModeEnabled}
-        value={files[filePath]?.code ?? ''}
+        value={files[filePath].code}
         onChange={(val) => {
           updateFile(filePath, val ?? '');
         }}

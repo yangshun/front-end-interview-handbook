@@ -1,0 +1,28 @@
+{
+  "author": "willnguyen1312",
+  "files": {
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/tic-tac-toe-vue-skeleton\",\n  \"author\": \"willnguyen1312\",\n  \"version\": \"0.0.1\",\n  \"main\": \"/src/main.js\",\n  \"scripts\": {\n    \"serve\": \"vue-cli-service serve\",\n    \"build\": \"vue-cli-service build\"\n  },\n  \"dependencies\": {\n    \"core-js\": \"3.32.2\",\n    \"vue\": \"3.3.4\"\n  },\n  \"devDependencies\": {\n    \"@vue/cli-plugin-babel\": \"5.0.8\",\n    \"@vue/cli-service\": \"5.0.8\"\n  }\n}\n"
+    },
+    "/public/index.html": {
+      "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width,initial-scale=1.0\" />\n    <title>Vue</title>\n  </head>\n  <body>\n    <div id=\"app\"></div>\n    <!-- Built files will be auto injected -->\n  </body>\n</html>\n"
+    },
+    "/src/App.vue": {
+      "code": "<script setup>\nimport { ref } from 'vue';\nconst msg = ref('world');\n</script>\n\n<template>\n  <h1>Hello {{ msg }}</h1>\n</template>\n"
+    },
+    "/src/main.js": {
+      "code": "import { createApp } from 'vue';\nimport App from './App.vue';\n\nimport './styles.css';\n\ncreateApp(App).mount('#app');\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/src/App.vue"
+    ],
+    "activeFile": "/src/App.vue",
+    "environment": "vue-cli"
+  },
+  "writeup": "var Component=(()=>{var g=Object.create;var r=Object.defineProperty;var w=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var y=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var b=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),k=(t,e)=>{for(var n in e)r(t,n,{get:e[n],enumerable:!0})},s=(t,e,n,l)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let i of f(e))!x.call(t,i)&&i!==n&&r(t,i,{get:()=>e[i],enumerable:!(l=w(e,i))||l.enumerable});return t};var h=(t,e,n)=>(n=t!=null?g(y(t)):{},s(e||!t||!t.__esModule?r(n,\"default\",{value:t,enumerable:!0}):n,t)),j=t=>s(r({},\"__esModule\",{value:!0}),t);var c=b((O,m)=>{m.exports=_jsx_runtime});var M={};k(M,{default:()=>D});var o=h(c());var a=h(c());function u(t){let e=Object.assign({blockquote:\"blockquote\",p:\"p\",em:\"em\",a:\"a\",img:\"img\",h2:\"h2\",ul:\"ul\",li:\"li\"},t.components);return(0,a.jsxs)(a.Fragment,{children:[(0,a.jsxs)(e.blockquote,{children:[`\n`,(0,a.jsx)(e.p,{children:\"Tic-tac-toe is a game for two players who take turns making space in a three-by-three grid with X or O. The player who succeeds in playing three of their marks in a horizontal, vertical, or diagonal row is the winner.\"}),`\n`]}),`\n`,(0,a.jsx)(e.p,{children:(0,a.jsxs)(e.em,{children:[\"Source: \",(0,a.jsx)(e.a,{href:\"https://en.wikipedia.org/wiki/Tic-tac-toe\",children:\"Wikipedia\"})]})}),`\n`,(0,a.jsx)(e.p,{children:\"Build a tic-tac-toe game that is playable by two players.\"}),`\n`,(0,a.jsx)(e.p,{children:(0,a.jsx)(e.img,{src:\"/img/questions/tic-tac-toe/tic-tac-toe-example.png\",alt:\"Tic-tac-toe Example\"})}),`\n`,(0,a.jsx)(e.h2,{children:\"Requirements\"}),`\n`,(0,a.jsxs)(e.ul,{children:[`\n`,(0,a.jsx)(e.li,{children:\"Players can take turns to place an X or a O on the board.\"}),`\n`,(0,a.jsx)(e.li,{children:\"A player wins if three of their marks are in a horizontal, vertical, or diagonal row.\"}),`\n`,(0,a.jsx)(e.li,{children:\"Display the current game status at the top: whose turn it is, winner (if any), or draw.\"}),`\n`,(0,a.jsx)(e.li,{children:'Add a \"Reset\" button to allow the game to be restarted at any time.'}),`\n`]}),`\n`,(0,a.jsxs)(e.p,{children:[\"If you aren't familiar with the game, try out \",(0,a.jsx)(e.a,{href:\"https://www.google.com/search?q=tic-tac-toe\",children:\"playing tic-tac-toe on Google\"}),\".\"]})]})}function _(t={}){let{wrapper:e}=t.components||{};return e?(0,a.jsx)(e,Object.assign({},t,{children:(0,a.jsx)(u,t)})):u(t)}var d=_;function p(t){return(0,o.jsx)(d,{})}function q(t={}){let{wrapper:e}=t.components||{};return e?(0,o.jsx)(e,Object.assign({},t,{children:(0,o.jsx)(p,t)})):p(t)}var D=q;return j(M);})();\n;return Component;"
+}

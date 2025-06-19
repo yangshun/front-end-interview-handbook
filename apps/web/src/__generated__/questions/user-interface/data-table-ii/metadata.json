@@ -9,6 +9,7 @@
   "created": 1723766400,
   "difficulty": "medium",
   "duration": 20,
+  "excerpt": "Build a users data table with sorting features",
   "featured": false,
   "format": "user-interface",
   "frameworkDefault": "react",
@@ -30,5 +31,6 @@
   "similarQuestions": [],
   "slug": "data-table-ii",
   "subtitle": null,
+  "title": "Data Table II",
   "topics": []
 }

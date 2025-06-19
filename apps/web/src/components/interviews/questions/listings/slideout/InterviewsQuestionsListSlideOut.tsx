@@ -1,13 +1,14 @@
 import clsx from 'clsx';
+import { useRouter } from 'next/navigation';
 import { parseAsBoolean, useQueryState } from 'nuqs';
 import { Suspense, useState } from 'react';
 import { RiFilterLine } from 'react-icons/ri';
 import { useMediaQuery } from 'usehooks-ts';
 
 import type {
-  InterviewsQuestionItemWithCompletedStatus,
   QuestionFramework,
   QuestionHash,
+  QuestionMetadataWithCompletedStatus,
   QuestionPracticeFormat,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import useQuestionUnifiedFilters from '~/components/interviews/questions/listings/filters/hooks/useQuestionUnifiedFilters';
@@ -18,8 +19,6 @@ import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import SlideOut from '~/components/ui/SlideOut';
 import { themeBackgroundGlimmerColor } from '~/components/ui/theme';
-
-import { useI18nRouter } from '~/next-i18nostic/src';
 
 import { questionListFilterNamespace } from '../../common/QuestionHrefUtils';
 import useQuestionsQuizSidebarExpanded from '../../content/quiz/useQuestionsQuizSidebarExpanded';
@@ -34,7 +33,7 @@ type Props = Readonly<{
   isLoading: boolean;
   listIsShownInSidebarOnDesktop: boolean;
   listTabs?: ReadonlyArray<QuestionPracticeFormat>;
-  processedQuestions: ReadonlyArray<InterviewsQuestionItemWithCompletedStatus>;
+  processedQuestions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE: string;
   title?: string;
 }>;
@@ -71,7 +70,7 @@ function InterviewsQuestionsListSlideOutImpl({
   );
   const isMobile = useMediaQuery('(max-width: 640px)');
   const isDesktop = useMediaQuery('(min-width: 1367px)');
-  const router = useI18nRouter();
+  const router = useRouter();
   const [currentListType, setCurrentListType] =
     useState<QuestionListTypeWithLabel>(initialListType);
   const filterNamespace = questionListFilterNamespace(currentListType);

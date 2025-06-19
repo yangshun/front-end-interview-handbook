@@ -113,7 +113,7 @@ export function PromotionsStudentDiscountCard({ variant = 'full' }: Props) {
                       }>
                       <RiInformationLine
                         className={clsx(
-                          'relative z-[1] size-4 shrink-0',
+                          'size-4 relative z-[1] shrink-0',
                           themeTextSubtleColor,
                         )}
                       />

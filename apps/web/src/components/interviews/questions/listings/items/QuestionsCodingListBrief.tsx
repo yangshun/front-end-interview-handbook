@@ -17,22 +17,25 @@ import { hashQuestion } from '~/db/QuestionsUtils';
 
 import { questionHrefFrameworkSpecificAndListType } from '../../common/QuestionHrefUtils';
 import type {
-  InterviewsQuestionItemMinimal,
   QuestionFramework,
   QuestionListTypeData,
+  QuestionMetadata,
 } from '../../common/QuestionsTypes';
 import QuestionDifficultyLabel from '../../metadata/QuestionDifficultyLabel';
 
-type Props<Q extends InterviewsQuestionItemMinimal> = Readonly<{
+type Props<Q extends QuestionMetadata> = Readonly<{
   checkIfCompletedQuestion?: (question: Q) => boolean;
   framework?: QuestionFramework;
   listType?: QuestionListTypeData;
   questions: ReadonlyArray<Q>;
 }>;
 
-export default function QuestionsCodingListBrief<
-  Q extends InterviewsQuestionItemMinimal,
->({ checkIfCompletedQuestion, framework, listType, questions }: Props<Q>) {
+export default function QuestionsCodingListBrief<Q extends QuestionMetadata>({
+  checkIfCompletedQuestion,
+  framework,
+  listType,
+  questions,
+}: Props<Q>) {
   const intl = useIntl();
 
   if (questions.length === 0) {
@@ -65,12 +68,13 @@ export default function QuestionsCodingListBrief<
         ['divide-y', themeDivideEmphasizeColor],
         'overflow-hidden',
       )}>
-      {questions.map((question) => {
-        const hasCompletedQuestion = checkIfCompletedQuestion?.(question);
+      {questions.map((questionMetadata) => {
+        const hasCompletedQuestion =
+          checkIfCompletedQuestion?.(questionMetadata);
 
         return (
           <li
-            key={hashQuestion(question.metadata)}
+            key={hashQuestion(questionMetadata)}
             className={clsx(
               'group relative flex gap-x-6 p-3',
               themeBackgroundCardWhiteOnLightColor,
@@ -102,19 +106,19 @@ export default function QuestionsCodingListBrief<
                   <Anchor
                     className="focus:outline-none"
                     href={questionHrefFrameworkSpecificAndListType(
-                      question.metadata,
+                      questionMetadata,
                       listType,
                       framework,
                     )}
                     variant="unstyled">
                     {/* Extend touch target to entire panel */}
                     <span aria-hidden="true" className="absolute inset-0" />
-                    {question.info.title}
+                    {questionMetadata.title}
                   </Anchor>
                 </Text>
               </div>
               <div className="flex items-center space-x-6">
-                <QuestionDifficultyLabel value={question.metadata.difficulty} />
+                <QuestionDifficultyLabel value={questionMetadata.difficulty} />
               </div>
             </div>
           </li>

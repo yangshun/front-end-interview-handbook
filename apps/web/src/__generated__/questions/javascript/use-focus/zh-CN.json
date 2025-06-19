@@ -1,0 +1,54 @@
+{
+  "description": "var Component=(()=>{var h=Object.create;var r=Object.defineProperty;var a=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var m=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),j=(e,n)=>{for(var o in n)r(e,o,{get:n[o],enumerable:!0})},d=(e,n,o,i)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let t of p(n))!x.call(e,t)&&t!==o&&r(e,t,{get:()=>n[t],enumerable:!(i=a(n,t))||i.enumerable});return e};var _=(e,n,o)=>(o=e!=null?h(f(e)):{},d(n||!e||!e.__esModule?r(o,\"default\",{value:e,enumerable:!0}):o,e)),g=e=>d(r({},\"__esModule\",{value:!0}),e);var s=m((M,l)=>{l.exports=_jsx_runtime});var C={};j(C,{default:()=>k,frontmatter:()=>F});var c=_(s()),F={title:\"useFocus\",excerpt:\"\\u5B9E\\u73B0\\u4E00\\u4E2A\\u53EF\\u4EE5\\u5BF9\\u5143\\u7D20\\u8FDB\\u884C\\u7A0B\\u5E8F\\u5316\\u805A\\u7126\\u7684 Hook\"};function u(e){let n=Object.assign({p:\"p\",code:\"code\",pre:\"pre\",h2:\"h2\",ol:\"ol\",li:\"li\"},e.components);return(0,c.jsxs)(c.Fragment,{children:[(0,c.jsxs)(n.p,{children:[\"\\u5B9E\\u73B0\\u4E00\\u4E2A \",(0,c.jsx)(n.code,{children:\"useFocus\"}),\" Hook\\uFF0C\\u5B83\\u53EF\\u4EE5\\u5BF9\\u5143\\u7D20\\u8FDB\\u884C\\u7A0B\\u5E8F\\u5316\\u805A\\u7126\\u3002\"]}),`\n`,(0,c.jsx)(n.pre,{children:(0,c.jsx)(n.code,{className:\"language-jsx\",children:`export default function Component() {\n  const [ref, focus] = useFocus();\n\n  return (\n    <div>\n      <input ref={ref} type=\"text\" />\n      <button onClick={focus}>Focus input</button>\n    </div>\n  );\n}\n`})}),`\n`,(0,c.jsx)(n.h2,{children:\"\\u53C2\\u6570\"}),`\n`,(0,c.jsx)(n.p,{children:\"\\u65E0\\u3002\"}),`\n`,(0,c.jsx)(n.h2,{children:\"\\u8FD4\\u56DE\\u503C\"}),`\n`,(0,c.jsx)(n.p,{children:\"\\u8BE5 Hook \\u8FD4\\u56DE\\u4E00\\u4E2A\\u5305\\u542B\\u4E24\\u4E2A\\u5143\\u7D20\\u7684\\u6570\\u7EC4\\uFF1A\"}),`\n`,(0,c.jsxs)(n.ol,{children:[`\n`,(0,c.jsxs)(n.li,{children:[\"\\u4E00\\u4E2A ref \\u5BF9\\u8C61\\uFF0C\\u5B83\\u5C06\\u88AB\\u9644\\u52A0\\u5230\\u8981\\u805A\\u7126\\u7684\\u5143\\u7D20\\u7684 \",(0,c.jsx)(n.code,{children:\"ref\"}),\" \\u5C5E\\u6027\\u3002\\u5B83\\u7684\\u7C7B\\u578B\\u662F \",(0,c.jsx)(n.code,{children:\"RefObject<T>\"}),\"\\uFF0C\\u5176\\u4E2D \",(0,c.jsx)(n.code,{children:\"T\"}),\" \\u6269\\u5C55\\u81EA \",(0,c.jsx)(n.code,{children:\"HTMLElement\"})]}),`\n`,(0,c.jsxs)(n.li,{children:[\"\\u4E00\\u4E2A\\u51FD\\u6570 \",(0,c.jsx)(n.code,{children:\"() => void\"}),\"\\uFF0C\\u53EF\\u4EE5\\u88AB\\u8C03\\u7528\\u4EE5\\u7F16\\u7A0B\\u65B9\\u5F0F\\u805A\\u7126\\u5143\\u7D20\"]}),`\n`]})]})}function b(e={}){let{wrapper:n}=e.components||{};return n?(0,c.jsx)(n,Object.assign({},e,{children:(0,c.jsx)(u,e)})):u(e)}var k=b;return g(C);})();\n;return Component;",
+  "files": {
+    "/package.json": "{\n  \"name\": \"@gfe-questions/use-focus\",\n  \"version\": \"0.0.1\",\n  \"main\": \"/src/use-focus.ts\",\n  \"dependencies\": {\n    \"@testing-library/react\": \"14.0.0\",\n    \"react\": \"18.2.0\",\n    \"react-dom\": \"18.2.0\"\n  },\n  \"devDependencies\": {\n    \"@types/jest\": \"29.5.0\",\n    \"@types/react\": \"18.2.25\",\n    \"@types/react-dom\": \"18.2.10\",\n    \"typescript\": \"5.0.2\"\n  }\n}\n",
+    "/tsconfig.json": "{\n  \"include\": [\"./**/*\"],\n  \"compilerOptions\": {\n    \"strict\": true,\n    \"esModuleInterop\": true,\n    \"lib\": [\"dom\", \"dom.iterable\", \"esnext\"],\n    \"jsx\": \"react-jsx\",\n    \"target\": \"es2020\"\n  }\n}\n",
+    "/src/use-focus.run.test.tsx": "import React from 'react';\nimport { act, render, renderHook } from '@testing-library/react';\n\nimport useFocus from './use-focus';\n\nconst Component = () => {\n  const [ref, focus] = useFocus<HTMLInputElement>();\n\n  return (\n    <main>\n      <input type=\"text\" ref={ref} data-testid=\"input\" />\n\n      <button onClick={focus} data-testid=\"button\">\n        Focus\n      </button>\n    </main>\n  );\n};\n\ndescribe('useFocus', () => {\n  beforeEach(() => {\n    Object.defineProperty(globalThis.window, 'requestAnimationFrame', {\n      value: (cb: FrameRequestCallback) => cb(0),\n    });\n  });\n\n  test('return values', () => {\n    const { result } = renderHook(() => useFocus());\n\n    expect(Array.isArray(result.current)).toBe(true);\n    expect(result.current.length).toBe(2);\n    expect(typeof result.current[0]).toBe('object');\n    expect(typeof result.current[1]).toBe('function');\n  });\n\n  test('focus', () => {\n    const page = render(<Component />);\n    const input = page.getByTestId('input');\n    const button = page.getByTestId('button');\n\n    expect(document.activeElement).not.toBe(input);\n\n    act(() => button.click());\n\n    expect(document.activeElement).toBe(input);\n  });\n});\n",
+    "/src/use-focus.submit.test.tsx": "import React from 'react';\nimport { act, render, renderHook } from '@testing-library/react';\n\nimport useFocus from './use-focus';\n\nconst Component = () => {\n  const [ref, focus] = useFocus<HTMLInputElement>();\n\n  return (\n    <main>\n      <input type=\"text\" ref={ref} data-testid=\"input\" />\n\n      <button onClick={focus} data-testid=\"button\">\n        Focus\n      </button>\n    </main>\n  );\n};\n\ndescribe('useFocus', () => {\n  beforeEach(() => {\n    Object.defineProperty(globalThis.window, 'requestAnimationFrame', {\n      value: (cb: FrameRequestCallback) => cb(0),\n    });\n  });\n\n  test('return values', () => {\n    const { result } = renderHook(() => useFocus());\n\n    expect(Array.isArray(result.current)).toBe(true);\n    expect(result.current.length).toBe(2);\n    expect(typeof result.current[0]).toBe('object');\n    expect(typeof result.current[1]).toBe('function');\n  });\n\n  test('focus', () => {\n    const page = render(<Component />);\n    const input = page.getByTestId('input');\n    const button = page.getByTestId('button');\n\n    expect(document.activeElement).not.toBe(input);\n\n    act(() => button.click());\n\n    expect(document.activeElement).toBe(input);\n  });\n});\n",
+    "/src/use-focus.ts": "import { RefObject, useCallback, useRef } from 'react';\n\nexport default function useFocus<T extends HTMLElement>(): [\n  RefObject<T>,\n  () => void,\n] {\n  const ref = useRef<T>(null);\n\n  const focusElement = useCallback(() => {\n    requestAnimationFrame(() => {\n      ref.current?.focus();\n    });\n  }, []);\n\n  return [ref, focusElement];\n}\n"
+  },
+  "metadata": {
+    "access": "premium",
+    "author": "phillmont",
+    "companies": [],
+    "created": 1742169600,
+    "difficulty": "easy",
+    "duration": 15,
+    "excerpt": "实现一个可以对元素进行程序化聚焦的 Hook",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-focus"
+      }
+    ],
+    "href": "/questions/javascript/use-focus",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "use-focus",
+    "subtitle": null,
+    "title": "useFocus",
+    "topics": [
+      "react-hooks"
+    ]
+  },
+  "skeleton": {
+    "js": "/**\n * @template T\n * @returns {[import(\"react\").RefObject<T>, () => void]}\n */\nexport default function useFocus() {\n  throw 'Not implemented';\n}",
+    "ts": "import { RefObject } from 'react';\n\nexport default function useFocus<T extends HTMLElement>(): [\n  RefObject<T>,\n  () => void,\n] {\n  throw 'Not implemented';\n}"
+  },
+  "solution": "var Component=(()=>{var m=Object.create;var c=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var x=Object.getPrototypeOf,j=Object.prototype.hasOwnProperty;var b=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),F=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},l=(n,e,t,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of p(e))!j.call(n,r)&&r!==t&&c(n,r,{get:()=>e[r],enumerable:!(s=h(e,r))||s.enumerable});return n};var M=(n,e,t)=>(t=n!=null?m(x(n)):{},l(e||!n||!n.__esModule?c(t,\"default\",{value:n,enumerable:!0}):t,n)),_=n=>l(c({},\"__esModule\",{value:!0}),n);var i=b((O,u)=>{u.exports=_jsx_runtime});var A={};F(A,{default:()=>k});var o=M(i());var d=MDXCodeBlock;var a=`import { RefObject, useCallback, useRef } from 'react';\n\nexport default function useFocus<T extends HTMLElement>(): [\n  RefObject<T>,\n  () => void,\n] {\n  const ref = useRef<T>(null);\n\n  const focusElement = useCallback(() => {\n    requestAnimationFrame(() => {\n      ref.current?.focus();\n    });\n  }, []);\n\n  return [ref, focusElement];\n}\n`;function f(n){let e=Object.assign({h2:\"h2\",p:\"p\",code:\"code\",a:\"a\"},n.components);return(0,o.jsxs)(o.Fragment,{children:[(0,o.jsx)(e.h2,{children:\"\\u89E3\\u51B3\\u65B9\\u6848\"}),`\n`,(0,o.jsxs)(e.p,{children:[(0,o.jsx)(e.code,{children:\"useFocus\"}),\" hook \\u53EF\\u4EE5\\u901A\\u8FC7\\u4F7F\\u7528 \",(0,o.jsx)(e.code,{children:\"useRef\"}),\" \\u521B\\u5EFA ref \\u5BF9\\u8C61\\u5E76\\u5B9A\\u4E49\\u5728 ref \\u5F15\\u7528\\u7684\\u5143\\u7D20\\u4E0A\\u8C03\\u7528 \",(0,o.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus\",children:(0,o.jsx)(e.code,{children:\"focus\"})}),\" \\u65B9\\u6CD5\\u7684\\u51FD\\u6570\\u6765\\u5B9E\\u73B0\\u3002\"]}),`\n`,(0,o.jsxs)(e.p,{children:[\"\\u6211\\u4EEC\\u53EF\\u4EE5\\u53E6\\u5916\\u5C06 focus \\u51FD\\u6570\\u5305\\u88C5\\u5728 \",(0,o.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame\",children:(0,o.jsx)(e.code,{children:\"requestAnimationFrame\"})}),\" \\u4E2D\\uFF0C\\u4EE5\\u786E\\u4FDD\\u7126\\u70B9\\u7531\\u4E0B\\u4E00\\u4E2A DOM \\u91CD\\u65B0\\u7ED8\\u5236\\u5E94\\u7528\\u3002\"]}),`\n`,(0,o.jsx)(d,{children:a})]})}function C(n={}){let{wrapper:e}=n.components||{};return e?(0,o.jsx)(e,Object.assign({},n,{children:(0,o.jsx)(f,n)})):f(n)}var k=C;return _(A);})();\n;return Component;",
+  "workspace": {
+    "main": "/src/use-focus.ts",
+    "run": "/src/use-focus.run.test.tsx",
+    "submit": "/src/use-focus.submit.test.tsx"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [
+      "amazon"
+    ],
+    "created": 1630800000,
+    "difficulty": "easy",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/whats-the-difference-between-inline-and-inline-block",
+    "importance": "high",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 2,
+    "similarQuestions": [],
+    "slug": "whats-the-difference-between-inline-and-inline-block",
+    "subtitle": null,
+    "title": "block、inline 和 inline-block 有什么区别？",
+    "topics": [
+      "css"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/whats-the-difference-between-inline-and-inline-block/zh-CN.mdx"
+  },
+  "solution": "var Component=(()=>{var s=Object.create;var i=Object.defineProperty;var b=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,m=Object.prototype.hasOwnProperty;var u=(c,d)=>()=>(d||c((d={exports:{}}).exports,d),d.exports),f=(c,d)=>{for(var n in d)i(c,n,{get:d[n],enumerable:!0})},l=(c,d,n,r)=>{if(d&&typeof d==\"object\"||typeof d==\"function\")for(let t of x(d))!m.call(c,t)&&t!==n&&i(c,t,{get:()=>d[t],enumerable:!(r=b(d,t))||r.enumerable});return c};var g=(c,d,n)=>(n=c!=null?s(j(c)):{},l(d||!c||!c.__esModule?i(n,\"default\",{value:c,enumerable:!0}):n,c)),p=c=>l(i({},\"__esModule\",{value:!0}),c);var o=u((w,h)=>{h.exports=_jsx_runtime});var M={};f(M,{default:()=>y,frontmatter:()=>_});var e=g(o()),_={title:\"block\\u3001inline \\u548C inline-block \\u6709\\u4EC0\\u4E48\\u533A\\u522B\\uFF1F\"};function a(c){let d=Object.assign({table:\"table\",thead:\"thead\",tr:\"tr\",th:\"th\",code:\"code\",tbody:\"tbody\",td:\"td\"},c.components);return(0,e.jsxs)(d.table,{children:[(0,e.jsx)(d.thead,{children:(0,e.jsxs)(d.tr,{children:[(0,e.jsx)(d.th,{children:\"\\u5C5E\\u6027\"}),(0,e.jsx)(d.th,{children:(0,e.jsx)(d.code,{children:\"block\"})}),(0,e.jsx)(d.th,{children:(0,e.jsx)(d.code,{children:\"inline-block\"})}),(0,e.jsx)(d.th,{children:(0,e.jsx)(d.code,{children:\"inline\"})})]})}),(0,e.jsxs)(d.tbody,{children:[(0,e.jsxs)(d.tr,{children:[(0,e.jsx)(d.td,{children:\"\\u5C3A\\u5BF8\"}),(0,e.jsx)(d.td,{children:\"\\u586B\\u5145\\u7236\\u5BB9\\u5668\\u7684\\u5BBD\\u5EA6\\u3002\"}),(0,e.jsx)(d.td,{children:\"\\u53D6\\u51B3\\u4E8E\\u5185\\u5BB9\\u3002\"}),(0,e.jsx)(d.td,{children:\"\\u53D6\\u51B3\\u4E8E\\u5185\\u5BB9\\u3002\"})]}),(0,e.jsxs)(d.tr,{children:[(0,e.jsx)(d.td,{children:\"\\u5B9A\\u4F4D\"}),(0,e.jsxs)(d.td,{children:[\"\\u4ECE\\u65B0\\u884C\\u5F00\\u59CB\\uFF0C\\u5E76\\u4E14\\u4E0D\\u5141\\u8BB8\\u5728\\u5176\\u65C1\\u8FB9\\u6709\\u5176\\u4ED6 HTML \\u5143\\u7D20\\uFF08\\u9664\\u975E\\u4F60\\u6DFB\\u52A0 \",(0,e.jsx)(d.code,{children:\"float\"}),\"\\uFF09\"]}),(0,e.jsx)(d.td,{children:\"\\u4E0E\\u5176\\u4ED6\\u5185\\u5BB9\\u4E00\\u8D77\\u6D41\\u52A8\\uFF0C\\u5E76\\u5141\\u8BB8\\u5176\\u4ED6\\u5143\\u7D20\\u5728\\u5176\\u65C1\\u8FB9\\u3002\"}),(0,e.jsx)(d.td,{children:\"\\u4E0E\\u5176\\u4ED6\\u5185\\u5BB9\\u4E00\\u8D77\\u6D41\\u52A8\\uFF0C\\u5E76\\u5141\\u8BB8\\u5176\\u4ED6\\u5143\\u7D20\\u5728\\u5176\\u65C1\\u8FB9\\u3002\"})]}),(0,e.jsxs)(d.tr,{children:[(0,e.jsxs)(d.td,{children:[\"\\u53EF\\u4EE5\\u6307\\u5B9A \",(0,e.jsx)(d.code,{children:\"width\"}),\" \\u548C \",(0,e.jsx)(d.code,{children:\"height\"})]}),(0,e.jsx)(d.td,{children:\"\\u662F\"}),(0,e.jsx)(d.td,{children:\"\\u662F\"}),(0,e.jsx)(d.td,{children:\"\\u5426\\u3002\\u5982\\u679C\\u8BBE\\u7F6E\\u5C06\\u88AB\\u5FFD\\u7565\\u3002\"})]}),(0,e.jsxs)(d.tr,{children:[(0,e.jsxs)(d.td,{children:[\"\\u53EF\\u4EE5\\u4F7F\\u7528 \",(0,e.jsx)(d.code,{children:\"vertical-align\"}),\" \\u5BF9\\u9F50\"]}),(0,e.jsx)(d.td,{children:\"\\u5426\"}),(0,e.jsx)(d.td,{children:\"\\u662F\"}),(0,e.jsx)(d.td,{children:\"\\u662F\"})]}),(0,e.jsxs)(d.tr,{children:[(0,e.jsx)(d.td,{children:\"\\u8FB9\\u8DDD\\u548C\\u5185\\u8FB9\\u8DDD\"}),(0,e.jsx)(d.td,{children:\"\\u6240\\u6709\\u8FB9\\u90FD\\u53D7\\u5C0A\\u91CD\\u3002\"}),(0,e.jsx)(d.td,{children:\"\\u6240\\u6709\\u8FB9\\u90FD\\u53D7\\u5C0A\\u91CD\\u3002\"}),(0,e.jsxs)(d.td,{children:[\"\\u4EC5\\u6C34\\u5E73\\u8FB9\\u53D7\\u5C0A\\u91CD\\u3002\\u5782\\u76F4\\u8FB9\\uFF08\\u5982\\u679C\\u6307\\u5B9A\\uFF09\\u4E0D\\u5F71\\u54CD\\u5E03\\u5C40\\u3002\\u5B83\\u5360\\u7528\\u7684\\u5782\\u76F4\\u7A7A\\u95F4\\u53D6\\u51B3\\u4E8E \",(0,e.jsx)(d.code,{children:\"line-height\"}),\"\\uFF0C\\u5373\\u4F7F \",(0,e.jsx)(d.code,{children:\"border\"}),\" \\u548C \",(0,e.jsx)(d.code,{children:\"padding\"}),\" \\u5728\\u5185\\u5BB9\\u5468\\u56F4\\u53EF\\u89C1\\u3002\"]})]}),(0,e.jsxs)(d.tr,{children:[(0,e.jsx)(d.td,{children:\"Float\"}),(0,e.jsx)(d.td,{children:\"-\"}),(0,e.jsx)(d.td,{children:\"-\"}),(0,e.jsxs)(d.td,{children:[\"\\u53D8\\u6210\\u7C7B\\u4F3C \",(0,e.jsx)(d.code,{children:\"block\"}),\" \\u5143\\u7D20\\uFF0C\\u4F60\\u53EF\\u4EE5\\u5728\\u5176\\u4E2D\\u8BBE\\u7F6E\\u5782\\u76F4\\u8FB9\\u8DDD\\u548C\\u5185\\u8FB9\\u8DDD\\u3002\"]})]}),(0,e.jsxs)(d.tr,{children:[(0,e.jsx)(d.td,{children:\"\\u7528\\u4F8B\"}),(0,e.jsxs)(d.td,{children:[\"\\u5E03\\u5C40\\u5143\\u7D20\\uFF0C\\u5982 \",(0,e.jsx)(d.code,{children:\"<div>\"}),\"\\u3001\",(0,e.jsx)(d.code,{children:\"<p>\"}),\"\\u3001\",(0,e.jsx)(d.code,{children:\"<section>\"}),\"\\u3002\"]}),(0,e.jsx)(d.td,{children:\"\\u7528\\u4E8E\\u9700\\u8981\\u81EA\\u5B9A\\u4E49\\u5927\\u5C0F\\u4F46\\u4E0E\\u6587\\u672C\\u4FDD\\u6301\\u4E00\\u81F4\\u7684\\u6309\\u94AE\\u3001\\u56FE\\u50CF\\u548C\\u8868\\u5355\\u5B57\\u6BB5\\u3002\"}),(0,e.jsxs)(d.td,{children:[\"\\u94FE\\u63A5 \",(0,e.jsx)(d.code,{children:\"<a>\"}),\"\\u3001\\u6587\\u672C\\u683C\\u5F0F \",(0,e.jsx)(d.code,{children:\"<span>\"}),\"\\u3001\\u6587\\u672C\\u6837\\u5F0F - \\u7C97\\u4F53 \",(0,e.jsx)(d.code,{children:\"<b>\"}),\"\\u3001\\u659C\\u4F53 \",(0,e.jsx)(d.code,{children:\"<i>\"}),\"\\u3002\"]})]})]})]})}function k(c={}){let{wrapper:d}=c.components||{};return d?(0,e.jsx)(d,Object.assign({},c,{children:(0,e.jsx)(a,c)})):a(c)}var y=k;return p(M);})();\n;return Component;"
+}

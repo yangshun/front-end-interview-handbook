@@ -27,11 +27,11 @@ export default function ProjectsProfileGithubInput({ control }: Props) {
     <Controller
       control={control}
       name="githubUsername"
-      render={({ field, formState: { dirtyFields, errors, submitCount } }) => (
+      render={({ field, formState }) => (
         <div
           className="relative flex-1"
           id={SCROLL_HASH_PROJECTS_PROFILE.GITHUB}>
-          <span className="end-0 absolute">
+          <span className="absolute end-0">
             <ProjectsChallengeReputationBadge
               completed={field.value.length > 0}
               points={ProjectsReputationPointsConfig.PROFILE_FIELD_PER_OPTIONAL}
@@ -39,8 +39,8 @@ export default function ProjectsProfileGithubInput({ control }: Props) {
           </span>
           <TextInput
             errorMessage={
-              dirtyFields.githubUsername || submitCount > 0
-                ? errors.githubUsername?.message
+              formState.dirtyFields.githubUsername || formState.submitCount > 0
+                ? formState.errors.githubUsername?.message
                 : undefined
             }
             label={attrs.label}

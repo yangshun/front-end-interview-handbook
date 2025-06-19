@@ -1,11 +1,10 @@
 import { useMDXComponent } from 'next-contentlayer/hooks';
-import type { ComponentType } from 'react';
 
 import MDXComponents from '~/components/mdx/MDXComponents';
 import Prose from '~/components/ui/Prose';
 
 type Props = Readonly<{
-  components?: Record<string, ComponentType<AnyIntentional>>;
+  components?: Record<string, () => JSX.Element>;
   fontSize?: 'custom' | 'md' | 'sm';
   mdxCode: string;
   proseClassName?: string;

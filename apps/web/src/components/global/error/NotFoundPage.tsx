@@ -65,7 +65,7 @@ export default function NotFoundPage({ links, returnHref }: Props) {
         <Section>
           <div className="mt-4 md:mt-8">
             <Text
-              className="block text-pretty text-center"
+              className="text-pretty block text-center"
               color="secondary"
               size="body1">
               {intl.formatMessage({

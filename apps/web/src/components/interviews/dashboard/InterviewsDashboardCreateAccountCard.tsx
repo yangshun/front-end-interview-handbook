@@ -81,13 +81,13 @@ export default function InterviewsDashboardCreateAccountCard({
         </div>
         <div
           className={clsx(
-            'absolute size-full',
+            'size-full absolute',
             'bg-[linear-gradient(90deg,_#D9D9D900_45.68%,#fff_93.88%)] dark:bg-[linear-gradient(90deg,_#18181B00_45.68%,_#18181B_93.88%)]',
           )}
         />
         <div
           className={clsx(
-            'absolute size-full',
+            'size-full absolute',
             'bg-[linear-gradient(177.01deg,_#D9D9D900_38.82%,#fff_92.48%)] dark:bg-[linear-gradient(177deg,_#18181B00_45.68%,_#18181B_93.88%)]',
           )}
         />

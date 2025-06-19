@@ -11,5 +11,5 @@ export default function useProjectsNotificationUnreadCount() {
       refetchOnWindowFocus: true,
     });
 
-  return isLoading ? (unreadCount ?? 0) : 0;
+  return isLoading ? unreadCount ?? 0 : 0;
 }
