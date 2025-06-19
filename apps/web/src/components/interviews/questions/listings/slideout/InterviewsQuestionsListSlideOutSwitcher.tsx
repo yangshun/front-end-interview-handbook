@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 import { RiFilterLine } from 'react-icons/ri';
 
@@ -26,7 +27,14 @@ import ScrollArea from '~/components/ui/ScrollArea';
 import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 
-import type { QuestionListTypeData } from '../../common/QuestionsTypes';
+import type {
+  QuestionListTypeData,
+  QuestionPracticeFormat,
+} from '../../common/QuestionsTypes';
+import {
+  questionsFrameworkTabs,
+  questionsLanguageTabs,
+} from '../utils/QuestionsListTabsConfig';
 
 export type QuestionListTypeWithLabel = QuestionListTypeData &
   Readonly<{ label: string }>;
@@ -41,6 +49,8 @@ function DropdownContent({
   openPricingDialog: (feature: InterviewsPurchasePremiumFeature) => void;
 }>) {
   const intl = useIntl();
+  const searchParams = useSearchParams();
+  const currentTab = searchParams?.get('tab');
   const { data: questionLists, isLoading } = trpc.questionLists.get.useQuery();
   const { userProfile } = useUserProfile();
   const formatData = useQuestionFormatsData();
@@ -157,6 +167,9 @@ function DropdownContent({
             ({
               menuType: 'item',
               ...item,
+              tab: questionsFrameworkTabs(item.value)?.includes('quiz')
+                ? ((currentTab || item.tab) as QuestionPracticeFormat)
+                : item.tab,
             }) as const,
         ),
         { menuType: 'divider', value: 'divider-1' },
@@ -174,6 +187,9 @@ function DropdownContent({
             ({
               menuType: 'item',
               ...item,
+              tab: questionsLanguageTabs().includes('quiz')
+                ? ((currentTab || item.tab) as QuestionPracticeFormat)
+                : item.tab,
             }) as const,
         ),
       ],
