@@ -174,15 +174,21 @@ module.exports = ({ theme }) => ({
         padding: `${8 / 13}em ${16 / 13}em`,
         whiteSpace: 'nowrap',
       },
+      'thead th[align="right"], tbody td[align="right"]': {
+        textAlign: 'right',
+      },
+      'thead th[align="center"], tbody td[align="center"]': {
+        textAlign: 'center',
+      },
       'thead th:first-child': {
         borderLeft: 'var(--border)',
         borderRadius: 'var(--radius) 0 0 var(--radius)',
-        paddingLeft: 'intentionally-invalid',
+        paddingInlineStart: 'intentionally-invalid',
       },
       'thead th:last-child': {
         borderRight: 'var(--border)',
         borderRadius: '0 var(--radius) var(--radius) 0',
-        paddingRight: 'intentionally-invalid',
+        paddingInlineEnd: 'intentionally-invalid',
       },
       'tbody td': {
         borderBottomWidth: 1,
@@ -193,10 +199,10 @@ module.exports = ({ theme }) => ({
         padding: `${16 / BASE_FONT_SIZE}em`,
       },
       'tbody td:first-child, tfoot td:first-child': {
-        paddingLeft: 'intentionally-invalid',
+        paddingInlineStart: 'intentionally-invalid',
       },
       'tbody td:last-child, tfoot td:last-child': {
-        paddingRight: 'intentionally-invalid',
+        paddingInlineEnd: 'intentionally-invalid',
       },
       'tbody tr:last-child': {
         borderBottomWidth: '1px',
@@ -216,27 +222,27 @@ module.exports = ({ theme }) => ({
   sm: {
     css: {
       'thead th': {
-        paddingRight: 'intentionally-invalid',
+        paddingInlineEnd: 'intentionally-invalid',
         paddingBottom: 'intentionally-invalid',
-        paddingLeft: 'intentionally-invalid',
+        paddingInlineStart: 'intentionally-invalid',
       },
       'thead th:first-child': {
-        paddingLeft: 'intentionally-invalid',
+        paddingInlineStart: 'intentionally-invalid',
       },
       'thead th:last-child': {
-        paddingRight: 'intentionally-invalid',
+        paddingInlineEnd: 'intentionally-invalid',
       },
       'tbody td, tfoot td': {
-        paddingRight: 'intentionally-invalid',
+        paddingInlineEnd: 'intentionally-invalid',
         paddingBottom: 'intentionally-invalid',
-        paddingLeft: 'intentionally-invalid',
+        paddingInlineStart: 'intentionally-invalid',
         paddingTop: 'intentionally-invalid',
       },
       'tbody td:first-child, tfoot td:first-child': {
-        paddingLeft: 'intentionally-invalid',
+        paddingInlineStart: 'intentionally-invalid',
       },
       'tbody td:last-child, tfoot td:last-child': {
-        paddingRight: 'intentionally-invalid',
+        paddingInlineEnd: 'intentionally-invalid',
       },
     },
   },
