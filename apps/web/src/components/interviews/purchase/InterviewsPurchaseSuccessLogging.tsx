@@ -3,6 +3,7 @@ import { Suspense, useEffect } from 'react';
 
 import { trpc } from '~/hooks/trpc';
 
+import usePurchaseLastUsedPaymentProvider from '~/components/purchase/providers/usePurcahseLastUsedPaymentProvider';
 import { purchaseSuccessLogging } from '~/components/purchase/PurchaseLogging';
 
 import { useI18nRouter } from '~/next-i18nostic/src';
@@ -11,8 +12,12 @@ import type { InterviewsPricingPlanType } from './InterviewsPricingPlans';
 
 export function useInterviewsPurchaseSuccessLogging() {
   const searchParams = useSearchParams();
+  const { lastPaymentProvider } = usePurchaseLastUsedPaymentProvider();
 
-  trpc.purchases.lastSuccessfulPaymentThatHasntBeenLogged.useQuery(undefined, {
+  trpc.purchases.lastSuccessfulPaymentThatHasntBeenLogged.useQuery({
+    checkoutId: lastPaymentProvider?.id ?? '',
+      paymentProvider: lastPaymentProvider?.provider ?? 'stripe',
+  }, {
     onSuccess: (data) => {
       if (data == null) {
         return;

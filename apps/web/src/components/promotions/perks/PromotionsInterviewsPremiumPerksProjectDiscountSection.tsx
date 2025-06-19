@@ -11,6 +11,7 @@ import { trpc } from '~/hooks/trpc';
 import useCopyToClipboardWithRevert from '~/hooks/useCopyToClipboardWithRevert';
 
 import { FormattedMessage, useIntl } from '~/components/intl';
+import usePurchaseLastUsedPaymentProvider from '~/components/purchase/providers/usePurcahseLastUsedPaymentProvider';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
@@ -35,10 +36,14 @@ export default function PromotionsInterviewsPremiumPerksProjectDiscountSection()
     };
     expires_at: number | null;
   }> | null>(null);
+  const { lastPaymentProvider } = usePurchaseLastUsedPaymentProvider();
   const generateOrGetPromoCodeMutation =
     trpc.promotions.generateOrGetInterviewsPremiumPerksProjectsDiscountPromoCode.useMutation();
   const { data: checkoutSessionMetadata } =
-    trpc.purchases.latestCheckoutSessionMetadata.useQuery();
+    trpc.purchases.latestCheckoutSessionMetadata.useQuery({
+      checkoutId: lastPaymentProvider?.id ?? '',
+      paymentProvider: lastPaymentProvider?.provider ?? 'stripe',
+    });
   const [isCopied, onCopy] = useCopyToClipboardWithRevert(1000);
   const earnedFTL = checkoutSessionMetadata?.ftl;
   const hasBothFTLAndProjectsPromoCode = earnedFTL && promoCode != null;

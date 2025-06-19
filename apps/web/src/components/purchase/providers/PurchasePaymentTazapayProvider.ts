@@ -96,6 +96,14 @@ export const PurchasePaymentTazapayProvider = {
 
     return { id: data.id, url: data.url };
   },
+  async getCheckoutSessionMetdata(id: string) {
+    const res = await fetchFromTazapay<AnyIntentional>({
+      endpoint: `/checkout/${id}`,
+      method: 'GET',
+    });
+
+    return res?.metadata ?? null;
+  },
   async getLastPaymentAttempt(id: string) {
     const res = await fetchFromTazapay<AnyIntentional>({
       endpoint: `/checkout/${id}`,

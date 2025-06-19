@@ -11,24 +11,30 @@ import { useI18nRouter } from '~/next-i18nostic/src';
 export function useProjectsPurchaseSuccessLogging() {
   const searchParams = useSearchParams();
 
-  trpc.purchases.lastSuccessfulPaymentThatHasntBeenLogged.useQuery(undefined, {
-    onSuccess: (data) => {
-      if (data == null) {
-        return;
-      }
-
-      const planSearchParam = searchParams?.get(
-        'plan',
-      ) as ProjectsSubscriptionPlan;
-
-      purchaseSuccessLogging({
-        amount: data.amount,
-        currency: data.currency,
-        plan: planSearchParam,
-        product: 'projects',
-      });
+  trpc.purchases.lastSuccessfulPaymentThatHasntBeenLogged.useQuery(
+    {
+      checkoutId: '', // We don't need checkoutId for stripe
+      paymentProvider: 'stripe',
     },
-  });
+    {
+      onSuccess: (data) => {
+        if (data == null) {
+          return;
+        }
+
+        const planSearchParam = searchParams?.get(
+          'plan',
+        ) as ProjectsSubscriptionPlan;
+
+        purchaseSuccessLogging({
+          amount: data.amount,
+          currency: data.currency,
+          plan: planSearchParam,
+          product: 'projects',
+        });
+      },
+    },
+  );
 }
 
 export function ProjectsPurchaseSuccessLoggingImpl() {
