@@ -7,6 +7,7 @@ import { i18nMiddleware } from '~/next-i18nostic/src';
 
 import { addBrowserFingerprint } from './logging/fingerprint';
 import { addFirstVisit } from './logging/firstVisit';
+import { redirects } from './routing/redirects';
 import { resolveCountryCode } from './utils/CountryUtils';
 
 function upsertCookie(request: NextRequest, response: NextResponse) {
@@ -34,7 +35,15 @@ function writeCountryCodeToCookie(req: NextRequest, res: NextResponse) {
 }
 
 export function middleware(req: NextRequest) {
-  const i18nMiddlewareRes = i18nMiddleware(req);
+  const i18nMiddlewareRes = i18nMiddleware(req, {
+    redirects: redirects.reduce(
+      (acc, redirect) => ({
+        ...acc,
+        [redirect.source]: redirect.destination,
+      }),
+      {},
+    ),
+  });
   const res = i18nMiddlewareRes ?? NextResponse.next();
 
   upsertCookie(req, res);
