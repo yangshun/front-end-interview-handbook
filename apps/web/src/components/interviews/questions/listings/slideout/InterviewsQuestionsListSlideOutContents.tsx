@@ -537,52 +537,56 @@ export default function InterviewsQuestionsListSlideOutContents({
           )}
         </ScrollArea>
       </div>
-      <ConfirmationDialog
-        cancelButtonLabel={intl.formatMessage({
-          defaultMessage: 'Stay on previous list',
-          description: 'Stay on previous question list',
-          id: 'IEnLEU',
-        })}
-        confirmButtonLabel={intl.formatMessage({
-          defaultMessage: 'Switch',
-          description: 'Button label for switch study list',
-          id: '09QDZQ',
-        })}
-        isShown={showSwitchQuestionListDialog.show}
-        title={intl.formatMessage({
-          defaultMessage: 'Switch study list',
-          description: 'Change study list dialog title',
-          id: '6rN7CN',
-        })}
-        onCancel={() => {
-          onCloseSwitchQuestionListDialog();
-          onCancelSwitchStudyList?.();
-        }}
-        onClose={() => {
-          onCloseSwitchQuestionListDialog();
-        }}
-        onConfirm={() => {
-          if (!showSwitchQuestionListDialog.href) {
-            return;
-          }
+      {/* Wrapped with showSwitchQuestionListDialog.show condition to avoid
+      dialog appearing twice when we trigger this */}
+      {showSwitchQuestionListDialog.show && (
+        <ConfirmationDialog
+          cancelButtonLabel={intl.formatMessage({
+            defaultMessage: 'Stay on previous list',
+            description: 'Stay on previous question list',
+            id: 'IEnLEU',
+          })}
+          confirmButtonLabel={intl.formatMessage({
+            defaultMessage: 'Switch',
+            description: 'Button label for switch study list',
+            id: '09QDZQ',
+          })}
+          isShown={showSwitchQuestionListDialog.show}
+          title={intl.formatMessage({
+            defaultMessage: 'Switch study list',
+            description: 'Change study list dialog title',
+            id: '6rN7CN',
+          })}
+          onCancel={() => {
+            onCloseSwitchQuestionListDialog();
+            onCancelSwitchStudyList?.();
+          }}
+          onClose={() => {
+            onCloseSwitchQuestionListDialog();
+          }}
+          onConfirm={() => {
+            if (!showSwitchQuestionListDialog.href) {
+              return;
+            }
 
-          onCloseSwitchQuestionListDialog();
-          router.push(showSwitchQuestionListDialog.href);
-        }}>
-        {showSwitchQuestionListDialog.type === 'question-click' ? (
-          <FormattedMessage
-            defaultMessage="You've selected a question from a different study list than the one you're currently using. Navigating to it will switch your current list. Do you want to proceed?"
-            description="Confirmation text for switching study list"
-            id="+C/8iu"
-          />
-        ) : (
-          <FormattedMessage
-            defaultMessage="You've selected a different study list than the one you're currently using. Navigating to it will switch your current list. Do you want to proceed?"
-            description="Confirmation text for switching study list"
-            id="/D6EXa"
-          />
-        )}
-      </ConfirmationDialog>
+            onCloseSwitchQuestionListDialog();
+            router.push(showSwitchQuestionListDialog.href);
+          }}>
+          {showSwitchQuestionListDialog.type === 'question-click' ? (
+            <FormattedMessage
+              defaultMessage="You've selected a question from a different study list than the one you're currently using. Navigating to it will switch your current list. Do you want to proceed?"
+              description="Confirmation text for switching study list"
+              id="+C/8iu"
+            />
+          ) : (
+            <FormattedMessage
+              defaultMessage="You've selected a different study list than the one you're currently using. Navigating to it will switch your current list. Do you want to proceed?"
+              description="Confirmation text for switching study list"
+              id="/D6EXa"
+            />
+          )}
+        </ConfirmationDialog>
+      )}
     </>
   );
 }
