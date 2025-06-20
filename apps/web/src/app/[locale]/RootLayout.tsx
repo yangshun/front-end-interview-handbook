@@ -4,6 +4,7 @@ import nextI18nConfig from 'next-i18nostic/config';
 import GoogleAnalytics from '~/components/global/analytics/GoogleAnalytics';
 import HydrationFailureLogging from '~/components/global/analytics/HydrationFailureLogging';
 import MetaPixel from '~/components/global/analytics/MetaPixel';
+import WebVitals from '~/components/global/analytics/WebVitals';
 import GlobalBannerDisplayScript from '~/components/global/banners/GlobalBannerDisplayScript';
 import I18nBetaBanner from '~/components/global/banners/I18nBetaBanner';
 import ColorSchemeInitScript from '~/components/global/color-scheme/ColorSchemeInitScript';
@@ -37,6 +38,7 @@ export default function RootLayout({ children, intlMessages, locale }: Props) {
       </head>
       <body className={clsx('antialiased', themeBackgroundColor)}>
         <HydrationFailureLogging />
+        <WebVitals />
         <GlobalProviders intlMessages={intlMessages} locale={locale}>
           <GoogleAnalytics />
           <MetaPixel />
