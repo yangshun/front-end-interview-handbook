@@ -69,8 +69,7 @@ export default async function handler(
   const ua = req.headers['user-agent'];
   const parser = new UAParser(ua);
 
-  const { clientSHA, name, pathname, payload, query, referer, value } =
-    req.body;
+  const { clientSHA, name, pathname, payload, query, referer } = req.body;
 
   const eventPayload = {
     cookies: Object.keys(req.cookies).reduce(
@@ -92,7 +91,6 @@ export default async function handler(
     event: {
       name,
       payload,
-      value,
     },
     experiment: currentExperiment.isRunning
       ? {

@@ -63,7 +63,6 @@ type LoggingPayload = Readonly<{
 export default async function logEvent(
   action: LoggingAction,
   payload: LoggingPayload,
-  value?: number,
 ) {
   const searchParams = new URLSearchParams(window.location.search);
   const connection =
@@ -87,7 +86,6 @@ export default async function logEvent(
     payload,
     query: Object.fromEntries(new URLSearchParams(window.location.search)),
     referer: document.referrer,
-    value,
   });
 
   const shouldLog =
@@ -100,14 +98,7 @@ export default async function logEvent(
   }
 
   try {
-    await fetch('/api/logging/events', {
-      body,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      keepalive: true,
-      method: 'POST',
-    });
+    navigator.sendBeacon('/api/logging/events', body);
   } catch (error) {
     console.error(error);
   }
