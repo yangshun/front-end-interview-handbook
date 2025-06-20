@@ -57,6 +57,23 @@ type LoggingPayload = Readonly<{
 }> &
   Record<string, unknown>;
 
+const allowedParams = new Set([
+  // UTM parameters
+  'utm_source',
+  'utm_medium',
+  'utm_campaign',
+  'utm_term',
+  'utm_content',
+  // Referer
+  'ref',
+  // Ads
+  'fbclid',
+  'gclid',
+  'msclkid',
+  // Custom
+  'gnrs',
+]);
+
 /**
  * Client-side logging to Axiom. Don't use on the server.
  */
@@ -76,6 +93,18 @@ export default async function logEvent(
     // @ts-ignore
     navigator.webkitConnection ||
     {};
+
+  const params = Object.fromEntries(
+    new URLSearchParams(window.location.search),
+  );
+  const filteredQueryParams: Record<string, string> = {};
+
+  Object.keys(params).forEach((key) => {
+    if (allowedParams.has(key)) {
+      filteredQueryParams[key] = params[key];
+    }
+  });
+
   const body = JSON.stringify({
     clientSHA: process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA ?? '',
     connection: {
@@ -84,7 +113,7 @@ export default async function logEvent(
     name: action,
     pathname: window.location.pathname,
     payload,
-    query: Object.fromEntries(new URLSearchParams(window.location.search)),
+    query: filteredQueryParams,
     referer: document.referrer,
   });
 
