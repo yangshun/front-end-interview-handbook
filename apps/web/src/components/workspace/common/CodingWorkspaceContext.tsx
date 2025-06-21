@@ -1,6 +1,15 @@
 import type { SandpackFiles } from '@codesandbox/sandpack-react';
 import type { ReactNode } from 'react';
-import { createContext, useCallback, useContext, useState } from 'react';
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
+
+import logEvent from '~/logging/logEvent';
 
 import CodingWorkspaceBottomBarEmitter from './CodingWorkspaceBottomBarEmitter';
 
@@ -63,12 +72,20 @@ const CodingWorkspaceContext = createContext<ContextValue>({
 
 CodingWorkspaceContext.displayName = 'CodingWorkspaceContext';
 
+const runTestsStartedEventName = 'workspace-run-tests-started';
+const runTestsCompleteEventName = 'workspace-run-tests-complete';
+const submitStartedEventName = 'workspace-submit-started';
+const submitCompleteEventName = 'workspace-submit-complete';
+
 export function CodingWorkspaceProvider({
   children,
   loadedFilesFromLocalStorage = false,
   value,
 }: Props) {
   const [status, setStatus] = useState<Status>('idle');
+  const lastExecutionMode = useRef<'submit' | 'test' | null>(null);
+  const runTestsSequenceNumber = useRef(0);
+  const submitSequenceNumber = useRef(0);
   const [
     showLoadedFilesFromLocalStorageMessage,
     setShowLoadedFilesFromLocalStorageMessage,
@@ -76,12 +93,58 @@ export function CodingWorkspaceProvider({
 
   const runTests = useCallback(() => {
     setStatus('running_tests');
+    lastExecutionMode.current = 'test';
+    runTestsSequenceNumber.current += 1;
+    performance.mark(runTestsStartedEventName);
   }, []);
 
   const submit = useCallback(() => {
     CodingWorkspaceBottomBarEmitter.emit('pause_timer');
     setStatus('submitting');
+    lastExecutionMode.current = 'submit';
+    submitSequenceNumber.current += 1;
+    performance.mark(submitStartedEventName);
   }, []);
+
+  useEffect(() => {
+    if (status !== 'idle' || lastExecutionMode.current === null) {
+      return;
+    }
+
+    if (lastExecutionMode.current === 'test') {
+      performance.mark(runTestsCompleteEventName);
+
+      const runTestsDuration = performance.measure(
+        'run-tests-duration',
+        runTestsStartedEventName,
+        runTestsCompleteEventName,
+      );
+
+      logEvent('question.run.complete', {
+        duration: Math.floor(runTestsDuration.duration),
+        namespace: 'workspace',
+        sequence: runTestsSequenceNumber.current,
+      });
+      lastExecutionMode.current = null;
+    }
+
+    if (lastExecutionMode.current === 'submit') {
+      performance.mark(submitCompleteEventName);
+
+      const submitDuration = performance.measure(
+        'submit-duration',
+        submitStartedEventName,
+        submitCompleteEventName,
+      );
+
+      logEvent('question.submit.complete', {
+        duration: Math.floor(submitDuration.duration),
+        namespace: 'workspace',
+        sequence: submitSequenceNumber.current,
+      });
+      lastExecutionMode.current = null;
+    }
+  }, [status]);
 
   const executionComplete = useCallback(() => {
     setStatus('idle');
