@@ -55,6 +55,7 @@ module.exports = {
         'companies/salesforce-front-end-interview-questions',
         'companies/uber-front-end-interview-questions',
         'companies/twitter-front-end-interview-questions',
+        'companies/atlassian-front-end-interview-questions',
       ],
     },
   ],
