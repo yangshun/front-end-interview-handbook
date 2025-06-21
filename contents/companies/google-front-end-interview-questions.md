@@ -74,3 +74,44 @@ Refer to Google's official interview preparation guides for:
 - Find k-nearest points.
 
 _Source: [Glassdoor Google Front End Software Engineer Interview Questions](https://www.glassdoor.sg/Interview/Google-Front-End-Software-Engineer-Interview-Questions-EI_IE9079.0,6_KO7,34.htm), [Google | Front End engineer](https://leetcode.com/discuss/interview-question/271736/google-front-end-engineer-onsite-interview)_
+
+## Insider tips from the GreatFrontEnd community
+
+These tips were shared by [GreatFrontEnd](https://www.greatfrontend.com/?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) users who have completed interviews with Google.
+
+**5th Apr 2025**:
+
+> Interview experience at Google L4 frontend role - Offer Accepted
+> 
+> Round 1 DSA: question of finding all subsets in a deck of cards that pass a valid condition
+> Round 2 Frontend: Implement a color swatch. Also with a slider
+> Round 3 Googlyness:  Behavior and resume
+> Round 4: DSA - File system API and streaming API with generators
+> 
+> Team match round
+> HC review
+> 
+> Offer
+
+**9th Mar 2025**:
+
+> I have a google senior frontend engineer loop coming up. The recruiter shared material suggests  2 dsa + 1 frontend + 1 system design (guideline suggests it can be anything frontend or backend) + 1 behavioural.
+
+**20th Dec 2024**:
+
+> Hello, folks!
+> Previously, I had an interview with Google for a Front-End role. 
+> The problem I got was DSA-style, just like you guys mentioned (@MichalDev @strongdk @_restart for sharing their experiences.), thanks to this channel, so I did prep for DSA.
+> Now, I’m preparing for a second technical interview. 
+> Has anyone here had a similar interview experience? Should I still expect DSA questions?
+
+**20th Dec 2024**:
+
+> dsa is fair game throughout the entire google experience
+> easy, medium, hard, all fair game
+
+**10th Nov 2024**:
+
+> I interviewed a few years ago. At that time it was mostly DSA and 1 round involved frontend design with some coding HTML, CSS, JS. But I echo what others have said. Google's FE is DSA heavy. 
+
+For more insider tips, visit [GreatFrontEnd](https://www.greatfrontend.com/?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)!
