@@ -13,7 +13,7 @@ import sandpackProviderOptions from '~/components/workspace/common/sandpack/sand
 import UserInterfaceCodingWorkspace from '~/components/workspace/user-interface/UserInterfaceCodingWorkspace';
 import { loadLocalUserInterfaceQuestionCode } from '~/components/workspace/user-interface/UserInterfaceCodingWorkspaceCodeStorage';
 
-import SandpackErrorReporting from '../common/sandpack/SandpackErrorReporting';
+import SandpackObservability from '../common/sandpack/SandpackObservability';
 
 type Props = Readonly<{
   activeTabScrollIntoView?: boolean;
@@ -102,7 +102,7 @@ export default function UserInterfaceCodingWorkspaceSection({
           studyListKey={studyListKey}
           onFrameworkChange={onFrameworkChange}
         />
-        <SandpackErrorReporting instance={timeoutLoggerInstance} />
+        <SandpackObservability instance={timeoutLoggerInstance} />
       </SandpackProvider>
     </CodingPreferencesProvider>
   );

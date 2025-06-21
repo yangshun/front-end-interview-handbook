@@ -7,7 +7,7 @@ import clsx from 'clsx';
 import CodingPreferencesProvider from '~/components/global/CodingPreferencesProvider';
 import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
 import type { ProjectsChallengeSolutionBundle } from '~/components/projects/challenges/types';
-import SandpackErrorReporting from '~/components/workspace/common/sandpack/SandpackErrorReporting';
+import SandpackObservability from '~/components/workspace/common/sandpack/SandpackObservability';
 import sandpackProviderOptions from '~/components/workspace/common/sandpack/sandpackProviderOptions';
 
 import ProjectsChallengeSolutionWorkspace from './ProjectsChallengeSolutionWorkspace';
@@ -45,7 +45,7 @@ export default function ProjectsChallengeSolutionSection({ solution }: Props) {
           activeTabScrollIntoView={true}
           defaultFiles={files}
         />
-        <SandpackErrorReporting instance="projects.official_solutions" />
+        <SandpackObservability instance="projects.official_solutions" />
       </SandpackProvider>
     </CodingPreferencesProvider>
   );

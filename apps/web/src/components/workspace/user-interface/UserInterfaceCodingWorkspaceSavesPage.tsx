@@ -19,7 +19,7 @@ import sandpackProviderOptions from '~/components/workspace/common/sandpack/sand
 
 import { useI18nRouter } from '~/next-i18nostic/src';
 
-import SandpackErrorReporting from '../common/sandpack/SandpackErrorReporting';
+import SandpackObservability from '../common/sandpack/SandpackObservability';
 import UserInterfaceCodingWorkspace from './UserInterfaceCodingWorkspace';
 import { UserInterfaceCodingWorkspaceSavesContextProvider } from './UserInterfaceCodingWorkspaceSaveContext';
 
@@ -102,7 +102,7 @@ export default function UserInterfaceCodingWorkspaceSavesPage({
               );
             }}
           />
-          <SandpackErrorReporting instance="workspace.ui.saves" />
+          <SandpackObservability instance="workspace.ui.saves" />
         </SandpackProvider>
       </UserInterfaceCodingWorkspaceSavesContextProvider>
     </CodingPreferencesProvider>

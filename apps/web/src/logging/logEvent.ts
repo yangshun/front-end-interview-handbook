@@ -36,6 +36,7 @@ type LoggingAction =
   | 'question.run'
   | 'question.submit'
   | 'sandpack.reachable'
+  | 'sandpack.running'
   | 'sandpack.timeout'
   | 'sandpack.unreachable'
   | 'sponsorships.inquiry'

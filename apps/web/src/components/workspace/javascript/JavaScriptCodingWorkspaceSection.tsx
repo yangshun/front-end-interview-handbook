@@ -12,7 +12,7 @@ import sandpackProviderOptions from '~/components/workspace/common/sandpack/sand
 import JavaScriptCodingWorkspace from '~/components/workspace/javascript/JavaScriptCodingWorkspace';
 import { loadLocalJavaScriptQuestionCode } from '~/components/workspace/javascript/JavaScriptCodingWorkspaceCodeStorage';
 
-import SandpackErrorReporting from '../common/sandpack/SandpackErrorReporting';
+import SandpackObservability from '../common/sandpack/SandpackObservability';
 
 type Props = Readonly<{
   canViewPremiumContent: boolean;
@@ -95,7 +95,7 @@ export default function JavaScriptCodingWorkspaceSection({
           workspace={workspace}
           onLanguageChange={onLanguageChange}
         />
-        <SandpackErrorReporting instance={timeoutLoggerInstance} />
+        <SandpackObservability instance={timeoutLoggerInstance} />
       </SandpackProvider>
     </CodingPreferencesProvider>
   );

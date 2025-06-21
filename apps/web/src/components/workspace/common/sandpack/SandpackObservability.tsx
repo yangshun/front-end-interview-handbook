@@ -17,12 +17,13 @@ const pingURL = new URL(
   sandpackProviderOptions.bundlerURL,
 );
 
-async function pingSandpackBundler() {
+async function pingSandpackBundler(instance?: string) {
   try {
     const response = await fetch(pingURL);
     const text = await response.text();
 
     logEvent('sandpack.reachable', {
+      instance,
       namespace: 'workspace',
       url: sandpackProviderOptions.bundlerURL,
       version: text,
@@ -30,6 +31,7 @@ async function pingSandpackBundler() {
   } catch (error) {
     logEvent('sandpack.unreachable', {
       error: getErrorMessage(error),
+      instance,
       namespace: 'workspace',
       url: sandpackProviderOptions.bundlerURL,
     });
@@ -37,9 +39,14 @@ async function pingSandpackBundler() {
   }
 }
 
-export default function SandpackErrorReporting({ instance }: Props) {
+const sandpackStartedEventName = 'sandpack-started';
+const sandpackReadyEventName = 'sandpack-ready';
+
+export default function SandpackObservability({ instance }: Props) {
   const { sandpack } = useSandpack();
   const { status: sandpackStatus } = sandpack;
+  const loadingStartedRef = useRef(false);
+  const readySentRef = useRef(false);
   const pingSentRef = useRef(false);
   const timeoutSentRef = useRef(false);
 
@@ -59,6 +66,35 @@ export default function SandpackErrorReporting({ instance }: Props) {
         namespace: 'workspace',
       });
       timeoutSentRef.current = true;
+    }
+  }, [instance, sandpackStatus]);
+
+  useEffect(() => {
+    if (loadingStartedRef.current) {
+      return;
+    }
+
+    loadingStartedRef.current = true;
+    performance.mark(sandpackStartedEventName);
+  }, []);
+
+  useEffect(() => {
+    if (sandpackStatus === 'running' && !readySentRef.current) {
+      performance.mark(sandpackReadyEventName);
+
+      const sandpackReady = performance.measure(
+        'sandpack-ready',
+        sandpackStartedEventName,
+        sandpackReadyEventName,
+      );
+
+      logEvent('sandpack.running', {
+        duration: Math.floor(sandpackReady.duration),
+        instance,
+        namespace: 'workspace',
+        url: sandpackProviderOptions.bundlerURL,
+      });
+      readySentRef.current = true;
     }
   }, [instance, sandpackStatus]);
 
