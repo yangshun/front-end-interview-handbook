@@ -101,9 +101,7 @@ These tips were shared by [GreatFrontEnd](https://www.greatfrontend.com/?utm_sou
 
 > Hello, folks!
 > Previously, I had an interview with Google for a Front-End role. 
-> The problem I got was DSA-style, just like you guys mentioned (@MichalDev @strongdk @_restart for sharing their experiences.), thanks to this channel, so I did prep for DSA.
-> Now, I’m preparing for a second technical interview. 
-> Has anyone here had a similar interview experience? Should I still expect DSA questions?
+> The problem I got was DSA-style, just like you guys mentioned, thanks to this channel, so I did prep for DSA.
 
 **20th Dec 2024**:
 
