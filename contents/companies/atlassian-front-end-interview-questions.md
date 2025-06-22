@@ -1,6 +1,6 @@
 ---
 title: Atlassian Front End Interview Questions
-sidebar_label: Atlassion interview questions
+sidebar_label: Atlassian interview questions
 ---
 
 ## Insider tips from the GreatFrontEnd community
