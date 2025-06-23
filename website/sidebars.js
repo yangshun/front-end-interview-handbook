@@ -59,6 +59,7 @@ module.exports = {
         'companies/pinterest-front-end-interview-questions',
         'companies/reddit-front-end-interview-questions',
         'companies/salesforce-front-end-interview-questions',
+        'companies/palantir-front-end-interview-questions',
       ],
     },
   ],
