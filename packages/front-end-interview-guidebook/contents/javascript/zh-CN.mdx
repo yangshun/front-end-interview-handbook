@@ -10,8 +10,8 @@ social_title: 破解 JavaScript 编码面试 | 前端面试手册
 
 这些 JavaScript 编码问题往往具有实践性，可以分为以下一个或多个类别：
 
-1. 在 JavaScript 语言中实现标准的内置类或方法。
-2. 实现常用库中常见的实用函数/类。
+1. 在 JavaScript 语言中实现标准的内置类或方法
+2. 实现常用库中常见的实用函数/类
 
 ## 示例
 
@@ -19,15 +19,15 @@ social_title: 破解 JavaScript 编码面试 | 前端面试手册
 
 实现标准类/方法似乎是多余的，因为它们已经是语言的一部分。 然而，浏览器不一致曾经是一个猖獗的问题，并且在旧的浏览器中找不到一些语言 API。 因此，开发人员不得不求助于 polyfilling，即通过在下载的 JavaScript 中实现这些 API 来在不支持它的旧浏览器上提供现代功能。 能够实现这些原生函数也表明对前端基础知识有很好的理解。
 
-* `Array` 方法：[`Array.prototype.map`](/questions/javascript/array-map), [`Array.prototype.reduce`](/questions/javascript/array-reduce), [`Array.prototype.filter`](/questions/javascript/array-filter)。
-* `Promise` 和其他与 `Promise` 相关的函数：[`Promise.all`](/questions/javascript/promise-all), [`Promise.any`](/questions/javascript/promise-any)。
-* DOM 方法：[`document.getElementsByTagName`](/questions/javascript/get-elements-by-tag-name), [`document.getElementsByClassName`](/questions/javascript/get-elements-by-class-name)。
+* **`Array` 方法**: [`Array.prototype.map`](/questions/javascript/array-map), [`Array.prototype.reduce`](/questions/javascript/array-reduce), [`Array.prototype.filter`](/questions/javascript/array-filter)
+* **`Promise` 和其他 `Promise` 相关函数**: [`Promise.all`](/questions/javascript/promise-all), [`Promise.any`](/questions/javascript/promise-any)
+* **DOM 方法**: [`document.getElementsByTagName`](/questions/javascript/get-elements-by-tag-name), [`document.getElementsByClassName`](/questions/javascript/get-elements-by-class-name)
 
 这些函数比看起来的要多。 让我们以无辜的 `Array.prototype.map` 为例。 你知道吗：
 
-1. 它向回调函数传递 4 个参数，包括 `index` 和 `this`？
-2. 它保留稀疏数组中的“空洞”，又名 `[1, 2, , 4].map(val => val * val) === [1, 4, , 16]`。
-3. `map` 处理的元素范围在第一次调用 *callbackfn* 之前设置。 在调用 `map` 开始后添加到数组中的元素将不会被 *callbackfn* 访问。 如果更改了数组的现有元素，则传递给 *callbackfn* 的值将是 `map` 访问它们时的值； 在调用 `map` 开始后但在访问之前删除的元素不会被访问。 来源：[`Array.prototype.map` ECMAScript 规范](https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.map)
+1. 它向回调函数传递 4 个参数，包括 `index` 和 `this`?
+2. 它保留稀疏数组中的“空洞”，即 `[1, 2, , 4].map(val => val * val) === [1, 4, , 16]`
+3. `map` 处理的元素范围在首次调用 *callbackfn* 之前设置。在调用 `map` 开始后添加到数组中的元素将不会被 *callbackfn* 访问。如果更改了数组的现有元素，则它们作为 *callbackfn* 传递的值将是 `map` 访问它们时的值；在调用 `map` 开始后但在访问之前删除的元素不会被访问。 来源：[`Array.prototype.map` ECMAScript 规范](https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.map)
 
 您的实现不必处理所有这些情况，尤其是数组变异情况。 但是，如果您提到了这些情况，这是一个积极的信号。 您的实现越接近规范，您看起来就越资深/经验丰富。
 
@@ -35,11 +35,11 @@ social_title: 破解 JavaScript 编码面试 | 前端面试手册
 
 这些函数/类在用 JavaScript 构建软件时通常是必需的，但（目前）不在标准语言中。
 
-* Lodash/Underscore 函数：[`debounce`](/questions/javascript/debounce), [`throttle`](/questions/javascript/throttle), [`flatten`](/questions/javascript/flatten), [`curry`](/questions/javascript/curry), [`cloneDeep`](/questions/javascript/deep-clone)。
-* jQuery 方法：[`jQuery.css`](/questions/javascript/jquery-css), [`jQuery.toggleClass`](/questions/javascript/jquery-class-manipulation)。
-* 流行库：
+* **Lodash/Underscore 函数**: [`debounce`](/questions/javascript/debounce), [`throttle`](/questions/javascript/throttle), [`flatten`](/questions/javascript/flatten), [`curry`](/questions/javascript/curry), [`cloneDeep`](/questions/javascript/deep-clone)
+* **jQuery 方法**: [`jQuery.css`](/questions/javascript/jquery-css), [`jQuery.toggleClass`](/questions/javascript/jquery-class-manipulation)
+* **常用库**:
   * [`classnames`](/questions/javascript/classnames)
-  * 来自测试框架（如 [Jest](https://jestjs.io/) / [Mocha](https://mochajs.org/)）的 `test`/`expect` 函数
+  * 来自测试框架（如 [Jest](https://jestjs.io/)/[Mocha](https://mochajs.org/)/[Vitest](https://vitest.dev/)）的 `test`/`expect` 函数
   * [`Emitter`](/questions/javascript/event-emitter)（作为 Node.js 和许多第三方库的一部分存在）
   * [Immutable.js](https://immutable-js.com/)
   * [Backbone.js](https://backbonejs.org/)
@@ -50,22 +50,22 @@ social_title: 破解 JavaScript 编码面试 | 前端面试手册
 
 JavaScript 编码面试与算法编码面试有很多相似之处。总的来说，你应该：
 
-1. 找出你正在使用的平台，并熟悉编码环境：
-   * 支持的编辑器快捷键。
-   * 你是否可以执行代码。
-   * 你是否可以安装第三方依赖项。
-2. 在一分钟内做自我介绍。除非被要求，否则不要超过这个时间，否则你可能没有足够的时间来编码。
-3. 收到问题后，提出澄清问题。澄清以下内容：
-   * 你可以使用较新的 JavaScript 语法（ES2016 及以后版本）吗？
-   * 代码是打算在浏览器中运行还是在服务器上运行（例如 Node.js）。
-   * 浏览器支持，因为这将影响你可以使用的浏览器 API。
-4. 向面试官提出解决方案。与编码面试不同，JavaScript 编码面试的重点通常不在于复杂的数据结构和算法。你很有可能可以直接跳到具有最佳数据结构和算法选择的最优解决方案。
-5. 编写你的解决方案，并在编码时向面试官解释你的代码。
-6. 编码后，通读你的代码一次，并尝试发现基本错误，例如拼写错误、在使用变量之前初始化它们、不正确地使用 API 等。
-7. 概述一些基本测试用例和一些边缘情况。使用这些用例测试你的代码，并确定你的代码是否通过了它们。如果失败，请调试问题并修复它们。
+1. 找出您正在使用的平台，并熟悉编码环境：
+   * 支持的编辑器快捷方式
+   * 您是否可以执行代码
+   * 您是否可以安装第三方依赖项
+2. 在一分钟内进行自我介绍。 除非有要求，否则不要超过此时间，否则您可能没有足够的时间来编写代码。
+3. 收到问题后，提出澄清问题。 澄清以下内容：
+   * 您可以使用较新的 JavaScript 语法（ES2016 及更高版本）吗？
+   * 代码是打算在浏览器中运行还是在服务器上运行（例如 Node.js）
+   * 浏览器支持，因为这会影响您可以使用的浏览器 API
+4. 向面试官提出解决方案。 与编码面试不同，JavaScript 编码面试的重点通常不在于复杂的数据结构和算法。 您可以并且很可能可以直接跳到具有最佳数据结构和算法选择的最佳解决方案。
+5. 编写您的解决方案，并在您编写代码时向面试官解释您的代码。
+6. 编码后，通读您的代码一次，并尝试发现基本错误，例如拼写错误、在使用变量之前初始化它们、不正确地使用 API 等。
+7. 概述一些基本测试用例和一些边缘情况。 使用这些用例测试您的代码，并确定您的代码是否通过了它们。 如果失败，请调试问题并修复它们。
 8. 可选：如果代码涉及算法优化和智能数据结构选择，请解释时间和空间复杂度。
-9. 解释你所做的任何权衡、你明确没有处理的案例，以及如果你有更多时间，你将如何改进代码。
-10. 面试可能不会在这里结束，面试官可能会就这个问题向你提出后续问题或给你另一个问题。为他们做好准备。
+9. 解释您所做的任何权衡、您明确未处理的案例以及如果您有更多时间将如何改进代码。
+10. 面试可能不会在这里结束，面试官可能会就此问题向您提出后续问题或给您另一个问题。 为他们做好准备。
 
 ## 如何准备 JavaScript 编码面试
 
@@ -82,26 +82,26 @@ JavaScript 编码面试与算法编码面试有很多相似之处。总的来说
 | DOM | DOM 遍历、DOM 创建、DOM 操作、访问元素/节点属性、事件委托 |
 | 运行时 API | 计时器 (`setTimeout()`、`setInterval()`) |
 
-## JavaScript 编码面试评分标准
+## 评估轴
 
 JavaScript 编码面试类似于算法编码面试，进行面试的方式也应该类似。当然，在候选人在 JavaScript 编码面试中如何被评估方面，将与算法编码面试有一些重叠。
 
-* **问题解决**：使用系统和逻辑的方法来理解和解决问题。将问题分解为较小的独立问题。评估不同的方法及其权衡。
-* **软件工程基础**：熟悉数据结构、算法、运行时复杂度分析、设计模式的使用、使用干净的抽象设计解决方案。
-* **领域专业知识**：了解前端领域和相关语言：浏览器（DOM 和 DOM API）、HTML、CSS、JavaScript、性能。
-* **沟通**：提问以澄清细节，并清楚地解释自己的方法和考虑因素。
-* **验证**：确定各种场景以测试代码，包括边缘情况。能够诊断和修复出现的任何问题。
+* **解决问题**：使用系统和逻辑方法来理解和解决问题。 将问题分解为较小的独立问题。 评估不同的方法及其权衡
+* **软件工程基础**：熟悉数据结构、算法、运行时复杂度分析、设计模式的使用、使用干净的抽象设计解决方案
+* **领域专业知识**：了解前端领域和相关语言：浏览器（DOM 和 DOM API）、HTML、CSS、JavaScript、性能
+* **沟通**：提问以澄清细节，并清楚地解释自己的方法和考虑因素
+* **验证**：确定各种场景以测试代码，包括边缘情况。 能够诊断和修复出现的任何问题
 
 ## 有用的提示
 
-* **一厢情愿**。 JavaScript 的标准库没有一些有用的数据结构和算法，如队列、堆、二分查找，这可以使你在 JavaScript 编码面试中更轻松。但是，你可以询问面试官是否可以假装存在这样的数据结构/算法，并在你的解决方案中直接使用它，而无需实现它。
-* **纯函数**。 旨在编写纯函数，这些函数具有可重用性和模块化的好处，即不依赖于函数外部的状态且不会引起副作用的函数。
-* **明智地选择数据结构。** 注意你对数据结构的选择，并注意代码的时间复杂度。 熟悉基本 JavaScript 数组、对象、集合、映射操作的时间/空间复杂度，以防你希望在你的解决方案中使用它们。 其中一些时间/空间复杂度因语言而异。 如果可以使用哈希映射在 O(n) 运行时完成，则不要编写以 O(n<sup>2</sup>) 运行的代码。
-* **`this`很重要**。 如果一个函数接受一个回调函数作为参数，请考虑 `this` 变量应该如何表现。 对于许多内置函数，`this` 作为回调函数被调用的参数之一提供。
-* **回调函数中的突变。** 谨防回调函数改变其操作的数据结构。 你可能不需要在面试期间处理这种情况，但如果相关，你应该明确提及此类情况。
-* **递归边缘情况**。
-  * 如果你已经确定解决这个问题需要递归，请询问输入大小以及如何处理递归堆栈溢出的情况。 通常你不需要处理它，但提出这个问题是一个好信号。
-  * 嵌套的深层数据结构可能具有对自身的递归引用，这使得某些操作（如序列化）更加棘手。 询问面试官你是否必须处理此类情况。 通常你不需要处理它，但提出这个问题是一个好信号。
+* **一厢情愿**：JavaScript 的标准库没有一些有用的数据结构和算法，如队列、堆、二分查找，这可以在 JavaScript 编码面试期间让您的生活更轻松。 但是，您可以询问面试官是否可以假装存在这样的数据结构/算法，并在您的解决方案中直接使用它，而无需实现它。
+* **纯函数**：旨在编写纯函数，这些函数具有可重用性和模块化的好处，又名不依赖于函数外部状态且不会引起副作用的函数。
+* **明智地选择数据结构。** 注意您选择的数据结构，并注意代码的时间复杂度。 熟悉基本 JavaScript 数组、对象、集合、映射操作的时间/空间复杂度，如果您想在您的解决方案中使用它们。 其中一些时间/空间复杂度因语言而异。 如果可以使用哈希映射在 O(n) 运行时完成，请不要编写以 O(n<sup>2</sup>) 运行的代码。
+* **`this`很重要**：如果一个函数接受一个回调函数作为参数，请考虑 `this` 变量应该如何表现。 对于许多内置函数，`this` 作为回调函数被调用的参数之一提供。
+* **回调函数中的突变。** 谨防回调函数改变其操作的数据结构。 您可能不需要在面试期间处理这种情况，但如果相关，您应该明确提及此类情况。
+* **递归边缘情况**：
+  * **澄清输入大小**：如果您已确定解决问题需要递归，请询问输入大小以及如何处理递归堆栈溢出的情况。 通常您不必处理它，但提出这个问题表明了深思熟虑。
+  * **循环结构**：嵌套的深层数据结构可以对自身进行递归引用，这使得某些操作（如序列化和遍历）更加棘手。 询问面试官您是否必须处理此类情况。 通常您不必处理它，但提出这个问题表明了深思熟虑。
 
 ## 最佳实践问题
 
