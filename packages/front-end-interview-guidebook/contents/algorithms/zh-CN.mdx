@@ -18,9 +18,9 @@ social_title: 破解数据结构与算法 | 前端面试手册
 
 ## 示例
 
-* 反转链表。
-* 确定字符串是否包含平衡括号。
-* 确定字符串中有多少个子字符串是回文。
+* 反转链表
+* 确定一个字符串是否包含平衡括号
+* 确定一个字符串中有多少个子字符串是回文
 
 ## 如何准备
 
@@ -48,77 +48,77 @@ social_title: 破解数据结构与算法 | 前端面试手册
 
 ### `Array`
 
-| Operation                   | Time complexity |
-| --------------------------- | --------------- |
-| `Array.prototype.concat()`  | O(m + n)        |
-| `Array.prototype.every()`   | O(n)            |
-| `Array.prototype.fill()`    | O(n)            |
-| `Array.prototype.filter()`  | O(n)            |
-| `Array.prototype.find()`    | O(n)            |
-| `Array.prototype.pop()`     | O(1)            |
-| `Array.prototype.push()`    | O(1)            |
-| `Array.prototype.reduce()`  | O(n)            |
-| `Array.prototype.reverse()` | O(n)            |
-| `Array.prototype.shift()`   | O(n)            |
-| `Array.prototype.slice()`   | O(n)            |
-| `Array.prototype.some()`    | O(n)            |
-| `Array.prototype.sort()`  | O(nlgn)         |
-| `Array.prototype.splice()`  | O(n)            |
-| `Array.prototype.unshift()` | O(m + n)        |
+数组操作及其时间复杂度：
+
+* `Array.prototype.concat()`: O(m + n)
+* `Array.prototype.every()`: O(n)
+* `Array.prototype.fill()`: O(n)
+* `Array.prototype.filter()`: O(n)
+* `Array.prototype.find()`: O(n)
+* `Array.prototype.pop()`: O(1)
+* `Array.prototype.push()`: O(1)
+* `Array.prototype.reduce()`: O(n)
+* `Array.prototype.reverse()`: O(n)
+* `Array.prototype.shift()`: O(n)
+* `Array.prototype.slice()`: O(n)
+* `Array.prototype.some()`: O(n)
+* `Array.prototype.sort()`: O(nlgn)
+* `Array.prototype.splice()`: O(n)
+* `Array.prototype.unshift()`: O(m + n)
 
 <sup>\*</sup> `n` 是数组中的元素数量，`m` 是要添加的元素数量。
 
 ### `Map`
 
-| Operation | Time complexity |
-| --- | --- |
-| `Map.prototype.clear()` | O(n) |
-| `Map.prototype.delete()` | O(1) |
-| `Map.prototype.entries()` | O(1) 因为它返回一个迭代器。获取所有条目将花费 O(n) 时间。 |
-| `Map.prototype.forEach()` | O(n) |
-| `Map.prototype.get()` | O(1) |
-| `Map.prototype.has()` | O(1) |
-| `Map.prototype.keys()` | O(1) 因为它返回一个迭代器。获取所有键将花费 O(n) 时间。 |
-| `Map.prototype.set()` | O(1) |
-| `Map.prototype.values()` | O(1) 因为它返回一个迭代器。获取所有值将花费 O(n) 时间。 |
+Map 操作及其时间复杂度：
+
+* `Map.prototype.clear()`: O(n)
+* `Map.prototype.delete()`: O(1)
+* `Map.prototype.entries()`: O(1) 因为它返回一个迭代器。获取所有条目将花费 O(n) 时间
+* `Map.prototype.forEach()`: O(n)
+* `Map.prototype.get()`: O(1)
+* `Map.prototype.has()`: O(1)
+* `Map.prototype.keys()`: O(1) 因为它返回一个迭代器。获取所有键将花费 O(n) 时间
+* `Map.prototype.set()`: O(1)
+* `Map.prototype.values()`: O(1) 因为它返回一个迭代器。获取所有值将花费 O(n) 时间
 
 <sup>\*</sup> `n` 是 map 中的键的数量。
 
 ### `Set`
 
-| Operation | Time complexity |
-| --- | --- |
-| `Set.prototype.add()` | O(1) |
-| `Set.prototype.clear()` | O(n) |
-| `Set.prototype.delete()` | O(1) |
-| `Set.prototype.entries()` | O(1) 因为它返回一个迭代器。获取所有条目将花费 O(n) 时间。 |
-| `Set.prototype.forEach()` | O(n) |
-| `Set.prototype.has()` | O(1) |
-| `Set.prototype.keys()` | O(1) 因为它返回一个迭代器。获取所有键将花费 O(n) 时间。 |
-| `Set.prototype.values()` | O(1) 因为它返回一个迭代器。获取所有值将花费 O(n) 时间。 |
+Set 操作及其时间复杂度：
+
+* `Set.prototype.add()`: O(1)
+* `Set.prototype.clear()`: O(n)
+* `Set.prototype.delete()`: O(1)
+* `Set.prototype.entries()`: O(1) 因为它返回一个迭代器。获取所有条目将花费 O(n) 时间
+* `Set.prototype.forEach()`: O(n)
+* `Set.prototype.has()`: O(1)
+* `Set.prototype.keys()`: O(1) 因为它返回一个迭代器。获取所有键将花费 O(n) 时间
+* `Set.prototype.values()`: O(1) 因为它返回一个迭代器。获取所有值将花费 O(n) 时间
 
 <sup>\*</sup> `n` 是集合中的元素数量。
 
-## 算法编码面试标准
+## 评估标准
 
 在算法编码面试中，面试官会根据以下技能评估候选人：
 
-* **解决问题**：使用系统和逻辑的方法来理解和解决问题。将问题分解为更小的独立问题。评估不同的方法及其权衡。
-* **技术能力**：将解决方案转化为可运行的代码，并展示对所用语言的深刻理解。
-* **沟通**：提问以澄清细节，并清楚地解释自己的方法和考虑因素。
-* **验证**：确定各种场景来测试代码，包括边缘情况。能够诊断和修复出现的任何问题。
+* **解决问题**：使用系统和逻辑方法来理解和解决问题。将问题分解为更小的独立问题。评估不同的方法及其权衡
+* **技术能力**：将解决方案转化为可运行的代码，并展示对所用语言的深刻理解
+* **沟通**：提问以澄清细节，并清楚地解释自己的方法和考虑因素
+* **验证**：确定各种场景来测试代码，包括边缘情况。能够诊断和修复出现的任何问题
 
 ## 有用的提示
 
-* **一厢情愿**。JavaScript 的标准库没有一些有用的数据结构和算法，如队列、堆、二分查找，这可以在 JavaScript 编码面试中让你的生活更轻松。但是，你可以问面试官是否可以假装存在这样的数据结构/算法，并在你的解决方案中直接使用它，而无需实现它。
-* **纯函数**。 旨在编写纯函数，这些函数具有可重用性和模块化的好处，也就是不依赖于函数之外的状态且不会引起副作用的函数。
-* **明智地选择数据结构。** 注意你对数据结构的选择，并注意代码的时间复杂度。 熟悉基本的 JavaScript Array、Object、Set、Map 操作的时间/空间复杂度，以备你希望在你的解决方案中使用它们。 某些时间/空间复杂度在不同语言之间有所不同。 如果可以使用哈希映射在 O(n) 运行时内完成，请不要编写以 O(n<sup>2</sup>) 运行的代码。
-* **递归边缘情况**。
-  * 如果你已经确定解决问题需要递归，请询问输入大小以及如何处理递归堆栈溢出的情况。 通常你不需要处理它，但提出这个问题是一个好信号。
-  * 嵌套的深层数据结构可以对自身进行递归引用，这使得某些操作（如序列化）更加棘手。 询问面试官是否必须处理此类情况。 通常你不需要处理它，但提出这个问题是一个好信号。
+* **一厢情愿**：JavaScript 的标准库没有一些有用的数据结构和算法，如队列、堆、二分查找，这可以在 JavaScript 编码面试中让你的生活更轻松。但是，你可以询问面试官是否可以假装存在这样的数据结构/算法，并在你的解决方案中直接使用它，而无需实现它。
+* **纯函数**：旨在编写纯函数，这些函数具有可重用性和模块化的好处，也就是不依赖于函数之外的状态且不会引起副作用的函数。
+* **明智地选择数据结构**：注意你对数据结构的选择，并了解代码的时间复杂度。熟悉基本的 JavaScript Array、Object、Set、Map 操作的时间/空间复杂度，以备你希望在你的解决方案中使用它们。其中一些时间/空间复杂度因语言而异。如果使用哈希映射可以在 O(n) 运行时完成，请不要编写以 O(n<sup>2</sup>) 运行的代码。
+* **递归边缘情况**：
+  * **澄清输入大小**：如果你已经确定解决问题需要递归，请询问输入大小以及如何处理递归堆栈溢出的情况。通常你不需要处理它，但提出这个问题表明你很周到。
+  * **循环结构**：嵌套的深层数据结构可以对自身进行递归引用，这使得某些操作（如序列化和遍历）更加棘手。询问面试官你是否必须处理此类情况。通常你不需要处理它，但提出这个问题表明你很周到。
 
 ## 练习题
 
-Blind 75 是 Yangshun Tay 编写的著名且简洁的算法问题列表。你可以在 [GreatFrontEnd 上的 Blind 75 问题列表](/interviews/blind75) 中练习。
+Blind 75 是由 [Yangshun Tay](https://www.linkedin.com/in/yangshun/) 策划的著名且简洁的算法问题列表。你可以在 [GreatFrontEnd](/interviews/blind75) 上练习 [Blind 75 问题列表]。
 
 GreatFrontEnd 还提供了一些 [数据结构和算法的通用练习题](/questions/formats/algo-coding)，你可以在其中练习用 JavaScript 实现常见的数据结构（[Stack](/questions/algo/stack)、[Queue](/questions/algo/queue)）和算法（[二分查找](/questions/algo/binary-search)、[归并排序](/questions/algo/merge-sort)）等。
