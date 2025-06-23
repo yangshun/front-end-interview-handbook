@@ -130,7 +130,14 @@ export default async function logEvent(
   }
 
   try {
-    navigator.sendBeacon('/api/logging/events', body);
+    await fetch('/api/logging/events', {
+      body,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      keepalive: true,
+      method: 'POST',
+    });
   } catch (error) {
     console.error(error);
   }
