@@ -18,9 +18,9 @@ There are a ton of resources out there that cover algorithmic coding interviews 
 
 ## Examples
 
-- Reverse a linked list.
-- Determine if a string contains balanced brackets.
-- Determine how many substrings in a string are palindromes.
+- Reverse a linked list
+- Determine if a string contains balanced brackets
+- Determine how many substrings in a string are palindromes
 
 ## How to prepare
 
@@ -48,78 +48,78 @@ Be aware of the common JavaScript operations and their time complexities.
 
 ### `Array`
 
-| Operation                   | Time complexity |
-| --------------------------- | --------------- |
-| `Array.prototype.concat()`  | O(m + n)        |
-| `Array.prototype.every()`   | O(n)            |
-| `Array.prototype.fill()`    | O(n)            |
-| `Array.prototype.filter()`  | O(n)            |
-| `Array.prototype.find()`    | O(n)            |
-| `Array.prototype.pop()`     | O(1)            |
-| `Array.prototype.push()`    | O(1)            |
-| `Array.prototype.reduce()`  | O(n)            |
-| `Array.prototype.reverse()` | O(n)            |
-| `Array.prototype.shift()`   | O(n)            |
-| `Array.prototype.slice()`   | O(n)            |
-| `Array.prototype.some()`    | O(n)            |
-| `Array.prototype.sort()`    | O(nlgn)         |
-| `Array.prototype.splice()`  | O(n)            |
-| `Array.prototype.unshift()` | O(m + n)        |
+Array operations and their time complexity:
+
+- `Array.prototype.concat()`: O(m + n)
+- `Array.prototype.every()`: O(n)
+- `Array.prototype.fill()`: O(n)
+- `Array.prototype.filter()`: O(n)
+- `Array.prototype.find()`: O(n)
+- `Array.prototype.pop()`: O(1)
+- `Array.prototype.push()`: O(1)
+- `Array.prototype.reduce()`: O(n)
+- `Array.prototype.reverse()`: O(n)
+- `Array.prototype.shift()`: O(n)
+- `Array.prototype.slice()`: O(n)
+- `Array.prototype.some()`: O(n)
+- `Array.prototype.sort()`: O(nlgn)
+- `Array.prototype.splice()`: O(n)
+- `Array.prototype.unshift()`: O(m + n)
 
 <sup>*</sup> `n` is the number of elements in the array and `m` is the number of
 elements to be added.
 
 ### `Map`
 
-| Operation | Time complexity |
-| --- | --- |
-| `Map.prototype.clear()` | O(n) |
-| `Map.prototype.delete()` | O(1) |
-| `Map.prototype.entries()` | O(1) because it returns an iterator. Getting all the entries will take O(n) time. |
-| `Map.prototype.forEach()` | O(n) |
-| `Map.prototype.get()` | O(1) |
-| `Map.prototype.has()` | O(1) |
-| `Map.prototype.keys()` | O(1) because it returns an iterator. Getting all the keys will take O(n) time. |
-| `Map.prototype.set()` | O(1) |
-| `Map.prototype.values()` | O(1) because it returns an iterator. Getting all the values will take O(n) time. |
+Map operations and their time complexity:
+
+- `Map.prototype.clear()`: O(n)
+- `Map.prototype.delete()`: O(1)
+- `Map.prototype.entries()`: O(1) because it returns an iterator. Getting all the entries will take O(n) time
+- `Map.prototype.forEach()`: O(n)
+- `Map.prototype.get()`: O(1)
+- `Map.prototype.has()`: O(1)
+- `Map.prototype.keys()`: O(1) because it returns an iterator. Getting all the keys will take O(n) time
+- `Map.prototype.set()`: O(1)
+- `Map.prototype.values()`: O(1) because it returns an iterator. Getting all the values will take O(n) time
 
 <sup>*</sup> `n` is the number of keys in the map.
 
 ### `Set`
 
-| Operation | Time complexity |
-| --- | --- |
-| `Set.prototype.add()` | O(1) |
-| `Set.prototype.clear()` | O(n) |
-| `Set.prototype.delete()` | O(1) |
-| `Set.prototype.entries()` | O(1) because it returns an iterator. Getting all the entries will take O(n) time. |
-| `Set.prototype.forEach()` | O(n) |
-| `Set.prototype.has()` | O(1) |
-| `Set.prototype.keys()` | O(1) because it returns an iterator. Getting all the keys will take O(n) time. |
-| `Set.prototype.values()` | O(1) because it returns an iterator. Getting all the values will take O(n) time. |
+Set operations and their time complexity:
+
+- `Set.prototype.add()`: O(1)
+- `Set.prototype.clear()`: O(n)
+- `Set.prototype.delete()`: O(1)
+- `Set.prototype.entries()`: O(1) because it returns an iterator. Getting all the entries will take O(n) time
+- `Set.prototype.forEach()`: O(n)
+- `Set.prototype.has()`: O(1)
+- `Set.prototype.keys()`: O(1) because it returns an iterator. Getting all the keys will take O(n) time
+- `Set.prototype.values()`: O(1) because it returns an iterator. Getting all the values will take O(n) time
 
 <sup>*</sup> `n` is the number of elements in the set.
 
-## Algorithmic coding interview rubrics
+## Evaluation axes
 
 During algorithmic coding interviews, interviewers are evaluating candidates on the following skills:
 
-- **Problem solving**: Use a systematic and logical approach to understanding and addressing a problem. Break down the problem into smaller independent problems. Evaluate different approaches and their tradeoffs.
-- **Technical competence**: Ability to translate solutions into working code and demonstrating a strong understanding of the language being used.
-- **Communication**: Ask questions to clarify details and clearly explain one's approach and considerations.
-- **Verification**: Identify various scenarios to test the code against, including edge cases. Be able to diagnose and fix any issues that arise.
+- **Problem solving**: Use a systematic and logical approach to understanding and addressing a problem. Break down the problem into smaller independent problems. Evaluate different approaches and their tradeoffs
+- **Technical competence**: Ability to translate solutions into working code and demonstrating a strong understanding of the language being used
+- **Communication**: Ask questions to clarify details and clearly explain one's approach and considerations
+- **Verification**: Identify various scenarios to test the code against, including edge cases. Be able to diagnose and fix any issues that arise
 
 ## Useful tips
 
-- **Wishful thinking**. JavaScript's standard library doesn't have some useful data structures and algorithms like queue, heap, binary search, which can make your life easier during JavaScript coding interviews. However, you can ask the interviewer if you can pretend such a data structure/algorithm exists and use it directly in your solution without implementing it.
-- **Pure functions**. Aim to write pure functions which have the benefit of reusability and modularity, aka functions which don't rely on state outside of the function and doesn't cause side effects.
-- **Choose data structures wisely.** Pay attention to your choice of data structures and be aware of the time complexities of the code. Be familiar with the time/space complexities of the basic JavaScript Array, Object, Set, Map operations should you want to use them in your solution. Some of these time/space complexities differ across languages. Don't write code that runs in O(n<sup>2</sup>) if it can accomplished in O(n) runtime with the use of hash maps.
-- **Recursion edge cases**.
-  - If you have identified that solving the question requires recursion, ask about the input size and how to handle the case of recursion stack overflow. Usually you won't have to handle it but raising this issue is a good signal.
-  - Nested deep data structures can have recursive references to itself, which makes certain operations like serialization much trickier. Ask the interviewer if you have to handle such cases. Usually you won't have to handle it but raising this issue is a good signal.
+- **Wishful thinking**: JavaScript's standard library doesn't have some useful data structures and algorithms like queue, heap, binary search, which can make your life easier during JavaScript coding interviews. However, you can ask the interviewer if you can pretend such a data structure/algorithm exists and use it directly in your solution without implementing it.
+- **Pure functions**: Aim to write pure functions which have the benefit of reusability and modularity, aka functions which don't rely on state outside of the function and doesn't cause side effects.
+- **Choose data structures wisely**: Pay attention to your choice of data structures and be aware of the time complexities of the code. Be familiar with the time/space complexities of the basic JavaScript Array, Object, Set, Map operations should you want to use them in your solution. Some of these time/space complexities differ across languages. Don't write code that runs in O(n<sup>2</sup>) if it can accomplished in O(n) runtime with the use of hash maps.
+- **Recursion edge cases**:
+  - **Clarifying input size**: If you have identified that solving the question requires recursion, ask about the input size and how to handle the case of recursion stack overflow. Usually you won't have to handle it but raising this issue demonstrates thoughtfulness.
+  - **Cyclic structures**: Nested deep data structures can have recursive references to itself, which makes certain operations like serialization and traversal more tricky. Ask the interviewer if you have to handle such cases. Usually you won't have to handle it but raising this issue demonstrates thoughtfulness.
 
 ## Practice questions
 
-Blind 75 is a famous and concise list of algorithm questions by Yangshun Tay. You can practice the [Blind 75 question list on GreatFrontEnd](/interviews/blind75).
+Blind 75 is a famous and concise list of algorithm questions curated by [Yangshun Tay](https://www.linkedin.com/in/yangshun/). You can practice the [Blind 75 question list on GreatFrontEnd](/interviews/blind75).
 
 GreatFrontEnd also provides some [general practice questions for Data Structures and Algorithms](/questions/formats/algo-coding) where you can practice implementing common data structures ([Stack](/questions/algo/stack), [Queue](/questions/algo/queue)) and algorithms ([Binary Search](/questions/algo/binary-search), [Merge Sort](/questions/algo/merge-sort)), etc in JavaScript.
