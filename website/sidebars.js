@@ -56,6 +56,7 @@ module.exports = {
         'companies/lyft-front-end-interview-questions',
         'companies/twitter-front-end-interview-questions',
         'companies/salesforce-front-end-interview-questions',
+        'companies/palantir-front-end-interview-questions',
       ],
     },
   ],
