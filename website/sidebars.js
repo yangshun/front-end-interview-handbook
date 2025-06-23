@@ -62,6 +62,7 @@ module.exports = {
         'companies/adobe-front-end-interview-questions',
         'companies/palantir-front-end-interview-questions',
         'companies/salesforce-front-end-interview-questions',
+        'companies/oracle-front-end-interview-questions',
       ],
     },
   ],
