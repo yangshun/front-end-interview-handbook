@@ -17,12 +17,16 @@ type Props = Readonly<{
   listType: React.ComponentProps<
     typeof InterviewsQuestionsCategoryPage
   >['listType'];
+  questionCompletionCount: React.ComponentProps<
+    typeof InterviewsQuestionsCategoryPage
+  >['questionCompletionCount'];
   questions: ReadonlyArray<QuestionMetadata>;
 }>;
 
 export default function InterviewsQuestionsCategoryPreparePage({
   bottomContent,
   listType,
+  questionCompletionCount,
   questions,
 }: Props) {
   const intl = useIntl();
@@ -70,6 +74,7 @@ export default function InterviewsQuestionsCategoryPreparePage({
             questionCount: QuestionCountTotal,
           },
         )}
+        questionCompletionCount={questionCompletionCount}
         questionList={questions}
         searchPlaceholder={intl.formatMessage({
           defaultMessage: 'Search within this list of questions',

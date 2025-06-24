@@ -33,7 +33,7 @@ type Props = Readonly<{
     typeof QuestionsUnifiedListWithFiltersAndProgress
   >['listType'];
   longDescription?: ReactNode;
-  questionCompletionCount?: QuestionCompletionCount;
+  questionCompletionCount: QuestionCompletionCount;
   questionList: ReadonlyArray<QuestionMetadata>;
   searchPlaceholder: string;
   title: string;

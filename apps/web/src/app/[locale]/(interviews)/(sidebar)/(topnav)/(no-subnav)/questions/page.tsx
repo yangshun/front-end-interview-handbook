@@ -5,6 +5,7 @@ import InterviewsQuestionsCategoryPreparePage from '~/components/interviews/ques
 import { QuestionCountTotal } from '~/components/interviews/questions/listings/stats/QuestionCount';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
+import { fetchQuestionsCompletionCount } from '~/db/QuestionsCount';
 import { fetchQuestionsList } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -63,8 +64,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { locale } = params;
 
-  const [{ questions: codingQuestions }, bottomContent] = await Promise.all([
+  const [
+    { questions: codingQuestions },
+    questionCompletionCount,
+    bottomContent,
+  ] = await Promise.all([
     fetchQuestionsList(listType, locale),
+    fetchQuestionsCompletionCount(['algo', 'javascript', 'user-interface']),
     fetchInterviewListingBottomContent('questions-coding'),
   ]);
 
@@ -72,6 +78,7 @@ export default async function Page({ params }: Props) {
     <InterviewsQuestionsCategoryPreparePage
       bottomContent={bottomContent}
       listType={listType}
+      questionCompletionCount={questionCompletionCount}
       questions={codingQuestions}
     />
   );

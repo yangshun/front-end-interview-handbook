@@ -4,6 +4,7 @@ import type { QuestionListTypeData } from '~/components/interviews/questions/com
 import InterviewsQuestionsCategoryPreparePage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryPreparePage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
+import { fetchQuestionsCompletionCount } from '~/db/QuestionsCount';
 import { fetchQuestionsList } from '~/db/QuestionsListReader';
 import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
@@ -69,16 +70,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { locale } = params;
 
-  const [{ questions: systemDesignQuestions }, bottomContent] =
-    await Promise.all([
-      fetchQuestionsList(listType, locale),
-      fetchInterviewListingBottomContent('questions-system-design'),
-    ]);
+  const [
+    { questions: systemDesignQuestions },
+    questionCompletionCount,
+    bottomContent,
+  ] = await Promise.all([
+    fetchQuestionsList(listType, locale),
+    fetchQuestionsCompletionCount(['system-design']),
+    fetchInterviewListingBottomContent('questions-system-design'),
+  ]);
 
   return (
     <InterviewsQuestionsCategoryPreparePage
       bottomContent={bottomContent}
       listType={listType}
+      questionCompletionCount={questionCompletionCount}
       questions={systemDesignQuestions}
     />
   );
