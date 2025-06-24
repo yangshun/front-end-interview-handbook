@@ -56,24 +56,53 @@ type Props = Readonly<
 
 const monacoPingURL = monacoUrl() + '/loader.js';
 
-async function pingMonacoEditorLoader() {
-  try {
-    const response = await fetch(monacoPingURL);
-    const text = await response.text();
+function usePingMonacoEditorLoader() {
+  const isUnloadingRef = useRef(false);
 
-    logEvent('monaco.reachable', {
-      namespace: 'workspace',
-      url: monacoPingURL,
-      version: /Version: (.*)\n/.exec(text)?.[1],
-    });
-  } catch (error) {
-    logEvent('monaco.unreachable', {
-      error: getErrorMessage(error),
-      namespace: 'workspace',
-      url: monacoPingURL,
-    });
-    console.error(getErrorMessage(error));
-  }
+  useEffect(() => {
+    if (pingSent) {
+      return;
+    }
+
+    function handleBeforeUnload() {
+      isUnloadingRef.current = true;
+    }
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+
+    async function pingMonacoEditorLoader() {
+      if (isUnloadingRef.current) {
+        return;
+      }
+
+      pingSent = true;
+
+      try {
+        const response = await fetch(monacoPingURL);
+        const text = await response.text();
+
+        logEvent('monaco.reachable', {
+          namespace: 'workspace',
+          url: monacoPingURL,
+          version: /Version: (.*)\n/.exec(text)?.[1],
+        });
+      } catch (error) {
+        logEvent('monaco.unreachable', {
+          error: getErrorMessage(error),
+          namespace: 'workspace',
+          stack: error instanceof Error ? error.stack : null,
+          url: monacoPingURL,
+        });
+        console.error(getErrorMessage(error));
+      }
+    }
+
+    pingMonacoEditorLoader();
+
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, []);
 }
 
 // Module-level, just need to load once per user.
@@ -99,14 +128,7 @@ export default function MonacoCodeEditor({
   const editorContainerRef = useRef<HTMLDivElement | null>(null);
   const themeKey = useMonacoEditorTheme();
 
-  useEffect(() => {
-    if (pingSent) {
-      return;
-    }
-
-    pingSent = true;
-    pingMonacoEditorLoader();
-  }, []);
+  usePingMonacoEditorLoader();
 
   const languageExt = getLanguageFromFilePath(filePath);
 
