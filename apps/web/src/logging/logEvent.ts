@@ -111,7 +111,10 @@ export default async function logEvent(
   const body = JSON.stringify({
     clientSHA: process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA ?? '',
     connection: {
-      type: connection?.effectiveType,
+      downlink: connection?.downlink,
+      effective_type: connection?.effectiveType,
+      rtt: connection?.rtt,
+      type: connection?.type,
     },
     name: action,
     pathname: window.location.pathname,
