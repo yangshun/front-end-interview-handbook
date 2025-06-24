@@ -1371,10 +1371,6 @@
     "defaultMessage": "For a profile URL like <bold>https://github.com/john-doe</bold>, your handle would be <bold>john-doe</bold>.",
     "description": "Rewards campaign help text"
   },
-  "4P9bN0": {
-    "defaultMessage": "Pay once, get full access to the interviews platform forever",
-    "description": "Subtitle of LifeTime Access Pricing Plan found on Homepage or Pricing page"
-  },
   "4PQzx7": {
     "defaultMessage": "A starter guide to preparing for front end interviews",
     "description": "Description for front end interview guide"
@@ -2610,10 +2606,6 @@
   "ANSxyW": {
     "defaultMessage": "Low",
     "description": "Low importance question"
-  },
-  "ANnHJ7": {
-    "defaultMessage": "Exclusive private Discord channel with real-time support from the team",
-    "description": "Feature of annual pricing plan"
   },
   "AQTvh2": {
     "defaultMessage": "Run test cases (customizable)",
@@ -6351,6 +6343,10 @@
     "defaultMessage": "Loading",
     "description": "Loading"
   },
+  "RpN6IH": {
+    "defaultMessage": "Join our exclusive private Discord channel with real-time support and a helpful community",
+    "description": "Feature of annual pricing plan"
+  },
   "Rr7G89": {
     "defaultMessage": "Join our Discord community for GreatFrontEnd Projects",
     "description": "Button subtitle for joining Discord commmunity on projects payment success page"
@@ -7606,6 +7602,10 @@
   "XOtMNQ": {
     "defaultMessage": "Contribution type",
     "description": "Label for contribution type filter for contribution list"
+  },
+  "XRHlQd": {
+    "defaultMessage": "Offer ending soon",
+    "description": "Label to indicate offer is a limited time deal"
   },
   "XTQvzh": {
     "defaultMessage": "Subscribe to our newsletter",
@@ -12275,10 +12275,6 @@
     "defaultMessage": "Starter",
     "description": "Starter blog"
   },
-  "tV+VAr": {
-    "defaultMessage": "{questionCount}+ Front End Interview Practice Questions",
-    "description": "Page title for all practice questions page"
-  },
   "tWtbVf": {
     "defaultMessage": "OOP",
     "description": "Computer science topic"
@@ -13214,6 +13210,10 @@
   "yDXWTO": {
     "defaultMessage": "Coding questions on JavaScript functions, covering concepts such as closures, event handling, async programming, and DOM manipulation.",
     "description": "Description of interview questions page"
+  },
+  "yF2F1c": {
+    "defaultMessage": "Get full access to the interviews platform forever, including future updates and new content",
+    "description": "Subtitle of LifeTime Access Pricing Plan found on Homepage or Pricing page"
   },
   "yM3vbW": {
     "defaultMessage": "Editor Shortcuts",

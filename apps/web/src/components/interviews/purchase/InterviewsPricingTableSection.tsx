@@ -550,7 +550,7 @@ export default function InterviewsPricingTableSection({
                     description="Tooltip label for unlock all premium interviews content"
                     id="4JANuX"
                     values={{
-                      focusAreasCount: 9,
+                      focusAreasCount: 10,
                     }}
                   />
                 ),
@@ -593,9 +593,9 @@ export default function InterviewsPricingTableSection({
   });
   const featureDiscordAccess = intl.formatMessage({
     defaultMessage:
-      'Exclusive private Discord channel with real-time support from the team',
+      'Join our exclusive private Discord channel with real-time support and a helpful community',
     description: 'Feature of annual pricing plan',
-    id: 'ANnHJ7',
+    id: 'RpN6IH',
   });
 
   const monthlyPlanDetails: InterviewsPricingPlanItem = {
@@ -642,10 +642,10 @@ export default function InterviewsPricingTableSection({
   const lifetimePlanDetails: InterviewsPricingPlanItem = {
     description: intl.formatMessage({
       defaultMessage:
-        'Pay once, get full access to the interviews platform forever',
+        'Get full access to the interviews platform forever, including future updates and new content',
       description:
         'Subtitle of LifeTime Access Pricing Plan found on Homepage or Pricing page',
-      id: '4P9bN0',
+      id: 'yF2F1c',
     }),
     includedFeatures: [featureAllAccess, featureDiscordAccess],
     name: intl.formatMessage({
@@ -874,13 +874,13 @@ export default function InterviewsPricingTableSection({
                 <Badge
                   aria-hidden={true}
                   label={intl.formatMessage({
-                    defaultMessage: 'While offer lasts',
+                    defaultMessage: 'Offer ending soon',
                     description:
                       'Label to indicate offer is a limited time deal',
-                    id: 'N5Cp1r',
+                    id: 'XRHlQd',
                   })}
                   size="sm"
-                  variant="neutral-active"
+                  variant="special"
                 />
               </div>
             }

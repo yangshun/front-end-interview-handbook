@@ -2995,12 +2995,6 @@
       "value": "."
     }
   ],
-  "4P9bN0": [
-    {
-      "type": 0,
-      "value": "Pay once, get full access to the interviews platform forever"
-    }
-  ],
   "4PQzx7": [
     {
       "type": 0,
@@ -5563,12 +5557,6 @@
     {
       "type": 0,
       "value": "Low"
-    }
-  ],
-  "ANnHJ7": [
-    {
-      "type": 0,
-      "value": "Exclusive private Discord channel with real-time support from the team"
     }
   ],
   "AQTvh2": [
@@ -13086,6 +13074,12 @@
       "value": "Loading"
     }
   ],
+  "RpN6IH": [
+    {
+      "type": 0,
+      "value": "Join our exclusive private Discord channel with real-time support and a helpful community"
+    }
+  ],
   "Rr7G89": [
     {
       "type": 0,
@@ -15616,6 +15610,12 @@
     {
       "type": 0,
       "value": "Contribution type"
+    }
+  ],
+  "XRHlQd": [
+    {
+      "type": 0,
+      "value": "Offer ending soon"
     }
   ],
   "XTQvzh": [
@@ -25597,16 +25597,6 @@
       "value": "Starter"
     }
   ],
-  "tV+VAr": [
-    {
-      "type": 1,
-      "value": "questionCount"
-    },
-    {
-      "type": 0,
-      "value": "+ Front End Interview Practice Questions"
-    }
-  ],
   "tWtbVf": [
     {
       "type": 0,
@@ -27377,6 +27367,12 @@
     {
       "type": 0,
       "value": "Coding questions on JavaScript functions, covering concepts such as closures, event handling, async programming, and DOM manipulation."
+    }
+  ],
+  "yF2F1c": [
+    {
+      "type": 0,
+      "value": "Get full access to the interviews platform forever, including future updates and new content"
     }
   ],
   "yM3vbW": [

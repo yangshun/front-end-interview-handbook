@@ -1371,10 +1371,6 @@
     "defaultMessage": "对于像 <bold>https://github.com/john-doe</bold> 这样的个人资料 URL，您的用户名是 <bold>john-doe</bold>。",
     "description": "Rewards campaign help text"
   },
-  "4P9bN0": {
-    "defaultMessage": "一次付费，永久访问所有面试平台",
-    "description": "Subtitle of LifeTime Access Pricing Plan found on Homepage or Pricing page"
-  },
   "4PQzx7": {
     "defaultMessage": "前端面试准备入门指南",
     "description": "Description for front end interview guide"
@@ -2610,10 +2606,6 @@
   "ANSxyW": {
     "defaultMessage": "低",
     "description": "Low importance question"
-  },
-  "ANnHJ7": {
-    "defaultMessage": "与团队实时获得支持的专属私人 Discord 频道",
-    "description": "Feature of annual pricing plan"
   },
   "AQTvh2": {
     "defaultMessage": "运行测试用例 (可自定义)",
@@ -6351,6 +6343,10 @@
     "defaultMessage": "正在加载",
     "description": "Loading"
   },
+  "RpN6IH": {
+    "defaultMessage": "加入我们的独家私人Discord频道，获得实时支持和有用的社区",
+    "description": "Feature of annual pricing plan"
+  },
   "Rr7G89": {
     "defaultMessage": "加入我们的 Discord 社区，参与 GreatFrontEnd 项目",
     "description": "Button subtitle for joining Discord commmunity on projects payment success page"
@@ -7606,6 +7602,10 @@
   "XOtMNQ": {
     "defaultMessage": "贡献类型",
     "description": "Label for contribution type filter for contribution list"
+  },
+  "XRHlQd": {
+    "defaultMessage": "优惠即将结束",
+    "description": "Label to indicate offer is a limited time deal"
   },
   "XTQvzh": {
     "defaultMessage": "订阅我们的新闻通讯",
@@ -12275,10 +12275,6 @@
     "defaultMessage": "入门",
     "description": "Starter blog"
   },
-  "tV+VAr": {
-    "defaultMessage": "{questionCount}+ 前端面试练习题",
-    "description": "Page title for all practice questions page"
-  },
   "tWtbVf": {
     "defaultMessage": "OOP",
     "description": "Computer science topic"
@@ -13214,6 +13210,10 @@
   "yDXWTO": {
     "defaultMessage": "关于 JavaScript 函数的编码问题，涵盖闭包、事件处理、异步编程和 DOM 操作等概念。",
     "description": "Description of interview questions page"
+  },
+  "yF2F1c": {
+    "defaultMessage": "永久访问面试平台，包括未来的更新和新内容",
+    "description": "Subtitle of LifeTime Access Pricing Plan found on Homepage or Pricing page"
   },
   "yM3vbW": {
     "defaultMessage": "编辑器快捷键",
