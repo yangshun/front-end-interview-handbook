@@ -65,9 +65,9 @@ export function useSocialDiscountLabels() {
     }),
     subtitle: (
       <FormattedMessage
-        defaultMessage="Get additional <bold>{discountPercentage}% discount</bold> off by following our social accounts"
+        defaultMessage="Get additional <bold>{discountPercentage}% discount</bold> off any plan by following our social accounts"
         description="Rewards discount message"
-        id="A9b+nP"
+        id="sXVF6b"
         values={{
           bold: (chunks) => (
             <Text color="inherit" size="inherit" weight="bold">

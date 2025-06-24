@@ -91,7 +91,7 @@ export function PromotionsSocialDiscountCard({ variant = 'full' }: Props) {
                       }>
                       <RiInformationLine
                         className={clsx(
-                          'size-4 relative z-[1] shrink-0',
+                          'relative z-[1] size-4 shrink-0',
                           themeTextSubtleColor,
                         )}
                       />
@@ -136,15 +136,15 @@ export function PromotionsSocialDiscountCard({ variant = 'full' }: Props) {
     <PurchaseBlockCard
       features={[
         intl.formatMessage({
-          defaultMessage: 'One-time use; can only be completed once.',
+          defaultMessage:
+            'One-time use; can only be redeemed once per eligible user; duplicate accounts prohibited.',
           description: 'Condition for promotion',
-          id: 'oIktGl',
+          id: 'aVmS9t',
         }),
         intl.formatMessage({
-          defaultMessage:
-            'Can only be redeemed once per eligible user; duplicate accounts prohibited.',
+          defaultMessage: 'Applicable to all GreatFrontEnd plans.',
           description: 'Condition for promotion',
-          id: 'V5oBr9',
+          id: 'L/u1eo',
         }),
       ]}
       footer={

@@ -635,6 +635,10 @@
     "defaultMessage": "Impress recruiters with component libraries and designs systems",
     "description": "Title of 'Build entire design systems or component libraries with our Component Tracks' feature in Projects marketing page"
   },
+  "0sFXlL": {
+    "defaultMessage": "Existing students with a valid school email get {discountPercentage}% off GreatFrontEnd Annual plan",
+    "description": "Subtitle of discount promotion card"
+  },
   "0sbQ2I": {
     "defaultMessage": "Manage your social account connections to GreatFrontEnd",
     "description": "Description social identities in account section"
@@ -2555,10 +2559,6 @@
     "defaultMessage": "Skills | Progress | {name}",
     "description": "Title of user profile skills page"
   },
-  "A9b+nP": {
-    "defaultMessage": "Get additional <bold>{discountPercentage}% discount</bold> off by following our social accounts",
-    "description": "Rewards discount message"
-  },
   "AA5pTU": {
     "defaultMessage": "User Interface Questions",
     "description": "User Interface Questions feature"
@@ -3731,10 +3731,6 @@
     "defaultMessage": "Select from skill roadmap",
     "description": "Placeholder for skills roadmap input on project submit page"
   },
-  "GDgFZ0": {
-    "defaultMessage": "GreatFrontEnd Annual",
-    "description": "GFE annual plan"
-  },
   "GEjP1P": {
     "defaultMessage": "Included for free",
     "description": "Bonus freebie for purchasing"
@@ -4298,6 +4294,10 @@
   "IdOpAt": {
     "defaultMessage": "Sponsor URL",
     "description": "Ad sponsor URL"
+  },
+  "IdwFjC": {
+    "defaultMessage": "Get additional {discountPercentage}% off GreatFrontEnd Annual plan",
+    "description": "Subtitle of discount promotion card"
   },
   "Ie6Nzu": {
     "defaultMessage": "Go back",
@@ -4871,6 +4871,10 @@
     "defaultMessage": "Send us a Message",
     "description": "Title for send us a feedback modal"
   },
+  "L/u1eo": {
+    "defaultMessage": "Applicable to all GreatFrontEnd plans.",
+    "description": "Condition for promotion"
+  },
   "L15VNt": {
     "defaultMessage": "Yes, rest assured that unspent credits will roll over to the next month or year and never expire.",
     "description": "Answer on projects pricing's FAQ section - unused credits"
@@ -5082,10 +5086,6 @@
   "LnUWek": {
     "defaultMessage": "There are no jobs available for your location",
     "description": "Empty state title for no jobs"
-  },
-  "Lnj3bs": {
-    "defaultMessage": "One-time use; only applicable to GreatFrontEnd Annual plan.",
-    "description": "Condition for promotion"
   },
   "LpW2AE": {
     "defaultMessage": "Robust framework",
@@ -7063,10 +7063,6 @@
     "defaultMessage": "Do you offer technical support?",
     "description": "Questions on support FAQ section - on the offering of technical support"
   },
-  "V5oBr9": {
-    "defaultMessage": "Can only be redeemed once per eligible user; duplicate accounts prohibited.",
-    "description": "Condition for promotion"
-  },
   "V5x4wO": {
     "defaultMessage": "System Design content will be released on a rolling basis. Purchase premium to unlock full access to exclusive System Design content including an interview guide, high quality solutions and companies which ask this question.",
     "description": "System design questions paywall"
@@ -7919,6 +7915,10 @@
     "defaultMessage": "Starter files and APIs",
     "description": "Title of 'Starter code and APIs' sub-feature in Projects marketing page"
   },
+  "Z0X4Yw": {
+    "defaultMessage": "One-time use; Can only be redeemed once per eligible user; duplicate accounts prohibited.",
+    "description": "Condition for promotion"
+  },
   "Z1vsfi": {
     "defaultMessage": "Search user interface questions",
     "description": "Search placeholder"
@@ -8214,6 +8214,10 @@
   "aVhVoX": {
     "defaultMessage": "RADIO framework",
     "description": "RADIO (acroynm) framework name for front end system design interviews. Don't translate RADIO"
+  },
+  "aVmS9t": {
+    "defaultMessage": "One-time use; can only be redeemed once per eligible user; duplicate accounts prohibited.",
+    "description": "Condition for promotion"
   },
   "aXNdwx": {
     "defaultMessage": "Name",
@@ -9147,10 +9151,6 @@
     "defaultMessage": "Browse project solutions from our community. Interact with each unique submission, share your expertise, and evolve alongside our collaborative coding community.",
     "description": "Page subtitle"
   },
-  "eSkmDW": {
-    "defaultMessage": "Existing students with a valid school email get {discountPercentage}% off the Annual premium plans",
-    "description": "Subtitle of discount promotion card"
-  },
   "eT2mrq": {
     "defaultMessage": "View the full solution and other System Design guides.",
     "description": "Button label within embed"
@@ -9734,6 +9734,10 @@
   "h0Xc3E": {
     "defaultMessage": "First impressions from experienced interviewers",
     "description": "Sub features for \"Resume review\" feature of resume review"
+  },
+  "h1LehS": {
+    "defaultMessage": "Off GreatFrontEnd Annual plan",
+    "description": "GFE annual plan"
   },
   "h1iPiG": {
     "defaultMessage": "If the issue persists, shoot us a email at {contactEmail}.",
@@ -10354,10 +10358,6 @@
   "k3StnS": {
     "defaultMessage": "First impressions from experienced interviewers",
     "description": "Sub features for \"GitHub review\" feature of resume review"
-  },
-  "k64L83": {
-    "defaultMessage": "{discountPercentage}% off GreatFrontEnd Annual plan.",
-    "description": "Subtitle of discount promotion card"
   },
   "k6hwbn": {
     "defaultMessage": "There was a problem processing the transaction, possibly a temporary issue.",
@@ -11231,10 +11231,6 @@
     "defaultMessage": "HTML Interview Questions",
     "description": "HTML questions category long title"
   },
-  "oIktGl": {
-    "defaultMessage": "One-time use; can only be completed once.",
-    "description": "Condition for promotion"
-  },
   "oMKaYH": {
     "defaultMessage": "{numberOfHours, plural, =1 {<number>#</number> hour total} other {<number>#</number> hours total}}",
     "description": "Number of applied filters"
@@ -12074,6 +12070,10 @@
   "sWyGax": {
     "defaultMessage": "Features",
     "description": "Title of the 'The fastest way to learn and build something useful' marketing section on Projects home page"
+  },
+  "sXVF6b": {
+    "defaultMessage": "Get additional <bold>{discountPercentage}% discount</bold> off any plan by following our social accounts",
+    "description": "Rewards discount message"
   },
   "sY9s8P": {
     "defaultMessage": "Notifications",
@@ -13002,6 +13002,10 @@
   "xF6ENX": {
     "defaultMessage": "Don't waste time on mindless grinding",
     "description": "Title for front end interview roadmap"
+  },
+  "xG/bLw": {
+    "defaultMessage": "Only applicable to <underline>GreatFrontEnd Annual plan</underline>.",
+    "description": "Condition for promotion"
   },
   "xH+Wrx": {
     "defaultMessage": "Be sure to add aria-hidden to hide icons from screen readers",

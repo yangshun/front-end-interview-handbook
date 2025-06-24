@@ -95,18 +95,13 @@ export default function PurchaseBlockCard({
               weight="bold">
               {subtitle}
             </Text>
-            <ul className="flex flex-col gap-y-4" role="list">
+            <ul className="list-disc space-y-1 pl-4" role="list">
               {features.map((feature, idx) => (
                 <li
                   // eslint-disable-next-line react/no-array-index-key
-                  key={idx}
-                  className="flex items-start lg:col-span-1">
-                  <FaCheck
-                    aria-hidden="true"
-                    className={clsx('size-4 shrink-0', themeTextSuccessColor)}
-                  />
+                  key={idx}>
                   <Text
-                    className="ml-2 block text-xs md:text-sm"
+                    className="block text-xs md:text-sm"
                     color="secondary"
                     size="inherit">
                     {feature}

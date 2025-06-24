@@ -1227,6 +1227,20 @@
       "value": "Impress recruiters with component libraries and designs systems"
     }
   ],
+  "0sFXlL": [
+    {
+      "type": 0,
+      "value": "Existing students with a valid school email get "
+    },
+    {
+      "type": 1,
+      "value": "discountPercentage"
+    },
+    {
+      "type": 0,
+      "value": "% off GreatFrontEnd Annual plan"
+    }
+  ],
   "0sbQ2I": [
     {
       "type": 0,
@@ -5429,30 +5443,6 @@
       "value": "name"
     }
   ],
-  "A9b+nP": [
-    {
-      "type": 0,
-      "value": "Get additional "
-    },
-    {
-      "children": [
-        {
-          "type": 1,
-          "value": "discountPercentage"
-        },
-        {
-          "type": 0,
-          "value": "% discount"
-        }
-      ],
-      "type": 8,
-      "value": "bold"
-    },
-    {
-      "type": 0,
-      "value": " off by following our social accounts"
-    }
-  ],
   "AA5pTU": [
     {
       "type": 0,
@@ -7858,12 +7848,6 @@
       "value": "Select from skill roadmap"
     }
   ],
-  "GDgFZ0": [
-    {
-      "type": 0,
-      "value": "GreatFrontEnd Annual"
-    }
-  ],
   "GEjP1P": [
     {
       "type": 0,
@@ -8959,6 +8943,20 @@
       "value": "Sponsor URL"
     }
   ],
+  "IdwFjC": [
+    {
+      "type": 0,
+      "value": "Get additional "
+    },
+    {
+      "type": 1,
+      "value": "discountPercentage"
+    },
+    {
+      "type": 0,
+      "value": "% off GreatFrontEnd Annual plan"
+    }
+  ],
   "Ie6Nzu": [
     {
       "type": 0,
@@ -10023,6 +10021,12 @@
       "value": "Send us a Message"
     }
   ],
+  "L/u1eo": [
+    {
+      "type": 0,
+      "value": "Applicable to all GreatFrontEnd plans."
+    }
+  ],
   "L15VNt": [
     {
       "type": 0,
@@ -10427,12 +10431,6 @@
     {
       "type": 0,
       "value": "There are no jobs available for your location"
-    }
-  ],
-  "Lnj3bs": [
-    {
-      "type": 0,
-      "value": "One-time use; only applicable to GreatFrontEnd Annual plan."
     }
   ],
   "LpW2AE": [
@@ -14604,12 +14602,6 @@
       "value": "Do you offer technical support?"
     }
   ],
-  "V5oBr9": [
-    {
-      "type": 0,
-      "value": "Can only be redeemed once per eligible user; duplicate accounts prohibited."
-    }
-  ],
   "V5x4wO": [
     {
       "type": 0,
@@ -16312,6 +16304,12 @@
       "value": "Starter files and APIs"
     }
   ],
+  "Z0X4Yw": [
+    {
+      "type": 0,
+      "value": "One-time use; Can only be redeemed once per eligible user; duplicate accounts prohibited."
+    }
+  ],
   "Z1vsfi": [
     {
       "type": 0,
@@ -16874,6 +16872,12 @@
     {
       "type": 0,
       "value": "RADIO framework"
+    }
+  ],
+  "aVmS9t": [
+    {
+      "type": 0,
+      "value": "One-time use; can only be redeemed once per eligible user; duplicate accounts prohibited."
     }
   ],
   "aXNdwx": [
@@ -18650,20 +18654,6 @@
       "value": "Browse project solutions from our community. Interact with each unique submission, share your expertise, and evolve alongside our collaborative coding community."
     }
   ],
-  "eSkmDW": [
-    {
-      "type": 0,
-      "value": "Existing students with a valid school email get "
-    },
-    {
-      "type": 1,
-      "value": "discountPercentage"
-    },
-    {
-      "type": 0,
-      "value": "% off the Annual premium plans"
-    }
-  ],
   "eT2mrq": [
     {
       "type": 0,
@@ -19966,6 +19956,12 @@
     {
       "type": 0,
       "value": "First impressions from experienced interviewers"
+    }
+  ],
+  "h1LehS": [
+    {
+      "type": 0,
+      "value": "Off GreatFrontEnd Annual plan"
     }
   ],
   "h1iPiG": [
@@ -21342,16 +21338,6 @@
     {
       "type": 0,
       "value": "First impressions from experienced interviewers"
-    }
-  ],
-  "k64L83": [
-    {
-      "type": 1,
-      "value": "discountPercentage"
-    },
-    {
-      "type": 0,
-      "value": "% off GreatFrontEnd Annual plan."
     }
   ],
   "k6hwbn": [
@@ -23279,12 +23265,6 @@
     {
       "type": 0,
       "value": "HTML Interview Questions"
-    }
-  ],
-  "oIktGl": [
-    {
-      "type": 0,
-      "value": "One-time use; can only be completed once."
     }
   ],
   "oMKaYH": [
@@ -25259,6 +25239,30 @@
       "value": "Features"
     }
   ],
+  "sXVF6b": [
+    {
+      "type": 0,
+      "value": "Get additional "
+    },
+    {
+      "children": [
+        {
+          "type": 1,
+          "value": "discountPercentage"
+        },
+        {
+          "type": 0,
+          "value": "% discount"
+        }
+      ],
+      "type": 8,
+      "value": "bold"
+    },
+    {
+      "type": 0,
+      "value": " off any plan by following our social accounts"
+    }
+  ],
   "sY9s8P": [
     {
       "type": 0,
@@ -26927,6 +26931,26 @@
     {
       "type": 0,
       "value": "Don't waste time on mindless grinding"
+    }
+  ],
+  "xG/bLw": [
+    {
+      "type": 0,
+      "value": "Only applicable to "
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "GreatFrontEnd Annual plan"
+        }
+      ],
+      "type": 8,
+      "value": "underline"
+    },
+    {
+      "type": 0,
+      "value": "."
     }
   ],
   "xH+Wrx": [

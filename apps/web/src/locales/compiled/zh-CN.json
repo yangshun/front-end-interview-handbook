@@ -1223,6 +1223,20 @@
       "value": "用组件库和设计系统给招聘人员留下深刻印象"
     }
   ],
+  "0sFXlL": [
+    {
+      "type": 0,
+      "value": "现有拥有有效学校邮箱的学生可享受GreatFrontEnd年度计划"
+    },
+    {
+      "type": 1,
+      "value": "discountPercentage"
+    },
+    {
+      "type": 0,
+      "value": "折优惠"
+    }
+  ],
   "0sbQ2I": [
     {
       "type": 0,
@@ -5437,26 +5451,6 @@
       "value": "name"
     }
   ],
-  "A9b+nP": [
-    {
-      "type": 0,
-      "value": "通过关注我们的社交帐户，获得额外的"
-    },
-    {
-      "children": [
-        {
-          "type": 1,
-          "value": "discountPercentage"
-        },
-        {
-          "type": 0,
-          "value": "%折扣"
-        }
-      ],
-      "type": 8,
-      "value": "bold"
-    }
-  ],
   "AA5pTU": [
     {
       "type": 0,
@@ -7874,12 +7868,6 @@
       "value": "从技能路线图中选择"
     }
   ],
-  "GDgFZ0": [
-    {
-      "type": 0,
-      "value": "GreatFrontEnd 年度"
-    }
-  ],
   "GEjP1P": [
     {
       "type": 0,
@@ -8991,6 +8979,20 @@
       "value": "赞助商 URL"
     }
   ],
+  "IdwFjC": [
+    {
+      "type": 0,
+      "value": "获得GreatFrontEnd年度计划额外"
+    },
+    {
+      "type": 1,
+      "value": "discountPercentage"
+    },
+    {
+      "type": 0,
+      "value": "折优惠"
+    }
+  ],
   "Ie6Nzu": [
     {
       "type": 0,
@@ -10059,6 +10061,12 @@
       "value": "给我们留言"
     }
   ],
+  "L/u1eo": [
+    {
+      "type": 0,
+      "value": "适用于所有GreatFrontEnd计划。"
+    }
+  ],
   "L15VNt": [
     {
       "type": 0,
@@ -10459,12 +10467,6 @@
     {
       "type": 0,
       "value": "您的所在地没有可用的职位"
-    }
-  ],
-  "Lnj3bs": [
-    {
-      "type": 0,
-      "value": "一次性使用；仅适用于 GreatFrontEnd 年度计划。"
     }
   ],
   "LpW2AE": [
@@ -14628,12 +14630,6 @@
       "value": "你们提供技术支持吗？"
     }
   ],
-  "V5oBr9": [
-    {
-      "type": 0,
-      "value": "每个符合条件的用户仅限兑换一次；禁止使用重复帐户。"
-    }
-  ],
   "V5x4wO": [
     {
       "type": 0,
@@ -16336,6 +16332,12 @@
       "value": "入门文件和 API"
     }
   ],
+  "Z0X4Yw": [
+    {
+      "type": 0,
+      "value": "一次性使用；每个符合条件的用户只能兑换一次；禁止重复帐户。"
+    }
+  ],
   "Z1vsfi": [
     {
       "type": 0,
@@ -16902,6 +16904,12 @@
     {
       "type": 0,
       "value": "RADIO 框架"
+    }
+  ],
+  "aVmS9t": [
+    {
+      "type": 0,
+      "value": "一次性使用；每个符合条件的用户只能兑换一次；禁止重复帐户。"
     }
   ],
   "aXNdwx": [
@@ -18682,20 +18690,6 @@
       "value": "浏览我们社区的项目解决方案。与每个独特的提交互动，分享您的专业知识，并与我们的协作编码社区共同发展。"
     }
   ],
-  "eSkmDW": [
-    {
-      "type": 0,
-      "value": "拥有有效学校邮箱的现有学生可享受年度高级计划 "
-    },
-    {
-      "type": 1,
-      "value": "discountPercentage"
-    },
-    {
-      "type": 0,
-      "value": "% 折扣"
-    }
-  ],
   "eT2mrq": [
     {
       "type": 0,
@@ -20000,6 +19994,12 @@
     {
       "type": 0,
       "value": "经验丰富的面试官的初步印象"
+    }
+  ],
+  "h1LehS": [
+    {
+      "type": 0,
+      "value": "GreatFrontEnd年度计划优惠"
     }
   ],
   "h1iPiG": [
@@ -21376,16 +21376,6 @@
     {
       "type": 0,
       "value": "经验丰富的面试官的初步印象"
-    }
-  ],
-  "k64L83": [
-    {
-      "type": 1,
-      "value": "discountPercentage"
-    },
-    {
-      "type": 0,
-      "value": "% 折扣 GreatFrontEnd 年度计划。"
     }
   ],
   "k6hwbn": [
@@ -23307,12 +23297,6 @@
     {
       "type": 0,
       "value": "HTML 面试问题"
-    }
-  ],
-  "oIktGl": [
-    {
-      "type": 0,
-      "value": "一次性使用；只能完成一次。"
     }
   ],
   "oMKaYH": [
@@ -25299,6 +25283,26 @@
       "value": "功能"
     }
   ],
+  "sXVF6b": [
+    {
+      "type": 0,
+      "value": "关注我们的社交帐户，即可在任何计划中获得额外"
+    },
+    {
+      "children": [
+        {
+          "type": 1,
+          "value": "discountPercentage"
+        },
+        {
+          "type": 0,
+          "value": "折优惠"
+        }
+      ],
+      "type": 8,
+      "value": "bold"
+    }
+  ],
   "sY9s8P": [
     {
       "type": 0,
@@ -26963,6 +26967,26 @@
     {
       "type": 0,
       "value": "不要浪费时间在无意义的磨练上"
+    }
+  ],
+  "xG/bLw": [
+    {
+      "type": 0,
+      "value": "仅适用于"
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "GreatFrontEnd年度计划"
+        }
+      ],
+      "type": 8,
+      "value": "underline"
+    },
+    {
+      "type": 0,
+      "value": "。"
     }
   ],
   "xH+Wrx": [

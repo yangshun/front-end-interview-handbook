@@ -635,6 +635,10 @@
     "defaultMessage": "用组件库和设计系统给招聘人员留下深刻印象",
     "description": "Title of 'Build entire design systems or component libraries with our Component Tracks' feature in Projects marketing page"
   },
+  "0sFXlL": {
+    "defaultMessage": "现有拥有有效学校邮箱的学生可享受GreatFrontEnd年度计划{discountPercentage}折优惠",
+    "description": "Subtitle of discount promotion card"
+  },
   "0sbQ2I": {
     "defaultMessage": "管理您的社交帐户连接到 GreatFrontEnd",
     "description": "Description social identities in account section"
@@ -2555,10 +2559,6 @@
     "defaultMessage": "技能 | 进度 | {name}",
     "description": "Title of user profile skills page"
   },
-  "A9b+nP": {
-    "defaultMessage": "通过关注我们的社交帐户，获得额外的<bold>{discountPercentage}%折扣</bold>",
-    "description": "Rewards discount message"
-  },
   "AA5pTU": {
     "defaultMessage": "用户界面问题",
     "description": "User Interface Questions feature"
@@ -3731,10 +3731,6 @@
     "defaultMessage": "从技能路线图中选择",
     "description": "Placeholder for skills roadmap input on project submit page"
   },
-  "GDgFZ0": {
-    "defaultMessage": "GreatFrontEnd 年度",
-    "description": "GFE annual plan"
-  },
   "GEjP1P": {
     "defaultMessage": "免费包含",
     "description": "Bonus freebie for purchasing"
@@ -4298,6 +4294,10 @@
   "IdOpAt": {
     "defaultMessage": "赞助商 URL",
     "description": "Ad sponsor URL"
+  },
+  "IdwFjC": {
+    "defaultMessage": "获得GreatFrontEnd年度计划额外{discountPercentage}折优惠",
+    "description": "Subtitle of discount promotion card"
   },
   "Ie6Nzu": {
     "defaultMessage": "返回",
@@ -4871,6 +4871,10 @@
     "defaultMessage": "给我们留言",
     "description": "Title for send us a feedback modal"
   },
+  "L/u1eo": {
+    "defaultMessage": "适用于所有GreatFrontEnd计划。",
+    "description": "Condition for promotion"
+  },
   "L15VNt": {
     "defaultMessage": "是的，请放心，未使用的积分将结转到下个月或下一年，永远不会过期。",
     "description": "Answer on projects pricing's FAQ section - unused credits"
@@ -5082,10 +5086,6 @@
   "LnUWek": {
     "defaultMessage": "您的所在地没有可用的职位",
     "description": "Empty state title for no jobs"
-  },
-  "Lnj3bs": {
-    "defaultMessage": "一次性使用；仅适用于 GreatFrontEnd 年度计划。",
-    "description": "Condition for promotion"
   },
   "LpW2AE": {
     "defaultMessage": "健壮的框架",
@@ -7063,10 +7063,6 @@
     "defaultMessage": "你们提供技术支持吗？",
     "description": "Questions on support FAQ section - on the offering of technical support"
   },
-  "V5oBr9": {
-    "defaultMessage": "每个符合条件的用户仅限兑换一次；禁止使用重复帐户。",
-    "description": "Condition for promotion"
-  },
   "V5x4wO": {
     "defaultMessage": "系统设计内容将以滚动方式发布。 购买高级版以解锁专用系统设计内容的全部访问权限，包括面试指南、高质量的解答和出题公司。",
     "description": "System design questions paywall"
@@ -7919,6 +7915,10 @@
     "defaultMessage": "入门文件和 API",
     "description": "Title of 'Starter code and APIs' sub-feature in Projects marketing page"
   },
+  "Z0X4Yw": {
+    "defaultMessage": "一次性使用；每个符合条件的用户只能兑换一次；禁止重复帐户。",
+    "description": "Condition for promotion"
+  },
   "Z1vsfi": {
     "defaultMessage": "搜索用户界面问题",
     "description": "Search placeholder"
@@ -8214,6 +8214,10 @@
   "aVhVoX": {
     "defaultMessage": "RADIO 框架",
     "description": "RADIO (acroynm) framework name for front end system design interviews. Don't translate RADIO"
+  },
+  "aVmS9t": {
+    "defaultMessage": "一次性使用；每个符合条件的用户只能兑换一次；禁止重复帐户。",
+    "description": "Condition for promotion"
   },
   "aXNdwx": {
     "defaultMessage": "名称",
@@ -9147,10 +9151,6 @@
     "defaultMessage": "浏览我们社区的项目解决方案。与每个独特的提交互动，分享您的专业知识，并与我们的协作编码社区共同发展。",
     "description": "Page subtitle"
   },
-  "eSkmDW": {
-    "defaultMessage": "拥有有效学校邮箱的现有学生可享受年度高级计划 {discountPercentage}% 折扣",
-    "description": "Subtitle of discount promotion card"
-  },
   "eT2mrq": {
     "defaultMessage": "查看完整的解决方案和其他系统设计指南。",
     "description": "Button label within embed"
@@ -9734,6 +9734,10 @@
   "h0Xc3E": {
     "defaultMessage": "经验丰富的面试官的初步印象",
     "description": "Sub features for \"Resume review\" feature of resume review"
+  },
+  "h1LehS": {
+    "defaultMessage": "GreatFrontEnd年度计划优惠",
+    "description": "GFE annual plan"
   },
   "h1iPiG": {
     "defaultMessage": "如果问题仍然存在，请通过 {contactEmail} 向我们发送电子邮件。",
@@ -10354,10 +10358,6 @@
   "k3StnS": {
     "defaultMessage": "经验丰富的面试官的初步印象",
     "description": "Sub features for \"GitHub review\" feature of resume review"
-  },
-  "k64L83": {
-    "defaultMessage": "{discountPercentage}% 折扣 GreatFrontEnd 年度计划。",
-    "description": "Subtitle of discount promotion card"
   },
   "k6hwbn": {
     "defaultMessage": "处理交易时出现问题，可能是临时问题。",
@@ -11231,10 +11231,6 @@
     "defaultMessage": "HTML 面试问题",
     "description": "HTML questions category long title"
   },
-  "oIktGl": {
-    "defaultMessage": "一次性使用；只能完成一次。",
-    "description": "Condition for promotion"
-  },
   "oMKaYH": {
     "defaultMessage": "{numberOfHours, plural, =1 {<number>#</number>小时总计} other {<number>#</number>小时总计}}",
     "description": "Number of applied filters"
@@ -12074,6 +12070,10 @@
   "sWyGax": {
     "defaultMessage": "功能",
     "description": "Title of the 'The fastest way to learn and build something useful' marketing section on Projects home page"
+  },
+  "sXVF6b": {
+    "defaultMessage": "关注我们的社交帐户，即可在任何计划中获得额外<bold>{discountPercentage}折优惠</bold>",
+    "description": "Rewards discount message"
   },
   "sY9s8P": {
     "defaultMessage": "通知",
@@ -13002,6 +13002,10 @@
   "xF6ENX": {
     "defaultMessage": "不要浪费时间在无意义的磨练上",
     "description": "Title for front end interview roadmap"
+  },
+  "xG/bLw": {
+    "defaultMessage": "仅适用于<underline>GreatFrontEnd年度计划</underline>。",
+    "description": "Condition for promotion"
   },
   "xH+Wrx": {
     "defaultMessage": "确保添加 aria-hidden 以从屏幕阅读器中隐藏图标",

@@ -9,9 +9,9 @@ export default function usePromotionsStudentDiscountLabels() {
     subtitle: intl.formatMessage(
       {
         defaultMessage:
-          'Existing students with a valid school email get {discountPercentage}% off the Annual premium plans',
+          'Existing students with a valid school email get {discountPercentage}% off GreatFrontEnd Annual plan',
         description: 'Subtitle of discount promotion card',
-        id: 'eSkmDW',
+        id: '0sFXlL',
       },
       {
         discountPercentage: PROMO_STUDENT_DISCOUNT_PERCENTAGE,

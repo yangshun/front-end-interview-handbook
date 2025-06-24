@@ -78,16 +78,23 @@ export function PromotionsSeasonalDiscountCard({ variant = 'full' }: Props) {
       features={[
         intl.formatMessage({
           defaultMessage:
-            'One-time use; only applicable to GreatFrontEnd Annual plan.',
+            'One-time use; Can only be redeemed once per eligible user; duplicate accounts prohibited.',
           description: 'Condition for promotion',
-          id: 'Lnj3bs',
+          id: 'Z0X4Yw',
         }),
-        intl.formatMessage({
-          defaultMessage:
-            'Can only be redeemed once per eligible user; duplicate accounts prohibited.',
-          description: 'Condition for promotion',
-          id: 'V5oBr9',
-        }),
+        <FormattedMessage
+          key="annual"
+          defaultMessage="Only applicable to <underline>GreatFrontEnd Annual plan</underline>."
+          description="Condition for promotion"
+          id="xG/bLw"
+          values={{
+            underline: (chunks: React.ReactNode) => (
+              <Text className={clsx('underline')} weight="bold">
+                {chunks}
+              </Text>
+            ),
+          }}
+        />,
       ]}
       footer={
         <div className="flex justify-end text-xs">
@@ -119,9 +126,9 @@ export function PromotionsSeasonalDiscountCard({ variant = 'full' }: Props) {
             size="body2"
             weight="medium">
             <FormattedMessage
-              defaultMessage="GreatFrontEnd Annual"
+              defaultMessage="Off GreatFrontEnd Annual plan"
               description="GFE annual plan"
-              id="GDgFZ0"
+              id="h1LehS"
             />
           </Text>
           <div className="mt-4">
@@ -156,9 +163,9 @@ export function PromotionsSeasonalDiscountCard({ variant = 'full' }: Props) {
       }
       subtitle={
         <FormattedMessage
-          defaultMessage="{discountPercentage}% off GreatFrontEnd Annual plan."
+          defaultMessage="Get additional {discountPercentage}% off GreatFrontEnd Annual plan"
           description="Subtitle of discount promotion card"
-          id="k64L83"
+          id="IdwFjC"
           values={{
             discountPercentage: PROMO_PERPETUAL_DISCOUNT_PERCENTAGE,
           }}

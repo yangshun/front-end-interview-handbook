@@ -113,7 +113,7 @@ export function PromotionsStudentDiscountCard({ variant = 'full' }: Props) {
                       }>
                       <RiInformationLine
                         className={clsx(
-                          'size-4 relative z-[1] shrink-0',
+                          'relative z-[1] size-4 shrink-0',
                           themeTextSubtleColor,
                         )}
                       />
@@ -171,6 +171,19 @@ export function PromotionsStudentDiscountCard({ variant = 'full' }: Props) {
           description: 'Condition for promotion',
           id: 'hhuG8E',
         }),
+        <FormattedMessage
+          key="annual"
+          defaultMessage="Only applicable to <underline>GreatFrontEnd Annual plan</underline>."
+          description="Condition for promotion"
+          id="xG/bLw"
+          values={{
+            underline: (chunks: React.ReactNode) => (
+              <Text className={clsx('underline')} weight="bold">
+                {chunks}
+              </Text>
+            ),
+          }}
+        />,
       ]}
       footer={
         <Text
@@ -217,9 +230,9 @@ export function PromotionsStudentDiscountCard({ variant = 'full' }: Props) {
             size="body2"
             weight="medium">
             <FormattedMessage
-              defaultMessage="GreatFrontEnd Annual"
+              defaultMessage="Off GreatFrontEnd Annual plan"
               description="GFE annual plan"
-              id="GDgFZ0"
+              id="h1LehS"
             />
           </Text>
           <div className="mt-4">
