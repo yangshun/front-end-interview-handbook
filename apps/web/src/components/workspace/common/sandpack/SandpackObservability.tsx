@@ -1,6 +1,5 @@
 import { useSandpack } from '@codesandbox/sandpack-react';
 import { useEffect, useRef } from 'react';
-import url from 'url';
 
 import sandpackProviderOptions from '~/components/workspace/common/sandpack/sandpackProviderOptions';
 
@@ -13,30 +12,60 @@ type Props = Readonly<{
 }>;
 
 const pingURL = new URL(
-  url.format({ pathname: 'version.txt' }),
+  'version.txt',
   sandpackProviderOptions.bundlerURL,
-);
+).toString();
 
-async function pingSandpackBundler(instance?: string) {
-  try {
-    const response = await fetch(pingURL);
-    const text = await response.text();
+function usePingSandpackBundler(instance?: string) {
+  const pingSentRef = useRef(false);
+  const isUnloadingRef = useRef(false);
 
-    logEvent('sandpack.reachable', {
-      instance,
-      namespace: 'workspace',
-      url: sandpackProviderOptions.bundlerURL,
-      version: text,
-    });
-  } catch (error) {
-    logEvent('sandpack.unreachable', {
-      error: getErrorMessage(error),
-      instance,
-      namespace: 'workspace',
-      url: sandpackProviderOptions.bundlerURL,
-    });
-    console.error(getErrorMessage(error));
-  }
+  useEffect(() => {
+    if (pingSentRef.current) {
+      return;
+    }
+
+    function handleBeforeUnload() {
+      isUnloadingRef.current = true;
+    }
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+
+    async function pingSandpackBundler() {
+      if (isUnloadingRef.current) {
+        return;
+      }
+
+      pingSentRef.current = true;
+
+      try {
+        const response = await fetch(pingURL);
+        const text = await response.text();
+
+        logEvent('sandpack.reachable', {
+          instance,
+          namespace: 'workspace',
+          url: sandpackProviderOptions.bundlerURL,
+          version: text,
+        });
+      } catch (error: unknown) {
+        logEvent('sandpack.unreachable', {
+          error: getErrorMessage(error),
+          instance,
+          namespace: 'workspace',
+          online: navigator.onLine,
+          stack: error instanceof Error ? error.stack : null,
+          url: sandpackProviderOptions.bundlerURL,
+        });
+      }
+    }
+
+    pingSandpackBundler();
+
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, [instance]);
 }
 
 const sandpackStartedEventName = 'sandpack-started';
@@ -47,17 +76,9 @@ export default function SandpackObservability({ instance }: Props) {
   const { status: sandpackStatus } = sandpack;
   const loadingStartedRef = useRef(false);
   const readySentRef = useRef(false);
-  const pingSentRef = useRef(false);
   const timeoutSentRef = useRef(false);
 
-  useEffect(() => {
-    if (pingSentRef.current) {
-      return;
-    }
-
-    pingSentRef.current = true;
-    pingSandpackBundler();
-  }, []);
+  usePingSandpackBundler(instance);
 
   useEffect(() => {
     if (sandpackStatus === 'timeout' && !timeoutSentRef.current) {
