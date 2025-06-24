@@ -64,6 +64,14 @@
   display: flex;
   border-radius: var(--border-radius);
   background-color: transparent;
+  position: relative;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
   background-image:
     conic-gradient(
       from var(--border-angle-1) at 10% 15%,
@@ -90,6 +98,7 @@
     rotateBackground 3s linear infinite,
     rotateBackground2 8s linear infinite,
     rotateBackground3 13s linear infinite;
+  z-index: -1;
 }
 
 .container:hover {
