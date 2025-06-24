@@ -23,7 +23,7 @@ These tips were shared by [GreatFrontEnd](https://www.greatfrontend.com/?utm_sou
 
 **26th Mar 2024**:
 
-> Just finished up a tech screen with Palantir. Pretty leetcode-y. Was asked to take a text and a query of two words, an integer k, and return the indicies of where the distance between the two words is <= k. Got a semi-optimal solution, but wasn't the most optimal (we went through the most optimal after). Was essentially just a text document  (i.e. no test cases, I wrote the function signature, no ability to run the code). We'll see what happens 🤷‍♂️
+> Just finished up a tech screen with Palantir. Pretty leetcode-y. Was asked to take a text and a query of two words, an integer k, and return the indicies of where the distance between the two words is `<= k`. Got a semi-optimal solution, but wasn't the most optimal (we went through the most optimal after). Was essentially just a text document  (i.e. no test cases, I wrote the function signature, no ability to run the code). We'll see what happens 🤷‍♂️
 
 **25th Mar 2025**:
 
