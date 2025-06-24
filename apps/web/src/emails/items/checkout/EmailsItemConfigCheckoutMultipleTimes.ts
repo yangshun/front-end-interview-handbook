@@ -21,5 +21,5 @@ export const EmailsItemConfigCheckoutMultipleTimes: EmailItemConfig<
   },
   id: 'INTERVIEWS_CHECKOUT_MULTIPLE_TIMES',
   subject: ({ coupon }) =>
-    `Act fast: ${coupon.percentOff}% off reserved just for you, ends in ${coupon.expiryDays * 24} hours!`,
+    `Just dropped: ${coupon.percentOff}% off just for you, ends in ${coupon.expiryDays * 24} hours!`,
 };

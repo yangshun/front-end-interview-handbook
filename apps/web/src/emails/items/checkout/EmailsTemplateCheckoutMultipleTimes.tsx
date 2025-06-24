@@ -38,7 +38,8 @@ export default function EmailsTemplateCheckoutMultipleTimes({
   return (
     <Html lang="en">
       <Preview>
-        Final call to save big on Premium. Complete your purchase today!
+        We just launched a limited-time deal just for you. Claim your{' '}
+        {String(coupon.percentOff)}% off before it's gone.
       </Preview>
       <Body style={mainStyle}>
         <Container style={containerStyle}>
@@ -99,7 +100,7 @@ export default function EmailsTemplateCheckoutMultipleTimes({
               currently offer.
             </EmailsParagraph>
             <EmailsParagraph color="subtitle" defaultMargins={true}>
-              But don't wait too long-this offer expires in{' '}
+              But don't wait too long, this offer expires in{' '}
               <EmailsStrong>{coupon.expiryDays * 24} hours</EmailsStrong>!
             </EmailsParagraph>
           </Section>

@@ -3,7 +3,8 @@ import { scheduleEmailWithChecks } from '~/emails/qstash/EmailsQstashScheduler';
 import RedisCounter from '~/redis/RedisCounter';
 
 const CHECKOUT_ATTEMPTS_TO_QUALIFY_FOR_DISCOUNT = 3;
-const ONE_DAY_SECS = 24 * 60 * 60;
+const ONE_HOUR_SECS = 60 * 60;
+const ONE_DAY_SECS = 24 * ONE_HOUR_SECS;
 const THREE_MONTHS_IN_SECS = 3 * 30 * ONE_DAY_SECS;
 
 export default async function scheduleCheckoutInitiateEmail({
@@ -47,7 +48,7 @@ export default async function scheduleCheckoutInitiateEmail({
 
     await scheduleEmailWithChecks({
       countryCode,
-      delayInSeconds: ONE_DAY_SECS,
+      delayInSeconds: ONE_HOUR_SECS,
       emailKey: 'INTERVIEWS_CHECKOUT_MULTIPLE_TIMES',
       userId,
     });
