@@ -1,11 +1,11 @@
 // @ts-check
 
-import allInterviewsStudyListMetadata from './.contentlayer/generated/InterviewsStudyList/_index.json' assert { type: 'json' };
-import allProjectsChallengeMetadata from './.contentlayer/generated/ProjectsChallengeMetadata/_index.json' assert { type: 'json' };
-import allProjectsSkillMetadata from './.contentlayer/generated/ProjectsSkillMetadata/_index.json' assert { type: 'json' };
-import allProjectsTrackMetadata from './.contentlayer/generated/ProjectsTrackMetadata/_index.json' assert { type: 'json' };
-import codingQuestionsList from './src/__generated__/questions/coding/list.en-US.json' assert { type: 'json' };
-import i18nConfig from './src/next-i18nostic/config.json' assert { type: 'json' };
+import allInterviewsStudyListMetadata from './.contentlayer/generated/InterviewsStudyList/_index.json' with { type: 'json' };
+import allProjectsChallengeMetadata from './.contentlayer/generated/ProjectsChallengeMetadata/_index.json' with { type: 'json' };
+import allProjectsSkillMetadata from './.contentlayer/generated/ProjectsSkillMetadata/_index.json' with { type: 'json' };
+import allProjectsTrackMetadata from './.contentlayer/generated/ProjectsTrackMetadata/_index.json' with { type: 'json' };
+import codingQuestionsList from './src/__generated__/questions/coding/list.en-US.json' with { type: 'json' };
+import i18nConfig from './src/next-i18nostic/config.json' with { type: 'json' };
 
 const priority = 0.7;
 const changefreq = 'daily';
