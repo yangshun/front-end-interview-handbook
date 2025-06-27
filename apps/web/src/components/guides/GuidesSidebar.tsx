@@ -5,7 +5,6 @@ import clsx from 'clsx';
 import React from 'react';
 
 import { FormattedMessage } from '~/components/intl';
-import ScrollArea from '~/components/ui/ScrollArea';
 import Text from '~/components/ui/Text';
 import { themeBorderColor } from '~/components/ui/theme';
 
@@ -82,17 +81,21 @@ export function GuidesSidebar<GuideSlug extends string>({
             </div>
             <div
               className={clsx(
-                'flex grow overflow-hidden',
+                'flex grow',
+                // Using native scrollbar instead of ScrollArea because when we expand links accordion
+                // and when the scrollbar appear if the items are long it causes re-rendering of the ScrollArea
+                // and performance issue in Safari due to it
+                'thin-scrollbar overflow-y-auto',
                 isSidebar && 'vignette-scroll',
               )}>
-              <ScrollArea viewportClass={clsx('p-4')}>
+              <div className="w-full p-4">
                 <SidebarLinksSection
                   defaultOpenSections={navigation.initialOpenSections}
                   items={navigation.navigation.items}
                   type="multiple"
                   onItemClick={onClose}
                 />
-              </ScrollArea>
+              </div>
             </div>
           </>
         )}
