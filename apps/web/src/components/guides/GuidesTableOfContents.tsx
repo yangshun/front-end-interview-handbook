@@ -49,7 +49,15 @@ type Props = Readonly<{
   tableOfContents: TableOfContents;
 }>;
 
-export default function GuidesTableOfContents({
+export default function GuidesTableOfContents(props: Props) {
+  return (
+    <ScrollArea>
+      <TableOfContentsImpl {...props} />
+    </ScrollArea>
+  );
+}
+
+function TableOfContentsImpl({
   collapsed,
   isCollapsible,
   setCollapsedToC,
@@ -83,91 +91,89 @@ export default function GuidesTableOfContents({
   }, [scrollIntoView, activeLink, debouncedScrollIntoView]);
 
   return (
-    <ScrollArea>
-      <nav ref={navRef} aria-labelledby={titleId} className="relative w-full">
-        {tableOfContents.length > 0 &&
-          (isCollapsible && collapsed ? (
-            <Button
-              className="float-end"
-              icon={RiListCheck}
-              iconClassName={themeTextSecondaryColor}
-              iconSecondary_USE_SPARINGLY={RiArrowLeftSLine}
-              isLabelHidden={true}
-              label={intl.formatMessage({
-                defaultMessage: 'Show table of contents',
-                description: 'Expand table of contents',
-                id: 'H1JxYU',
-              })}
-              size="xs"
-              tooltip={intl.formatMessage({
-                defaultMessage: 'Expand',
-                description: 'Expand label',
-                id: 'LhuPX+',
-              })}
-              variant="tertiary"
-              onClick={() => setCollapsedToC?.(false)}
-            />
-          ) : (
-            <>
-              <div className="flex items-center gap-3">
-                <RiListCheck
+    <nav ref={navRef} aria-labelledby={titleId} className="relative w-full">
+      {tableOfContents.length > 0 &&
+        (isCollapsible && collapsed ? (
+          <Button
+            className="float-end"
+            icon={RiListCheck}
+            iconClassName={themeTextSecondaryColor}
+            iconSecondary_USE_SPARINGLY={RiArrowLeftSLine}
+            isLabelHidden={true}
+            label={intl.formatMessage({
+              defaultMessage: 'Show table of contents',
+              description: 'Expand table of contents',
+              id: 'H1JxYU',
+            })}
+            size="xs"
+            tooltip={intl.formatMessage({
+              defaultMessage: 'Expand',
+              description: 'Expand label',
+              id: 'LhuPX+',
+            })}
+            variant="tertiary"
+            onClick={() => setCollapsedToC?.(false)}
+          />
+        ) : (
+          <>
+            <div className="flex items-center gap-3">
+              <RiListCheck
+                aria-hidden={true}
+                className={clsx('size-4 shrink-0', themeTextSecondaryColor)}
+              />
+              <Heading
+                className={clsx(
+                  'flex-1',
+                  'text-[0.8125rem] leading-5',
+                  textVariants({ color: 'secondary' }),
+                )}
+                color="custom"
+                id={titleId}
+                level="custom">
+                <FormattedMessage
+                  defaultMessage="On this page"
+                  description="Title of the table of contents for a guidebook page."
+                  id="Cl4Ghp"
+                />
+              </Heading>
+              {isCollapsible ? (
+                <Button
+                  className="z-[1]"
+                  icon={RiArrowRightSLine}
+                  iconClassName={themeTextSecondaryColor}
+                  isLabelHidden={true}
+                  label={intl.formatMessage({
+                    defaultMessage: 'Collapse',
+                    description: 'Collapse label',
+                    id: 'LlNbSg',
+                  })}
+                  size="xs"
+                  tooltip={intl.formatMessage({
+                    defaultMessage: 'Hide table of contents',
+                    description: 'Hide table of contents',
+                    id: 'iKGGvM',
+                  })}
+                  variant="tertiary"
+                  onClick={() => setCollapsedToC?.(true)}
+                />
+              ) : (
+                <RiArrowRightSLine
                   aria-hidden={true}
                   className={clsx('size-4 shrink-0', themeTextSecondaryColor)}
                 />
-                <Heading
-                  className={clsx(
-                    'flex-1',
-                    'text-[0.8125rem] leading-5',
-                    textVariants({ color: 'secondary' }),
-                  )}
-                  color="custom"
-                  id={titleId}
-                  level="custom">
-                  <FormattedMessage
-                    defaultMessage="On this page"
-                    description="Title of the table of contents for a guidebook page."
-                    id="Cl4Ghp"
-                  />
-                </Heading>
-                {isCollapsible ? (
-                  <Button
-                    className="z-[1]"
-                    icon={RiArrowRightSLine}
-                    iconClassName={themeTextSecondaryColor}
-                    isLabelHidden={true}
-                    label={intl.formatMessage({
-                      defaultMessage: 'Collapse',
-                      description: 'Collapse label',
-                      id: 'LlNbSg',
-                    })}
-                    size="xs"
-                    tooltip={intl.formatMessage({
-                      defaultMessage: 'Hide table of contents',
-                      description: 'Hide table of contents',
-                      id: 'iKGGvM',
-                    })}
-                    variant="tertiary"
-                    onClick={() => setCollapsedToC?.(true)}
-                  />
-                ) : (
-                  <RiArrowRightSLine
-                    aria-hidden={true}
-                    className={clsx('size-4 shrink-0', themeTextSecondaryColor)}
-                  />
-                )}
+              )}
+            </div>
+            <Section>
+              <div className="py-4 pl-2">
+                <SideNavigation
+                  activeLinkRef={activeLinkRef}
+                  activeValue={activeId}
+                  items={convertToSideNavigationItem(tableOfContents)}
+                />
               </div>
-              <Section>
-                <div className="py-4 pl-2">
-                  <SideNavigation
-                    activeLinkRef={activeLinkRef}
-                    activeValue={activeId}
-                    items={convertToSideNavigationItem(tableOfContents)}
-                  />
-                </div>
-              </Section>
-            </>
-          ))}
-      </nav>
-    </ScrollArea>
+            </Section>
+          </>
+        ))}
+    </nav>
   );
 }
