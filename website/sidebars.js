@@ -52,6 +52,7 @@ module.exports = {
         'companies/atlassian-front-end-interview-questions',
         'companies/uber-front-end-interview-questions',
         'companies/apple-front-end-interview-questions',
+        'companies/canva-front-end-interview-questions',
         'companies/dropbox-front-end-interview-questions',
         'companies/linkedin-front-end-interview-questions',
         'companies/lyft-front-end-interview-questions',
