@@ -3,6 +3,12 @@ title: Shopify Front End Interview Questions
 sidebar_label: Shopify interview questions
 ---
 
+:::info Latest version on GreatFrontEnd
+
+Find more company guides on [GreatFrontEnd](https://www.greatfrontend.com/interviews/company?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
+
+:::
+
 ## Insider tips from the GreatFrontEnd community
 
 These tips were shared by [GreatFrontEnd](https://www.greatfrontend.com/?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) users who have completed interviews with Shopify.
@@ -22,7 +28,7 @@ These tips were shared by [GreatFrontEnd](https://www.greatfrontend.com/?utm_sou
 **13th Feb 2024**:
 
 > Just wanted to say, I used your site for 1 month to prep for my interviews at Shopify, and I got the job! Staff level engineer.
-> 
+>
 > Just saying thank you and honestly, no complaints. Loved the site, loved the system design questions. Everything was very, very useful.
 
 For more insider tips, visit [GreatFrontEnd](https://www.greatfrontend.com/?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)!

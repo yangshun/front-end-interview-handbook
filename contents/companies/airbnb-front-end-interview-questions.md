@@ -33,19 +33,18 @@ These tips were shared by [GreatFrontEnd](https://www.greatfrontend.com/?utm_sou
 
 **21st Mar 2025**:
 
-> "Our frontend technical screens tend to be more practical than algorithmic"....
-> proceeds to drop a LC hard question during the screen FML
-> 
+> "Our frontend technical screens tend to be more practical than algorithmic".... proceeds to drop a LC hard question during the screen FML
+>
 > Not my first rejection but actually wanted to work at Airbnb for a long time now so this one just hurts a bit more. I actually learned a good amount using GreatFrontEnd to prepare so I definitely did improve.
 
 **12th Jul 2024**:
 
-> Just got done, it was okay. They asked Backbone.js, but the 2nd part was slightly different from GreatFrontEnd. Threw me off quite a bit. Got the right output, but took up the whole time. Let's see! Not feeling super confident based of the interviewer's demeanor 
-> 
-> It was add on listener, but the event names are change:foo, change:bar, (which is fine). 
-> 
+> Just got done, it was okay. They asked Backbone.js, but the 2nd part was slightly different from GreatFrontEnd. Threw me off quite a bit. Got the right output, but took up the whole time. Let's see! Not feeling super confident based of the interviewer's demeanor
+>
+> It was add on listener, but the event names are change:foo, change:bar, (which is fine).
+>
 > There was additional on change which should be a global change listener that fires when any change is made
-> 
+>
 > And the kicker was that when you call unset, you need to keep the listeners (soft delete the data), so that when you set the attribute again, all the global listeners and the attribute listeners before unset are fired
 
 **19th Apr 2024**:
@@ -58,7 +57,6 @@ These tips were shared by [GreatFrontEnd](https://www.greatfrontend.com/?utm_sou
 
 **13th Mar 2024**:
 
-> Just got rejected from Airbnb. I do want to thank this forum / GreatFrontEnd for system design cause I got a strong yes from that on my system design. So the method works great. Unfortunately I didn’t do well on my experience interview out of all things lol.
-> I laid out full technical details process, results, issues, but that’s not enough. Oh well. It was nice to try.
+> Just got rejected from Airbnb. I do want to thank this forum / GreatFrontEnd for system design cause I got a strong yes from that on my system design. So the method works great. Unfortunately I didn’t do well on my experience interview out of all things lol. I laid out full technical details process, results, issues, but that’s not enough. Oh well. It was nice to try.
 
 For more insider tips, visit [GreatFrontEnd](https://www.greatfrontend.com/?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)!

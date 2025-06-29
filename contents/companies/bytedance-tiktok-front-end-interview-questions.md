@@ -47,16 +47,17 @@ These tips were shared by [GreatFrontEnd](https://www.greatfrontend.com/?utm_sou
 **17th Nov 2024**:
 
 > cant say too much because of NDA but this is how it went for TikTok entry level FE
-> 1: leetcodes, javascript fundamentals (covered in GFE 1 month study plan)
-> 2: UI component + follow up
-> 3: system design based on past project + javascript coding
-> and now awaiting 4th round w recruiter 
+>
+> 1. leetcodes, javascript fundamentals (covered in GFE 1 month study plan)
+> 2. UI component + follow up
+> 3. system design based on past project + javascript coding and now awaiting 4th round w recruiter
+>
 > feedback for each round was fairly quick, received update the next morning
 
 **12th Nov 2024**:
 
-> i do bytedance/tiktok round 2 recently, unfortunately get rejected. the coding questions is quite overwhelming for me.
-> after experience & quiz questions, the interviewer directly give me 3 questions (all for ~30 mins), and i can choose the order.
+> i do bytedance/tiktok round 2 recently, unfortunately get rejected. the coding questions is quite overwhelming for me. after experience & quiz questions, the interviewer directly give me 3 questions (all for ~30 mins), and i can choose the order.
+>
 > 1. similar to Map Async Limit but has to be solution 4
 > 2. some compose middleware question (can't find anything similar)
 > 3. implement bind, but i can't handle the new keyword
@@ -67,8 +68,7 @@ These tips were shared by [GreatFrontEnd](https://www.greatfrontend.com/?utm_sou
 
 **8th Aug 2024**:
 
-> Had my first round tiktok frontend engineer interview. Not sure on the level but I told them I have 3 YOE so maybe 2-1?
-> Strange interview tbh. There was a huge language barrier and it was difficult to build rapport with the interviewer (my interview was at night so I had someone overseas). Very difficult to read. First 20 minutes was talking about past projects/experiences/challenges, then a React coding question, then a JS quiz question, and then an untagged tiktok LC med... I asked some good questions about the company imo but the interviewer could barely answer it. I tried my best but it was not a collaborative interview at all and more of a test so it was challenging for me. I think it was a lot for an hour and we ended up going over time 
+> Had my first round tiktok frontend engineer interview. Not sure on the level but I told them I have 3 YOE so maybe 2-1? Strange interview tbh. There was a huge language barrier and it was difficult to build rapport with the interviewer (my interview was at night so I had someone overseas). Very difficult to read. First 20 minutes was talking about past projects/experiences/challenges, then a React coding question, then a JS quiz question, and then an untagged tiktok LC med... I asked some good questions about the company imo but the interviewer could barely answer it. I tried my best but it was not a collaborative interview at all and more of a test so it was challenging for me. I think it was a lot for an hour and we ended up going over time
 
 **18th Jun 2024**:
 

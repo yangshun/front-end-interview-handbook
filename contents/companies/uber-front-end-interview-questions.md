@@ -27,19 +27,16 @@ These tips were shared by [GreatFrontEnd](https://www.greatfrontend.com/?utm_sou
 
 **3rd Jun 2025**:
 
-> I was asked a reactjs based question although I majorly prepared for dsa and JS type questions based on the questions asked previously. What I've learned and  observed about Uber's FE process is that they can ask pretty random questions. 
-> I guess recruiters are not in sync with the interviewers. Or it feels like it is more up to the interviewers on what they ask. I watched some YT videos of people on their uber interview experience and literally to each one of them dsa was asked.
+> I was asked a reactjs based question although I majorly prepared for dsa and JS type questions based on the questions asked previously. What I've learned and observed about Uber's FE process is that they can ask pretty random questions. I guess recruiters are not in sync with the interviewers. Or it feels like it is more up to the interviewers on what they ask. I watched some YT videos of people on their uber interview experience and literally to each one of them dsa was asked.
 
-**7th May 2025**: 
+**7th May 2025**:
 
-> Just gave BPS round of Uber and gotta say, Uber has quality problems! 
-> I thought it would be DSA as the recruiter had mentioned. But I guess you can’t trust recruiters nowadays. 
-> Question was “create a utility in JS to send data in batches with a timeout. So, as soon as a batch size is reached, send the data right away and start the timeout. If timeout happens before batch is filled, send the batch as it is and start the timer again.”
-> Also, I asked the interviewer for what to prepare for DSA round and he said array, trees, graphs, traversals, but he also mentioned that Uber is trying to get away from DSA for frontend roles and keep it frontend focused and slowly they are doing it.
+> Just gave BPS round of Uber and gotta say, Uber has quality problems! I thought it would be DSA as the recruiter had mentioned. But I guess you can’t trust recruiters nowadays. Question was “create a utility in JS to send data in batches with a timeout. So, as soon as a batch size is reached, send the data right away and start the timeout. If timeout happens before batch is filled, send the batch as it is and start the timer again.” Also, I asked the interviewer for what to prepare for DSA round and he said array, trees, graphs, traversals, but he also mentioned that Uber is trying to get away from DSA for frontend roles and keep it frontend focused and slowly they are doing it.
 
 **5th May 2025**:
 
-> Ik someone who gave Uber's SDE II web interview, in short prepare everything, there were 5 rounds - 
+> Ik someone who gave Uber's SDE II web interview, in short prepare everything, there were 5 rounds -
+>
 > 1. DSA - leetcode styled and js based
 > 2. Web Fundamentals - HTML, CSS, JS, APIs, Internet
 > 3. Frontend System Design
@@ -48,12 +45,10 @@ These tips were shared by [GreatFrontEnd](https://www.greatfrontend.com/?utm_sou
 
 **19th Jan 2025**:
 
-> For Uber FE SDE2 check mapAsyncLimit question.
-> Since you're interviewing for their Bengaluru office, prepare behavioral well and do google calender system design
+> For Uber FE SDE2 check mapAsyncLimit question. Since you're interviewing for their Bengaluru office, prepare behavioral well and do google calender system design
 
 **6th Dec 2024**:
 
-> I've my uber onsite coming up. First 2 rounds are leetcode styled coding and System design.
-> abt me: 7 YOE 
+> I've my uber onsite coming up. First 2 rounds are leetcode styled coding and System design. abt me: 7 YOE
 
 For more insider tips, visit [GreatFrontEnd](https://www.greatfrontend.com/?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)!

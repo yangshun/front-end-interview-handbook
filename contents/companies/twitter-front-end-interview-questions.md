@@ -1,5 +1,5 @@
 ---
-title: Twitter Front End Interview Questions
+title: X/Twitter Front End Interview Questions
 sidebar_label: Twitter interview questions
 ---
 
@@ -32,7 +32,6 @@ These tips were shared by [GreatFrontEnd](https://www.greatfrontend.com/?utm_sou
 
 **6th Nov 2024**:
 
-> I had one last month for their product web engineer role. They don't have recruiters at xai. It's the engineers in the team that filter resumes, call candidates.The first round was a short 15 mnts google meets call, the engineer went over what they are building - they are basically upgrading a legacy app built by twitter engineers years ago into react and looking for someone who has both react as well as react native skills.
-> Received a rejection after the initial chat.
+> I had one last month for their product web engineer role. They don't have recruiters at xai. It's the engineers in the team that filter resumes, call candidates.The first round was a short 15 mnts google meets call, the engineer went over what they are building - they are basically upgrading a legacy app built by twitter engineers years ago into react and looking for someone who has both react as well as react native skills. Received a rejection after the initial chat.
 
 For more insider tips, visit [GreatFrontEnd](https://www.greatfrontend.com/?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)!

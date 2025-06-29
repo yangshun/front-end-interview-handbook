@@ -82,34 +82,28 @@ These tips were shared by [GreatFrontEnd](https://www.greatfrontend.com/?utm_sou
 **5th Apr 2025**:
 
 > Interview experience at Google L4 frontend role - Offer Accepted
-> 
-> Round 1 DSA: question of finding all subsets in a deck of cards that pass a valid condition
-> Round 2 Frontend: Implement a color swatch. Also with a slider
-> Round 3 Googlyness:  Behavior and resume
-> Round 4: DSA - File system API and streaming API with generators
-> 
-> Team match round
-> HC review
-> 
-> Offer
+>
+> 1. Round 1 DSA: question of finding all subsets in a deck of cards that pass a valid condition
+> 2. Round 2 Frontend: Implement a color swatch. Also with a slider
+> 3. Round 3 Googlyness: Behavior and resume
+> 4. Round 4: DSA - File system API and streaming API with generators
+>
+> Team match round, then HC review, Offer
 
 **9th Mar 2025**:
 
-> I have a google senior frontend engineer loop coming up. The recruiter shared material suggests  2 dsa + 1 frontend + 1 system design (guideline suggests it can be anything frontend or backend) + 1 behavioural.
+> I have a google senior frontend engineer loop coming up. The recruiter shared material suggests 2 dsa + 1 frontend + 1 system design (guideline suggests it can be anything frontend or backend) + 1 behavioural.
 
 **20th Dec 2024**:
 
-> Hello, folks!
-> Previously, I had an interview with Google for a Front-End role. 
-> The problem I got was DSA-style, just like you guys mentioned, thanks to this channel, so I did prep for DSA.
+> Hello, folks! Previously, I had an interview with Google for a Front-End role. The problem I got was DSA-style, just like you guys mentioned, thanks to this channel, so I did prep for DSA.
 
 **20th Dec 2024**:
 
-> dsa is fair game throughout the entire google experience
-> easy, medium, hard, all fair game
+> DSA is fair game throughout the entire google experience easy, medium, hard, all fair game
 
 **10th Nov 2024**:
 
-> I interviewed a few years ago. At that time it was mostly DSA and 1 round involved frontend design with some coding HTML, CSS, JS. But I echo what others have said. Google's FE is DSA heavy. 
+> I interviewed a few years ago. At that time it was mostly DSA and 1 round involved frontend design with some coding HTML, CSS, JS. But I echo what others have said. Google's FE is DSA heavy.
 
 For more insider tips, visit [GreatFrontEnd](https://www.greatfrontend.com/?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)!

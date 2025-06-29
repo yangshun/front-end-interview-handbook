@@ -45,7 +45,6 @@ These tips were shared by [GreatFrontEnd](https://www.greatfrontend.com/?utm_sou
 
 **11th Feb 2024**:
 
-> I did Dropbox two years ago. They loved testing Vanilla JS, no react
-> i had to build carousel with vanilla js and there's debugging round purely made of vanilla JS
+> I did Dropbox two years ago. They loved testing Vanilla JS, no react i had to build carousel with vanilla js and there's debugging round purely made of vanilla JS
 
 For more insider tips, visit [GreatFrontEnd](https://www.greatfrontend.com/?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)!
