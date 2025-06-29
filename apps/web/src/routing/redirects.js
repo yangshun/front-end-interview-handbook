@@ -113,18 +113,17 @@ export const redirects = [
     source: '/questions/js/quiz',
   },
   {
-    destination: '/questions/javascript-interview-questions/algo-coding',
+    destination: '/questions/javascript-interview-questions',
     permanent: false,
     source: '/questions/js/coding/data-structures-algorithms',
   },
   {
-    destination: '/questions/javascript-interview-questions/ui-coding',
+    destination: '/questions/javascript-interview-questions',
     permanent: false,
     source: '/questions/js/coding/user-interface',
   },
   {
-    destination:
-      '/questions/javascript-interview-questions/javascript-functions',
+    destination: '/questions/javascript-interview-questions/',
     permanent: false,
     source: '/questions/js/coding/utilities',
   },
@@ -262,5 +261,125 @@ export const redirects = [
     destination: '/behavioral-interview-playbook/:path*',
     permanent: false,
     source: '/behavioral-interview-guidebook/:path*',
+  },
+  {
+    destination: '/',
+    permanent: false,
+    source: '/home',
+  },
+  {
+    destination: '/interviews/get-started',
+    permanent: false,
+    source: '/interviews',
+  },
+  {
+    destination: '/questions/css-interview-questions',
+    permanent: false,
+    source: '/questions/css-interview-questions/javascript-functions',
+  },
+  {
+    destination: '/questions/css-interview-questions',
+    permanent: false,
+    source: '/questions/css/coding/javascript',
+  },
+  {
+    destination: '/questions/html-interview-questions',
+    permanent: false,
+    source: '/questions/html-interview-questions/javascript-functions',
+  },
+  {
+    destination: '/questions/html-interview-questions',
+    permanent: false,
+    source: '/questions/html/coding/utilities',
+  },
+  {
+    destination: '/questions/javascript-interview-questions',
+    permanent: false,
+    source: '/questions/javascript-interview-questions/javascript-functions',
+  },
+  {
+    destination: '/questions/javascript-interview-questions',
+    permanent: false,
+    source: '/questions/javascript-interview-questions/ui-coding',
+  },
+  {
+    destination: '/questions/javascript-interview-questions',
+    permanent: false,
+    source: '/questions/js/coding/algo',
+  },
+  {
+    destination: '/questions/javascript-interview-questions',
+    permanent: false,
+    source: '/questions/js/coding/data-structures-algorithms',
+  },
+  {
+    destination: '/questions/javascript-interview-questions',
+    permanent: false,
+    source: '/questions/js/coding/javascript',
+  },
+  {
+    destination: '/questions/javascript-interview-questions',
+    permanent: false,
+    source: '/questions/js/coding/user-interface',
+  },
+  {
+    destination: '/questions/javascript-interview-questions',
+    permanent: false,
+    source: '/questions/js/coding/utilities',
+  },
+  {
+    destination: '/questions/algo/binary-search',
+    permanent: false,
+    source: '/questions/javascript/binary-search',
+  },
+  {
+    destination: '/questions/algo/breadth-first-search',
+    permanent: false,
+    source: '/questions/javascript/breadth-first-search',
+  },
+  {
+    destination: '/questions/algo/depth-first-search',
+    permanent: false,
+    source: '/questions/javascript/depth-first-search',
+  },
+  {
+    destination: '/questions/algo/merge-sort',
+    permanent: false,
+    source: '/questions/javascript/merge-sort',
+  },
+  {
+    destination: '/questions/algo/queue',
+    permanent: false,
+    source: '/questions/javascript/queue',
+  },
+  {
+    destination: '/questions/algo/stack',
+    permanent: false,
+    source: '/questions/javascript/stack',
+  },
+  {
+    destination: '/questions/algo/topological-sort',
+    permanent: false,
+    source: '/questions/javascript/topological-sort',
+  },
+  {
+    destination: '/questions/algo/quick-sort',
+    permanent: false,
+    source: '/questions/javascript/quick-sort',
+  },
+  {
+    destination: '/questions/algo/heap-sort',
+    permanent: false,
+    source: '/questions/javascript/heap-sort',
+  },
+  {
+    destination: '/questions/algo/insertion-sort',
+    permanent: false,
+    source: '/questions/javascript/insertion-sort',
+  },
+  {
+    destination: '/questions/algo/selection-sort',
+    permanent: false,
+    source: '/questions/javascript/selection-sort',
   },
 ];
