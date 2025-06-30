@@ -12,6 +12,8 @@ import {
   themeBackgroundColor,
 } from '~/components/ui/theme';
 
+import logEvent from '~/logging/logEvent';
+
 import type { SponsorsAdFormatPayloadInContent } from '../SponsorsTypes';
 import SponsorsAdFormatInContentBodyRenderer from './SponsorsAdFormatInContentBodyRenderer';
 import { sponsorsAdTrackingHref } from './SponsorsAdHref';
@@ -85,6 +87,11 @@ export default function SponsorsAdFormatInContent({
         ad_id: adId,
         ad_placement: adPlacement,
       },
+    });
+    logEvent('sponsors.ad.click', {
+      ad_format: adFormat,
+      ad_id: adId,
+      namespace: 'sponsors',
     });
   }
 

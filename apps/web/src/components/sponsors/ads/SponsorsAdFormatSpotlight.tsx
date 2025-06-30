@@ -19,6 +19,8 @@ import {
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
+import logEvent from '~/logging/logEvent';
+
 import type { SponsorsAdFormatPayloadSpotlight } from '../SponsorsTypes';
 import { sponsorsAdTrackingHref } from './SponsorsAdHref';
 import useSponsorsAdImpressionLogging from './useSponsorsAdImpressionLogging';
@@ -75,6 +77,11 @@ export default function SponsorsAdFormatSpotlight({
         ad_id: adId,
         ad_placement: adPlacement,
       },
+    });
+    logEvent('sponsors.ad.click', {
+      ad_format: adFormat,
+      ad_id: adId,
+      namespace: 'sponsors',
     });
   }
 
@@ -163,7 +170,7 @@ export default function SponsorsAdFormatSpotlight({
           </Anchor>{' '}
           <RiArrowRightLine
             aria-hidden={true}
-            className="size-3.5 inline-flex shrink-0"
+            className="inline-flex size-3.5 shrink-0"
           />
         </Text>
       </div>

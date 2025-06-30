@@ -41,7 +41,8 @@ type LoggingAction =
   | 'sandpack.running'
   | 'sandpack.timeout'
   | 'sandpack.unreachable'
-  | 'sponsorships.inquiry'
+  | 'sponsors.ad.click'
+  | 'sponsors.inquiry'
   | 'web_vitals'
   | 'window.blur'
   | 'window.focus';

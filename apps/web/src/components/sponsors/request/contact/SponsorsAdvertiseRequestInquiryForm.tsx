@@ -63,7 +63,7 @@ export default function SponsorsAdvertiseRequestInquiryForm({
       emails: emailsData,
     });
 
-    logEvent('sponsorships.inquiry', {
+    logEvent('sponsors.inquiry', {
       emails: emailsData,
       namespace: 'sponsors',
       sessionId,

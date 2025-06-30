@@ -367,7 +367,7 @@ export const sponsorsRouter = router({
   adRequestInquiries: adminProcedure.query(async () => {
     const aplQuery = `
     ['events']
-    | where ['event.name'] == 'sponsorships.inquiry'
+    | where ['event.name'] == 'sponsors.inquiry'
     | order by ['_time'] desc
     | project emails=['event.payload.emails'], time=['_time']
     `;
