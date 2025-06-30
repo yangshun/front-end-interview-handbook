@@ -17,12 +17,43 @@ function stripTrailingSlashFromPathnameIfNecessary(pathname: string) {
     : stripTrailingSlashFromPathname(pathname);
 }
 
+function transformPathnameIfNecessary(
+  pathname: string,
+  transformations: Redirects | Rewrites,
+) {
+  // First try exact match
+  if (transformations[pathname]) {
+    return transformations[pathname];
+  }
+
+  // Then try pattern matching for Next.js-style patterns
+  for (const [source, destination] of Object.entries(transformations)) {
+    // TODO: support other pattern matching with reference to Next.js source code
+    // Match any parameter with :paramName* pattern
+    const catchAllMatch = source.match(/^(.*)\/:(.*?)\*$/);
+
+    if (catchAllMatch) {
+      const [, baseSource, paramName] = catchAllMatch;
+
+      if (pathname.startsWith(baseSource + '/') || pathname === baseSource) {
+        // Extract the dynamic part
+        const dynamicPart = pathname.substring(baseSource.length);
+
+        // Replace :paramName* in destination with the dynamic part
+        return destination.replace(`/:${paramName}*`, dynamicPart);
+      }
+    }
+  }
+
+  return pathname;
+}
+
 function rewritePathnameIfNecessary(pathname: string, rewrites: Rewrites) {
-  return rewrites[pathname] ?? pathname;
+  return transformPathnameIfNecessary(pathname, rewrites);
 }
 
 function redirectPathnameIfNecessary(pathname: string, redirects: Rewrites) {
-  return redirects[pathname] ?? pathname;
+  return transformPathnameIfNecessary(pathname, redirects);
 }
 
 export default function i18nMiddleware(
@@ -97,11 +128,14 @@ export default function i18nMiddleware(
   // Find the rawPathname and check if it matches rewrites.
   const { locale, pathname: rawPathname } = parseI18nPathname(pathname);
 
-  if (Object.hasOwn(rewrites, rawPathname)) {
+  // Check for rewrites (both exact matches and patterns)
+  const rewriteResult = rewritePathnameIfNecessary(rawPathname, rewrites);
+
+  if (rewriteResult !== rawPathname) {
     return NextResponse.rewrite(
       new URL(
         i18nHref(
-          rewritePathnameIfNecessary(rawPathname, rewrites),
+          rewriteResult,
           locale ?? nextI18nosticConfig.defaultLocale,
         ).toString() + search,
         request.url,
@@ -109,11 +143,14 @@ export default function i18nMiddleware(
     );
   }
 
-  if (Object.hasOwn(redirects, rawPathname)) {
+  // Check for redirects (both exact matches and patterns)
+  const redirectResult = redirectPathnameIfNecessary(rawPathname, redirects);
+
+  if (redirectResult !== rawPathname) {
     return NextResponse.redirect(
       new URL(
         i18nHref(
-          redirectPathnameIfNecessary(rawPathname, redirects),
+          redirectResult,
           locale ?? nextI18nosticConfig.defaultLocale,
         ).toString() + search,
         request.url,
