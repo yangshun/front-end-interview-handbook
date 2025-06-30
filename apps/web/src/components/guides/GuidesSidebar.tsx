@@ -2,7 +2,7 @@
 
 import type { GuidebookItem } from '@prisma/client';
 import clsx from 'clsx';
-import React from 'react';
+import React, { memo } from 'react';
 
 import { FormattedMessage } from '~/components/intl';
 import Text from '~/components/ui/Text';
@@ -57,48 +57,41 @@ export function GuidesSidebar<GuideSlug extends string>({
             : undefined,
           top: 'calc(var(--global-sticky-height))',
         }}>
-        {!isFocusMode && (
-          <>
-            <div
-              className={clsx(
-                'flex grow-0 flex-col gap-1',
-                'w-full',
-                'px-4 py-4',
-                ['border-b', themeBorderColor],
-              )}>
-              <Text
-                className="px-2"
-                color="secondary"
-                size="body3"
-                weight="medium">
-                <FormattedMessage
-                  defaultMessage="Current guide"
-                  description="Label for current guide title"
-                  id="3wygra"
-                />
-              </Text>
-              <GuidesDropdownMenu guide={guide} />
-            </div>
-            <div
-              className={clsx(
-                'flex grow',
-                // Using native scrollbar instead of ScrollArea because when we expand links accordion
-                // and when the scrollbar appear if the items are long it causes re-rendering of the ScrollArea
-                // and performance issue in Safari due to it
-                'thin-scrollbar overflow-y-auto',
-                isSidebar && 'vignette-scroll',
-              )}>
-              <div className="w-full p-4">
-                <SidebarLinksSection
-                  defaultOpenSections={navigation.initialOpenSections}
-                  items={navigation.navigation.items}
-                  type="multiple"
-                  onItemClick={onClose}
-                />
-              </div>
-            </div>
-          </>
-        )}
+        <div
+          className={clsx(
+            'grow-0 flex-col gap-1',
+            isFocusMode ? 'hidden' : 'flex',
+            'w-full',
+            'px-4 py-4',
+            ['border-b', themeBorderColor],
+          )}>
+          <Text className="px-2" color="secondary" size="body3" weight="medium">
+            <FormattedMessage
+              defaultMessage="Current guide"
+              description="Label for current guide title"
+              id="3wygra"
+            />
+          </Text>
+          <MemoizedGuidesDropdownMenu guide={guide} />
+        </div>
+        <div
+          className={clsx(
+            // Using native scrollbar instead of ScrollArea because when we expand links accordion
+            // and when the scrollbar appear if the items are long it causes re-rendering of the ScrollArea
+            // and performance issue in Safari due to it
+            'thin-scrollbar overflow-y-auto',
+            isFocusMode ? 'hidden' : 'flex grow',
+            isSidebar && 'vignette-scroll',
+          )}>
+          <div className="w-full p-4">
+            <MemoizedSidebarLinksSection
+              defaultOpenSections={navigation.initialOpenSections}
+              items={navigation.navigation.items}
+              type="multiple"
+              onItemClick={onClose}
+            />
+          </div>
+        </div>
         {isSidebar && (
           <div
             className={clsx(
@@ -117,3 +110,6 @@ export function GuidesSidebar<GuideSlug extends string>({
     </div>
   );
 }
+
+const MemoizedSidebarLinksSection = memo(SidebarLinksSection);
+const MemoizedGuidesDropdownMenu = memo(GuidesDropdownMenu);

@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { debounce } from 'lodash-es';
 import type { Ref } from 'react';
-import { useEffect, useId, useRef, useState } from 'react';
+import { memo, useEffect, useId, useMemo, useRef, useState } from 'react';
 import {
   RiArrowLeftSLine,
   RiArrowRightSLine,
@@ -90,6 +90,11 @@ function TableOfContentsImpl({
     return () => debouncedScrollIntoView.cancel(); // Cancel on cleanup
   }, [scrollIntoView, activeLink, debouncedScrollIntoView]);
 
+  const navigationItems = useMemo(
+    () => convertToSideNavigationItem(tableOfContents),
+    [tableOfContents],
+  );
+
   return (
     <nav ref={navRef} aria-labelledby={titleId} className="relative w-full">
       {tableOfContents.length > 0 &&
@@ -115,65 +120,65 @@ function TableOfContentsImpl({
             onClick={() => setCollapsedToC?.(false)}
           />
         ) : (
-          <>
-            <div className="flex items-center gap-3">
-              <RiListCheck
+          <div className="flex items-center gap-3">
+            <RiListCheck
+              aria-hidden={true}
+              className={clsx('size-4 shrink-0', themeTextSecondaryColor)}
+            />
+            <Heading
+              className={clsx(
+                'flex-1',
+                'text-[0.8125rem] leading-5',
+                textVariants({ color: 'secondary' }),
+              )}
+              color="custom"
+              id={titleId}
+              level="custom">
+              <FormattedMessage
+                defaultMessage="On this page"
+                description="Title of the table of contents for a guidebook page."
+                id="Cl4Ghp"
+              />
+            </Heading>
+            {isCollapsible ? (
+              <Button
+                className="z-[1]"
+                icon={RiArrowRightSLine}
+                iconClassName={themeTextSecondaryColor}
+                isLabelHidden={true}
+                label={intl.formatMessage({
+                  defaultMessage: 'Collapse',
+                  description: 'Collapse label',
+                  id: 'LlNbSg',
+                })}
+                size="xs"
+                tooltip={intl.formatMessage({
+                  defaultMessage: 'Hide table of contents',
+                  description: 'Hide table of contents',
+                  id: 'iKGGvM',
+                })}
+                variant="tertiary"
+                onClick={() => setCollapsedToC?.(true)}
+              />
+            ) : (
+              <RiArrowRightSLine
                 aria-hidden={true}
                 className={clsx('size-4 shrink-0', themeTextSecondaryColor)}
               />
-              <Heading
-                className={clsx(
-                  'flex-1',
-                  'text-[0.8125rem] leading-5',
-                  textVariants({ color: 'secondary' }),
-                )}
-                color="custom"
-                id={titleId}
-                level="custom">
-                <FormattedMessage
-                  defaultMessage="On this page"
-                  description="Title of the table of contents for a guidebook page."
-                  id="Cl4Ghp"
-                />
-              </Heading>
-              {isCollapsible ? (
-                <Button
-                  className="z-[1]"
-                  icon={RiArrowRightSLine}
-                  iconClassName={themeTextSecondaryColor}
-                  isLabelHidden={true}
-                  label={intl.formatMessage({
-                    defaultMessage: 'Collapse',
-                    description: 'Collapse label',
-                    id: 'LlNbSg',
-                  })}
-                  size="xs"
-                  tooltip={intl.formatMessage({
-                    defaultMessage: 'Hide table of contents',
-                    description: 'Hide table of contents',
-                    id: 'iKGGvM',
-                  })}
-                  variant="tertiary"
-                  onClick={() => setCollapsedToC?.(true)}
-                />
-              ) : (
-                <RiArrowRightSLine
-                  aria-hidden={true}
-                  className={clsx('size-4 shrink-0', themeTextSecondaryColor)}
-                />
-              )}
-            </div>
-            <Section>
-              <div className="py-4 pl-2">
-                <SideNavigation
-                  activeLinkRef={activeLinkRef}
-                  activeValue={activeId}
-                  items={convertToSideNavigationItem(tableOfContents)}
-                />
-              </div>
-            </Section>
-          </>
+            )}
+          </div>
         ))}
+      <Section>
+        <div className="py-4 pl-2">
+          <MemoizedSideNavigation
+            activeLinkRef={activeLinkRef}
+            activeValue={activeId}
+            items={navigationItems}
+          />
+        </div>
+      </Section>
     </nav>
   );
 }
+
+const MemoizedSideNavigation = memo(SideNavigation);

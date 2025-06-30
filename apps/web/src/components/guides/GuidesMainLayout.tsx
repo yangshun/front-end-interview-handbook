@@ -3,8 +3,8 @@
 import type { GuidebookItem, GuideProgress } from '@prisma/client';
 import { useUser } from '@supabase/auth-helpers-react';
 import clsx from 'clsx';
-import type { ReactNode } from 'react';
-import React, { useRef } from 'react';
+import type { ForwardedRef, ReactNode } from 'react';
+import React, { forwardRef, memo, useRef } from 'react';
 
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 import useScrollToTop from '~/hooks/useScrollToTop';
@@ -26,7 +26,11 @@ import GuidesNavbar from './GuidesNavbar';
 import GuidesProgressAction from './GuidesProgressAction';
 import type { TableOfContents } from './GuidesTableOfContents';
 import GuidesTableOfContents from './GuidesTableOfContents';
-import type { GuideMetadata, GuideNavigation } from './types';
+import type {
+  BaseGuideNavigationLink,
+  GuideMetadata,
+  GuideNavigation,
+} from './types';
 import useFlattenedNavigationItems from './useFlattenedNavigationItems';
 import { useGuidesAutoMarkAsComplete } from './useGuidesAutoMarkAsComplete';
 
@@ -67,17 +71,11 @@ export default function GuidesMainLayout<GuideSlug extends string>({
   tableOfContents,
   ...props
 }: Props<GuideSlug>) {
-  const intl = useIntl();
   const { pathname } = useI18nPathname();
-  const { navigateToSignInUpPage } = useAuthSignInUp();
   const { collapsedToC, focusMode, setCollapsedToC } = useGuidesContext();
   const articleContainerRef = useRef<HTMLDivElement>(null);
-  const user = useUser();
 
   useScrollToTop([pathname]);
-
-  const [autoMarkAsComplete, setAutoMarkAsComplete] =
-    useGuidesAutoMarkAsComplete();
 
   const flatNavigationItems = useFlattenedNavigationItems(navigation);
 
@@ -123,77 +121,15 @@ export default function GuidesMainLayout<GuideSlug extends string>({
               : 'xl:pl-12',
             'pb-20 pt-12',
           )}>
-          <div
-            className={clsx(
-              'flex flex-col gap-6',
-              'mx-auto w-full max-w-[620px]',
-            )}>
-            <div ref={articleContainerRef}>{children}</div>
-            <Section>
-              <Divider color="emphasized" />
-              <SponsorsAdFormatInContentContainer
-                adPlacement="guide"
-                size="md"
-              />
-              <Divider color="emphasized" />
-              {questionMetadata && (
-                <div className="flex justify-between gap-4">
-                  <QuestionReportIssueButton
-                    entity="question"
-                    format={questionMetadata.format}
-                    isLabelHidden={false}
-                    showTooltip={false}
-                    slug={questionMetadata.slug}
-                  />
-                  <QuestionProgressAction
-                    metadata={questionMetadata}
-                    studyListKey={studyListKey}
-                  />
-                </div>
-              )}
-              {guideMetadata && (
-                <div className="flex justify-between gap-4">
-                  <QuestionReportIssueButton
-                    book={guideMetadata.book}
-                    entity="article"
-                    isLabelHidden={false}
-                    showTooltip={false}
-                    slug={guideMetadata.id}
-                  />
-                  <div className="max-w-64 flex flex-col items-end gap-2">
-                    <GuidesProgressAction
-                      guideName={currentItem.label}
-                      guideProgress={
-                        'guideProgress' in props ? props.guideProgress : null
-                      }
-                      metadata={guideMetadata}
-                      studyListKey={studyListKey}
-                    />
-                    <CheckboxInput
-                      label={intl.formatMessage({
-                        defaultMessage:
-                          'Automatically mark as complete when moving to the next article',
-                        description: 'Mark article as complete automatically',
-                        id: 'tdR9Fm',
-                      })}
-                      size="sm"
-                      value={user == null ? undefined : autoMarkAsComplete}
-                      onChange={(value) => {
-                        if (user == null) {
-                          navigateToSignInUpPage({
-                            query: { source: 'track_progress' },
-                          });
-
-                          return;
-                        }
-                        setAutoMarkAsComplete(value);
-                      }}
-                    />
-                  </div>
-                </div>
-              )}
-            </Section>
-          </div>
+          <MemoizedGuidesMainContent
+            ref={articleContainerRef}
+            currentItem={currentItem}
+            guideMetadata={guideMetadata}
+            questionMetadata={questionMetadata}
+            studyListKey={studyListKey}
+            {...props}>
+            {children}
+          </MemoizedGuidesMainContent>
           <Section>
             <aside
               key={currentItem?.href}
@@ -222,3 +158,109 @@ export default function GuidesMainLayout<GuideSlug extends string>({
     </GuidesHeadingObserver>
   );
 }
+
+type GuidesMainContentProps<GuideSlug extends string> = Readonly<
+  MarkAsCompleteProps & {
+    children?: React.ReactNode;
+    currentItem: BaseGuideNavigationLink<GuideSlug>;
+    questionMetadata?: React.ComponentProps<
+      typeof GuidesPagination
+    >['questionMetadata'];
+    studyListKey?: string;
+  }
+>;
+
+function GuidesMainContent<GuideSlug extends string>(
+  {
+    children,
+    currentItem,
+    guideMetadata,
+    questionMetadata,
+    studyListKey,
+    ...props
+  }: GuidesMainContentProps<GuideSlug>,
+  ref: ForwardedRef<HTMLDivElement>,
+) {
+  return (
+    <div
+      className={clsx('flex flex-col gap-6', 'mx-auto w-full max-w-[620px]')}>
+      <div ref={ref}>{children}</div>
+      <Section>
+        <Divider color="emphasized" />
+        <SponsorsAdFormatInContentContainer adPlacement="guide" size="md" />
+        <Divider color="emphasized" />
+        {questionMetadata && (
+          <div className="flex justify-between gap-4">
+            <QuestionReportIssueButton
+              entity="question"
+              format={questionMetadata.format}
+              isLabelHidden={false}
+              showTooltip={false}
+              slug={questionMetadata.slug}
+            />
+            <QuestionProgressAction
+              metadata={questionMetadata}
+              studyListKey={studyListKey}
+            />
+          </div>
+        )}
+        {guideMetadata && (
+          <div className="flex justify-between gap-4">
+            <QuestionReportIssueButton
+              book={guideMetadata.book}
+              entity="article"
+              isLabelHidden={false}
+              showTooltip={false}
+              slug={guideMetadata.id}
+            />
+            <div className="flex max-w-64 flex-col items-end gap-2">
+              <GuidesProgressAction
+                guideName={currentItem.label}
+                guideProgress={
+                  'guideProgress' in props ? props.guideProgress : null
+                }
+                metadata={guideMetadata}
+                studyListKey={studyListKey}
+              />
+              <MarkAsCompleteCheckbox />
+            </div>
+          </div>
+        )}
+      </Section>
+    </div>
+  );
+}
+
+function MarkAsCompleteCheckbox() {
+  const intl = useIntl();
+  const user = useUser();
+
+  const [autoMarkAsComplete, setAutoMarkAsComplete] =
+    useGuidesAutoMarkAsComplete();
+  const { navigateToSignInUpPage } = useAuthSignInUp();
+
+  return (
+    <CheckboxInput
+      label={intl.formatMessage({
+        defaultMessage:
+          'Automatically mark as complete when moving to the next article',
+        description: 'Mark article as complete automatically',
+        id: 'tdR9Fm',
+      })}
+      size="sm"
+      value={user == null ? undefined : autoMarkAsComplete}
+      onChange={(value) => {
+        if (user == null) {
+          navigateToSignInUpPage({
+            query: { source: 'track_progress' },
+          });
+
+          return;
+        }
+        setAutoMarkAsComplete(value);
+      }}
+    />
+  );
+}
+
+const MemoizedGuidesMainContent = memo(forwardRef(GuidesMainContent));

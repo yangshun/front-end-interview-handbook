@@ -59,8 +59,6 @@ export default function GuidesPagination<GuideSlug extends string>({
   const user = useUser();
   const { pathname } = useI18nPathname();
   const guidesData = useGuidesData();
-  const { isMobileGuideMenuOpen, setIsMobileGuideMenuOpen } =
-    useGuidesContext();
   const [autoMarkAsComplete] = useGuidesAutoMarkAsComplete();
   const flatNavigationItems = useFlattenedNavigationItems(navigation);
 
@@ -193,39 +191,10 @@ export default function GuidesPagination<GuideSlug extends string>({
             tooltip={prevArticle ? prevArticle.label : undefined}
             variant="tertiary"
           />
-          {/* Button for tablet */}
-          <Button
-            addonPosition="start"
-            className="mx-3.5 hidden sm:flex"
-            icon={RiListCheck}
-            label={guidesData[guide].shortName}
-            size="xs"
-            variant="secondary"
-            onClick={() => setIsMobileGuideMenuOpen(!isMobileGuideMenuOpen)}>
-            <div className="flex items-center gap-2">
-              <Text
-                className="line-clamp-1 sm:line-clamp-none sm:whitespace-nowrap"
-                size="body3"
-                weight="medium">
-                {guidesData[guide].shortName}
-              </Text>
-              <Badge
-                label={`${currentArticlePosition}/${totalNumArticles}`}
-                size="xs"
-                variant="neutral"
-              />
-            </div>
-          </Button>
-          {/* Button for mobile */}
-          <Button
-            addonPosition="start"
-            className="mx-3.5 flex sm:hidden"
-            icon={RiListCheck}
-            isLabelHidden={true}
-            label={guidesData[guide].shortName}
-            size="xs"
-            variant="secondary"
-            onClick={() => setIsMobileGuideMenuOpen(!isMobileGuideMenuOpen)}
+          <GuidesMenuButton
+            currentArticlePosition={currentArticlePosition}
+            guide={guide}
+            totalNumArticles={totalNumArticles}
           />
           <Button
             href={nextArticle?.href}
@@ -295,5 +264,58 @@ export default function GuidesPagination<GuideSlug extends string>({
         )}
       </div>
     </nav>
+  );
+}
+
+function GuidesMenuButton({
+  currentArticlePosition,
+  guide,
+  totalNumArticles,
+}: Readonly<{
+  currentArticlePosition: number;
+  guide: GuidebookItem;
+  totalNumArticles: number;
+}>) {
+  const { isMobileGuideMenuOpen, setIsMobileGuideMenuOpen } =
+    useGuidesContext();
+  const guidesData = useGuidesData();
+
+  return (
+    <>
+      {/* Button for tablet */}
+      <Button
+        addonPosition="start"
+        className="mx-3.5 hidden sm:flex"
+        icon={RiListCheck}
+        label={guidesData[guide].shortName}
+        size="xs"
+        variant="secondary"
+        onClick={() => setIsMobileGuideMenuOpen(!isMobileGuideMenuOpen)}>
+        <div className="flex items-center gap-2">
+          <Text
+            className="line-clamp-1 sm:line-clamp-none sm:whitespace-nowrap"
+            size="body3"
+            weight="medium">
+            {guidesData[guide].shortName}
+          </Text>
+          <Badge
+            label={`${currentArticlePosition}/${totalNumArticles}`}
+            size="xs"
+            variant="neutral"
+          />
+        </div>
+      </Button>
+      {/* Button for mobile */}
+      <Button
+        addonPosition="start"
+        className="mx-3.5 flex sm:hidden"
+        icon={RiListCheck}
+        isLabelHidden={true}
+        label={guidesData[guide].shortName}
+        size="xs"
+        variant="secondary"
+        onClick={() => setIsMobileGuideMenuOpen(!isMobileGuideMenuOpen)}
+      />
+    </>
   );
 }
