@@ -14,6 +14,8 @@ import useUserProfile from '~/hooks/user/useUserProfile';
 
 import { SocialLinks } from '~/data/SocialLinks';
 
+import NavbarAuthLink from '~/components/common/navigation/NavbarAuthLink';
+import useAuthNavItems from '~/components/common/navigation/useAuthNavItems';
 import NavbarEndWithAdvertiseWithUsBadge from '~/components/global/navbar/NavbarEndWithAdvertiseWithUsBadge';
 import NavColorSchemeDropdown from '~/components/global/navbar/NavColorSchemeDropdown';
 import NavI18nDropdown from '~/components/global/navbar/NavI18nDropdown';
@@ -63,7 +65,6 @@ export default function InterviewsNavbar({
   const intl = useIntl();
   const isPremium = userProfile?.premium ?? false;
   const navLinksFull = useInterviewsNavLinks(isLoggedIn, isPremium);
-  const loggedInLinks = useInterviewsLoggedInLinks('nav');
   const navbarRef = useRef(null);
   const pathname = usePathname();
   const { isSticky } = useIsSticky(navbarRef);
@@ -135,6 +136,7 @@ export default function InterviewsNavbar({
           </div>
           <NavbarEndWithAdvertiseWithUsBadge
             addOnItems={endAddOnItems}
+            addOnLinks={<NavbarAuthLink />}
             hideAdvertiseWithUsBadge={hideAdvertiseWithUsBadge}
             isLoading={isUserProfileLoading}
             isPremium={isPremium}
@@ -231,6 +233,7 @@ export default function InterviewsNavbar({
                             </Anchor>
                           </div>
                         ))}
+                      <SidebarNavAuthLinks closeMobileNav={closeMobileNav} />
                       <div className="flex flex-col gap-4 px-6">
                         <SponsorsAdFormatSpotlightContainer adPlacement="nav_mobile" />
                         <SocialDiscountSidebarMention />
@@ -353,13 +356,7 @@ export default function InterviewsNavbar({
                               </div>
                             }
                             variant="tertiary">
-                            {loggedInLinks.map((navItem) => (
-                              <DropdownMenu.Item
-                                key={navItem.id}
-                                {...navItem}
-                                icon={undefined}
-                              />
-                            ))}
+                            <SidebarUserDropdownMenuItems />
                           </DropdownMenu>
                         </>
                       )}
@@ -372,5 +369,58 @@ export default function InterviewsNavbar({
         </div>
       </div>
     </div>
+  );
+}
+
+// Below components are extracted out as a separate component to avoid re-rendering of whole the InterviewsNavbar component
+// due to useAuthSignInUp when the location changes
+function SidebarNavAuthLinks({
+  closeMobileNav,
+}: Readonly<{
+  closeMobileNav: () => void;
+}>) {
+  const { login } = useAuthNavItems();
+  const user = useUser();
+  const isLoggedIn = user != null;
+
+  if (isLoggedIn) {
+    return null;
+  }
+
+  return (
+    <div key={login.id} className="px-4">
+      <Anchor
+        className={clsx(
+          'group flex items-center',
+          'rounded',
+          'px-2 py-2',
+          textVariants({
+            color: 'secondary',
+            size: 'body2',
+            weight: 'medium',
+          }),
+          themeBackgroundLayerEmphasized_Hover,
+        )}
+        href={login.href}
+        variant="unstyled"
+        onClick={(event) => {
+          login.onClick?.(event);
+          closeMobileNav();
+        }}>
+        {login.label}
+      </Anchor>
+    </div>
+  );
+}
+
+function SidebarUserDropdownMenuItems() {
+  const loggedInLinks = useInterviewsLoggedInLinks('nav');
+
+  return (
+    <>
+      {loggedInLinks.map((navItem) => (
+        <DropdownMenu.Item key={navItem.id} {...navItem} icon={undefined} />
+      ))}
+    </>
   );
 }

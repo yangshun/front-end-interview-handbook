@@ -1,17 +1,17 @@
-import useCommonNavItems from '~/components/common/navigation/useCommonNavItems';
 import type { NavbarTopLevelItem } from '~/components/ui/Navbar/NavTypes';
 
+import useAuthNavItems from '../common/navigation/useAuthNavItems';
 import useAdminNavItems from './useAdminNavItems';
 
 export default function useAdminNavLinks(
   isLoggedIn: boolean,
 ): ReadonlyArray<NavbarTopLevelItem> {
-  const commonNavItems = useCommonNavItems();
   const adminNavItems = useAdminNavItems();
+  const { login } = useAuthNavItems();
 
   const links: ReadonlyArray<NavbarTopLevelItem | null> = [
     adminNavItems.sponsorshipsRequest,
-    !isLoggedIn ? commonNavItems.login : null,
+    !isLoggedIn ? login : null,
   ];
 
   return links.flatMap((item) => (item != null ? [item] : []));

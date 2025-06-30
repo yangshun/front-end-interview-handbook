@@ -12,7 +12,7 @@ import useIsSticky from '~/hooks/useIsSticky';
 
 import { PROJECTS_NOTIFICATION_AVAILABLE } from '~/data/FeatureFlags';
 
-import useCommonNavItems from '~/components/common/navigation/useCommonNavItems';
+import useAuthNavItems from '~/components/common/navigation/useAuthNavItems';
 import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
 import ColorSchemeSelect from '~/components/global/color-scheme/ColorSchemeSelect';
 import NavbarEndWithAdvertiseWithUsBadge from '~/components/global/navbar/NavbarEndWithAdvertiseWithUsBadge';
@@ -41,7 +41,7 @@ import useProjectsNavLinks from './useProjectsNavLinks';
 
 function useUserNavigationLinks() {
   const intl = useIntl();
-  const commonNavItems = useCommonNavItems();
+  const { logout } = useAuthNavItems();
 
   const userNavigation: ReadonlyArray<NavLinkItem> = [
     {
@@ -98,7 +98,7 @@ function useUserNavigationLinks() {
       },
       type: 'link',
     },
-    commonNavItems.logout,
+    logout,
   ];
 
   return userNavigation;

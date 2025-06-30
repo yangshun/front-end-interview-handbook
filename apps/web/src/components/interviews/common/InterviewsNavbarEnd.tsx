@@ -1,11 +1,10 @@
 'use client';
 
-import { useUser } from '@supabase/auth-helpers-react';
 import clsx from 'clsx';
 
 import useUserProfile from '~/hooks/user/useUserProfile';
 
-import useCommonNavItems from '~/components/common/navigation/useCommonNavItems';
+import NavbarAuthLink from '~/components/common/navigation/NavbarAuthLink';
 import SponsorsAdvertiseWithUsBadge from '~/components/sponsors/SponsorsAdvertiseWithUsBadge';
 import NavbarEnd from '~/components/ui/Navbar/NavbarEnd';
 import NavbarHeightStyles from '~/components/ui/Navbar/NavbarHeightStyles';
@@ -16,16 +15,12 @@ import InterviewsNavbarEndAddOnItems from './InterviewsNavbarEndAddOnItems';
 import useInterviewsNavItems from './useInterviewsNavItems';
 
 export default function InterviewsNavbarEnd() {
-  const user = useUser();
-  const isLoggedIn = user != null;
   const { isLoading: isUserProfileLoading, userProfile } = useUserProfile();
   const isPremium = userProfile?.premium ?? false;
-  const commonNavItems = useCommonNavItems();
   const interviewsNavItems = useInterviewsNavItems('nav');
 
   const links: ReadonlyArray<NavbarTopLevelItem> = [
     !isPremium ? interviewsNavItems.pricing : null,
-    !isLoggedIn ? commonNavItems.login : null,
   ].flatMap((item) => (item != null ? [item] : []));
 
   return (
@@ -48,6 +43,7 @@ export default function InterviewsNavbarEnd() {
         </div>
         <NavbarEnd
           addOnItems={<InterviewsNavbarEndAddOnItems variant="app" />}
+          addOnLinks={<NavbarAuthLink />}
           className={clsx('flex items-center justify-end gap-x-8', 'h-12')}
           isLoading={isUserProfileLoading}
           links={links}

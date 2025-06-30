@@ -5,6 +5,7 @@ import type { NavbarTopLevelItem } from './NavTypes';
 
 type Props = Readonly<{
   addOnItems?: React.ReactNode;
+  addOnLinks?: React.ReactNode;
   className: string;
   isLoading: boolean;
   links: ReadonlyArray<NavbarTopLevelItem>;
@@ -12,6 +13,7 @@ type Props = Readonly<{
 
 export default function NavbarEnd({
   addOnItems,
+  addOnLinks,
   className,
   isLoading,
   links,
@@ -28,6 +30,7 @@ export default function NavbarEnd({
           {links.map((navItem) => (
             <NavbarItem key={navItem.id} {...navItem} />
           ))}
+          {addOnLinks}
         </div>
       )}
       {addOnItems}
