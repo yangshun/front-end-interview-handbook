@@ -137,10 +137,16 @@ export default async function Page({ params }: Props) {
     },
   });
 
-  const [viewerUnlockedAccess, { challenge }] = await Promise.all([
+  const [viewerUnlockedAccess, challengeResult] = await Promise.all([
     fetchViewerProjectsChallengeAccess(submission.slug),
     readProjectsChallengeItem(submission.slug, locale, viewerId),
   ]);
+
+  if (!challengeResult) {
+    notFound();
+  }
+
+  const { challenge } = challengeResult;
 
   const viewerAccess = ProjectsPremiumAccessControl(
     challenge.metadata.access,

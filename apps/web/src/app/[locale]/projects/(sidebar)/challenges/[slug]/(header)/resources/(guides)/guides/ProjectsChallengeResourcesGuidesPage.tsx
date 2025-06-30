@@ -1,3 +1,5 @@
+import { notFound } from 'next/navigation';
+
 import ProjectsChallengeGuideSection from '~/components/projects/challenges/guides/ProjectsChallengeGuideSection';
 import ProjectsPremiumAccessControl from '~/components/projects/challenges/premium/ProjectsPremiumAccessControl';
 import fetchViewerProjectsChallengeAccess from '~/components/projects/utils/fetchViewerProjectsChallengeAccess';
@@ -21,7 +23,7 @@ export default async function ProjectsChallengeResourcesGuidesPage({
   const [
     { viewerProjectsProfile },
     viewerUnlockedAccess,
-    { challenge },
+    challengeResult,
     { challengeGuide },
     { commonGuides },
   ] = await Promise.all([
@@ -31,6 +33,12 @@ export default async function ProjectsChallengeResourcesGuidesPage({
     readProjectsChallengeGuide(slug, locale),
     readProjectsCommonGuideList(locale),
   ]);
+
+  if (!challengeResult) {
+    notFound();
+  }
+
+  const { challenge } = challengeResult;
 
   const viewerAccess = ProjectsPremiumAccessControl(
     challenge.metadata.access,

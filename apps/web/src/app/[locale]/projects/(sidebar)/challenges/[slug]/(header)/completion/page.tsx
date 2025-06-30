@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation';
 import type { Metadata } from 'next/types';
 
 import ProjectsChallengeDeploymentCompletionPage from '~/components/projects/challenges/completion/ProjectsChallengeDeploymentCompletionPage';
@@ -52,12 +53,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const { locale, slug } = params;
-  const [{ viewerProjectsProfile }, viewerUnlockedAccess, { challenge }] =
+  const [{ viewerProjectsProfile }, viewerUnlockedAccess, challengeResult] =
     await Promise.all([
       fetchViewerProjectsProfile(),
       fetchViewerProjectsChallengeAccess(slug),
       readProjectsChallengeItem(slug, locale),
     ]);
+
+  if (!challengeResult) {
+    notFound();
+  }
+
+  const { challenge } = challengeResult;
 
   const viewerAccess = ProjectsPremiumAccessControl(
     challenge.metadata.access,

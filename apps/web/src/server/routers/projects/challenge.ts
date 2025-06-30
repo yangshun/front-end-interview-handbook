@@ -161,11 +161,20 @@ export const projectsChallengeRouter = router({
       }),
     )
     .query(async ({ ctx: { viewer }, input: { locale, slug } }) => {
-      const { challenge } = await readProjectsChallengeItem(
+      const challengeResult = await readProjectsChallengeItem(
         slug,
         locale,
         viewer?.id,
       );
+
+      if (!challengeResult) {
+        throw new TRPCError({
+          code: 'NOT_FOUND',
+          message: 'Challenge not found',
+        });
+      }
+
+      const { challenge } = challengeResult;
 
       return {
         ...challenge,

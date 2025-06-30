@@ -80,10 +80,16 @@ export default async function Page({ params }: Props) {
     return notFound();
   }
 
-  const { challenge } = await readProjectsChallengeItem(
+  const challengeResult = await readProjectsChallengeItem(
     submission.slug,
     locale,
   );
+
+  if (!challengeResult) {
+    notFound();
+  }
+
+  const { challenge } = challengeResult;
 
   return (
     <ProjectsChallengeSubmissionEditPage

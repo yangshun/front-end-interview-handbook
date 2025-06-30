@@ -1,4 +1,4 @@
-import { redirect } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 
 import ProjectsChallengeResourcePaywall from '~/components/projects/challenges/premium/ProjectsChallengeResourcePaywall';
 import ProjectsPremiumAccessControl from '~/components/projects/challenges/premium/ProjectsPremiumAccessControl';
@@ -21,12 +21,18 @@ export default async function ProjectsChallengeResourcesSolutionsPage({
 }: Props) {
   const { framework, locale, slug } = params;
 
-  const [{ viewerProjectsProfile }, viewerUnlockedAccess, { challenge }] =
+  const [{ viewerProjectsProfile }, viewerUnlockedAccess, challengeResult] =
     await Promise.all([
       fetchViewerProjectsProfile(),
       fetchViewerProjectsChallengeAccess(slug),
       readProjectsChallengeItem(slug, locale),
     ]);
+
+  if (!challengeResult) {
+    notFound();
+  }
+
+  const { challenge } = challengeResult;
 
   const { metadata } = challenge;
   const viewerAccess = ProjectsPremiumAccessControl(

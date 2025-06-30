@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
 import ProjectsChallengeDiscussionsSection from '~/components/projects/challenges/discussions/ProjectsChallengeDiscussionsSection';
 
@@ -50,7 +51,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { locale, slug } = params;
 
-  const { challenge } = await readProjectsChallengeItem(slug, locale);
+  const challengeResult = await readProjectsChallengeItem(slug, locale);
+
+  if (!challengeResult) {
+    notFound();
+  }
+
+  const { challenge } = challengeResult;
 
   return <ProjectsChallengeDiscussionsSection challenge={challenge} />;
 }

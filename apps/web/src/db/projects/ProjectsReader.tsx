@@ -11,6 +11,7 @@ import type {
 import fs from 'fs';
 import path from 'path';
 
+import { projectsChallengeFindClosestToSlug } from '~/components/projects/challenges/common/ProjectsChallengesClosestSlug';
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
 import type {
   ProjectsChallengeSolutionBundle,
@@ -189,102 +190,135 @@ export async function readProjectsChallengeItem(
   slugParam: string,
   requestedLocale = 'en-US',
   userId?: string | null,
-): Promise<
-  Readonly<{
-    challenge: ProjectsChallengeItem;
-    loadedLocale: string;
-  }>
-> {
+): Promise<Readonly<{
+  challenge: ProjectsChallengeItem;
+  exactMatch: boolean;
+  loadedLocale: string;
+}> | null> {
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(slugParam)
     .replaceAll(/[^\da-zA-Z-]/g, '')
     .toLowerCase();
 
-  const [challengeMetadata, { challengeInfo }] = await Promise.all([
-    readProjectsChallengeMetadata(slug),
-    readProjectsChallengeInfo(slug, requestedLocale),
-  ]);
+  try {
+    // First try exact match
+    const [challengeMetadata, { challengeInfo }] = await Promise.all([
+      readProjectsChallengeMetadata(slug),
+      readProjectsChallengeInfo(slug, requestedLocale),
+    ]);
 
-  const [startedCount, viewerUnlocked, viewerSessionStatus] = await Promise.all(
-    [
-      (async () => {
-        try {
-          const countsForProjectList =
-            await prisma.projectsChallengeSession.groupBy({
-              _count: true,
-              by: ['slug'],
-              where: {
-                slug,
-                status: {
-                  in: ['COMPLETED', 'IN_PROGRESS'],
+    const [startedCount, viewerUnlocked, viewerSessionStatus] =
+      await Promise.all([
+        (async () => {
+          try {
+            const countsForProjectList =
+              await prisma.projectsChallengeSession.groupBy({
+                _count: true,
+                by: ['slug'],
+                where: {
+                  slug,
+                  status: {
+                    in: ['COMPLETED', 'IN_PROGRESS'],
+                  },
                 },
+              });
+
+            return countsForProjectList[0]._count;
+          } catch (_err) {
+            return null;
+          }
+        })(),
+        (async () => {
+          if (userId == null) {
+            return false;
+          }
+
+          const accessForViewer =
+            await prisma.projectsChallengeAccess.findFirst({
+              where: {
+                projectsProfile: {
+                  userProfile: {
+                    id: userId,
+                  },
+                },
+                slug,
               },
             });
 
-          return countsForProjectList[0]._count;
-        } catch (_err) {
-          return null;
-        }
-      })(),
-      (async () => {
-        if (userId == null) {
-          return false;
-        }
+          return accessForViewer != null;
+        })(),
+        (async () => {
+          if (userId == null) {
+            return null;
+          }
 
-        const accessForViewer = await prisma.projectsChallengeAccess.findFirst({
-          where: {
-            projectsProfile: {
-              userProfile: {
-                id: userId,
+          const latestSession = await prisma.projectsChallengeSession.findFirst(
+            {
+              orderBy: {
+                createdAt: 'desc',
+              },
+              where: {
+                projectsProfile: {
+                  userProfile: {
+                    id: userId,
+                  },
+                },
+                slug,
+                status: {
+                  not: 'STOPPED',
+                },
               },
             },
-            slug,
-          },
-        });
+          );
 
-        return accessForViewer != null;
-      })(),
-      (async () => {
-        if (userId == null) {
-          return null;
-        }
+          return latestSession?.status ?? null;
+        })(),
+      ]);
 
-        const latestSession = await prisma.projectsChallengeSession.findFirst({
-          orderBy: {
-            createdAt: 'desc',
-          },
-          where: {
-            projectsProfile: {
-              userProfile: {
-                id: userId,
-              },
-            },
-            slug,
-            status: {
-              not: 'STOPPED',
-            },
-          },
-        });
+    const challenge = await challengeItemAddTrackMetadata(
+      {
+        info: challengeInfo,
+        metadata: challengeMetadata,
+        startedCount,
+        status: viewerSessionStatus,
+        userUnlocked: viewerUnlocked,
+      },
+      requestedLocale,
+    );
 
-        return latestSession?.status ?? null;
-      })(),
-    ],
-  );
-  const challenge = await challengeItemAddTrackMetadata(
-    {
-      info: challengeInfo,
-      metadata: challengeMetadata,
-      startedCount,
-      status: viewerSessionStatus,
-      userUnlocked: viewerUnlocked,
-    },
-    requestedLocale,
-  );
+    return {
+      challenge,
+      exactMatch: true,
+      loadedLocale: requestedLocale,
+    };
+  } catch {
+    // If exact match fails, try fuzzy matching
+    const allChallengeMetadata = await fetchAllProjectsChallengeMetadata();
+    const closestMatch = await projectsChallengeFindClosestToSlug(
+      allChallengeMetadata,
+      slug,
+    );
 
-  return {
-    challenge,
-    loadedLocale: requestedLocale,
-  };
+    if (!closestMatch) {
+      return null;
+    }
+
+    // Recursively call with the correct slug, but mark as not exact match
+    const result = await readProjectsChallengeItem(
+      closestMatch.slug,
+      requestedLocale,
+      userId,
+    );
+
+    if (!result) {
+      return null;
+    }
+
+    return {
+      ...result,
+      exactMatch: false,
+    };
+  }
 }
 
 export async function challengeItemAddTrackMetadata(

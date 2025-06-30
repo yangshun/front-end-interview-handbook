@@ -1,3 +1,4 @@
+import { notFound, redirect } from 'next/navigation';
 import type { Metadata } from 'next/types';
 
 import ProjectsChallengeBriefPage from '~/components/projects/challenges/brief/ProjectsChallengeBriefPage';
@@ -7,7 +8,6 @@ import fetchViewerProjectsProfile from '~/components/projects/utils/fetchViewerP
 
 import { fetchProjectsChallengeBrief } from '~/db/contentlayer/projects/ProjectsChallengeBriefReader';
 import {
-  readProjectsChallengeInfo,
   readProjectsChallengeItem,
 } from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
@@ -19,15 +19,21 @@ type Props = Readonly<{
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = params;
-  const [intl, { challengeInfo }] = await Promise.all([
+  const [intl, challengeResult] = await Promise.all([
     getIntlServerOnly(locale),
-    readProjectsChallengeInfo(slug, locale),
+    readProjectsChallengeItem(slug, locale),
   ]);
 
+  if (challengeResult == null) {
+    notFound();
+  }
+
+  const { challenge } = challengeResult;
+
   return defaultProjectsMetadata(intl, {
-    description: challengeInfo.description,
+    description: challenge.info.description,
     locale,
-    pathname: `/projects/challenges/${slug}`,
+    pathname: `/projects/challenges/${challenge.metadata.slug}`,
     title: intl.formatMessage(
       {
         defaultMessage: 'Challenge: {challengeName}',
@@ -35,7 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         id: '6PvIkG',
       },
       {
-        challengeName: challengeInfo.title,
+        challengeName: challenge.info.title,
       },
     ),
   });
@@ -43,12 +49,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const { locale, slug } = params;
-  const [{ viewerProjectsProfile }, viewerUnlockedAccess, { challenge }] =
+  const [{ viewerProjectsProfile }, viewerUnlockedAccess, challengeResult] =
     await Promise.all([
       fetchViewerProjectsProfile(),
       fetchViewerProjectsChallengeAccess(slug),
       readProjectsChallengeItem(slug, locale),
     ]);
+
+  if (challengeResult == null) {
+    return notFound();
+  }
+
+  const { challenge, exactMatch } = challengeResult;
+
+  if (!exactMatch) {
+    redirect(`/projects/challenges/${challenge.metadata.slug}`);
+  }
 
   const challengeBrief = await fetchProjectsChallengeBrief(
     challenge.metadata.slug,

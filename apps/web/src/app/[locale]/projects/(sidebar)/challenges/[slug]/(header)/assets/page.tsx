@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation';
 import type { Metadata } from 'next/types';
 
 import ProjectsChallengeAssetsPage from '~/components/projects/challenges/assets/ProjectsChallengeAssetsPage';
@@ -58,7 +59,7 @@ export default async function Page({ params }: Props) {
   const [
     { viewerProjectsProfile },
     viewerUnlockedAccess,
-    { challenge },
+    challengeResult,
     { styleGuide },
     { apiWriteup },
     { appendix },
@@ -70,6 +71,12 @@ export default async function Page({ params }: Props) {
     readProjectsChallengeAPIWriteup(slug, locale),
     readProjectsChallengeAppendix(slug, locale),
   ]);
+
+  if (!challengeResult) {
+    notFound();
+  }
+
+  const { challenge } = challengeResult;
 
   const viewerAccess = ProjectsPremiumAccessControl(
     challenge.metadata.access,

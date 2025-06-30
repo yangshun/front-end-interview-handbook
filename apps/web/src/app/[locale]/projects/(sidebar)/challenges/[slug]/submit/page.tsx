@@ -1,4 +1,4 @@
-import { redirect } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import type { Metadata } from 'next/types';
 
 import { redirectToLoginPageIfNotLoggedIn } from '~/components/auth/redirectToLoginPageIfNotLoggedIn';
@@ -16,10 +16,16 @@ type Props = Readonly<{
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = params;
-  const [intl, { challenge }] = await Promise.all([
+  const [intl, challengeResult] = await Promise.all([
     getIntlServerOnly(locale),
     readProjectsChallengeItem(slug, locale),
   ]);
+
+  if (!challengeResult) {
+    notFound();
+  }
+
+  const { challenge } = challengeResult;
 
   return defaultProjectsMetadata(intl, {
     description: intl.formatMessage(
@@ -50,7 +56,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const { locale, slug } = params;
-  const { challenge } = await readProjectsChallengeItem(slug, locale);
+  const challengeResult = await readProjectsChallengeItem(slug, locale);
+  
+  if (!challengeResult) {
+    notFound();
+  }
+
+  const { challenge } = challengeResult;
   const viewer = await redirectToLoginPageIfNotLoggedIn(
     challenge.metadata.submitHref,
   );
