@@ -34,6 +34,9 @@ const nextConfig = {
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
   poweredByHeader: false,
   reactStrictMode: false, // TODO: setting to true will cause stale Sandpack compilation issues.
+  env: {
+    NEXT_PUBLIC_VERCEL_DEPLOYMENT_ID: process.env.VERCEL_DEPLOYMENT_ID,
+  },
   experimental: {
     serverComponentsExternalPackages: [
       'mdx-bundler',

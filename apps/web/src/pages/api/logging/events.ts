@@ -69,9 +69,19 @@ export default async function handler(
   const ua = req.headers['user-agent'];
   const parser = new UAParser(ua);
 
-  const { clientSHA, name, pathname, payload, query, referer } = req.body;
+  const {
+    clientDeploymentId,
+    clientSHA,
+    connection,
+    name,
+    pathname,
+    payload,
+    query,
+    referer,
+  } = req.body;
 
   const eventPayload = {
+    connection,
     cookies: Object.keys(req.cookies).reduce(
       (acc: Record<string, unknown>, key: string) => {
         if (!shouldPersistQueryParam(key)) {
@@ -88,6 +98,10 @@ export default async function handler(
       },
       {},
     ),
+    deployment: {
+      client: clientDeploymentId || undefined,
+      server: process.env.VERCEL_DEPLOYMENT_ID || undefined,
+    },
     event: {
       name,
       payload,
