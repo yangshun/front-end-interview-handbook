@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { useState } from 'react';
-import { RiCheckLine } from 'react-icons/ri';
+import { RiAddLine, RiCheckLine } from 'react-icons/ri';
 
 import { useIntl } from '~/components/intl';
 import { SponsorsPromoCodeConfig } from '~/components/sponsors/SponsorsPromoCodeConfig';
@@ -12,10 +12,9 @@ import { themeTextSuccessColor } from '~/components/ui/theme';
 type Props = Readonly<{
   appliedPromoCode?: string;
   className?: string;
-  onApplyPromoCode: ({
-    code,
-    percentOff,
-  }: Readonly<{ code: string; percentOff: number }>) => void;
+  onApplyPromoCode: (
+    props: Readonly<{ code: string; percentOff: number }> | null,
+  ) => void;
 }>;
 
 export default function SponsorsAdvertiseRequestPromoCode({
@@ -40,6 +39,8 @@ export default function SponsorsAdvertiseRequestPromoCode({
       SponsorsPromoCodeConfig[appliedPromoCode ?? '']?.percentOff ?? null,
     value: appliedPromoCode ?? '',
   });
+  const [showPromoCodeInput, setShowPromoCodeInput] =
+    useState(!!appliedPromoCode);
 
   async function handleValidate(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -70,11 +71,12 @@ export default function SponsorsAdvertiseRequestPromoCode({
         percentOff: null,
         value: promoCode.value,
       });
+      onApplyPromoCode(null);
     }
   }
 
-  return (
-    <div className={clsx('space-y-2', 'w-60', className)}>
+  return showPromoCodeInput ? (
+    <div className={clsx('space-y-2', 'w-full sm:w-60', className)}>
       <form className="relative" onSubmit={handleValidate}>
         <TextInput
           className="pr-8"
@@ -132,5 +134,18 @@ export default function SponsorsAdvertiseRequestPromoCode({
         </Text>
       )}
     </div>
+  ) : (
+    <Button
+      addonPosition="start"
+      icon={RiAddLine}
+      label={intl.formatMessage({
+        defaultMessage: 'Add promo code',
+        description: 'Label to add promotion code',
+        id: 'dWNz1P',
+      })}
+      size="md"
+      variant="secondary"
+      onClick={() => setShowPromoCodeInput(true)}
+    />
   );
 }

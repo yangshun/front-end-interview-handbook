@@ -46,10 +46,9 @@ type Props = Readonly<{
   promoCode: SponsorsPromoCode;
   sessionId: string;
   updateAds(ads: Array<SponsorsAdFormatFormItem>): void;
-  updatePromoCode: ({
-    code,
-    percentOff,
-  }: Readonly<{ code: string; percentOff: number }>) => void;
+  updatePromoCode: (
+    props: Readonly<{ code: string; percentOff: number }> | null,
+  ) => void;
   updateStepStatus(status: StepsTabItemStatus): void;
 }>;
 
@@ -107,6 +106,16 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
       show: false,
     });
   }
+
+  const promoCodeInput = (
+    <SponsorsAdvertiseRequestPromoCode
+      appliedPromoCode={promoCode?.code}
+      className="mt-0.5"
+      onApplyPromoCode={(_promoCode) => {
+        updatePromoCode(_promoCode);
+      }}
+    />
+  );
 
   return (
     <div>
@@ -576,43 +585,40 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
           </>
         )}
         {ads.length > 0 && selectedFormat == null && (
-          <div className="mt-8 flex justify-between">
-            <Button
-              addonPosition="start"
-              icon={RiArrowLeftLine}
-              label={intl.formatMessage({
-                defaultMessage: 'Previous',
-                description: 'Label for previous button',
-                id: 'd2w71C',
-              })}
-              size="md"
-              variant="secondary"
-              onClick={() => {
-                onPrevious();
-              }}
-            />
-            <div className="flex items-start gap-3">
-              <SponsorsAdvertiseRequestPromoCode
-                appliedPromoCode={promoCode?.code}
-                className="mt-0.5"
-                onApplyPromoCode={(_promoCode) => {
-                  updatePromoCode(_promoCode);
-                }}
-              />
+          <div className="mt-8 space-y-6">
+            <div className="sm:hidden">{promoCodeInput}</div>
+            <div className="flex justify-between">
               <Button
-                icon={RiArrowRightLine}
-                isDisabled={ads.length === 0}
+                addonPosition="start"
+                icon={RiArrowLeftLine}
                 label={intl.formatMessage({
-                  defaultMessage: 'Company details',
-                  description: 'Label for company details button',
-                  id: 'OY0i/0',
+                  defaultMessage: 'Previous',
+                  description: 'Label for previous button',
+                  id: 'd2w71C',
                 })}
                 size="md"
-                variant="primary"
+                variant="secondary"
                 onClick={() => {
-                  onSubmit();
+                  onPrevious();
                 }}
               />
+              <div className="flex items-start gap-3">
+                <div className="hidden sm:block">{promoCodeInput}</div>
+                <Button
+                  icon={RiArrowRightLine}
+                  isDisabled={ads.length === 0}
+                  label={intl.formatMessage({
+                    defaultMessage: 'Company details',
+                    description: 'Label for company details button',
+                    id: 'OY0i/0',
+                  })}
+                  size="md"
+                  variant="primary"
+                  onClick={() => {
+                    onSubmit();
+                  }}
+                />
+              </div>
             </div>
           </div>
         )}
