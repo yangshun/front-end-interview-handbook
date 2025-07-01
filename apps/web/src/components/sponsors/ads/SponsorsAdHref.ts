@@ -5,7 +5,7 @@ export function sponsorsAdTrackingHref({
   url: urlParam,
 }: Readonly<{ adId: string; url: string }>) {
   return url.format({
-    pathname: '/ads/click',
+    pathname: '/a/click',
     query: {
       a: adId,
       u: urlParam,

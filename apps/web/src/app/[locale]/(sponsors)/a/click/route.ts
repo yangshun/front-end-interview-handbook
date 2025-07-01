@@ -6,6 +6,7 @@ import nullthrows from 'nullthrows';
 import RedisCounter from '~/redis/RedisCounter';
 import { getErrorMessage } from '~/utils/getErrorMessage';
 
+// This route is intentionally vaguely named so that ad blockers do not block it.
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
 
