@@ -32,10 +32,12 @@ import {
 
 import { themeBackgroundElementEmphasizedStateColor_Hover } from '../../../ui/theme';
 import { SponsorAdFormatConfigs } from '../../SponsorsAdFormatConfigs';
+import { SponsorsPromoCodeConfig } from '../../SponsorsPromoCodeConfig';
 import type { SponsorsAdFormatFormItem, SponsorsPromoCode } from '../types';
 import SponsorsAdvertiseRequestFormAdsSectionGlobalBanner from './formats/SponsorsAdvertiseRequestFormAdsSectionGlobalBanner';
 import SponsorsAdvertiseRequestFormAdsSectionInContent from './formats/SponsorsAdvertiseRequestFormAdsSectionInContent';
 import SponsorsAdvertiseRequestFormAdsSectionSpotlight from './formats/SponsorsAdvertiseRequestFormAdsSectionSpotlight';
+import type { PromoCodeStateType } from './SponsorsAdvertiseRequestPromoCode';
 import SponsorsAdvertiseRequestPromoCode from './SponsorsAdvertiseRequestPromoCode';
 
 type Props = Readonly<{
@@ -80,6 +82,14 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
     data: null,
     show: false,
   });
+  const [promoCodeState, setPromoCodeState] = useState<PromoCodeStateType>({
+    error: false,
+    isValidated: !!promoCode?.code,
+    percentOff:
+      SponsorsPromoCodeConfig[promoCode?.code ?? '']?.percentOff ?? null,
+    showInput: !!promoCode?.code,
+    value: promoCode?.code ?? '',
+  });
   const adFormatData = useSponsorsAdFormatData();
 
   const selectedWeeks = ads
@@ -109,8 +119,9 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
 
   const promoCodeInput = (
     <SponsorsAdvertiseRequestPromoCode
-      appliedPromoCode={promoCode?.code}
       className="mt-0.5"
+      promoCode={promoCodeState}
+      setPromoCode={setPromoCodeState}
       onApplyPromoCode={(_promoCode) => {
         updatePromoCode(_promoCode);
       }}

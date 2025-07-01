@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useState } from 'react';
+import type { Dispatch, SetStateAction } from 'react';
 import { RiAddLine, RiCheckLine } from 'react-icons/ri';
 
 import { useIntl } from '~/components/intl';
@@ -9,18 +9,28 @@ import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 import { themeTextSuccessColor } from '~/components/ui/theme';
 
+export type PromoCodeStateType = Readonly<{
+  error: boolean;
+  isValidated: boolean;
+  percentOff: number | null;
+  showInput: boolean;
+  value: string;
+}>;
+
 type Props = Readonly<{
-  appliedPromoCode?: string;
   className?: string;
   onApplyPromoCode: (
     props: Readonly<{ code: string; percentOff: number }> | null,
   ) => void;
+  promoCode: Readonly<PromoCodeStateType>;
+  setPromoCode: Dispatch<SetStateAction<PromoCodeStateType>>;
 }>;
 
 export default function SponsorsAdvertiseRequestPromoCode({
-  appliedPromoCode,
   className,
   onApplyPromoCode,
+  promoCode,
+  setPromoCode,
 }: Props) {
   const intl = useIntl();
   const label = intl.formatMessage({
@@ -28,26 +38,12 @@ export default function SponsorsAdvertiseRequestPromoCode({
     description: 'Label to add promotion code',
     id: 'YQhqx6',
   });
-  const [isValidated, setIsValidated] = useState(!!appliedPromoCode);
-  const [promoCode, setPromoCode] = useState<{
-    error: boolean;
-    percentOff: number | null;
-    value: string;
-  }>({
-    error: false,
-    percentOff:
-      SponsorsPromoCodeConfig[appliedPromoCode ?? '']?.percentOff ?? null,
-    value: appliedPromoCode ?? '',
-  });
-  const [showPromoCodeInput, setShowPromoCodeInput] =
-    useState(!!appliedPromoCode);
 
   async function handleValidate(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
     const data = SponsorsPromoCodeConfig[promoCode.value];
 
-    setIsValidated(data != null);
     if (data) {
       const discount = data.percentOff;
 
@@ -61,6 +57,7 @@ export default function SponsorsAdvertiseRequestPromoCode({
       setPromoCode({
         ...promoCode,
         error: false,
+        isValidated: true,
         percentOff: data.percentOff,
         value: data.code,
       });
@@ -68,6 +65,7 @@ export default function SponsorsAdvertiseRequestPromoCode({
       setPromoCode({
         ...promoCode,
         error: true,
+        isValidated: false,
         percentOff: null,
         value: promoCode.value,
       });
@@ -75,7 +73,7 @@ export default function SponsorsAdvertiseRequestPromoCode({
     }
   }
 
-  return showPromoCodeInput ? (
+  return promoCode.showInput ? (
     <div className={clsx('space-y-2', 'w-full sm:w-60', className)}>
       <form className="relative" onSubmit={handleValidate}>
         <TextInput
@@ -95,11 +93,10 @@ export default function SponsorsAdvertiseRequestPromoCode({
           size="sm"
           value={promoCode.value}
           onChange={(value) => {
-            setIsValidated(false);
-            setPromoCode({ ...promoCode, value });
+            setPromoCode({ ...promoCode, isValidated: false, value });
           }}
         />
-        {isValidated ? (
+        {promoCode.isValidated ? (
           <RiCheckLine
             aria-hidden={true}
             className={clsx(
@@ -145,7 +142,7 @@ export default function SponsorsAdvertiseRequestPromoCode({
       })}
       size="md"
       variant="secondary"
-      onClick={() => setShowPromoCodeInput(true)}
+      onClick={() => setPromoCode((prev) => ({ ...prev, showInput: true }))}
     />
   );
 }
