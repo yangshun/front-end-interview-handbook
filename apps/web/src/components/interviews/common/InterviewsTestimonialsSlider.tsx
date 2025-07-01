@@ -2,8 +2,9 @@
 
 import NumberFlow from '@number-flow/react';
 import clsx from 'clsx';
-import { AnimatePresence, motion, wrap } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
+import { AnimatePresence, motion, useInView, wrap } from 'framer-motion';
+import type { Dispatch, SetStateAction } from 'react';
+import { memo, useCallback, useEffect, useRef, useState } from 'react';
 
 import type { InterviewsMarketingTestimonial } from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonialCard';
 import { useIntl } from '~/components/intl';
@@ -163,28 +164,74 @@ type Props = Readonly<{
 }>;
 
 export default function InterviewsTestimonialsSlider({ data }: Props) {
-  const intl = useIntl();
+  const ref = useRef(null);
+  const isInView = useInView(ref, { amount: 'some' });
 
   const [page, setPage] = useState(0);
   const [direction, setDirection] = useState(0);
   const timer = useRef<NodeJS.Timeout>();
   const currentItemIndex = wrap(0, data.length, page);
 
+  useEffect(() => {
+    if (isInView) {
+      timer.current = setInterval(() => {
+        setDirection(1);
+        setPage((prevPage) => prevPage + 1);
+      }, 10000);
+    } else {
+      clearInterval(timer.current);
+    }
+
+    return () => {
+      clearInterval(timer.current);
+    };
+  }, [data.length, isInView]);
+
+  const onClearInterval = useCallback(() => {
+    if (timer.current) {
+      clearInterval(timer.current);
+    }
+  }, []);
+
+  return (
+    <div ref={ref}>
+      <MemoizedInterviewsTestimonialsSliderImpl
+        currentItemIndex={currentItemIndex}
+        data={data}
+        direction={direction}
+        page={page}
+        setDirection={setDirection}
+        setPage={setPage}
+        onClearInterval={onClearInterval}
+      />
+    </div>
+  );
+}
+
+function InterviewsTestimonialsSliderImpl({
+  currentItemIndex,
+  data,
+  direction,
+  onClearInterval,
+  page,
+  setDirection,
+  setPage,
+}: Readonly<
+  Props & {
+    currentItemIndex: number;
+    direction: number;
+    onClearInterval: () => void;
+    page: number;
+    setDirection: Dispatch<SetStateAction<number>>;
+    setPage: Dispatch<SetStateAction<number>>;
+  }
+>) {
+  const intl = useIntl();
+
   const paginate = (newDirection: number) => {
     setPage((prevPage) => prevPage + newDirection);
     setDirection(newDirection);
   };
-
-  useEffect(() => {
-    timer.current = setInterval(() => {
-      setDirection(1);
-      setPage((prevPage) => prevPage + 1);
-    }, 10000);
-
-    return () => {
-      window.clearInterval(timer.current);
-    };
-  }, [data.length]);
 
   const dataValue = data[currentItemIndex].id;
 
@@ -232,7 +279,7 @@ export default function InterviewsTestimonialsSlider({ data }: Props) {
           type="button"
           onClick={() => {
             // Stop auto-advancing if user interacts with steppers.
-            window.clearInterval(timer.current);
+            onClearInterval();
 
             const newDirection = index - currentItemIndex > 0 ? 1 : -1;
 
@@ -262,7 +309,7 @@ export default function InterviewsTestimonialsSlider({ data }: Props) {
             'relative h-[338px] rounded-lg sm:h-[252px] lg:h-[280px] xl:h-[252px]',
             'isolate',
           )}>
-          <BorderBeam className="z-10" />
+          <MemoizedBorderBeam className="z-10" />
           <AnimatePresence custom={direction} initial={false}>
             <motion.div
               key={page}
@@ -284,7 +331,7 @@ export default function InterviewsTestimonialsSlider({ data }: Props) {
 
                 // Stop auto-advancing if user interacts by swiping.
                 if (Math.abs(swipe) > swipeConfidenceThreshold) {
-                  window.clearInterval(timer.current);
+                  onClearInterval();
                 }
 
                 if (swipe < -swipeConfidenceThreshold) {
@@ -385,3 +432,8 @@ export default function InterviewsTestimonialsSlider({ data }: Props) {
     </div>
   );
 }
+
+const MemoizedInterviewsTestimonialsSliderImpl = memo(
+  InterviewsTestimonialsSliderImpl,
+);
+const MemoizedBorderBeam = memo(BorderBeam);
