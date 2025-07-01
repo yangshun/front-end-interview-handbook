@@ -4523,6 +4523,10 @@
     "defaultMessage": "重置",
     "description": "Label for reset button for projects profile edit page"
   },
+  "Jc7uyc": {
+    "defaultMessage": "我当时正在为 Coinbase 面试，自从上次技术面试以来已经过去了很多年。 编码实践，尤其是系统设计和行为面试实践，确实对我有很大帮助。 我能够拥有解决问题的思维方式，并获得关于如何使用最佳实践来解决问题的想法。 与其他平台相比，我发现该内容非常真实。 感谢 GFE，我也找到了工作！",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "JiKm6K": {
     "defaultMessage": "预览您需要构建的内容",
     "description": "Solution preview button label"
@@ -5082,6 +5086,10 @@
   "LpW2AE": {
     "defaultMessage": "健壮的框架",
     "description": "Features for frontend system design playbook page"
+  },
+  "Lqq1vK": {
+    "defaultMessage": "代码已成功应用！ {percentOff} 折",
+    "description": "Message when promo code is successfully applied"
   },
   "Ludb5F": {
     "defaultMessage": "我们的平台旨在支持社区驱动的开发。从项目讨论到代码审查和方法分享，您将永远不会在学习中感到孤单。",
@@ -5654,6 +5662,10 @@
   "Ozg1OX": {
     "defaultMessage": "{questionTitle} | 前端系统设计",
     "description": "Social title of system design question page"
+  },
+  "OzpZnL": {
+    "defaultMessage": "GreatFrontEnd 不仅仅有帮助，它还改变了我的面试准备！ 测验就像小灯泡时刻，照亮了我甚至没有意识到我错过的关键概念，比如 a11y 和 JS 安全性——非常重要的事情！ 此外，它确实提高了我的基础知识理解，你知道，this、promises，整个异步过程。 但是代码问题呢？ 绝对精彩！ 获得真正相关的实践，以及他们按目标公司分组问题的方式？ 那是纯金！ 我会从屋顶上大喊——GreatFrontEnd 令人难以置信的价值，就我个人而言，订阅感觉是理所当然的，不仅仅是因为它物有所值，还因为它直接帮助我找到了我在 Google 的梦想工作！",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "P/M97j": {
     "defaultMessage": "前往 Stripe",
@@ -7814,6 +7826,10 @@
   "YQ5lLr": {
     "defaultMessage": "包含我们所有问题和指南页面",
     "description": "Item 1 for placement pages info"
+  },
+  "YQhqx6": {
+    "defaultMessage": "添加促销代码",
+    "description": "Label to add promotion code"
   },
   "YRIsJs": {
     "defaultMessage": "链接文本",
@@ -10075,6 +10091,10 @@
     "defaultMessage": "JS题目的类型、涵盖的概念和评分标准",
     "description": "JavaScript questions, concepts and rubrics during front end interviews"
   },
+  "isHmCU": {
+    "defaultMessage": "无效促销代码",
+    "description": "Error message for invalid promotion code"
+  },
   "iw1XYQ": {
     "defaultMessage": "没有社区贡献",
     "description": "Title for empty state when there are no contributions"
@@ -11678,6 +11698,10 @@
   "qJhNva": {
     "defaultMessage": "公开路线图",
     "description": "Title of Public roadmap page"
+  },
+  "qLH4+p": {
+    "defaultMessage": "GreatFrontEnd (GFE) 是我面试准备中不可或缺的资源。 它提供了结构良好、深入的解释，大大提高了我的前端系统设计技能和 JavaScript 基础知识。 详细的解决方案和精心策划的问题集不仅帮助我通过了面试，而且让我成为了一名更好的工程师。 感谢 GFE，我成功获得了 Microsoft、Lululemon、ADIA 和 LaunchDarkly 的职位，我强烈推荐给任何准备前端面试的人。",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "qMWBqm": {
     "defaultMessage": "轻松代码审查",

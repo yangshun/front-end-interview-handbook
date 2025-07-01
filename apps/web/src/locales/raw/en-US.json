@@ -4523,6 +4523,10 @@
     "defaultMessage": "Reset",
     "description": "Label for reset button for projects profile edit page"
   },
+  "Jc7uyc": {
+    "defaultMessage": "I was interviewing for Coinbase and it's been years since I had a technical interview. The coding practices especially the system design and behavioral interview practices really helped me alot. I was able to have a mindset of problem solving and getting ideas on how to solve with best practices. I find the content super authentic compared to other platforms out there. Thank GFE and I also got the job!",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "JiKm6K": {
     "defaultMessage": "Preview what you need to build",
     "description": "Solution preview button label"
@@ -5082,6 +5086,10 @@
   "LpW2AE": {
     "defaultMessage": "Robust framework",
     "description": "Features for frontend system design playbook page"
+  },
+  "Lqq1vK": {
+    "defaultMessage": "Code successfully applied! {percentOff}% off",
+    "description": "Message when promo code is successfully applied"
   },
   "Ludb5F": {
     "defaultMessage": "Our platform was built to support community-driven development. From project discussion to code reviews and approach sharing, you will never feel alone in your learning.",
@@ -5654,6 +5662,10 @@
   "Ozg1OX": {
     "defaultMessage": "{questionTitle} | Front End System Design",
     "description": "Social title of system design question page"
+  },
+  "OzpZnL": {
+    "defaultMessage": "GreatFrontEnd wasn't just helpful, it was a game-changer for my interview prep! The quizzes were like little lightbulb moments, illuminating crucial concepts I didn't even realize I was missing, like a11y and JS security – seriously important stuff! Plus, it really sharpened my understanding of the basics, you know, this, promises, the whole async shebang. But the code questions? Absolutely brilliant! Getting hands-on practice that was actually relevant, and the way they grouped questions by target companies? That was pure gold! I'd shout it from the rooftops – GreatFrontEnd is incredible value, and personally, subscribing felt like a no-brainer, not just because it's worth every penny but because it directly helped me land my dream job at Google!",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "P/M97j": {
     "defaultMessage": "Go to Stripe",
@@ -7814,6 +7826,10 @@
   "YQ5lLr": {
     "defaultMessage": "Includes all our questions and guides pages",
     "description": "Item 1 for placement pages info"
+  },
+  "YQhqx6": {
+    "defaultMessage": "Add promotion code",
+    "description": "Label to add promotion code"
   },
   "YRIsJs": {
     "defaultMessage": "Link text",
@@ -10075,6 +10091,10 @@
     "defaultMessage": "Types of JS questions, concepts to cover and rubrics",
     "description": "JavaScript questions, concepts and rubrics during front end interviews"
   },
+  "isHmCU": {
+    "defaultMessage": "Invalid promo code",
+    "description": "Error message for invalid promotion code"
+  },
   "iw1XYQ": {
     "defaultMessage": "No community contributions",
     "description": "Title for empty state when there are no contributions"
@@ -11678,6 +11698,10 @@
   "qJhNva": {
     "defaultMessage": "Public roadmap",
     "description": "Title of Public roadmap page"
+  },
+  "qLH4+p": {
+    "defaultMessage": "GreatFrontEnd (GFE) was an indispensable resource in my interview preparation. It provided well-structured, in-depth explanations that significantly improved my frontend system design skills and JavaScript fundamentals. The detailed solutions and curated problem sets helped me not only ace interviews but also become a better engineer overall. Thanks to GFE, I successfully landed offers from Microsoft, Lululemon, ADIA, and LaunchDarkly, and I highly recommend it to anyone preparing for frontend interviews.",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "qMWBqm": {
     "defaultMessage": "Easy code reviews",
