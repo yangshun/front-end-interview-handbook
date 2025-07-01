@@ -9,6 +9,7 @@ import { useToggle, useWindowSize } from 'usehooks-ts';
 
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
+import Img from '~/components/ui/Img';
 
 type Props = Readonly<{
   alt: string;
@@ -167,7 +168,7 @@ export default function ProjectsImageViewer({
               </div>
             </div>
           )}
-          <img
+          <Img
             ref={imageRef}
             alt={alt}
             className="pointer-events-none max-w-none touch-none select-none"

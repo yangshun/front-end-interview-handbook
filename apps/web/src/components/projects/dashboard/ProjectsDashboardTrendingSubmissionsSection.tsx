@@ -11,6 +11,7 @@ import Anchor from '~/components/ui/Anchor';
 import UserAvatar from '~/components/ui/Avatar/UserAvatar';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
+import Img from '~/components/ui/Img';
 import Text, { textVariants } from '~/components/ui/Text';
 import {
   themeBackgroundCardWhiteOnLightColor,
@@ -92,7 +93,7 @@ export default function ProjectsDashboardTrendingSubmissionsSection() {
               index === submissions.length - 1 && 'rounded-b-lg',
             )}>
             <div className="flex w-full items-center gap-4">
-              <img
+              <Img
                 alt={submission.title}
                 className="size-[90px] shrink-0 rounded object-cover"
                 decoding="async"

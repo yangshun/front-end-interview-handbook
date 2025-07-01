@@ -2,6 +2,7 @@
 
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Chip from '~/components/ui/Chip';
+import Img from '~/components/ui/Img';
 import Text from '~/components/ui/Text';
 
 export default function MarketingAffiliateSteps() {
@@ -33,7 +34,7 @@ export default function MarketingAffiliateSteps() {
                 {step.subtitle}
               </Text>
               <div className="mt-12 flex grow">
-                <img
+                <Img
                   alt={step.title}
                   className="m-auto block h-48"
                   src={step.imageUrl}

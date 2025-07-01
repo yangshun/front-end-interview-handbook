@@ -5,6 +5,7 @@ import type { BlogMetadata } from '~/components/blog/BlogTypes';
 import BlogTags from '~/components/blog/metadata/BlogTags';
 import BlogTimestamp from '~/components/blog/metadata/BlogTimestamp';
 import Anchor from '~/components/ui/Anchor';
+import Img from '~/components/ui/Img';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundCardWhiteOnLightColor,
@@ -24,7 +25,7 @@ export default function BlogRelatedArticleCard({ metadata }: Props) {
         themeGlassyBorder,
       )}>
       {metadata.imageUrl && (
-        <img
+        <Img
           alt={metadata.title}
           className="!m-0 h-[175px] w-full rounded object-cover"
           decoding="async"

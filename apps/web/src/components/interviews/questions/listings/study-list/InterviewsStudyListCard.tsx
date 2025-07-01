@@ -7,6 +7,7 @@ import QuestionStudyAllocationLabel from '~/components/interviews/questions/meta
 import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
+import Img from '~/components/ui/Img';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundCardWhiteOnLightColor,
@@ -89,7 +90,7 @@ export default function InterviewsStudyListCard({
               : [themeBackgroundLayerEmphasized, themeGlassyBorder],
           )}>
           {logoUrl ? (
-            <img
+            <Img
               alt={name}
               className="size-6"
               decoding="async"

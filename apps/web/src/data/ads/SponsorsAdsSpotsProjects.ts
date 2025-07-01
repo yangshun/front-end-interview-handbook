@@ -12,7 +12,7 @@ export const SponsorsAdsSpotsProjectsSpotlight: SponsorsAdFormatPayloadSpotlight
   {
     adId: 'projects-spotlight',
     format: 'SPOTLIGHT',
-    imageUrl: 'https://www.gfecdn.net/sponsors/ads/projects/spotlight.webp',
+    imageUrl: '/img/sponsors/ads/projects/spotlight.webp',
     sponsorName: 'GreatFrontEnd Projects',
     text: `${PROMO_PROJECTS_BETA_DISCOUNT_PERCENTAGE}% off the fastest way to learn front end skills`,
     url: '/projects',
@@ -227,7 +227,7 @@ export const SponsorsAdsSpotsProjectsInContent: SponsorsAdFormatPayloadInContent
       },
     }),
     format: 'IN_CONTENT',
-    imageUrl: 'https://www.gfecdn.net/sponsors/ads/projects/in-content.webp',
+    imageUrl: '/img/sponsors/ads/projects/in-content.webp',
     sponsorName: 'GreatFrontEnd Projects',
     title: 'The fastest way to learn Front End – by building actual projects',
     url: '/projects',

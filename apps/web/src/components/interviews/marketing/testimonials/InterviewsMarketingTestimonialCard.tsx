@@ -12,6 +12,7 @@ import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Avatar from '~/components/ui/Avatar';
 import Card from '~/components/ui/Card';
+import Img from '~/components/ui/Img';
 import Text, { textVariants } from '~/components/ui/Text';
 
 export type InterviewsMarketingTestimonial = Readonly<{
@@ -76,7 +77,7 @@ export default function InterviewsMarketingTestimonialCard({
                   'grid place-items-center rounded-full p-2',
                   'bg-white',
                 )}>
-                <img
+                <Img
                   alt={featuredOffer}
                   className={clsx('size-4')}
                   src={companyLogoUrl}

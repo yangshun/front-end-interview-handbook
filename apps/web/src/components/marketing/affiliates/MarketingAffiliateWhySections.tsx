@@ -15,6 +15,7 @@ import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import Img from '~/components/ui/Img';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundChipColor,
@@ -254,10 +255,8 @@ function useReasons() {
           id: 'VVq82g',
         }),
       },
-
       icon: RiThumbUpLine,
       media: <ProductSection />,
-
       secondaryAction: {
         href: '/get-started',
         label: intl.formatMessage({
@@ -266,14 +265,12 @@ function useReasons() {
           id: '4+KbJS',
         }),
       },
-
       subtitle: intl.formatMessage({
         defaultMessage:
           'Our platform has many unique advantages, making it easily recommendable to users looking for front end interview preparation.',
         description: 'Affiliate program why section subtitle',
         id: 'yAxqQL',
       }),
-
       title: intl.formatMessage({
         defaultMessage: 'A great product worth recommending',
         description: 'Affiliate program why section title',
@@ -283,7 +280,6 @@ function useReasons() {
     {
       icon: RiHandCoinLine,
       media: <SliderSection />,
-
       subtitle: intl.formatMessage(
         {
           defaultMessage:
@@ -293,7 +289,6 @@ function useReasons() {
         },
         { days: 7, percent: 15 },
       ),
-
       title: intl.formatMessage(
         {
           defaultMessage: 'Simple {percent}% commission, no limit',
@@ -305,22 +300,19 @@ function useReasons() {
     },
     {
       icon: RiMoneyDollarBoxLine,
-
       media: (
-        <img
+        <Img
           alt="PayPal logo"
           className="mx-auto max-w-[400px]"
           src="/img/affiliate/paypal-logo.png"
         />
       ),
-
       subtitle: intl.formatMessage({
         defaultMessage:
           'Easily get paid with PayPal at the end of every month.',
         description: 'Affiliate program payout section subtitle',
         id: 'Q44acV',
       }),
-
       title: intl.formatMessage({
         defaultMessage: 'Regular payouts through PayPal',
         description: 'Affiliate program payout section title',

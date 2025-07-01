@@ -11,6 +11,7 @@ import Anchor from '~/components/ui/Anchor';
 import Avatar from '~/components/ui/Avatar';
 import BorderBeam from '~/components/ui/BorderBeam/BorderBeam';
 import Heading from '~/components/ui/Heading';
+import Img from '~/components/ui/Img';
 import ScrollArea from '~/components/ui/ScrollArea';
 import Text, { textVariants } from '~/components/ui/Text';
 import {
@@ -358,7 +359,7 @@ export default function InterviewsTestimonialsSlider({ data }: Props) {
                                   'border border-neutral-200 dark:border-neutral-900',
                                   index > 0 && '-ml-2',
                                 )}>
-                                <img
+                                <Img
                                   alt={logo.name}
                                   className="size-4"
                                   decoding="async"

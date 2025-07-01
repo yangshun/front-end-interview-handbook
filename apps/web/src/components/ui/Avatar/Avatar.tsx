@@ -6,6 +6,10 @@ import type { ForwardedRef } from 'react';
 import { forwardRef } from 'react';
 import { FaCircleUser } from 'react-icons/fa6';
 
+import Img from '~/components/ui/Img';
+
+import { cdnUrl } from '~/utils/cdnUrl';
+
 import type { AvatarVariantProps } from './AvatarStyles';
 import { avatarVariants } from './AvatarStyles';
 
@@ -18,7 +22,7 @@ type Props = React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Image> &
   }>;
 
 function Avatar(
-  { alt, className, size, src, ...props }: Props,
+  { alt, className, size, src: srcParam, ...props }: Props,
   ref: ForwardedRef<HTMLImageElement>,
 ) {
   const emptyAvatar = (
@@ -34,6 +38,8 @@ function Avatar(
     </div>
   );
 
+  const src = srcParam?.startsWith('/') ? cdnUrl(srcParam) : srcParam;
+
   return (
     <AvatarPrimitive.Root
       className={clsx(
@@ -44,15 +50,16 @@ function Avatar(
       )}>
       <AvatarPrimitive.Image
         ref={ref}
-        alt={alt}
         className="size-full object-cover"
         src={src ?? undefined}
         {...props}
-      />
+        asChild={true}>
+        <Img alt={alt} />
+      </AvatarPrimitive.Image>
       <AvatarPrimitive.Fallback
         asChild={true}
         className={clsx(
-          'size-full flex items-center justify-center rounded-full',
+          'flex size-full items-center justify-center rounded-full',
         )}
         delayMs={600}>
         {emptyAvatar}
