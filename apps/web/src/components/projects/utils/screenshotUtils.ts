@@ -30,7 +30,10 @@ const mobileViewportConfig = {
 type Browser = Awaited<ReturnType<Puppeteer['connect']>>;
 type Page = Awaited<ReturnType<Browser['newPage']>>;
 
-async function saveScreenshot(screenshotBuffer: Buffer, path: string) {
+async function saveScreenshot(
+  screenshotBuffer: Uint8Array<ArrayBufferLike>,
+  path: string,
+) {
   const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
 
   const { error } = await supabaseAdmin.storage
@@ -149,7 +152,6 @@ export async function generateScreenshots(
   submissionId: string,
   deploymentUrls: ProjectsChallengeSubmissionDeploymentUrls,
 ): Promise<ProjectsChallengeSubmissionDeploymentUrls> {
-   
   const chromium = require('@sparticuz/chromium');
   const puppeteer = require('puppeteer-core');
 
