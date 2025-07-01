@@ -376,12 +376,6 @@ importers:
       '@trpc/server':
         specifier: 10.44.1
         version: 10.44.1
-      '@types/mime-types':
-        specifier: ^3.0.1
-        version: 3.0.1
-      '@types/ua-parser-js':
-        specifier: 0.7.39
-        version: 0.7.39
       '@upstash/qstash':
         specifier: 2.7.19
         version: 2.7.19
@@ -638,6 +632,9 @@ importers:
       '@types/mdx':
         specifier: ^2.0.3
         version: 2.0.13
+      '@types/mime-types':
+        specifier: ^3.0.1
+        version: 3.0.1
       '@types/negotiator':
         specifier: ^0.6.1
         version: 0.6.3
@@ -656,6 +653,9 @@ importers:
       '@types/strip-comments':
         specifier: ^2.0.1
         version: 2.0.4
+      '@types/ua-parser-js':
+        specifier: 0.7.39
+        version: 0.7.39
       '@types/uuid':
         specifier: ^9.0.1
         version: 9.0.8
@@ -683,6 +683,9 @@ importers:
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
+      dotenv:
+        specifier: ^16.5.0
+        version: 16.5.0
       dotenv-cli:
         specifier: ^7.3.0
         version: 7.4.4
