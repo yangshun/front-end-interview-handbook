@@ -30,17 +30,17 @@ Be _extremely_ familiar with the following concepts:
 - **HTML**: Event delegation (it was useful in almost every interview), DOM traversal, DOM manipulation, Form validation and submission
 - **DOM manipulation**: DOM manipulation in Vanilla JS, or jQuery at the very least. Not all interviews allow you to use React as they want to see mastery of the fundamentals
 
-Look out for interview questions by companies on Glassdoor. Front end questions are not as abundant but some still can be found. Many companies use similar questions.
+Look out for interview questions by companies on Glassdoor. Front-end questions are not as abundant, but some still can be found. Many companies use similar questions.
 
-## Front end interview formats
+## Front-end interview formats
 
-Unlike Software Engineering interviews, the formats for front end interviews are less known and not standardized across the industry. We painstakingly searched the Internet for front end interview questions asked by popular tech companies and collated the questions which appear very often. 
+Unlike Software Engineering interviews, the formats for front-end interviews are less known and not standardised across the industry. We painstakingly searched the Internet for front-end interview questions asked by popular tech companies and compiled the questions that appear frequently. 
 
 In general, you should be familiar with the following questions and formats:
 
 ### JavaScript coding
 
-This is the front end version of LeetCode-style algorithm questions. Implement a function in JavaScript, which can be a utility function found in Lodash/Underscore (e.g. `throttle`), or a polyfill for the JavaScript language/DOM APIs (e.g. `Array.prototype.filter()`, `Promise.all()`, `document.getElementsByClassName()`).
+This is the front-end version of LeetCode-style algorithm questions. Implement a function in JavaScript, which can be a utility function found in Lodash/Underscore (e.g. `throttle`), or a polyfill for the JavaScript language/DOM APIs (e.g. `Array.prototype.filter()`, `Promise.all()`, `document.getElementsByClassName()`).
 
 - Implement `Array.prototype` functions: `map`, `reduce`, `filter`, `sort`.
 - Implement DOM APIs: `document.getElementsByClassName`, `document.getElementsByTagName`.
@@ -63,7 +63,7 @@ Build user interfaces (can be a UI component, an app, or a game) using HTML, CSS
   - Star rating widget
 - Apps
   - Build tic-tac-toe
-  - Build a chess board with movable pieces
+  - Build a chessboard with movable pieces
 
 [**Read more about user interface coding questions →**](./build-front-end-user-interfaces.md)
 
@@ -79,7 +79,7 @@ LeetCode-style algorithmic coding questions which evaluate your core data struct
 
 ### Quiz/trivia questions
 
-Short questions which test your knowledge and have clear non-subjective answers. These are usually asked within coding / system design rounds and even by recruiters because the accuracy of the answers can be somewhat verified by non-technical people. Here are some examples:
+Short questions which test your knowledge and have clear, non-subjective answers. These are usually asked within coding / system design rounds and even by recruiters because the accuracy of the answers can be somewhat verified by non-technical people. Here are some examples:
 
 - JavaScript
   - What is a closure?
@@ -95,20 +95,20 @@ Short questions which test your knowledge and have clear non-subjective answers.
 
 ### System design
 
-Describe and discuss how you would build a UI component/app/game and its architecture. This is the front end version of system design questions. E.g. Describe how you would build the Emoji autocomplete feature in a chat app, what APIs it would have, what components there are to the feature, how to ensure it has good performance, UX, etc.
+Describe and discuss how you would build a UI component/app/game and its architecture. This is the front-end version of the system design questions. E.g. describe how you would make the Emoji autocomplete feature in a chat app, what APIs it would have, what components make up the feature, how to ensure it has good performance, UX, etc.
 
 - Design an image carousel component.
 - Design an email client application.
 
 [**Read more about front end system design →**](./front-end-system-design.md)
 
-[**Practice front end system design questions on GreatFrontEnd**](https://www.greatfrontend.com/questions/system-design?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
+[**Practice front-end system design questions on GreatFrontEnd**](https://www.greatfrontend.com/questions/system-design?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
 
-You can also try out the above mentioned question types at [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook). It has [over 500+ practice questions](https://www.greatfrontend.com/questions?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) and all of them are provided with comprehensive answers written by ex-FAANG senior engineers.
+You can also try out the above-mentioned question types at [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook). It has [over 500+ practice questions](https://www.greatfrontend.com/questions?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) and all of them are provided with comprehensive answers written by ex-FAANG senior engineers.
 
 ## Company interview formats
 
-Through extensive research, here are the different type of formats companies ask during the technical rounds of front end interviews. If you're interviewing for front end engineering roles at certain companies, prepare accordingly!
+Through extensive research, here are the different types of formats companies ask during the technical rounds of front-end interviews. If you're interviewing for front-end engineering roles at certain companies, prepare accordingly!
 
 _Legend: ✅: Asked, ❌: Not asked, ⚠️: No data_
 
