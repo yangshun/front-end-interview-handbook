@@ -1,7 +1,6 @@
 'use client';
 
 import { Button } from '@mantine/core';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import type { ChangeEvent } from 'react';
 import toast from 'react-hot-toast';
@@ -74,11 +73,10 @@ export default function PostDetailPage({ post }: Props) {
     <div className="flex flex-col gap-2">
       <div>
         <Button
-          component={Link}
-          href={`/projects/${projectSlug}`}
           leftSection={<RiArrowLeftLine />}
           size="xs"
-          variant="light">
+          variant="outline"
+          onClick={() => router.back()}>
           Back
         </Button>
       </div>

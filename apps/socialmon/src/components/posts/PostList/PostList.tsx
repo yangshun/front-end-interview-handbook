@@ -2,14 +2,14 @@
 
 import { Box, Button, Tabs, Text, Tooltip } from '@mantine/core';
 import clsx from 'clsx';
-import { useState } from 'react';
+import { useParams, useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 import { trpc } from '~/hooks/trpc';
 import useCurrentProjectSlug from '~/hooks/useCurrentProjectSlug';
 
 import RelativeTimestamp from '~/components/common/datetime/RelativeTimestamp';
 
-import { NAVBAR_HEIGHT } from '~/constants';
 import type { PostTab } from '~/types';
 
 import FetchPostButton from './FetchPostButton';
@@ -29,7 +29,20 @@ const timestampFormatter = new Intl.DateTimeFormat('en-US', {
 
 export default function PostList() {
   const projectSlug = useCurrentProjectSlug();
+  const router = useRouter();
+  const params = useParams();
   const [activeTab, setActiveTab] = useState<PostTab>('all');
+  const [selectedPostId, setSelectedPostId] = useState<string | null>(null);
+
+  // Sync selection with URL - if we're viewing a post, select it in the list
+  useEffect(() => {
+    if (params?.id && typeof params.id === 'string') {
+      setSelectedPostId(params.id);
+    } else {
+      setSelectedPostId(null);
+    }
+  }, [params?.id]);
+
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading } =
     trpc.socialPosts.getPosts.useInfiniteQuery(
       {
@@ -51,11 +64,15 @@ export default function PostList() {
 
   const posts = data?.pages.flatMap((page) => page.posts);
 
+  // Handle post selection and navigation
+  const handlePostClick = (postId: string) => {
+    setSelectedPostId(postId);
+    router.push(`/projects/${projectSlug}/posts/${postId}`);
+  };
+
   return (
-    <div className={clsx('flex flex-col', 'w-full')}>
-      <div
-        className="sticky w-full bg-white pt-4"
-        style={{ top: `${NAVBAR_HEIGHT}px` }}>
+    <div className={clsx('flex flex-col gap-2', 'h-full w-full')}>
+      <div className="sticky w-full bg-white">
         <Tabs
           value={activeTab}
           variant="outline"
@@ -75,7 +92,7 @@ export default function PostList() {
             </Tabs.Tab>
           </Tabs.List>
         </Tabs>
-        <div className="absolute right-0 top-3 flex items-center gap-2">
+        <div className="absolute right-0 top-1 flex items-center gap-2">
           {projectData?.postsLastFetchedAt && (
             <div className="hidden md:block">
               <Tooltip
@@ -105,9 +122,11 @@ export default function PostList() {
         {posts?.map((post) => (
           <PostItem
             key={post.id}
+            isSelected={selectedPostId === post.id}
             post={post}
             showMarkedAsIrrelevant={activeTab === 'all'}
             showRepliedBadge={activeTab === 'all'}
+            onClick={() => handlePostClick(post.id)}
           />
         ))}
         {hasNextPage && (
