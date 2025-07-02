@@ -6,15 +6,14 @@ import {
   Flex,
   Group,
   Select,
+  Stack,
   Text,
   Textarea,
   Title,
 } from '@mantine/core';
 import { useInputState } from '@mantine/hooks';
-import clsx from 'clsx';
 import { type ChangeEvent, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
-import { RiChat4Line } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
 
@@ -95,7 +94,7 @@ export default function PostDetail({
   }, [post.content]);
 
   return (
-    <div>
+    <Flex direction="column" gap="sm">
       <Flex direction="column" gap={2} justify="space-between" mb="xs">
         <Title order={2}>{post.title}</Title>
         <PostMetadata post={post} showViewPost={true} />
@@ -110,25 +109,26 @@ export default function PostDetail({
       </Text>
       {!post.reply && (
         <>
-          <Divider my="md" />
-          <div className="mt-5 flex items-center justify-between gap-2">
-            {activity && (
-              <Text size="sm">
-                {activity.action === 'MADE_IRRELEVANT'
-                  ? 'Marked as irrelevant'
-                  : 'Marked as relevant'}{' '}
-                by <span className="font-bold">{activity.user.name}</span>
-              </Text>
-            )}
+          <Divider />
+          <Flex align="center" gap="md" justify="space-between">
+            <Text size="sm">
+              {activity && (
+                <>
+                  {activity.action === 'MADE_IRRELEVANT'
+                    ? 'Marked as irrelevant'
+                    : 'Marked as relevant'}{' '}
+                  by <span className="font-bold">{activity.user.name}</span>
+                </>
+              )}
+            </Text>
             <PostRelevancyActionButton
               key={post.relevancy}
               postId={post.id}
               relevancy={post.relevancy}
             />
-          </div>
+          </Flex>
         </>
       )}
-      <Divider my="md" />
       {/* Response */}
       {post.reply ? (
         <PostResponse
@@ -141,7 +141,7 @@ export default function PostDetail({
           No users added yet! Please add a user to comment on this post.
         </Text>
       ) : (
-        <div className="flex flex-col gap-4">
+        <Stack bg="gray.0" p="md">
           <Select
             checkIconPosition="right"
             data={users?.map((user) => ({
@@ -156,6 +156,7 @@ export default function PostDetail({
           <Textarea
             autosize={true}
             label="Response"
+            minRows={2}
             placeholder="Generate or write your comment..."
             value={response === null ? '' : response}
             onChange={setResponse}
@@ -164,24 +165,28 @@ export default function PostDetail({
             <Button
               disabled={isGeneratingResponse}
               loading={isGeneratingResponse}
+              size="xs"
+              variant="default"
               onClick={() => generateResponse(setResponse)}>
-              ✨ Generate Response
+              Generate AI response
             </Button>
             <Button
               disabled={isReplying || !response || !selectedRedditUserId}
               loading={isReplying}
+              size="xs"
               onClick={handleReplyToPostButton}>
               Reply
             </Button>
           </Group>
-        </div>
+        </Stack>
       )}
       {!hasReply && (
         <div className="mt-5 flex flex-col gap-3">
           {!!data?.comments.data.children.length && (
             <div className="flex items-center gap-1">
-              <RiChat4Line className={clsx('size-6', 'text-slate-500')} />
-              <Text size="md">{post.commentsCount} comments</Text>
+              <Text c="dimmed" size="sm">
+                {post.commentsCount} comments
+              </Text>
             </div>
           )}
           <PostCommentsList
@@ -190,6 +195,6 @@ export default function PostDetail({
           />
         </div>
       )}
-    </div>
+    </Flex>
   );
 }

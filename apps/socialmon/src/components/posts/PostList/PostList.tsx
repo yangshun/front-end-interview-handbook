@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Button, Tabs, Text, Tooltip } from '@mantine/core';
+import { Box, Button, Loader, Tabs, Text, Tooltip } from '@mantine/core';
 import clsx from 'clsx';
 import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -115,36 +115,38 @@ export default function PostList() {
         </div>
       </div>
       <div className="h-0 grow overflow-y-auto">
-        <Text hidden={!isLoading} size="md">
-          Loading...
-        </Text>
-        {!isLoading && posts?.length === 0 && (
-          <Text p={16} size="md" ta="center">
+        {isLoading ? (
+          <Text p="xl" size="md" ta="center">
+            <Loader size="md" />
+          </Text>
+        ) : posts?.length === 0 ? (
+          <Text c="dimmed" p="xl" size="md" ta="center">
             No posts found
           </Text>
+        ) : (
+          <Box className="divide-y divide-neutral-200">
+            {posts?.map((post) => (
+              <PostItem
+                key={post.id}
+                isSelected={selectedPostId === post.id}
+                post={post}
+                showMarkedAsIrrelevant={activeTab === 'all'}
+                showRepliedBadge={activeTab === 'all'}
+                onClick={() => handlePostClick(post.id)}
+              />
+            ))}
+            {hasNextPage && (
+              <div className="flex w-full justify-center py-6">
+                <Button
+                  disabled={isFetchingNextPage}
+                  variant="default"
+                  onClick={() => fetchNextPage()}>
+                  {isFetchingNextPage ? 'Loading more...' : 'See more'}
+                </Button>
+              </div>
+            )}
+          </Box>
         )}
-        <Box className="divide-y divide-neutral-200">
-          {posts?.map((post) => (
-            <PostItem
-              key={post.id}
-              isSelected={selectedPostId === post.id}
-              post={post}
-              showMarkedAsIrrelevant={activeTab === 'all'}
-              showRepliedBadge={activeTab === 'all'}
-              onClick={() => handlePostClick(post.id)}
-            />
-          ))}
-          {hasNextPage && (
-            <div className="flex w-full justify-center py-6">
-              <Button
-                disabled={isFetchingNextPage}
-                variant="default"
-                onClick={() => fetchNextPage()}>
-                {isFetchingNextPage ? 'Loading more...' : 'See more'}
-              </Button>
-            </div>
-          )}
-        </Box>
       </div>
     </div>
   );

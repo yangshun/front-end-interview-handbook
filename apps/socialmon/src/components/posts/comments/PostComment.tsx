@@ -1,4 +1,4 @@
-import { ActionIcon, Avatar, Button, Text } from '@mantine/core';
+import { ActionIcon, Anchor, Avatar, Button, Text } from '@mantine/core';
 import clsx from 'clsx';
 import { useState } from 'react';
 import {
@@ -78,7 +78,13 @@ export default function PostComment({ className, comment, level }: Props) {
           )}>
           <div className="flex gap-3">
             <Text size="sm">
-              <span className="font-bold">{author}</span>
+              <Anchor
+                fw={500}
+                href={`https://www.reddit.com/user/${author}`}
+                rel="noopener noreferrer"
+                target="_blank">
+                {author}
+              </Anchor>
               {' · '}
               <RelativeTimestamp timestamp={new Date(created_utc * 1000)} />
             </Text>
@@ -86,10 +92,9 @@ export default function PostComment({ className, comment, level }: Props) {
           <Text size="sm">
             <span
               dangerouslySetInnerHTML={{ __html: content }}
-              className="prose-sm"
+              className="prose prose-sm"
             />
           </Text>
-
           <div>
             <div className="flex items-center gap-1">
               <RiThumbUpFill className={clsx('size-4', 'text-slate-500')} />

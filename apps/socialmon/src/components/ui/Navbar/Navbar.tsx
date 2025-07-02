@@ -1,4 +1,6 @@
-import { Container, Text } from '@mantine/core';
+'use client';
+
+import { Container, Text, useMantineTheme } from '@mantine/core';
 import clsx from 'clsx';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
@@ -11,6 +13,8 @@ type Props = Readonly<{
 }>;
 
 export default function Navbar({ navItems, navUser }: Props) {
+  const theme = useMantineTheme();
+
   return (
     <header
       className={clsx(
@@ -26,7 +30,12 @@ export default function Navbar({ navItems, navUser }: Props) {
         w="100%">
         <div className="flex items-center gap-6">
           <Link href="/">
-            <Text fw={600} lts="1px" size="md" tt="uppercase">
+            <Text
+              c={theme.primaryColor}
+              fw={600}
+              lts={1}
+              size="md"
+              tt="uppercase">
               Socialmon
             </Text>
           </Link>
