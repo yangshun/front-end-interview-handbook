@@ -32,12 +32,11 @@ export default function PostResponse({
             rightSection={<RiArrowRightUpLine />}
             target="_blank"
             variant="subtle">
-            View Reply
+            View reply
           </Button>
         </div>
       </div>
-
-      {/* Fallback to showing the stored relied if fetching reply failed */}
+      {/* Fallback to showing the stored reply if fetching reply failed */}
       {!isFetchingComments && !comments?.data?.children?.length ? (
         <PostCommentsList
           comments={{

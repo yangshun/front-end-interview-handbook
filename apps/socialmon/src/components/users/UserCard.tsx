@@ -37,7 +37,6 @@ export default function UserCard({ user }: Props) {
       className="relative flex flex-col gap-2"
       mb="md"
       padding="lg"
-      radius="md"
       shadow="sm"
       withBorder={true}>
       <Menu position="bottom-end" shadow="sm" withinPortal={true}>

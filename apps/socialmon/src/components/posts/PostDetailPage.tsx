@@ -71,14 +71,14 @@ export default function PostDetailPage({ post }: Props) {
   }
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-2">
       <div>
         <Button
           component={Link}
           href={`/projects/${projectSlug}`}
           leftSection={<RiArrowLeftLine />}
           size="xs"
-          variant="outline">
+          variant="light">
           Back
         </Button>
       </div>

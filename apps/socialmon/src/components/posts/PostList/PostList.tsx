@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, Tabs, Text, Tooltip } from '@mantine/core';
+import { Box, Button, Tabs, Text, Tooltip } from '@mantine/core';
 import clsx from 'clsx';
 import { useState } from 'react';
 
@@ -52,21 +52,30 @@ export default function PostList() {
   const posts = data?.pages.flatMap((page) => page.posts);
 
   return (
-    <div className={clsx('flex flex-col gap-2', 'h-full w-full')}>
+    <div className={clsx('flex flex-col', 'w-full')}>
       <div
-        className="sticky w-full bg-white"
+        className="sticky w-full bg-white pt-4"
         style={{ top: `${NAVBAR_HEIGHT}px` }}>
         <Tabs
           value={activeTab}
+          variant="outline"
           onChange={(value) => setActiveTab(value as PostTab)}>
           <Tabs.List>
-            <Tabs.Tab value="unreplied">Unreplied</Tabs.Tab>
-            <Tabs.Tab value="replied">Replied</Tabs.Tab>
-            <Tabs.Tab value="irrelevant">Irrelevant</Tabs.Tab>
-            <Tabs.Tab value="all">All</Tabs.Tab>
+            <Tabs.Tab fw={500} value="unreplied">
+              Unreplied
+            </Tabs.Tab>
+            <Tabs.Tab fw={500} value="replied">
+              Replied
+            </Tabs.Tab>
+            <Tabs.Tab fw={500} value="irrelevant">
+              Irrelevant
+            </Tabs.Tab>
+            <Tabs.Tab fw={500} value="all">
+              All
+            </Tabs.Tab>
           </Tabs.List>
         </Tabs>
-        <div className="absolute right-1 top-0.5 flex items-center gap-2 md:right-4">
+        <div className="absolute right-0 top-3 flex items-center gap-2">
           {projectData?.postsLastFetchedAt && (
             <div className="hidden md:block">
               <Tooltip
@@ -74,7 +83,7 @@ export default function PostList() {
                   new Date(projectData.postsLastFetchedAt),
                 )}
                 withArrow={true}>
-                <Text size="sm">
+                <Text c="dimmed" size="sm">
                   Fetched{' '}
                   <RelativeTimestamp
                     timestamp={new Date(projectData.postsLastFetchedAt)}
@@ -86,16 +95,13 @@ export default function PostList() {
           <FetchPostButton />
         </div>
       </div>
-
       <Text hidden={!isLoading} size="md">
         Loading...
       </Text>
-
       {!isLoading && posts?.length === 0 && (
         <Text size="md">No post found</Text>
       )}
-
-      <div className={clsx('divide-y')}>
+      <Box py={4}>
         {posts?.map((post) => (
           <PostItem
             key={post.id}
@@ -104,17 +110,17 @@ export default function PostList() {
             showRepliedBadge={activeTab === 'all'}
           />
         ))}
-
         {hasNextPage && (
           <div className="flex w-full justify-center py-6">
             <Button
               disabled={isFetchingNextPage}
+              variant="default"
               onClick={() => fetchNextPage()}>
               {isFetchingNextPage ? 'Loading more...' : 'See more'}
             </Button>
           </div>
         )}
-      </div>
+      </Box>
     </div>
   );
 }

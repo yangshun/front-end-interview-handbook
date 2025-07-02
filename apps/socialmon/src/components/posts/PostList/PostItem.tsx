@@ -1,4 +1,4 @@
-import { Box, Title } from '@mantine/core';
+import { Anchor, Box, Title } from '@mantine/core';
 import clsx from 'clsx';
 import Link from 'next/link';
 
@@ -34,17 +34,21 @@ export default function PostItem({
     <Box
       className={clsx(
         'w-full',
-        'p-2',
+        'px-1',
+        'py-4',
         'rounded',
-        'hover:bg-slate-100',
         'transition-all duration-200',
-        'cursor-pointer',
         'flex flex-col gap-2',
         'text-left',
-      )}
-      component={Link}
-      href={`/projects/${projectSlug}/posts/${post.id}`}>
-      <Title order={5}>{post.title}</Title>
+      )}>
+      <Anchor
+        component={Link}
+        href={`/projects/${projectSlug}/posts/${post.id}`}
+        underline="hover">
+        <Title order={3} size="h4">
+          {post.title}
+        </Title>
+      </Anchor>
       <PostMetadata
         post={post as PostExtended}
         showMarkedAsIrrelevant={showMarkedAsIrrelevant}

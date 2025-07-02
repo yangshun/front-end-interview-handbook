@@ -97,7 +97,7 @@ export default function PostDetail({
   return (
     <div>
       <Flex direction="column" gap={2} justify="space-between" mb="xs" mt="md">
-        <Title order={3}>{post.title}</Title>
+        <Title order={2}>{post.title}</Title>
         <PostMetadata post={post} showViewPost={true} />
       </Flex>
       <Text size="sm">
@@ -108,7 +108,6 @@ export default function PostDetail({
           className="prose"
         />
       </Text>
-
       {!post.reply && (
         <>
           <Divider my="md" />

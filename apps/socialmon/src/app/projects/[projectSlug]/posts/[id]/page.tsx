@@ -1,8 +1,8 @@
 import { notFound } from 'next/navigation';
 
-import prisma from '~/server/prisma';
+import PostDetailPage from '~/components/posts/PostDetailPage';
 
-import PostDetailPage from './PostDetailPage';
+import prisma from '~/server/prisma';
 
 type Props = Readonly<{
   params: {

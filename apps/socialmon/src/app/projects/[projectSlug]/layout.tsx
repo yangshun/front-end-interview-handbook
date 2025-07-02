@@ -34,7 +34,7 @@ export default async function Layout({ children, params }: Props) {
   return (
     <div className="flex min-h-screen flex-col">
       <ProjectsNavbar user={user} />
-      <Container className={clsx('flex-1', 'p-4', 'flex')}>
+      <Container className={clsx('flex-1', 'px-4', 'flex')}>
         {children}
       </Container>
     </div>

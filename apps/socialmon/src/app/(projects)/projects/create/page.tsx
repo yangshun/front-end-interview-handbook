@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import { getUser } from '~/app/lib/auth';
+import ProjectCreatePage from '~/components/project/ProjectCreatePage';
 
-import ProjectCreatePage from './ProjectCreatePage';
+import { getUser } from '~/app/lib/auth';
 
 export const metadata: Metadata = {
   description: 'Social moderator',

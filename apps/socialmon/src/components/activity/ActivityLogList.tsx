@@ -49,7 +49,11 @@ export default function ActivityLogList() {
 
       {hasNextPage && (
         <div className="flex w-full justify-center py-6">
-          <Button disabled={isFetchingNextPage} onClick={() => fetchNextPage()}>
+          <Button
+            disabled={isFetchingNextPage}
+            size="sm"
+            variant="default"
+            onClick={() => fetchNextPage()}>
             {isFetchingNextPage ? 'Loading more...' : 'See more'}
           </Button>
         </div>

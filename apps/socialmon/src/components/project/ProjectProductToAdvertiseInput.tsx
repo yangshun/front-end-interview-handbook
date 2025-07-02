@@ -105,7 +105,7 @@ export default function ProjectsProductsToAdvertiseInput() {
           {form.errors.productsToAdvertise}
         </Text>
       )}
-      <Button onClick={addProduct}>Add Product</Button>
+      <Button onClick={addProduct}>Add product</Button>
     </Fieldset>
   );
 }

@@ -1,3 +1,4 @@
+import { Text } from '@mantine/core';
 import clsx from 'clsx';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
@@ -25,13 +26,12 @@ export default function Navbar({ navItems, navUser }: Props) {
         className={clsx('px-4', 'flex items-center justify-between gap-2')}>
         <div className="flex items-center gap-6">
           <Link href="/">
-            <span className="text-xl font-bold tracking-tighter md:text-3xl">
-              SocialMon
-            </span>
+            <Text fw={600} lts="1px" size="md" tt="uppercase">
+              Socialmon
+            </Text>
           </Link>
           {navItems}
         </div>
-
         {navUser}
       </Container>
     </header>

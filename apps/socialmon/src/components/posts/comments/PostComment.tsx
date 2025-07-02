@@ -83,7 +83,6 @@ export default function PostComment({ className, comment, level }: Props) {
               <RelativeTimestamp timestamp={new Date(created_utc * 1000)} />
             </Text>
           </div>
-
           <Text size="sm">
             <span
               dangerouslySetInnerHTML={{ __html: content }}

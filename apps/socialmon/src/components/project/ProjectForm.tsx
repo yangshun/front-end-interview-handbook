@@ -111,7 +111,7 @@ export default function ProjectForm({
           required={true}
           {...form.getInputProps('name')}
         />
-        
+
         <div>
           <label className="mb-1 block font-semibold">
             Keyword/Subreddit Groups

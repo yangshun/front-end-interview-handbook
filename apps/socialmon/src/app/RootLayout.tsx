@@ -17,7 +17,8 @@ export default function RootLayout({ children }: Props) {
     <html lang="en">
       <body className={clsx('antialiased')}>
         <GlobalProviders>
-          <MantineProvider>
+          <MantineProvider
+            theme={{ defaultRadius: 'md', primaryColor: 'orange' }}>
             <CustomToaster />
             <div className="bg-white">{children}</div>
           </MantineProvider>

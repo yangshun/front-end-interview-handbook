@@ -1,10 +1,9 @@
 import type { Metadata } from 'next';
 
 import { redirectToLoginPageIfNotLoggedIn } from '~/components/auth/redirectToLoginPageIfNotLoggedIn';
+import ProjectsPage from '~/components/project/ProjectsPage';
 
 import { getUser } from '~/app/lib/auth';
-
-import ProjectsPage from './ProjectsPage';
 
 export const metadata: Metadata = {
   description: 'Social moderator',

@@ -56,31 +56,29 @@ export default function ProjectsPage({ isAdminRole }: Props) {
           data?.map((project) => (
             <Card
               key={project.id}
-              className="flex flex-col gap-6"
-              padding="sm"
-              shadow="sm"
+              className="flex flex-col gap-2"
+              padding="lg"
+              radius="lg"
               withBorder={true}>
               <Text fw={500} size="lg">
                 {project.name}
               </Text>
-
               <div className="flex flex-col gap-2">
-                <Text>
-                  {project.productsToAdvertise?.length || 0} products to
-                  advertise
+                <Text size="sm">
+                  {project.productsToAdvertise?.length || 0} product(s)
                 </Text>
                 {/* Aggregate keyword and subreddit counts from subredditKeywords */}
                 {project.subredditKeywords &&
                 project.subredditKeywords.length > 0 ? (
                   <>
-                    <Text>
+                    <Text size="sm">
                       {project.subredditKeywords.reduce(
                         (acc, group) => acc + (group.keywords?.length || 0),
                         0,
                       )}{' '}
                       keywords (grouped)
                     </Text>
-                    <Text>
+                    <Text size="sm">
                       {
                         Array.from(
                           new Set(
@@ -95,8 +93,12 @@ export default function ProjectsPage({ isAdminRole }: Props) {
                   </>
                 ) : (
                   <>
-                    <Text>{project.keywords.length} keywords (legacy)</Text>
-                    <Text>{project.subreddits.length} subreddits (legacy)</Text>
+                    <Text size="sm">
+                      {project.keywords.length} keywords (legacy)
+                    </Text>
+                    <Text size="sm">
+                      {project.subreddits.length} subreddits (legacy)
+                    </Text>
                   </>
                 )}
               </div>
@@ -104,7 +106,6 @@ export default function ProjectsPage({ isAdminRole }: Props) {
                 className="absolute inset-0"
                 href={`/projects/${project.slug}`}
               />
-
               <Menu position="bottom-end" shadow="sm">
                 <Menu.Target>
                   <div
@@ -115,7 +116,6 @@ export default function ProjectsPage({ isAdminRole }: Props) {
                     </ActionIcon>
                   </div>
                 </Menu.Target>
-
                 <Menu.Dropdown>
                   <Menu.Item
                     leftSection={<RiEyeLine />}

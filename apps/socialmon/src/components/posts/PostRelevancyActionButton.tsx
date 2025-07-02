@@ -49,6 +49,7 @@ export default function PostRelevancyActionButton({
       disabled={markPostRelevancyMutation.isLoading}
       loading={markPostRelevancyMutation.isLoading}
       size="xs"
+      variant="light"
       onClick={onMarkPostRelevancy}>
       {relevancy === PostRelevancy.IRRELEVANT
         ? 'Mark as relevant'
