@@ -34,22 +34,17 @@ export default async function Layout({ children, detail, params }: Props) {
   }
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex h-screen flex-col">
       <ProjectsNavbar user={user} />
-
       {/* Main content area */}
-      <div className="flex flex-1">
+      <div className="flex h-0 flex-1 grow">
         {/* Left Panel - Posts List (always visible) */}
         <div className="w-full overflow-hidden border-gray-200 md:w-2/5 md:border-r">
-          <Container className={clsx('h-full', 'p-4')}>{children}</Container>
+          <Container className={clsx('h-full')}>{children}</Container>
         </div>
-
         {/* Right Panel - Desktop only */}
-        <div className="hidden overflow-hidden p-4 md:block md:w-3/5">
-          {detail}
-        </div>
+        <div className="hidden overflow-hidden md:block md:w-3/5">{detail}</div>
       </div>
-
       {/* Mobile Modal - Only shows on mobile when viewing a post */}
       <MobilePostModal>{detail}</MobilePostModal>
     </div>

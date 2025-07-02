@@ -71,9 +71,11 @@ export default function PostList() {
   };
 
   return (
-    <div className={clsx('flex flex-col gap-2', 'h-full w-full')}>
+    <div className={clsx('flex flex-col', 'h-full w-full')}>
       <div className="sticky w-full bg-white">
         <Tabs
+          pl={8}
+          pt={8}
           value={activeTab}
           variant="outline"
           onChange={(value) => setActiveTab(value as PostTab)}>
@@ -92,7 +94,7 @@ export default function PostList() {
             </Tabs.Tab>
           </Tabs.List>
         </Tabs>
-        <div className="absolute right-0 top-1 flex items-center gap-2">
+        <div className="absolute right-2 top-2 flex items-center gap-2">
           {projectData?.postsLastFetchedAt && (
             <div className="hidden md:block">
               <Tooltip
@@ -112,34 +114,38 @@ export default function PostList() {
           <FetchPostButton />
         </div>
       </div>
-      <Text hidden={!isLoading} size="md">
-        Loading...
-      </Text>
-      {!isLoading && posts?.length === 0 && (
-        <Text size="md">No post found</Text>
-      )}
-      <Box py={4}>
-        {posts?.map((post) => (
-          <PostItem
-            key={post.id}
-            isSelected={selectedPostId === post.id}
-            post={post}
-            showMarkedAsIrrelevant={activeTab === 'all'}
-            showRepliedBadge={activeTab === 'all'}
-            onClick={() => handlePostClick(post.id)}
-          />
-        ))}
-        {hasNextPage && (
-          <div className="flex w-full justify-center py-6">
-            <Button
-              disabled={isFetchingNextPage}
-              variant="default"
-              onClick={() => fetchNextPage()}>
-              {isFetchingNextPage ? 'Loading more...' : 'See more'}
-            </Button>
-          </div>
+      <div className="h-0 grow overflow-y-auto">
+        <Text hidden={!isLoading} size="md">
+          Loading...
+        </Text>
+        {!isLoading && posts?.length === 0 && (
+          <Text p={16} size="md" ta="center">
+            No posts found
+          </Text>
         )}
-      </Box>
+        <Box className="divide-y divide-neutral-200">
+          {posts?.map((post) => (
+            <PostItem
+              key={post.id}
+              isSelected={selectedPostId === post.id}
+              post={post}
+              showMarkedAsIrrelevant={activeTab === 'all'}
+              showRepliedBadge={activeTab === 'all'}
+              onClick={() => handlePostClick(post.id)}
+            />
+          ))}
+          {hasNextPage && (
+            <div className="flex w-full justify-center py-6">
+              <Button
+                disabled={isFetchingNextPage}
+                variant="default"
+                onClick={() => fetchNextPage()}>
+                {isFetchingNextPage ? 'Loading more...' : 'See more'}
+              </Button>
+            </div>
+          )}
+        </Box>
+      </div>
     </div>
   );
 }

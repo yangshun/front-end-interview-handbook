@@ -1,9 +1,7 @@
-import { Text } from '@mantine/core';
+import { Container, Text } from '@mantine/core';
 import clsx from 'clsx';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
-
-import Container from '~/components/ui/Container';
 
 import { NAVBAR_HEIGHT } from '~/constants';
 
@@ -23,7 +21,9 @@ export default function Navbar({ navItems, navUser }: Props) {
       )}
       style={{ height: `${NAVBAR_HEIGHT}px` }}>
       <Container
-        className={clsx('px-4', 'flex items-center justify-between gap-2')}>
+        className={clsx('px-4', 'flex items-center justify-between gap-2')}
+        fluid={true}
+        w="100%">
         <div className="flex items-center gap-6">
           <Link href="/">
             <Text fw={600} lts="1px" size="md" tt="uppercase">

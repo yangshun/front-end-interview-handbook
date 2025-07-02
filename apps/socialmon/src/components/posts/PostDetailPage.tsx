@@ -73,9 +73,10 @@ export default function PostDetailPage({ post }: Props) {
     <div className="flex flex-col gap-2">
       <div>
         <Button
-          leftSection={<RiArrowLeftLine />}
+          leftSection={<RiArrowLeftLine className="size-4" />}
+          ml={-10}
           size="xs"
-          variant="outline"
+          variant="subtle"
           onClick={() => router.back()}>
           Back
         </Button>

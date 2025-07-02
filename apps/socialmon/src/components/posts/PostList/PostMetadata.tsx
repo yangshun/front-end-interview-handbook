@@ -21,24 +21,25 @@ export default function PostMetadata({
   showViewPost,
 }: Props) {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-1">
+      <div>
+        <Tooltip label="Post fetched at" withArrow={true}>
+          <Text c="dimmed" size="sm" span={true}>
+            {new Intl.DateTimeFormat(undefined, {
+              day: 'numeric',
+              hour: 'numeric',
+              hour12: true,
+              minute: '2-digit',
+              month: 'long',
+              weekday: 'long',
+              year: 'numeric',
+            }).format(post.createdAt)}
+          </Text>
+        </Tooltip>
+      </div>
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div className="flex flex-wrap items-center gap-2">
           <PostStats post={post} />
-          <div className="h-1 w-1 rounded-full bg-slate-600" />
-          <Tooltip label="Post fetched at" withArrow={true}>
-            <Text c="dimmed" size="sm">
-              {new Intl.DateTimeFormat(undefined, {
-                day: 'numeric',
-                hour: 'numeric',
-                hour12: true,
-                minute: '2-digit',
-                month: 'long',
-                weekday: 'long',
-                year: 'numeric',
-              }).format(post.createdAt)}
-            </Text>
-          </Tooltip>
           <div className="h-1 w-1 rounded-full bg-slate-600" />
           <Text size="sm">
             <Anchor
@@ -49,6 +50,30 @@ export default function PostMetadata({
               {post.subreddit}
             </Anchor>
           </Text>
+          <div className="h-1 w-1 rounded-full bg-slate-600" />
+          {post.keywords.length > 0 && (
+            <div className="flex flex-wrap gap-1">
+              {post.keywords.map((keyword) => (
+                <Pill key={keyword} size="sm">
+                  {keyword}
+                </Pill>
+              ))}
+            </div>
+          )}
+          {post.reply && showRepliedBadge && (
+            <div className="flex items-center gap-2">
+              <Badge color="violet" leftSection={<RiCheckLine />} size="xs">
+                Replied
+              </Badge>
+            </div>
+          )}
+          {post.relevancy === 'IRRELEVANT' && showMarkedAsIrrelevant && (
+            <div className="flex items-center gap-2">
+              <Badge color="violet" leftSection={<RiCheckLine />} size="xs">
+                Marked as irrelevant
+              </Badge>
+            </div>
+          )}
         </div>
         {showViewPost && (
           <Button
@@ -56,35 +81,13 @@ export default function PostMetadata({
             component={Link}
             href={redditPermalinkToUrl(post.permalink)}
             rightSection={<RiArrowRightUpLine />}
+            size="xs"
             target="_blank"
-            variant="subtle">
+            variant="light">
             View on Reddit
           </Button>
         )}
       </div>
-      {post.keywords.length > 0 && (
-        <div className="flex flex-wrap gap-1">
-          {post.keywords.map((keyword) => (
-            <Pill key={keyword} size="sm">
-              {keyword}
-            </Pill>
-          ))}
-        </div>
-      )}
-      {post.reply && showRepliedBadge && (
-        <div className="flex items-center gap-2">
-          <Badge color="violet" leftSection={<RiCheckLine />} size="xs">
-            Replied
-          </Badge>
-        </div>
-      )}
-      {post.relevancy === 'IRRELEVANT' && showMarkedAsIrrelevant && (
-        <div className="flex items-center gap-2">
-          <Badge color="violet" leftSection={<RiCheckLine />} size="xs">
-            Marked as irrelevant
-          </Badge>
-        </div>
-      )}
     </div>
   );
 }

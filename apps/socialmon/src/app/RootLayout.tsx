@@ -12,13 +12,18 @@ type Props = Readonly<{
   children: React.ReactNode;
 }>;
 
+const theme = {
+  defaultRadius: 'md',
+  headings: { fontWeight: '500' },
+  primaryColor: 'violet',
+};
+
 export default function RootLayout({ children }: Props) {
   return (
     <html lang="en">
       <body className={clsx('antialiased')}>
         <GlobalProviders>
-          <MantineProvider
-            theme={{ defaultRadius: 'md', primaryColor: 'orange' }}>
+          <MantineProvider theme={theme}>
             <CustomToaster />
             <div className="bg-white">{children}</div>
           </MantineProvider>

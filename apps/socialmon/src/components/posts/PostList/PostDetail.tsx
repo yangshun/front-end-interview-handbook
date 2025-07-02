@@ -96,16 +96,16 @@ export default function PostDetail({
 
   return (
     <div>
-      <Flex direction="column" gap={2} justify="space-between" mb="xs" mt="md">
+      <Flex direction="column" gap={2} justify="space-between" mb="xs">
         <Title order={2}>{post.title}</Title>
         <PostMetadata post={post} showViewPost={true} />
       </Flex>
       <Text size="sm">
-        <span
+        <div
           dangerouslySetInnerHTML={{
             __html: postBody,
           }}
-          className="prose"
+          className="prose prose-sm max-w-none"
         />
       </Text>
       {!post.reply && (
@@ -128,9 +128,7 @@ export default function PostDetail({
           </div>
         </>
       )}
-
       <Divider my="md" />
-
       {/* Response */}
       {post.reply ? (
         <PostResponse
@@ -178,7 +176,6 @@ export default function PostDetail({
           </Group>
         </div>
       )}
-
       {!hasReply && (
         <div className="mt-5 flex flex-col gap-3">
           {!!data?.comments.data.children.length && (

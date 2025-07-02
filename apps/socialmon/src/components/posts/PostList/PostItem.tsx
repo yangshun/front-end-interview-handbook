@@ -31,19 +31,13 @@ export default function PostItem({
 }: Props) {
   return (
     <Box
-      className={clsx(
-        'w-full',
-        'px-1',
-        'py-4',
-        'rounded',
-        'transition-all duration-200',
-        'flex flex-col gap-2',
-        'text-left',
-        isSelected && 'border-l-4 border-blue-500 bg-blue-50', // Selection styling
-      )}
+      bg={isSelected ? 'gray.1' : 'white'}
+      className={clsx('w-full', 'px-4 py-4', 'flex flex-col gap-1')}
       onClick={onClick} // Use onClick instead of Link
     >
-      <Title order={5}>{post.title}</Title>
+      <Title className="line-clamp-1" order={3} size="h5">
+        {post.title}
+      </Title>
       <PostMetadata
         post={post as PostExtended}
         showMarkedAsIrrelevant={showMarkedAsIrrelevant}
