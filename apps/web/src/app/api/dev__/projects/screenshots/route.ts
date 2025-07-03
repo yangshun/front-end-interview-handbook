@@ -8,27 +8,26 @@ import prisma from '~/server/prisma';
 import { getErrorMessage } from '~/utils/getErrorMessage';
 
 export async function POST(req: NextRequest) {
-  const { searchParams } = req.nextUrl;
-
-  if (searchParams.get('api_route_secret') !== process.env.API_ROUTE_SECRET) {
-    return NextResponse.json(
-      { error: 'You are not authorized to call this API' },
-      { status: 401 },
-    );
-  }
-
-  const submissionId = searchParams.get('submission_id');
-
-  if (!submissionId) {
-    return NextResponse.json(
-      { error: 'Submission ID is required' },
-      { status: 400 },
-    );
-  }
-
-  const isShortId = submissionId.length <= 8;
-
   try {
+    const request = await req.json();
+    const { apiRouteSecret, submissionId } = request;
+
+    if (apiRouteSecret !== process.env.API_ROUTE_SECRET) {
+      return NextResponse.json(
+        { error: 'You are not authorized to call this API' },
+        { status: 401 },
+      );
+    }
+
+    if (!submissionId) {
+      return NextResponse.json(
+        { error: 'Submission ID is required' },
+        { status: 400 },
+      );
+    }
+
+    const isShortId = submissionId.length <= 8;
+
     // Need to separate query because UUID fields can't be compared with short strings
     // Prisma throws "invalid length: expected 32, found 8" error
     const submission = await (isShortId
