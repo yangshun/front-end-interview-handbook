@@ -1,11 +1,13 @@
 name: Lint
 on:
   push:
-    branches: [main]
+    branches:
+      - '**'
   pull_request:
-    branches: [main]
+    branches:
+      - '**'
 jobs:
-  test:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code

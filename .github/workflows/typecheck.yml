@@ -1,9 +1,11 @@
 name: Typecheck
 on:
   push:
-    branches: [main]
+    branches:
+      - '**'
   pull_request:
-    branches: [main]
+    branches:
+      - '**'
 jobs:
   typecheck:
     runs-on: ubuntu-latest
