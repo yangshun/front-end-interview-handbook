@@ -11,6 +11,7 @@ import SponsorsOpportunitiesSection from './SponsorsOpportunitiesSection';
 import SponsorsSinglePlacementsSection from './SponsorsSinglePlacementsSection';
 import SponsorsStepsToStartAdvertisingSection from './SponsorsStepsToStartAdvertisingSection';
 import SponsorsTechAudienceSection from './SponsorsTechAudienceSection';
+import SponsorsTrialPriceSection from './SponsorsTrialPriceSection';
 
 export default function SponsorsAdvertiseWithUsPage() {
   return (
@@ -20,6 +21,7 @@ export default function SponsorsAdvertiseWithUsPage() {
         <SponsorsTechAudienceSection />
         <SponsorsAudienceProfileSection />
         <SponsorsSinglePlacementsSection />
+        <SponsorsTrialPriceSection />
         <SponsorsOpportunitiesSection />
         <SponsorsStepsToStartAdvertisingSection />
       </Container>
