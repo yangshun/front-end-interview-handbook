@@ -21,6 +21,8 @@ import DropdownMenu from '~/components/ui/DropdownMenu';
 import Navbar from '~/components/ui/Navbar/Navbar';
 import { themeBorderColor } from '~/components/ui/theme';
 
+import SponsorsBookDemoButton from './SponsorsBookDemoButton';
+
 export default function SponsorsNavbar() {
   const intl = useIntl();
   const navbarRef = useRef(null);
@@ -47,16 +49,7 @@ export default function SponsorsNavbar() {
               size="xs"
               variant="secondary"
             />
-            <Button
-              href="/advertise-with-us/request"
-              label={intl.formatMessage({
-                defaultMessage: 'Schedule your slots',
-                description: 'Book advertising slots',
-                id: 'Y/+dNC',
-              })}
-              size="xs"
-              variant="primary"
-            />
+            <SponsorsBookDemoButton size="xs" />
           </div>
           <div className="flex gap-x-3">
             <NavI18nDropdown size="xs" />
@@ -96,17 +89,7 @@ export default function SponsorsNavbar() {
               variant="secondary"
               onClick={closeMobileNav}
             />
-            <Button
-              href="/advertise-with-us/request"
-              label={intl.formatMessage({
-                defaultMessage: 'Schedule your slots',
-                description: 'Book advertising slots',
-                id: 'Y/+dNC',
-              })}
-              size="xs"
-              variant="primary"
-              onClick={closeMobileNav}
-            />
+            <SponsorsBookDemoButton size="xs" />
           </div>
           <div
             className={clsx('flex justify-between gap-4', 'px-6 py-4', [

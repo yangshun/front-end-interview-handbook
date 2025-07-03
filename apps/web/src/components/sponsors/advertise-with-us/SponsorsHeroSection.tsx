@@ -3,8 +3,6 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
 
-import { trpc } from '~/hooks/trpc';
-
 import AngularLogo from '~/components/icons/AngularLogo';
 import JavaScriptLogo from '~/components/icons/JavaScriptLogo';
 import ReactLogo from '~/components/icons/ReactLogo';
@@ -26,12 +24,10 @@ import {
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
-import { sponsorsDateFormatter } from '../SponsorsDatesUtils';
+import SponsorsBookDemoButton from './SponsorsBookDemoButton';
 
 export default function SponsorsHeroSection() {
   const intl = useIntl();
-
-  const { data } = trpc.sponsors.firstAvailabilityAcrossFormats.useQuery();
 
   return (
     <div className="flex flex-col gap-x-4 gap-y-12 py-20 lg:flex-row xl:gap-x-6">
@@ -73,35 +69,21 @@ export default function SponsorsHeroSection() {
         </Text>
         <div className="flex flex-wrap gap-x-4 gap-y-4 sm:gap-x-6">
           <div className="flex flex-col items-center gap-3">
-            <Button
-              href="/advertise-with-us/request"
-              label={intl.formatMessage({
-                defaultMessage: 'Schedule your slots',
-                description: 'Book advertising slots',
-                id: 'Y/+dNC',
-              })}
-              size="md"
-              variant="primary"
-            />
-            {data != null && (
-              <Text color="secondary" size="body3">
-                <FormattedMessage
-                  defaultMessage="Next slot: {date}"
-                  description="Next slot date"
-                  id="dAesjD"
-                  values={{
-                    date: sponsorsDateFormatter.format(new Date(data.start)),
-                  }}
-                />
-              </Text>
-            )}
+            <SponsorsBookDemoButton size="md" />
+            <Text color="secondary" size="body3">
+              <FormattedMessage
+                defaultMessage="No commitment required"
+                description="No commitment required text"
+                id="JFgF3m"
+              />
+            </Text>
           </div>
           <Button
             href="#pricing-and-availability"
             label={intl.formatMessage({
-              defaultMessage: 'Pricing and availability',
-              description: 'Button label for pricing & availability',
-              id: 'zfkiwP',
+              defaultMessage: 'View ad opportunities',
+              description: 'Button label for view ad opportunities',
+              id: 'OhYfGk',
             })}
             size="md"
             variant="secondary"
@@ -205,7 +187,7 @@ function Asset() {
           <div key={item.value} className="flex items-center gap-1.5">
             <div
               className={clsx(
-                'xl:size-2 size-[7px] shrink-0 rounded-full',
+                'size-[7px] shrink-0 rounded-full xl:size-2',
                 item.value === 'view'
                   ? themeBackgroundBrandColor
                   : themeBackgroundSuccessColor,
@@ -502,7 +484,7 @@ function FocusOnPlatformAsset() {
           <div key={item.value} className="flex items-center gap-1">
             <div
               className={clsx(
-                'xl:size-[5px] size-[4px] shrink-0 rounded-full',
+                'size-[4px] shrink-0 rounded-full xl:size-[5px]',
                 item.bgColor,
               )}
             />
@@ -530,7 +512,7 @@ function SessionDurationAsset() {
         ['border', themeBorderElementColor],
         themeBackgroundLayerEmphasized,
       )}>
-      <div className="size-[105%] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform">
+      <div className="absolute left-1/2 top-1/2 size-[105%] -translate-x-1/2 -translate-y-1/2 transform">
         <svg
           fill="none"
           height="100%"
@@ -548,8 +530,8 @@ function SessionDurationAsset() {
           />
         </svg>
       </div>
-      <div className="size-[100%] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform">
-        <div className="size-full relative">
+      <div className="absolute left-1/2 top-1/2 size-[100%] -translate-x-1/2 -translate-y-1/2 transform">
+        <div className="relative size-full">
           <svg
             fill="none"
             height="100%"
@@ -584,8 +566,8 @@ function SessionDurationAsset() {
           />
         </div>
       </div>
-      <div className="size-[90%] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform">
-        <div className="size-full relative">
+      <div className="absolute left-1/2 top-1/2 size-[90%] -translate-x-1/2 -translate-y-1/2 transform">
+        <div className="relative size-full">
           <svg
             fill="none"
             height="100%"
@@ -683,8 +665,8 @@ function SoftwareEngineersAsset() {
         ['border', themeBorderElementColor],
         themeBackgroundLayerEmphasized,
       )}>
-      <div className="size-[100%] absolute -right-[36%] top-1/2 -translate-y-1/2 transform">
-        <div className="size-full relative">
+      <div className="absolute -right-[36%] top-1/2 size-[100%] -translate-y-1/2 transform">
+        <div className="relative size-full">
           <svg
             fill="none"
             height="100%"
@@ -707,8 +689,8 @@ function SoftwareEngineersAsset() {
           />
         </div>
       </div>
-      <div className="size-[100%] absolute -right-[40%] top-1/2 -translate-y-1/2 transform">
-        <div className="size-full relative">
+      <div className="absolute -right-[40%] top-1/2 size-[100%] -translate-y-1/2 transform">
+        <div className="relative size-full">
           <svg
             fill="none"
             height="100%"
@@ -793,7 +775,7 @@ function SkillAsset({
         className={clsx(
           'flex items-center justify-center',
           'rounded-full shadow-sm',
-          'size-[18px] sm:size-6 p-[3px] sm:p-1',
+          'size-[18px] p-[3px] sm:size-6 sm:p-1',
           themeBackgroundLayerEmphasized,
           themeGlassyBorder,
         )}>
