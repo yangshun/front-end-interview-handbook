@@ -3,8 +3,8 @@ import { z } from 'zod';
 
 import { encryptPassword } from '~/db/utils';
 import { userSchema } from '~/schema';
+import prisma from '~/server/prisma';
 
-import prisma from '../prisma';
 import { router, userProcedure } from '../trpc';
 
 export const socialUsersRouter = router({

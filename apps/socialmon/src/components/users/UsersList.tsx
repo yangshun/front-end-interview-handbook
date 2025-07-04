@@ -33,13 +33,10 @@ export default function UsersList() {
       <Text hidden={!isLoading} size="md">
         Loading...
       </Text>
-
       {!isLoading && (data?.length === 0 || !data) && (
         <Text size="md">No users added yet!</Text>
       )}
-
       {data?.map((user) => <UserCard key={user.username} user={user} />)}
-
       <AddUserModal opened={opened} onClose={close} />
     </Container>
   );

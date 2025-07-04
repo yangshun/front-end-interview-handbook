@@ -1,5 +1,4 @@
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
-import type { PrismaClient } from '@prisma/client';
 import type { GetServerSidePropsContext } from 'next';
 import { getServerSession, type NextAuthOptions } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
@@ -13,7 +12,8 @@ const ADMIN_EMAILS = [
 ];
 
 export const authConfig: NextAuthOptions = {
-  adapter: PrismaAdapter(prisma as unknown as PrismaClient),
+  // @ts-expect-error - Prisma weirdness
+  adapter: PrismaAdapter(prisma),
   callbacks: {
     session: async ({ session, user }) => {
       if (session?.user) {

@@ -21,18 +21,18 @@ enum ActivityAction {
 }
 
 model Account {
-  id                 String  @id @default(cuid())
-  userId             String  @map("user_id")
-  type               String
-  provider           String
-  providerAccountId  String  @map("provider_account_id")
-  refresh_token      String? @db.Text
-  access_token       String? @db.Text
-  expires_at         Int?
-  token_type         String?
-  scope              String?
-  id_token           String? @db.Text
-  session_state      String?
+  id                String  @id @default(cuid())
+  userId            String  @map("user_id")
+  type              String
+  provider          String
+  providerAccountId String  @map("provider_account_id")
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -51,10 +51,10 @@ model Session {
 }
 
 model User {
-  id            String    @id @default(cuid())
+  id            String            @id @default(cuid())
   name          String?
-  email         String?   @unique
-  emailVerified DateTime? @map("email_verified")
+  email         String?           @unique
+  emailVerified DateTime?         @map("email_verified")
   image         String?
   accounts      Account[]
   sessions      Session[]
@@ -74,72 +74,71 @@ model VerificationToken {
 }
 
 model RedditPost {
-  id              String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
-  postId          String    @db.VarChar
-  title           String    @db.VarChar
-  content         String    @db.VarChar
-  postedAt        DateTime  @db.Timestamp(6)
-  permalink       String    @db.VarChar
-  response        String?   @db.VarChar
-  subreddit       String    @db.VarChar
-  createdAt       DateTime  @default(now()) @db.Timestamptz(6)
-  updatedAt       DateTime  @default(now()) @updatedAt
-  keywords        String[]
-  relevancy       PostRelevancy?
-  activities      Activity[]
-  reply           RedditPostReply?
-  projectId       String    @db.Uuid()
+  id         String           @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  postId     String           @db.VarChar
+  title      String           @db.VarChar
+  content    String           @db.VarChar
+  postedAt   DateTime         @db.Timestamp(6)
+  permalink  String           @db.VarChar
+  response   String?          @db.VarChar
+  subreddit  String           @db.VarChar
+  createdAt  DateTime         @default(now()) @db.Timestamptz(6)
+  updatedAt  DateTime         @default(now()) @updatedAt
+  keywords   String[]
+  relevancy  PostRelevancy?
+  activities Activity[]
+  reply      RedditPostReply?
+  projectId  String           @db.Uuid()
 
-  upvoteCount     Int       @default(0)
-  commentsCount   Int       @default(0)
-  statsUpdatedAt  DateTime  @default(now()) @db.Timestamptz(6)
-  project         Project @relation(fields: [projectId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  upvoteCount    Int      @default(0)
+  commentsCount  Int      @default(0)
+  statsUpdatedAt DateTime @default(now()) @db.Timestamptz(6)
+  project        Project  @relation(fields: [projectId], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@unique([postId, projectId])
   @@index([projectId])
 }
 
 model Activity {
-  id        Int               @id @default(autoincrement())
+  id        Int            @id @default(autoincrement())
   action    ActivityAction
-  createdAt DateTime          @default(now()) @db.Timestamptz(6)
-  postId    String            @db.Uuid
-  projectId String            @db.Uuid()
-  userId    String            @map("user_id")
+  createdAt DateTime       @default(now()) @db.Timestamptz(6)
+  postId    String         @db.Uuid
+  projectId String         @db.Uuid()
+  userId    String         @map("user_id")
 
-  post      RedditPost        @relation(fields: [postId], references: [id])
-  user      User              @relation(fields: [userId], references: [id])
-  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  post    RedditPost @relation(fields: [postId], references: [id])
+  user    User       @relation(fields: [userId], references: [id])
+  project Project    @relation(fields: [projectId], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@index([projectId])
 }
 
 model RedditUser {
-  id            String       @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
-  username      String       @db.VarChar
-  password      String       @db.VarChar
-  projectId     String       @db.Uuid
-  replies       RedditPostReply[]
+  id        String            @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  username  String            @db.VarChar
+  password  String            @db.VarChar
+  projectId String            @db.Uuid
+  replies   RedditPostReply[]
 
-  project         Project @relation(fields: [projectId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@unique([projectId, username])
   @@index([projectId])
 }
 
-
 model RedditPostReply {
-  id                    String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
-  content               String    @db.VarChar
-  createdAt             DateTime  @default(now()) @db.Timestamptz(6)
-  permalink             String @db.VarChar
-  postId                String @db.Uuid @unique
-  redditUserId          String @db.Uuid
-  userId                String
+  id           String   @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  content      String   @db.VarChar
+  createdAt    DateTime @default(now()) @db.Timestamptz(6)
+  permalink    String   @db.VarChar
+  postId       String   @unique @db.Uuid
+  redditUserId String   @db.Uuid
+  userId       String
 
-  post                  RedditPost  @relation(fields: [postId], references: [id], onDelete: Cascade, onUpdate: NoAction)
-  redditUser            RedditUser @relation(fields: [redditUserId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  user                  User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  post       RedditPost @relation(fields: [postId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  redditUser RedditUser @relation(fields: [redditUserId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  user       User       @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([redditUserId])
   @@index([userId])
@@ -151,15 +150,15 @@ model ProjectSubredditKeywords {
   keywords   String[]
   subreddits String[]
 
-  project    Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
 
   @@index([projectId])
 }
 
 model Project {
-  id                  String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
-  name                String    @db.VarChar
-  slug                String    @unique @default(dbgenerated("SUBSTRING((gen_random_uuid())::text FROM 1 FOR 8)")) @db.Citext
+  id                  String       @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  name                String       @db.VarChar
+  slug                String       @unique @default(dbgenerated("SUBSTRING((gen_random_uuid())::text FROM 1 FOR 8)")) @db.Citext
   keywords            String[]
   subreddits          String[]
   redditUsers         RedditUser[]
@@ -167,9 +166,9 @@ model Project {
   activities          Activity[]
   productsToAdvertise Json
   postFilteringPrompt String
-  postsLastFetchedAt  DateTime?  @db.Timestamptz(6)
+  postsLastFetchedAt  DateTime?    @db.Timestamptz(6)
 
-  subredditKeywords   ProjectSubredditKeywords[]
+  subredditKeywords ProjectSubredditKeywords[]
 
   @@index([slug])
 }

@@ -1,8 +1,8 @@
 import { BASE_URL } from '~/constants';
 import { getPostsFromReddit } from '~/db/RedditUtils';
+import prisma from '~/server/prisma';
 import type { FetchedRedditPost } from '~/types';
 
-import prisma from '../prisma';
 import { sendGoogleChatMessage } from '../utils/googleChat';
 
 function extractTriggeringSnippet(
