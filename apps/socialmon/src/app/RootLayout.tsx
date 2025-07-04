@@ -1,7 +1,8 @@
+'use client';
+
 import '@mantine/core/styles.css';
 
 import { MantineProvider } from '@mantine/core';
-import clsx from 'clsx';
 
 import GlobalProviders from '~/components/global/GlobalProviders';
 import CustomToaster from '~/components/ui/CustomToaster';
@@ -13,6 +14,15 @@ type Props = Readonly<{
 }>;
 
 const theme = {
+  components: {
+    Button: {
+      styles: {
+        label: {
+          fontWeight: 500,
+        },
+      },
+    },
+  },
   defaultRadius: 'md',
   headings: { fontWeight: '500' },
   primaryColor: 'violet',
@@ -20,15 +30,11 @@ const theme = {
 
 export default function RootLayout({ children }: Props) {
   return (
-    <html lang="en">
-      <body className={clsx('antialiased')}>
-        <GlobalProviders>
-          <MantineProvider theme={theme}>
-            <CustomToaster />
-            <div className="bg-white">{children}</div>
-          </MantineProvider>
-        </GlobalProviders>
-      </body>
-    </html>
+    <GlobalProviders>
+      <MantineProvider theme={theme}>
+        {children}
+        <CustomToaster />
+      </MantineProvider>
+    </GlobalProviders>
   );
 }

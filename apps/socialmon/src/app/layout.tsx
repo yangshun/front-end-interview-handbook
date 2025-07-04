@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import type { Metadata } from 'next';
 
 import '~/styles/globals.css';
@@ -14,5 +15,11 @@ export const metadata: Metadata = {
 };
 
 export default function Layout({ children }: Props) {
-  return <RootLayout>{children}</RootLayout>;
+  return (
+    <html lang="en">
+      <body className={clsx('antialiased', 'bg-white')}>
+        <RootLayout>{children}</RootLayout>
+      </body>
+    </html>
+  );
 }
