@@ -102,7 +102,7 @@ export default function PostList() {
                   new Date(projectData.postsLastFetchedAt),
                 )}
                 withArrow={true}>
-                <Text c="dimmed" size="sm">
+                <Text c="dimmed" size="xs">
                   Fetched{' '}
                   <RelativeTimestamp
                     timestamp={new Date(projectData.postsLastFetchedAt)}

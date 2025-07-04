@@ -1,6 +1,7 @@
 'use client';
 
 import { Button } from '@mantine/core';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import type { ChangeEvent } from 'react';
 import toast from 'react-hot-toast';
@@ -75,12 +76,13 @@ export default function PostDetailPage({ post, showBackButton = true }: Props) {
       {showBackButton && (
         <div>
           <Button
+            component={Link}
+            href={`/projects/${projectSlug}`}
             leftSection={<RiArrowLeftLine className="size-4" />}
             ml={-10}
             size="xs"
-            variant="subtle"
-            onClick={() => router.push(`/projects/${projectSlug}`)}>
-            Back To Project
+            variant="subtle">
+            Back to project
           </Button>
         </div>
       )}

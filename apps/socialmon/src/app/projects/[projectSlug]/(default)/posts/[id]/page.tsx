@@ -1,3 +1,4 @@
+import { Container } from '@mantine/core';
 import { notFound } from 'next/navigation';
 
 import PostDetailPage from '~/components/posts/PostDetailPage';
@@ -59,8 +60,8 @@ export default async function Page({ params }: Props) {
   }
 
   return (
-    <div className="w-full xl:w-2/3">
+    <Container size="sm">
       <PostDetailPage post={post} showBackButton={true} />
-    </div>
+    </Container>
   );
 }
