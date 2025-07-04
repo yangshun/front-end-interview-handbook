@@ -24,7 +24,7 @@
     "gen:ts": "ts-node --esm --experimentalSpecifierResolution node ./src/scripts/questions-javascript-preprocess.ts",
     "gen:all": "npm run gen:clean && npm run gen",
     "gen:clean": "rimraf src/__generated__",
-    "postinstall": "prisma generate",
+    "postinstall": "prisma generate && npm run cl",
     "i18n": "npm run i18n:extract && npm run i18n:translate && npm run i18n:compile",
     "i18n:extract": "formatjs extract \"src/**/*.ts*\" --ignore=\"**/*.d.ts\" --out-file src/locales/raw/en-US.json",
     "i18n:compile": "formatjs compile-folder --ast src/locales/raw src/locales/compiled",

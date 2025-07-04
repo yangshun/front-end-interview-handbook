@@ -1,0 +1,9 @@
+{
+  "extends": ["//"],
+  "tasks": {
+    "tsc": {
+      "cache": false,
+      "dependsOn": ["^build"]
+    }
+  }
+}
