@@ -1,6 +1,7 @@
 'use client';
 
 import {
+  Anchor,
   Button,
   Divider,
   Flex,
@@ -10,6 +11,7 @@ import {
   Text,
   Textarea,
   Title,
+  Tooltip,
 } from '@mantine/core';
 import { useInputState } from '@mantine/hooks';
 import { type ChangeEvent, useEffect, useState } from 'react';
@@ -95,18 +97,43 @@ export default function PostDetail({
 
   return (
     <Flex direction="column" gap="sm">
-      <Flex direction="column" gap={2} justify="space-between" mb="xs">
-        <Title order={2}>{post.title}</Title>
-        <PostMetadata post={post} showViewPost={true} />
+      <Flex direction="column">
+        <Flex align="center" gap="xs">
+          <Text size="sm">
+            <Anchor
+              className="z-1"
+              href={`https://reddit.com/${post.subreddit}`}
+              target="_blank"
+              underline="hover">
+              {post.subreddit}
+            </Anchor>
+          </Text>
+          &middot;
+          <Tooltip label="Post fetched at" withArrow={true}>
+            <Text c="dimmed" size="sm" span={true}>
+              {new Intl.DateTimeFormat(undefined, {
+                day: 'numeric',
+                hour: 'numeric',
+                hour12: true,
+                minute: '2-digit',
+                month: 'long',
+                weekday: 'long',
+                year: 'numeric',
+              }).format(post.createdAt)}
+            </Text>
+          </Tooltip>
+        </Flex>
+        <Flex direction="column" gap={2} justify="space-between" mb="xs">
+          <Title order={2}>{post.title}</Title>
+          <PostMetadata post={post} showViewPost={true} />
+        </Flex>
       </Flex>
-      <Text size="sm">
-        <div
-          dangerouslySetInnerHTML={{
-            __html: postBody,
-          }}
-          className="prose prose-sm max-w-none"
-        />
-      </Text>
+      <div
+        dangerouslySetInnerHTML={{
+          __html: postBody,
+        }}
+        className="prose prose-sm max-w-none"
+      />
       {!post.reply && (
         <>
           <Divider />

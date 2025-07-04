@@ -35,10 +35,8 @@ export default function NavbarUserAvatar({ menuItems, user }: Props) {
           src={user?.image}
         />
       </Menu.Target>
-
       <Menu.Dropdown>
-        <Menu.Label>{displayName}</Menu.Label>
-
+        <Menu.Label fz="sm">{displayName}</Menu.Label>
         <Menu.Divider />
         {menuItems?.map(({ href, icon, label }) => (
           <Link key={href} href={href}>

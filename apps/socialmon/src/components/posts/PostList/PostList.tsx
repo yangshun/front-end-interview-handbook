@@ -124,7 +124,7 @@ export default function PostList() {
             No posts found
           </Text>
         ) : (
-          <Box className="divide-y divide-neutral-200">
+          <Box px={8} py={8}>
             {posts?.map((post) => (
               <PostItem
                 key={post.id}

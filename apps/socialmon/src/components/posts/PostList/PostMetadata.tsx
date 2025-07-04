@@ -1,4 +1,4 @@
-import { Anchor, Badge, Button, Pill, Text, Tooltip } from '@mantine/core';
+import { Badge, Button, Pill } from '@mantine/core';
 import Link from 'next/link';
 import { RiArrowRightUpLine, RiCheckLine } from 'react-icons/ri';
 
@@ -22,35 +22,9 @@ export default function PostMetadata({
 }: Props) {
   return (
     <div className="flex flex-col gap-1">
-      <div>
-        <Tooltip label="Post fetched at" withArrow={true}>
-          <Text c="dimmed" size="sm" span={true}>
-            {new Intl.DateTimeFormat(undefined, {
-              day: 'numeric',
-              hour: 'numeric',
-              hour12: true,
-              minute: '2-digit',
-              month: 'long',
-              weekday: 'long',
-              year: 'numeric',
-            }).format(post.createdAt)}
-          </Text>
-        </Tooltip>
-      </div>
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <div className="flex flex-wrap items-center gap-2">
+        <div className="flex flex-wrap items-center gap-4">
           <PostStats post={post} />
-          <div className="h-1 w-1 rounded-full bg-slate-600" />
-          <Text size="sm">
-            <Anchor
-              className="z-1"
-              href={`https://reddit.com/${post.subreddit}`}
-              target="_blank"
-              underline="hover">
-              {post.subreddit}
-            </Anchor>
-          </Text>
-          <div className="h-1 w-1 rounded-full bg-slate-600" />
           {post.keywords.length > 0 && (
             <div className="flex flex-wrap gap-1">
               {post.keywords.map((keyword) => (

@@ -1,4 +1,4 @@
-import { Box, Title } from '@mantine/core';
+import { Anchor, Box, Flex, Text, Title, Tooltip } from '@mantine/core';
 import clsx from 'clsx';
 
 import type { PostExtended } from '~/types';
@@ -32,9 +32,34 @@ export default function PostItem({
   return (
     <Box
       bg={isSelected ? 'gray.1' : 'white'}
-      className={clsx('w-full', 'px-4 py-4', 'flex flex-col gap-1')}
+      className={clsx('w-full', 'p-3', 'flex flex-col gap-1', 'rounded-lg')}
       onClick={onClick} // Use onClick instead of Link
     >
+      <Flex align="center" gap={8}>
+        <Text size="sm">
+          <Anchor
+            className="z-1"
+            href={`https://reddit.com/${post.subreddit}`}
+            target="_blank"
+            underline="hover">
+            {post.subreddit}
+          </Anchor>
+        </Text>
+        &middot;
+        <Tooltip label="Post fetched at" withArrow={true}>
+          <Text c="dimmed" size="sm" span={true}>
+            {new Intl.DateTimeFormat(undefined, {
+              day: 'numeric',
+              hour: 'numeric',
+              hour12: true,
+              minute: '2-digit',
+              month: 'long',
+              weekday: 'long',
+              year: 'numeric',
+            }).format(post.createdAt)}
+          </Text>
+        </Tooltip>
+      </Flex>
       <Title className="line-clamp-1" order={3} size="h5">
         {post.title}
       </Title>

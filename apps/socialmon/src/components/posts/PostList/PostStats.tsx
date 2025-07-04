@@ -14,20 +14,21 @@ export default function PostStats({ post }: Props) {
   const updatedTime = getRelativeTimestamp(new Date(post.statsUpdatedAt));
 
   return (
-    <div className="flex flex-wrap items-center gap-2">
+    <div className="flex flex-wrap items-center gap-4">
       <Tooltip label={`Upvote count updated ${updatedTime}`} withArrow={true}>
         <div className="flex items-center gap-1">
-          <RiThumbUpFill className={clsx('size-4', 'text-slate-500')} />
-          <Text size="sm">{post.upvoteCount}</Text>
+          <RiThumbUpFill className={clsx('size-4', 'text-slate-400')} />
+          <Text c="dimmed" size="sm">
+            {post.upvoteCount}
+          </Text>
         </div>
       </Tooltip>
-
-      <div className="h-1 w-1 rounded-full bg-slate-600" />
-
       <Tooltip label={`Comment count updated ${updatedTime}`} withArrow={true}>
         <div className="flex items-center gap-1">
-          <RiChat4Fill className={clsx('size-4', 'text-slate-500')} />
-          <Text size="sm">{post.commentsCount}</Text>
+          <RiChat4Fill className={clsx('size-4', 'text-slate-400')} />
+          <Text c="dimmed" size="sm">
+            {post.commentsCount}
+          </Text>
         </div>
       </Tooltip>
     </div>

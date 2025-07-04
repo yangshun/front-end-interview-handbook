@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from '@mantine/core';
+import { Button, Text, Title } from '@mantine/core';
 import clsx from 'clsx';
 import { signIn } from 'next-auth/react';
 import type { FormEvent } from 'react';
@@ -13,23 +13,16 @@ export default function LoginForm() {
   };
 
   return (
-    <form
-      className={clsx(
-        'rounded-md',
-        'flex flex-col items-center justify-center gap-16',
-      )}
-      onSubmit={handleSubmit}>
-      <h1 className="text-center text-4xl font-bold leading-9 tracking-tighter text-gray-900">
+    <form className={clsx('flex items-center')} onSubmit={handleSubmit}>
+      <Title order={1} size="h3">
         Socialmon
-      </h1>
-      <div className="flex flex-col gap-6">
-        <h2 className="mt-5 text-center text-2xl font-bold leading-9 tracking-tight text-gray-800">
-          Sign in to your account
-        </h2>
-        <Button leftSection={<RiGoogleFill />} size="lg" type="submit">
-          Continue with Google
-        </Button>
-      </div>
+      </Title>
+      <Text fz="xl" pl={16} pr={8}>
+        /
+      </Text>
+      <Button leftSection={<RiGoogleFill />} type="submit" variant="subtle">
+        Sign in with Google
+      </Button>
     </form>
   );
 }
