@@ -60,7 +60,7 @@ export default async function InterceptedPostPage({ params }: Props) {
 
   return (
     <div className="h-full overflow-y-auto p-4">
-      <PostDetailPage post={post} />
+      <PostDetailPage post={post} showBackButton={false} />
     </div>
   );
 }

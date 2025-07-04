@@ -41,9 +41,11 @@ export default function PostComment({ className, comment, level }: Props) {
   const content = parseMarkdown(body);
 
   return (
-    <div className={clsx('flex grow flex-col', className)} id={commentId}>
-      <div className="flex items-start gap-4">
-        <div className="relative flex flex-col items-center self-stretch">
+    <div
+      className={clsx('flex min-w-0 grow flex-col', className)}
+      id={commentId}>
+      <div className="flex min-w-0 items-start gap-4">
+        <div className="relative flex flex-shrink-0 flex-col items-center self-stretch">
           <Avatar radius="xl" size="md" />
           {hasReplies && (
             <div
@@ -72,11 +74,11 @@ export default function PostComment({ className, comment, level }: Props) {
         </div>
         <div
           className={clsx(
-            'flex flex-1 flex-col items-start gap-3',
+            'flex min-w-0 flex-1 flex-col items-start gap-3',
             'mt-2.5',
             hasReplies && 'pb-6',
           )}>
-          <div className="flex gap-3">
+          <div className="flex min-w-0 max-w-full gap-3">
             <Text size="sm">
               <Anchor
                 fw={500}
@@ -89,12 +91,14 @@ export default function PostComment({ className, comment, level }: Props) {
               <RelativeTimestamp timestamp={new Date(created_utc * 1000)} />
             </Text>
           </div>
-          <Text size="sm">
-            <span
-              dangerouslySetInnerHTML={{ __html: content }}
-              className="prose prose-sm"
-            />
-          </Text>
+          <div className="min-w-0 max-w-full overflow-hidden">
+            <Text size="sm">
+              <span
+                dangerouslySetInnerHTML={{ __html: content }}
+                className="prose prose-sm break-words"
+              />
+            </Text>
+          </div>
           <div>
             <div className="flex items-center gap-1">
               <RiThumbUpFill className={clsx('size-4', 'text-slate-500')} />

@@ -15,9 +15,10 @@ import type { PostExtended } from '~/types';
 
 type Props = Readonly<{
   post: PostExtended;
+  showBackButton?: boolean;
 }>;
 
-export default function PostDetailPage({ post }: Props) {
+export default function PostDetailPage({ post, showBackButton = true }: Props) {
   const router = useRouter();
   const projectSlug = useCurrentProjectSlug();
   const generateResponseMutation =
@@ -71,16 +72,18 @@ export default function PostDetailPage({ post }: Props) {
 
   return (
     <div className="flex flex-col gap-2">
-      <div>
-        <Button
-          leftSection={<RiArrowLeftLine className="size-4" />}
-          ml={-10}
-          size="xs"
-          variant="subtle"
-          onClick={() => router.back()}>
-          Back
-        </Button>
-      </div>
+      {showBackButton && (
+        <div>
+          <Button
+            leftSection={<RiArrowLeftLine className="size-4" />}
+            ml={-10}
+            size="xs"
+            variant="subtle"
+            onClick={() => router.push(`/projects/${projectSlug}`)}>
+            Back To Project
+          </Button>
+        </div>
+      )}
       <PostDetail
         generateResponse={(
           setResponse: (value: ChangeEvent | string | null | undefined) => void,

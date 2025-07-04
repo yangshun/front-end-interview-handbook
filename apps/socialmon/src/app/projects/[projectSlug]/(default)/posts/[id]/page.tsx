@@ -60,7 +60,7 @@ export default async function Page({ params }: Props) {
 
   return (
     <div className="w-full xl:w-2/3">
-      <PostDetailPage post={post} />
+      <PostDetailPage post={post} showBackButton={true} />
     </div>
   );
 }
