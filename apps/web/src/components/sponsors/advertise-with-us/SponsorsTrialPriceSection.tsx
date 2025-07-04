@@ -34,9 +34,9 @@ export default function SponsorsTrialPriceSection() {
         size="inherit"
         weight="medium">
         <FormattedMessage
-          defaultMessage="Try sponsoring GreatFrontEnd with a heavily discounted first week. Test how well your brand performs with our audience and track real ROI before making a bigger commitment. No contracts. Just performance."
+          defaultMessage="Try sponsoring GreatFrontEnd with a heavily discounted first week. Test how well your brand performs with our audience and track real ROI before making a bigger commitment."
           description="Advertise with us section subtitle"
-          id="taddhu"
+          id="A+BtZg"
         />
       </Text>
       <div className="flex flex-col items-center gap-3 sm:items-start">

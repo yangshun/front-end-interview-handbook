@@ -41,9 +41,9 @@ export default function SponsorsHeroSection() {
           level="custom"
           weight="medium">
           <FormattedMessage
-            defaultMessage="Reach {engineersCount}+ Front End Engineers with high ROI placements"
+            defaultMessage="Reach {engineersCount}+ Front End Engineers"
             description="Title of advertise with us page"
-            id="J9zndO"
+            id="K5LNd3"
             values={{
               engineersCount: '600k',
             }}
