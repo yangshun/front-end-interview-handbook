@@ -23,9 +23,9 @@ export default function SponsorsTrialPriceSection() {
         tag="p"
         weight="medium">
         <FormattedMessage
-          defaultMessage="Unlock massive first-week discounts - Risk free"
+          defaultMessage="Unlock massive first-week discounts – Risk free"
           description="Advertise with us section title"
-          id="ceuH6C"
+          id="so4j4G"
         />
       </Heading>
       <Text
