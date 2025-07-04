@@ -7,7 +7,7 @@ import { getUser } from '~/app/lib/auth';
 
 export const metadata: Metadata = {
   description: 'Social moderator',
-  title: 'SocialMon | Projects',
+  title: 'Socialmon | Projects',
 };
 
 export default async function Page() {

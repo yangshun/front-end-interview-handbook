@@ -20,7 +20,7 @@ export default function LoginForm() {
       )}
       onSubmit={handleSubmit}>
       <h1 className="text-center text-4xl font-bold leading-9 tracking-tighter text-gray-900">
-        SocialMon
+        Socialmon
       </h1>
       <div className="flex flex-col gap-6">
         <h2 className="mt-5 text-center text-2xl font-bold leading-9 tracking-tight text-gray-800">

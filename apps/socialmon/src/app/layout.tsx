@@ -10,7 +10,7 @@ type Props = Readonly<{
 
 export const metadata: Metadata = {
   description: 'Social moderator',
-  title: 'SocialMon',
+  title: 'Socialmon',
 };
 
 export default function Layout({ children }: Props) {

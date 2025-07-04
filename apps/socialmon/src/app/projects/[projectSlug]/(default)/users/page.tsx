@@ -5,7 +5,7 @@ import UsersList from '~/components/users/UsersList';
 
 export const metadata: Metadata = {
   description: 'Social moderator',
-  title: 'SocialMon | Users',
+  title: 'Socialmon | Users',
 };
 
 export default async function Page() {

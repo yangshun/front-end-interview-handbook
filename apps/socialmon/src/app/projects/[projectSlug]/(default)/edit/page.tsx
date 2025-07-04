@@ -15,7 +15,7 @@ type Props = Readonly<{
 
 export const metadata: Metadata = {
   description: 'Social moderator',
-  title: 'SocialMon | Edit project',
+  title: 'Socialmon | Edit project',
 };
 
 export default async function Page({ params }: Props) {
