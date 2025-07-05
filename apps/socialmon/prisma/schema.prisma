@@ -14,10 +14,18 @@ enum PostRelevancy {
   IRRELEVANT
 }
 
+enum PostRepliedStatus {
+  NOT_REPLIED
+  REPLIED_MANUALLY
+  REPLIED_VIA_APP
+}
+
 enum ActivityAction {
   MADE_IRRELEVANT
   MADE_RELEVANT
   REPLIED
+  MARKED_AS_REPLIED
+  MARKED_AS_NOT_REPLIED
 }
 
 model Account {
@@ -74,21 +82,22 @@ model VerificationToken {
 }
 
 model RedditPost {
-  id         String           @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
-  postId     String           @db.VarChar
-  title      String           @db.VarChar
-  content    String           @db.VarChar
-  postedAt   DateTime         @db.Timestamp(6)
-  permalink  String           @db.VarChar
-  response   String?          @db.VarChar
-  subreddit  String           @db.VarChar
-  createdAt  DateTime         @default(now()) @db.Timestamptz(6)
-  updatedAt  DateTime         @default(now()) @updatedAt
-  keywords   String[]
-  relevancy  PostRelevancy?
-  activities Activity[]
-  reply      RedditPostReply?
-  projectId  String           @db.Uuid()
+  id              String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  postId          String    @db.VarChar
+  title           String    @db.VarChar
+  content         String    @db.VarChar
+  postedAt        DateTime  @db.Timestamp(6)
+  permalink       String    @db.VarChar
+  response        String?   @db.VarChar
+  subreddit       String    @db.VarChar
+  createdAt       DateTime  @default(now()) @db.Timestamptz(6)
+  updatedAt       DateTime  @default(now()) @updatedAt
+  keywords        String[]
+  relevancy       PostRelevancy?
+  replied         PostRepliedStatus @default(NOT_REPLIED)
+  activities      Activity[]
+  reply           RedditPostReply?
+  projectId       String    @db.Uuid()
 
   upvoteCount    Int      @default(0)
   commentsCount  Int      @default(0)

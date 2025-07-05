@@ -17,6 +17,7 @@ export default function PostRelevancyActionButton({
 }: Props) {
   const projectSlug = useCurrentProjectSlug();
   const router = useRouter();
+  const utils = trpc.useUtils();
   const markPostRelevancyMutation =
     trpc.socialPosts.markPostRelevancy.useMutation();
 
@@ -32,6 +33,9 @@ export default function PostRelevancyActionButton({
       },
       {
         onSuccess() {
+          // Fast update for posts list (badge appears immediately)
+          utils.socialPosts.getPosts.invalidate();
+          // Comprehensive update for everything else (button text updates)
           router.refresh();
           toast.success(
             relevancy === PostRelevancy.IRRELEVANT

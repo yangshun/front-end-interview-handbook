@@ -27,10 +27,14 @@ export default async function Page({ params }: Props) {
         orderBy: {
           createdAt: 'desc',
         },
-        take: 1,
         where: {
           action: {
-            in: ['MADE_IRRELEVANT', 'MADE_RELEVANT'],
+            in: [
+              'MADE_IRRELEVANT',
+              'MADE_RELEVANT',
+              'MARKED_AS_REPLIED',
+              'MARKED_AS_NOT_REPLIED',
+            ],
           },
         },
       },

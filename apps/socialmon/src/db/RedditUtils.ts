@@ -4,6 +4,7 @@ import fetch from 'node-fetch';
 import type { Submission } from 'snoowrap';
 import Snoowrap from 'snoowrap';
 
+import { PostRepliedStatus } from '~/prisma/client';
 import AIProvider from '~/providers/AIProvider';
 import type { FetchedRedditPost } from '~/types';
 
@@ -34,6 +35,7 @@ export async function createRedditPost({
     permalink: post.permalink,
     postedAt: new Date(post.created_utc * 1000),
     postId: post.id,
+    replied: PostRepliedStatus.NOT_REPLIED,
     statsUpdatedAt: new Date(),
     subreddit: post.subreddit_name_prefixed,
     title: post.title,

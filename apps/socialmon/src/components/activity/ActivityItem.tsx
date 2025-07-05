@@ -54,6 +54,28 @@ export default function ActivityItem({ activity }: Props) {
     );
   }
 
+  if (action === 'MARKED_AS_REPLIED') {
+    return (
+      <div>
+        <Text size="sm">
+          {userLabel} marked the post {postLabel} as replied.
+        </Text>
+        {timestampLabel}
+      </div>
+    );
+  }
+
+  if (action === 'MARKED_AS_NOT_REPLIED') {
+    return (
+      <div>
+        <Text size="sm">
+          {userLabel} marked the post {postLabel} as not replied.
+        </Text>
+        {timestampLabel}
+      </div>
+    );
+  }
+
   return (
     <div>
       <Text size="sm">

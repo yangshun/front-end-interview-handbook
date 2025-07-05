@@ -34,7 +34,7 @@ export default function PostMetadata({
               ))}
             </div>
           )}
-          {post.reply && showRepliedBadge && (
+          {post.replied !== 'NOT_REPLIED' && showRepliedBadge && (
             <div className="flex items-center gap-2">
               <Badge color="violet" leftSection={<RiCheckLine />} size="xs">
                 Replied

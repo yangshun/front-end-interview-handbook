@@ -11,7 +11,11 @@ import {
   replyToRedditPost,
 } from '~/db/RedditUtils';
 import { decryptPassword } from '~/db/utils';
-import { ActivityAction, PostRelevancy } from '~/prisma/client';
+import {
+  ActivityAction,
+  PostRelevancy,
+  PostRepliedStatus,
+} from '~/prisma/client';
 
 import AIProvider from '../../providers/AIProvider';
 import type { Comments } from '../../types';
@@ -145,15 +149,28 @@ export const socialPostsRouter = router({
 
       if (tab === 'unreplied') {
         postFilter = {
+          replied: PostRepliedStatus.NOT_REPLIED,
           reply: {
             is: null,
           },
         };
       } else if (tab === 'replied') {
         postFilter = {
-          reply: {
-            isNot: null,
-          },
+          OR: [
+            {
+              reply: {
+                isNot: null,
+              },
+            },
+            {
+              replied: {
+                in: [
+                  PostRepliedStatus.REPLIED_MANUALLY,
+                  PostRepliedStatus.REPLIED_VIA_APP,
+                ],
+              },
+            },
+          ],
         };
       } else if (tab === 'irrelevant') {
         postFilter = {
@@ -185,6 +202,8 @@ export const socialPostsRouter = router({
           createdAt: true,
           id: true,
           keywords: true,
+          relevancy: true,
+          replied: true,
           reply: true,
           statsUpdatedAt: true,
           subreddit: true,
@@ -275,6 +294,62 @@ export const socialPostsRouter = router({
         ]);
       },
     ),
+  markPostReplyStatus: userProcedure
+    .input(
+      z.object({
+        postId: z.string(),
+        projectSlug: z.string(),
+        replyStatus: z.enum([
+          PostRepliedStatus.NOT_REPLIED,
+          PostRepliedStatus.REPLIED_MANUALLY,
+        ]),
+      }),
+    )
+    .mutation(
+      async ({
+        ctx: { session },
+        input: { postId, projectSlug, replyStatus },
+      }) => {
+        const activityAction =
+          replyStatus === PostRepliedStatus.REPLIED_MANUALLY
+            ? ActivityAction.MARKED_AS_REPLIED
+            : ActivityAction.MARKED_AS_NOT_REPLIED;
+
+        const project = await prisma.project.findUnique({
+          select: { id: true },
+          where: {
+            slug: projectSlug,
+          },
+        });
+
+        if (!project) {
+          throw new TRPCError({
+            code: 'BAD_REQUEST',
+            message: 'Project not found!',
+          });
+        }
+
+        await prisma.$transaction([
+          prisma.redditPost.update({
+            data: {
+              replied: replyStatus,
+            },
+            where: {
+              id: postId,
+            },
+          }),
+          // Create activity
+          prisma.activity.create({
+            data: {
+              action: activityAction,
+              postId,
+              projectId: project.id,
+              userId: session.user.id,
+            },
+          }),
+        ]);
+      },
+    ),
   replyToPost: userProcedure
     .input(
       z.object({
@@ -331,6 +406,7 @@ export const socialPostsRouter = router({
         prisma.redditPost.update({
           data: {
             relevancy: PostRelevancy.RELEVANT,
+            replied: PostRepliedStatus.REPLIED_VIA_APP,
           },
           where: {
             id,

@@ -24,6 +24,7 @@ import type { PostExtended } from '~/types';
 import PostCommentsList from '../comments/PostCommentsList';
 import { parseMarkdown } from '../markdownParser';
 import PostRelevancyActionButton from '../PostRelevancyActionButton';
+import PostReplyStatusActionButton from '../PostReplyStatusActionButton';
 import PostMetadata from './PostMetadata';
 import PostResponse from './PostResponse';
 
@@ -53,7 +54,16 @@ export default function PostDetail({
   const [postBody, setPostBody] = useState<string>('');
 
   const hasReply = !!post.reply;
-  const activity = post.activities?.[0];
+
+  // Find the most recent activity for each type
+  const relevancyActivity = post.activities?.find(
+    (a) => a.action === 'MADE_RELEVANT' || a.action === 'MADE_IRRELEVANT',
+  );
+
+  const replyActivity = post.activities?.find(
+    (a) =>
+      a.action === 'MARKED_AS_REPLIED' || a.action === 'MARKED_AS_NOT_REPLIED',
+  );
 
   const updatePostMutation = trpc.socialPosts.updatePost.useMutation();
   const { data, isLoading: isFetchingComments } =
@@ -139,12 +149,15 @@ export default function PostDetail({
           <Divider />
           <Flex align="center" gap="md" justify="space-between">
             <Text size="sm">
-              {activity && (
+              {relevancyActivity && (
                 <>
-                  {activity.action === 'MADE_IRRELEVANT'
+                  {relevancyActivity.action === 'MADE_IRRELEVANT'
                     ? 'Marked as irrelevant'
                     : 'Marked as relevant'}{' '}
-                  by <span className="font-bold">{activity.user.name}</span>
+                  by{' '}
+                  <span className="font-bold">
+                    {relevancyActivity.user.name}
+                  </span>
                 </>
               )}
             </Text>
@@ -152,6 +165,25 @@ export default function PostDetail({
               key={post.relevancy}
               postId={post.id}
               relevancy={post.relevancy}
+            />
+          </Flex>
+          <Divider />
+          <Flex align="center" gap="md" justify="space-between">
+            <Text size="sm">
+              {replyActivity && (
+                <>
+                  {replyActivity.action === 'MARKED_AS_REPLIED'
+                    ? 'Marked as replied'
+                    : 'Marked as not replied'}{' '}
+                  by{' '}
+                  <span className="font-bold">{replyActivity.user.name}</span>
+                </>
+              )}
+            </Text>
+            <PostReplyStatusActionButton
+              key={post.replied}
+              postId={post.id}
+              replyStatus={post.replied}
             />
           </Flex>
         </>
