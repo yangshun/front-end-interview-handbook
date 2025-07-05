@@ -132,7 +132,7 @@ export const socialPostsRouter = router({
       z.object({
         cursor: z.string().nullish(),
         filter: z.object({
-          tab: z.enum(['all', 'unreplied', 'replied', 'irrelevant']),
+          tab: z.enum(['ALL', 'PENDING', 'REPLIED', 'IRRELEVANT']),
         }),
         pagination: z.object({
           limit: z.number().min(1).max(100).default(10),
@@ -147,35 +147,43 @@ export const socialPostsRouter = router({
 
       let postFilter = {};
 
-      if (tab === 'unreplied') {
-        postFilter = {
-          replied: PostRepliedStatus.NOT_REPLIED,
-          reply: {
-            is: null,
-          },
-        };
-      } else if (tab === 'replied') {
-        postFilter = {
-          OR: [
-            {
-              reply: {
-                isNot: null,
+      switch (tab) {
+        case 'PENDING': {
+          postFilter = {
+            OR: [{ relevancy: null }, { relevancy: PostRelevancy.RELEVANT }],
+            replied: PostRepliedStatus.NOT_REPLIED,
+          };
+          break;
+        }
+        case 'REPLIED': {
+          postFilter = {
+            OR: [
+              {
+                reply: {
+                  isNot: null,
+                },
               },
-            },
-            {
-              replied: {
-                in: [
-                  PostRepliedStatus.REPLIED_MANUALLY,
-                  PostRepliedStatus.REPLIED_VIA_APP,
-                ],
+              {
+                replied: {
+                  in: [
+                    PostRepliedStatus.REPLIED_MANUALLY,
+                    PostRepliedStatus.REPLIED_VIA_APP,
+                  ],
+                },
               },
-            },
-          ],
-        };
-      } else if (tab === 'irrelevant') {
-        postFilter = {
-          relevancy: PostRelevancy.IRRELEVANT,
-        };
+            ],
+          };
+          break;
+        }
+        case 'IRRELEVANT': {
+          postFilter = {
+            relevancy: PostRelevancy.IRRELEVANT,
+          };
+          break;
+        }
+        case 'ALL': {
+          break;
+        }
       }
 
       const project = await prisma.project.findUnique({

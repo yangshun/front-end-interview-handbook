@@ -2,6 +2,7 @@
 
 import '@mantine/core/styles.css';
 
+import type { MantineThemeOverride } from '@mantine/core';
 import { MantineProvider } from '@mantine/core';
 
 import GlobalProviders from '~/components/global/GlobalProviders';
@@ -13,12 +14,26 @@ type Props = Readonly<{
   children: React.ReactNode;
 }>;
 
-const theme = {
+const theme: MantineThemeOverride = {
   components: {
+    Badge: {
+      styles: {
+        label: {
+          fontWeight: 600,
+        },
+      },
+    },
     Button: {
       styles: {
         label: {
           fontWeight: 500,
+        },
+      },
+    },
+    Tabs: {
+      styles: {
+        tabLabel: {
+          fontWeight: 400,
         },
       },
     },

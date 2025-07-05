@@ -1,6 +1,6 @@
-import { Badge, Button, Pill } from '@mantine/core';
+import { Badge, Button } from '@mantine/core';
 import Link from 'next/link';
-import { RiArrowRightUpLine, RiCheckLine } from 'react-icons/ri';
+import { RiArrowRightUpLine } from 'react-icons/ri';
 
 import type { PostExtended } from '~/types';
 
@@ -16,8 +16,8 @@ type Props = Readonly<{
 
 export default function PostMetadata({
   post,
-  showMarkedAsIrrelevant,
-  showRepliedBadge,
+  showMarkedAsIrrelevant = true,
+  showRepliedBadge = true,
   showViewPost,
 }: Props) {
   return (
@@ -25,28 +25,15 @@ export default function PostMetadata({
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div className="flex flex-wrap items-center gap-4">
           <PostStats post={post} />
-          {post.keywords.length > 0 && (
-            <div className="flex flex-wrap gap-1">
-              {post.keywords.map((keyword) => (
-                <Pill key={keyword} size="sm">
-                  {keyword}
-                </Pill>
-              ))}
-            </div>
-          )}
           {post.replied !== 'NOT_REPLIED' && showRepliedBadge && (
-            <div className="flex items-center gap-2">
-              <Badge color="violet" leftSection={<RiCheckLine />} size="xs">
-                Replied
-              </Badge>
-            </div>
+            <Badge color="orange" size="sm" variant="light">
+              Replied
+            </Badge>
           )}
           {post.relevancy === 'IRRELEVANT' && showMarkedAsIrrelevant && (
-            <div className="flex items-center gap-2">
-              <Badge color="violet" leftSection={<RiCheckLine />} size="xs">
-                Marked as irrelevant
-              </Badge>
-            </div>
+            <Badge color="blue" size="sm" variant="light">
+              Marked as irrelevant
+            </Badge>
           )}
         </div>
         {showViewPost && (

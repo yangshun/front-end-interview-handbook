@@ -13,7 +13,8 @@ import type {
   projectSchema,
 } from './schema';
 
-export type PostTab = 'all' | 'replied' | 'unreplied';
+// TODO: Consolidate repetition into Zod type
+export type PostListTab = 'ALL' | 'IRRELEVANT' | 'PENDING' | 'REPLIED';
 
 export type User = Readonly<{
   email?: string | null;

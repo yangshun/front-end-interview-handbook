@@ -10,7 +10,7 @@ import useCurrentProjectSlug from '~/hooks/useCurrentProjectSlug';
 
 import RelativeTimestamp from '~/components/common/datetime/RelativeTimestamp';
 
-import type { PostTab } from '~/types';
+import type { PostListTab } from '~/types';
 
 import FetchPostButton from './FetchPostButton';
 import PostItem from './PostItem';
@@ -31,7 +31,7 @@ export default function PostList() {
   const projectSlug = useCurrentProjectSlug();
   const router = useRouter();
   const params = useParams();
-  const [activeTab, setActiveTab] = useState<PostTab>('all');
+  const [activeTab, setActiveTab] = useState<PostListTab>('PENDING');
   const [selectedPostId, setSelectedPostId] = useState<string | null>(null);
 
   // Sync selection with URL - if we're viewing a post, select it in the list
@@ -78,18 +78,18 @@ export default function PostList() {
           pt={8}
           value={activeTab}
           variant="outline"
-          onChange={(value) => setActiveTab(value as PostTab)}>
+          onChange={(value) => setActiveTab(value as PostListTab)}>
           <Tabs.List>
-            <Tabs.Tab fw={500} value="unreplied">
-              Unreplied
+            <Tabs.Tab fw={500} value="PENDING">
+              Pending
             </Tabs.Tab>
-            <Tabs.Tab fw={500} value="replied">
+            <Tabs.Tab fw={500} value="REPLIED">
               Replied
             </Tabs.Tab>
-            <Tabs.Tab fw={500} value="irrelevant">
+            <Tabs.Tab fw={500} value="IRRELEVANT">
               Irrelevant
             </Tabs.Tab>
-            <Tabs.Tab fw={500} value="all">
+            <Tabs.Tab fw={500} value="ALL">
               All
             </Tabs.Tab>
           </Tabs.List>
@@ -130,8 +130,8 @@ export default function PostList() {
                 key={post.id}
                 isSelected={selectedPostId === post.id}
                 post={post}
-                showMarkedAsIrrelevant={activeTab === 'all'}
-                showRepliedBadge={activeTab === 'all'}
+                showMarkedAsIrrelevant={activeTab === 'ALL'}
+                showRepliedBadge={activeTab === 'ALL'}
                 onClick={() => handlePostClick(post.id)}
               />
             ))}
