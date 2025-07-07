@@ -87,10 +87,18 @@ export default function UserProfileProvider({ children }: Props) {
   const { pathname } = useI18nPathname();
 
   useEffect(() => {
+    // Only log pageview after we know if the user is premium or not.
+    if (isUserProfileLoading) {
+      return;
+    }
+
     logEvent('pageview', {
       namespace: 'general',
+      user: {
+        interviewsPremium: userProfile?.isInterviewsPremium ?? false,
+      },
     });
-  }, [pathname]);
+  }, [pathname, isUserProfileLoading, userProfile?.isInterviewsPremium]);
 
   useEffect(() => {
     // Use logged out, clear user profile.
