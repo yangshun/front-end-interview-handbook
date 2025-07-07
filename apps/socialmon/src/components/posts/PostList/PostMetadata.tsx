@@ -32,7 +32,7 @@ export default function PostMetadata({
           )}
           {post.relevancy === 'IRRELEVANT' && showMarkedAsIrrelevant && (
             <Badge color="blue" size="sm" variant="light">
-              Marked as irrelevant
+              Irrelevant
             </Badge>
           )}
         </div>
