@@ -1,9 +1,9 @@
-import { config } from '@gfe/eslint-config/next';
+import nextConfig from '@gfe/eslint-config/next';
 import formatjs from 'eslint-plugin-formatjs';
 
 /** @type {import("eslint").Linter.Config} */
 export default [
-  ...config,
+  ...nextConfig,
   {
     ignores: ['src/supabase/database.types.ts'],
     languageOptions: {

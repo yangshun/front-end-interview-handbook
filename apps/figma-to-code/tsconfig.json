@@ -10,5 +10,5 @@
     "strictNullChecks": true,
     "typeRoots": ["node_modules/@figma", "node_modules/@types"]
   },
-  "include": ["./src"]
+  "include": ["src", "eslint.config.mjs"]
 }

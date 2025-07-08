@@ -2,9 +2,9 @@ import { RiArrowRightLine, RiMailLine } from 'react-icons/ri';
 
 import { useIntl } from '~/components/intl';
 
+import Button from '../ui/Button';
 import AuthTermsOfServiceLine from './AuthTermsOfServiceLine';
 import type { AuthViewType } from './SupabaseAuthTypes';
-import Button from '../ui/Button';
 
 type Props = Readonly<{
   authView: AuthViewType;
@@ -12,8 +12,8 @@ type Props = Readonly<{
 }>;
 
 export default function SupabaseAuthContinueWithEmail({
-  setAuthView,
   authView,
+  setAuthView,
 }: Props) {
   const intl = useIntl();
 
