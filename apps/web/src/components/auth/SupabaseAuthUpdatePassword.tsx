@@ -4,6 +4,7 @@ import { useSessionContext, useUser } from '@supabase/auth-helpers-react';
 import { useState } from 'react';
 
 import { FormattedMessage, useIntl } from '~/components/intl';
+import Alert from '~/components/ui/Alert';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -14,8 +15,6 @@ import TextInput from '~/components/ui/TextInput';
 import logEvent from '~/logging/logEvent';
 import { useI18nRouter } from '~/next-i18nostic/src';
 import { useSupabaseClientGFE } from '~/supabase/SupabaseClientGFE';
-
-import Alert from '../ui/Alert';
 
 type Props = Readonly<{
   next?: string | null;
@@ -78,23 +77,13 @@ export default function SupabaseAuthUpdatePassword({
           {showTitle && (
             <Heading
               className="flex-1"
-              level={user?.email ? 'heading6' : 'heading5'}>
-              {user?.email == null ? (
-                <FormattedMessage
-                  defaultMessage="Change password"
-                  description="Title of Change Password page"
-                  id="SLpcOX"
-                />
-              ) : (
-                <FormattedMessage
-                  defaultMessage="Change password for {userEmail}"
-                  description="Title of Change Password page"
-                  id="gZL62Q"
-                  values={{
-                    userEmail: user?.email,
-                  }}
-                />
-              )}
+              level={user?.email ? 'heading6' : 'heading5'}
+              weight="medium">
+              <FormattedMessage
+                defaultMessage="Change password"
+                description="Title of Change Password page"
+                id="SLpcOX"
+              />
             </Heading>
           )}
           {user?.app_metadata.provider !== 'email' && (

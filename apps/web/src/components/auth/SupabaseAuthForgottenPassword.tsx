@@ -1,8 +1,8 @@
 import { useState } from 'react';
+import { RiArrowLeftLine } from 'react-icons/ri';
 import url from 'url';
 
 import { FormattedMessage, useIntl } from '~/components/intl';
-import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -97,80 +97,84 @@ export default function SupabaseAuthForgottenPassword({
   }
 
   return (
-    <form className="flex flex-col gap-y-12" onSubmit={handlePasswordReset}>
-      <Heading className="text-center" level="heading5">
-        <FormattedMessage
-          defaultMessage="Reset password"
-          description="Title of Password Reset page"
-          id="aPfuzs"
+    <div className="flex flex-col gap-1.5">
+      <div className="w-full">
+        <Button
+          addonPosition="start"
+          icon={RiArrowLeftLine}
+          label={intl.formatMessage({
+            defaultMessage: 'Back',
+            description: 'Button label for back button',
+            id: 'Dq9yul',
+          })}
+          size="xs"
+          variant="tertiary"
+          onClick={() => setAuthView('sign_in')}
         />
-      </Heading>
-      <Section>
-        <div className="flex flex-col gap-y-6">
-          <TextInput
-            autoComplete="email"
-            autoFocus={true}
-            defaultValue={email}
-            isDisabled={loading}
-            label={intl.formatMessage({
-              defaultMessage: 'Email',
-              description: 'Label of email field on Password Reset page',
-              id: 'vx/nPL',
-            })}
-            required={true}
-            type="email"
-            onChange={setEmail}
+      </div>
+      <form className="flex flex-col gap-y-8" onSubmit={handlePasswordReset}>
+        <Heading
+          className="text-center lg:text-left"
+          level="heading5"
+          weight="medium">
+          <FormattedMessage
+            defaultMessage="Reset password"
+            description="Title of Password Reset page"
+            id="aPfuzs"
           />
-          {error && (
-            <Alert
-              title={intl.formatMessage({
-                defaultMessage: 'An error has occurred',
-                description:
-                  'Title of alert indicating an error on Email Sign In/Up Page',
-                id: 'YM1bnf',
+        </Heading>
+        <Section>
+          <div className="flex flex-col gap-y-6">
+            <TextInput
+              autoComplete="email"
+              autoFocus={true}
+              defaultValue={email}
+              isDisabled={loading}
+              label={intl.formatMessage({
+                defaultMessage: 'Email',
+                description: 'Label of email field on Password Reset page',
+                id: 'vx/nPL',
               })}
-              variant="danger">
-              {error}
-            </Alert>
-          )}
-          <Button
-            display="block"
-            isDisabled={loading}
-            isLoading={loading}
-            label={intl.formatMessage({
-              defaultMessage: 'Send reset password instructions',
-              description:
-                'Label of password reset button on Password Reset page',
-              id: 'dz24ro',
-            })}
-            size="md"
-            type="submit"
-            variant="primary"
-            onClick={() => {
-              logEvent('auth.password.reset', {
-                element: 'Reset password button',
-                label: 'Send reset password instructions',
-                namespace: 'auth',
-              });
-            }}
-          />
-          <div className="text-center">
-            <Anchor
-              className="text-sm"
-              href="#"
-              onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
-                e.preventDefault();
-                setAuthView('sign_in');
-              }}>
-              <FormattedMessage
-                defaultMessage="Go back to sign in"
-                description="Label of link to return to Sign In Page on Password Reset page"
-                id="uCbhIG"
-              />
-            </Anchor>
+              required={true}
+              type="email"
+              onChange={setEmail}
+            />
+            {error && (
+              <Alert
+                title={intl.formatMessage({
+                  defaultMessage: 'An error has occurred',
+                  description:
+                    'Title of alert indicating an error on Email Sign In/Up Page',
+                  id: 'YM1bnf',
+                })}
+                variant="danger">
+                {error}
+              </Alert>
+            )}
+            <Button
+              display="block"
+              isDisabled={loading}
+              isLoading={loading}
+              label={intl.formatMessage({
+                defaultMessage: 'Send reset password instructions',
+                description:
+                  'Label of password reset button on Password Reset page',
+                id: 'dz24ro',
+              })}
+              size="md"
+              type="submit"
+              variant="primary"
+              onClick={() => {
+                logEvent('auth.password.reset', {
+                  element: 'Reset password button',
+                  label: 'Send reset password instructions',
+                  namespace: 'auth',
+                });
+              }}
+            />
           </div>
-        </div>
-      </Section>
-    </form>
+        </Section>
+      </form>
+    </div>
   );
 }

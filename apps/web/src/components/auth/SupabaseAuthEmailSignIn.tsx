@@ -104,75 +104,79 @@ export default function SupabaseAuthEmailSignIn({
   }
 
   return (
-    <form className="flex flex-col gap-y-6" onSubmit={handleSubmit}>
-      <TextInput
-        autoComplete="email"
-        autoFocus={true}
-        defaultValue={email}
-        label={intl.formatMessage({
-          defaultMessage: 'Email',
-          description: 'Label of email field on Sign In/Up page',
-          id: '9LT8eh',
-        })}
-        required={true}
-        type="email"
-        onChange={setEmail}
-      />
-      <TextInput
-        defaultValue={password}
-        label={intl.formatMessage({
-          defaultMessage: 'Password',
-          description: 'Label of password field on Sign In/Up page',
-          id: 'jgIdRC',
-        })}
-        required={true}
-        type="password"
-        onChange={setPassword}
-      />
-      <div>
-        <Anchor
-          className="text-sm"
-          href="#"
-          onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
-            e.preventDefault();
-            logEvent('click', {
-              element: 'Auth page forgot your password button',
-              label: 'Forgot your password?',
-              namespace: 'auth',
-            });
-            setAuthView('forgotten_password');
-          }}>
-          <FormattedMessage
-            defaultMessage="Forgot your password?"
-            description="Label of forget password button on Email Sign In page"
-            id="XVPYZg"
-          />
-        </Anchor>
+    <form className="flex flex-col" onSubmit={handleSubmit}>
+      <div className="flex flex-col gap-y-4">
+        <TextInput
+          autoComplete="email"
+          autoFocus={true}
+          defaultValue={email}
+          label={intl.formatMessage({
+            defaultMessage: 'Email',
+            description: 'Label of email field on Sign In/Up page',
+            id: '9LT8eh',
+          })}
+          required={true}
+          type="email"
+          onChange={setEmail}
+        />
+        <TextInput
+          defaultValue={password}
+          label={intl.formatMessage({
+            defaultMessage: 'Password',
+            description: 'Label of password field on Sign In/Up page',
+            id: 'jgIdRC',
+          })}
+          required={true}
+          type="password"
+          onChange={setPassword}
+        />
+        <div>
+          <Anchor
+            className="text-sm"
+            href="#"
+            onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+              e.preventDefault();
+              logEvent('click', {
+                element: 'Auth page forgot your password button',
+                label: 'Forgot your password?',
+                namespace: 'auth',
+              });
+              setAuthView('forgotten_password');
+            }}>
+            <FormattedMessage
+              defaultMessage="Forgot your password?"
+              description="Label of forget password button on Email Sign In page"
+              id="XVPYZg"
+            />
+          </Anchor>
+        </div>
+        {message && (
+          <Alert
+            title={intl.formatMessage({
+              defaultMessage: 'Signed up successfully',
+              description:
+                'Title of alert indicating a successful email sign up',
+              id: 'I5MeD9',
+            })}
+            variant="info">
+            {message}
+          </Alert>
+        )}
+        {error && (
+          <Alert
+            title={intl.formatMessage({
+              defaultMessage: 'An error has occurred',
+              description:
+                'Title of alert indicating an error on Email Sign In/Up Page',
+              id: 'YM1bnf',
+            })}
+            variant="danger">
+            {error}
+          </Alert>
+        )}
       </div>
-      {message && (
-        <Alert
-          title={intl.formatMessage({
-            defaultMessage: 'Signed up successfully',
-            description: 'Title of alert indicating a successful email sign up',
-            id: 'I5MeD9',
-          })}
-          variant="info">
-          {message}
-        </Alert>
-      )}
-      {error && (
-        <Alert
-          title={intl.formatMessage({
-            defaultMessage: 'An error has occurred',
-            description:
-              'Title of alert indicating an error on Email Sign In/Up Page',
-            id: 'YM1bnf',
-          })}
-          variant="danger">
-          {error}
-        </Alert>
-      )}
       <Button
+        className="mt-6"
         display="block"
         isDisabled={loading}
         isLoading={loading}
@@ -192,7 +196,9 @@ export default function SupabaseAuthEmailSignIn({
           });
         }}
       />
-      <AuthTermsOfServiceLine />
+      <div className="mt-8">
+        <AuthTermsOfServiceLine />
+      </div>
     </form>
   );
 }
