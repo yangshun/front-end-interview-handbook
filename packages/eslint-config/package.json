@@ -5,7 +5,8 @@
   "private": true,
   "exports": {
     ".": "./index.js",
-    "./next": "./next.js"
+    "./next": "./next.js",
+    "./react": "./react.js"
   },
   "devDependencies": {
     "@eslint/js": "^9.26.0",

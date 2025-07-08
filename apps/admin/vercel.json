@@ -1,0 +1,11 @@
+{
+  "github": {
+    "silent": true
+  },
+  "crons": [
+    {
+      "path": "/api/reddit/crawl",
+      "schedule": "0 */3 * * *"
+    }
+  ]
+}

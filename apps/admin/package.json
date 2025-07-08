@@ -1,0 +1,37 @@
+{
+  "name": "@gfe/admin",
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "check": "npm run tsc && npm run lint",
+    "build": "next build",
+    "dev": "next dev",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,md,mdx}\"",
+    "start": "next start",
+    "lint": "eslint src --fix",
+    "tsc": "tsc"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "next": "14.2.15",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@gfe/eslint-config": "workspace:*",
+    "@gfe/typescript-config": "workspace:*",
+    "@next/eslint-plugin-next": "14.2.15",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/container-queries": "^0.1.1",
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/typography": "^0.5.16",
+    "@types/react": "18.0.28",
+    "@types/react-dom": "18.0.11",
+    "eslint": "^9.26.0",
+    "postcss": "^8.4.32",
+    "prettier": "3.5.3",
+    "prettier-plugin-tailwindcss": "0.6.11",
+    "tailwindcss": "^3.4.17",
+    "typescript": "5.8.3"
+  }
+}

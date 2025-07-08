@@ -18,6 +18,67 @@ importers:
         specifier: 2.5.3
         version: 2.5.3
 
+  apps/admin:
+    dependencies:
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
+      next:
+        specifier: 14.2.15
+        version: 14.2.15(@babel/core@7.27.4)(@opentelemetry/api@1.9.0)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react:
+        specifier: ^18.2.0
+        version: 18.3.1
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.3.1(react@18.3.1)
+    devDependencies:
+      '@gfe/eslint-config':
+        specifier: workspace:*
+        version: link:../../packages/eslint-config
+      '@gfe/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
+      '@next/eslint-plugin-next':
+        specifier: 14.2.15
+        version: 14.2.15
+      '@tailwindcss/aspect-ratio':
+        specifier: ^0.4.2
+        version: 0.4.2(tailwindcss@3.4.17(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3)))
+      '@tailwindcss/container-queries':
+        specifier: ^0.1.1
+        version: 0.1.1(tailwindcss@3.4.17(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3)))
+      '@tailwindcss/forms':
+        specifier: ^0.5.10
+        version: 0.5.10(tailwindcss@3.4.17(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3)))
+      '@tailwindcss/typography':
+        specifier: ^0.5.16
+        version: 0.5.16(tailwindcss@3.4.17(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3)))
+      '@types/react':
+        specifier: 18.0.28
+        version: 18.0.28
+      '@types/react-dom':
+        specifier: 18.0.11
+        version: 18.0.11
+      eslint:
+        specifier: ^9.26.0
+        version: 9.26.0(jiti@1.21.7)
+      postcss:
+        specifier: ^8.4.32
+        version: 8.5.6
+      prettier:
+        specifier: 3.5.3
+        version: 3.5.3
+      prettier-plugin-tailwindcss:
+        specifier: 0.6.11
+        version: 0.6.11(prettier-plugin-svelte@3.4.0(prettier@3.5.3)(svelte@5.30.1))(prettier@3.5.3)
+      tailwindcss:
+        specifier: ^3.4.17
+        version: 3.4.17(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3))
+      typescript:
+        specifier: 5.8.3
+        version: 5.8.3
+
   apps/figma-to-code:
     dependencies:
       '@create-figma-plugin/ui':
@@ -34,7 +95,7 @@ importers:
         version: 10.26.6
       react-icons:
         specifier: 5.4.0
-        version: 5.4.0(react@18.3.1)
+        version: 5.4.0(react@19.1.0)
       shiki:
         specifier: ^1.6.0
         version: 1.29.2
@@ -65,7 +126,7 @@ importers:
         version: 0.6.11(prettier-plugin-svelte@3.4.0(prettier@3.5.3)(svelte@5.30.1))(prettier@3.5.3)
       tailwindcss:
         specifier: ^3.4.1
-        version: 3.4.17(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3))
+        version: 3.4.17(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3))
       typescript:
         specifier: 5.8.3
         version: 5.8.3
@@ -180,16 +241,16 @@ importers:
         version: 14.2.15
       '@tailwindcss/aspect-ratio':
         specifier: ^0.4.2
-        version: 0.4.2(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3)))
+        version: 0.4.2(tailwindcss@3.4.17(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3)))
       '@tailwindcss/container-queries':
         specifier: ^0.1.1
-        version: 0.1.1(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3)))
+        version: 0.1.1(tailwindcss@3.4.17(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3)))
       '@tailwindcss/forms':
         specifier: ^0.5.10
-        version: 0.5.10(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3)))
+        version: 0.5.10(tailwindcss@3.4.17(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3)))
       '@tailwindcss/typography':
         specifier: ^0.5.16
-        version: 0.5.16(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3)))
+        version: 0.5.16(tailwindcss@3.4.17(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3)))
       '@types/dompurify':
         specifier: ^3.0.5
         version: 3.2.0
@@ -234,7 +295,7 @@ importers:
         version: 0.6.11(prettier-plugin-svelte@3.4.0(prettier@3.5.3)(svelte@5.30.1))(prettier@3.5.3)
       tailwindcss:
         specifier: ^3.4.17
-        version: 3.4.17(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3))
+        version: 3.4.17(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3))
       tsx:
         specifier: ^4.7.1
         version: 4.19.4
@@ -297,7 +358,7 @@ importers:
         version: 4.5.1(monaco-editor@0.40.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@next/mdx':
         specifier: 14.2.15
-        version: 14.2.15(@mdx-js/loader@2.3.0(webpack@5.99.8(esbuild@0.17.8)))(@mdx-js/react@2.3.0(react@18.3.1))
+        version: 14.2.15(@mdx-js/loader@2.3.0(webpack@5.99.8(@swc/core@1.12.11)(esbuild@0.17.8)))(@mdx-js/react@2.3.0(react@18.3.1))
       '@number-flow/react':
         specifier: 0.5.5
         version: 0.5.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -564,7 +625,7 @@ importers:
         version: 2.2.1
       tailwindcss-animate:
         specifier: 1.0.7
-        version: 1.0.7(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3)))
+        version: 1.0.7(tailwindcss@3.4.17(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3)))
       ua-parser-js:
         specifier: 1.0.38
         version: 1.0.38
@@ -598,16 +659,16 @@ importers:
         version: link:../../packages/typescript-config
       '@mdx-js/loader':
         specifier: ^2.3.0
-        version: 2.3.0(webpack@5.99.8(esbuild@0.17.8))
+        version: 2.3.0(webpack@5.99.8(@swc/core@1.12.11)(esbuild@0.17.8))
       '@tailwindcss/container-queries':
         specifier: ^0.1.1
-        version: 0.1.1(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3)))
+        version: 0.1.1(tailwindcss@3.4.17(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3)))
       '@tailwindcss/forms':
         specifier: ^0.5.7
-        version: 0.5.10(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3)))
+        version: 0.5.10(tailwindcss@3.4.17(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3)))
       '@tailwindcss/typography':
         specifier: ^0.5.10
-        version: 0.5.16(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3)))
+        version: 0.5.16(tailwindcss@3.4.17(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3)))
       '@types/cookie':
         specifier: ^0.5.1
         version: 0.5.4
@@ -697,7 +758,7 @@ importers:
         version: 9.26.0(jiti@1.21.7)
       eslint-plugin-formatjs:
         specifier: ^5.3.1
-        version: 5.3.1(eslint@9.26.0(jiti@1.21.7))(ts-jest@29.4.0(@babel/core@7.27.4)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.27.4))(esbuild@0.17.8)(jest-util@29.7.0)(jest@29.7.0(@types/node@22.15.0)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3)))(typescript@5.8.3))(typescript@5.8.3)
+        version: 5.3.1(eslint@9.26.0(jiti@1.21.7))(ts-jest@29.4.0(@babel/core@7.27.4)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.27.4))(esbuild@0.17.8)(jest-util@29.7.0)(jest@29.7.0(@types/node@22.15.0)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3)))(typescript@5.8.3))(typescript@5.8.3)
       globby:
         specifier: ^13.2.2
         version: 13.2.2
@@ -733,10 +794,10 @@ importers:
         version: 1.226.4
       tailwindcss:
         specifier: ^3.4.13
-        version: 3.4.17(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3))
+        version: 3.4.17(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3))
       ts-node:
         specifier: ^10.9.2
-        version: 10.9.2(@types/node@22.15.0)(typescript@5.8.3)
+        version: 10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3)
       tsx:
         specifier: ^4.7.1
         version: 4.19.4
@@ -805,7 +866,7 @@ importers:
         version: 0.9.1
       ai:
         specifier: ^4.2.5
-        version: 4.3.15(react@18.3.1)(zod@3.24.4)
+        version: 4.3.15(react@19.1.0)(zod@3.24.4)
       chalk:
         specifier: ^5.2.0
         version: 5.4.1
@@ -875,13 +936,13 @@ importers:
         version: 6.0.1
       tsup:
         specifier: ^8.3.6
-        version: 8.4.0(jiti@1.21.7)(postcss@8.5.3)(tsx@4.19.4)(typescript@5.8.3)(yaml@2.8.0)
+        version: 8.4.0(@swc/core@1.12.11)(jiti@1.21.7)(postcss@8.5.6)(tsx@4.19.4)(typescript@5.8.3)(yaml@2.8.0)
       typescript:
         specifier: 5.8.3
         version: 5.8.3
       vitest:
         specifier: ^3.0.2
-        version: 3.1.3(@types/debug@4.1.12)(@types/node@22.15.0)(@vitest/ui@3.1.3)(jiti@1.21.7)(jsdom@26.1.0)(sugarss@4.0.1(postcss@8.5.3))(terser@5.39.2)(tsx@4.19.4)(yaml@2.8.0)
+        version: 3.1.3(@types/debug@4.1.12)(@types/node@22.15.0)(@vitest/ui@3.1.3)(jiti@1.21.7)(jsdom@26.1.0)(sugarss@4.0.1(postcss@8.5.6))(terser@5.39.2)(tsx@4.19.4)(yaml@2.8.0)
 
   packages/remark-alerts:
     dependencies:
@@ -915,7 +976,7 @@ importers:
         version: 6.0.1
       tsup:
         specifier: ^8.3.6
-        version: 8.4.0(jiti@1.21.7)(postcss@8.5.3)(tsx@4.19.4)(typescript@5.8.3)(yaml@2.8.0)
+        version: 8.4.0(@swc/core@1.12.11)(jiti@1.21.7)(postcss@8.5.6)(tsx@4.19.4)(typescript@5.8.3)(yaml@2.8.0)
       typescript:
         specifier: 5.8.3
         version: 5.8.3
@@ -4131,11 +4192,83 @@ packages:
     peerDependencies:
       acorn: ^8.9.0
 
+  '@swc/core-darwin-arm64@1.12.11':
+    resolution: {integrity: sha512-J19Jj9Y5x/N0loExH7W0OI9OwwoVyxutDdkyq1o/kgXyBqmmzV7Y/Q9QekI2Fm/qc5mNeAdP7aj4boY4AY/JPw==}
+    engines: {node: '>=10'}
+    cpu: [arm64]
+    os: [darwin]
+
+  '@swc/core-darwin-x64@1.12.11':
+    resolution: {integrity: sha512-PTuUQrfStQ6cjW+uprGO2lpQHy84/l0v+GqRqq8s/jdK55rFRjMfCeyf6FAR0l6saO5oNOQl+zWR1aNpj8pMQw==}
+    engines: {node: '>=10'}
+    cpu: [x64]
+    os: [darwin]
+
+  '@swc/core-linux-arm-gnueabihf@1.12.11':
+    resolution: {integrity: sha512-poxBq152HsupOtnZilenvHmxZ9a8SRj4LtfxUnkMDNOGrZR9oxbQNwEzNKfi3RXEcXz+P8c0Rai1ubBazXv8oQ==}
+    engines: {node: '>=10'}
+    cpu: [arm]
+    os: [linux]
+
+  '@swc/core-linux-arm64-gnu@1.12.11':
+    resolution: {integrity: sha512-y1HNamR/D0Hc8xIE910ysyLe269UYiGaQPoLjQS0phzWFfWdMj9bHM++oydVXZ4RSWycO7KyJ3uvw4NilvyMKQ==}
+    engines: {node: '>=10'}
+    cpu: [arm64]
+    os: [linux]
+
+  '@swc/core-linux-arm64-musl@1.12.11':
+    resolution: {integrity: sha512-LlBxPh/32pyQsu2emMEOFRm7poEFLsw12Y1mPY7FWZiZeptomKSOSHRzKDz9EolMiV4qhK1caP1lvW4vminYgQ==}
+    engines: {node: '>=10'}
+    cpu: [arm64]
+    os: [linux]
+
+  '@swc/core-linux-x64-gnu@1.12.11':
+    resolution: {integrity: sha512-bOjiZB8O/1AzHkzjge1jqX62HGRIpOHqFUrGPfAln/NC6NR+Z2A78u3ixV7k5KesWZFhCV0YVGJL+qToL27myA==}
+    engines: {node: '>=10'}
+    cpu: [x64]
+    os: [linux]
+
+  '@swc/core-linux-x64-musl@1.12.11':
+    resolution: {integrity: sha512-4dzAtbT/m3/UjF045+33gLiHd8aSXJDoqof7gTtu4q0ZyAf7XJ3HHspz+/AvOJLVo4FHHdFcdXhmo/zi1nFn8A==}
+    engines: {node: '>=10'}
+    cpu: [x64]
+    os: [linux]
+
+  '@swc/core-win32-arm64-msvc@1.12.11':
+    resolution: {integrity: sha512-h8HiwBZErKvCAmjW92JvQp0iOqm6bncU4ac5jxBGkRApabpUenNJcj3h2g5O6GL5K6T9/WhnXE5gyq/s1fhPQg==}
+    engines: {node: '>=10'}
+    cpu: [arm64]
+    os: [win32]
+
+  '@swc/core-win32-ia32-msvc@1.12.11':
+    resolution: {integrity: sha512-1pwr325mXRNUhxTtXmx1IokV5SiRL+6iDvnt3FRXj+X5UvXXKtg2zeyftk+03u8v8v8WUr5I32hIypVJPTNxNg==}
+    engines: {node: '>=10'}
+    cpu: [ia32]
+    os: [win32]
+
+  '@swc/core-win32-x64-msvc@1.12.11':
+    resolution: {integrity: sha512-5gggWo690Gvs7XiPxAmb5tHwzB9RTVXUV7AWoGb6bmyUd1OXYaebQF0HAOtade5jIoNhfQMQJ7QReRgt/d2jAA==}
+    engines: {node: '>=10'}
+    cpu: [x64]
+    os: [win32]
+
+  '@swc/core@1.12.11':
+    resolution: {integrity: sha512-P3GM+0lqjFctcp5HhR9mOcvLSX3SptI9L1aux0Fuvgt8oH4f92rCUrkodAa0U2ktmdjcyIiG37xg2mb/dSCYSA==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      '@swc/helpers': '>=0.5.17'
+    peerDependenciesMeta:
+      '@swc/helpers':
+        optional: true
+
   '@swc/counter@0.1.3':
     resolution: {integrity: sha512-e2BR4lsJkkRlKZ/qCHPw9ZaSxc0MVUd7gtbtaB7aMvHeJVYe8sOB8DBZkP2DtISHGSku9sCK6T6cnY0CtXrOCQ==}
 
   '@swc/helpers@0.5.5':
     resolution: {integrity: sha512-KGYxvIOXcceOAbEk4bi/dVLEK9z8sZ0uBB3Il5b1rhfClSpcX0yfRO0KmTkqR2cnQDymwLB+25ZyMzICg/cm/A==}
+
+  '@swc/types@0.1.23':
+    resolution: {integrity: sha512-u1iIVZV9Q0jxY+yM2vw/hZGDNudsN85bBpTqzAQ9rzkxW9D+e3aEM4Han+ow518gSewkXgjmEK0BD79ZcNVgPw==}
 
   '@tailwindcss/aspect-ratio@0.4.2':
     resolution: {integrity: sha512-8QPrypskfBa7QIMuKHg2TA7BqES6vhBrDLOv8Unb6FcFyd3TjKbc6lcmb9UPQHxfl24sXoJ41ux/H7qQQvfaSQ==}
@@ -8425,6 +8558,10 @@ packages:
     resolution: {integrity: sha512-dle9A3yYxlBSrt8Fu+IpjGT8SY8hN0mlaA6GY8t0P5PjIOZemULz/E2Bnm/2dcUOena75OTNkHI76uZBNUUq3A==}
     engines: {node: ^10 || ^12 || >=14}
 
+  postcss@8.5.6:
+    resolution: {integrity: sha512-3Ybi1tAuwAP9s0r1UQ2J4n5Y0G05bJkpUIO0/bI9MhwmD70S5aTWbXGBwxHrelT+XM1k6dM0pk+SwNkpTRN7Pg==}
+    engines: {node: ^10 || ^12 || >=14}
+
   preact-render-to-string@5.2.6:
     resolution: {integrity: sha512-JyhErpYOvBV1hEPwIxc/fHWXPfnEGdRKxc8gFdAZ7XV4tlzyzG847XAyEZqoDnynP88akM4eaHcSOzNcLWFguw==}
     peerDependencies:
@@ -8880,6 +9017,10 @@ packages:
 
   react@18.3.1:
     resolution: {integrity: sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==}
+    engines: {node: '>=0.10.0'}
+
+  react@19.1.0:
+    resolution: {integrity: sha512-FS+XFBNvn3GTAWq26joslQgWNoFu08F4kl0J4CgdNKADkdSGXQyTCnKteIAJy96Br6YbpEU1LSzV5dYtjMkMDg==}
     engines: {node: '>=0.10.0'}
 
   read-cache@1.0.0:
@@ -10502,6 +10643,16 @@ snapshots:
     optionalDependencies:
       zod: 3.24.4
 
+  '@ai-sdk/react@1.2.12(react@19.1.0)(zod@3.24.4)':
+    dependencies:
+      '@ai-sdk/provider-utils': 2.2.8(zod@3.24.4)
+      '@ai-sdk/ui-utils': 1.2.11(zod@3.24.4)
+      react: 19.1.0
+      swr: 2.3.3(react@19.1.0)
+      throttleit: 2.1.0
+    optionalDependencies:
+      zod: 3.24.4
+
   '@ai-sdk/ui-utils@1.2.11(zod@3.24.4)':
     dependencies:
       '@ai-sdk/provider': 1.1.3
@@ -11556,15 +11707,15 @@ snapshots:
       '@create-figma-plugin/common': 3.2.1
       '@figma/plugin-typings': 1.90.0
       chokidar: 3.6.0
-      cssnano: 7.0.7(postcss@8.5.3)
+      cssnano: 7.0.7(postcss@8.5.6)
       esbuild: 0.23.0
       find-up: 7.0.0
       globby: 14.1.0
       indent-string: 5.0.0
       kleur: 4.1.5
       path-exists: 5.0.0
-      postcss: 8.5.3
-      postcss-modules: 6.0.1(postcss@8.5.3)
+      postcss: 8.5.6
+      postcss-modules: 6.0.1(postcss@8.5.6)
       rev-hash: 4.1.0
       sade: 1.8.1
       temp-write: 6.0.0
@@ -12201,7 +12352,7 @@ snapshots:
     optionalDependencies:
       typescript: 5.8.3
 
-  '@formatjs/ts-transformer@3.13.34(ts-jest@29.4.0(@babel/core@7.27.4)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.27.4))(esbuild@0.17.8)(jest-util@29.7.0)(jest@29.7.0(@types/node@22.15.0)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3)))(typescript@5.8.3))':
+  '@formatjs/ts-transformer@3.13.34(ts-jest@29.4.0(@babel/core@7.27.4)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.27.4))(esbuild@0.17.8)(jest-util@29.7.0)(jest@29.7.0(@types/node@22.15.0)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3)))(typescript@5.8.3))':
     dependencies:
       '@formatjs/icu-messageformat-parser': 2.11.2
       '@types/json-stable-stringify': 1.2.0
@@ -12211,7 +12362,7 @@ snapshots:
       tslib: 2.8.1
       typescript: 5.8.3
     optionalDependencies:
-      ts-jest: 29.4.0(@babel/core@7.27.4)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.27.4))(esbuild@0.17.8)(jest-util@29.7.0)(jest@29.7.0(@types/node@22.15.0)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3)))(typescript@5.8.3)
+      ts-jest: 29.4.0(@babel/core@7.27.4)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.27.4))(esbuild@0.17.8)(jest-util@29.7.0)(jest@29.7.0(@types/node@22.15.0)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3)))(typescript@5.8.3)
 
   '@grpc/grpc-js@1.13.3':
     dependencies:
@@ -12277,7 +12428,7 @@ snapshots:
       slash: 3.0.0
     optional: true
 
-  '@jest/core@29.7.0(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3))':
+  '@jest/core@29.7.0(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3))':
     dependencies:
       '@jest/console': 29.7.0
       '@jest/reporters': 29.7.0
@@ -12291,7 +12442,7 @@ snapshots:
       exit: 0.1.2
       graceful-fs: 4.2.11
       jest-changed-files: 29.7.0
-      jest-config: 29.7.0(@types/node@22.15.0)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3))
+      jest-config: 29.7.0(@types/node@22.15.0)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3))
       jest-haste-map: 29.7.0
       jest-message-util: 29.7.0
       jest-regex-util: 29.6.3
@@ -12676,11 +12827,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@mdx-js/loader@2.3.0(webpack@5.99.8(esbuild@0.17.8))':
+  '@mdx-js/loader@2.3.0(webpack@5.99.8(@swc/core@1.12.11)(esbuild@0.17.8))':
     dependencies:
       '@mdx-js/mdx': 2.3.0
       source-map: 0.7.4
-      webpack: 5.99.8(esbuild@0.17.8)
+      webpack: 5.99.8(@swc/core@1.12.11)(esbuild@0.17.8)
     transitivePeerDependencies:
       - supports-color
 
@@ -12784,11 +12935,11 @@ snapshots:
     dependencies:
       glob: 10.3.10
 
-  '@next/mdx@14.2.15(@mdx-js/loader@2.3.0(webpack@5.99.8(esbuild@0.17.8)))(@mdx-js/react@2.3.0(react@18.3.1))':
+  '@next/mdx@14.2.15(@mdx-js/loader@2.3.0(webpack@5.99.8(@swc/core@1.12.11)(esbuild@0.17.8)))(@mdx-js/react@2.3.0(react@18.3.1))':
     dependencies:
       source-map: 0.7.4
     optionalDependencies:
-      '@mdx-js/loader': 2.3.0(webpack@5.99.8(esbuild@0.17.8))
+      '@mdx-js/loader': 2.3.0(webpack@5.99.8(@swc/core@1.12.11)(esbuild@0.17.8))
       '@mdx-js/react': 2.3.0(react@18.3.1)
 
   '@next/swc-darwin-arm64@14.2.15':
@@ -14455,6 +14606,53 @@ snapshots:
     dependencies:
       acorn: 8.14.1
 
+  '@swc/core-darwin-arm64@1.12.11':
+    optional: true
+
+  '@swc/core-darwin-x64@1.12.11':
+    optional: true
+
+  '@swc/core-linux-arm-gnueabihf@1.12.11':
+    optional: true
+
+  '@swc/core-linux-arm64-gnu@1.12.11':
+    optional: true
+
+  '@swc/core-linux-arm64-musl@1.12.11':
+    optional: true
+
+  '@swc/core-linux-x64-gnu@1.12.11':
+    optional: true
+
+  '@swc/core-linux-x64-musl@1.12.11':
+    optional: true
+
+  '@swc/core-win32-arm64-msvc@1.12.11':
+    optional: true
+
+  '@swc/core-win32-ia32-msvc@1.12.11':
+    optional: true
+
+  '@swc/core-win32-x64-msvc@1.12.11':
+    optional: true
+
+  '@swc/core@1.12.11':
+    dependencies:
+      '@swc/counter': 0.1.3
+      '@swc/types': 0.1.23
+    optionalDependencies:
+      '@swc/core-darwin-arm64': 1.12.11
+      '@swc/core-darwin-x64': 1.12.11
+      '@swc/core-linux-arm-gnueabihf': 1.12.11
+      '@swc/core-linux-arm64-gnu': 1.12.11
+      '@swc/core-linux-arm64-musl': 1.12.11
+      '@swc/core-linux-x64-gnu': 1.12.11
+      '@swc/core-linux-x64-musl': 1.12.11
+      '@swc/core-win32-arm64-msvc': 1.12.11
+      '@swc/core-win32-ia32-msvc': 1.12.11
+      '@swc/core-win32-x64-msvc': 1.12.11
+    optional: true
+
   '@swc/counter@0.1.3': {}
 
   '@swc/helpers@0.5.5':
@@ -14462,26 +14660,31 @@ snapshots:
       '@swc/counter': 0.1.3
       tslib: 2.8.1
 
-  '@tailwindcss/aspect-ratio@0.4.2(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3)))':
+  '@swc/types@0.1.23':
     dependencies:
-      tailwindcss: 3.4.17(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3))
+      '@swc/counter': 0.1.3
+    optional: true
 
-  '@tailwindcss/container-queries@0.1.1(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3)))':
+  '@tailwindcss/aspect-ratio@0.4.2(tailwindcss@3.4.17(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3)))':
     dependencies:
-      tailwindcss: 3.4.17(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3))
+      tailwindcss: 3.4.17(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3))
 
-  '@tailwindcss/forms@0.5.10(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3)))':
+  '@tailwindcss/container-queries@0.1.1(tailwindcss@3.4.17(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3)))':
+    dependencies:
+      tailwindcss: 3.4.17(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3))
+
+  '@tailwindcss/forms@0.5.10(tailwindcss@3.4.17(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3)))':
     dependencies:
       mini-svg-data-uri: 1.4.4
-      tailwindcss: 3.4.17(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3))
+      tailwindcss: 3.4.17(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3))
 
-  '@tailwindcss/typography@0.5.16(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3)))':
+  '@tailwindcss/typography@0.5.16(tailwindcss@3.4.17(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3)))':
     dependencies:
       lodash.castarray: 4.4.0
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       postcss-selector-parser: 6.0.10
-      tailwindcss: 3.4.17(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3))
+      tailwindcss: 3.4.17(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3))
 
   '@tanstack/query-core@4.36.1': {}
 
@@ -14855,6 +15058,14 @@ snapshots:
     optionalDependencies:
       vite: 6.3.5(@types/node@22.15.0)(jiti@1.21.7)(sugarss@4.0.1(postcss@8.5.3))(terser@5.39.2)(tsx@4.19.4)(yaml@2.8.0)
 
+  '@vitest/mocker@3.1.3(vite@6.3.5(@types/node@22.15.0)(jiti@1.21.7)(sugarss@4.0.1(postcss@8.5.6))(terser@5.39.2)(tsx@4.19.4)(yaml@2.8.0))':
+    dependencies:
+      '@vitest/spy': 3.1.3
+      estree-walker: 3.0.3
+      magic-string: 0.30.17
+    optionalDependencies:
+      vite: 6.3.5(@types/node@22.15.0)(jiti@1.21.7)(sugarss@4.0.1(postcss@8.5.6))(terser@5.39.2)(tsx@4.19.4)(yaml@2.8.0)
+
   '@vitest/pretty-format@3.1.3':
     dependencies:
       tinyrainbow: 2.0.0
@@ -15027,6 +15238,18 @@ snapshots:
       zod: 3.24.4
     optionalDependencies:
       react: 18.3.1
+
+  ai@4.3.15(react@19.1.0)(zod@3.24.4):
+    dependencies:
+      '@ai-sdk/provider': 1.1.3
+      '@ai-sdk/provider-utils': 2.2.8(zod@3.24.4)
+      '@ai-sdk/react': 1.2.12(react@19.1.0)(zod@3.24.4)
+      '@ai-sdk/ui-utils': 1.2.11(zod@3.24.4)
+      '@opentelemetry/api': 1.9.0
+      jsondiffpatch: 0.6.0
+      zod: 3.24.4
+    optionalDependencies:
+      react: 19.1.0
 
   ajv-formats@2.1.1(ajv@8.17.1):
     optionalDependencies:
@@ -15752,13 +15975,13 @@ snapshots:
     optionalDependencies:
       typescript: 5.8.3
 
-  create-jest@29.7.0(@types/node@22.15.0)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3)):
+  create-jest@29.7.0(@types/node@22.15.0)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3)):
     dependencies:
       '@jest/types': 29.6.3
       chalk: 4.1.2
       exit: 0.1.2
       graceful-fs: 4.2.11
-      jest-config: 29.7.0(@types/node@22.15.0)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3))
+      jest-config: 29.7.0(@types/node@22.15.0)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3))
       jest-util: 29.7.0
       prompts: 2.4.2
     transitivePeerDependencies:
@@ -15788,9 +16011,9 @@ snapshots:
     dependencies:
       type-fest: 1.4.0
 
-  css-declaration-sorter@7.2.0(postcss@8.5.3):
+  css-declaration-sorter@7.2.0(postcss@8.5.6):
     dependencies:
-      postcss: 8.5.3
+      postcss: 8.5.6
 
   css-in-js-utils@3.1.0:
     dependencies:
@@ -15823,49 +16046,49 @@ snapshots:
 
   cssesc@3.0.0: {}
 
-  cssnano-preset-default@7.0.7(postcss@8.5.3):
+  cssnano-preset-default@7.0.7(postcss@8.5.6):
     dependencies:
       browserslist: 4.24.5
-      css-declaration-sorter: 7.2.0(postcss@8.5.3)
-      cssnano-utils: 5.0.1(postcss@8.5.3)
-      postcss: 8.5.3
-      postcss-calc: 10.1.1(postcss@8.5.3)
-      postcss-colormin: 7.0.3(postcss@8.5.3)
-      postcss-convert-values: 7.0.5(postcss@8.5.3)
-      postcss-discard-comments: 7.0.4(postcss@8.5.3)
-      postcss-discard-duplicates: 7.0.2(postcss@8.5.3)
-      postcss-discard-empty: 7.0.1(postcss@8.5.3)
-      postcss-discard-overridden: 7.0.1(postcss@8.5.3)
-      postcss-merge-longhand: 7.0.5(postcss@8.5.3)
-      postcss-merge-rules: 7.0.5(postcss@8.5.3)
-      postcss-minify-font-values: 7.0.1(postcss@8.5.3)
-      postcss-minify-gradients: 7.0.1(postcss@8.5.3)
-      postcss-minify-params: 7.0.3(postcss@8.5.3)
-      postcss-minify-selectors: 7.0.5(postcss@8.5.3)
-      postcss-normalize-charset: 7.0.1(postcss@8.5.3)
-      postcss-normalize-display-values: 7.0.1(postcss@8.5.3)
-      postcss-normalize-positions: 7.0.1(postcss@8.5.3)
-      postcss-normalize-repeat-style: 7.0.1(postcss@8.5.3)
-      postcss-normalize-string: 7.0.1(postcss@8.5.3)
-      postcss-normalize-timing-functions: 7.0.1(postcss@8.5.3)
-      postcss-normalize-unicode: 7.0.3(postcss@8.5.3)
-      postcss-normalize-url: 7.0.1(postcss@8.5.3)
-      postcss-normalize-whitespace: 7.0.1(postcss@8.5.3)
-      postcss-ordered-values: 7.0.2(postcss@8.5.3)
-      postcss-reduce-initial: 7.0.3(postcss@8.5.3)
-      postcss-reduce-transforms: 7.0.1(postcss@8.5.3)
-      postcss-svgo: 7.0.2(postcss@8.5.3)
-      postcss-unique-selectors: 7.0.4(postcss@8.5.3)
+      css-declaration-sorter: 7.2.0(postcss@8.5.6)
+      cssnano-utils: 5.0.1(postcss@8.5.6)
+      postcss: 8.5.6
+      postcss-calc: 10.1.1(postcss@8.5.6)
+      postcss-colormin: 7.0.3(postcss@8.5.6)
+      postcss-convert-values: 7.0.5(postcss@8.5.6)
+      postcss-discard-comments: 7.0.4(postcss@8.5.6)
+      postcss-discard-duplicates: 7.0.2(postcss@8.5.6)
+      postcss-discard-empty: 7.0.1(postcss@8.5.6)
+      postcss-discard-overridden: 7.0.1(postcss@8.5.6)
+      postcss-merge-longhand: 7.0.5(postcss@8.5.6)
+      postcss-merge-rules: 7.0.5(postcss@8.5.6)
+      postcss-minify-font-values: 7.0.1(postcss@8.5.6)
+      postcss-minify-gradients: 7.0.1(postcss@8.5.6)
+      postcss-minify-params: 7.0.3(postcss@8.5.6)
+      postcss-minify-selectors: 7.0.5(postcss@8.5.6)
+      postcss-normalize-charset: 7.0.1(postcss@8.5.6)
+      postcss-normalize-display-values: 7.0.1(postcss@8.5.6)
+      postcss-normalize-positions: 7.0.1(postcss@8.5.6)
+      postcss-normalize-repeat-style: 7.0.1(postcss@8.5.6)
+      postcss-normalize-string: 7.0.1(postcss@8.5.6)
+      postcss-normalize-timing-functions: 7.0.1(postcss@8.5.6)
+      postcss-normalize-unicode: 7.0.3(postcss@8.5.6)
+      postcss-normalize-url: 7.0.1(postcss@8.5.6)
+      postcss-normalize-whitespace: 7.0.1(postcss@8.5.6)
+      postcss-ordered-values: 7.0.2(postcss@8.5.6)
+      postcss-reduce-initial: 7.0.3(postcss@8.5.6)
+      postcss-reduce-transforms: 7.0.1(postcss@8.5.6)
+      postcss-svgo: 7.0.2(postcss@8.5.6)
+      postcss-unique-selectors: 7.0.4(postcss@8.5.6)
 
-  cssnano-utils@5.0.1(postcss@8.5.3):
+  cssnano-utils@5.0.1(postcss@8.5.6):
     dependencies:
-      postcss: 8.5.3
+      postcss: 8.5.6
 
-  cssnano@7.0.7(postcss@8.5.3):
+  cssnano@7.0.7(postcss@8.5.6):
     dependencies:
-      cssnano-preset-default: 7.0.7(postcss@8.5.3)
+      cssnano-preset-default: 7.0.7(postcss@8.5.6)
       lilconfig: 3.1.3
-      postcss: 8.5.3
+      postcss: 8.5.6
 
   csso@5.0.5:
     dependencies:
@@ -16378,10 +16601,10 @@ snapshots:
     dependencies:
       eslint: 9.26.0(jiti@1.21.7)
 
-  eslint-plugin-formatjs@5.3.1(eslint@9.26.0(jiti@1.21.7))(ts-jest@29.4.0(@babel/core@7.27.4)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.27.4))(esbuild@0.17.8)(jest-util@29.7.0)(jest@29.7.0(@types/node@22.15.0)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3)))(typescript@5.8.3))(typescript@5.8.3):
+  eslint-plugin-formatjs@5.3.1(eslint@9.26.0(jiti@1.21.7))(ts-jest@29.4.0(@babel/core@7.27.4)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.27.4))(esbuild@0.17.8)(jest-util@29.7.0)(jest@29.7.0(@types/node@22.15.0)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3)))(typescript@5.8.3))(typescript@5.8.3):
     dependencies:
       '@formatjs/icu-messageformat-parser': 2.11.2
-      '@formatjs/ts-transformer': 3.13.34(ts-jest@29.4.0(@babel/core@7.27.4)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.27.4))(esbuild@0.17.8)(jest-util@29.7.0)(jest@29.7.0(@types/node@22.15.0)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3)))(typescript@5.8.3))
+      '@formatjs/ts-transformer': 3.13.34(ts-jest@29.4.0(@babel/core@7.27.4)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.27.4))(esbuild@0.17.8)(jest-util@29.7.0)(jest@29.7.0(@types/node@22.15.0)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3)))(typescript@5.8.3))
       '@types/eslint': 9.6.1
       '@types/picomatch': 3.0.2
       '@typescript-eslint/utils': 8.32.1(eslint@9.26.0(jiti@1.21.7))(typescript@5.8.3)
@@ -17277,9 +17500,9 @@ snapshots:
 
   icss-replace-symbols@1.1.0: {}
 
-  icss-utils@5.1.0(postcss@8.5.3):
+  icss-utils@5.1.0(postcss@8.5.6):
     dependencies:
-      postcss: 8.5.3
+      postcss: 8.5.6
 
   ieee754@1.2.1: {}
 
@@ -17660,16 +17883,16 @@ snapshots:
       - supports-color
     optional: true
 
-  jest-cli@29.7.0(@types/node@22.15.0)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3)):
+  jest-cli@29.7.0(@types/node@22.15.0)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3)):
     dependencies:
-      '@jest/core': 29.7.0(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3))
+      '@jest/core': 29.7.0(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3))
       '@jest/test-result': 29.7.0
       '@jest/types': 29.6.3
       chalk: 4.1.2
-      create-jest: 29.7.0(@types/node@22.15.0)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3))
+      create-jest: 29.7.0(@types/node@22.15.0)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3))
       exit: 0.1.2
       import-local: 3.2.0
-      jest-config: 29.7.0(@types/node@22.15.0)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3))
+      jest-config: 29.7.0(@types/node@22.15.0)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3))
       jest-util: 29.7.0
       jest-validate: 29.7.0
       yargs: 17.7.2
@@ -17680,7 +17903,7 @@ snapshots:
       - ts-node
     optional: true
 
-  jest-config@29.7.0(@types/node@22.15.0)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3)):
+  jest-config@29.7.0(@types/node@22.15.0)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3)):
     dependencies:
       '@babel/core': 7.27.4
       '@jest/test-sequencer': 29.7.0
@@ -17706,7 +17929,7 @@ snapshots:
       strip-json-comments: 3.1.1
     optionalDependencies:
       '@types/node': 22.15.0
-      ts-node: 10.9.2(@types/node@22.15.0)(typescript@5.8.3)
+      ts-node: 10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3)
     transitivePeerDependencies:
       - babel-plugin-macros
       - supports-color
@@ -17966,12 +18189,12 @@ snapshots:
       supports-color: 8.1.1
     optional: true
 
-  jest@29.7.0(@types/node@22.15.0)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3)):
+  jest@29.7.0(@types/node@22.15.0)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3)):
     dependencies:
-      '@jest/core': 29.7.0(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3))
+      '@jest/core': 29.7.0(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3))
       '@jest/types': 29.6.3
       import-local: 3.2.0
-      jest-cli: 29.7.0(@types/node@22.15.0)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3))
+      jest-cli: 29.7.0(@types/node@22.15.0)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3))
     transitivePeerDependencies:
       - '@types/node'
       - babel-plugin-macros
@@ -19645,46 +19868,46 @@ snapshots:
 
   possible-typed-array-names@1.1.0: {}
 
-  postcss-calc@10.1.1(postcss@8.5.3):
+  postcss-calc@10.1.1(postcss@8.5.6):
     dependencies:
-      postcss: 8.5.3
+      postcss: 8.5.6
       postcss-selector-parser: 7.1.0
       postcss-value-parser: 4.2.0
 
-  postcss-colormin@7.0.3(postcss@8.5.3):
+  postcss-colormin@7.0.3(postcss@8.5.6):
     dependencies:
       browserslist: 4.24.5
       caniuse-api: 3.0.0
       colord: 2.9.3
-      postcss: 8.5.3
+      postcss: 8.5.6
       postcss-value-parser: 4.2.0
 
-  postcss-convert-values@7.0.5(postcss@8.5.3):
+  postcss-convert-values@7.0.5(postcss@8.5.6):
     dependencies:
       browserslist: 4.24.5
-      postcss: 8.5.3
+      postcss: 8.5.6
       postcss-value-parser: 4.2.0
 
-  postcss-discard-comments@7.0.4(postcss@8.5.3):
+  postcss-discard-comments@7.0.4(postcss@8.5.6):
     dependencies:
-      postcss: 8.5.3
+      postcss: 8.5.6
       postcss-selector-parser: 7.1.0
 
-  postcss-discard-duplicates@7.0.2(postcss@8.5.3):
+  postcss-discard-duplicates@7.0.2(postcss@8.5.6):
     dependencies:
-      postcss: 8.5.3
+      postcss: 8.5.6
 
-  postcss-discard-empty@7.0.1(postcss@8.5.3):
+  postcss-discard-empty@7.0.1(postcss@8.5.6):
     dependencies:
-      postcss: 8.5.3
+      postcss: 8.5.6
 
-  postcss-discard-overridden@7.0.1(postcss@8.5.3):
+  postcss-discard-overridden@7.0.1(postcss@8.5.6):
     dependencies:
-      postcss: 8.5.3
+      postcss: 8.5.6
 
-  postcss-import@15.1.0(postcss@8.5.3):
+  postcss-import@15.1.0(postcss@8.5.6):
     dependencies:
-      postcss: 8.5.3
+      postcss: 8.5.6
       postcss-value-parser: 4.2.0
       read-cache: 1.0.0
       resolve: 1.22.10
@@ -19694,60 +19917,65 @@ snapshots:
       camelcase-css: 2.0.1
       postcss: 8.5.3
 
-  postcss-load-config@4.0.2(postcss@8.5.3)(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3)):
+  postcss-js@4.0.1(postcss@8.5.6):
+    dependencies:
+      camelcase-css: 2.0.1
+      postcss: 8.5.6
+
+  postcss-load-config@4.0.2(postcss@8.5.6)(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3)):
     dependencies:
       lilconfig: 3.1.3
       yaml: 2.8.0
     optionalDependencies:
-      postcss: 8.5.3
-      ts-node: 10.9.2(@types/node@22.15.0)(typescript@5.8.3)
+      postcss: 8.5.6
+      ts-node: 10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3)
 
-  postcss-load-config@6.0.1(jiti@1.21.7)(postcss@8.5.3)(tsx@4.19.4)(yaml@2.8.0):
+  postcss-load-config@6.0.1(jiti@1.21.7)(postcss@8.5.6)(tsx@4.19.4)(yaml@2.8.0):
     dependencies:
       lilconfig: 3.1.3
     optionalDependencies:
       jiti: 1.21.7
-      postcss: 8.5.3
+      postcss: 8.5.6
       tsx: 4.19.4
       yaml: 2.8.0
 
-  postcss-merge-longhand@7.0.5(postcss@8.5.3):
+  postcss-merge-longhand@7.0.5(postcss@8.5.6):
     dependencies:
-      postcss: 8.5.3
+      postcss: 8.5.6
       postcss-value-parser: 4.2.0
-      stylehacks: 7.0.5(postcss@8.5.3)
+      stylehacks: 7.0.5(postcss@8.5.6)
 
-  postcss-merge-rules@7.0.5(postcss@8.5.3):
+  postcss-merge-rules@7.0.5(postcss@8.5.6):
     dependencies:
       browserslist: 4.24.5
       caniuse-api: 3.0.0
-      cssnano-utils: 5.0.1(postcss@8.5.3)
-      postcss: 8.5.3
+      cssnano-utils: 5.0.1(postcss@8.5.6)
+      postcss: 8.5.6
       postcss-selector-parser: 7.1.0
 
-  postcss-minify-font-values@7.0.1(postcss@8.5.3):
+  postcss-minify-font-values@7.0.1(postcss@8.5.6):
     dependencies:
-      postcss: 8.5.3
+      postcss: 8.5.6
       postcss-value-parser: 4.2.0
 
-  postcss-minify-gradients@7.0.1(postcss@8.5.3):
+  postcss-minify-gradients@7.0.1(postcss@8.5.6):
     dependencies:
       colord: 2.9.3
-      cssnano-utils: 5.0.1(postcss@8.5.3)
-      postcss: 8.5.3
+      cssnano-utils: 5.0.1(postcss@8.5.6)
+      postcss: 8.5.6
       postcss-value-parser: 4.2.0
 
-  postcss-minify-params@7.0.3(postcss@8.5.3):
+  postcss-minify-params@7.0.3(postcss@8.5.6):
     dependencies:
       browserslist: 4.24.5
-      cssnano-utils: 5.0.1(postcss@8.5.3)
-      postcss: 8.5.3
+      cssnano-utils: 5.0.1(postcss@8.5.6)
+      postcss: 8.5.6
       postcss-value-parser: 4.2.0
 
-  postcss-minify-selectors@7.0.5(postcss@8.5.3):
+  postcss-minify-selectors@7.0.5(postcss@8.5.6):
     dependencies:
       cssesc: 3.0.0
-      postcss: 8.5.3
+      postcss: 8.5.6
       postcss-selector-parser: 7.1.0
 
   postcss-mixins@9.0.4(postcss@8.5.3):
@@ -19758,37 +19986,37 @@ snapshots:
       postcss-simple-vars: 7.0.1(postcss@8.5.3)
       sugarss: 4.0.1(postcss@8.5.3)
 
-  postcss-modules-extract-imports@3.1.0(postcss@8.5.3):
+  postcss-modules-extract-imports@3.1.0(postcss@8.5.6):
     dependencies:
-      postcss: 8.5.3
+      postcss: 8.5.6
 
-  postcss-modules-local-by-default@4.2.0(postcss@8.5.3):
+  postcss-modules-local-by-default@4.2.0(postcss@8.5.6):
     dependencies:
-      icss-utils: 5.1.0(postcss@8.5.3)
-      postcss: 8.5.3
+      icss-utils: 5.1.0(postcss@8.5.6)
+      postcss: 8.5.6
       postcss-selector-parser: 7.1.0
       postcss-value-parser: 4.2.0
 
-  postcss-modules-scope@3.2.1(postcss@8.5.3):
+  postcss-modules-scope@3.2.1(postcss@8.5.6):
     dependencies:
-      postcss: 8.5.3
+      postcss: 8.5.6
       postcss-selector-parser: 7.1.0
 
-  postcss-modules-values@4.0.0(postcss@8.5.3):
+  postcss-modules-values@4.0.0(postcss@8.5.6):
     dependencies:
-      icss-utils: 5.1.0(postcss@8.5.3)
-      postcss: 8.5.3
+      icss-utils: 5.1.0(postcss@8.5.6)
+      postcss: 8.5.6
 
-  postcss-modules@6.0.1(postcss@8.5.3):
+  postcss-modules@6.0.1(postcss@8.5.6):
     dependencies:
       generic-names: 4.0.0
-      icss-utils: 5.1.0(postcss@8.5.3)
+      icss-utils: 5.1.0(postcss@8.5.6)
       lodash.camelcase: 4.3.0
-      postcss: 8.5.3
-      postcss-modules-extract-imports: 3.1.0(postcss@8.5.3)
-      postcss-modules-local-by-default: 4.2.0(postcss@8.5.3)
-      postcss-modules-scope: 3.2.1(postcss@8.5.3)
-      postcss-modules-values: 4.0.0(postcss@8.5.3)
+      postcss: 8.5.6
+      postcss-modules-extract-imports: 3.1.0(postcss@8.5.6)
+      postcss-modules-local-by-default: 4.2.0(postcss@8.5.6)
+      postcss-modules-scope: 3.2.1(postcss@8.5.6)
+      postcss-modules-values: 4.0.0(postcss@8.5.6)
       string-hash: 1.1.3
 
   postcss-nested@6.2.0(postcss@8.5.3):
@@ -19796,55 +20024,60 @@ snapshots:
       postcss: 8.5.3
       postcss-selector-parser: 6.1.2
 
-  postcss-normalize-charset@7.0.1(postcss@8.5.3):
+  postcss-nested@6.2.0(postcss@8.5.6):
     dependencies:
-      postcss: 8.5.3
+      postcss: 8.5.6
+      postcss-selector-parser: 6.1.2
 
-  postcss-normalize-display-values@7.0.1(postcss@8.5.3):
+  postcss-normalize-charset@7.0.1(postcss@8.5.6):
     dependencies:
-      postcss: 8.5.3
+      postcss: 8.5.6
+
+  postcss-normalize-display-values@7.0.1(postcss@8.5.6):
+    dependencies:
+      postcss: 8.5.6
       postcss-value-parser: 4.2.0
 
-  postcss-normalize-positions@7.0.1(postcss@8.5.3):
+  postcss-normalize-positions@7.0.1(postcss@8.5.6):
     dependencies:
-      postcss: 8.5.3
+      postcss: 8.5.6
       postcss-value-parser: 4.2.0
 
-  postcss-normalize-repeat-style@7.0.1(postcss@8.5.3):
+  postcss-normalize-repeat-style@7.0.1(postcss@8.5.6):
     dependencies:
-      postcss: 8.5.3
+      postcss: 8.5.6
       postcss-value-parser: 4.2.0
 
-  postcss-normalize-string@7.0.1(postcss@8.5.3):
+  postcss-normalize-string@7.0.1(postcss@8.5.6):
     dependencies:
-      postcss: 8.5.3
+      postcss: 8.5.6
       postcss-value-parser: 4.2.0
 
-  postcss-normalize-timing-functions@7.0.1(postcss@8.5.3):
+  postcss-normalize-timing-functions@7.0.1(postcss@8.5.6):
     dependencies:
-      postcss: 8.5.3
+      postcss: 8.5.6
       postcss-value-parser: 4.2.0
 
-  postcss-normalize-unicode@7.0.3(postcss@8.5.3):
+  postcss-normalize-unicode@7.0.3(postcss@8.5.6):
     dependencies:
       browserslist: 4.24.5
-      postcss: 8.5.3
+      postcss: 8.5.6
       postcss-value-parser: 4.2.0
 
-  postcss-normalize-url@7.0.1(postcss@8.5.3):
+  postcss-normalize-url@7.0.1(postcss@8.5.6):
     dependencies:
-      postcss: 8.5.3
+      postcss: 8.5.6
       postcss-value-parser: 4.2.0
 
-  postcss-normalize-whitespace@7.0.1(postcss@8.5.3):
+  postcss-normalize-whitespace@7.0.1(postcss@8.5.6):
     dependencies:
-      postcss: 8.5.3
+      postcss: 8.5.6
       postcss-value-parser: 4.2.0
 
-  postcss-ordered-values@7.0.2(postcss@8.5.3):
+  postcss-ordered-values@7.0.2(postcss@8.5.6):
     dependencies:
-      cssnano-utils: 5.0.1(postcss@8.5.3)
-      postcss: 8.5.3
+      cssnano-utils: 5.0.1(postcss@8.5.6)
+      postcss: 8.5.6
       postcss-value-parser: 4.2.0
 
   postcss-preset-mantine@1.17.0(postcss@8.5.3):
@@ -19853,15 +20086,15 @@ snapshots:
       postcss-mixins: 9.0.4(postcss@8.5.3)
       postcss-nested: 6.2.0(postcss@8.5.3)
 
-  postcss-reduce-initial@7.0.3(postcss@8.5.3):
+  postcss-reduce-initial@7.0.3(postcss@8.5.6):
     dependencies:
       browserslist: 4.24.5
       caniuse-api: 3.0.0
-      postcss: 8.5.3
+      postcss: 8.5.6
 
-  postcss-reduce-transforms@7.0.1(postcss@8.5.3):
+  postcss-reduce-transforms@7.0.1(postcss@8.5.6):
     dependencies:
-      postcss: 8.5.3
+      postcss: 8.5.6
       postcss-value-parser: 4.2.0
 
   postcss-selector-parser@6.0.10:
@@ -19883,15 +20116,15 @@ snapshots:
     dependencies:
       postcss: 8.5.3
 
-  postcss-svgo@7.0.2(postcss@8.5.3):
+  postcss-svgo@7.0.2(postcss@8.5.6):
     dependencies:
-      postcss: 8.5.3
+      postcss: 8.5.6
       postcss-value-parser: 4.2.0
       svgo: 3.3.2
 
-  postcss-unique-selectors@7.0.4(postcss@8.5.3):
+  postcss-unique-selectors@7.0.4(postcss@8.5.6):
     dependencies:
-      postcss: 8.5.3
+      postcss: 8.5.6
       postcss-selector-parser: 7.1.0
 
   postcss-value-parser@4.2.0: {}
@@ -19903,6 +20136,12 @@ snapshots:
       source-map-js: 1.2.1
 
   postcss@8.5.3:
+    dependencies:
+      nanoid: 3.3.11
+      picocolors: 1.1.1
+      source-map-js: 1.2.1
+
+  postcss@8.5.6:
     dependencies:
       nanoid: 3.3.11
       picocolors: 1.1.1
@@ -20181,6 +20420,10 @@ snapshots:
     dependencies:
       react: 18.3.1
 
+  react-icons@5.4.0(react@19.1.0):
+    dependencies:
+      react: 19.1.0
+
   react-inspector@5.1.1(react@18.3.1):
     dependencies:
       '@babel/runtime': 7.27.1
@@ -20328,6 +20571,8 @@ snapshots:
   react@18.3.1:
     dependencies:
       loose-envify: 1.4.0
+
+  react@19.1.0: {}
 
   read-cache@1.0.0:
     dependencies:
@@ -21076,10 +21321,10 @@ snapshots:
       '@babel/core': 7.27.4
       babel-plugin-macros: 3.1.0
 
-  stylehacks@7.0.5(postcss@8.5.3):
+  stylehacks@7.0.5(postcss@8.5.6):
     dependencies:
       browserslist: 4.24.5
-      postcss: 8.5.3
+      postcss: 8.5.6
       postcss-selector-parser: 7.1.0
 
   stylis@4.2.0: {}
@@ -21099,6 +21344,11 @@ snapshots:
   sugarss@4.0.1(postcss@8.5.3):
     dependencies:
       postcss: 8.5.3
+
+  sugarss@4.0.1(postcss@8.5.6):
+    dependencies:
+      postcss: 8.5.6
+    optional: true
 
   supabase@1.226.4:
     dependencies:
@@ -21160,15 +21410,21 @@ snapshots:
       react: 18.3.1
       use-sync-external-store: 1.5.0(react@18.3.1)
 
+  swr@2.3.3(react@19.1.0):
+    dependencies:
+      dequal: 2.0.3
+      react: 19.1.0
+      use-sync-external-store: 1.5.0(react@19.1.0)
+
   symbol-tree@3.2.4: {}
 
   tabbable@6.2.0: {}
 
-  tailwindcss-animate@1.0.7(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3))):
+  tailwindcss-animate@1.0.7(tailwindcss@3.4.17(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3))):
     dependencies:
-      tailwindcss: 3.4.17(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3))
+      tailwindcss: 3.4.17(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3))
 
-  tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3)):
+  tailwindcss@3.4.17(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3)):
     dependencies:
       '@alloc/quick-lru': 5.2.0
       arg: 5.0.2
@@ -21184,11 +21440,11 @@ snapshots:
       normalize-path: 3.0.0
       object-hash: 3.0.0
       picocolors: 1.1.1
-      postcss: 8.5.3
-      postcss-import: 15.1.0(postcss@8.5.3)
-      postcss-js: 4.0.1(postcss@8.5.3)
-      postcss-load-config: 4.0.2(postcss@8.5.3)(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3))
-      postcss-nested: 6.2.0(postcss@8.5.3)
+      postcss: 8.5.6
+      postcss-import: 15.1.0(postcss@8.5.6)
+      postcss-js: 4.0.1(postcss@8.5.6)
+      postcss-load-config: 4.0.2(postcss@8.5.6)(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3))
+      postcss-nested: 6.2.0(postcss@8.5.6)
       postcss-selector-parser: 6.1.2
       resolve: 1.22.10
       sucrase: 3.35.0
@@ -21237,15 +21493,16 @@ snapshots:
       type-fest: 2.19.0
       unique-string: 3.0.0
 
-  terser-webpack-plugin@5.3.14(esbuild@0.17.8)(webpack@5.99.8(esbuild@0.17.8)):
+  terser-webpack-plugin@5.3.14(@swc/core@1.12.11)(esbuild@0.17.8)(webpack@5.99.8(@swc/core@1.12.11)(esbuild@0.17.8)):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.25
       jest-worker: 27.5.1
       schema-utils: 4.3.2
       serialize-javascript: 6.0.2
       terser: 5.39.2
-      webpack: 5.99.8(esbuild@0.17.8)
+      webpack: 5.99.8(@swc/core@1.12.11)(esbuild@0.17.8)
     optionalDependencies:
+      '@swc/core': 1.12.11
       esbuild: 0.17.8
 
   terser@5.39.2:
@@ -21366,12 +21623,12 @@ snapshots:
 
   ts-interface-checker@0.1.13: {}
 
-  ts-jest@29.4.0(@babel/core@7.27.4)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.27.4))(esbuild@0.17.8)(jest-util@29.7.0)(jest@29.7.0(@types/node@22.15.0)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3)))(typescript@5.8.3):
+  ts-jest@29.4.0(@babel/core@7.27.4)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.27.4))(esbuild@0.17.8)(jest-util@29.7.0)(jest@29.7.0(@types/node@22.15.0)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3)))(typescript@5.8.3):
     dependencies:
       bs-logger: 0.2.6
       ejs: 3.1.10
       fast-json-stable-stringify: 2.1.0
-      jest: 29.7.0(@types/node@22.15.0)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3))
+      jest: 29.7.0(@types/node@22.15.0)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3))
       json5: 2.2.3
       lodash.memoize: 4.1.2
       make-error: 1.3.6
@@ -21388,7 +21645,7 @@ snapshots:
       jest-util: 29.7.0
     optional: true
 
-  ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3):
+  ts-node@10.9.2(@swc/core@1.12.11)(@types/node@22.15.0)(typescript@5.8.3):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       '@tsconfig/node10': 1.0.11
@@ -21405,6 +21662,8 @@ snapshots:
       typescript: 5.8.3
       v8-compile-cache-lib: 3.0.1
       yn: 3.1.1
+    optionalDependencies:
+      '@swc/core': 1.12.11
 
   ts-pattern@4.3.0: {}
 
@@ -21414,7 +21673,7 @@ snapshots:
 
   tslib@2.8.1: {}
 
-  tsup@8.4.0(jiti@1.21.7)(postcss@8.5.3)(tsx@4.19.4)(typescript@5.8.3)(yaml@2.8.0):
+  tsup@8.4.0(@swc/core@1.12.11)(jiti@1.21.7)(postcss@8.5.6)(tsx@4.19.4)(typescript@5.8.3)(yaml@2.8.0):
     dependencies:
       bundle-require: 5.1.0(esbuild@0.25.4)
       cac: 6.7.14
@@ -21424,7 +21683,7 @@ snapshots:
       esbuild: 0.25.4
       joycon: 3.1.1
       picocolors: 1.1.1
-      postcss-load-config: 6.0.1(jiti@1.21.7)(postcss@8.5.3)(tsx@4.19.4)(yaml@2.8.0)
+      postcss-load-config: 6.0.1(jiti@1.21.7)(postcss@8.5.6)(tsx@4.19.4)(yaml@2.8.0)
       resolve-from: 5.0.0
       rollup: 4.40.2
       source-map: 0.8.0-beta.0
@@ -21433,7 +21692,8 @@ snapshots:
       tinyglobby: 0.2.13
       tree-kill: 1.2.2
     optionalDependencies:
-      postcss: 8.5.3
+      '@swc/core': 1.12.11
+      postcss: 8.5.6
       typescript: 5.8.3
     transitivePeerDependencies:
       - jiti
@@ -21550,11 +21810,11 @@ snapshots:
       icss-replace-symbols: 1.1.0
       is-there: 4.5.2
       mkdirp: 3.0.1
-      postcss: 8.5.3
-      postcss-modules-extract-imports: 3.1.0(postcss@8.5.3)
-      postcss-modules-local-by-default: 4.2.0(postcss@8.5.3)
-      postcss-modules-scope: 3.2.1(postcss@8.5.3)
-      postcss-modules-values: 4.0.0(postcss@8.5.3)
+      postcss: 8.5.6
+      postcss-modules-extract-imports: 3.1.0(postcss@8.5.6)
+      postcss-modules-local-by-default: 4.2.0(postcss@8.5.6)
+      postcss-modules-scope: 3.2.1(postcss@8.5.6)
+      postcss-modules-values: 4.0.0(postcss@8.5.6)
       yargs: 17.7.2
 
   typed-query-selector@2.12.0: {}
@@ -21748,6 +22008,10 @@ snapshots:
     dependencies:
       react: 18.3.1
 
+  use-sync-external-store@1.5.0(react@19.1.0):
+    dependencies:
+      react: 19.1.0
+
   usehooks-ts@2.9.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       react: 18.3.1
@@ -21833,6 +22097,27 @@ snapshots:
       - tsx
       - yaml
 
+  vite-node@3.1.3(@types/node@22.15.0)(jiti@1.21.7)(sugarss@4.0.1(postcss@8.5.6))(terser@5.39.2)(tsx@4.19.4)(yaml@2.8.0):
+    dependencies:
+      cac: 6.7.14
+      debug: 4.4.1
+      es-module-lexer: 1.7.0
+      pathe: 2.0.3
+      vite: 6.3.5(@types/node@22.15.0)(jiti@1.21.7)(sugarss@4.0.1(postcss@8.5.6))(terser@5.39.2)(tsx@4.19.4)(yaml@2.8.0)
+    transitivePeerDependencies:
+      - '@types/node'
+      - jiti
+      - less
+      - lightningcss
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+      - tsx
+      - yaml
+
   vite-tsconfig-paths@5.1.4(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.0)(jiti@1.21.7)(sugarss@4.0.1(postcss@8.5.3))(terser@5.39.2)(tsx@4.19.4)(yaml@2.8.0)):
     dependencies:
       debug: 4.4.1
@@ -21849,7 +22134,7 @@ snapshots:
       esbuild: 0.25.4
       fdir: 6.4.4(picomatch@4.0.2)
       picomatch: 4.0.2
-      postcss: 8.5.3
+      postcss: 8.5.6
       rollup: 4.40.2
       tinyglobby: 0.2.13
     optionalDependencies:
@@ -21857,6 +22142,23 @@ snapshots:
       fsevents: 2.3.3
       jiti: 1.21.7
       sugarss: 4.0.1(postcss@8.5.3)
+      terser: 5.39.2
+      tsx: 4.19.4
+      yaml: 2.8.0
+
+  vite@6.3.5(@types/node@22.15.0)(jiti@1.21.7)(sugarss@4.0.1(postcss@8.5.6))(terser@5.39.2)(tsx@4.19.4)(yaml@2.8.0):
+    dependencies:
+      esbuild: 0.25.4
+      fdir: 6.4.4(picomatch@4.0.2)
+      picomatch: 4.0.2
+      postcss: 8.5.6
+      rollup: 4.40.2
+      tinyglobby: 0.2.13
+    optionalDependencies:
+      '@types/node': 22.15.0
+      fsevents: 2.3.3
+      jiti: 1.21.7
+      sugarss: 4.0.1(postcss@8.5.6)
       terser: 5.39.2
       tsx: 4.19.4
       yaml: 2.8.0
@@ -21883,6 +22185,48 @@ snapshots:
       tinyrainbow: 2.0.0
       vite: 6.3.5(@types/node@22.15.0)(jiti@1.21.7)(sugarss@4.0.1(postcss@8.5.3))(terser@5.39.2)(tsx@4.19.4)(yaml@2.8.0)
       vite-node: 3.1.3(@types/node@22.15.0)(jiti@1.21.7)(sugarss@4.0.1(postcss@8.5.3))(terser@5.39.2)(tsx@4.19.4)(yaml@2.8.0)
+      why-is-node-running: 2.3.0
+    optionalDependencies:
+      '@types/debug': 4.1.12
+      '@types/node': 22.15.0
+      '@vitest/ui': 3.1.3(vitest@3.1.3)
+      jsdom: 26.1.0
+    transitivePeerDependencies:
+      - jiti
+      - less
+      - lightningcss
+      - msw
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+      - tsx
+      - yaml
+
+  vitest@3.1.3(@types/debug@4.1.12)(@types/node@22.15.0)(@vitest/ui@3.1.3)(jiti@1.21.7)(jsdom@26.1.0)(sugarss@4.0.1(postcss@8.5.6))(terser@5.39.2)(tsx@4.19.4)(yaml@2.8.0):
+    dependencies:
+      '@vitest/expect': 3.1.3
+      '@vitest/mocker': 3.1.3(vite@6.3.5(@types/node@22.15.0)(jiti@1.21.7)(sugarss@4.0.1(postcss@8.5.6))(terser@5.39.2)(tsx@4.19.4)(yaml@2.8.0))
+      '@vitest/pretty-format': 3.1.3
+      '@vitest/runner': 3.1.3
+      '@vitest/snapshot': 3.1.3
+      '@vitest/spy': 3.1.3
+      '@vitest/utils': 3.1.3
+      chai: 5.2.0
+      debug: 4.4.1
+      expect-type: 1.2.1
+      magic-string: 0.30.17
+      pathe: 2.0.3
+      std-env: 3.9.0
+      tinybench: 2.9.0
+      tinyexec: 0.3.2
+      tinyglobby: 0.2.13
+      tinypool: 1.0.2
+      tinyrainbow: 2.0.0
+      vite: 6.3.5(@types/node@22.15.0)(jiti@1.21.7)(sugarss@4.0.1(postcss@8.5.6))(terser@5.39.2)(tsx@4.19.4)(yaml@2.8.0)
+      vite-node: 3.1.3(@types/node@22.15.0)(jiti@1.21.7)(sugarss@4.0.1(postcss@8.5.6))(terser@5.39.2)(tsx@4.19.4)(yaml@2.8.0)
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/debug': 4.1.12
@@ -21937,7 +22281,7 @@ snapshots:
 
   webpack-sources@3.2.3: {}
 
-  webpack@5.99.8(esbuild@0.17.8):
+  webpack@5.99.8(@swc/core@1.12.11)(esbuild@0.17.8):
     dependencies:
       '@types/eslint-scope': 3.7.7
       '@types/estree': 1.0.7
@@ -21960,7 +22304,7 @@ snapshots:
       neo-async: 2.6.2
       schema-utils: 4.3.2
       tapable: 2.2.1
-      terser-webpack-plugin: 5.3.14(esbuild@0.17.8)(webpack@5.99.8(esbuild@0.17.8))
+      terser-webpack-plugin: 5.3.14(@swc/core@1.12.11)(esbuild@0.17.8)(webpack@5.99.8(@swc/core@1.12.11)(esbuild@0.17.8))
       watchpack: 2.4.2
       webpack-sources: 3.2.3
     transitivePeerDependencies:
