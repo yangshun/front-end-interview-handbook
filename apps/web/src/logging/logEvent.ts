@@ -76,6 +76,7 @@ const allowedParams = new Set([
   'msclkid',
   // Custom
   'gnrs',
+  'gnrs_latest',
 ]);
 
 /**
