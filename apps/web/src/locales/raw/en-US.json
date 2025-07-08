@@ -295,6 +295,10 @@
     "defaultMessage": "All filters",
     "description": "Label for All Filters button for roadmap page on mobile"
   },
+  "/Foz6K": {
+    "defaultMessage": "We've sent a password reset link to your email. If you don't see the email, make sure to check your spam or junk folder.",
+    "description": "Description for password reset email sent"
+  },
   "/FyqAR": {
     "defaultMessage": "Translations for {locale} are in beta and may not be accurate. Do give feedback or <link>contact us</link> if you are interested in helping to translate!",
     "description": "Banner about beta locale version"
@@ -5919,10 +5923,6 @@
     "defaultMessage": "Resubscribe",
     "description": "Button CTA to encourage upgrading"
   },
-  "Q0sZmk": {
-    "defaultMessage": "An email containing the password reset instructions will be sent if an associated account exists",
-    "description": "Message indicating a successful password reset request"
-  },
   "Q0yp+r": {
     "defaultMessage": "Premium company guide",
     "description": "Paywall title for company guides feature"
@@ -8722,6 +8722,10 @@
   "cNg7I1": {
     "defaultMessage": "Prepare for front end interviews with a vast question bank covering every format and popular frameworks/languages. Includes solutions and tests from ex-interviewers.",
     "description": "Page description for focus areas listing"
+  },
+  "cOExUy": {
+    "defaultMessage": "Password reset email sent",
+    "description": "Heading for password reset email sent"
   },
   "cOS90R": {
     "defaultMessage": "Junior (1-2)",
