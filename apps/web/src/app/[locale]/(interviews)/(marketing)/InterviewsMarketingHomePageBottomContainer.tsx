@@ -3,7 +3,7 @@
 import type { InterviewsStudyList } from 'contentlayer/generated';
 import { useInView } from 'framer-motion';
 import dynamic from 'next/dynamic';
-import { useRef } from 'react';
+import { memo, useRef } from 'react';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import InterviewsMarketingCompaniesSection from '~/components/interviews/marketing/InterviewsMarketingCompaniesSection';
@@ -34,12 +34,9 @@ type Props = Readonly<{
 // So that loaded state is persisted across navigations.
 let loadedBottom = false;
 
-export default function InterviewsMarketingHomePageBottomContainer({
-  companyGuides,
-  questions,
-}: Props) {
-  const { userProfile } = useUserProfile();
-
+export default function InterviewsMarketingHomePageBottomContainer(
+  props: Props,
+) {
   const loadBottomHalfMarkerEarlyRef = useRef(null);
   const showBottomHalfEarly = useInView(loadBottomHalfMarkerEarlyRef, {
     amount: 'some',
@@ -54,6 +51,22 @@ export default function InterviewsMarketingHomePageBottomContainer({
   return (
     <>
       <div ref={loadBottomHalfMarkerEarlyRef} />
+      <MemoizedInterviewsMarketingSections {...props} />
+      <div ref={loadBottomHalfMarkerRef} />
+      {loadedBottom || showBottomHalfEarly || showBottomHalf ? (
+        <MemoizedMarketingHomePageBottom />
+      ) : (
+        <div aria-hidden={true} className="h-screen" />
+      )}
+    </>
+  );
+}
+
+function InterviewsMarketingSections({ companyGuides, questions }: Props) {
+  const { userProfile } = useUserProfile();
+
+  return (
+    <>
       <InterviewsMarketingStudyPlansSection />
       <InterviewsMarketingSimulateRealInterviews />
       <InterviewsMarketingPracticeQuestionBankSection questions={questions} />
@@ -63,12 +76,9 @@ export default function InterviewsMarketingHomePageBottomContainer({
       {!(
         userProfile?.isInterviewsPremium && userProfile?.plan === 'lifetime'
       ) && <InterviewsPricingSectionLocalizedContainer />}
-      <div ref={loadBottomHalfMarkerRef} />
-      {loadedBottom || showBottomHalfEarly || showBottomHalf ? (
-        <InterviewsMarketingHomePageBottom />
-      ) : (
-        <div aria-hidden={true} className="h-screen" />
-      )}
     </>
   );
 }
+
+const MemoizedInterviewsMarketingSections = memo(InterviewsMarketingSections);
+const MemoizedMarketingHomePageBottom = memo(InterviewsMarketingHomePageBottom);
