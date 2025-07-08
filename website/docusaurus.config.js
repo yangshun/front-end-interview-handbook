@@ -210,6 +210,9 @@ module.exports = {
         gtag: {
           trackingID: 'G-D9B6CHX36V',
         },
+        sitemap: {
+          ignorePatterns: ['/blog/**'],
+        },
       },
     ],
   ],
