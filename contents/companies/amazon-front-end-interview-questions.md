@@ -128,11 +128,11 @@ Questions sourced from the web and the [GreatFrontEnd](https://www.greatfrontend
 - Implement a data table from an array of objects using HTML/CSS and JavaScript with searching and sorting
   - [Practice question](https://www.greatfrontend.com/questions/javascript/data-selection?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
 - Implement Material UI Chips with auto-suggest. When sending an e-mail, auto-suggest people and convert them into a chip with their avatar on the right
-- Implement a Like button ([Source](https://leetcode.com/discuss/interview-question/1719943/Amazon-or-Phone-Screen-or-FEE-L5-or-Like-Button))
+- Implement a Like button ([Source](https://leetcode.com/discuss/post/1719943/amazon-phone-screen-fee-l5-like-button-b-0z2l/))
   - [Practice question](https://www.greatfrontend.com/questions/user-interface/like-button?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
 - Given a JSON object generate a file directory UI
   - [Practice question](https://www.greatfrontend.com/questions/user-interface/file-explorer?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
-- Code a paginated widget of addresses. Imagine you are a seller with a list of address you ship to an need to view them 5 address per page, with the possibility to go previous and next. [Source](<https://leetcode.com/discuss/interview-question/1984996/Amazon-Virtual-Onsite-April-2022-FrontEnd-Engineer-II-(L5)Vancouver-Offer>)
+- Code a paginated widget of addresses. Imagine you are a seller with a list of address you ship to an need to view them 5 address per page, with the possibility to go previous and next. [Source](<https://leetcode.com/discuss/post/1984996/amazon-virtual-onsite-april-2022-fronten-qiku/>)
 - Implement a search bar using HTML, CSS and JavaScript
   - [Read answer](https://www.greatfrontend.com/questions/system-design/autocomplete?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
 - Implement a star rating widget
@@ -146,7 +146,7 @@ Questions sourced from the web and the [GreatFrontEnd](https://www.greatfrontend
 
 ### System design questions
 
-- Design a restaurant listing application where user can make orders and customize their orders by adding additional stuffs like toppings, salads etc. [Source](<https://leetcode.com/discuss/interview-question/1984996/Amazon-Virtual-Onsite-April-2022-FrontEnd-Engineer-II-(L5)Vancouver-Offer>)
+- Design a restaurant listing application where user can make orders and customize their orders by adding additional stuffs like toppings, salads etc. [Source](<https://leetcode.com/discuss/post/1984996/amazon-virtual-onsite-april-2022-fronten-qiku/>)
 - Design an accordion component.
   - [Practice question](https://www.greatfrontend.com/questions/user-interface/accordion?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
 

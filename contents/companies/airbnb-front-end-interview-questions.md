@@ -12,7 +12,7 @@ Find the latest version of this page on [GreatFrontEnd's Airbnb Front End Interv
 ## JavaScript coding questions
 
 - Write a simple promise.
-- Implement a `StoreData` class that add key/value pairs and listen to value changes for keys. [Source](https://leetcode.com/discuss/interview-question/348436/Airbnb-or-Phone-Screen-or-Implement-StoreData-class)
+- Implement a `StoreData` class that add key/value pairs and listen to value changes for keys. [Source](https://leetcode.com/discuss/post/348436/airbnb-phone-screen-implement-storedata-p3ypb/)
 
 ## User interface coding questions
 

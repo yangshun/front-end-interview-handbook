@@ -37,8 +37,8 @@ export default [
         <br />
         <br />
         I've learnt a few things and blogged about them on{' '}
-        <a href="https://zhenghao.io" rel="noopener">
-          https://zhenghao.io
+        <a href="https://www.zhenghao.io/" rel="noopener">
+          https://www.zhenghao.io/
         </a>
         , check them out if you're interested!
       </>

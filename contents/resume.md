@@ -8,10 +8,10 @@ Find the latest version of this page on [GreatFrontEnd's Front End Interview Pla
 
 :::
 
-Resumes are often overlooked in the job application process, but extremely important as they can make or break your application. The [Tech Interview Handbook](https://www.techinterviewhandbook.org/resume/guide) contains more details on how to write a killer resume which will also benefit Front End engineer candidates.
+Resumes are often overlooked in the job application process, but extremely important as they can make or break your application. The [Tech Interview Handbook](https://www.techinterviewhandbook.org/resume/) contains more details on how to write a killer resume which will also benefit Front End engineer candidates.
 
 <div>
-  <a className="button button--primary" href="https://www.techinterviewhandbook.org/resume/guide">Go to Tech Interview Handbook &nbsp;→</a>
+  <a className="button button--primary" href="https://www.techinterviewhandbook.org/resume/">Go to Tech Interview Handbook &nbsp;→</a>
 </div>
 
 ## Recommended resume tools

@@ -11,7 +11,7 @@ Find more company guides on [GreatFrontEnd](https://www.greatfrontend.com/interv
 
 ## User interface coding questions
 
-- Implement a typeahead. [Source](https://leetcode.com/discuss/interview-question/1220887/Twitter-Frontend-Phone-Screen)
+- Implement a typeahead. [Source](https://leetcode.com/discuss/post/1220887/twitter-frontend-phone-screen-by-anonymo-k2xo/)
 - Add features to a tic-tac-toe game.
   - [Practice question](https://www.greatfrontend.com/questions/user-interface/tic-tac-toe?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
 

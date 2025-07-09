@@ -179,7 +179,7 @@ In contrast to `Object`, `Map` provides dedicated APIs for various common tasks:
 
 There seems to be a common belief among JavaScript community that `Map` is faster than `Object`, for the most part. There are [people](https://twitter.com/diegohaz/status/1534888291732013058) who claimed to see noticeable performance gains by switching from `Object` to `Map`.
 
-My experience of grinding LeetCode seems to confirm this belief: LeetCode feeds a huge amount of data as the test cases to your solution and it times out if your solution is taking too long. Questions like [this](https://leetcode.com/problems/random-pick-with-weight/discuss/671804/Javascript-with-explanation-and-very-interesting-find-regarding-vs-Map) only times out if you use `Object`, but not on `Map`.
+My experience of grinding LeetCode seems to confirm this belief: LeetCode feeds a huge amount of data as the test cases to your solution and it times out if your solution is taking too long. Questions like [this](https://leetcode.com/problems/random-pick-with-weight/solutions/671804/Javascript-with-explanation-and-very-interesting-find-regarding-vs-Map/) only times out if you use `Object`, but not on `Map`.
 
 However, I believe just saying "`Map` is faster than `Object`" is reductive. There must be some nuance that I wanted to find out myself. Therefore. I built [a little app](https://csb-yuu1dm.netlify.app/) to run some benchmarks.
 

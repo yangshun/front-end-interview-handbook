@@ -33,7 +33,7 @@ I would write CSS rules with low specificity so that they can be easily overridd
 #### References
 
 - https://www.smashingmagazine.com/2007/07/css-specificity-things-you-should-know/
-- https://www.sitepoint.com/web-foundations/specificity/
+- https://www.sitepoint.com/css-selectors-specificity/
 
 ### What's the difference between "resetting" and "normalizing" CSS? Which would you choose, and why?
 
@@ -82,19 +82,19 @@ A stacking context is an element that contains a set of layers. Within a local s
 
 Each stacking context is self-contained - after the element's contents are stacked, the whole element is considered in the stacking order of the parent stacking context. A handful of CSS properties trigger a new stacking context, such as `opacity` less than 1, `filter` that is not `none`, and `transform` that is not`none`.
 
-_Note: What exactly qualifies an element to create a stacking context is listed in this long set of [rules](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context#The_stacking_context)._
+_Note: What exactly qualifies an element to create a stacking context is listed in this long set of [rules](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_positioned_layout/Stacking_context#The_stacking_context)._
 
 #### References
 
 - https://css-tricks.com/almanac/properties/z/z-index/
 - https://philipwalton.com/articles/what-no-one-told-you-about-z-index/
-- https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context
+- https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_positioned_layout/Stacking_context
 
 ### Describe Block Formatting Context (BFC) and how it works.
 
 A Block Formatting Context (BFC) is part of the visual CSS rendering of a web page in which block boxes are laid out. Floats, absolutely positioned elements, `inline-blocks`, `table-cells`, `table-caption`s, and elements with `overflow` other than `visible` (except when that value has been propagated to the viewport) establish new block formatting contexts.
 
-Knowing how to establish a block formatting context is important, because without doing so, the containing box will not [contain floated children](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context#Make_float_content_and_alongside_content_the_same_height). This is similar to collapsing margins, but more insidious as you will find entire boxes collapsing in odd ways.
+Knowing how to establish a block formatting context is important, because without doing so, the containing box will not [contain floated children](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_display/Block_formatting_context#Make_float_content_and_alongside_content_the_same_height). This is similar to collapsing margins, but more insidious as you will find entire boxes collapsing in odd ways.
 
 A BFC is an HTML box that satisfies at least one of the following conditions:
 
@@ -105,11 +105,11 @@ A BFC is an HTML box that satisfies at least one of the following conditions:
 
 In a BFC, each box's left outer edge touches the left edge of the containing block (for right-to-left formatting, right edges touch).
 
-Vertical margins between adjacent block-level boxes in a BFC collapse. Read more on [collapsing margins](https://www.sitepoint.com/web-foundations/collapsing-margins/).
+Vertical margins between adjacent block-level boxes in a BFC collapse. Read more on [collapsing margins](https://www.sitepoint.com/collapsing-margins/).
 
 #### References
 
-- https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context
+- https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_display/Block_formatting_context
 - https://www.sitepoint.com/understanding-block-formatting-contexts-in-css/
 
 ### What are the various clearing techniques and which is appropriate for what context?
@@ -160,7 +160,7 @@ These techniques are related to accessibility (a11y).
 
 - `width: 0; height: 0`. Make the element not take up any space on the screen at all, resulting in not showing it.
 - `position: absolute; left: -99999px`. Position it outside of the screen.
-- `text-indent: -9999px`. This only works on text within the `block` elements. This is a widely used and famous trick, but it comes with [some downsides](https://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/) like causing performance issues, so you might want to consider using `text-indent: 100%` instead.
+- `text-indent: -9999px`. This only works on text within the `block` elements. This is a widely used and famous trick, but it comes with [some downsides](https://zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/) like causing performance issues, so you might want to consider using `text-indent: 100%` instead.
 - Meta tags. For example by using Schema.org, RDF, and JSON-LD.
 - WAI-ARIA. A W3C technical specification that specifies how to increase the accessibility of web pages.
 
@@ -170,8 +170,8 @@ Even if WAI-ARIA is the ideal solution, I would go with the `absolute` positioni
 
 - https://www.w3.org/TR/wai-aria-1.1/
 - https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA
-- http://a11yproject.com/
-- https://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
+- https://www.a11yproject.com/
+- https://zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
 
 ### Have you ever used a grid system, and if so, what do you prefer?
 
@@ -205,7 +205,7 @@ The above `fill="purple"` is an example of a _presentational attribute_. Interes
 
 #### References
 
-- https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Fills_and_Strokes
+- https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorials/SVG_from_scratch/Fills_and_strokes
 
 ### Can you give an example of an @media property other than screen?
 
@@ -234,7 +234,7 @@ Here is an example of `print` media type's usage:
 
 Firstly, understand that browsers match selectors from rightmost (key selector) to left. Browsers filter out elements in the DOM according to the key selector and traverse up its parent elements to determine matches. The shorter the length of the selector chain, the faster the browser can determine if that element matches the selector. Hence avoid key selectors that are tag and universal selectors. They match a large number of elements and browsers will have to do more work in determining if the parents do match.
 
-[BEM (Block Element Modifier)](https://bem.info/) methodology recommends that everything has a single class, and, where you need hierarchy, that gets baked into the name of the class as well, this naturally makes the selector efficient and easy to override.
+[BEM (Block Element Modifier)](https://en.bem.info/) methodology recommends that everything has a single class, and, where you need hierarchy, that gets baked into the name of the class as well, this naturally makes the selector efficient and easy to override.
 
 Be aware of which CSS properties [trigger](https://csstriggers.com/) reflow, repaint, and compositing. Avoid writing styles that change the layout (trigger reflow) where possible.
 
@@ -257,7 +257,7 @@ Be aware of which CSS properties [trigger](https://csstriggers.com/) reflow, rep
 **Disadvantages:**
 
 - Requires tools for preprocessing. Re-compilation time can be slow.
-- Not writing currently and potentially usable CSS. For example, by using something like [postcss-loader](https://github.com/postcss/postcss-loader) with [webpack](https://webpack.js.org/), you can write potentially future-compatible CSS, allowing you to use things like CSS variables instead of Sass variables. Thus, you're learning new skills that could pay off if/when they become standardized.
+- Not writing currently and potentially usable CSS. For example, by using something like [postcss-loader](https://github.com/webpack-contrib/postcss-loader) with [webpack](https://webpack.js.org/), you can write potentially future-compatible CSS, allowing you to use things like CSS variables instead of Sass variables. Thus, you're learning new skills that could pay off if/when they become standardized.
 
 ### Describe what you like and dislike about the CSS preprocessors you have used.
 
@@ -372,7 +372,7 @@ A positioned element is an element whose computed `position` property is either 
 
 #### References
 
-- https://developer.mozilla.org/en/docs/Web/CSS/position
+- https://developer.mozilla.org/en-US/docs/Web/CSS/position
 
 ### What existing CSS frameworks have you used locally, or in production? How would you change/improve them?
 
@@ -446,8 +446,7 @@ Both have these methods have some issues that need to be weighed:
 
 #### References
 
-- https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design
-- http://mediumwell.com/responsive-adaptive-mobile/
+- https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design
 - https://css-tricks.com/the-difference-between-responsive-and-adaptive-design/
 
 ### Have you ever worked with retina graphics? If so, when and what techniques did you use?
@@ -484,7 +483,6 @@ For icons, I would also opt to use SVGs and icon fonts where possible, as they r
 
 - https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/
 - http://scottjehl.github.io/picturefill/
-- https://aclaes.com/responsive-background-images-with-srcset-and-sizes/
 
 ### Is there any reason you'd want to use `translate()` instead of `absolute` positioning, or vice-versa? And why?
 
@@ -498,6 +496,6 @@ When using `translate()`, the element still occupies its original space (sort of
 
 ### Other Answers
 
-- https://neal.codes/blog/front-end-interview-css-questions
+- https://neal.codes/blog/front-end-interview-css-questions/
 - https://quizlet.com/28293152/front-end-interview-questions-css-flash-cards/
 - http://peterdoes.it/2015/12/03/a-personal-exercise-front-end-job-interview-questions-and-my-answers-all/
