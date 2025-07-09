@@ -1,14 +1,12 @@
 // @ts-check
 
 import { PrismaPlugin } from '@prisma/nextjs-monorepo-workaround-plugin';
-import { withContentlayer } from 'next-contentlayer';
+import { withContentlayer } from 'next-contentlayer2';
 
 import remarkFrontmatter from 'remark-frontmatter';
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
 import remarkGfm from 'remark-gfm';
-import remarkSlug from 'remark-slug';
-import remarkExtractToc from '@stefanprobst/remark-extract-toc';
-import remarkExtractTocExport from '@stefanprobst/remark-extract-toc/mdx';
+import rehypeSlug from 'rehype-slug';
 import nextMDX from '@next/mdx';
 import { redirects } from './src/routing/redirects.js';
 
@@ -16,14 +14,8 @@ const withMDX = nextMDX({
   extension: /\.mdx?$/,
   options: {
     format: 'mdx',
-    remarkPlugins: [
-      remarkGfm,
-      remarkFrontmatter,
-      remarkMdxFrontmatter,
-      remarkSlug,
-      remarkExtractToc,
-      remarkExtractTocExport, // Adds toc as exported const for MDX files.
-    ],
+    remarkPlugins: [remarkGfm, remarkFrontmatter, remarkMdxFrontmatter],
+    rehypePlugins: [rehypeSlug],
   },
 });
 

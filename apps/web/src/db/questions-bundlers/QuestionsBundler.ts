@@ -3,17 +3,14 @@ import remarkExtractTocExport from '@stefanprobst/remark-extract-toc/mdx';
 import fs from 'fs';
 import { bundleMDX } from 'mdx-bundler';
 import path, { dirname } from 'path';
-import remarkFrontmatter from 'remark-frontmatter';
 import remarkGfm from 'remark-gfm';
 import remarkMdxCodeMeta from 'remark-mdx-code-meta';
-import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
 import remarkSlug from 'remark-slug';
 
 // Warning! This file will not be shipped in the client bundle.
 // Do not add anything here that will be imported by client-side code.
 
 type Options = Readonly<{
-  extractFrontmatter?: boolean;
   extractHeadings?: boolean;
   loadJSFilesAsText?: boolean;
 }>;
@@ -25,7 +22,10 @@ export async function readMDXFileWithLocaleFallback(
   directoryPath: string,
   locale: string,
   options: Options,
-): Promise<string | null> {
+): Promise<{
+  code: string | null;
+  frontmatter: Record<string, AnyIntentional>;
+}> {
   try {
     return await readMDXFile(
       path.join(directoryPath, `${locale}.mdx`),
@@ -39,16 +39,15 @@ export async function readMDXFileWithLocaleFallback(
 
 export async function readMDXFile(
   filePath: string,
-  {
-    extractFrontmatter = false,
-    extractHeadings = false,
-    loadJSFilesAsText = true,
-  }: Options,
-): Promise<string | null> {
+  { extractHeadings = false, loadJSFilesAsText = true }: Options,
+): Promise<{
+  code: string | null;
+  frontmatter: Record<string, AnyIntentional>;
+}> {
   const source = fs.readFileSync(filePath).toString().trim();
   const fileDirectory = dirname(filePath);
 
-  const { code } = await bundleMDX({
+  const { code, frontmatter } = await bundleMDX({
     cwd: fileDirectory,
     esbuildOptions(options) {
       if (loadJSFilesAsText) {
@@ -71,10 +70,6 @@ export async function readMDXFile(
       remarkPlugins.push(remarkGfm);
       remarkPlugins.push(remarkMdxCodeMeta);
 
-      if (extractFrontmatter) {
-        remarkPlugins.push(remarkFrontmatter, remarkMdxFrontmatter);
-      }
-
       if (extractHeadings) {
         remarkPlugins.push(
           remarkSlug,
@@ -92,5 +87,5 @@ export async function readMDXFile(
     source,
   });
 
-  return code;
+  return { code, frontmatter };
 }

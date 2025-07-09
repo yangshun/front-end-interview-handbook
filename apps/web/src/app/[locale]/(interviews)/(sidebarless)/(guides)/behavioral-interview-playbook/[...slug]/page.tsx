@@ -74,25 +74,23 @@ export default async function Page(props: Props) {
   } = props;
   const { directoryPath } = requestToPaths(props);
 
-  const code = await readMDXFileWithLocaleFallback(directoryPath, locale, {
-    extractFrontmatter: true,
-    extractHeadings: true,
-    loadJSFilesAsText: false,
-  });
-  const {
-    default: Markdown,
-    description,
-    tableOfContents,
-    title,
-  } = getMDXExport(code ?? '', {
+  const { code, frontmatter } = await readMDXFileWithLocaleFallback(
+    directoryPath,
+    locale,
+    {
+      extractHeadings: true,
+      loadJSFilesAsText: false,
+    },
+  );
+  const { default: Markdown, tableOfContents } = getMDXExport(code ?? '', {
     MDXCodeBlock,
   });
 
   return (
     <BehavioralInterviewPlaybookLayout
-      description={description}
+      description={frontmatter.description}
       tableOfContents={tableOfContents}
-      title={title}>
+      title={frontmatter.title}>
       <GuidesMarkdown markdown={Markdown} />
     </BehavioralInterviewPlaybookLayout>
   );

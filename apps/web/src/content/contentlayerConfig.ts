@@ -1,6 +1,6 @@
 // @ts-check
 
-import { makeSource } from 'contentlayer/source-files';
+import { makeSource } from 'contentlayer2/source-files';
 import remarkFrontmatter from 'remark-frontmatter';
 import remarkGfm from 'remark-gfm';
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter';

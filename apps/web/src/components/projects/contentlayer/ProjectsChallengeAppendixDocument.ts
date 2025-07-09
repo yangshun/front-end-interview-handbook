@@ -1,4 +1,4 @@
-import { defineDocumentType } from 'contentlayer/source-files';
+import { defineDocumentType } from 'contentlayer2/source-files';
 import path from 'node:path';
 
 function parseChallengeSlug(sourceFilePath: string) {

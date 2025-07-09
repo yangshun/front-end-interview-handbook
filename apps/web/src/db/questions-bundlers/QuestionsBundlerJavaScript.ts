@@ -174,8 +174,8 @@ export async function readQuestionJavaScript(
   const questionPath = getQuestionSrcPathJavaScript(slug);
   const [
     metadata,
-    description,
-    solution,
+    { code: description },
+    { code: solution },
     skeletonJS,
     skeletonTS,
     files,

@@ -66,7 +66,7 @@ async function generateSetupForQuestion(slug: string) {
 
       paths.sort((a, b) => a.localeCompare(b));
 
-      const [writeupMdx, files, workspace] = await Promise.all([
+      const [{ code: writeupMdx }, files, workspace] = await Promise.all([
         // Read either description or solution Markdown file.
         readMDXFile(
           path.join(frameworksPath, framework, setupType, 'index.mdx'),

@@ -1,4 +1,4 @@
-import { useMDXComponent } from 'next-contentlayer/hooks';
+import { useMDXComponent } from 'next-contentlayer2/hooks';
 
 import MDXComponents from '~/components/mdx/MDXComponents';
 import Prose from '~/components/ui/Prose';

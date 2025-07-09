@@ -63,13 +63,14 @@ export async function readQuestionSystemDesign(
 ): Promise<QuestionSystemDesign> {
   const questionPath = getQuestionSrcPathSystemDesign(slug);
 
-  const [metadata, description, solution] = await Promise.all([
-    readQuestionMetadataSystemDesign(slug, locale),
-    readMDXFile(path.join(questionPath, 'description', `${locale}.mdx`), {}),
-    readMDXFile(path.join(questionPath, 'solution', `${locale}.mdx`), {
-      extractHeadings: true,
-    }),
-  ]);
+  const [metadata, { code: description }, { code: solution }] =
+    await Promise.all([
+      readQuestionMetadataSystemDesign(slug, locale),
+      readMDXFile(path.join(questionPath, 'description', `${locale}.mdx`), {}),
+      readMDXFile(path.join(questionPath, 'solution', `${locale}.mdx`), {
+        extractHeadings: true,
+      }),
+    ]);
 
   return {
     description,

@@ -1,7 +1,7 @@
 import {
   defineDocumentType,
   defineNestedType,
-} from 'contentlayer/source-files';
+} from 'contentlayer2/source-files';
 import readingTime from 'reading-time';
 
 import { BlogAuthorDocument } from './BlogAuthorDocument';

@@ -176,8 +176,8 @@ export async function readQuestionAlgo(
   const questionPath = getQuestionSrcPathAlgo(slug);
   const [
     metadata,
-    description,
-    solution,
+    { code: description },
+    { code: solution },
     skeletonJS,
     skeletonTS,
     files,

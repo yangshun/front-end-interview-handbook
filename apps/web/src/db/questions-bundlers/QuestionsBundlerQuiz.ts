@@ -76,7 +76,7 @@ export async function readQuestionQuiz(
   slug: string,
   locale = 'en-US',
 ): Promise<QuestionQuiz> {
-  const [metadata, description] = await Promise.all([
+  const [metadata, { code: description }] = await Promise.all([
     readQuestionMetadataQuiz(quizSourceConfig, slug, locale),
     readMDXFile(quizSourceConfig.questionsItemFilePath(slug, locale), {}),
   ]);

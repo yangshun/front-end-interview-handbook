@@ -1,4 +1,4 @@
-import { defineDocumentType } from 'contentlayer/source-files';
+import { defineDocumentType } from 'contentlayer2/source-files';
 
 function parseSlug(sourceFileName: string) {
   return sourceFileName.replace(/\.mdx$/, '');
