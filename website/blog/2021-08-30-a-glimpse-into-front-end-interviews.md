@@ -4,7 +4,7 @@ slug: a-glimpse-into-front-end-interviews
 author: Kai Li
 author_title: Software Engineer at Stripe, ex-Quora, ex-Zendesk
 author_url: https://github.com/li-kai
-author_image_url: https://github.com/li-kai.png
+author_image_url: https://avatars.githubusercontent.com/u/14850387?v=4
 tags: [front end, interview]
 hide_table_of_contents: true
 ---
