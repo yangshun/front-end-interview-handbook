@@ -210,6 +210,9 @@ module.exports = {
         gtag: {
           trackingID: 'G-D9B6CHX36V',
         },
+        sitemap: {
+          ignorePatterns: ['/blog/tags/javascript', 'blog/tags/career', 'blog/tags/map', 'blog/tags/object', 'blog/tags/interview', 'blog/tags/front-end', 'blog', 'blog/blog/javascript-object-vs-map', 'blog/a-glimpse-into-front-end-interviews', '/blog/front-end-career-questions', 'blog/are-front-end-development-skills-enough-for-a-career'],
+        },
       },
     ],
   ],
