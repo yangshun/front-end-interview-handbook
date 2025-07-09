@@ -12,8 +12,12 @@
     "tsc": "tsc"
   },
   "dependencies": {
+    "@axiomhq/js": "1.3.1",
     "clsx": "^2.1.1",
+    "date-fns": "2.30.0",
+    "lodash-es": "^4.17.21",
     "next": "14.2.15",
+    "pg": "^8.16.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -25,6 +29,7 @@
     "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/typography": "^0.5.16",
+    "@types/pg": "^8.15.4",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
     "eslint": "^9.26.0",
