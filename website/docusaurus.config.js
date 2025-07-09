@@ -75,7 +75,7 @@ module.exports = {
             </svg>`,
         },
         {
-          href: 'https://discord.gg/NDFx8f6P6B',
+          href: 'https://discord.com/invite/NDFx8f6P6B',
           position: 'right',
           className: 'navbar-icon navbar-icon-discord',
           'aria-label': 'Discord channel',
@@ -166,7 +166,7 @@ module.exports = {
             },
             {
               label: 'Discord',
-              href: 'https://discord.gg/NDFx8f6P6B',
+              href: 'https://discord.com/invite/NDFx8f6P6B',
             },
             {
               label: 'Contact us',
