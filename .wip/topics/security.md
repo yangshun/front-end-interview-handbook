@@ -96,7 +96,7 @@ http://shebang.brandonmintern.com/foolproof-html-escaping-in-javascript/
 
 ## Session hijacking
 
-- https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Cookies
 - https://www.nczonline.net/blog/2009/05/12/cookies-and-security/
 
 ## Framebusting

@@ -73,7 +73,7 @@ However, one perfectly valid use of data attributes, is to add a hook for _end t
 #### References
 
 - http://html5doctor.com/html5-custom-data-attributes/
-- https://www.w3.org/TR/html5/dom.html#embedding-custom-non-visible-data-with-the-data-*-attributes
+- https://html.spec.whatwg.org/multipage/dom.html#embedding-custom-non-visible-data-with-the-data-*-attributes
 
 ### Consider HTML5 as an open web platform. What are the building blocks of HTML5?
 
@@ -88,7 +88,7 @@ However, one perfectly valid use of data attributes, is to add a hook for _end t
 
 #### References
 
-- https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
+- https://developer.mozilla.org/en-US/docs/Glossary/HTML5
 
 ### Describe the difference between a `cookie`, `sessionStorage` and `localStorage`.
 
@@ -107,7 +107,7 @@ _Note: If the user decides to clear browsing data via whatever mechanism provide
 
 #### References
 
-- https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Cookies
 - http://tutorial.techaltum.com/local-and-session-storage.html
 
 ### Describe the difference between `<script>`, `<script async>` and `<script defer>`.
@@ -120,7 +120,7 @@ Note: The `async` and `defer` attributes are ignored for scripts that have no `s
 
 #### References
 
-- http://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html
+- https://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html
 - https://stackoverflow.com/questions/10808109/script-tag-async-defer
 - https://bitsofco.de/async-vs-defer/
 
@@ -158,12 +158,12 @@ Examples of such techniques:
 
 - Lazy loading of images - Images on the page are not loaded all at once. JavaScript will be used to load an image when the user scrolls into the part of the page that displays the image.
 - Prioritizing visible content (or above-the-fold rendering) - Include only the minimum CSS/content/scripts necessary for the amount of page that would be rendered in the users browser first to display as quickly as possible, you can then use deferred scripts or listen for the `DOMContentLoaded`/`load` event to load in other resources and content.
-- Async HTML fragments - Flushing parts of the HTML to the browser as the page is constructed on the back end. More details on the technique can be found [here](http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/).
+- Async HTML fragments - Flushing parts of the HTML to the browser as the page is constructed on the back end. More details on the technique can be found [here](https://innovation.ebayinc.com/stories/async-fragments-rediscovering-progressive-html-rendering-with-marko/).
 
 #### References
 
 - https://stackoverflow.com/questions/33651166/what-is-progressive-rendering
-- http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/
+- https://innovation.ebayinc.com/stories/async-fragments-rediscovering-progressive-html-rendering-with-marko/
 
 ### Why you would use a `srcset` attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute.
 
@@ -181,7 +181,7 @@ If the resolution is retina (2x), the browser will use the closest resolution ab
 
 #### References
 
-- https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
+- https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Responsive_images
 - https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/
 
 ### Have you used different HTML templating languages before?

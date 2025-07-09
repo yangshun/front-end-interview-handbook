@@ -73,7 +73,7 @@ Refer to Google's official interview preparation guides for:
 - You are given four numbers (type int), and have four basic math operators at your disposal (+, -, x, /). Given arbitrary ways to group the numbers and using any of the operators, determine if you can make the number 24 from the four numbers. The numbers must be processed in the order they appear.
 - Find k-nearest points.
 
-_Source: [Glassdoor Google Front End Software Engineer Interview Questions](https://www.glassdoor.sg/Interview/Google-Front-End-Software-Engineer-Interview-Questions-EI_IE9079.0,6_KO7,34.htm), [Google | Front End engineer](https://leetcode.com/discuss/interview-question/271736/google-front-end-engineer-onsite-interview)_
+_Source: [Glassdoor Google Front End Software Engineer Interview Questions](https://www.glassdoor.sg/Interview/Google-Front-End-Software-Engineer-Interview-Questions-EI_IE9079.0,6_KO7,34.htm), [Google | Front End engineer](https://leetcode.com/discuss/post/271736/google-front-end-engineer-by-sithis-kvr1/)_
 
 ## Insider tips from the GreatFrontEnd community
 

@@ -32,7 +32,7 @@ These tips were shared by [GreatFrontEnd](https://www.greatfrontend.com/?utm_sou
 
 **18th Oct 2023**:
 
-> I once had the [Digital Clock](https://www.greatfrontend.com/questions/user-interface/digital-clock/?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) question for Lyft interview 😦 but I had an onsite to be scheduled but they didn't have my level so it seemed futile It was a technical phone interview, they were on the phone and I was live coding on something like a codepad I think it was about an hour, 10 minutes of intro and 10 minutes of questions 🫠
+> I once had the [Digital Clock](https://www.greatfrontend.com/questions/user-interface/digital-clock?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) question for Lyft interview 😦 but I had an onsite to be scheduled but they didn't have my level so it seemed futile It was a technical phone interview, they were on the phone and I was live coding on something like a codepad I think it was about an hour, 10 minutes of intro and 10 minutes of questions 🫠
 
 **4th Mar 2023**:
 

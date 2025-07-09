@@ -9,7 +9,7 @@ Find the latest version of this page on [GreatFrontEnd's JavaScript Quiz Intervi
 
 :::
 
-Answers to [Front-end Job Interview Questions - JS Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/javascript-questions.md). Pull requests for suggestions and corrections are welcome!
+Answers to [Front-end Job Interview Questions - JS Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/main/src/questions/javascript-questions.md). Pull requests for suggestions and corrections are welcome!
 
 import TOCInline from '@theme/TOCInline';
 
@@ -38,15 +38,15 @@ There's no simple explanation for `this`; it is one of the most confusing concep
 5. If multiple of the above rules apply, the rule that is higher wins and will set the `this` value.
 6. If the function is an ES2015 arrow function, it ignores all the rules above and receives the `this` value of its surrounding scope at the time it is created.
 
-For an in-depth explanation, do check out his [article on Medium](https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3).
+For an in-depth explanation, do check out his [article on Medium](https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3?gi=86e207b492c4).
 
 #### Can you give an example of one of the ways that working with this has changed in ES6?
 
-ES6 allows you to use [arrow functions](http://2ality.com/2017/12/alternate-this.html#arrow-functions) which uses the [enclosing lexical scope](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#No_separate_this). This is usually convenient, but does prevent the caller from controlling context via `.call` or `.apply`—the consequences being that a library such as `jQuery` will not properly bind `this` in your event handler functions. Thus, it's important to keep this in mind when refactoring large legacy applications.
+ES6 allows you to use [arrow functions](https://2ality.com/2017/12/alternate-this.html#arrow-functions) which uses the [enclosing lexical scope](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#No_separate_this). This is usually convenient, but does prevent the caller from controlling context via `.call` or `.apply`—the consequences being that a library such as `jQuery` will not properly bind `this` in your event handler functions. Thus, it's important to keep this in mind when refactoring large legacy applications.
 
 #### References
 
-- https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3
+- https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3?gi=86e207b492c4
 - https://stackoverflow.com/a/3127440/1751946
 
 ### Explain how prototypal inheritance works
@@ -99,7 +99,7 @@ Things to note are:
 - https://www.quora.com/What-is-prototypal-inheritance/answer/Kyle-Simpson
 - https://davidwalsh.name/javascript-objects
 - https://crockford.com/javascript/prototypal.html
-- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain
 
 ### What do you think of AMD vs CommonJS?
 
@@ -132,7 +132,7 @@ console.log(foo); // undefined
 
 #### References
 
-- http://lucybain.com/blog/2014/immediately-invoked-function-expression/
+- https://lucybain.com/blog/2014/immediately-invoked-function-expression/
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void
 
 ### What's the difference between a variable that is: `null`, `undefined` or undeclared? How would you go about checking for any of these states?
@@ -178,7 +178,7 @@ As a personal habit, I never leave my variables undeclared or unassigned. I will
 #### References
 
 - https://stackoverflow.com/questions/15985875/effect-of-declared-and-undeclared-variables
-- https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/undefined
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined
 
 ### What is a closure, and how/why would you use one?
 
@@ -191,7 +191,7 @@ A closure is the combination of a function and the lexical environment within wh
 
 #### References
 
-- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Closures
 - https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36
 
 ### Can you describe the main difference between a `.forEach` loop and a `.map()` loop and why you would pick one versus the other?
@@ -231,7 +231,7 @@ The main difference between `.forEach` and `.map()` is that `.map()` returns a n
 
 #### References
 
-- https://codeburst.io/javascript-map-vs-foreach-f38111822c0f
+- https://codeburst.io/javascript-map-vs-foreach-f38111822c0f?gi=c9bc30cbec28
 
 ### What's a typical use case for anonymous functions?
 
@@ -325,7 +325,7 @@ console.log(add.apply(null, [1, 2])); // 3
 
 ### Explain `Function.prototype.bind`.
 
-Taken word-for-word from [MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind):
+Taken word-for-word from [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind):
 
 > The `bind()` method creates a new function that, when called, has its `this` keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called.
 
@@ -333,7 +333,7 @@ In my experience, it is most useful for binding the value of `this` in methods o
 
 #### References
 
-- https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind
 
 ### When would you use `document.write()`?
 
@@ -344,7 +344,7 @@ There are some answers online that explain `document.write()` is being used in a
 #### References
 
 - https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html
-- https://github.com/h5bp/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag
+- https://github.com/h5bp/html5-boilerplate/wiki/#documentwrite-script-tag
 
 ### What's the difference between feature detection, feature inference, and using the UA string?
 
@@ -380,9 +380,9 @@ This is a browser-reported string that allows the network protocol peers to iden
 
 #### References
 
-- https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/Feature_detection
+- https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Testing/Feature_detection
 - https://stackoverflow.com/questions/20104930/whats-the-difference-between-feature-detection-feature-inference-and-using-th
-- https://developer.mozilla.org/en-US/docs/Web/HTTP/Browser_detection_using_the_user_agent
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Browser_detection_using_the_user_agent
 
 ### Explain Ajax in as much detail as possible.
 
@@ -393,7 +393,7 @@ The `XMLHttpRequest` API is frequently used for the asynchronous communication o
 #### References
 
 - https://en.wikipedia.org/wiki/Ajax_(programming)
-- https://developer.mozilla.org/en-US/docs/AJAX
+- https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Network_requests
 
 ### What are the advantages and disadvantages of using Ajax?
 
@@ -498,7 +498,7 @@ let y = 'local';
 
 #### References
 
-- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_Types#Variable_hoisting
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Variable_hoisting
 - https://stackoverflow.com/questions/31219420/are-variables-declared-with-let-or-const-not-hoisted-in-es6/31222689#31222689
 
 ### Describe event bubbling.
@@ -534,7 +534,7 @@ The only time you may want to extend a native object is when you want to create 
 
 #### References
 
-- http://lucybain.com/blog/2014/js-extending-built-in-objects/
+- https://lucybain.com/blog/2014/js-extending-built-in-objects/
 
 ### Difference between document `load` event and document `DOMContentLoaded` event?
 
@@ -544,8 +544,8 @@ The `DOMContentLoaded` event is fired when the initial HTML document has been co
 
 #### References
 
-- https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded
-- https://developer.mozilla.org/en-US/docs/Web/Events/load
+- https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event
+- https://developer.mozilla.org/en-US/docs/Web/API/Window/load_event
 
 ### What is the difference between `==` and `===`?
 
@@ -608,7 +608,7 @@ duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 
 #### References
 
-- https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_operator
 
 ### What is `"use strict";`? What are the advantages and disadvantages to using it?
 
@@ -634,8 +634,8 @@ Overall, I think the benefits outweigh the disadvantages, and I never had to rel
 
 #### References
 
-- http://2ality.com/2011/10/strict-mode-hatred.html
-- http://lucybain.com/blog/2014/js-use-strict/
+- https://2ality.com/2011/10/strict-mode-hatred.html
+- https://lucybain.com/blog/2014/js-use-strict/
 
 ### Create a for loop that iterates up to `100` while outputting **"fizz"** at multiples of `3`, **"buzz"** at multiples of `5` and **"fizzbuzz"** at multiples of `3` and `5`.
 
@@ -667,7 +667,7 @@ The DOM event `DOMContentLoaded` will fire after the DOM for the page has been c
 
 #### References
 
-- https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onload
+- https://developer.mozilla.org/en-US/docs/Web/API/Window/load_event
 
 ### Explain what a single page app is and how to make one SEO-friendly.
 
@@ -675,7 +675,7 @@ The below is taken from the awesome [Grab Front End Guide](https://github.com/gr
 
 Web developers these days refer to the products they build as web apps, rather than websites. While there is no strict difference between the two terms, web apps tend to be highly interactive and dynamic, allowing the user to perform actions and receive a response to their action. Traditionally, the browser receives HTML from the server and renders it. When the user navigates to another URL, a full-page refresh is required and the server sends fresh new HTML to the new page. This is called server-side rendering.
 
-However, in modern SPAs, client-side rendering is used instead. The browser loads the initial page from the server, along with the scripts (frameworks, libraries, app code) and stylesheets required for the whole app. When the user navigates to other pages, a page refresh is not triggered. The URL of the page is updated via the [HTML5 History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API). New data required for the new page, usually in JSON format, is retrieved by the browser via [AJAX](https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started) requests to the server. The SPA then dynamically updates the page with the data via JavaScript, which it has already downloaded in the initial page load. This model is similar to how native mobile apps work.
+However, in modern SPAs, client-side rendering is used instead. The browser loads the initial page from the server, along with the scripts (frameworks, libraries, app code) and stylesheets required for the whole app. When the user navigates to other pages, a page refresh is not triggered. The URL of the page is updated via the [HTML5 History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API). New data required for the new page, usually in JSON format, is retrieved by the browser via [AJAX](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Network_requests) requests to the server. The SPA then dynamically updates the page with the data via JavaScript, which it has already downloaded in the initial page load. This model is similar to how native mobile apps work.
 
 The benefits:
 
@@ -692,9 +692,9 @@ The downsides:
 #### References
 
 - https://github.com/grab/front-end-guide#single-page-apps-spas
-- http://stackoverflow.com/questions/21862054/single-page-app-advantages-and-disadvantages
-- http://blog.isquaredsoftware.com/presentations/2016-10-revolution-of-web-dev/
-- https://medium.freecodecamp.com/heres-why-client-side-rendering-won-46a349fadb52
+- https://stackoverflow.com/questions/21862054/single-page-app-advantages-and-disadvantages
+- https://blog.isquaredsoftware.com/presentations/2016-10-revolution-of-web-dev/
+- https://www.freecodecamp.org/news/heres-why-client-side-rendering-won-46a349fadb52
 
 ### What is the extent of your experience with Promises and/or their polyfills?
 
@@ -759,17 +759,16 @@ Practically, ES2015 has vastly improved JavaScript and made it much nicer to wri
 
 - React and Redux
   - [React Devtools](https://github.com/facebook/react-devtools)
-  - [Redux Devtools](https://github.com/gaearon/redux-devtools)
+  - [Redux Devtools](https://github.com/reduxjs/redux-devtools)
 - Vue
-  - [Vue Devtools](https://github.com/vuejs/vue-devtools)
+  - [Vue Devtools](https://github.com/vuejs/devtools-v6)
 - JavaScript
-  - [Chrome Devtools](https://hackernoon.com/twelve-fancy-chrome-devtools-tips-dc1e39d10d9d)
+  - Chrome Devtools
   - `debugger` statement
   - Good old `console.log` debugging
 
 #### References
 
-- https://hackernoon.com/twelve-fancy-chrome-devtools-tips-dc1e39d10d9d
 - https://raygun.com/learn/javascript-debugging-tips
 
 ### What language constructions do you use for iterating over object properties and array items?
@@ -800,7 +799,7 @@ for (let [index, elem] of arr.entries()) {
 
 #### References
 
-- http://2ality.com/2015/08/getting-started-es6.html#from-for-to-foreach-to-for-of
+- https://2ality.com/2015/08/getting-started-es6.html#from-for-to-foreach-to-for-of
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/entries
 
 ### Explain the difference between mutable and immutable objects.
@@ -1082,7 +1081,7 @@ It's much more verbose to use inheritance in ES5 and the ES6 version is easier t
 
 #### References
 
-- https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance
+- https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Advanced_JavaScript_objects/Classes_in_JavaScript
 - https://eli.thegreenplace.net/2013/10/22/classical-inheritance-in-javascript-es5
 
 ### Can you offer a use case for the new arrow => function syntax? How does this new syntax differ from other functions?
@@ -1129,12 +1128,12 @@ sayNameFromWindow2(); // John
 
 The main takeaway here is that `this` can be changed for a normal function, but the context always stays the same for an arrow function. So even if you are passing around your arrow function to different parts of your application, you wouldn't have to worry about the context changing.
 
-This can be particularly helpful in React class components. If you define a class method for something such as a click handler using a normal function, and then you pass that click handler down into a child component as a prop, you will need to also bind `this` in the constructor of the parent component. If you instead use an arrow function, there is no need to also bind "this", as the method will automatically get its "this" value from its enclosing lexical context. (See this article for an excellent demonstration and sample code: https://medium.com/@machnicki/handle-events-in-react-with-arrow-functions-ede88184bbb)
+This can be particularly helpful in React class components. If you define a class method for something such as a click handler using a normal function, and then you pass that click handler down into a child component as a prop, you will need to also bind `this` in the constructor of the parent component. If you instead use an arrow function, there is no need to also bind "this", as the method will automatically get its "this" value from its enclosing lexical context. (See this article for an excellent demonstration and sample code: https://machnicki.medium.com/handle-events-in-react-with-arrow-functions-ede88184bbb)
 
 #### References
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
-- https://medium.com/@machnicki/handle-events-in-react-with-arrow-functions-ede88184bbb
+- https://machnicki.medium.com/handle-events-in-react-with-arrow-functions-ede88184bbb
 
 ### What is the definition of a higher-order function?
 
@@ -1215,7 +1214,7 @@ console.log(q); // true
 
 #### References
 
-- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring
 - https://ponyfoo.com/articles/es6-destructuring-in-depth
 
 ### ES6 Template Literals offer a lot of flexibility in generating strings, can you give an example?
@@ -1361,7 +1360,7 @@ const { e, f, ...others } = {
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters
-- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring
 
 ### How can you share code between files?
 
@@ -1375,9 +1374,9 @@ ES2015 defines a module syntax which aims to replace both AMD and CommonJS. This
 
 #### References
 
-- http://requirejs.org/docs/whyamd.html
+- https://requirejs.org/docs/whyamd.html
 - https://nodejs.org/docs/latest/api/modules.html
-- http://2ality.com/2014/09/es6-modules-final.html
+- https://2ality.com/2014/09/es6-modules-final.html
 
 ### Why might you want to create static class members?
 

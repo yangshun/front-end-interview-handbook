@@ -43,7 +43,7 @@ WIP.
 - Prototype chain
 - `this` keyword
   - https://rainsoft.io/gentle-explanation-of-this-in-javascript/
-  - https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3
+  - https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3?gi=86e207b492c4
 - Classes
   - Methods
     - Use non-arrow functions for methods that will be called using the `object.method()` syntax because you need the value of `this` to point to the instance itself.
