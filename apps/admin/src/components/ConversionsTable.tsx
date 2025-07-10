@@ -27,6 +27,7 @@ export type DayData = Readonly<{
     CheckoutInitiate: number;
     CheckoutInitiateRate: string;
     CheckoutInitiateSameDay: number;
+    CheckoutInitiateSameDayRate: string;
     CheckoutInitiateToCheckoutSuccessRate: string;
     CheckoutInitiateToCheckoutSuccessSameDayRate: string;
     CheckoutSuccess: number;
@@ -98,6 +99,9 @@ export default function ConversionsTable({
     CheckoutInitiateRate: conversionsRows.map((r) =>
       parsePercent(r.data.CheckoutInitiateRate),
     ),
+    CheckoutInitiateSameDayRate: conversionsRows.map((r) =>
+      parsePercent(r.data.CheckoutInitiateSameDayRate),
+    ),
     CheckoutInitiateToCheckoutSuccessRate: conversionsRows.map((r) =>
       parsePercent(r.data.CheckoutInitiateToCheckoutSuccessRate),
     ),
@@ -119,6 +123,7 @@ export default function ConversionsTable({
   };
 
   const columns: Array<{
+    className?: string;
     description?: React.ReactNode;
     getValue: (
       row: DayData,
@@ -141,7 +146,7 @@ export default function ConversionsTable({
     },
     {
       description:
-        'All payments minus (Payment for invoice + Subscription updates)',
+        'All payments minus (Payment for invoice & Subscription updates)',
       getValue: (row) => row.data.CheckoutSuccess,
       header: 'New payments',
       key: 'CheckoutSuccess',
@@ -154,6 +159,7 @@ export default function ConversionsTable({
       key: 'CheckoutInitiate',
     },
     {
+      className: 'bg-indigo-600',
       description:
         'Number of unique user fingerprints minus (purchaser fingerprints) detected on the website',
       getValue: (row) => row.data.NumVisits,
@@ -161,24 +167,28 @@ export default function ConversionsTable({
       key: 'NumVisits',
     },
     {
+      className: 'bg-indigo-600',
       description: '(# Checkout initiate) / (# Non-purchaser fingerprints)',
       getValue: (row) => `${row.data.CheckoutInitiateRate}%`,
       header: 'Checkout initiate rate',
       key: 'CheckoutInitiateRate',
     },
     {
+      className: 'bg-indigo-600',
       description: '(# New payments) / (# Non-purchaser fingerprints)',
       getValue: (row) => `${row.data.CheckoutSuccessRate}%`,
       header: 'Conversion rate',
       key: 'CheckoutSuccessRate',
     },
     {
+      className: 'bg-indigo-600',
       description: '(# New payments) / (# Checkout initiate)',
       getValue: (row) => `${row.data.CheckoutInitiateToCheckoutSuccessRate}%`,
       header: 'Checkout initiate to conversion rate',
       key: 'CheckoutInitiateToCheckoutSuccessRate',
     },
     {
+      className: 'bg-pink-600',
       description:
         'Fingerprints which visited for the first time in the last 24 hours',
       getValue: (row) => row.data.NumFirstVisits,
@@ -186,9 +196,10 @@ export default function ConversionsTable({
       key: 'NumFirstVisits',
     },
     {
+      className: 'bg-pink-600',
       description:
         '(# First visit checkout initiates) / (# First visit fingerprints)',
-      getValue: (row) => `${row.data.CheckoutInitiateToCheckoutSuccessRate}%`,
+      getValue: (row) => `${row.data.CheckoutInitiateSameDayRate}%`,
       header: (
         <>
           Checkout initiate rate
@@ -196,9 +207,10 @@ export default function ConversionsTable({
           (first visit)
         </>
       ),
-      key: 'CheckoutInitiateToCheckoutSuccessRate',
+      key: 'CheckoutInitiateSameDayRate',
     },
     {
+      className: 'bg-pink-600',
       description: 'Purchase made within 24 hours of first visit',
       getValue: (row) => row.data.CheckoutSuccessSameDay,
       header: (
@@ -211,6 +223,7 @@ export default function ConversionsTable({
       key: 'CheckoutSuccessSameDay',
     },
     {
+      className: 'bg-pink-600',
       description: '(# First visit conversions) / (# First visit fingerprints)',
       getValue: (row) => `${row.data.CheckoutSuccessSameDayRate}%`,
       header: (
@@ -223,6 +236,7 @@ export default function ConversionsTable({
       key: 'CheckoutSuccessSameDayRate',
     },
     {
+      className: 'bg-pink-600',
       description:
         '(# First visit conversions) / (# First visit checkout initiates)',
       getValue: (row) =>
@@ -237,12 +251,14 @@ export default function ConversionsTable({
       key: 'CheckoutInitiateToCheckoutSuccessSameDayRate',
     },
     {
+      className: 'bg-teal-500',
       description: 'Number of users who signed up for an account',
       getValue: (_row, signUp) => signUp?.signUps ?? 0,
       header: 'Signups',
       key: null,
     },
     {
+      className: 'bg-teal-500',
       description:
         'Number of users who signed up for an account using email method',
       getValue: (_row, signUp) => signUp?.emailSignUps ?? 0,
@@ -250,6 +266,7 @@ export default function ConversionsTable({
       key: null,
     },
     {
+      className: 'bg-teal-500',
       description:
         'Number of users who have email as their primary sign up method but did not verify (on that day) out of users who signed up using email',
       getValue: (_row, signUp) =>
@@ -296,7 +313,10 @@ export default function ConversionsTable({
             Week
           </th>
           {columns.map((col, i) => (
-            <th key={i} className={thClassname} scope="col">
+            <th
+              key={i}
+              className={clsx(thClassname, col.className)}
+              scope="col">
               {col.description ? (
                 <Tooltip asChild={true} invert={true} label={col.description}>
                   <span>{col.header}</span>
