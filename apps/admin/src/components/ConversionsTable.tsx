@@ -1,5 +1,7 @@
 import clsx from 'clsx';
-import { addDays } from 'date-fns';
+import { addDays, format } from 'date-fns';
+
+import Tooltip from './ui/Tooltip';
 
 /* eslint-disable react/no-array-index-key */
 
@@ -117,6 +119,7 @@ export default function ConversionsTable({
   };
 
   const columns: Array<{
+    description?: React.ReactNode;
     getValue: (
       row: DayData,
       signUp:
@@ -132,46 +135,59 @@ export default function ConversionsTable({
   }> = [
     {
       getValue: (row) =>
-        new Date(row.data.time).toLocaleDateString('en-US', dateFormat),
+        `${format(new Date(row.data.time), 'EEE')}, ${new Date(row.data.time).toLocaleDateString('en-US', dateFormat)}`,
       header: 'Date (GMT+8)',
       key: null,
     },
     {
+      description:
+        'All payments minus (Payment for invoice + Subscription updates)',
       getValue: (row) => row.data.CheckoutSuccess,
       header: 'New payments',
       key: 'CheckoutSuccess',
     },
     {
+      description:
+        'Number of unique user fingerprints who have pressed checkout initiate',
       getValue: (row) => row.data.CheckoutInitiate,
       header: 'Checkout initiate',
       key: 'CheckoutInitiate',
     },
     {
+      description:
+        'Number of unique user fingerprints minus (purchaser fingerprints) detected on the website',
       getValue: (row) => row.data.NumVisits,
       header: 'Non-purchasers',
       key: 'NumVisits',
     },
     {
+      description: '(# Checkout initiate) / (# Non-purchaser fingerprints)',
       getValue: (row) => `${row.data.CheckoutInitiateRate}%`,
       header: 'Checkout initiate rate',
       key: 'CheckoutInitiateRate',
     },
     {
+      description: '(# New payments) / (# Non-purchaser fingerprints)',
       getValue: (row) => `${row.data.CheckoutSuccessRate}%`,
       header: 'Conversion rate',
       key: 'CheckoutSuccessRate',
     },
     {
+      description: '(# New payments) / (# Checkout initiate)',
       getValue: (row) => `${row.data.CheckoutInitiateToCheckoutSuccessRate}%`,
       header: 'Checkout initiate to conversion rate',
       key: 'CheckoutInitiateToCheckoutSuccessRate',
     },
     {
+      description:
+        'Fingerprints which visited for the first time in the last 24 hours',
       getValue: (row) => row.data.NumFirstVisits,
       header: 'First visits',
       key: 'NumFirstVisits',
     },
     {
+      description:
+        '(# First visit checkout initiates) / (# First visit fingerprints)',
       getValue: (row) => `${row.data.CheckoutInitiateToCheckoutSuccessRate}%`,
       header: (
         <>
@@ -183,6 +199,7 @@ export default function ConversionsTable({
       key: 'CheckoutInitiateToCheckoutSuccessRate',
     },
     {
+      description: 'Purchase made within 24 hours of first visit',
       getValue: (row) => row.data.CheckoutSuccessSameDay,
       header: (
         <>
@@ -194,6 +211,7 @@ export default function ConversionsTable({
       key: 'CheckoutSuccessSameDay',
     },
     {
+      description: '(# First visit conversions) / (# First visit fingerprints)',
       getValue: (row) => `${row.data.CheckoutSuccessSameDayRate}%`,
       header: (
         <>
@@ -205,6 +223,8 @@ export default function ConversionsTable({
       key: 'CheckoutSuccessSameDayRate',
     },
     {
+      description:
+        '(# First visit conversions) / (# First visit checkout initiates)',
       getValue: (row) =>
         `${row.data.CheckoutInitiateToCheckoutSuccessSameDayRate}%`,
       header: (
@@ -217,16 +237,21 @@ export default function ConversionsTable({
       key: 'CheckoutInitiateToCheckoutSuccessSameDayRate',
     },
     {
+      description: 'Number of users who signed up for an account',
       getValue: (_row, signUp) => signUp?.signUps ?? 0,
       header: 'Signups',
       key: null,
     },
     {
+      description:
+        'Number of users who signed up for an account using email method',
       getValue: (_row, signUp) => signUp?.emailSignUps ?? 0,
       header: 'Email signups',
       key: null,
     },
     {
+      description:
+        'Number of users who have email as their primary sign up method but did not verify (on that day) out of users who signed up using email',
       getValue: (_row, signUp) =>
         signUp && signUp.signUps > 0
           ? `${((signUp.confirmedEmailSignUps / signUp.emailSignUps) * 100).toFixed(2)}%`
@@ -272,7 +297,13 @@ export default function ConversionsTable({
           </th>
           {columns.map((col, i) => (
             <th key={i} className={thClassname} scope="col">
-              {col.header}
+              {col.description ? (
+                <Tooltip asChild={true} invert={true} label={col.description}>
+                  <span>{col.header}</span>
+                </Tooltip>
+              ) : (
+                col.header
+              )}
             </th>
           ))}
         </tr>
