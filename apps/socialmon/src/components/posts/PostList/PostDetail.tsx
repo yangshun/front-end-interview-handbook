@@ -108,19 +108,21 @@ export default function PostDetail({
   return (
     <Flex direction="column" gap="sm">
       <Flex direction="column">
-        <Flex align="center" gap="xs">
-          <Text size="sm">
-            <Anchor
-              className="z-1"
-              href={`https://reddit.com/${post.subreddit}`}
-              target="_blank"
-              underline="hover">
+        <Flex align="center" gap={4}>
+          <Anchor
+            className="z-1"
+            href={`https://reddit.com/${post.subreddit}`}
+            target="_blank"
+            underline="hover">
+            <Text className="text-slate-700" fw={500} size="xs">
               {post.subreddit}
-            </Anchor>
+            </Text>
+          </Anchor>
+          <Text fw="bold" size="xs">
+            &middot;
           </Text>
-          &middot;
           <Tooltip label="Post fetched at" withArrow={true}>
-            <Text c="dimmed" size="sm" span={true}>
+            <Text c="dimmed" size="xs" span={true}>
               {new Intl.DateTimeFormat(undefined, {
                 day: 'numeric',
                 hour: 'numeric',
@@ -133,7 +135,7 @@ export default function PostDetail({
             </Text>
           </Tooltip>
         </Flex>
-        <Flex direction="column" gap={2} justify="space-between" mb="xs">
+        <Flex direction="column" gap={4} justify="space-between">
           <Title order={2}>{post.title}</Title>
           <PostMetadata post={post} showViewPost={true} />
         </Flex>

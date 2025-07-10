@@ -130,8 +130,6 @@ export default function PostList() {
                 key={post.id}
                 isSelected={selectedPostId === post.id}
                 post={post}
-                showMarkedAsIrrelevant={activeTab === 'ALL'}
-                showRepliedBadge={activeTab === 'ALL'}
                 onClick={() => handlePostClick(post.id)}
               />
             ))}

@@ -18,36 +18,30 @@ type Props = Readonly<{
     title: string;
     upvoteCount: number;
   }>;
-  showMarkedAsIrrelevant?: boolean;
-  showRepliedBadge?: boolean;
 }>;
 
-export default function PostItem({
-  isSelected,
-  onClick,
-  post,
-  showMarkedAsIrrelevant,
-  showRepliedBadge,
-}: Props) {
+export default function PostItem({ isSelected, onClick, post }: Props) {
   return (
     <Box
       bg={isSelected ? 'gray.1' : 'white'}
-      className={clsx('w-full', 'p-3', 'flex flex-col gap-1', 'rounded-lg')}
+      className={clsx('w-full', 'p-3', 'flex flex-col', 'rounded-lg')}
       onClick={onClick} // Use onClick instead of Link
     >
-      <Flex align="center" gap={8}>
-        <Text size="sm">
-          <Anchor
-            className="z-1"
-            href={`https://reddit.com/${post.subreddit}`}
-            target="_blank"
-            underline="hover">
+      <Flex align="center" gap={4}>
+        <Anchor
+          className="z-1"
+          href={`https://reddit.com/${post.subreddit}`}
+          target="_blank"
+          underline="hover">
+          <Text className="black" fw={500} size="xs">
             {post.subreddit}
-          </Anchor>
+          </Text>
+        </Anchor>
+        <Text fw="bold" size="xs">
+          &middot;
         </Text>
-        &middot;
         <Tooltip label="Post fetched at" withArrow={true}>
-          <Text c="dimmed" size="sm" span={true}>
+          <Text c="dimmed" size="xs" span={true}>
             {new Intl.DateTimeFormat(undefined, {
               day: 'numeric',
               hour: 'numeric',
@@ -60,14 +54,10 @@ export default function PostItem({
           </Text>
         </Tooltip>
       </Flex>
-      <Title className="line-clamp-1" order={3} size="h5">
+      <Title className="line-clamp-2" mb={6} mt={2} order={3} size="h5">
         {post.title}
       </Title>
-      <PostMetadata
-        post={post as PostExtended}
-        showMarkedAsIrrelevant={showMarkedAsIrrelevant}
-        showRepliedBadge={showRepliedBadge}
-      />
+      <PostMetadata post={post as PostExtended} />
     </Box>
   );
 }

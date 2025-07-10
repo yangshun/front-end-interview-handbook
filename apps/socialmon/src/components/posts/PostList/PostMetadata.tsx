@@ -9,46 +9,38 @@ import PostStats from './PostStats';
 
 type Props = Readonly<{
   post: PostExtended;
-  showMarkedAsIrrelevant?: boolean;
-  showRepliedBadge?: boolean;
   showViewPost?: boolean;
 }>;
 
-export default function PostMetadata({
-  post,
-  showMarkedAsIrrelevant = true,
-  showRepliedBadge = true,
-  showViewPost,
-}: Props) {
+export default function PostMetadata({ post, showViewPost }: Props) {
   return (
-    <div className="flex flex-col gap-1">
-      <div className="flex flex-wrap items-center justify-between gap-2">
-        <div className="flex flex-wrap items-center gap-4">
-          <PostStats post={post} />
-          {post.replied !== 'NOT_REPLIED' && showRepliedBadge && (
-            <Badge color="orange" size="sm" variant="light">
-              Replied
-            </Badge>
-          )}
-          {post.relevancy === 'IRRELEVANT' && showMarkedAsIrrelevant && (
-            <Badge color="blue" size="sm" variant="light">
-              Irrelevant
-            </Badge>
-          )}
-        </div>
-        {showViewPost && (
-          <Button
-            color="orange"
-            component={Link}
-            href={redditPermalinkToUrl(post.permalink)}
-            rightSection={<RiArrowRightUpLine />}
-            size="xs"
-            target="_blank"
-            variant="light">
-            View on Reddit
-          </Button>
+    <div className="flex flex-wrap items-center justify-between gap-2">
+      <div className="flex flex-wrap items-center gap-4">
+        <PostStats post={post} />
+        {(post.replied === 'REPLIED_MANUALLY' ||
+          post.replied === 'REPLIED_VIA_APP') && (
+          <Badge color="orange" size="sm" variant="light">
+            Replied
+          </Badge>
+        )}
+        {post.relevancy === 'IRRELEVANT' && (
+          <Badge color="blue" size="sm" variant="light">
+            Irrelevant
+          </Badge>
         )}
       </div>
+      {showViewPost && (
+        <Button
+          color="orange"
+          component={Link}
+          href={redditPermalinkToUrl(post.permalink)}
+          rightSection={<RiArrowRightUpLine />}
+          size="xs"
+          target="_blank"
+          variant="subtle">
+          View on Reddit
+        </Button>
+      )}
     </div>
   );
 }

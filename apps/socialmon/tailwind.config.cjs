@@ -105,7 +105,7 @@ module.exports = {
         warning: orange,
       },
       fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        sans: "-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol',sans-serif",
       },
       fontSize: {
         '2xs': ['0.625rem', { lineHeight: '0.875rem' }],
