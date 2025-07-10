@@ -24,7 +24,7 @@ module.exports = {
     navbar: {
       title: 'Front End Interview Handbook',
       logo: {
-        alt: '',
+        alt: 'Front End Interview Handbook Logo',
         src: 'img/logo.svg',
       },
       items: [
