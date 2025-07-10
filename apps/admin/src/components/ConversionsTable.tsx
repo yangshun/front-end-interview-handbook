@@ -222,6 +222,11 @@ export default function ConversionsTable({
       key: null,
     },
     {
+      getValue: (_row, signUp) => signUp?.emailSignUps ?? 0,
+      header: 'Email signups',
+      key: null,
+    },
+    {
       getValue: (_row, signUp) =>
         signUp && signUp.signUps > 0
           ? `${((signUp.confirmedEmailSignUps / signUp.emailSignUps) * 100).toFixed(2)}%`
