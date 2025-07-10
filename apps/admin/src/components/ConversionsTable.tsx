@@ -4,8 +4,8 @@ import { addDays } from 'date-fns';
 /* eslint-disable react/no-array-index-key */
 
 const thClassname =
-  'sticky top-0 z-10 px-2 py-2 text-left text-sm font-semibold text-gray-100 bg-gray-900 align-top';
-const tdClassname = 'px-2 py-2 text-sm text-gray-900';
+  'sticky top-0 z-10 px-2 py-2 text-left text-xs font-semibold text-gray-100 bg-gray-900 align-top';
+const tdClassname = 'px-2 py-2 text-xs text-gray-900 whitespace-nowrap';
 
 export type SignupData = Readonly<{
   date: string;
@@ -25,7 +25,8 @@ export type DayData = Readonly<{
     CheckoutInitiate: number;
     CheckoutInitiateRate: string;
     CheckoutInitiateSameDay: number;
-    CheckoutInitiateSameDayRate: string;
+    CheckoutInitiateToCheckoutSuccessRate: string;
+    CheckoutInitiateToCheckoutSuccessSameDayRate: string;
     CheckoutSuccess: number;
     CheckoutSuccessRate: string;
     CheckoutSuccessSameDay: number;
@@ -95,8 +96,11 @@ export default function ConversionsTable({
     CheckoutInitiateRate: conversionsRows.map((r) =>
       parsePercent(r.data.CheckoutInitiateRate),
     ),
-    CheckoutInitiateSameDayRate: conversionsRows.map((r) =>
-      parsePercent(r.data.CheckoutInitiateSameDayRate),
+    CheckoutInitiateToCheckoutSuccessRate: conversionsRows.map((r) =>
+      parsePercent(r.data.CheckoutInitiateToCheckoutSuccessRate),
+    ),
+    CheckoutInitiateToCheckoutSuccessSameDayRate: conversionsRows.map((r) =>
+      parsePercent(r.data.CheckoutInitiateToCheckoutSuccessSameDayRate),
     ),
     CheckoutSuccess: conversionsRows.map((r) => r.data.CheckoutSuccess),
     CheckoutSuccessRate: conversionsRows.map((r) =>
@@ -129,39 +133,8 @@ export default function ConversionsTable({
     {
       getValue: (row) =>
         new Date(row.data.time).toLocaleDateString('en-US', dateFormat),
-      header: 'Date',
+      header: 'Date (GMT+8)',
       key: null,
-    },
-    {
-      getValue: (row) => row.data.NumVisits,
-      header: 'Non-purchasers',
-      key: 'NumVisits',
-    },
-    {
-      getValue: (row) => row.data.NumFirstVisits,
-      header: 'First visits',
-      key: 'NumFirstVisits',
-    },
-    {
-      getValue: (row) => row.data.CheckoutInitiate,
-      header: 'Checkout initiates',
-      key: 'CheckoutInitiate',
-    },
-    {
-      getValue: (row) => `${row.data.CheckoutInitiateRate}%`,
-      header: <>Checkout initiate rate</>,
-      key: 'CheckoutInitiateRate',
-    },
-    {
-      getValue: (row) => `${row.data.CheckoutInitiateSameDayRate}%`,
-      header: (
-        <>
-          Checkout initiate rate
-          <br />
-          (same day)
-        </>
-      ),
-      key: 'CheckoutInitiateSameDayRate',
     },
     {
       getValue: (row) => row.data.CheckoutSuccess,
@@ -169,17 +142,53 @@ export default function ConversionsTable({
       key: 'CheckoutSuccess',
     },
     {
+      getValue: (row) => row.data.CheckoutInitiate,
+      header: 'Checkout initiate',
+      key: 'CheckoutInitiate',
+    },
+    {
+      getValue: (row) => row.data.NumVisits,
+      header: 'Non-purchasers',
+      key: 'NumVisits',
+    },
+    {
+      getValue: (row) => `${row.data.CheckoutInitiateRate}%`,
+      header: 'Checkout initiate rate',
+      key: 'CheckoutInitiateRate',
+    },
+    {
       getValue: (row) => `${row.data.CheckoutSuccessRate}%`,
       header: 'Conversion rate',
       key: 'CheckoutSuccessRate',
     },
     {
+      getValue: (row) => `${row.data.CheckoutInitiateToCheckoutSuccessRate}%`,
+      header: 'Checkout initiate to conversion rate',
+      key: 'CheckoutInitiateToCheckoutSuccessRate',
+    },
+    {
+      getValue: (row) => row.data.NumFirstVisits,
+      header: 'First visits',
+      key: 'NumFirstVisits',
+    },
+    {
+      getValue: (row) => `${row.data.CheckoutInitiateToCheckoutSuccessRate}%`,
+      header: (
+        <>
+          Checkout initiate rate
+          <br />
+          (first visit)
+        </>
+      ),
+      key: 'CheckoutInitiateToCheckoutSuccessRate',
+    },
+    {
       getValue: (row) => row.data.CheckoutSuccessSameDay,
       header: (
         <>
-          New payments
+          Conversions
           <br />
-          (same day)
+          (first visit)
         </>
       ),
       key: 'CheckoutSuccessSameDay',
@@ -190,10 +199,22 @@ export default function ConversionsTable({
         <>
           Conversion rate
           <br />
-          (same day)
+          (first visit)
         </>
       ),
       key: 'CheckoutSuccessSameDayRate',
+    },
+    {
+      getValue: (row) =>
+        `${row.data.CheckoutInitiateToCheckoutSuccessSameDayRate}%`,
+      header: (
+        <>
+          Checkout initiate to conversion rate
+          <br />
+          (first visit)
+        </>
+      ),
+      key: 'CheckoutInitiateToCheckoutSuccessSameDayRate',
     },
     {
       getValue: (_row, signUp) => signUp?.signUps ?? 0,
@@ -261,13 +282,21 @@ export default function ConversionsTable({
             <tr key={row._rowId}>
               {index === 0 && !isStartOfWeek && (
                 <td
-                  className={clsx(tdClassname, 'border-r border-gray-200')}
+                  className={clsx(
+                    tdClassname,
+                    'border-r border-gray-200',
+                    'font-medium',
+                  )}
                   rowSpan={firstStartOfWeekIndex}
                 />
               )}
               {isStartOfWeek && (
                 <td
-                  className={clsx(tdClassname, 'border-r border-gray-200')}
+                  className={clsx(
+                    tdClassname,
+                    'border-r border-gray-200',
+                    'font-medium',
+                  )}
                   rowSpan={7}>
                   {date.toLocaleDateString('en-US', dateFormat)} to{' '}
                   {addDays(date, 7).toLocaleDateString('en-US', dateFormat)}

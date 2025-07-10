@@ -35,8 +35,10 @@ events
     by ['time'] = startofday(shifted_time)
 | extend CheckoutInitiateRate = round(100.0 * CheckoutInitiate / NumVisits, 2)
 | extend CheckoutSuccessRate = round(100.0 * CheckoutSuccess / NumVisits, 2)
+| extend CheckoutInitiateToCheckoutSuccessRate = round(100.0 * CheckoutSuccess / CheckoutInitiate, 2)
 | extend CheckoutInitiateSameDayRate = round(100.0 * CheckoutInitiateSameDay / NumFirstVisits, 2)
 | extend CheckoutSuccessSameDayRate = round(100.0 * CheckoutSuccessSameDay / NumFirstVisits, 2)
+| extend CheckoutInitiateToCheckoutSuccessSameDayRate = round(100.0 * CheckoutSuccessSameDay / CheckoutInitiateSameDay, 2)
 | order by _time desc
 `;
 
