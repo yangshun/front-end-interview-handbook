@@ -28,14 +28,14 @@ export const SocialLinks: Record<SocialLinkPlatform, SocialLinkMetadata> = {
     icon: RiDiscordFill,
     key: 'discord',
     name: 'Discord',
-    userCount: 1_962,
+    userCount: 2_204,
   },
   discordPremium: {
     href: 'https://discord.gg/8suTg77xXz',
     icon: RiDiscordFill,
     key: 'discord-premium',
     name: 'Discord (Premium)',
-    userCount: 6_850,
+    userCount: 7_677,
   },
   github: {
     href: 'https://www.github.com/greatfrontend',
@@ -49,7 +49,7 @@ export const SocialLinks: Record<SocialLinkPlatform, SocialLinkMetadata> = {
     icon: RiLinkedinBoxFill,
     key: 'linkedin',
     name: 'LinkedIn',
-    userCount: 49_023,
+    userCount: 58_308,
   },
   reddit: {
     href: 'https://reddit.com/r/greatfrontend',
@@ -63,6 +63,6 @@ export const SocialLinks: Record<SocialLinkPlatform, SocialLinkMetadata> = {
     icon: RiTwitterXFill,
     key: 'x',
     name: 'Twitter / X',
-    userCount: 6_482,
+    userCount: 7_322,
   },
 };
