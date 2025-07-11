@@ -541,6 +541,12 @@
       "value": "All filters"
     }
   ],
+  "/Foz6K": [
+    {
+      "type": 0,
+      "value": "We've sent a password reset link to your email. If you don't see the email, make sure to check your spam or junk folder."
+    }
+  ],
   "/FyqAR": [
     {
       "type": 0,
@@ -2786,6 +2792,12 @@
       "value": "Billing"
     }
   ],
+  "474wi7": [
+    {
+      "type": 0,
+      "value": "Book a demo"
+    }
+  ],
   "47jdAi": [
     {
       "offset": 0,
@@ -4275,6 +4287,12 @@
       "value": "Let's begin!"
     }
   ],
+  "7A1yG8": [
+    {
+      "type": 0,
+      "value": "Sign in with email"
+    }
+  ],
   "7AiLO9": [
     {
       "type": 0,
@@ -5365,6 +5383,12 @@
     {
       "type": 0,
       "value": "Dashboard | GreatFrontEnd Interviews"
+    }
+  ],
+  "A+BtZg": [
+    {
+      "type": 0,
+      "value": "Try sponsoring GreatFrontEnd with a heavily discounted first week. Test how well your brand performs with our audience and track real ROI before making a bigger commitment."
     }
   ],
   "A+qESm": [
@@ -6677,12 +6701,6 @@
     {
       "type": 0,
       "value": " characters"
-    }
-  ],
-  "D96Hpr": [
-    {
-      "type": 0,
-      "value": "/week"
     }
   ],
   "D9lA4s": [
@@ -9243,6 +9261,12 @@
       "value": "Send message"
     }
   ],
+  "JFgF3m": [
+    {
+      "type": 0,
+      "value": "No commitment required"
+    }
+  ],
   "JGfGOf": [
     {
       "type": 0,
@@ -9619,6 +9643,20 @@
       "value": "Deep-dives into real-world applications"
     }
   ],
+  "K5LNd3": [
+    {
+      "type": 0,
+      "value": "Reach "
+    },
+    {
+      "type": 1,
+      "value": "engineersCount"
+    },
+    {
+      "type": 0,
+      "value": "+ Front End Engineers"
+    }
+  ],
   "K6BzpD": [
     {
       "type": 0,
@@ -9655,6 +9693,12 @@
     {
       "type": 0,
       "value": "Reset all progress"
+    }
+  ],
+  "KAl4xt": [
+    {
+      "type": 0,
+      "value": "Get all questions answered"
     }
   ],
   "KBBRmA": [
@@ -10293,6 +10337,12 @@
     {
       "type": 0,
       "value": "Reset password"
+    }
+  ],
+  "LUoa1w": [
+    {
+      "type": 0,
+      "value": "Company name"
     }
   ],
   "LWEEN+": [
@@ -11153,6 +11203,12 @@
       "value": "See all questions"
     }
   ],
+  "NuPL6v": [
+    {
+      "type": 0,
+      "value": "Book a demo"
+    }
+  ],
   "Nvn+wO": [
     {
       "type": 0,
@@ -11451,6 +11507,12 @@
     {
       "type": 0,
       "value": "Project challenges"
+    }
+  ],
+  "OhYfGk": [
+    {
+      "type": 0,
+      "value": "View ad opportunities"
     }
   ],
   "OhuJuA": [
@@ -12263,12 +12325,6 @@
       "value": "Resubscribe"
     }
   ],
-  "Q0sZmk": [
-    {
-      "type": 0,
-      "value": "An email containing the password reset instructions will be sent if an associated account exists"
-    }
-  ],
   "Q0yp+r": [
     {
       "type": 0,
@@ -12369,6 +12425,12 @@
     {
       "type": 0,
       "value": "Welcome to the Premium Club for GreatFrontEnd Interviews!"
+    }
+  ],
+  "QIsW99": [
+    {
+      "type": 0,
+      "value": "Continue with Email"
     }
   ],
   "QJTIr/": [
@@ -15898,12 +15960,6 @@
       "value": "React Coding Interview Questions | Solutions by Ex interviewers"
     }
   ],
-  "Y/+dNC": [
-    {
-      "type": 0,
-      "value": "Schedule your slots"
-    }
-  ],
   "Y072iD": [
     {
       "type": 0,
@@ -16580,6 +16636,12 @@
     {
       "type": 0,
       "value": "Reset question"
+    }
+  ],
+  "Zf0jlB": [
+    {
+      "type": 0,
+      "value": "We will get back to you within 1-2 working days"
     }
   ],
   "ZfPNnW": [
@@ -17772,6 +17834,12 @@
       "value": "Prepare for front end interviews with a vast question bank covering every format and popular frameworks/languages. Includes solutions and tests from ex-interviewers."
     }
   ],
+  "cOExUy": [
+    {
+      "type": 0,
+      "value": "Password reset email sent"
+    }
+  ],
   "cOS90R": [
     {
       "type": 0,
@@ -18004,6 +18072,12 @@
       "value": "Access to professionally designed figma files"
     }
   ],
+  "cuiv3H": [
+    {
+      "type": 0,
+      "value": "Demo booked successfully"
+    }
+  ],
   "cvJ+qb": [
     {
       "type": 0,
@@ -18116,16 +18190,6 @@
     {
       "type": 0,
       "value": "Theme"
-    }
-  ],
-  "dAesjD": [
-    {
-      "type": 0,
-      "value": "Next slot: "
-    },
-    {
-      "type": 1,
-      "value": "date"
     }
   ],
   "dBxvs7": [
@@ -18266,6 +18330,12 @@
       "value": ", ensuring repeated, high-impact visibility on every visit."
     }
   ],
+  "dWNz1P": [
+    {
+      "type": 0,
+      "value": "Add promo code"
+    }
+  ],
   "dWy8fS": [
     {
       "type": 0,
@@ -18390,6 +18460,12 @@
     {
       "type": 0,
       "value": "Enter"
+    }
+  ],
+  "dp5/GE": [
+    {
+      "type": 0,
+      "value": "Send"
     }
   ],
   "dpBKYx": [
@@ -19190,6 +19266,12 @@
       "value": "Choose your ad formats, go live schedule, and upload assets"
     }
   ],
+  "fTy7F4": [
+    {
+      "type": 0,
+      "value": "Or"
+    }
+  ],
   "fUhxFj": [
     {
       "type": 0,
@@ -19728,16 +19810,6 @@
     {
       "type": 0,
       "value": "Dashboard - Track your interview preparation progress"
-    }
-  ],
-  "gZL62Q": [
-    {
-      "type": 0,
-      "value": "Change password for "
-    },
-    {
-      "type": 1,
-      "value": "userEmail"
     }
   ],
   "gbjgjg": [
@@ -22785,6 +22857,12 @@
       "value": "The address is used in the agreement"
     }
   ],
+  "n25pZ5": [
+    {
+      "type": 0,
+      "value": "Name"
+    }
+  ],
   "n2GSsV": [
     {
       "type": 0,
@@ -25099,6 +25177,12 @@
       "value": "Time-savers"
     }
   ],
+  "rsoyvp": [
+    {
+      "type": 0,
+      "value": "Designation"
+    }
+  ],
   "rviSvL": [
     {
       "type": 0,
@@ -25399,6 +25483,12 @@
       ],
       "type": 8,
       "value": "keywords"
+    }
+  ],
+  "so4j4G": [
+    {
+      "type": 0,
+      "value": "Unlock massive first-week discounts – Risk free"
     }
   ],
   "soEVEt": [
@@ -25873,12 +25963,6 @@
       "value": "All challenges"
     }
   ],
-  "uCbhIG": [
-    {
-      "type": 0,
-      "value": "Go back to sign in"
-    }
-  ],
   "uEiI+F": [
     {
       "type": 1,
@@ -26045,12 +26129,6 @@
     {
       "type": 0,
       "value": "Created: Newest to oldest"
-    }
-  ],
-  "ugHQqC": [
-    {
-      "type": 0,
-      "value": "Or continue with"
     }
   ],
   "ui3oY9": [
@@ -26463,6 +26541,12 @@
     {
       "type": 0,
       "value": "Gain expertise in handling commonly asked question formats in front end interviews"
+    }
+  ],
+  "vo/aU3": [
+    {
+      "type": 0,
+      "value": "Sign up with email"
     }
   ],
   "voGLL8": [
@@ -27781,6 +27865,12 @@
       "value": "Nightmare"
     }
   ],
+  "z/51Y2": [
+    {
+      "type": 0,
+      "value": "Contact email"
+    }
+  ],
   "z06VRE": [
     {
       "type": 0,
@@ -28229,12 +28319,6 @@
     {
       "type": 0,
       "value": "E.g. \"Responsive solution with React and Tailwind CSS\""
-    }
-  ],
-  "zfkiwP": [
-    {
-      "type": 0,
-      "value": "Pricing and availability"
     }
   ],
   "zgj9Pd": [

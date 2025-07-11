@@ -295,6 +295,10 @@
     "defaultMessage": "所有筛选器",
     "description": "Label for All Filters button for roadmap page on mobile"
   },
+  "/Foz6K": {
+    "defaultMessage": "我们已将密码重置链接发送到您的电子邮件。 如果您没有看到该电子邮件，请务必检查您的垃圾邮件或垃圾邮件文件夹。",
+    "description": "Description for password reset email sent"
+  },
   "/FyqAR": {
     "defaultMessage": "{locale}的翻译是测试版，可能不准确。 如果您有兴趣帮助翻译，请提供反馈或<link>联系我们</link>！",
     "description": "Banner about beta locale version"
@@ -1299,6 +1303,10 @@
     "defaultMessage": "账单",
     "description": "Link label to the billing page"
   },
+  "474wi7": {
+    "defaultMessage": "预约演示",
+    "description": "Book a demo dialog title"
+  },
   "47jdAi": {
     "defaultMessage": "{count, plural, one {1 个信用额度} other {# 个信用额度}}",
     "description": "Number of credits"
@@ -1943,6 +1951,10 @@
     "defaultMessage": "开始吧！",
     "description": "Title for Start Coding content section on Before You Get Started dialog"
   },
+  "7A1yG8": {
+    "defaultMessage": "使用电子邮件登录",
+    "description": "Subtitle of Sign Up page"
+  },
   "7AiLO9": {
     "defaultMessage": "GreatFrontEnd 项目现已进入 BETA 测试阶段！使用 {promoCode} 享受 {percentage}% 折扣",
     "description": "Text on Promo Banner"
@@ -2522,6 +2534,10 @@
   "9y48gK": {
     "defaultMessage": "仪表盘 | GreatFrontEnd 面试",
     "description": "Social title of dashboard page"
+  },
+  "A+BtZg": {
+    "defaultMessage": "尝试以大幅折扣赞助 GreatFrontEnd 的第一周。 测试您的品牌与我们受众的互动效果，并在做出更大承诺之前跟踪实际投资回报率。",
+    "description": "Advertise with us section subtitle"
   },
   "A+qESm": {
     "defaultMessage": "创建时间：由新到旧",
@@ -3130,10 +3146,6 @@
   "D7z/wQ": {
     "defaultMessage": "請將您的理由限制在 {characterLimit} 個字元以內",
     "description": "String validation message"
-  },
-  "D96Hpr": {
-    "defaultMessage": "/周",
-    "description": "Per week"
   },
   "D9lA4s": {
     "defaultMessage": "审核并签名",
@@ -4431,6 +4443,10 @@
     "defaultMessage": "发送消息",
     "description": "Label for contact form send message button"
   },
+  "JFgF3m": {
+    "defaultMessage": "无需承诺",
+    "description": "No commitment required text"
+  },
   "JGfGOf": {
     "defaultMessage": "回答“请谈谈你自己”",
     "description": "How to answer the self introduction question in behavioral interviews"
@@ -4631,6 +4647,10 @@
     "defaultMessage": "深入了解实际应用",
     "description": "Features for frontend system design playbook page"
   },
+  "K5LNd3": {
+    "defaultMessage": "联系 {engineersCount}+ 前端工程师",
+    "description": "Title of advertise with us page"
+  },
   "K6BzpD": {
     "defaultMessage": "中级",
     "description": "Intermediate blog"
@@ -4650,6 +4670,10 @@
   "K8TgFg": {
     "defaultMessage": "重置所有进度",
     "description": "Label for button to delete all progress"
+  },
+  "KAl4xt": {
+    "defaultMessage": "获取所有问题的解答",
+    "description": "Get all questions answered text"
   },
   "KBBRmA": {
     "defaultMessage": "在项目进行中",
@@ -5018,6 +5042,10 @@
   "LTreFY": {
     "defaultMessage": "重置密码",
     "description": "Title of reset password page"
+  },
+  "LUoa1w": {
+    "defaultMessage": "公司名称",
+    "description": "Label for compnay name field"
   },
   "LWEEN+": {
     "defaultMessage": "按问题类型解决",
@@ -5455,6 +5483,10 @@
     "defaultMessage": "查看所有问题",
     "description": "Label for see all questions button"
   },
+  "NuPL6v": {
+    "defaultMessage": "预约演示",
+    "description": "Book a demo button label"
+  },
   "Nvn+wO": {
     "defaultMessage": "页面不存在",
     "description": "No such page error"
@@ -5582,6 +5614,10 @@
   "OelRg0": {
     "defaultMessage": "项目挑战",
     "description": "Sidebar navigation label"
+  },
+  "OhYfGk": {
+    "defaultMessage": "查看广告机会",
+    "description": "Button label for view ad opportunities"
   },
   "OhuJuA": {
     "defaultMessage": "成为联盟成员",
@@ -5919,10 +5955,6 @@
     "defaultMessage": "重新订阅",
     "description": "Button CTA to encourage upgrading"
   },
-  "Q0sZmk": {
-    "defaultMessage": "如果存在关联帐户，则会发送一封包含密码重置说明的电子邮件",
-    "description": "Message indicating a successful password reset request"
-  },
   "Q0yp+r": {
     "defaultMessage": "高级公司指南",
     "description": "Paywall title for company guides feature"
@@ -5978,6 +6010,10 @@
   "QFhW8Z": {
     "defaultMessage": "欢迎加入 GreatFrontEnd 面试高级俱乐部！",
     "description": "Welcome message for premium club members after payment success"
+  },
+  "QIsW99": {
+    "defaultMessage": "通过电子邮件继续",
+    "description": "Label of email sign in button on Sign In page"
   },
   "QJTIr/": {
     "defaultMessage": "找不到您正在寻找的答案？",
@@ -7739,10 +7775,6 @@
     "defaultMessage": "React 编码面试问题 | 前面试官解答",
     "description": "Title of React Interview Questions page"
   },
-  "Y/+dNC": {
-    "defaultMessage": "安排您的时段",
-    "description": "Book advertising slots"
-  },
   "Y072iD": {
     "defaultMessage": "行为面试指南",
     "description": "Title for behavioral interview playbook"
@@ -8062,6 +8094,10 @@
   "ZeoQdS": {
     "defaultMessage": "重置问题",
     "description": "Coding workspace reset question"
+  },
+  "Zf0jlB": {
+    "defaultMessage": "我们将在 1-2 个工作日内给您回复",
+    "description": "Text indicating response time after booking a demo"
   },
   "ZfPNnW": {
     "defaultMessage": "是的。每次开始一个挑战都会创建一个挑战的“会话”，您可以结束它。您随时可以开始新的会话。",
@@ -8723,6 +8759,10 @@
     "defaultMessage": "准备前端面试，拥有涵盖所有格式和流行框架/语言的大量问题库。包含来自前面试官的解决方案和测试。",
     "description": "Page description for focus areas listing"
   },
+  "cOExUy": {
+    "defaultMessage": "密码重置电子邮件已发送",
+    "description": "Heading for password reset email sent"
+  },
   "cOS90R": {
     "defaultMessage": "初级 (1-2)",
     "description": "Job experience label"
@@ -8815,6 +8855,10 @@
     "defaultMessage": "访问专业设计的 figma 文件",
     "description": "Answer to 'Why is it worth it to buy Premium?' on projects FAQs"
   },
+  "cuiv3H": {
+    "defaultMessage": "演示已成功预订",
+    "description": "Success toast title for booking a demo"
+  },
   "cvJ+qb": {
     "defaultMessage": "我们的项目是“模块化”的，这意味着我们平台内的每个项目都由可重用的组件组成，这些组件遵循相同的设计系统，使其本质上是模块化的并且彼此兼容。 这意味着您可以无缝地组合来自各个项目的组件，为您的作品集构建独特且定制的应用程序。",
     "description": "Answer to 'What do you mean when you say your projects are \"modular\"?' on projects FAQs"
@@ -8891,10 +8935,6 @@
     "defaultMessage": "主题",
     "description": "Label for select that changes the theme of the editor"
   },
-  "dAesjD": {
-    "defaultMessage": "下一场：{date}",
-    "description": "Next slot date"
-  },
   "dBxvs7": {
     "defaultMessage": "我于今年年初加入了 GreatFrontEnd，当时我正准备面试。互联网上有很多关于系统设计的资源，但它们更多是针对分布式系统，而不是针对前端工程师。GFE 上的系统设计材料绝对是瑰宝。它通过使用 RADIO 框架打开了我的思维，让我了解如何处理系统设计问题。更重要的是，它背后的团队反应迅速，支持到位。他们不仅及时提供面试指导，还在必要时为您提供职业发展建议。总而言之，我非常感谢从 GFE 获得的帮助！",
     "description": "User testimonial for GreatFrontEnd Interviews"
@@ -8958,6 +8998,10 @@
   "dVkXTc": {
     "defaultMessage": "而其他广告选项仅提供单一位置——例如一次性新闻通讯提及——我们的解决方案<highlight>将您的广告放置在多页上</highlight>，确保每次访问都能获得重复且高影响力的可见性。",
     "description": "Advertise with us section subtitle"
+  },
+  "dWNz1P": {
+    "defaultMessage": "添加促销代码",
+    "description": "Label to add promotion code"
   },
   "dWy8fS": {
     "defaultMessage": "成功！",
@@ -9026,6 +9070,10 @@
   "doYVKC": {
     "defaultMessage": "输入",
     "description": "Richtext placeholder"
+  },
+  "dp5/GE": {
+    "defaultMessage": "发送",
+    "description": "Send button label"
   },
   "dpBKYx": {
     "defaultMessage": "总活跃天数：<bold>{count}</bold>",
@@ -9403,6 +9451,10 @@
     "defaultMessage": "选择您的广告格式、直播时间表并上传资产",
     "description": "Advertise request form ads section description"
   },
+  "fTy7F4": {
+    "defaultMessage": "或",
+    "description": "Label of divider preceding third party providers on Sign In page"
+  },
   "fUhxFj": {
     "defaultMessage": "重新订阅",
     "description": "Resubscribe button"
@@ -9658,10 +9710,6 @@
   "gZ3W0t": {
     "defaultMessage": "仪表盘 - 跟踪您的面试准备进度",
     "description": "Title of dashboard page"
-  },
-  "gZL62Q": {
-    "defaultMessage": "更改 {userEmail} 的密码",
-    "description": "Title of Change Password page"
   },
   "gbjgjg": {
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink>在他们的提交<link>{submissionTitle}</link>上留下了一个问题：<comment>\"{description}\"</comment>",
@@ -10987,6 +11035,10 @@
     "defaultMessage": "地址用于协议中",
     "description": "Address section description"
   },
+  "n25pZ5": {
+    "defaultMessage": "姓名",
+    "description": "Label for name field"
+  },
   "n2GSsV": {
     "defaultMessage": "使用的技术栈",
     "description": "Label for \"Tech stack used\" text input"
@@ -11995,6 +12047,10 @@
     "defaultMessage": "节省时间",
     "description": "Section title for study plans"
   },
+  "rsoyvp": {
+    "defaultMessage": "职称",
+    "description": "Label for designation field"
+  },
   "rviSvL": {
     "defaultMessage": "返回",
     "description": "Go back label"
@@ -12154,6 +12210,10 @@
   "snxYFd": {
     "defaultMessage": "建立我的<keywords>投资组合</keywords>",
     "description": "Onboarding motivation option"
+  },
+  "so4j4G": {
+    "defaultMessage": "解锁首周大规模折扣 – 零风险",
+    "description": "Advertise with us section title"
   },
   "soEVEt": {
     "defaultMessage": "转到项目",
@@ -12439,10 +12499,6 @@
     "defaultMessage": "所有挑战",
     "description": "All projects item label"
   },
-  "uCbhIG": {
-    "defaultMessage": "返回登录",
-    "description": "Label of link to return to Sign In Page on Password Reset page"
-  },
   "uEiI+F": {
     "defaultMessage": "{category} 面试问题",
     "description": "OG image title of framework and language page"
@@ -12546,10 +12602,6 @@
   "ufyNP1": {
     "defaultMessage": "创建日期：最新到最旧",
     "description": "Sorting option for projects list - sort by created"
-  },
-  "ugHQqC": {
-    "defaultMessage": "或继续使用",
-    "description": "Label of divider preceding third party providers on Sign In page"
   },
   "ui3oY9": {
     "defaultMessage": "级别 {currentLevel}",
@@ -12758,6 +12810,10 @@
   "vmqlMW": {
     "defaultMessage": "掌握前端面试中常见问题格式",
     "description": "Description for question formats section"
+  },
+  "vo/aU3": {
+    "defaultMessage": "使用电子邮件注册",
+    "description": "Subtitle of Sign Up page"
   },
   "voGLL8": {
     "defaultMessage": "探索我们的广告机会",
@@ -13411,6 +13467,10 @@
     "defaultMessage": "噩梦",
     "description": "Challenge difficulty label"
   },
+  "z/51Y2": {
+    "defaultMessage": "联系电子邮件",
+    "description": "Label for contact email field"
+  },
   "z06VRE": {
     "defaultMessage": "弥合 <keywords>技能差距</keywords>",
     "description": "Onboarding motivation option"
@@ -13586,10 +13646,6 @@
   "zeK111": {
     "defaultMessage": "例如，\"使用 React 和 Tailwind CSS 的响应式解决方案\"",
     "description": "Placeholder for submission name input on project submit page"
-  },
-  "zfkiwP": {
-    "defaultMessage": "价格和可用性",
-    "description": "Button label for pricing & availability"
   },
   "zgj9Pd": {
     "defaultMessage": "向他人学习",

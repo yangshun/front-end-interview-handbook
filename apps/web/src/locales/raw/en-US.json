@@ -1303,6 +1303,10 @@
     "defaultMessage": "Billing",
     "description": "Link label to the billing page"
   },
+  "474wi7": {
+    "defaultMessage": "Book a demo",
+    "description": "Book a demo dialog title"
+  },
   "47jdAi": {
     "defaultMessage": "{count, plural, one {1 credit} other {# credits}}",
     "description": "Number of credits"
@@ -2531,6 +2535,10 @@
     "defaultMessage": "Dashboard | GreatFrontEnd Interviews",
     "description": "Social title of dashboard page"
   },
+  "A+BtZg": {
+    "defaultMessage": "Try sponsoring GreatFrontEnd with a heavily discounted first week. Test how well your brand performs with our audience and track real ROI before making a bigger commitment.",
+    "description": "Advertise with us section subtitle"
+  },
   "A+qESm": {
     "defaultMessage": "Created: Newest to Oldest",
     "description": "Sorting option on question list page to sort by creation time, from newest to oldest"
@@ -3138,10 +3146,6 @@
   "D7z/wQ": {
     "defaultMessage": "Keep your reason to under {characterLimit} characters",
     "description": "String validation message"
-  },
-  "D96Hpr": {
-    "defaultMessage": "/week",
-    "description": "Per week"
   },
   "D9lA4s": {
     "defaultMessage": "Review and sign",
@@ -4439,6 +4443,10 @@
     "defaultMessage": "Send message",
     "description": "Label for contact form send message button"
   },
+  "JFgF3m": {
+    "defaultMessage": "No commitment required",
+    "description": "No commitment required text"
+  },
   "JGfGOf": {
     "defaultMessage": "Answering \"Tell me about yourself\"",
     "description": "How to answer the self introduction question in behavioral interviews"
@@ -4639,6 +4647,10 @@
     "defaultMessage": "Deep-dives into real-world applications",
     "description": "Features for frontend system design playbook page"
   },
+  "K5LNd3": {
+    "defaultMessage": "Reach {engineersCount}+ Front End Engineers",
+    "description": "Title of advertise with us page"
+  },
   "K6BzpD": {
     "defaultMessage": "Intermediate",
     "description": "Intermediate blog"
@@ -4658,6 +4670,10 @@
   "K8TgFg": {
     "defaultMessage": "Reset all progress",
     "description": "Label for button to delete all progress"
+  },
+  "KAl4xt": {
+    "defaultMessage": "Get all questions answered",
+    "description": "Get all questions answered text"
   },
   "KBBRmA": {
     "defaultMessage": "While working on project",
@@ -5026,6 +5042,10 @@
   "LTreFY": {
     "defaultMessage": "Reset password",
     "description": "Title of reset password page"
+  },
+  "LUoa1w": {
+    "defaultMessage": "Company name",
+    "description": "Label for compnay name field"
   },
   "LWEEN+": {
     "defaultMessage": "Solved by question type",
@@ -5463,6 +5483,10 @@
     "defaultMessage": "See all questions",
     "description": "Label for see all questions button"
   },
+  "NuPL6v": {
+    "defaultMessage": "Book a demo",
+    "description": "Book a demo button label"
+  },
   "Nvn+wO": {
     "defaultMessage": "No such page",
     "description": "No such page error"
@@ -5590,6 +5614,10 @@
   "OelRg0": {
     "defaultMessage": "Project challenges",
     "description": "Sidebar navigation label"
+  },
+  "OhYfGk": {
+    "defaultMessage": "View ad opportunities",
+    "description": "Button label for view ad opportunities"
   },
   "OhuJuA": {
     "defaultMessage": "Become an affiliate",
@@ -7747,10 +7775,6 @@
     "defaultMessage": "React Coding Interview Questions | Solutions by Ex interviewers",
     "description": "Title of React Interview Questions page"
   },
-  "Y/+dNC": {
-    "defaultMessage": "Schedule your slots",
-    "description": "Book advertising slots"
-  },
   "Y072iD": {
     "defaultMessage": "Behavioral Interview Playbook",
     "description": "Title for behavioral interview playbook"
@@ -8070,6 +8094,10 @@
   "ZeoQdS": {
     "defaultMessage": "Reset question",
     "description": "Coding workspace reset question"
+  },
+  "Zf0jlB": {
+    "defaultMessage": "We will get back to you within 1-2 working days",
+    "description": "Text indicating response time after booking a demo"
   },
   "ZfPNnW": {
     "defaultMessage": "Yes. Every challenge you start creates a \"session\" of the challenge, which you can end. You can start a new session anytime.",
@@ -8827,6 +8855,10 @@
     "defaultMessage": "Access to professionally designed figma files",
     "description": "Answer to 'Why is it worth it to buy Premium?' on projects FAQs"
   },
+  "cuiv3H": {
+    "defaultMessage": "Demo booked successfully",
+    "description": "Success toast title for booking a demo"
+  },
   "cvJ+qb": {
     "defaultMessage": "Our projects are \"modular,\" meaning that each project within our platform is made up of reusable components which adhere to the same design system, making them inherently modular and compatible with one another. This means you can seamlessly combine components from various projects to construct unique and customized applications for your portfolio.",
     "description": "Answer to 'What do you mean when you say your projects are \"modular\"?' on projects FAQs"
@@ -8903,10 +8935,6 @@
     "defaultMessage": "Theme",
     "description": "Label for select that changes the theme of the editor"
   },
-  "dAesjD": {
-    "defaultMessage": "Next slot: {date}",
-    "description": "Next slot date"
-  },
   "dBxvs7": {
     "defaultMessage": "I joined GreatFrontEnd at the beginning of this year when I was trying to prepare my interviews. There are many resources about system design out there on the Internet but they are more for distributed systems and not meant for front end engineers. The system design materials on GFE are definitely gems. It opens up my mind about how to approach a system design question by using the RADIO framework. More importantly, the team behind it is super responsive and supportive. They not only provide interview guidance in a timely manner but also give you advice about career growth whenever necessary. All in all, I really appreciate the help I get from GFE!",
     "description": "User testimonial for GreatFrontEnd Interviews"
@@ -8970,6 +8998,10 @@
   "dVkXTc": {
     "defaultMessage": "While other advertising options only provide a single placement—like a one-time newsletter mention—our solution <highlight>places your ad across multiple pages</highlight>, ensuring repeated, high-impact visibility on every visit.",
     "description": "Advertise with us section subtitle"
+  },
+  "dWNz1P": {
+    "defaultMessage": "Add promo code",
+    "description": "Label to add promotion code"
   },
   "dWy8fS": {
     "defaultMessage": "Success!",
@@ -9038,6 +9070,10 @@
   "doYVKC": {
     "defaultMessage": "Enter",
     "description": "Richtext placeholder"
+  },
+  "dp5/GE": {
+    "defaultMessage": "Send",
+    "description": "Send button label"
   },
   "dpBKYx": {
     "defaultMessage": "Total active days: <bold>{count}</bold>",
@@ -9674,10 +9710,6 @@
   "gZ3W0t": {
     "defaultMessage": "Dashboard - Track your interview preparation progress",
     "description": "Title of dashboard page"
-  },
-  "gZL62Q": {
-    "defaultMessage": "Change password for {userEmail}",
-    "description": "Title of Change Password page"
   },
   "gbjgjg": {
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> left a question on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
@@ -11003,6 +11035,10 @@
     "defaultMessage": "The address is used in the agreement",
     "description": "Address section description"
   },
+  "n25pZ5": {
+    "defaultMessage": "Name",
+    "description": "Label for name field"
+  },
   "n2GSsV": {
     "defaultMessage": "Tech stack used",
     "description": "Label for \"Tech stack used\" text input"
@@ -12011,6 +12047,10 @@
     "defaultMessage": "Time-savers",
     "description": "Section title for study plans"
   },
+  "rsoyvp": {
+    "defaultMessage": "Designation",
+    "description": "Label for designation field"
+  },
   "rviSvL": {
     "defaultMessage": "Go back",
     "description": "Go back label"
@@ -12170,6 +12210,10 @@
   "snxYFd": {
     "defaultMessage": "To build my <keywords>portfolio</keywords>",
     "description": "Onboarding motivation option"
+  },
+  "so4j4G": {
+    "defaultMessage": "Unlock massive first-week discounts – Risk free",
+    "description": "Advertise with us section title"
   },
   "soEVEt": {
     "defaultMessage": "Go to project",
@@ -13423,6 +13467,10 @@
     "defaultMessage": "Nightmare",
     "description": "Challenge difficulty label"
   },
+  "z/51Y2": {
+    "defaultMessage": "Contact email",
+    "description": "Label for contact email field"
+  },
   "z06VRE": {
     "defaultMessage": "To bridge <keywords>skill gaps</keywords>",
     "description": "Onboarding motivation option"
@@ -13598,10 +13646,6 @@
   "zeK111": {
     "defaultMessage": "E.g. \"Responsive solution with React and Tailwind CSS\"",
     "description": "Placeholder for submission name input on project submit page"
-  },
-  "zfkiwP": {
-    "defaultMessage": "Pricing and availability",
-    "description": "Button label for pricing & availability"
   },
   "zgj9Pd": {
     "defaultMessage": "Learn from others",
