@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 
-import PostDetailPage from '~/components/posts/PostDetailPage';
+import InterceptedPostDetailClient from '~/components/posts/InterceptedPostDetailClient';
 
 import prisma from '~/server/prisma';
 
@@ -10,8 +10,6 @@ type Props = {
 
 export default async function InterceptedPostPage({ params }: Props) {
   const { id } = params;
-
-  // Same post fetching logic as the original
   const post = await prisma.redditPost.findUnique({
     include: {
       activities: {
@@ -62,9 +60,5 @@ export default async function InterceptedPostPage({ params }: Props) {
     notFound();
   }
 
-  return (
-    <div className="h-full overflow-y-auto p-4">
-      <PostDetailPage post={post} showBackButton={false} />
-    </div>
-  );
+  return <InterceptedPostDetailClient post={post} />;
 }

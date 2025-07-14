@@ -2,20 +2,17 @@
 
 import { Box, Button, Loader, Tabs, Text, Tooltip } from '@mantine/core';
 import clsx from 'clsx';
-import { useParams, useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
 
 import { trpc } from '~/hooks/trpc';
 import useCurrentProjectSlug from '~/hooks/useCurrentProjectSlug';
 
 import RelativeTimestamp from '~/components/common/datetime/RelativeTimestamp';
+import { usePostsContext } from '~/components/posts/PostsContext';
 
 import type { PostListTab } from '~/types';
 
 import FetchPostButton from './FetchPostButton';
 import PostItem from './PostItem';
-
-const LIMIT = 20;
 
 const timestampFormatter = new Intl.DateTimeFormat('en-US', {
   day: 'numeric',
@@ -29,46 +26,23 @@ const timestampFormatter = new Intl.DateTimeFormat('en-US', {
 
 export default function PostList() {
   const projectSlug = useCurrentProjectSlug();
-  const router = useRouter();
-  const params = useParams();
-  const [activeTab, setActiveTab] = useState<PostListTab>('PENDING');
-  const [selectedPostId, setSelectedPostId] = useState<string | null>(null);
 
-  // Sync selection with URL - if we're viewing a post, select it in the list
-  useEffect(() => {
-    if (params?.id && typeof params.id === 'string') {
-      setSelectedPostId(params.id);
-    } else {
-      setSelectedPostId(null);
-    }
-  }, [params?.id]);
+  // Use context instead of local state and queries
+  const {
+    activeTab,
+    fetchNextPage,
+    handlePostClick,
+    hasNextPage,
+    isFetchingNextPage,
+    isLoading,
+    posts,
+    selectedPostId,
+    setActiveTab,
+  } = usePostsContext();
 
-  const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading } =
-    trpc.socialPosts.getPosts.useInfiniteQuery(
-      {
-        filter: {
-          tab: activeTab,
-        },
-        pagination: { limit: LIMIT },
-        projectSlug,
-      },
-      {
-        getNextPageParam(lastPage) {
-          return lastPage?.nextCursor;
-        },
-      },
-    );
   const { data: projectData } = trpc.project.get.useQuery({
     projectSlug,
   });
-
-  const posts = data?.pages.flatMap((page) => page.posts);
-
-  // Handle post selection and navigation
-  const handlePostClick = (postId: string) => {
-    setSelectedPostId(postId);
-    router.push(`/projects/${projectSlug}/posts/${postId}`);
-  };
 
   return (
     <div className={clsx('flex flex-col', 'h-full w-full')}>

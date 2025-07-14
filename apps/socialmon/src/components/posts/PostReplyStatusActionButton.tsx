@@ -1,6 +1,7 @@
-import { Button } from '@mantine/core';
+import { Button, Tooltip } from '@mantine/core';
 import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
+import { RiMailLine, RiMailSendLine } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
 import useCurrentProjectSlug from '~/hooks/useCurrentProjectSlug';
@@ -8,11 +9,13 @@ import useCurrentProjectSlug from '~/hooks/useCurrentProjectSlug';
 import { PostRepliedStatus } from '~/prisma/client';
 
 type Props = Readonly<{
+  iconOnly?: boolean;
   postId: string;
   replyStatus: PostRepliedStatus;
 }>;
 
 export default function PostReplyStatusActionButton({
+  iconOnly = false,
   postId,
   replyStatus,
 }: Props) {
@@ -56,16 +59,37 @@ export default function PostReplyStatusActionButton({
   }
 
   return (
-    <Button
-      className="shrink-0"
-      disabled={markPostReplyStatusMutation.isLoading}
-      loading={markPostReplyStatusMutation.isLoading}
-      size="xs"
-      variant="default"
-      onClick={onMarkPostReplyStatus}>
-      {replyStatus === PostRepliedStatus.NOT_REPLIED
-        ? 'Mark as replied'
-        : 'Mark as not replied'}
-    </Button>
+    <Tooltip
+      label={
+        replyStatus === PostRepliedStatus.NOT_REPLIED
+          ? 'Mark as Replied'
+          : 'Mark as Not Replied'
+      }
+      withArrow={true}>
+      <Button
+        aria-label={
+          replyStatus === PostRepliedStatus.NOT_REPLIED
+            ? 'Mark as Replied'
+            : 'Mark as Not Replied'
+        }
+        className="shrink-0"
+        disabled={markPostReplyStatusMutation.isLoading}
+        loading={markPostReplyStatusMutation.isLoading}
+        size="xs"
+        variant="subtle"
+        onClick={onMarkPostReplyStatus}>
+        {iconOnly ? (
+          replyStatus === PostRepliedStatus.NOT_REPLIED ? (
+            <RiMailSendLine className="size-4" />
+          ) : (
+            <RiMailLine className="size-4 text-red-500" />
+          )
+        ) : replyStatus === PostRepliedStatus.NOT_REPLIED ? (
+          'Mark as replied'
+        ) : (
+          'Mark as not replied'
+        )}
+      </Button>
+    </Tooltip>
   );
 }

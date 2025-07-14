@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 
 import { redirectToLoginPageIfNotLoggedIn } from '~/components/auth/redirectToLoginPageIfNotLoggedIn';
 import ProjectsNavbar from '~/components/common/ProjectsNavbar';
+import { PostsProvider } from '~/components/posts/PostsContext';
 import Container from '~/components/ui/Container';
 import MobilePostModal from '~/components/ui/MobilePostModal';
 
@@ -34,19 +35,23 @@ export default async function Layout({ children, detail, params }: Props) {
   }
 
   return (
-    <div className="flex h-screen flex-col">
-      <ProjectsNavbar user={user} />
-      {/* Main content area */}
-      <div className="flex h-0 flex-1 grow">
-        {/* Left Panel - Posts List (always visible) */}
-        <div className="w-full overflow-hidden border-gray-200 md:w-2/5 md:border-r">
-          <Container className={clsx('h-full')}>{children}</Container>
+    <PostsProvider projectSlug={projectSlug}>
+      <div className="flex h-screen flex-col">
+        <ProjectsNavbar user={user} />
+        {/* Main content area */}
+        <div className="flex h-0 flex-1 grow">
+          {/* Left Panel - Posts List (always visible) */}
+          <div className="w-full overflow-hidden border-gray-200 md:w-2/5 md:border-r">
+            <Container className={clsx('h-full')}>{children}</Container>
+          </div>
+          {/* Right Panel - Desktop only */}
+          <div className="hidden overflow-hidden md:block md:w-3/5">
+            {detail}
+          </div>
         </div>
-        {/* Right Panel - Desktop only */}
-        <div className="hidden overflow-hidden md:block md:w-3/5">{detail}</div>
+        {/* Mobile Modal - Only shows on mobile when viewing a post */}
+        <MobilePostModal>{detail}</MobilePostModal>
       </div>
-      {/* Mobile Modal - Only shows on mobile when viewing a post */}
-      <MobilePostModal>{detail}</MobilePostModal>
-    </div>
+    </PostsProvider>
   );
 }

@@ -1,17 +1,20 @@
-import { Button } from '@mantine/core';
+import { Button, Tooltip } from '@mantine/core';
 import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
+import { RiCheckLine, RiForbidLine } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
 import useCurrentProjectSlug from '~/hooks/useCurrentProjectSlug';
 
 import { PostRelevancy } from '~/prisma/client';
 type Props = Readonly<{
+  iconOnly?: boolean;
   postId: string;
   relevancy: PostRelevancy | null;
 }>;
 
 export default function PostRelevancyActionButton({
+  iconOnly = false,
   postId,
   relevancy,
 }: Props) {
@@ -48,16 +51,37 @@ export default function PostRelevancyActionButton({
   };
 
   return (
-    <Button
-      className="shrink-0"
-      disabled={markPostRelevancyMutation.isLoading}
-      loading={markPostRelevancyMutation.isLoading}
-      size="xs"
-      variant="default"
-      onClick={onMarkPostRelevancy}>
-      {relevancy === PostRelevancy.IRRELEVANT
-        ? 'Mark as relevant'
-        : 'Mark as irrelevant'}
-    </Button>
+    <Tooltip
+      label={
+        relevancy === PostRelevancy.IRRELEVANT
+          ? 'Mark as Relevant'
+          : 'Mark as Irrelevant'
+      }
+      withArrow={true}>
+      <Button
+        aria-label={
+          relevancy === PostRelevancy.IRRELEVANT
+            ? 'Mark as Relevant'
+            : 'Mark as Irrelevant'
+        }
+        className="shrink-0"
+        disabled={markPostRelevancyMutation.isLoading}
+        loading={markPostRelevancyMutation.isLoading}
+        size="xs"
+        variant="subtle"
+        onClick={onMarkPostRelevancy}>
+        {iconOnly ? (
+          relevancy === PostRelevancy.IRRELEVANT ? (
+            <RiCheckLine className="size-4" />
+          ) : (
+            <RiForbidLine className="size-4 text-red-500" />
+          )
+        ) : relevancy === PostRelevancy.IRRELEVANT ? (
+          'Mark as relevant'
+        ) : (
+          'Mark as irrelevant'
+        )}
+      </Button>
+    </Tooltip>
   );
 }

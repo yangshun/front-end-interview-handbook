@@ -22,6 +22,7 @@ type Props = Readonly<{
 export default function PostDetailPage({ post, showBackButton = true }: Props) {
   const router = useRouter();
   const projectSlug = useCurrentProjectSlug();
+
   const generateResponseMutation =
     trpc.socialPosts.generateResponse.useMutation({
       onError() {
@@ -72,7 +73,7 @@ export default function PostDetailPage({ post, showBackButton = true }: Props) {
   }
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex h-full flex-col">
       {showBackButton && (
         <div>
           <Button
@@ -86,16 +87,20 @@ export default function PostDetailPage({ post, showBackButton = true }: Props) {
           </Button>
         </div>
       )}
-      <PostDetail
-        generateResponse={(
-          setResponse: (value: ChangeEvent | string | null | undefined) => void,
-        ) => generateResponse(setResponse)}
-        isGeneratingResponse={generateResponseMutation.isLoading}
-        isReplying={replyPostMutation.isLoading}
-        post={post}
-        replyToPost={replyToPost}
-        users={users}
-      />
+      <div className="flex-1 overflow-y-auto">
+        <PostDetail
+          generateResponse={(
+            setResponse: (
+              value: ChangeEvent | string | null | undefined,
+            ) => void,
+          ) => generateResponse(setResponse)}
+          isGeneratingResponse={generateResponseMutation.isLoading}
+          isReplying={replyPostMutation.isLoading}
+          post={post}
+          replyToPost={replyToPost}
+          users={users}
+        />
+      </div>
     </div>
   );
 }
