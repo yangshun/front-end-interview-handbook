@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, Tooltip } from '@mantine/core';
+import { ActionIcon, Tooltip } from '@mantine/core';
 import {
   RiArrowLeftSLine,
   RiArrowRightSLine,
@@ -10,7 +10,7 @@ import {
 import type { PostExtended } from '~/types';
 
 import PostDetailPage from './PostDetailPage';
-import PostRelevancyActionButton from './PostRelevancyActionButton';
+import PostRelevanceActionButton from './PostRelevanceActionButton';
 import PostReplyStatusActionButton from './PostReplyStatusActionButton';
 import { usePostsContext } from './PostsContext';
 import { redditPermalinkToUrl } from './utils';
@@ -30,30 +30,30 @@ export default function InterceptedPostDetailClient({
       <div className="sticky bottom-0 left-0 right-0 z-10 flex items-center justify-between border-t border-gray-200 bg-white px-4 pb-3 pt-3">
         {/* Navigation buttons */}
         <div className="flex items-center gap-2">
-          <Tooltip label="Previous Post" withArrow={true}>
-            <Button
-              aria-label="Previous Post"
+          <Tooltip label="Previous post" withArrow={true}>
+            <ActionIcon
+              aria-label="Previous post"
               disabled={!adjacentPosts.prev}
-              size="xs"
-              variant="subtle"
+              size="lg"
+              variant="default"
               onClick={handlePrevPost}>
-              <RiArrowLeftSLine className="size-4" />
-            </Button>
+              <RiArrowLeftSLine />
+            </ActionIcon>
           </Tooltip>
-          <Tooltip label="Next Post" withArrow={true}>
-            <Button
-              aria-label="Next Post"
+          <Tooltip label="Next post" withArrow={true}>
+            <ActionIcon
+              aria-label="Next post"
               disabled={!adjacentPosts.next}
-              size="xs"
-              variant="subtle"
+              size="lg"
+              variant="default"
               onClick={handleNextPost}>
-              <RiArrowRightSLine className="size-4" />
-            </Button>
+              <RiArrowRightSLine />
+            </ActionIcon>
           </Tooltip>
         </div>
-        {/* Action buttons (Mantine + react-icons/ri) */}
+        {/* Action buttons */}
         <div className="flex items-center gap-2">
-          <PostRelevancyActionButton
+          <PostRelevanceActionButton
             iconOnly={true}
             postId={post.id}
             relevancy={post.relevancy}
@@ -64,17 +64,17 @@ export default function InterceptedPostDetailClient({
             replyStatus={post.replied}
           />
           <Tooltip label="View on Reddit" withArrow={true}>
-            <Button
+            <ActionIcon
               aria-label="View on Reddit"
-              color="blue"
+              color="orange"
               component="a"
               href={redditPermalinkToUrl(post.permalink)}
               rel="noopener noreferrer"
-              size="xs"
+              size="lg"
               target="_blank"
-              variant="subtle">
-              <RiExternalLinkLine className="size-4" />
-            </Button>
+              variant="light">
+              <RiExternalLinkLine />
+            </ActionIcon>
           </Tooltip>
         </div>
       </div>

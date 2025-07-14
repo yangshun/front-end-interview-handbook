@@ -1,4 +1,4 @@
-import { Button, Tooltip } from '@mantine/core';
+import { ActionIcon, Button, Tooltip } from '@mantine/core';
 import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
 import { RiCheckLine, RiForbidLine } from 'react-icons/ri';
@@ -13,7 +13,7 @@ type Props = Readonly<{
   relevancy: PostRelevancy | null;
 }>;
 
-export default function PostRelevancyActionButton({
+export default function PostRelevanceActionButton({
   iconOnly = false,
   postId,
   relevancy,
@@ -50,38 +50,39 @@ export default function PostRelevancyActionButton({
     );
   };
 
-  return (
-    <Tooltip
-      label={
-        relevancy === PostRelevancy.IRRELEVANT
-          ? 'Mark as Relevant'
-          : 'Mark as Irrelevant'
-      }
-      withArrow={true}>
-      <Button
-        aria-label={
-          relevancy === PostRelevancy.IRRELEVANT
-            ? 'Mark as Relevant'
-            : 'Mark as Irrelevant'
-        }
-        className="shrink-0"
-        disabled={markPostRelevancyMutation.isLoading}
-        loading={markPostRelevancyMutation.isLoading}
-        size="xs"
-        variant="subtle"
-        onClick={onMarkPostRelevancy}>
-        {iconOnly ? (
-          relevancy === PostRelevancy.IRRELEVANT ? (
-            <RiCheckLine className="size-4" />
+  const label =
+    relevancy === PostRelevancy.IRRELEVANT
+      ? 'Mark as relevant'
+      : 'Mark as irrelevant';
+
+  if (iconOnly) {
+    return (
+      <Tooltip label={label} withArrow={true}>
+        <ActionIcon
+          aria-label={label}
+          size="lg"
+          variant="default"
+          onClick={onMarkPostRelevancy}>
+          {relevancy === PostRelevancy.IRRELEVANT ? (
+            <RiCheckLine />
           ) : (
-            <RiForbidLine className="size-4 text-red-500" />
-          )
-        ) : relevancy === PostRelevancy.IRRELEVANT ? (
-          'Mark as relevant'
-        ) : (
-          'Mark as irrelevant'
-        )}
-      </Button>
-    </Tooltip>
+            <RiForbidLine />
+          )}
+        </ActionIcon>
+      </Tooltip>
+    );
+  }
+
+  return (
+    <Button
+      aria-label={label}
+      className="shrink-0"
+      disabled={markPostRelevancyMutation.isLoading}
+      loading={markPostRelevancyMutation.isLoading}
+      size="xs"
+      variant="subtle"
+      onClick={onMarkPostRelevancy}>
+      {label}
+    </Button>
   );
 }

@@ -1,7 +1,7 @@
-import { Button, Tooltip } from '@mantine/core';
+import { ActionIcon, Button, Tooltip } from '@mantine/core';
 import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
-import { RiMailLine, RiMailSendLine } from 'react-icons/ri';
+import { RiReplyFill, RiReplyLine } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
 import useCurrentProjectSlug from '~/hooks/useCurrentProjectSlug';
@@ -58,38 +58,39 @@ export default function PostReplyStatusActionButton({
     return null;
   }
 
-  return (
-    <Tooltip
-      label={
-        replyStatus === PostRepliedStatus.NOT_REPLIED
-          ? 'Mark as Replied'
-          : 'Mark as Not Replied'
-      }
-      withArrow={true}>
-      <Button
-        aria-label={
-          replyStatus === PostRepliedStatus.NOT_REPLIED
-            ? 'Mark as Replied'
-            : 'Mark as Not Replied'
-        }
-        className="shrink-0"
-        disabled={markPostReplyStatusMutation.isLoading}
-        loading={markPostReplyStatusMutation.isLoading}
-        size="xs"
-        variant="subtle"
-        onClick={onMarkPostReplyStatus}>
-        {iconOnly ? (
-          replyStatus === PostRepliedStatus.NOT_REPLIED ? (
-            <RiMailSendLine className="size-4" />
+  const label =
+    replyStatus === PostRepliedStatus.NOT_REPLIED
+      ? 'Mark as replied'
+      : 'Mark as not replied';
+
+  if (iconOnly) {
+    return (
+      <Tooltip label={label} withArrow={true}>
+        <ActionIcon
+          aria-label={label}
+          size="lg"
+          variant="default"
+          onClick={onMarkPostReplyStatus}>
+          {replyStatus === PostRepliedStatus.NOT_REPLIED ? (
+            <RiReplyLine />
           ) : (
-            <RiMailLine className="size-4 text-red-500" />
-          )
-        ) : replyStatus === PostRepliedStatus.NOT_REPLIED ? (
-          'Mark as replied'
-        ) : (
-          'Mark as not replied'
-        )}
-      </Button>
-    </Tooltip>
+            <RiReplyFill />
+          )}
+        </ActionIcon>
+      </Tooltip>
+    );
+  }
+
+  return (
+    <Button
+      aria-label={label}
+      className="shrink-0"
+      disabled={markPostReplyStatusMutation.isLoading}
+      loading={markPostReplyStatusMutation.isLoading}
+      size="xs"
+      variant="subtle"
+      onClick={onMarkPostReplyStatus}>
+      {label}
+    </Button>
   );
 }

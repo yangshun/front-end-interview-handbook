@@ -23,7 +23,7 @@ import type { PostExtended } from '~/types';
 
 import PostCommentsList from '../comments/PostCommentsList';
 import { parseMarkdown } from '../markdownParser';
-import PostRelevancyActionButton from '../PostRelevancyActionButton';
+import PostRelevanceActionButton from '../PostRelevanceActionButton';
 import PostReplyStatusActionButton from '../PostReplyStatusActionButton';
 import PostMetadata from './PostMetadata';
 import PostResponse from './PostResponse';
@@ -163,7 +163,7 @@ export default function PostDetail({
                 </>
               )}
             </Text>
-            <PostRelevancyActionButton
+            <PostRelevanceActionButton
               key={post.relevancy}
               postId={post.id}
               relevancy={post.relevancy}
