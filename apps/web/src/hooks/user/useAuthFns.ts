@@ -8,7 +8,7 @@ import { useAuthSignedInBefore } from '~/components/auth/useAuthSignedInBefore';
 import { useIntl } from '~/components/intl';
 
 import { useI18nRouter } from '~/next-i18nostic/src';
-import { mergeURLWithCurrentParamsHash } from '~/utils/merge-url-params-hash';
+import { resolveNextParam } from '~/utils/merge-url-params-hash';
 
 type AuthHrefProps = Readonly<{
   next?: string;
@@ -31,16 +31,16 @@ export function useAuthSignInUp() {
     next,
     query,
   }: AuthHrefProps | undefined = {}): string {
-    const resolvedNext = next || pathname || window.location.pathname;
+    const finalNext = resolveNextParam({
+      isClient,
+      next,
+      pathname: pathname || window.location.pathname,
+    });
 
     return url.format({
       pathname: signedInBefore ? '/login' : '/sign-up',
       query: {
-        // To prevent hydration errors and add query params
-        // when on the client
-        next: isClient
-          ? mergeURLWithCurrentParamsHash(resolvedNext)
-          : resolvedNext,
+        ...(finalNext ? { next: finalNext } : {}),
         ...query,
       },
     });
@@ -70,16 +70,16 @@ export function useAuthLogout() {
   useLocation();
 
   function logoutHref({ next, query }: AuthHrefProps | undefined = {}): string {
-    const resolvedNext = next || pathname || window.location.pathname;
+    const finalNext = resolveNextParam({
+      isClient,
+      next,
+      pathname: pathname || window.location.pathname,
+    });
 
     return url.format({
       pathname: '/logout',
       query: {
-        // To prevent hydration errors and add query params
-        // when on the client
-        next: isClient
-          ? mergeURLWithCurrentParamsHash(resolvedNext)
-          : resolvedNext,
+        ...(finalNext ? { next: finalNext } : {}),
         ...query,
       },
     });

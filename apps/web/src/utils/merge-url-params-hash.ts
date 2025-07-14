@@ -33,3 +33,48 @@ export function mergeURLWithCurrentParamsHash(href: string) {
     search: urlObj.search,
   });
 }
+
+/**
+ * Resolves the next URL based on the current pathname and next parameter.
+ * If the current page is an auth page (like /login or /sign-up),
+ * it checks for a 'next' parameter in the URL search. If not found, it
+ * returns undefined. If the current page is not an auth page, it returns
+ * the next URL or the current pathname.
+ * @param next - The next URL to resolve.
+ * @param pathname - The current pathname.
+ * @param isClient - Whether the code is running on the client side.
+ * @returns {string | undefined} - The resolved next URL or undefined.
+ */
+export function resolveNextParam({
+  isClient,
+  next,
+  pathname,
+}: {
+  isClient: boolean;
+  next?: string;
+  pathname: string;
+}): string | undefined {
+  const resolvedNext = next || pathname;
+  const normalizedNext = resolvedNext.replace(/\/+$/, '');
+  const isAuthPage =
+    normalizedNext === '/login' || normalizedNext === '/sign-up';
+
+  if (!isAuthPage) {
+    // To prevent hydration errors and add query params
+    // when on the client
+    return isClient
+      ? mergeURLWithCurrentParamsHash(resolvedNext)
+      : resolvedNext;
+  }
+  if (isClient) {
+    // Already on login or sign-up, but check if current URL has a next param
+    const searchParams = new URLSearchParams(window.location.search);
+    const existingNext = searchParams.get('next');
+
+    if (existingNext) {
+      return existingNext;
+    }
+  }
+
+  return undefined;
+}

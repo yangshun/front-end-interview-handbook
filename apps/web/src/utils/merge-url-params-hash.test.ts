@@ -1,4 +1,7 @@
-import { mergeURLWithCurrentParamsHash } from './merge-url-params-hash';
+import {
+  mergeURLWithCurrentParamsHash,
+  resolveNextParam,
+} from './merge-url-params-hash';
 
 describe('mergeURLWithCurrentParamsHash', () => {
   const originalWindow = { ...window };
@@ -84,5 +87,52 @@ describe('mergeURLWithCurrentParamsHash', () => {
     const result = mergeURLWithCurrentParamsHash('/path');
 
     expect(result).toBe('/path');
+  });
+});
+
+describe('resolveNextParam', () => {
+  it('returns pathname when not on auth page and no next given', () => {
+    const result = resolveNextParam({
+      isClient: false,
+      next: undefined,
+      pathname: '/about',
+    });
+
+    expect(result).toBe('/about');
+  });
+
+  it('returns next when provided and not auth page', () => {
+    const result = resolveNextParam({
+      isClient: false,
+      next: '/features',
+      pathname: '/about',
+    });
+
+    expect(result).toBe('/features');
+  });
+
+  it('returns undefined if on /login without next param in search', () => {
+    const result = resolveNextParam({
+      isClient: false,
+      next: undefined,
+      pathname: '/login',
+    });
+
+    expect(result).toBeUndefined();
+  });
+
+  it('returns next from URL when on auth page with next param (client)', () => {
+    vi.stubGlobal('window', {
+      location: {
+        search: '?next=/dashboard',
+      },
+    });
+
+    const result = resolveNextParam({
+      isClient: true,
+      pathname: '/login',
+    });
+
+    expect(result).toBe('/dashboard');
   });
 });
