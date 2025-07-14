@@ -8,38 +8,12 @@ import { useAuthSignedInBefore } from '~/components/auth/useAuthSignedInBefore';
 import { useIntl } from '~/components/intl';
 
 import { useI18nRouter } from '~/next-i18nostic/src';
+import { mergeURLWithCurrentParamsHash } from '~/utils/merge-url-params-hash';
 
 type AuthHrefProps = Readonly<{
   next?: string;
   query?: ParsedUrlQueryInput;
 }>;
-
-function mergeWithCurrentURL(href: string) {
-  if (typeof window === 'undefined') {
-    return href;
-  }
-
-  const urlObj = new URL(
-    href,
-    'https://greatfrontend.com', // The domain is not used.
-  );
-
-  // Merge with search params
-  const searchParams = new URLSearchParams(window.location.search);
-
-  searchParams.forEach((value, key) => {
-    urlObj.searchParams.set(key, value);
-  });
-
-  // Merge with search params
-  urlObj.hash ||= window.location.hash;
-
-  return url.format({
-    hash: urlObj.hash,
-    pathname: urlObj.pathname,
-    search: urlObj.search,
-  });
-}
 
 export function useAuthSignInUp() {
   const [signedInBefore] = useAuthSignedInBefore();
@@ -64,7 +38,9 @@ export function useAuthSignInUp() {
       query: {
         // To prevent hydration errors and add query params
         // when on the client
-        next: isClient ? mergeWithCurrentURL(resolvedNext) : resolvedNext,
+        next: isClient
+          ? mergeURLWithCurrentParamsHash(resolvedNext)
+          : resolvedNext,
         ...query,
       },
     });
@@ -101,7 +77,9 @@ export function useAuthLogout() {
       query: {
         // To prevent hydration errors and add query params
         // when on the client
-        next: isClient ? mergeWithCurrentURL(resolvedNext) : resolvedNext,
+        next: isClient
+          ? mergeURLWithCurrentParamsHash(resolvedNext)
+          : resolvedNext,
         ...query,
       },
     });
