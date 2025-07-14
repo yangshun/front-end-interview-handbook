@@ -281,7 +281,7 @@ function PricingButtonNonPremium({
           });
 
           if (user != null) {
-            await checkoutInitiateEmailMutation.mutateAsync({
+            checkoutInitiateEmailMutation.mutateAsync({
               countryCode,
             });
           }
