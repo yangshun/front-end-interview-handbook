@@ -5,38 +5,15 @@ import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 
 import { trpc } from '~/hooks/trpc';
 
-import type { PostListTab } from '~/types';
-
-// Type that matches what the TRPC getPosts query actually returns
-export type PostFromQuery = {
-  commentsCount: number;
-  createdAt: Date;
-  id: string;
-  keywords: Array<string>;
-  relevancy: 'IRRELEVANT' | 'RELEVANT' | null;
-  replied: 'NOT_REPLIED' | 'REPLIED_MANUALLY' | 'REPLIED_VIA_APP';
-  reply: {
-    content: string;
-    createdAt: Date;
-    id: string;
-    permalink: string;
-    postId: string;
-    redditUserId: string;
-    userId: string;
-  } | null;
-  statsUpdatedAt: Date;
-  subreddit: string;
-  title: string;
-  upvoteCount: number;
-};
+import type { PostListTab, QueriedRedditPost } from '~/types';
 
 type PostsContextType = {
   // Tab state
   activeTab: PostListTab;
   // Navigation
   adjacentPosts: {
-    next: PostFromQuery | null;
-    prev: PostFromQuery | null;
+    next: QueriedRedditPost | null;
+    prev: QueriedRedditPost | null;
   };
   // Actions
   fetchNextPage: () => void;
@@ -51,7 +28,7 @@ type PostsContextType = {
   isLoading: boolean;
 
   // Data
-  posts: Array<PostFromQuery>;
+  posts: Array<QueriedRedditPost>;
   // Selection state
   selectedPostId: string | null;
   setActiveTab: (tab: PostListTab) => void;
