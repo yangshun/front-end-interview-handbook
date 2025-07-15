@@ -5,13 +5,13 @@ import logEvent from '~/logging/logEvent';
 import { getErrorMessage } from '~/utils/getErrorMessage';
 
 type Props = Readonly<{
-  // Identify which instance this happened. Should be unique within the page.
-  instance?: string;
   // Bundler URL to ping for observability.
   bundlerURL: string;
+  // Identify which instance this happened. Should be unique within the page.
+  instance: string;
 }>;
 
-function usePingSandpackBundler({ instance, bundlerURL }: Props) {
+function usePingSandpackBundler({ bundlerURL, instance }: Props) {
   const pingSentRef = useRef(false);
   const isUnloadingRef = useRef(false);
 
@@ -62,20 +62,20 @@ function usePingSandpackBundler({ instance, bundlerURL }: Props) {
     return () => {
       window.removeEventListener('beforeunload', handleBeforeUnload);
     };
-  }, [instance]);
+  }, [instance, bundlerURL]);
 }
 
 const sandpackStartedEventName = 'sandpack-started';
 const sandpackReadyEventName = 'sandpack-ready';
 
-export default function SandpackObservability({ instance, bundlerURL }: Props) {
+export default function SandpackObservability({ bundlerURL, instance }: Props) {
   const { sandpack } = useSandpack();
   const { status: sandpackStatus } = sandpack;
   const loadingStartedRef = useRef(false);
   const readySentRef = useRef(false);
   const timeoutSentRef = useRef(false);
 
-  usePingSandpackBundler({ instance, bundlerURL });
+  usePingSandpackBundler({ bundlerURL, instance });
 
   useEffect(() => {
     if (sandpackStatus === 'timeout' && !timeoutSentRef.current) {
@@ -94,7 +94,7 @@ export default function SandpackObservability({ instance, bundlerURL }: Props) {
 
     loadingStartedRef.current = true;
     performance.mark(sandpackStartedEventName);
-  }, []);
+  }, [bundlerURL]);
 
   useEffect(() => {
     if (sandpackStatus === 'running' && !readySentRef.current) {
@@ -114,7 +114,7 @@ export default function SandpackObservability({ instance, bundlerURL }: Props) {
       });
       readySentRef.current = true;
     }
-  }, [instance, sandpackStatus]);
+  }, [instance, sandpackStatus, bundlerURL]);
 
   return null;
 }

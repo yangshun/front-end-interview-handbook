@@ -15,13 +15,13 @@ import {
   questionUserInterfaceDescriptionPath,
   questionUserInterfaceSolutionPath,
 } from '~/components/interviews/questions/content/user-interface/QuestionUserInterfaceRoutes';
+import { useSandpackBundlerURL } from '~/components/workspace/common/sandpack/useSandpackBundlerURL';
 
 import { useI18nRouter } from '~/next-i18nostic/src';
 
 import SandpackObservability from '../common/sandpack/SandpackObservability';
 import UserInterfaceCodingWorkspace from './UserInterfaceCodingWorkspace';
 import { UserInterfaceCodingWorkspaceSavesContextProvider } from './UserInterfaceCodingWorkspaceSaveContext';
-import { useSandpackBundlerURL } from '~/components/workspace/common/sandpack/useSandpackBundlerURL';
 
 type Props = Readonly<{
   canViewPremiumContent: boolean;
@@ -31,6 +31,8 @@ type Props = Readonly<{
   save: QuestionUserInterfaceSave;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
 }>;
+
+const sandpackO11yInstance = 'workspace.ui.saves';
 
 export default function UserInterfaceCodingWorkspaceSavesPage({
   canViewPremiumContent,
@@ -42,7 +44,7 @@ export default function UserInterfaceCodingWorkspaceSavesPage({
 }: Props) {
   const router = useI18nRouter();
   const { colorScheme } = useColorSchemePreferences();
-  const bundlerURL = useSandpackBundlerURL();
+  const bundlerURL = useSandpackBundlerURL(sandpackO11yInstance);
 
   const { metadata, skeletonBundle } = question;
   const { files: defaultFiles, workspace } = skeletonBundle;
@@ -51,13 +53,15 @@ export default function UserInterfaceCodingWorkspaceSavesPage({
     <CodingPreferencesProvider>
       <UserInterfaceCodingWorkspaceSavesContextProvider save={save}>
         <SandpackProvider
+          // Remount if the bundler URL changes
+          key={bundlerURL}
           customSetup={{
             environment: workspace?.environment,
           }}
           files={JSON.parse(save.files)}
           options={{
-            bundlerURL,
             activeFile: workspace?.activeFile,
+            bundlerURL,
             classes: {
               'sp-input': 'touch-none select-none pointer-events-none',
               'sp-layout': 'h-full',
@@ -103,8 +107,8 @@ export default function UserInterfaceCodingWorkspaceSavesPage({
             }}
           />
           <SandpackObservability
-            instance="workspace.ui.saves"
             bundlerURL={bundlerURL}
+            instance={sandpackO11yInstance}
           />
         </SandpackProvider>
       </UserInterfaceCodingWorkspaceSavesContextProvider>

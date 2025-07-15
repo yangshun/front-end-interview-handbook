@@ -8,22 +8,26 @@ import CodingPreferencesProvider from '~/components/global/CodingPreferencesProv
 import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
 import type { ProjectsChallengeSolutionBundle } from '~/components/projects/challenges/types';
 import SandpackObservability from '~/components/workspace/common/sandpack/SandpackObservability';
+import { useSandpackBundlerURL } from '~/components/workspace/common/sandpack/useSandpackBundlerURL';
 
 import ProjectsChallengeSolutionWorkspace from './ProjectsChallengeSolutionWorkspace';
-import { useSandpackBundlerURL } from '~/components/workspace/common/sandpack/useSandpackBundlerURL';
 
 type Props = Readonly<{
   solution: ProjectsChallengeSolutionBundle;
 }>;
 
+const sandpackO11yInstance = 'projects.challenge_solution';
+
 export default function ProjectsChallengeSolutionSection({ solution }: Props) {
   const { colorScheme } = useColorSchemePreferences();
-  const bundlerURL = useSandpackBundlerURL();
+  const bundlerURL = useSandpackBundlerURL(sandpackO11yInstance);
   const { files, workspace } = solution;
 
   return (
     <CodingPreferencesProvider>
       <SandpackProvider
+        // Remount if the bundler URL changes
+        key={bundlerURL}
         customSetup={{
           environment: workspace.environment as SandboxEnvironment,
         }}
@@ -46,8 +50,8 @@ export default function ProjectsChallengeSolutionSection({ solution }: Props) {
           defaultFiles={files}
         />
         <SandpackObservability
-          instance="projects.official_solutions"
           bundlerURL={bundlerURL}
+          instance={sandpackO11yInstance}
         />
       </SandpackProvider>
     </CodingPreferencesProvider>

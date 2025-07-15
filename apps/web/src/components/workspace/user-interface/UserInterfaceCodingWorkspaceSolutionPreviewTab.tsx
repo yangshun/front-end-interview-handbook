@@ -8,22 +8,24 @@ import type { QuestionUserInterfaceBundle } from '~/components/interviews/questi
 import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
+import SandpackObservability from '~/components/workspace/common/sandpack/SandpackObservability';
+import { useSandpackBundlerURL } from '~/components/workspace/common/sandpack/useSandpackBundlerURL';
 
 import UserInterfaceCodingWorkspacePreview from './UserInterfaceCodingWorkspacePreview';
 import useUserInterfaceCodingWorkspaceTilesContext from './useUserInterfaceCodingWorkspaceTilesContext';
-import SandpackObservability from '~/components/workspace/common/sandpack/SandpackObservability';
-import { useSandpackBundlerURL } from '~/components/workspace/common/sandpack/useSandpackBundlerURL';
 
 type Props = Readonly<{
   bundle: QuestionUserInterfaceBundle;
 }>;
+
+const sandpackO11yInstance = 'workspace.ui.solution_preview';
 
 export default function UserInterfaceCodingWorkspaceSolutionPreviewTab({
   bundle,
 }: Props) {
   const intl = useIntl();
   const { colorScheme } = useColorSchemePreferences();
-  const bundlerURL = useSandpackBundlerURL();
+  const bundlerURL = useSandpackBundlerURL(sandpackO11yInstance);
   const { dispatch, getTabById } =
     useUserInterfaceCodingWorkspaceTilesContext();
 
@@ -65,6 +67,8 @@ export default function UserInterfaceCodingWorkspaceSolutionPreviewTab({
       </Banner>
       <div className="flex h-0 grow">
         <SandpackProvider
+          // Remount if the bundler URL changes
+          key={bundlerURL}
           customSetup={{
             environment: workspace?.environment,
           }}
@@ -85,8 +89,8 @@ export default function UserInterfaceCodingWorkspaceSolutionPreviewTab({
           theme={colorScheme === 'dark' ? 'dark' : undefined}>
           <UserInterfaceCodingWorkspacePreview />
           <SandpackObservability
-            instance="workspace.ui.solution_preview"
             bundlerURL={bundlerURL}
+            instance={sandpackO11yInstance}
           />
         </SandpackProvider>
       </div>

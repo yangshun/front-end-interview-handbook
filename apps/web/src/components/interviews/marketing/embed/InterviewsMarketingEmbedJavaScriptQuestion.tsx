@@ -52,8 +52,8 @@ export default function InterviewsMarketingEmbedJavaScriptQuestion({
             language={language}
             nextQuestions={[]}
             question={javaScriptEmbedExample}
+            sandpackO11yInstance="marketing.embed.js"
             similarQuestions={[]}
-            timeoutLoggerInstance="marketing.embed.js"
             onLanguageChange={setLanguage}
           />
         ) : (

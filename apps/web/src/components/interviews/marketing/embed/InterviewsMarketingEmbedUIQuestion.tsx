@@ -71,8 +71,8 @@ export default function InterviewsMarketingEmbedUIQuestion({
             mode="practice"
             nextQuestions={[]}
             question={question.frameworks[framework]}
+            sandpackO11yInstance="marketing.embed.ui"
             similarQuestions={[]}
-            timeoutLoggerInstance="marketing.embed.ui"
             onFrameworkChange={setFramework}
           />
         ) : (

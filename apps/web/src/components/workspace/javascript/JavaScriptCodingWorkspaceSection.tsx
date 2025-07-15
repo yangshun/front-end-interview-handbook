@@ -8,7 +8,6 @@ import type {
   QuestionJavaScript,
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
-
 import JavaScriptCodingWorkspace from '~/components/workspace/javascript/JavaScriptCodingWorkspace';
 import { loadLocalJavaScriptQuestionCode } from '~/components/workspace/javascript/JavaScriptCodingWorkspaceCodeStorage';
 
@@ -22,9 +21,9 @@ type Props = Readonly<{
   nextQuestions: ReadonlyArray<QuestionMetadata>;
   onLanguageChange: (language: QuestionCodingWorkingLanguage) => void;
   question: QuestionJavaScript;
+  sandpackO11yInstance: string;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
   studyListKey?: string;
-  timeoutLoggerInstance: string;
 }>;
 
 export default function JavaScriptCodingWorkspaceSection({
@@ -34,12 +33,12 @@ export default function JavaScriptCodingWorkspaceSection({
   nextQuestions,
   onLanguageChange,
   question,
+  sandpackO11yInstance,
   similarQuestions,
   studyListKey,
-  timeoutLoggerInstance,
 }: Props) {
   const { colorScheme } = useColorSchemePreferences();
-  const bundlerURL = useSandpackBundlerURL();
+  const bundlerURL = useSandpackBundlerURL(sandpackO11yInstance);
 
   const { files, skeleton, workspace } = question;
   const loadedCode = loadLocalJavaScriptQuestionCode(
@@ -63,6 +62,8 @@ export default function JavaScriptCodingWorkspaceSection({
   return (
     <CodingPreferencesProvider>
       <SandpackProvider
+        // Remount if the bundler URL changes
+        key={bundlerURL}
         customSetup={{
           environment: 'parcel',
         }}
@@ -98,8 +99,8 @@ export default function JavaScriptCodingWorkspaceSection({
           onLanguageChange={onLanguageChange}
         />
         <SandpackObservability
-          instance={timeoutLoggerInstance}
           bundlerURL={bundlerURL}
+          instance={sandpackO11yInstance}
         />
       </SandpackProvider>
     </CodingPreferencesProvider>

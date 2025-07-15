@@ -42,8 +42,8 @@ export default function UserInterfaceCodingWorkspacePage({
     <UserInterfaceCodingWorkspaceSection
       {...props}
       embed={false}
+      sandpackO11yInstance="workspace.ui"
       studyListKey={studyListKey}
-      timeoutLoggerInstance="workspace.ui"
       onFrameworkChange={(value, contentType) => {
         const frameworkValue = value as QuestionFramework;
         const frameworkItem = metadata.frameworks.find(

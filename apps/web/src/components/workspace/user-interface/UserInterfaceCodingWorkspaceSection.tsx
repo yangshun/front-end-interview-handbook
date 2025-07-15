@@ -9,11 +9,11 @@ import type {
   QuestionUserInterface,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
+import { useSandpackBundlerURL } from '~/components/workspace/common/sandpack/useSandpackBundlerURL';
 import UserInterfaceCodingWorkspace from '~/components/workspace/user-interface/UserInterfaceCodingWorkspace';
 import { loadLocalUserInterfaceQuestionCode } from '~/components/workspace/user-interface/UserInterfaceCodingWorkspaceCodeStorage';
 
 import SandpackObservability from '../common/sandpack/SandpackObservability';
-import { useSandpackBundlerURL } from '~/components/workspace/common/sandpack/useSandpackBundlerURL';
 
 type Props = Readonly<{
   activeTabScrollIntoView?: boolean;
@@ -26,9 +26,9 @@ type Props = Readonly<{
     contentType: 'description' | 'solution',
   ) => void;
   question: QuestionUserInterface;
+  sandpackO11yInstance: string;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
   studyListKey?: string;
-  timeoutLoggerInstance: string;
 }>;
 
 export default function UserInterfaceCodingWorkspaceSection({
@@ -39,12 +39,12 @@ export default function UserInterfaceCodingWorkspaceSection({
   nextQuestions,
   onFrameworkChange,
   question,
+  sandpackO11yInstance,
   similarQuestions,
   studyListKey,
-  timeoutLoggerInstance,
 }: Props) {
   const { colorScheme } = useColorSchemePreferences();
-  const bundlerURL = useSandpackBundlerURL();
+  const bundlerURL = useSandpackBundlerURL(sandpackO11yInstance);
 
   const loadedFiles = loadLocalUserInterfaceQuestionCode(
     question,
@@ -69,6 +69,8 @@ export default function UserInterfaceCodingWorkspaceSection({
   return (
     <CodingPreferencesProvider>
       <SandpackProvider
+        // Remount if the bundler URL changes
+        key={bundlerURL}
         customSetup={{
           environment: workspace?.environment,
         }}
@@ -104,8 +106,8 @@ export default function UserInterfaceCodingWorkspaceSection({
           onFrameworkChange={onFrameworkChange}
         />
         <SandpackObservability
-          instance={timeoutLoggerInstance}
           bundlerURL={bundlerURL}
+          instance={sandpackO11yInstance}
         />
       </SandpackProvider>
     </CodingPreferencesProvider>

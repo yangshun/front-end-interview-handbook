@@ -31,9 +31,9 @@ export default function JavaScriptCodingWorkspacePage({
       language={language}
       nextQuestions={nextQuestions}
       question={question}
+      sandpackO11yInstance="workspace.js"
       similarQuestions={similarQuestions}
       studyListKey={studyListKey}
-      timeoutLoggerInstance="workspace.js"
       onLanguageChange={setLanguage}
     />
   );
