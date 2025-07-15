@@ -9,11 +9,11 @@ import type {
   QuestionUserInterface,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
-import sandpackProviderOptions from '~/components/workspace/common/sandpack/sandpackProviderOptions';
 import UserInterfaceCodingWorkspace from '~/components/workspace/user-interface/UserInterfaceCodingWorkspace';
 import { loadLocalUserInterfaceQuestionCode } from '~/components/workspace/user-interface/UserInterfaceCodingWorkspaceCodeStorage';
 
 import SandpackObservability from '../common/sandpack/SandpackObservability';
+import { useSandpackBundlerURL } from '~/components/workspace/common/sandpack/useSandpackBundlerURL';
 
 type Props = Readonly<{
   activeTabScrollIntoView?: boolean;
@@ -44,6 +44,7 @@ export default function UserInterfaceCodingWorkspaceSection({
   timeoutLoggerInstance,
 }: Props) {
   const { colorScheme } = useColorSchemePreferences();
+  const bundlerURL = useSandpackBundlerURL();
 
   const loadedFiles = loadLocalUserInterfaceQuestionCode(
     question,
@@ -73,8 +74,8 @@ export default function UserInterfaceCodingWorkspaceSection({
         }}
         files={files}
         options={{
-          ...sandpackProviderOptions,
           activeFile: workspace?.activeFile,
+          bundlerURL,
           classes: {
             'sp-input': 'touch-none select-none pointer-events-none',
             'sp-layout': 'h-full',
@@ -102,7 +103,10 @@ export default function UserInterfaceCodingWorkspaceSection({
           studyListKey={studyListKey}
           onFrameworkChange={onFrameworkChange}
         />
-        <SandpackObservability instance={timeoutLoggerInstance} />
+        <SandpackObservability
+          instance={timeoutLoggerInstance}
+          bundlerURL={bundlerURL}
+        />
       </SandpackProvider>
     </CodingPreferencesProvider>
   );

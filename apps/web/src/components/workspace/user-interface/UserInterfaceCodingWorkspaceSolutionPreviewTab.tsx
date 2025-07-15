@@ -9,9 +9,10 @@ import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
 
-import sandpackProviderOptions from '../common/sandpack/sandpackProviderOptions';
 import UserInterfaceCodingWorkspacePreview from './UserInterfaceCodingWorkspacePreview';
 import useUserInterfaceCodingWorkspaceTilesContext from './useUserInterfaceCodingWorkspaceTilesContext';
+import SandpackObservability from '~/components/workspace/common/sandpack/SandpackObservability';
+import { useSandpackBundlerURL } from '~/components/workspace/common/sandpack/useSandpackBundlerURL';
 
 type Props = Readonly<{
   bundle: QuestionUserInterfaceBundle;
@@ -22,12 +23,14 @@ export default function UserInterfaceCodingWorkspaceSolutionPreviewTab({
 }: Props) {
   const intl = useIntl();
   const { colorScheme } = useColorSchemePreferences();
-  const { files, workspace } = bundle;
+  const bundlerURL = useSandpackBundlerURL();
   const { dispatch, getTabById } =
     useUserInterfaceCodingWorkspaceTilesContext();
 
+  const { files, workspace } = bundle;
+
   return (
-    <div className="size-full flex flex-col">
+    <div className="flex size-full flex-col">
       <Banner size="xs" variant="primary">
         {intl.formatMessage({
           defaultMessage: 'This is a preview of the solution.',
@@ -67,7 +70,7 @@ export default function UserInterfaceCodingWorkspaceSolutionPreviewTab({
           }}
           files={files}
           options={{
-            ...sandpackProviderOptions,
+            bundlerURL,
             classes: {
               'sp-input': 'touch-none select-none pointer-events-none',
               'sp-layout': 'h-full',
@@ -81,6 +84,10 @@ export default function UserInterfaceCodingWorkspaceSolutionPreviewTab({
           }}
           theme={colorScheme === 'dark' ? 'dark' : undefined}>
           <UserInterfaceCodingWorkspacePreview />
+          <SandpackObservability
+            instance="workspace.ui.solution_preview"
+            bundlerURL={bundlerURL}
+          />
         </SandpackProvider>
       </div>
     </div>

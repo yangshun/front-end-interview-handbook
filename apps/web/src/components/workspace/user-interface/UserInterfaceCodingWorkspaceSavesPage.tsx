@@ -15,13 +15,13 @@ import {
   questionUserInterfaceDescriptionPath,
   questionUserInterfaceSolutionPath,
 } from '~/components/interviews/questions/content/user-interface/QuestionUserInterfaceRoutes';
-import sandpackProviderOptions from '~/components/workspace/common/sandpack/sandpackProviderOptions';
 
 import { useI18nRouter } from '~/next-i18nostic/src';
 
 import SandpackObservability from '../common/sandpack/SandpackObservability';
 import UserInterfaceCodingWorkspace from './UserInterfaceCodingWorkspace';
 import { UserInterfaceCodingWorkspaceSavesContextProvider } from './UserInterfaceCodingWorkspaceSaveContext';
+import { useSandpackBundlerURL } from '~/components/workspace/common/sandpack/useSandpackBundlerURL';
 
 type Props = Readonly<{
   canViewPremiumContent: boolean;
@@ -41,10 +41,10 @@ export default function UserInterfaceCodingWorkspaceSavesPage({
   similarQuestions,
 }: Props) {
   const router = useI18nRouter();
-  const { metadata, skeletonBundle } = question;
-
   const { colorScheme } = useColorSchemePreferences();
+  const bundlerURL = useSandpackBundlerURL();
 
+  const { metadata, skeletonBundle } = question;
   const { files: defaultFiles, workspace } = skeletonBundle;
 
   return (
@@ -56,7 +56,7 @@ export default function UserInterfaceCodingWorkspaceSavesPage({
           }}
           files={JSON.parse(save.files)}
           options={{
-            ...sandpackProviderOptions,
+            bundlerURL,
             activeFile: workspace?.activeFile,
             classes: {
               'sp-input': 'touch-none select-none pointer-events-none',
@@ -102,7 +102,10 @@ export default function UserInterfaceCodingWorkspaceSavesPage({
               );
             }}
           />
-          <SandpackObservability instance="workspace.ui.saves" />
+          <SandpackObservability
+            instance="workspace.ui.saves"
+            bundlerURL={bundlerURL}
+          />
         </SandpackProvider>
       </UserInterfaceCodingWorkspaceSavesContextProvider>
     </CodingPreferencesProvider>

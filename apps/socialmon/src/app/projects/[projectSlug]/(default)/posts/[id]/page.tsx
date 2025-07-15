@@ -64,7 +64,7 @@ export default async function Page({ params }: Props) {
   }
 
   return (
-    <Container size="sm">
+    <Container size="sm" w="100%">
       <PostDetailPage post={post} showBackButton={true} />
     </Container>
   );

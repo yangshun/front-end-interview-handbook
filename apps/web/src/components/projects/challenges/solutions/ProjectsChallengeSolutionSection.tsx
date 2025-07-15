@@ -8,9 +8,9 @@ import CodingPreferencesProvider from '~/components/global/CodingPreferencesProv
 import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
 import type { ProjectsChallengeSolutionBundle } from '~/components/projects/challenges/types';
 import SandpackObservability from '~/components/workspace/common/sandpack/SandpackObservability';
-import sandpackProviderOptions from '~/components/workspace/common/sandpack/sandpackProviderOptions';
 
 import ProjectsChallengeSolutionWorkspace from './ProjectsChallengeSolutionWorkspace';
+import { useSandpackBundlerURL } from '~/components/workspace/common/sandpack/useSandpackBundlerURL';
 
 type Props = Readonly<{
   solution: ProjectsChallengeSolutionBundle;
@@ -18,7 +18,7 @@ type Props = Readonly<{
 
 export default function ProjectsChallengeSolutionSection({ solution }: Props) {
   const { colorScheme } = useColorSchemePreferences();
-
+  const bundlerURL = useSandpackBundlerURL();
   const { files, workspace } = solution;
 
   return (
@@ -29,8 +29,8 @@ export default function ProjectsChallengeSolutionSection({ solution }: Props) {
         }}
         files={files}
         options={{
-          ...sandpackProviderOptions,
           activeFile: workspace?.activeFile,
+          bundlerURL,
           classes: {
             'sp-input': 'touch-none select-none pointer-events-none',
             'sp-layout': 'h-full',
@@ -45,7 +45,10 @@ export default function ProjectsChallengeSolutionSection({ solution }: Props) {
           activeTabScrollIntoView={true}
           defaultFiles={files}
         />
-        <SandpackObservability instance="projects.official_solutions" />
+        <SandpackObservability
+          instance="projects.official_solutions"
+          bundlerURL={bundlerURL}
+        />
       </SandpackProvider>
     </CodingPreferencesProvider>
   );

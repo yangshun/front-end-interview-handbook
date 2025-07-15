@@ -1,22 +1,17 @@
 import { useSandpack } from '@codesandbox/sandpack-react';
 import { useEffect, useRef } from 'react';
 
-import sandpackProviderOptions from '~/components/workspace/common/sandpack/sandpackProviderOptions';
-
 import logEvent from '~/logging/logEvent';
 import { getErrorMessage } from '~/utils/getErrorMessage';
 
 type Props = Readonly<{
   // Identify which instance this happened. Should be unique within the page.
   instance?: string;
+  // Bundler URL to ping for observability.
+  bundlerURL: string;
 }>;
 
-const pingURL = new URL(
-  'version.txt',
-  sandpackProviderOptions.bundlerURL,
-).toString();
-
-function usePingSandpackBundler(instance?: string) {
+function usePingSandpackBundler({ instance, bundlerURL }: Props) {
   const pingSentRef = useRef(false);
   const isUnloadingRef = useRef(false);
 
@@ -39,13 +34,15 @@ function usePingSandpackBundler(instance?: string) {
       pingSentRef.current = true;
 
       try {
-        const response = await fetch(pingURL);
+        const response = await fetch(
+          new URL('version.txt', bundlerURL).toString(),
+        );
         const text = await response.text();
 
         logEvent('sandpack.reachable', {
           instance,
           namespace: 'workspace',
-          url: sandpackProviderOptions.bundlerURL,
+          url: bundlerURL,
           version: text,
         });
       } catch (error: unknown) {
@@ -55,7 +52,7 @@ function usePingSandpackBundler(instance?: string) {
           namespace: 'workspace',
           online: navigator.onLine,
           stack: error instanceof Error ? error.stack : null,
-          url: sandpackProviderOptions.bundlerURL,
+          url: bundlerURL,
         });
       }
     }
@@ -71,14 +68,14 @@ function usePingSandpackBundler(instance?: string) {
 const sandpackStartedEventName = 'sandpack-started';
 const sandpackReadyEventName = 'sandpack-ready';
 
-export default function SandpackObservability({ instance }: Props) {
+export default function SandpackObservability({ instance, bundlerURL }: Props) {
   const { sandpack } = useSandpack();
   const { status: sandpackStatus } = sandpack;
   const loadingStartedRef = useRef(false);
   const readySentRef = useRef(false);
   const timeoutSentRef = useRef(false);
 
-  usePingSandpackBundler(instance);
+  usePingSandpackBundler({ instance, bundlerURL });
 
   useEffect(() => {
     if (sandpackStatus === 'timeout' && !timeoutSentRef.current) {
@@ -113,7 +110,7 @@ export default function SandpackObservability({ instance }: Props) {
         duration: Math.floor(sandpackReady.duration),
         instance,
         namespace: 'workspace',
-        url: sandpackProviderOptions.bundlerURL,
+        url: bundlerURL,
       });
       readySentRef.current = true;
     }

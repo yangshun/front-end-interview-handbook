@@ -8,11 +8,12 @@ import type {
   QuestionJavaScript,
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
-import sandpackProviderOptions from '~/components/workspace/common/sandpack/sandpackProviderOptions';
+
 import JavaScriptCodingWorkspace from '~/components/workspace/javascript/JavaScriptCodingWorkspace';
 import { loadLocalJavaScriptQuestionCode } from '~/components/workspace/javascript/JavaScriptCodingWorkspaceCodeStorage';
 
 import SandpackObservability from '../common/sandpack/SandpackObservability';
+import { useSandpackBundlerURL } from '../common/sandpack/useSandpackBundlerURL';
 
 type Props = Readonly<{
   canViewPremiumContent: boolean;
@@ -38,6 +39,7 @@ export default function JavaScriptCodingWorkspaceSection({
   timeoutLoggerInstance,
 }: Props) {
   const { colorScheme } = useColorSchemePreferences();
+  const bundlerURL = useSandpackBundlerURL();
 
   const { files, skeleton, workspace } = question;
   const loadedCode = loadLocalJavaScriptQuestionCode(
@@ -66,7 +68,7 @@ export default function JavaScriptCodingWorkspaceSection({
         }}
         files={finalFiles}
         options={{
-          ...sandpackProviderOptions,
+          bundlerURL,
           classes: {
             'sp-input': 'touch-none select-none pointer-events-none',
             'sp-layout': 'h-full',
@@ -95,7 +97,10 @@ export default function JavaScriptCodingWorkspaceSection({
           workspace={workspace}
           onLanguageChange={onLanguageChange}
         />
-        <SandpackObservability instance={timeoutLoggerInstance} />
+        <SandpackObservability
+          instance={timeoutLoggerInstance}
+          bundlerURL={bundlerURL}
+        />
       </SandpackProvider>
     </CodingPreferencesProvider>
   );
