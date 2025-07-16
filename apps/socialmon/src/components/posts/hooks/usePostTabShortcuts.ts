@@ -12,22 +12,22 @@ export function usePostTabShortcuts({
   setActiveTab,
 }: UsePostTabShortcutsProps) {
   // Tab shortcuts using G + key combinations
-  useHotkeys('g>p', () => setActiveTab('PENDING'), {
+  useHotkeys('g>1', () => setActiveTab('PENDING'), {
     description: 'Switch to Pending tab',
     scopes: ['post-list'],
   });
 
-  useHotkeys('g>r', () => setActiveTab('REPLIED'), {
+  useHotkeys('g>2', () => setActiveTab('REPLIED'), {
     description: 'Switch to Replied tab',
     scopes: ['post-list'],
   });
 
-  useHotkeys('g>t', () => setActiveTab('IRRELEVANT'), {
+  useHotkeys('g>3', () => setActiveTab('IRRELEVANT'), {
     description: 'Switch to Irrelevant tab',
     scopes: ['post-list'],
   });
 
-  useHotkeys('g>a', () => setActiveTab('ALL'), {
+  useHotkeys('g>4', () => setActiveTab('ALL'), {
     description: 'Switch to All tab',
     scopes: ['post-list'],
   });

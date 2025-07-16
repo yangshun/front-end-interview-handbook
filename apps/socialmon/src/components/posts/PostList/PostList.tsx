@@ -71,7 +71,7 @@ export default function PostList() {
             <Tooltip
               label={
                 <>
-                  <KeyboardChar char="G" /> then <KeyboardChar char="P" />
+                  <KeyboardChar char="G" /> then <KeyboardChar char="1" />
                 </>
               }
               withArrow={true}>
@@ -82,7 +82,7 @@ export default function PostList() {
             <Tooltip
               label={
                 <>
-                  <KeyboardChar char="G" /> then <KeyboardChar char="R" />
+                  <KeyboardChar char="G" /> then <KeyboardChar char="2" />
                 </>
               }
               withArrow={true}>
@@ -93,7 +93,7 @@ export default function PostList() {
             <Tooltip
               label={
                 <>
-                  <KeyboardChar char="G" /> then <KeyboardChar char="T" />
+                  <KeyboardChar char="G" /> then <KeyboardChar char="3" />
                 </>
               }
               withArrow={true}>
@@ -104,7 +104,7 @@ export default function PostList() {
             <Tooltip
               label={
                 <>
-                  <KeyboardChar char="G" /> then <KeyboardChar char="A" />
+                  <KeyboardChar char="G" /> then <KeyboardChar char="4" />
                 </>
               }
               withArrow={true}>
