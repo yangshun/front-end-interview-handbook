@@ -75,7 +75,7 @@ export default function PostDetailPage({ post, showBackButton = true }: Props) {
   return (
     <div className="flex h-full flex-col">
       {showBackButton && (
-        <div>
+        <div className="px-4">
           <Button
             component={Link}
             href={`/projects/${projectSlug}`}
@@ -87,7 +87,7 @@ export default function PostDetailPage({ post, showBackButton = true }: Props) {
           </Button>
         </div>
       )}
-      <div className="flex-1 overflow-y-auto">
+      <div className="flex-1 overflow-y-auto p-4">
         <PostDetail
           generateResponse={(
             setResponse: (

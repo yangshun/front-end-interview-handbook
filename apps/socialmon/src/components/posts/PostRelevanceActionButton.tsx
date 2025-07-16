@@ -1,7 +1,7 @@
 import { ActionIcon, Button, Tooltip } from '@mantine/core';
 import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
-import { RiCheckLine, RiForbidLine } from 'react-icons/ri';
+import { RiCheckLine } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
 import useCurrentProjectSlug from '~/hooks/useCurrentProjectSlug';
@@ -68,14 +68,13 @@ export default function PostRelevanceActionButton({
         withArrow={true}>
         <ActionIcon
           aria-label={label}
+          color="blue"
           size="lg"
-          variant="default"
+          variant={
+            relevancy === PostRelevancy.IRRELEVANT ? 'default' : 'filled'
+          }
           onClick={onMarkPostRelevancy}>
-          {relevancy === PostRelevancy.IRRELEVANT ? (
-            <RiCheckLine />
-          ) : (
-            <RiForbidLine />
-          )}
+          <RiCheckLine />
         </ActionIcon>
       </Tooltip>
     );

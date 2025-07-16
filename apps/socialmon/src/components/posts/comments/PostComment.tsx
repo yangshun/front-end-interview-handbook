@@ -1,11 +1,8 @@
 import { ActionIcon, Anchor, Avatar, Button, Text } from '@mantine/core';
 import clsx from 'clsx';
 import { useState } from 'react';
-import {
-  RiAddCircleLine,
-  RiIndeterminateCircleLine,
-  RiThumbUpFill,
-} from 'react-icons/ri';
+import { PiArrowFatUpBold } from 'react-icons/pi';
+import { RiAddCircleLine, RiIndeterminateCircleLine } from 'react-icons/ri';
 
 import RelativeTimestamp from '~/components/common/datetime/RelativeTimestamp';
 
@@ -101,8 +98,10 @@ export default function PostComment({ className, comment, level }: Props) {
           </div>
           <div>
             <div className="flex items-center gap-1">
-              <RiThumbUpFill className={clsx('size-4', 'text-slate-500')} />
-              <Text size="sm">{upvoteCount}</Text>
+              <PiArrowFatUpBold className={clsx('size-4', 'text-slate-600')} />
+              <Text className="text-slate-600" fw={600} size="xs">
+                {upvoteCount}
+              </Text>
             </div>
           </div>
         </div>

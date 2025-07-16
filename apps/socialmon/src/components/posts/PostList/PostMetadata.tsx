@@ -17,15 +17,15 @@ export default function PostMetadata({ post, showViewPost }: Props) {
     <div className="flex flex-wrap items-center justify-between gap-2">
       <div className="flex flex-wrap items-center gap-4">
         <PostStats post={post} />
+        {post.relevancy === 'IRRELEVANT' && (
+          <Badge color="blue" size="sm" variant="light">
+            Irrelevant
+          </Badge>
+        )}
         {(post.replied === 'REPLIED_MANUALLY' ||
           post.replied === 'REPLIED_VIA_APP') && (
           <Badge color="orange" size="sm" variant="light">
             Replied
-          </Badge>
-        )}
-        {post.relevancy === 'IRRELEVANT' && (
-          <Badge color="blue" size="sm" variant="light">
-            Irrelevant
           </Badge>
         )}
       </div>

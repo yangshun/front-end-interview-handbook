@@ -51,12 +51,11 @@ export default function MobilePostModal({ children }: Props) {
           className="absolute inset-0 bg-black bg-opacity-50"
           onClick={handleBackdropClick}
         />
-
         {/* Modal Content - Slide up from bottom */}
         <div className="animate-slide-up absolute bottom-4 left-4 right-4 top-20 flex flex-col rounded-lg bg-white shadow-lg">
           {/* Header with close button */}
-          <div className="flex flex-shrink-0 items-center justify-between border-b p-4">
-            <h2 className="text-lg font-semibold">Post Details</h2>
+          <div className="flex flex-shrink-0 items-center justify-between border-b px-4 py-2">
+            <h2 className="text-lg font-semibold">Post details</h2>
             <button
               aria-label="Close"
               className="rounded-full p-2 transition-colors hover:bg-gray-100"
@@ -76,9 +75,8 @@ export default function MobilePostModal({ children }: Props) {
               </svg>
             </button>
           </div>
-
           {/* Modal Body */}
-          <div className="flex-1 overflow-y-auto p-4">{children}</div>
+          <div className="flex-1 overflow-y-auto">{children}</div>
         </div>
       </div>
     </MobileModalContext.Provider>

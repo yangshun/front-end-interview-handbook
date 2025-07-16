@@ -70,7 +70,7 @@ export default function InterceptedPostDetailClient({
 
   return (
     <div className="flex h-full flex-col">
-      <div className="flex-1 overflow-y-auto p-4">
+      <div className="flex-1 overflow-y-auto">
         <PostDetailPage post={post} showBackButton={false} />
       </div>
       <div className="sticky bottom-0 left-0 right-0 z-10 flex items-center justify-between border-t border-gray-200 bg-white px-4 pb-3 pt-3">

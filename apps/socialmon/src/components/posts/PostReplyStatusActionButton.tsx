@@ -1,7 +1,7 @@
 import { ActionIcon, Button, Tooltip } from '@mantine/core';
 import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
-import { RiReplyFill, RiReplyLine } from 'react-icons/ri';
+import { RiReplyLine } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
 import useCurrentProjectSlug from '~/hooks/useCurrentProjectSlug';
@@ -76,14 +76,13 @@ export default function PostReplyStatusActionButton({
         withArrow={true}>
         <ActionIcon
           aria-label={label}
+          color="orange"
           size="lg"
-          variant="default"
+          variant={
+            replyStatus === PostRepliedStatus.NOT_REPLIED ? 'default' : 'filled'
+          }
           onClick={onMarkPostReplyStatus}>
-          {replyStatus === PostRepliedStatus.NOT_REPLIED ? (
-            <RiReplyLine />
-          ) : (
-            <RiReplyFill />
-          )}
+          <RiReplyLine />
         </ActionIcon>
       </Tooltip>
     );
