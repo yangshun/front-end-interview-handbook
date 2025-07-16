@@ -90,7 +90,6 @@ export type FetchedRedditPost = Omit<
 export type QueriedRedditPost = Omit<
   RedditPost,
   | 'content'
-  | 'permalink'
   | 'postedAt'
   | 'postId'
   | 'projectId'

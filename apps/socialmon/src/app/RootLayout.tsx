@@ -4,6 +4,7 @@ import '@mantine/core/styles.css';
 
 import type { MantineThemeOverride } from '@mantine/core';
 import { MantineProvider } from '@mantine/core';
+import { HotkeysProvider } from 'react-hotkeys-hook';
 
 import GlobalProviders from '~/components/global/GlobalProviders';
 import CustomToaster from '~/components/ui/CustomToaster';
@@ -47,8 +48,10 @@ export default function RootLayout({ children }: Props) {
   return (
     <GlobalProviders>
       <MantineProvider theme={theme}>
-        {children}
-        <CustomToaster />
+        <HotkeysProvider>
+          {children}
+          <CustomToaster />
+        </HotkeysProvider>
       </MantineProvider>
     </GlobalProviders>
   );

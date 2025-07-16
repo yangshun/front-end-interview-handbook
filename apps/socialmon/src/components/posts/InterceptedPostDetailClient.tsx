@@ -1,14 +1,19 @@
 'use client';
 
 import { ActionIcon, Tooltip } from '@mantine/core';
+import { useEffect } from 'react';
+import { useHotkeysContext } from 'react-hotkeys-hook';
 import {
   RiArrowLeftSLine,
   RiArrowRightSLine,
   RiExternalLinkLine,
 } from 'react-icons/ri';
 
+import { useIsMobileModal } from '~/components/ui/MobilePostModal';
+
 import type { PostExtended } from '~/types';
 
+import { usePostDetailShortcuts } from './hooks/usePostDetailShortcuts';
 import PostDetailPage from './PostDetailPage';
 import PostRelevanceActionButton from './PostRelevanceActionButton';
 import PostReplyStatusActionButton from './PostReplyStatusActionButton';
@@ -20,7 +25,47 @@ export default function InterceptedPostDetailClient({
 }: {
   post: PostExtended;
 }) {
-  const { adjacentPosts, handleNextPost, handlePrevPost } = usePostsContext();
+  const { disableScope, enableScope } = useHotkeysContext();
+  const isInMobileModal = useIsMobileModal();
+  const {
+    adjacentPosts,
+    handleNextPost,
+    handlePrevPost,
+    markPostRelevancy,
+    markPostReplyStatus,
+  } = usePostsContext();
+
+  const toggleRelevant = () => {
+    markPostRelevancy(
+      post.id,
+      post.relevancy === 'IRRELEVANT' ? 'RELEVANT' : 'IRRELEVANT',
+    );
+  };
+
+  const toggleReplied = () => {
+    markPostReplyStatus(
+      post.id,
+      post.replied === 'NOT_REPLIED' ? 'REPLIED_MANUALLY' : 'NOT_REPLIED',
+    );
+  };
+
+  usePostDetailShortcuts({
+    enabled: !isInMobileModal,
+    onNextPost: handleNextPost,
+    onPrevPost: handlePrevPost,
+    onToggleRelevant: toggleRelevant,
+    onToggleReplied: toggleReplied,
+    post,
+  });
+
+  // Enable the post-detail scope when this component mounts
+  useEffect(() => {
+    enableScope('post-detail');
+
+    return () => {
+      disableScope('post-detail');
+    };
+  }, [disableScope, enableScope]);
 
   return (
     <div className="flex h-full flex-col">
@@ -30,7 +75,7 @@ export default function InterceptedPostDetailClient({
       <div className="sticky bottom-0 left-0 right-0 z-10 flex items-center justify-between border-t border-gray-200 bg-white px-4 pb-3 pt-3">
         {/* Navigation buttons */}
         <div className="flex items-center gap-2">
-          <Tooltip label="Previous post" withArrow={true}>
+          <Tooltip label="Previous post (K)" withArrow={true}>
             <ActionIcon
               aria-label="Previous post"
               disabled={!adjacentPosts.prev}
@@ -40,7 +85,7 @@ export default function InterceptedPostDetailClient({
               <RiArrowLeftSLine />
             </ActionIcon>
           </Tooltip>
-          <Tooltip label="Next post" withArrow={true}>
+          <Tooltip label="Next post (J)" withArrow={true}>
             <ActionIcon
               aria-label="Next post"
               disabled={!adjacentPosts.next}
@@ -63,7 +108,7 @@ export default function InterceptedPostDetailClient({
             postId={post.id}
             replyStatus={post.replied}
           />
-          <Tooltip label="View on Reddit" withArrow={true}>
+          <Tooltip label="View on Reddit (E)" withArrow={true}>
             <ActionIcon
               aria-label="View on Reddit"
               color="orange"

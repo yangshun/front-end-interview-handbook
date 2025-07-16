@@ -210,6 +210,7 @@ export const socialPostsRouter = router({
           createdAt: true,
           id: true,
           keywords: true,
+          permalink: true,
           relevancy: true,
           replied: true,
           reply: true,

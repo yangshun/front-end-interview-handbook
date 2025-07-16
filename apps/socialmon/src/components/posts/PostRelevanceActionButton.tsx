@@ -51,9 +51,9 @@ export default function PostRelevanceActionButton({
   };
 
   const label =
-    relevancy === PostRelevancy.IRRELEVANT
+    (relevancy === PostRelevancy.IRRELEVANT
       ? 'Mark as relevant'
-      : 'Mark as irrelevant';
+      : 'Mark as irrelevant') + ' (T)';
 
   if (iconOnly) {
     return (

@@ -2,11 +2,14 @@
 
 import { Box, Button, Loader, Tabs, Text, Tooltip } from '@mantine/core';
 import clsx from 'clsx';
+import { useEffect } from 'react';
+import { useHotkeysContext } from 'react-hotkeys-hook';
 
 import { trpc } from '~/hooks/trpc';
 import useCurrentProjectSlug from '~/hooks/useCurrentProjectSlug';
 
 import RelativeTimestamp from '~/components/common/datetime/RelativeTimestamp';
+import { usePostTabShortcuts } from '~/components/posts/hooks/usePostTabShortcuts';
 import { usePostsContext } from '~/components/posts/PostsContext';
 
 import type { PostListTab } from '~/types';
@@ -26,6 +29,7 @@ const timestampFormatter = new Intl.DateTimeFormat('en-US', {
 
 export default function PostList() {
   const projectSlug = useCurrentProjectSlug();
+  const { disableScope, enableScope } = useHotkeysContext();
 
   // Use context instead of local state and queries
   const {
@@ -39,6 +43,15 @@ export default function PostList() {
     selectedPostId,
     setActiveTab,
   } = usePostsContext();
+
+  usePostTabShortcuts({ setActiveTab });
+
+  // Enable the post-list scope when this component mounts
+  useEffect(() => {
+    enableScope('post-list');
+
+    return () => disableScope('post-list');
+  }, [disableScope, enableScope]);
 
   const { data: projectData } = trpc.project.get.useQuery({
     projectSlug,
@@ -54,18 +67,26 @@ export default function PostList() {
           variant="outline"
           onChange={(value) => setActiveTab(value as PostListTab)}>
           <Tabs.List>
-            <Tabs.Tab fw={500} value="PENDING">
-              Pending
-            </Tabs.Tab>
-            <Tabs.Tab fw={500} value="REPLIED">
-              Replied
-            </Tabs.Tab>
-            <Tabs.Tab fw={500} value="IRRELEVANT">
-              Irrelevant
-            </Tabs.Tab>
-            <Tabs.Tab fw={500} value="ALL">
-              All
-            </Tabs.Tab>
+            <Tooltip label="Pending (Shortcut: G + P)" withArrow={true}>
+              <Tabs.Tab fw={500} value="PENDING">
+                Pending
+              </Tabs.Tab>
+            </Tooltip>
+            <Tooltip label="Replied (Shortcut: G + R)" withArrow={true}>
+              <Tabs.Tab fw={500} value="REPLIED">
+                Replied
+              </Tabs.Tab>
+            </Tooltip>
+            <Tooltip label="Irrelevant (Shortcut: G + T)" withArrow={true}>
+              <Tabs.Tab fw={500} value="IRRELEVANT">
+                Irrelevant
+              </Tabs.Tab>
+            </Tooltip>
+            <Tooltip label="All (Shortcut: G + A)" withArrow={true}>
+              <Tabs.Tab fw={500} value="ALL">
+                All
+              </Tabs.Tab>
+            </Tooltip>
           </Tabs.List>
         </Tabs>
         <div className="absolute right-2 top-2 flex items-center gap-2">

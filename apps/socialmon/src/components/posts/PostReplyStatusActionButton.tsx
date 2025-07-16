@@ -59,9 +59,9 @@ export default function PostReplyStatusActionButton({
   }
 
   const label =
-    replyStatus === PostRepliedStatus.NOT_REPLIED
+    (replyStatus === PostRepliedStatus.NOT_REPLIED
       ? 'Mark as replied'
-      : 'Mark as not replied';
+      : 'Mark as not replied') + ' (R)';
 
   if (iconOnly) {
     return (

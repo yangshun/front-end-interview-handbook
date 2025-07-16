@@ -1,7 +1,12 @@
 'use client';
 
 import { usePathname, useRouter } from 'next/navigation';
+import { createContext, useContext } from 'react';
 import { useEffect, useState } from 'react';
+
+const MobileModalContext = createContext(false);
+
+export const useIsMobileModal = () => useContext(MobileModalContext);
 
 type Props = {
   children: React.ReactNode;
@@ -39,41 +44,43 @@ export default function MobilePostModal({ children }: Props) {
   }
 
   return (
-    <div className="fixed inset-0 z-50 md:hidden">
-      {/* Backdrop */}
-      <div
-        className="absolute inset-0 bg-black bg-opacity-50"
-        onClick={handleBackdropClick}
-      />
+    <MobileModalContext.Provider value={true}>
+      <div className="fixed inset-0 z-50 md:hidden">
+        {/* Backdrop */}
+        <div
+          className="absolute inset-0 bg-black bg-opacity-50"
+          onClick={handleBackdropClick}
+        />
 
-      {/* Modal Content - Slide up from bottom */}
-      <div className="animate-slide-up absolute bottom-4 left-4 right-4 top-20 flex flex-col rounded-lg bg-white shadow-lg">
-        {/* Header with close button */}
-        <div className="flex flex-shrink-0 items-center justify-between border-b p-4">
-          <h2 className="text-lg font-semibold">Post Details</h2>
-          <button
-            aria-label="Close"
-            className="rounded-full p-2 transition-colors hover:bg-gray-100"
-            type="button"
-            onClick={handleClose}>
-            <svg
-              className="h-5 w-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24">
-              <path
-                d="M6 18L18 6M6 6l12 12"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-              />
-            </svg>
-          </button>
+        {/* Modal Content - Slide up from bottom */}
+        <div className="animate-slide-up absolute bottom-4 left-4 right-4 top-20 flex flex-col rounded-lg bg-white shadow-lg">
+          {/* Header with close button */}
+          <div className="flex flex-shrink-0 items-center justify-between border-b p-4">
+            <h2 className="text-lg font-semibold">Post Details</h2>
+            <button
+              aria-label="Close"
+              className="rounded-full p-2 transition-colors hover:bg-gray-100"
+              type="button"
+              onClick={handleClose}>
+              <svg
+                className="h-5 w-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path
+                  d="M6 18L18 6M6 6l12 12"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                />
+              </svg>
+            </button>
+          </div>
+
+          {/* Modal Body */}
+          <div className="flex-1 overflow-y-auto p-4">{children}</div>
         </div>
-
-        {/* Modal Body */}
-        <div className="flex-1 overflow-y-auto p-4">{children}</div>
       </div>
-    </div>
+    </MobileModalContext.Provider>
   );
 }
