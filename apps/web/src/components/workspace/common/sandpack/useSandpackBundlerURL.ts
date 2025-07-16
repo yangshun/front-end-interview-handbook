@@ -5,7 +5,7 @@ import { useGreatStorageLocal } from '~/hooks/useGreatStorageLocal';
 import logEvent from '~/logging/logEvent';
 import { getErrorMessage } from '~/utils/getErrorMessage';
 
-const defaultBundlerURL = 'https://bundler.greatfrontend.app';
+const defaultBundlerURL = 'https://bundler.greatfrontend.io';
 const fallbackBundlerURL = 'https://bundler.greatfrontend.com';
 
 export function useSandpackBundlerURL(instance: string): string {
