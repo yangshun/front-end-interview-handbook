@@ -25,8 +25,9 @@ export default async function fetchProjectsPricingPlanPaymentConfigLocalizedReco
     if (countryCode !== 'US') {
       // TODO: Make a union for country codes.
       if (pppValues[countryCode as CountryCode] == null) {
-        throw 'Error fetching details';
+        throw new Error(`Error fetching PPP for country code ${countryCode}`);
       }
+
       purchasingPowerParity = pppValues[countryCode as CountryCode];
     }
   } catch {

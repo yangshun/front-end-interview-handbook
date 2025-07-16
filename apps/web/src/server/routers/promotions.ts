@@ -105,7 +105,7 @@ export const promotionsRouter = router({
       );
 
       if (status !== 204) {
-        throw 'Not followed';
+        throw new Error(`${username} is not following ${GITHUB_ORG_NAME}`);
       }
 
       const campaign = PROMO_SOCIAL_DISCOUNT_CAMPAIGN;
@@ -169,7 +169,7 @@ export const promotionsRouter = router({
               : starredRepo.id === repoId,
           )
         ) {
-          throw 'Not starred';
+          throw new Error('Not starred');
         }
 
         await prisma.rewardsTaskCompletion.create({
@@ -216,7 +216,7 @@ export const promotionsRouter = router({
       const isStarred = ids.includes(repoId);
 
       if (!isStarred && lastNumber <= pagesToCheck) {
-        throw 'Not starred';
+        throw new Error('Not starred');
       }
 
       await prisma.rewardsTaskCompletion.create({
@@ -332,7 +332,7 @@ export const promotionsRouter = router({
       const stripeCustomer = profile?.stripeCustomer;
 
       if (profile == null || stripeCustomer == null) {
-        throw 'No profile found';
+        throw new Error('No profile found');
       }
       if (profile.projectsProfile?.premium) {
         return null;
@@ -380,7 +380,7 @@ export const promotionsRouter = router({
       });
 
       if (tasks.length < 4) {
-        throw 'Insufficient social tasks completed';
+        throw new Error('Insufficient social tasks completed');
       }
 
       const profile = await prisma.profile.findFirst({
@@ -390,7 +390,7 @@ export const promotionsRouter = router({
       });
 
       if (profile == null) {
-        throw 'No profile found';
+        throw new Error('No profile found');
       }
 
       const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
@@ -435,7 +435,7 @@ export const promotionsRouter = router({
       }
 
       if (stripeCustomer == null) {
-        throw 'No Stripe customer found';
+        throw new Error('No Stripe customer found');
       }
 
       const coupon =
@@ -465,7 +465,9 @@ export const promotionsRouter = router({
       if (
         allPromoCodes.data.length > PROMO_SOCIAL_DISCOUNT_CODE_MAX_GENERATIONS
       ) {
-        throw "You've used all your attempts for generating a promo code and your last code has now expired. If you need help or have questions, feel free to contact us.";
+        throw new Error(
+          "You've used all your attempts for generating a promo code and all your codes have expired. If you need help or have questions, feel free to contact us.",
+        );
       }
 
       // Generate a new promo code
@@ -526,7 +528,9 @@ export const promotionsRouter = router({
         promotionCodes.data.length >=
         PROMO_STUDENT_DISCOUNT_CODE_MAX_GENERATIONS
       ) {
-        throw "You've used all your attempts for generating a promo code and your last code has now expired. If you need help or have questions, feel free to contact us.";
+        throw new Error(
+          "You've used all your attempts for generating a promo code and all your codes have expired. If you need help or have questions, feel free to contact us.",
+        );
       }
 
       const today = new Date();
@@ -555,7 +559,7 @@ export const promotionsRouter = router({
     });
 
     if (profile == null || profile?.stripeCustomer == null) {
-      throw 'No profile or Stripe customer found';
+      throw new Error('No profile or Stripe customer found');
     }
 
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
@@ -604,7 +608,7 @@ export const promotionsRouter = router({
       });
 
       if (profile == null || profile?.stripeCustomer == null) {
-        throw 'No profile or Stripe customer found';
+        throw new Error('No profile or Stripe customer found');
       }
 
       const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
@@ -690,7 +694,7 @@ export const promotionsRouter = router({
         const results = await Promise.allSettled([
           (async () => {
             if (!gitHubUsername) {
-              throw 'Empty GitHub username';
+              throw new Error('Empty GitHub username');
             }
 
             const res = await fetch(
@@ -698,7 +702,7 @@ export const promotionsRouter = router({
             );
 
             if (!res.ok) {
-              throw 'GitHub profile error';
+              throw new Error('GitHub profile error');
             }
           })(),
           (async () => {

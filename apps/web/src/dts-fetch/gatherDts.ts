@@ -53,7 +53,7 @@ function gatherExportFallback(
   _moduleName: string,
   _fallback: PackageExportsFallback,
 ) {
-  throw 'Array type not supported in package.json exports';
+  throw new Error('Array type not supported in package.json exports');
 }
 
 function gatherExportsEntryOrFallback(

@@ -62,7 +62,7 @@ export async function sendInitiateCheckoutFirstTimeEmail({
     });
 
     if (!profile?.stripeCustomer) {
-      throw 'No profile found';
+      throw new Error('No profile found');
     }
 
     if (profile.premium) {
@@ -123,7 +123,7 @@ export async function sendInitiateCheckoutMultipleTimesEmail({
     });
 
     if (!profile?.stripeCustomer) {
-      throw 'No profile found';
+      throw new Error('No profile found');
     }
 
     if (profile.premium) {
@@ -172,7 +172,7 @@ export async function sendInitiateCheckoutMultipleTimesEmail({
     });
 
     if (promoCode == null) {
-      throw "Couldn't generate coupon";
+      throw new Error("Couldn't generate coupon");
     }
 
     const props = {

@@ -165,7 +165,9 @@ export const questionProgressRouter = router({
           });
 
           if (session == null) {
-            throw 'No ongoing learning session. Start tracking progress first.';
+            throw new Error(
+              'No ongoing learning session. Start tracking progress first.',
+            );
           }
 
           return await prisma.learningSessionProgress.deleteMany({

@@ -337,7 +337,7 @@ export const projectsChallengeSubmissionItemRouter = router({
         }
 
         if (existingPins.length > 3) {
-          throw 'Unable to pin more than 3 submissions';
+          throw new Error('Unable to pin more than 3 submissions');
         }
 
         return await prisma.projectsChallengeSubmissionPin.create({

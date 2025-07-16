@@ -67,7 +67,9 @@ export const guideProgressRouter = router({
 
         // TODO(interviews): start learning session automatically like for questions.
         if (session == null) {
-          throw 'No ongoing learning session. Start tracking progress first.';
+          throw new Error(
+            'No ongoing learning session. Start tracking progress first.',
+          );
         }
 
         return await prisma.learningSessionProgress.create({

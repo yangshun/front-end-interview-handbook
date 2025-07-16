@@ -123,8 +123,7 @@ export default function MDXCodeBlock({
   });
 
   if (Object.keys(allLanguages).length === 0) {
-     
-    throw 'At least one language needed';
+    throw new Error('At least one language needed');
   }
 
   const defaultLanguage = Object.keys(allLanguages)[0] as Language;

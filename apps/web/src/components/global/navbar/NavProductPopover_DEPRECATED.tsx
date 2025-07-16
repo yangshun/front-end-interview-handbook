@@ -45,7 +45,7 @@ export default function NavProductPopover_DEPRECATED({
   const intl = useIntl();
 
   if (product === 'interviews') {
-    throw 'Interviews unsupported';
+    throw new Error('Interviews unsupported');
   }
 
   const [showUnseenIndicator] = useProductMenuUnseenIndicator();
@@ -121,7 +121,7 @@ export default function NavProductPopover_DEPRECATED({
             {showUnseenIndicator && (
               <span
                 className={clsx(
-                  'size-1.5 absolute',
+                  'absolute size-1.5',
                   'bg-red rounded-full',
                   'right-1 top-1',
                 )}

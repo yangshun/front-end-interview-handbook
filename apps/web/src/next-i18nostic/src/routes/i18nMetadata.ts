@@ -157,13 +157,13 @@ export default function i18nMetadata(
   const { robots } = nextMetadata;
 
   if (typeof robots === 'string') {
-    throw 'Cannot specify metadata.robots as string';
+    throw new Error('Cannot specify metadata.robots as string');
   }
 
   const googleBot = robots?.googleBot;
 
   if (typeof googleBot === 'string') {
-    throw 'Cannot specify metadata.robots.googleBot as string';
+    throw new Error('Cannot specify metadata.robots.googleBot as string');
   }
 
   return {

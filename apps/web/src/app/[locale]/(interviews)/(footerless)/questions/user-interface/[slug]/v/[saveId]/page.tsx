@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ]);
 
     if (save == null) {
-      throw 'Save should not be null';
+      throw new Error('Save should not be null');
     }
 
     return defaultMetadata({

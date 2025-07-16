@@ -22,8 +22,9 @@ export default async function fetchInterviewsPricingPlanPaymentConfigLocalizedRe
     if (countryCode !== 'US') {
       // TODO: Make a union for country codes.
       if (pppValues[countryCode as CountryCode] == null) {
-        throw 'Error fetching details';
+        throw new Error('Error fetching details');
       }
+
       purchasingPowerParity = pppValues[countryCode as CountryCode];
     }
   } catch {

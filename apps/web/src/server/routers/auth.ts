@@ -25,7 +25,7 @@ export const authRouter = router({
 
       if (error) {
         if (error.status === 429) {
-          throw 'Email rate limit exceeded. Please try again later';
+          throw new Error('Email rate limit exceeded. Please try again later');
         } else {
           throw error;
         }
