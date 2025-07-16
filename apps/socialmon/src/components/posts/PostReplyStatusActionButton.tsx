@@ -6,6 +6,8 @@ import { RiReplyFill, RiReplyLine } from 'react-icons/ri';
 import { trpc } from '~/hooks/trpc';
 import useCurrentProjectSlug from '~/hooks/useCurrentProjectSlug';
 
+import KeyboardChar from '~/components/common/KeyboardChar';
+
 import { PostRepliedStatus } from '~/prisma/client';
 
 type Props = Readonly<{
@@ -59,13 +61,19 @@ export default function PostReplyStatusActionButton({
   }
 
   const label =
-    (replyStatus === PostRepliedStatus.NOT_REPLIED
+    replyStatus === PostRepliedStatus.NOT_REPLIED
       ? 'Mark as replied'
-      : 'Mark as not replied') + ' (R)';
+      : 'Mark as not replied';
 
   if (iconOnly) {
     return (
-      <Tooltip label={label} withArrow={true}>
+      <Tooltip
+        label={
+          <>
+            {label} <KeyboardChar char="R" />
+          </>
+        }
+        withArrow={true}>
         <ActionIcon
           aria-label={label}
           size="lg"

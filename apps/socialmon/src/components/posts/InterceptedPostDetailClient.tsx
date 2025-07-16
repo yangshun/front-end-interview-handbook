@@ -9,6 +9,7 @@ import {
   RiExternalLinkLine,
 } from 'react-icons/ri';
 
+import KeyboardChar from '~/components/common/KeyboardChar';
 import { useIsMobileModal } from '~/components/ui/MobilePostModal';
 
 import type { PostExtended } from '~/types';
@@ -75,7 +76,13 @@ export default function InterceptedPostDetailClient({
       <div className="sticky bottom-0 left-0 right-0 z-10 flex items-center justify-between border-t border-gray-200 bg-white px-4 pb-3 pt-3">
         {/* Navigation buttons */}
         <div className="flex items-center gap-2">
-          <Tooltip label="Previous post (K)" withArrow={true}>
+          <Tooltip
+            label={
+              <>
+                Previous post <KeyboardChar char="K" />
+              </>
+            }
+            withArrow={true}>
             <ActionIcon
               aria-label="Previous post"
               disabled={!adjacentPosts.prev}
@@ -85,7 +92,13 @@ export default function InterceptedPostDetailClient({
               <RiArrowLeftSLine />
             </ActionIcon>
           </Tooltip>
-          <Tooltip label="Next post (J)" withArrow={true}>
+          <Tooltip
+            label={
+              <>
+                Next post <KeyboardChar char="J" />
+              </>
+            }
+            withArrow={true}>
             <ActionIcon
               aria-label="Next post"
               disabled={!adjacentPosts.next}
@@ -108,7 +121,13 @@ export default function InterceptedPostDetailClient({
             postId={post.id}
             replyStatus={post.replied}
           />
-          <Tooltip label="View on Reddit (E)" withArrow={true}>
+          <Tooltip
+            label={
+              <>
+                View on Reddit <KeyboardChar char="E" />
+              </>
+            }
+            withArrow={true}>
             <ActionIcon
               aria-label="View on Reddit"
               color="orange"

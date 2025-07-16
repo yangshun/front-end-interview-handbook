@@ -9,6 +9,7 @@ import { trpc } from '~/hooks/trpc';
 import useCurrentProjectSlug from '~/hooks/useCurrentProjectSlug';
 
 import RelativeTimestamp from '~/components/common/datetime/RelativeTimestamp';
+import KeyboardChar from '~/components/common/KeyboardChar';
 import { usePostTabShortcuts } from '~/components/posts/hooks/usePostTabShortcuts';
 import { usePostsContext } from '~/components/posts/PostsContext';
 
@@ -67,22 +68,46 @@ export default function PostList() {
           variant="outline"
           onChange={(value) => setActiveTab(value as PostListTab)}>
           <Tabs.List>
-            <Tooltip label="Pending (Shortcut: G + P)" withArrow={true}>
+            <Tooltip
+              label={
+                <>
+                  <KeyboardChar char="G" /> then <KeyboardChar char="P" />
+                </>
+              }
+              withArrow={true}>
               <Tabs.Tab fw={500} value="PENDING">
                 Pending
               </Tabs.Tab>
             </Tooltip>
-            <Tooltip label="Replied (Shortcut: G + R)" withArrow={true}>
+            <Tooltip
+              label={
+                <>
+                  <KeyboardChar char="G" /> then <KeyboardChar char="R" />
+                </>
+              }
+              withArrow={true}>
               <Tabs.Tab fw={500} value="REPLIED">
                 Replied
               </Tabs.Tab>
             </Tooltip>
-            <Tooltip label="Irrelevant (Shortcut: G + T)" withArrow={true}>
+            <Tooltip
+              label={
+                <>
+                  <KeyboardChar char="G" /> then <KeyboardChar char="T" />
+                </>
+              }
+              withArrow={true}>
               <Tabs.Tab fw={500} value="IRRELEVANT">
                 Irrelevant
               </Tabs.Tab>
             </Tooltip>
-            <Tooltip label="All (Shortcut: G + A)" withArrow={true}>
+            <Tooltip
+              label={
+                <>
+                  <KeyboardChar char="G" /> then <KeyboardChar char="A" />
+                </>
+              }
+              withArrow={true}>
               <Tabs.Tab fw={500} value="ALL">
                 All
               </Tabs.Tab>

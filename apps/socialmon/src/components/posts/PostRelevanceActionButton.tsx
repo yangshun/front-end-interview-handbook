@@ -6,6 +6,8 @@ import { RiCheckLine, RiForbidLine } from 'react-icons/ri';
 import { trpc } from '~/hooks/trpc';
 import useCurrentProjectSlug from '~/hooks/useCurrentProjectSlug';
 
+import KeyboardChar from '~/components/common/KeyboardChar';
+
 import { PostRelevancy } from '~/prisma/client';
 type Props = Readonly<{
   iconOnly?: boolean;
@@ -51,13 +53,19 @@ export default function PostRelevanceActionButton({
   };
 
   const label =
-    (relevancy === PostRelevancy.IRRELEVANT
+    relevancy === PostRelevancy.IRRELEVANT
       ? 'Mark as relevant'
-      : 'Mark as irrelevant') + ' (T)';
+      : 'Mark as irrelevant';
 
   if (iconOnly) {
     return (
-      <Tooltip label={label} withArrow={true}>
+      <Tooltip
+        label={
+          <>
+            {label} <KeyboardChar char="T" />
+          </>
+        }
+        withArrow={true}>
         <ActionIcon
           aria-label={label}
           size="lg"
