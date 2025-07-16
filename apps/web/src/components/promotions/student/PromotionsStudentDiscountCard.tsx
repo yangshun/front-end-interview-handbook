@@ -39,6 +39,7 @@ export function PromotionsStudentDiscountCard({ variant = 'full' }: Props) {
   const intl = useIntl();
   const user = useUser();
   const trpcUtils = trpc.useUtils();
+  const [error, setError] = useState<string | null>(null);
   const labels = usePromotionsStudentDiscountLabels();
   const discountPercentage = PROMO_STUDENT_DISCOUNT_PERCENTAGE;
   const { userProfile } = useUserProfile();
@@ -52,6 +53,9 @@ export function PromotionsStudentDiscountCard({ variant = 'full' }: Props) {
     isLoading: isGeneratingStudentDiscount,
     mutate: generateStudentDiscountPromoCode,
   } = trpc.promotions.generateStudentDiscountPromoCode.useMutation({
+    onError: (err) => {
+      setError(err.message);
+    },
     onSuccess: (data) => {
       setPromoCode(data);
       trpcUtils.promotions.userPromoCodes.invalidate();
@@ -171,6 +175,12 @@ export function PromotionsStudentDiscountCard({ variant = 'full' }: Props) {
           description: 'Condition for promotion',
           id: 'hhuG8E',
         }),
+        intl.formatMessage({
+          defaultMessage:
+            'One-time use; can only be redeemed once per eligible user; duplicate accounts prohibited.',
+          description: 'Condition for promotion',
+          id: 'aVmS9t',
+        }),
         <FormattedMessage
           key="annual"
           defaultMessage="Only applicable to <underline>GreatFrontEnd Annual plan</underline>."
@@ -230,9 +240,9 @@ export function PromotionsStudentDiscountCard({ variant = 'full' }: Props) {
             size="body2"
             weight="medium">
             <FormattedMessage
-              defaultMessage="Off GreatFrontEnd Annual plan"
+              defaultMessage="For GreatFrontEnd Annual plan"
               description="GFE annual plan"
-              id="h1LehS"
+              id="hy8jrp"
             />
           </Text>
           <div className="mt-4">
@@ -295,7 +305,7 @@ export function PromotionsStudentDiscountCard({ variant = 'full' }: Props) {
 
               const promoCodeToDisplay = promoCode ?? existingPromoCode ?? null;
 
-              if (promoCodeToDisplay) {
+              if (promoCodeToDisplay && 1 > 2) {
                 return (
                   <div>
                     <Button
@@ -335,22 +345,30 @@ export function PromotionsStudentDiscountCard({ variant = 'full' }: Props) {
               }
 
               return (
-                <Button
-                  display="block"
-                  isDisabled={isGeneratingStudentDiscount}
-                  isLoading={isGeneratingStudentDiscount}
-                  label={intl.formatMessage({
-                    defaultMessage: 'Get promo code',
-                    description: 'Button label for student discount',
-                    id: 'IQ9qW7',
-                  })}
-                  size="md"
-                  type="button"
-                  variant="primary"
-                  onClick={() => {
-                    generateStudentDiscountPromoCode();
-                  }}
-                />
+                <>
+                  <Button
+                    display="block"
+                    isDisabled={isGeneratingStudentDiscount}
+                    isLoading={isGeneratingStudentDiscount}
+                    label={intl.formatMessage({
+                      defaultMessage: 'Get promo code',
+                      description: 'Button label for student discount',
+                      id: 'IQ9qW7',
+                    })}
+                    size="md"
+                    type="button"
+                    variant="primary"
+                    onClick={() => {
+                      setError(null);
+                      generateStudentDiscountPromoCode();
+                    }}
+                  />
+                  {error && (
+                    <Text className="mt-2 block" color="error" size="body3">
+                      {error}
+                    </Text>
+                  )}
+                </>
               );
             })()}
           </div>

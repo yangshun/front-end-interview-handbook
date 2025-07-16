@@ -8407,10 +8407,6 @@
     "defaultMessage": "代码审查已完成",
     "description": "Number of code reviews given"
   },
-  "ay9BLg": {
-    "defaultMessage": "所有 GreatFrontEnd 计划",
-    "description": "All pricing plans"
-  },
   "ayZIpd": {
     "defaultMessage": "中等",
     "description": "Medium importance question"
@@ -10006,6 +10002,10 @@
   "hxe/Fj": {
     "defaultMessage": "入门",
     "description": "Challenge difficulty label"
+  },
+  "hy8jrp": {
+    "defaultMessage": "针对GreatFrontEnd年度计划",
+    "description": "GFE annual plan"
   },
   "hyxFHs": {
     "defaultMessage": "加入高级俱乐部，即可访问项目挑战、Figma 设计和指南。",
@@ -13154,6 +13154,10 @@
   "xaoljh": {
     "defaultMessage": "在此处输入一些内容...",
     "description": "Placeholder for body input"
+  },
+  "xb1fOo": {
+    "defaultMessage": "针对所有GreatFrontEnd计划",
+    "description": "All pricing plans"
   },
   "xbSTzm": {
     "defaultMessage": "<authorLink>{作者}</authorLink> 在 <submissionLink>{实体标题}</submissionLink> 上发表评论 {timestamp}",

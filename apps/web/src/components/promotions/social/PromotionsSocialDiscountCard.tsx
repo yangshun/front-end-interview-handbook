@@ -193,9 +193,9 @@ export function PromotionsSocialDiscountCard({ variant = 'full' }: Props) {
             size="body2"
             weight="medium">
             <FormattedMessage
-              defaultMessage="All GreatFrontEnd plans"
+              defaultMessage="For all GreatFrontEnd plans"
               description="All pricing plans"
-              id="ay9BLg"
+              id="xb1fOo"
             />
           </Text>
           <div className="mt-4">

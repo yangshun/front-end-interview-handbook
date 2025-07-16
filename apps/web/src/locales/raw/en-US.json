@@ -8407,10 +8407,6 @@
     "defaultMessage": "Code reviews done",
     "description": "Number of code reviews given"
   },
-  "ay9BLg": {
-    "defaultMessage": "All GreatFrontEnd plans",
-    "description": "All pricing plans"
-  },
   "ayZIpd": {
     "defaultMessage": "Medium",
     "description": "Medium importance question"
@@ -10006,6 +10002,10 @@
   "hxe/Fj": {
     "defaultMessage": "Starter",
     "description": "Challenge difficulty label"
+  },
+  "hy8jrp": {
+    "defaultMessage": "For GreatFrontEnd Annual plan",
+    "description": "GFE annual plan"
   },
   "hyxFHs": {
     "defaultMessage": "Join the Premium club and get access to project challenges Figma designs and guides.",
@@ -13154,6 +13154,10 @@
   "xaoljh": {
     "defaultMessage": "Enter something here...",
     "description": "Placeholder for body input"
+  },
+  "xb1fOo": {
+    "defaultMessage": "For all GreatFrontEnd plans",
+    "description": "All pricing plans"
   },
   "xbSTzm": {
     "defaultMessage": "<authorLink>{author}</authorLink> left a comment on <submissionLink>{entityTitle}</submissionLink> {timestamp}",
