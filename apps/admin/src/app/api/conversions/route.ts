@@ -1,10 +1,10 @@
 import { Axiom } from '@axiomhq/js';
 import { startOfDay, subDays } from 'date-fns';
-import { Client as PgClient } from 'pg';
+import { Pool } from 'pg';
 
 const daysBefore = 30;
 
-const pgClient = new PgClient({
+const pgPool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: { rejectUnauthorized: false },
 });
@@ -74,7 +74,7 @@ export async function GET(_request: Request) {
   });
 
   try {
-    await pgClient.connect();
+    await pgPool.connect();
   } catch (error) {
     // Ignore
   }
@@ -83,11 +83,9 @@ export async function GET(_request: Request) {
     axiom.query(aplQuery, {
       startTime: startOfDay(subDays(new Date(), daysBefore)).toISOString(),
     }),
-    pgClient.query(pgQuerySignUps),
-    pgClient.query(pgQueryEmailSignUps),
+    pgPool.query(pgQuerySignUps),
+    pgPool.query(pgQueryEmailSignUps),
   ]);
-
-  pgClient.end();
 
   return Response.json({
     conversions: axiomRes.matches,
