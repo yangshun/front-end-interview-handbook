@@ -1,19 +1,25 @@
 ---
-title: 10 Must-Know JavaScript Coding Interview Questions
+title: 10 Must-know JavaScript Coding Interview Questions
 description: 10 essential JavaScript coding interview questions and answers, curated by senior engineers and former interviewers from leading tech companies.
 imageUrl: /img/blog/10-must-know-javascript-coding-interview-questions.webp
 tags:
   - javascript
   - interviews
 level: starter
-createdAt: 2024-09-28
-author: blog/author/nitesh-seram.json
+createdAt: 2025-03-28
+author: blog/author/greatfrontend.json
 category: blog/category/front-end-interviews.json
 series: blog/series/beginner-interview-questions.json
 published: true
 ---
 
 As a JavaScript developer, it's essential to be prepared for common interview questions that test your skills and knowledge. Here are 10 must-know questions, along with detailed answers and code examples, to help you ace your next interview.
+
+If you're looking for additional JavaScript interview preparation materials, also check out these resources:
+
+- [Front End Interview Playbook](/front-end-interview-playbook)
+- [Practice JavaScript coding interview questions](/questions/javascript-interview-questions)
+- [Practice JavaScript quiz interview questions](/questions/javascript-interview-questions/quiz)
 
 ## 1. Debounce
 
@@ -402,13 +408,10 @@ console.log(memoizedExpensiveOperation(10)); // Output: From cache for 10, 20
 
 ### How Memoization Works
 
-- **Caching Results**: The memoize function wraps around expensiveOperation and maintains a cache object.
-
-- **Cache Check**: Before executing expensiveOperation, memoize checks if the result for a given input (n) is already stored in the cache.
-
-- **Returning Cached Result**: If the result is found in the cache, memoize returns it directly without re-executing expensiveOperation.
-
-- **Storing Result**: If the result is not in the cache, memoize computes it by calling expensiveOperation(n), stores the result in the cache, and then returns it.
+- **Caching results**: The memoize function wraps around expensiveOperation and maintains a cache object.
+- **Cache check**: Before executing expensiveOperation, memoize checks if the result for a given input (n) is already stored in the cache.
+- **Returning cached results**: If the result is found in the cache, memoize returns it directly without re-executing expensiveOperation.
+- **Storing results**: If the result is not in the cache, memoize computes it by calling expensiveOperation(n), stores the result in the cache, and then returns it.
 
 In modern JavaScript, libraries like [Lodash](https://lodash.com/docs/4.17.15#memoize) provide utilities for memoization, making it easier to apply this optimization technique across different functions and use cases.
 

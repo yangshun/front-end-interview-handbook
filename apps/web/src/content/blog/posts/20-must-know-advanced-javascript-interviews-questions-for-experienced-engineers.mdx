@@ -6,8 +6,8 @@ tags:
   - javascript
   - interviews
 level: advanced
-createdAt: 2024-11-02
-author: blog/author/nitesh-seram.json
+createdAt: 2025-15-02
+author: blog/author/greatfrontend.json
 category: blog/category/front-end-interviews.json
 series: blog/series/advanced-interview-questions.json
 published: true
@@ -15,11 +15,17 @@ published: true
 
 JavaScript interviews for experienced engineers demand more than just a basic understanding of syntax and concepts. They require a deep dive into advanced topics that demonstrate your ability to solve complex problems and architect robust solutions. Whether you're aiming to advance your career or secure a new role, mastering these 20 advanced JavaScript interview questions will not only enhance your technical prowess but also set you apart from others.
 
+If you're looking for additional JavaScript interview preparation materials, also check out these resources:
+
+- [Front End Interview Playbook](/front-end-interview-playbook)
+- [Practice JavaScript coding interview questions](/questions/javascript-interview-questions)
+- [Practice JavaScript quiz interview questions](/questions/javascript-interview-questions/quiz)
+
 ## 1. Explain why the following doesn't work as an IIFE: `function foo(){ }();`. What needs to be changed to properly make it an IIFE?
 
-IIFE stands for Immediately Invoked Function Expressions. The JavaScript parser reads **`function foo(){ }();`** as **`function foo(){ }`** and **`();`**, where the former is a _function declaration_ and the latter is an attempt at calling a function without a name. This results in a **`SyntaxError`**.
+IIFE stands for Immediately Invoked Function Expressions. The JavaScript parser reads `function foo(){ }();` as `function foo(){ }` and `();`, where the former is a _function declaration_ and the latter is an attempt at calling a function without a name. This results in a `SyntaxError`.
 
-To fix this, wrap the function in parentheses: **`(function foo(){ })()`**. This turns it into a _function expression_, allowing it to be executed immediately.
+To fix this, wrap the function in parentheses: `(function foo(){ })()`\*\*. This turns it into a _function expression_, allowing it to be executed immediately.
 
 [Explore why the following doesn't work as an IIFE: `function foo(){ }();`. What needs to be changed to properly make it an IIFE on GreatFrontEnd](/questions/quiz/explain-why-the-following-doesnt-work-as-an-iife-function-foo--what-needs-to-be-changed-to-properly-make-it-an-iife?format=quiz)
 
@@ -29,11 +35,11 @@ In JavaScript, iterators and generators are powerful tools for managing sequence
 
 ### Iterators
 
-Iterators are objects that define a sequence and provide a **`next()`** method to access the next value in the sequence. They are used to iterate over data structures like arrays, strings, and custom objects.
+Iterators are objects that define a sequence and provide a `next()`\*\* method to access the next value in the sequence. They are used to iterate over data structures like arrays, strings, and custom objects.
 
 **Creating a custom iterator for a range of numbers**
 
-In JavaScript, we can provide a default implementation for iterator by implementing **`[Symbol.iterator]()`** in any custom object.
+In JavaScript, we can provide a default implementation for iterator by implementing `[Symbol.iterator]()`\*\* in any custom object.
 
 ```js
 class Range {
@@ -69,7 +75,7 @@ Generators are a special kind of function that can pause and resume their execut
 
 **Creating an iterator using a generator function**
 
-We can rewrite our **`Range`** example to use a generator function:
+We can rewrite our `Range`\*\* example to use a generator function:
 
 ```js
 class Range {
@@ -124,15 +130,15 @@ Property flags and descriptors in JavaScript manage how object properties behave
 
 Property flags are used to specify the behavior of a property on an object. Here are the available flags:
 
-- **`writable`**: Can the property be written to? Default is **`true`**.
-- **`enumerable`**: Is the property enumerable? Default is **`true`**.
-- **`configurable`**: Can the property be deleted or reconfigured? Default is **`true`**.
+- `writable`: Can the property be written to? Default is `true`.
+- `enumerable`: Is the property enumerable? Default is `true`.
+- `configurable`: Can the property be deleted or reconfigured? Default is `true`.
 
 When we create a property the usual way, all of them are `true`. But we also can change them anytime.
 
 ### Property Descriptors
 
-Property descriptors provide detailed information about a property, including its value and flags. Use **`Object.getOwnPropertyDescriptor()`** to retrieve and **`Object.defineProperty()`** to set them.
+Property descriptors provide detailed information about a property, including its value and flags. Use `Object.getOwnPropertyDescriptor()` to retrieve and `Object.defineProperty()` to set them.
 
 Example:
 
@@ -144,7 +150,7 @@ console.log(descriptor); // {value: "John Doe", writable: true, enumerable: true
 
 ### Manipulating Property Flags
 
-- **`writable`**: Controls if a property can be written to. If **`false`**, writing fails silently in non-strict mode and throws **`TypeError`** in strict mode.
+- `writable`: Controls if a property can be written to. If `false`, writing fails silently in non-strict mode and throws `TypeError`\*\* in strict mode.
 
   ```js
   const obj = {};
@@ -153,7 +159,7 @@ console.log(descriptor); // {value: "John Doe", writable: true, enumerable: true
   obj.name = 'Jane Doe'; // TypeError in strict mode
   ```
 
-- **`enumerable`**: Controls if a property is visible in **`for...in`** loops.
+- `enumerable`: Controls if a property is visible in `for...in` loops.
 
   ```js
   const obj = {};
@@ -164,7 +170,7 @@ console.log(descriptor); // {value: "John Doe", writable: true, enumerable: true
   for (const prop in obj) console.log(prop); // No output
   ```
 
-- **`configurable`**: Controls if a property can be deleted or reconfigured. If **`false`**, deleting or altering fails silently in non-strict mode and throws **`TypeError`** in strict mode.
+- `configurable`: Controls if a property can be deleted or reconfigured. If `false`, deleting or altering fails silently in non-strict mode and throws `TypeError`\*\* in strict mode.
 
   ```js
   const obj = {};
@@ -183,7 +189,7 @@ Polyfills are scripts that enable modern JavaScript features in older browsers t
 
 ### How Polyfills Work
 
-Polyfills detect missing features and provide custom implementations using existing JavaScript. For example, **`Array.prototype.includes()`** is not supported in older browsers like Internet Explorer 11:
+Polyfills detect missing features and provide custom implementations using existing JavaScript. For example, `Array.prototype.includes()`\*\* is not supported in older browsers like Internet Explorer 11:
 
 ```js
 if (!Array.prototype.includes) {
@@ -198,7 +204,7 @@ if (!Array.prototype.includes) {
 
 ### Implementing Polyfills
 
-1.  **Identify the Missing Feature**: Detect support using **`typeof`**, **`in`**, or **`window`**.
+1.  **Identify the Missing Feature**: Detect support using `typeof`, `in`, or `window`\*\*.
 2.  **Write the Fallback**: Create a custom implementation.
 3.  **Test the Polyfill**: Ensure it works across browsers.
 4.  **Apply the Polyfill**: Use feature detection to selectively apply the polyfill.
@@ -212,7 +218,7 @@ if (!Array.prototype.includes) {
 
 ### Libraries and Services
 
-- **`core-js`**: Provides polyfills for many ECMAScript features.
+- `core-js`\*\*: Provides polyfills for many ECMAScript features.
 
   ```js
   import 'core-js/actual/array/flat-map';
@@ -235,11 +241,11 @@ Server-Sent Events (SSE) is a standard that allows servers to push updates to we
 
 ### How SSE Works:
 
-1.  **Client Setup:** The client creates an **`EventSource`** object, providing the URL of the server-side script that generates the event stream.
+1.  **Client Setup:** The client creates an `EventSource`\*\* object, providing the URL of the server-side script that generates the event stream.
 2.  **Server Response:** The server sets headers to indicate an event stream and starts sending events to the client.
-3.  **Event Format:** Each event follows a specific format with fields like **`event`**, **`data`**, and **`id`**.
-4.  **Client Handling:** The **`EventSource`** object receives events and dispatches them as browser events, which can be handled using event listeners.
-5.  **Reconnection:** The **`EventSource`** automatically handles reconnection if the connection is lost, resuming the stream from the last received event ID.
+3.  **Event Format:** Each event follows a specific format with fields like `event`, `data`, and `id`\*\*.
+4.  **Client Handling:** The `EventSource`\*\* object receives events and dispatches them as browser events, which can be handled using event listeners.
+5.  **Reconnection:** The `EventSource`\*\* automatically handles reconnection if the connection is lost, resuming the stream from the last received event ID.
 
 ### Key Features:
 
@@ -248,7 +254,7 @@ Server-Sent Events (SSE) is a standard that allows servers to push updates to we
 - **Text-only Data:** SSE transmits text data only.
 - **Built-in Browser Support:** Supported by most modern browsers.
 - **Event Types:** SSE supports custom event types for message categorization.
-- **`Last-Event-Id`:** The client sends the **`Last-Event-Id`** header when reconnecting, allowing the server to resume the stream.
+- `Last-Event-Id`:\*\* The client sends the `Last-Event-Id` header when reconnecting, allowing the server to resume the stream.
 
 ### Implementing SSE:
 
@@ -310,13 +316,13 @@ JavaScript workers run scripts in background threads, offloading intensive tasks
 ### Web Workers / Dedicated Workers
 
 - **Purpose**: Handle CPU-intensive tasks (e.g., data processing, computations).
-- **Communication**: Use **`postMessage()`** and **`onmessage`**.
+- **Communication**: Use `postMessage()` and `onmessage`.
 - **Security**: No direct DOM access.
 - **Termination**: Ends when the main script unloads or explicitly terminated.
 
 #### Example: Creating a Web Worker
 
-**`main.js`**:
+`main.js`\*\*:
 
 ```js
 // Check if the browser supports workers
@@ -339,7 +345,7 @@ if (window.Worker) {
 }
 ```
 
-**`worker.js`**:
+`worker.js`\*\*:
 
 ```js
 // Listen for messages from the main script
@@ -363,7 +369,7 @@ onmessage = function (event) {
 
 #### Example: Creating a Service Worker
 
-**`main.js`**:
+`main.js`\*\*:
 
 ```js
 if ('serviceWorker' in navigator) {
@@ -378,7 +384,7 @@ if ('serviceWorker' in navigator) {
 }
 ```
 
-**`service-worker.js`**:
+`service-worker.js`\*\*:
 
 ```js
 self.addEventListener('fetch', (event) => {
@@ -406,7 +412,7 @@ self.addEventListener('fetch', (event) => {
 
 ## 7. What is `"use strict";`?\*\* What are the advantages and disadvantages to using it?
 
-**`"use strict";`** is a directive from ECMAScript 5 (ES5) that enforces stricter parsing and error handling in JavaScript, making code more secure and less error-prone.
+`"use strict";`\*\* is a directive from ECMAScript 5 (ES5) that enforces stricter parsing and error handling in JavaScript, making code more secure and less error-prone.
 
 ### How to Use Strict Mode
 
@@ -435,8 +441,8 @@ self.addEventListener('fetch', (event) => {
     - Prevents assignment to non-writable properties.
     - Restricts use of reserved keywords as identifiers.
 2.  **Improved Security**:
-    - Disallows deprecated features like **`arguments.caller`**.
-    - Restricts **`eval()`** to prevent variable declarations in the calling scope.
+    - Disallows deprecated features like `arguments.caller`\*\*.
+    - Restricts `eval()`\*\* to prevent variable declarations in the calling scope.
 3.  **Compatibility**:
     - Ensures future-proofing with JavaScript updates.
 
@@ -464,7 +470,7 @@ console.log(strictVar); // ReferenceError
 - **Modules**: ES6 and Node.js modules are automatically in strict mode.
 - **Classes**: Code within class definitions is also in strict mode.
 
-While **`"use strict";`** is not mandatory in these contexts, it is still recommended for older code and broader compatibility.
+While `"use strict";`\*\* is not mandatory in these contexts, it is still recommended for older code and broader compatibility.
 
 [Explore what "use strict" is and its advantages and disadvantages on GreatFrontEnd](/questions/quiz/what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it?format=quiz)
 

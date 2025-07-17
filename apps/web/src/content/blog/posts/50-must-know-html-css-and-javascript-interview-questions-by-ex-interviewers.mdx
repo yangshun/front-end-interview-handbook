@@ -8,20 +8,27 @@ tags:
   - javascript
   - interviews
 level: starter
-createdAt: 2025-01-28
+createdAt: 2025-06-28
 author: blog/author/greatfrontend.json
 category: blog/category/front-end-interviews.json
 series: blog/series/beginner-interview-questions.json
 published: true
 ---
 
-HTML, CSS, and JavaScript are fundamental skills for any aspiring web developer, and securing a job in this field can be a challenging endeavor, especially for beginners. A critical part of the interview process is the technical interview, where your proficiency in these core web technologies is thoroughly assessed. To help you prepare and boost your confidence, we’ve compiled a list of the top 50 essential interview questions and answers covering HTML, CSS, and JavaScript that are frequently asked in interviews.
+HTML, CSS, and JavaScript are fundamental skills for any aspiring web developer, and securing a job in this field can be a challenging endeavor, especially for beginners. A critical part of the interview process is the technical interview, where your proficiency in these core web technologies is thoroughly assessed.
+
+To help you prepare and boost your confidence, we’ve compiled a list of the top 50 essential interview questions and answers covering HTML, CSS, and JavaScript that are frequently asked in interviews.
+
+If you're looking for additional JavaScript interview preparation materials, also check out these resources:
+
+- [Front End Interview Playbook](/front-end-interview-playbook)
+- [Practice JavaScript interview questions](/questions/javascript-interview-questions)
+- [Practice HTML interview questions](/questions/html-interview-questions)
+- [Practice CSS interview questions](/questions/css-interview-questions)
 
 ## 1. What Is Hoisting in JavaScript?
 
 Hoisting refers to JavaScript's behavior of moving variable and function declarations to the top of their scope during the compilation phase. While declarations are hoisted, initializations are not.
-
-### Example with `var`:
 
 ```js
 console.log(foo); // undefined
@@ -79,8 +86,8 @@ foo.doSomething(); // Accessible
 
 ### 1. Scope:
 
-- **`var`**: Function-scoped or globally scoped.
-- **`let` and `const`**: Block-scoped, confined to their nearest enclosing block.
+- `var`\*\*: Function-scoped or globally scoped.
+- `let` and `const`\*\*: Block-scoped, confined to their nearest enclosing block.
 
 ```js
 function test() {
@@ -95,8 +102,8 @@ console.log(c); // ReferenceError
 
 ### 2. Initialization:
 
-- **`var` and `let`**: Can be declared without initialization.
-- **`const`**: Must be initialized during declaration.
+- `var` and `let`\*\*: Can be declared without initialization.
+- `const`\*\*: Must be initialized during declaration.
 
 ```js
 var a;
@@ -106,8 +113,8 @@ const c; // SyntaxError: Missing initializer
 
 ### 3. Redeclaration:
 
-- **`var`**: Allows redeclaration in the same scope.
-- **`let` and `const`**: Redeclaration is not allowed.
+- `var`\*\*: Allows redeclaration in the same scope.
+- `let` and `const`\*\*: Redeclaration is not allowed.
 
 ```js
 var x = 1;
@@ -119,8 +126,8 @@ let y = 2; // SyntaxError
 
 ### 4. Reassignment:
 
-- **`var` and `let`**: Reassignment is allowed.
-- **`const`**: Reassignment is not allowed.
+- `var` and `let`\*\*: Reassignment is allowed.
+- `const`\*\*: Reassignment is not allowed.
 
 ```js
 const z = 1;
@@ -129,8 +136,8 @@ z = 2; // TypeError
 
 ### 5. Hoisting:
 
-- **`var`**: Hoisted and initialized to `undefined`.
-- **`let` and `const`**: Hoisted but not initialized, causing a `ReferenceError` if accessed before declaration.
+- `var`\*\*: Hoisted and initialized to `undefined`.
+- `let` and `const`\*\*: Hoisted but not initialized, causing a `ReferenceError` if accessed before declaration.
 
 ```js
 console.log(a); // undefined
@@ -195,8 +202,6 @@ The event loop allows JavaScript to handle asynchronous tasks on a single thread
 2.  Microtasks are processed next.
 3.  Macrotasks are executed afterward.
 
-### Example:
-
 ```js
 console.log('Start');
 
@@ -222,12 +227,8 @@ Timeout
 
 Event delegation uses a single event listener on a parent element to manage events on its child elements. This approach takes advantage of event bubbling, improving efficiency.
 
-### Benefits:
-
 - Reduces memory usage by limiting the number of listeners.
 - Dynamically handles added or removed child elements.
-
-### Example:
 
 ```js
 document.getElementById('parent').addEventListener('click', (event) => {
@@ -243,14 +244,10 @@ document.getElementById('parent').addEventListener('click', (event) => {
 
 The value of `this` depends on how a function is invoked:
 
-### Rules:
-
 1.  **Default Binding**: Refers to the global object (`window` in browsers).
 2.  **Implicit Binding**: Refers to the object before the dot.
 3.  **Explicit Binding**: Defined using `call`, `apply`, or `bind`.
 4.  **Arrow Functions**: Lexically inherit `this` from the surrounding scope.
-
-### Example:
 
 ```js
 const obj = {
@@ -371,8 +368,6 @@ console.log(sum.apply(null, [1, 2])); // 3
 
 The `Function.prototype.bind` method allows you to create a new function with a specific `this` context and optional preset arguments. It’s particularly useful for ensuring a function has the correct `this` context when passed to another function or used as a callback.
 
-### Example:
-
 ```js
 const john = {
   age: 42,
@@ -396,7 +391,7 @@ console.log(boundGetAgeMary()); // 21
 
 ### Common Uses:
 
-1.  **Binding `this`**: `bind` is often used to fix the `this` value for a method, ensuring it always refers to the intended object.
+1.  \*\*Binding `this`: `bind` is often used to fix the `this` value for a method, ensuring it always refers to the intended object.
 2.  **Partial Application**: You can predefine some arguments for a function using `bind`.
 3.  **Method Borrowing**: `bind` allows methods from one object to be used on another object.
 
@@ -405,8 +400,6 @@ console.log(boundGetAgeMary()); // 21
 ## 12. Why Use Arrow Functions in Constructors?
 
 Arrow functions automatically bind the `this` value to the surrounding lexical scope, which eliminates issues with context in methods. This behavior makes code more predictable and easier to debug.
-
-### Example:
 
 ```js
 const Person = function (name) {
@@ -545,7 +538,7 @@ const foo = function () {
 const person = { firstName: 'John', lastName: 'Doe' };
 ```
 
-2.  **`Object()` Constructor**:
+2.  `Object()` Constructor\*\*:
 
 ```js
 const person = new Object();
@@ -553,7 +546,7 @@ person.firstName = 'John';
 person.lastName = 'Doe';
 ```
 
-3.  **`Object.create()`**:
+3.  `Object.create()`\*\*:
 
 ```js
 const proto = {
@@ -584,8 +577,6 @@ Higher-order functions either:
 
 1.  Take other functions as arguments.
 2.  Return functions.
-
-### Example:
 
 ```js
 function multiplier(factor) {
@@ -637,8 +628,6 @@ Key Differences:
 ## 19. What Is Event Bubbling?
 
 Event bubbling is when an event starts at the target element and propagates up through its ancestors.
-
-### Example:
 
 ```js
 parent.addEventListener('click', () => console.log('Parent clicked'));
@@ -726,7 +715,7 @@ console.log('End of program');
 
 - **Asynchronous Operations:** AJAX allows parts of a web page to update independently without reloading the entire page.
 - **Data Formats:** Initially utilized XML, but JSON has become more prevalent due to its seamless compatibility with JavaScript.
-- **APIs:** Traditionally relied on **`XMLHttpRequest`**, though **`fetch()`** is now the preferred choice for modern web development.
+- **APIs:** Traditionally relied on `XMLHttpRequest`, though `fetch()` is now the preferred choice for modern web development.
 
 ### `XMLHttpRequest` API
 
@@ -747,7 +736,7 @@ xhr.open('GET', 'https://jsonplaceholder.typicode.com/todos/1', true);
 xhr.send();
 ```
 
-- **Process:** Initiates a new **`XMLHttpRequest`**, assigns a callback to handle state changes, opens a connection to a specified URL, and sends the request.
+- **Process:** Initiates a new `XMLHttpRequest`\*\*, assigns a callback to handle state changes, opens a connection to a specified URL, and sends the request.
 
 ### `fetch()` API
 
@@ -765,13 +754,13 @@ fetch('https://jsonplaceholder.typicode.com/todos/1')
   .catch((error) => console.error('Fetch error:', error));
 ```
 
-- **Process:** Starts a fetch request, processes the response with **`.then()`** to parse JSON data, and handles errors using **`.catch()`**.
+- **Process:** Starts a fetch request, processes the response with `.then()` to parse JSON data, and handles errors using `.catch()`.
 
 ### How AJAX Operates with `fetch`
 
 #### 1. Initiating a Request
 
-- **`fetch()`** starts an asynchronous request to obtain a resource from a given URL.
+- `fetch()`\*\* starts an asynchronous request to obtain a resource from a given URL.
 
 - **Example:**
 
@@ -786,11 +775,11 @@ fetch('https://jsonplaceholder.typicode.com/todos/1')
 
 #### 2. Promise-Based Response
 
-- **`fetch()`** returns a Promise that resolves to a **`Response`** object representing the server's reply.
+- `fetch()` returns a Promise that resolves to a `Response` object representing the server's reply.
 
 #### 3. Managing the Response
 
-- The **`Response`** object provides methods to handle the content, such as **`.json()`**, **`.text()`**, and **`.blob()`**.
+- The `Response` object provides methods to handle the content, such as `.json()`, `.text()`, and `.blob()`.
 
 - **Example:**
 
@@ -803,16 +792,16 @@ fetch('https://jsonplaceholder.typicode.com/todos/1')
 
 #### 4. Asynchronous Nature
 
-- **`fetch()`** operates asynchronously, allowing the browser to perform other tasks while awaiting the server's response.
-- Promises (**`.then()`**, **`.catch()`**) are processed in the microtask queue as part of the event loop.
+- `fetch()`\*\* operates asynchronously, allowing the browser to perform other tasks while awaiting the server's response.
+- Promises (`.then()`, `.catch()`) are processed in the microtask queue as part of the event loop.
 
 #### 5. Configuring Request Options
 
-- The optional second parameter in **`fetch()`** allows configuration of various request settings, including HTTP method, headers, body, credentials, and caching behavior.
+- The optional second parameter in `fetch()`\*\* allows configuration of various request settings, including HTTP method, headers, body, credentials, and caching behavior.
 
 #### 6. Handling Errors
 
-- Errors such as network failures or invalid responses are captured and managed through the Promise chain using **`.catch()`** or **`try/catch`** with **`async/await`**.
+- Errors such as network failures or invalid responses are captured and managed through the Promise chain using `.catch()` or `try/catch` with `async/await`\*\*.
 
 [Learn how to explain AJAX in detail on GreatFrontEnd](/questions/quiz/explain-ajax-in-as-much-detail-as-possible?format=quiz)
 
@@ -1092,8 +1081,6 @@ The rest syntax (`...`) collects multiple elements into an array or object, func
 - **Iteration:** Not inherently iterable. Requires methods like `Object.keys()`, `Object.values()`, or `Object.entries()` to iterate.
 - **Performance:** Generally faster for small datasets and simple operations.
 
-### Example
-
 ```js
 // Map
 const map = new Map();
@@ -1144,7 +1131,7 @@ The primary distinctions between `Map`/`Set` and `WeakMap`/`WeakSet` in JavaScri
 
 One effective application of JavaScript's arrow function syntax is streamlining callback functions, especially when concise, inline function definitions are needed. Consider the following example:
 
-**Scenario: Doubling Array Elements with `map`**
+\*\*Scenario: Doubling Array Elements with `map`
 
 Imagine you have an array of numbers and you want to double each number using the `map` method.
 
@@ -1173,8 +1160,6 @@ console.log(doubledNumbers); // Output: [2, 4, 6, 8, 10]
 ## 32. How Do Callback Functions Operate in Asynchronous Tasks?
 
 In the realm of asynchronous programming, a callback function is passed as an argument to another function and is executed once a particular task completes, such as data retrieval or handling input/output operations. Here's a straightforward explanation:
-
-### Example
 
 ```js
 function fetchData(callback) {
@@ -1230,8 +1215,6 @@ These strategies help in enhancing application performance by preventing excessi
 
 Destructuring assignment in JavaScript provides a concise way to extract values from arrays or properties from objects into individual variables.
 
-### Example
-
 ```js
 // Array destructuring
 const [a, b] = [1, 2];
@@ -1247,8 +1230,6 @@ This syntax employs square brackets for arrays and curly braces for objects, all
 ## 35. What is Hoisting in the Context of Functions?
 
 Hoisting in JavaScript refers to the behavior where function declarations are moved to the top of their containing scope during the compilation phase. This allows functions to be invoked before their actual definition in the code. Conversely, function expressions and arrow functions must be defined prior to their invocation to avoid errors.
-
-### Example
 
 ```js
 // Function declaration
@@ -1269,8 +1250,6 @@ var nonHoistedFunction = function () {
 ## 36. How Does Inheritance Work in ES2015 Classes?
 
 In ES2015, JavaScript introduces the `class` syntax with the `extends` keyword, enabling one class to inherit properties and methods from another. The `super` keyword is used to access the parent class's constructor and methods.
-
-### Example
 
 ```js
 class Animal {
@@ -1306,8 +1285,6 @@ In this example, the `Dog` class inherits from the `Animal` class, demonstrating
 
 Lexical scoping in JavaScript determines how variable names are resolved based on their location within the source code. Nested functions have access to variables from their parent scopes, enabling them to utilize and manipulate these variables.
 
-### Example
-
 ```js
 function outerFunction() {
   let outerVariable = 'I am outside!';
@@ -1333,8 +1310,6 @@ Scope in JavaScript defines the accessibility of variables and functions in diff
 1.  **Global Scope:** Variables declared outside any function or block are accessible throughout the entire code.
 2.  **Function Scope:** Variables declared within a function are accessible only within that function.
 3.  **Block Scope:** Introduced in ES6, variables declared with `let` or `const` within a block (e.g., within `{}`) are accessible only within that block.
-
-### Example
 
 ```js
 // Global scope
@@ -1364,8 +1339,6 @@ In this example, `globalVar` is accessible globally, `functionVar` is confined t
 ## 39. What is the Spread Operator and How is it Used?
 
 The spread operator (`...`) in JavaScript allows iterable elements (like arrays or objects) to be expanded into individual elements. It's versatile and can be used for copying, merging, and passing array elements as function arguments.
-
-### Examples
 
 ```js
 // Copying an array
@@ -1467,8 +1440,8 @@ The box model is responsible for calculating:
 
 Understanding the `box-sizing` property is crucial as it alters how an element's `height` and `width` are calculated.
 
-- **`box-sizing: content-box`:** The default behavior where only the content size is considered.
-- **`box-sizing: border-box`:** Includes `padding` and `border` in the element's total `width` and `height`, excluding `margin`.
+- `box-sizing: content-box`:\*\* The default behavior where only the content size is considered.
+- `box-sizing: border-box`:\*\* Includes `padding` and `border` in the element's total `width` and `height`, excluding `margin`.
 
 Many CSS frameworks adopt `box-sizing: border-box` globally for a more intuitive sizing approach.
 
@@ -1528,15 +1501,15 @@ For a comprehensive list of `display` property values, refer to the [CSS Display
 
 In CSS, an element's positioning is determined by its `position` property, which can be set to `relative`, `fixed`, `absolute`, `sticky`, or `static`. Here's how each behaves:
 
-- **`static`:** The default positioning. Elements flow naturally within the document. The `top`, `right`, `bottom`, `left`, and `z-index` properties have no effect.
+- `static`:\*\* The default positioning. Elements flow naturally within the document. The `top`, `right`, `bottom`, `left`, and `z-index` properties have no effect.
 
-- **`relative`:** The element is positioned relative to its normal position. Adjustments using `top`, `right`, `bottom`, or `left` move the element without affecting the layout of surrounding elements, leaving a gap where it would have been.
+- `relative`:\*\* The element is positioned relative to its normal position. Adjustments using `top`, `right`, `bottom`, or `left` move the element without affecting the layout of surrounding elements, leaving a gap where it would have been.
 
-- **`absolute`:** The element is removed from the normal document flow and positioned relative to its nearest positioned ancestor (an ancestor with a `position` other than `static`). If no such ancestor exists, it positions relative to the initial containing block. Absolutely positioned elements do not affect the position of other elements and can have `width` and `height` specified.
+- `absolute`:\*\* The element is removed from the normal document flow and positioned relative to its nearest positioned ancestor (an ancestor with a `position` other than `static`). If no such ancestor exists, it positions relative to the initial containing block. Absolutely positioned elements do not affect the position of other elements and can have `width` and `height` specified.
 
-- **`fixed`:** Similar to `absolute`, but the element is positioned relative to the viewport, meaning it stays in the same place even when the page is scrolled.
+- `fixed`:\*\* Similar to `absolute`, but the element is positioned relative to the viewport, meaning it stays in the same place even when the page is scrolled.
 
-- **`sticky`:** A hybrid of `relative` and `fixed`. The element behaves like `relative` until it crosses a specified threshold (e.g., scroll position), after which it behaves like `fixed`, sticking to its position within its parent container.
+- `sticky`:\*\* A hybrid of `relative` and `fixed`. The element behaves like `relative` until it crosses a specified threshold (e.g., scroll position), after which it behaves like `fixed`, sticking to its position within its parent container.
 
 Understanding these positioning schemes is vital for controlling the layout and behavior of elements, especially in responsive and dynamic designs.
 

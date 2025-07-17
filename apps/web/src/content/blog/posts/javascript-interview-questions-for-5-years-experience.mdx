@@ -6,8 +6,8 @@ tags:
   - javascript
   - interviews
 level: intermediate
-createdAt: 2024-10-17
-author: blog/author/nitesh-seram.json
+createdAt: 2025-04-17
+author: blog/author/greatfrontend.json
 category: blog/category/front-end-interviews.json
 series: blog/series/intermediate-interview-questions.json
 published: true
@@ -15,13 +15,19 @@ published: true
 
 As a seasoned JavaScript developer with 5+ years of experience, you're likely no stranger to the intricacies of JavaScript. However, even the most experienced developers can benefit from a refresher on the most critical concepts and nuances of the language. In this article, we'll cover the top 20 JavaScript interview questions that can help you prepare effectively for your next interview.
 
+If you're looking for additional JavaScript interview preparation materials, also check out these resources:
+
+- [Front End Interview Playbook](/front-end-interview-playbook)
+- [Practice JavaScript coding interview questions](/questions/javascript-interview-questions)
+- [Practice JavaScript quiz interview questions](/questions/javascript-interview-questions/quiz)
+
 ## 1. What's a typical use case for anonymous functions in JavaScript?
 
 Anonymous functions provide a concise way to define functions, especially useful for simple operations or callbacks. They are commonly used in:
 
 - **Immediate execution**: Encapsulate code within a local scope using Immediately Invoked Function Expressions (IIFEs).
 - **Callbacks**: Define handlers directly where they are called without having to search elsewhere.
-- **Higher-order functions**: Use as arguments to functions like **`map()`**, **`filter()`**, and **`reduce()`**.
+- **Higher-order functions**: Use as arguments to functions like `map()`, `filter()`, and `reduce()`\*\*.
 - **Event Handling**: Common in React for inline event handling.
 
 Checkout the below code example-
@@ -92,8 +98,8 @@ Closures are useful for:
   });
   ```
 
-- **Sequential code**: Easier to write and read using **`.then()`**.
-- **Parallel code**: Simplifies managing multiple promises with **`Promise.all()`**.
+- **Sequential code**: Easier to write and read using `.then()`\*\*.
+- **Parallel code**: Simplifies managing multiple promises with `Promise.all()`\*\*.
 
   ```js
   Promise.all([getData1(), getData2(), getData3()])
@@ -113,13 +119,13 @@ Closures are useful for:
 
 ## 4. How do you abort a web request using `AbortController` in JavaScript?
 
-**`AbortController`** allows you to cancel ongoing asynchronous operations like fetch requests. To use it:
+`AbortController`\*\* allows you to cancel ongoing asynchronous operations like fetch requests. To use it:
 
-    1. **Create an instance**: **`const controller = new AbortController();`**
+    1. **Create an instance**: `const controller = new AbortController();`
     2.**Pass the signal**: Add the signal to the fetch request options.
-    3. **Abort the request**: Call **`controller.abort()`** to cancel the request.
+    3. **Abort the request**: Call `controller.abort()` to cancel the request.
 
-Here is an example of how to use **`AbortController`**s with the **`fetch()`** API:
+Here is an example of how to use `AbortController`s with the `fetch()` API:
 
 ```js
 const controller = new AbortController();
@@ -151,7 +157,7 @@ Some of its use cases can be:
 
 ## 5. Why is extending built-in JavaScript objects not a good idea?
 
-In JavaScript it's very easy to extend a built-in/native object. You can simply extend a built-in object by adding properties and functions to its **`prototype`**.
+In JavaScript it's very easy to extend a built-in/native object. You can simply extend a built-in object by adding properties and functions to its `prototype`\*\*.
 
 ```js
 String.prototype.reverseString = function () {
@@ -169,7 +175,7 @@ function reverseString(str) {
 console.log(reverseString('hello world')); // Outputs 'dlrow olleh'
 ```
 
-While this may seem like a good idea at first, it is dangerous in practice. Imagine your code uses a few libraries that both extend the **`Array.prototype`** by adding the same **`contains`** method, the implementations will overwrite each other and your code will have unpredictable behavior if these two methods do not work the same way.
+While this may seem like a good idea at first, it is dangerous in practice. Imagine your code uses a few libraries that both extend the `Array.prototype` by adding the same `contains` method, the implementations will overwrite each other and your code will have unpredictable behavior if these two methods do not work the same way.
 
 Extending built-in objects can lead to issues such as:
 
@@ -216,7 +222,7 @@ Generally, it's advisable to avoid polluting the global namespace unless necessa
 
 In JavaScript, modules are reusable pieces of code that encapsulate functionality, making it easier to manage, maintain, and structure your applications. Modules allow you to break down your code into smaller, manageable parts, each with its own scope.
 
-**CommonJS** is an older module system that was initially designed for server-side JavaScript development with Node.js. It uses the **`require()`** function to load modules and the **`module.exports`** or **`exports`** object to define the exports of a module.
+**CommonJS** is an older module system that was initially designed for server-side JavaScript development with Node.js. It uses the `require()` function to load modules and the `module.exports` or `exports`\*\* object to define the exports of a module.
 
 ```js
 // my-module.js
@@ -228,7 +234,7 @@ const myModule = require('./my-module.js');
 console.log(myModule.value); // 42
 ```
 
-**ES Modules** (ECMAScript Modules) are the standardized module system introduced in ES6 (ECMAScript 2015). They use the **`import`** and **`export`** statements to handle module dependencies.
+**ES Modules** (ECMAScript Modules) are the standardized module system introduced in ES6 (ECMAScript 2015). They use the `import` and `export` statements to handle module dependencies.
 
 ```js
 // my-module.js
@@ -283,9 +289,9 @@ Here, `immutableObject` remains unchanged after creation due to `Object.freeze()
 
 The primary difference lies in modifiability. Mutable objects allow changes to their properties directly, while immutable objects ensure the integrity of their initial state by disallowing direct modifications.
 
-#### **`const` vs immutable objects**
+#### `const` vs immutable objects\*\*
 
-A common confusion is that declaring a variable using **`const`** makes the value immutable, which is not true at all.
+A common confusion is that declaring a variable using `const`\*\* makes the value immutable, which is not true at all.
 
 Using `const` prevents the reassignment of variables but doesn't make non-primitive values immutable.
 
@@ -301,7 +307,7 @@ frozenPerson.name = 'Jane'; // Fails silently (no error, but no change)
 frozenPerson = { name: 'Jane' }; // Error: Assignment to constant variable
 ```
 
-In the first example with **`const`**, reassigning a new object to **`person`** is not allowed, but modifying the **`name`** property is permitted. In the second example, **`Object.freeze()`** makes the **`frozenPerson`** object immutable, preventing any changes to its properties.
+In the first example with `const`, reassigning a new object to `person` is not allowed, but modifying the `name` property is permitted. In the second example, `Object.freeze()` makes the `frozenPerson`\*\* object immutable, preventing any changes to its properties.
 
 [Explore the difference between mutable and immutable objects in JavaScript on GreatFrontEnd](/questions/quiz/explain-the-difference-between-mutable-and-immutable-objects?format=quiz)
 
@@ -399,9 +405,9 @@ console.log(key); // "globalKey"
 
 There are some well known `Symbol` in JavaScript like:
 
-- **`Symbol.iterator`**: Defines the default **`iterator`** for an object.
-- **`Symbol.toStringTag`**: Used to create a string description for an object.
-- **`Symbol.hasInstance`**: Used to determine if an object is an instance of a constructor.
+- `Symbol.iterator`: Defines the default `iterator` for an object.
+- `Symbol.toStringTag`\*\*: Used to create a string description for an object.
+- `Symbol.hasInstance`\*\*: Used to determine if an object is an instance of a constructor.
 
 [Explore what `Symbol`s are used for in JavaScript on GreatFrontEnd](/questions/quiz/what-are-symbols-used-for?format=quiz)
 
@@ -440,7 +446,7 @@ Tools and techniques for debugging JavaScript code vary depending on the context
 
 - JavaScript
   - Chrome Devtools: Provides a comprehensive set of debugging tools including breakpoints, stepping through code, watching variables, profiling performance, etc. You can learn more about it [here](https://david-gilbertson.medium.com/twelve-fancy-chrome-devtools-tips-dc1e39d10d9d).
-  - **`debugger` statement:** Inserting `debugger;` in code triggers breakpoints when Devtools are open, pausing execution for inspection.
+  - `debugger` statement:\*\* Inserting `debugger;` in code triggers breakpoints when Devtools are open, pausing execution for inspection.
   - **Traditional `console.log()` debugging:** Using `console.log()` statements to output variable values and debug messages.
 - React and Redux
   - [React Devtools](https://github.com/facebook/react-devtools): Facilitates debugging React component hierarchies, state, and props.\*\*
@@ -498,9 +504,9 @@ Currying enhances the functional programming paradigm in JavaScript by enabling 
 
 ## 14. What is the difference between the document `load` event and the document `DOMContentLoaded` event?
 
-The **`DOMContentLoaded`** event is triggered once the initial HTML document has been fully loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading.
+The `DOMContentLoaded`\*\* event is triggered once the initial HTML document has been fully loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading.
 
-In contrast, the window's **`load`** event is fired only after the DOM and all dependent resources, such as stylesheets, images, and subframes, have completely loaded.
+In contrast, the window's `load`\*\* event is fired only after the DOM and all dependent resources, such as stylesheets, images, and subframes, have completely loaded.
 
 [Explore the difference between the document `load` event and the document `DOMContentLoaded` event on GreatFrontEnd](/questions/quiz/difference-between-document-load-event-and-document-domcontentloaded-event?format=quiz)
 
@@ -571,7 +577,7 @@ Avoid classical inheritance when possible. If you must use it, adhere to best pr
 
 Possess working knowledge of it. Promises can be fulfilled, rejected, or pending, and allow users to attach callbacks for handling outcomes.
 
-Common polyfills include **`$.deferred`**, Q, and Bluebird. However, with ES2015 providing native support, polyfills are typically unnecessary.
+Common polyfills include `$.deferred`\*\*, Q, and Bluebird. However, with ES2015 providing native support, polyfills are typically unnecessary.
 
 [Explore what promises are on GreatFrontEnd](/questions/quiz/what-are-promises-and-how-do-they-work?format=quiz)
 

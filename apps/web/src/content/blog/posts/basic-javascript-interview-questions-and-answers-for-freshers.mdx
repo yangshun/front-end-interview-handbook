@@ -6,14 +6,22 @@ tags:
   - javascript
   - interviews
 level: starter
-createdAt: 2024-10-05
-author: blog/author/nitesh-seram.json
+createdAt: 2025-04-05
+author: blog/author/greatfrontend.json
 category: blog/category/front-end-interviews.json
 series: blog/series/beginner-interview-questions.json
 published: true
 ---
 
-JavaScript is a fundamental skill for any aspiring web developer, and landing a job in this field can be a challenging task, especially for freshers. One of the most crucial steps in the interview process is the technical interview, where your JavaScript skills are put to the test. To help you prepare and boost your confidence, we've compiled a list of the top 50 basic JavaScript interview questions and answers that are commonly asked in interviews.
+JavaScript is a fundamental skill for any aspiring web developer, and landing a job in this field can be a challenging task, especially for freshers. One of the most crucial steps in the interview process is the technical interview, where your JavaScript skills are put to the test.
+
+To help you prepare and boost your confidence, we've compiled a list of the top 50 basic JavaScript interview questions and answers that are commonly asked in interviews.
+
+If you're looking for additional JavaScript interview preparation materials, also check out these resources:
+
+- [Front End Interview Playbook](/front-end-interview-playbook)
+- [Practice JavaScript coding interview questions](/questions/javascript-interview-questions)
+- [Practice JavaScript quiz interview questions](/questions/javascript-interview-questions/quiz)
 
 ## 1. Explain the concept of "hoisting" in JavaScript
 
@@ -94,8 +102,8 @@ import foo from './modules/foo';
 
 ### Scope
 
-- **`var`**: Function-scoped or globally scoped.
-- **`let` and `const`**: Block-scoped (only accessible within the nearest set of curly braces).
+- `var`\*\*: Function-scoped or globally scoped.
+- `let` and `const`\*\*: Block-scoped (only accessible within the nearest set of curly braces).
 
 Example:
 
@@ -129,8 +137,8 @@ console.log(qux); // ReferenceError
 
 ### Initialization
 
-- **`var` and `let`**: Can be declared without an initial value.
-- **`const`**: Must be initialized at the time of declaration.
+- `var` and `let`\*\*: Can be declared without an initial value.
+- `const`\*\*: Must be initialized at the time of declaration.
 
 Example:
 
@@ -143,8 +151,8 @@ const baz; // SyntaxError
 
 ### Redeclaration
 
-- **`var`**: Allows redeclaration.
-- **`let` and `const`**: Do not allow redeclaration.
+- `var`\*\*: Allows redeclaration.
+- `let` and `const`\*\*: Do not allow redeclaration.
 
 Example:
 
@@ -158,8 +166,8 @@ let baz = 4; // SyntaxError
 
 ### Reassignment
 
-- **`var` and `let`**: Allow reassignment.
-- **`const`**: Does not allow reassignment.
+- `var` and `let`\*\*: Allow reassignment.
+- `const`\*\*: Does not allow reassignment.
 
 Example:
 
@@ -176,8 +184,8 @@ baz = 6; // TypeError
 
 ### Accessing before declaration
 
-- **`var`**: Variables are hoisted and initialized to `undefined`.
-- **`let` and `const`**: Variables are hoisted but not initialized, causing a `ReferenceError` if accessed before declaration.
+- `var`\*\*: Variables are hoisted and initialized to `undefined`.
+- `let` and `const`\*\*: Variables are hoisted but not initialized, causing a `ReferenceError` if accessed before declaration.
 
 Example:
 
@@ -279,8 +287,6 @@ The event loop is crucial for handling asynchronous operations in JavaScript, al
       - Processes one macrotask, then checks the microtask queue again.
       - Repeats indefinitely.
 
-### Example
-
 ```js
 console.log('Start');
 
@@ -339,8 +345,6 @@ Event delegation is an efficient way to handle events on multiple child elements
 - **Efficiency:** Fewer event listeners improve memory and performance.
 - **Dynamic Elements:** Automatically handles new or removed child elements.
 
-### Example
-
 ```js
 // HTML:
 // <ul id="item-list">
@@ -383,15 +387,16 @@ A single click listener on `<ul>` handles clicks on any `<li>` due to event bubb
 
 2.  **Simplifying Code:**
 
-    ```js
-    const userForm = document.getElementById('user-form');
+        ```js
+        const userForm = document.getElementById('user-form');
 
-    userForm.addEventListener('input', (event) => {
-      const { name, value } = event.target;
-      console.log(`Changed ${name}: ${value}`);
-    });
-    ```
-[Explore event delegation in JavaScript on GreatFrontEnd](/questions/quiz/explain-event-delegation?format=quiz)
+        userForm.addEventListener('input', (event) => {
+          const { name, value } = event.target;
+          console.log(`Changed ${name}: ${value}`);
+        });
+        ```
+
+    [Explore event delegation in JavaScript on GreatFrontEnd](/questions/quiz/explain-event-delegation?format=quiz)
 
 ## 6. Explain how `this` works in JavaScript
 
@@ -607,7 +612,7 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
 </html>
 ```
 
-**`<script defer>` Tag**:
+`<script defer>` Tag\*\*:
 
 - **Behavior**: Downloads the script asynchronously while HTML parsing proceeds. Executes the script after the HTML document is fully parsed but before `DOMContentLoaded`.
 - **Usage**: Ideal for scripts dependent on a fully-parsed DOM structure.
@@ -635,118 +640,118 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
 
 ## 9. What's the difference between a variable that is: `null`, `undefined` or undeclared?
 
-**Undeclared**: A variable that is not declared using **`var`**, **`let`**, or **`const`** will be created globally and can cause errors. Avoid them by using **`try/catch`** blocks to detect them.
+**Undeclared**: A variable that is not declared using `var`, `let`, or `const` will be created globally and can cause errors. Avoid them by using `try/catch` blocks to detect them.
 
-**`undefined`**: A declared variable without an assigned value is **`undefined`**. Use **`===`** or **`typeof`** to check for **`undefined`**. Note that **`==`** will also return **`true`** for **`null`**.
+`undefined`: A declared variable without an assigned value is `undefined`. Use `===` or `typeof` to check for `undefined`. Note that `==` will also return `true` for `null`.
 
-**`null`**: A variable explicitly assigned **`null`** represents no value. Use **`===`** to check for **`null`**. Don't use **`==`** as it will also return **`true`** for **`undefined`**.
+`null`: A variable explicitly assigned `null` represents no value. Use `===` to check for `null`. Don't use `==` as it will also return `true` for `undefined`\*\*.
 
 **Best Practices**:
 
 - Always declare variables before using them.
-- Assign **`null`** to variables if you don't intend to use them yet.
+- Assign `null`\*\* to variables if you don't intend to use them yet.
 - Use static analysis tools like ESLint or TypeScript Compiler to detect undeclared variables.
 
 [Explore the difference between a variable that is: `null`, `undefined` or undeclared on GreatFrontEnd](/questions/quiz/whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states?format=quiz)
 
 ## 10. What's the difference between `.call` and `.apply` in JavaScript?
 
-    **`.call` and `.appl`** are used to invoke functions, setting **`this`** within the function. The difference lies in how they handle arguments:
+`.call` and `.apply` are used to invoke functions, setting `this` within the function. The difference lies in how they handle arguments:
 
-    - **.call:** Takes comma-separated arguments.
-    - **.apply:** Takes an array of arguments.
+- **.call:** Takes comma-separated arguments.
+- **.apply:** Takes an array of arguments.
 
-    **Memory Aid:**
+**Memory Aid:**
 
-    - **C** for **call** and **comma-separated**.
-    - **A** for **apply** and **array**.
+- **C** for **call** and **comma-separated**.
+- **A** for **apply** and **array**.
 
-    Example:
+Example:
 
-    ```js
-    javascriptCopy code
-    function add(a, b) {
-      return a + b;
-    }
+```js
+javascriptCopy code
+function add(a, b) {
+  return a + b;
+}
 
-    console.log(add.call(null, 1, 2)); // 3
-    console.log(add.apply(null, [1, 2])); // 3
+console.log(add.call(null, 1, 2)); // 3
+console.log(add.apply(null, [1, 2])); // 3
 
-    // ES6 with spread operator
-    console.log(add.call(null, ...[1, 2])); // 3
-    ```
+// ES6 with spread operator
+console.log(add.call(null, ...[1, 2])); // 3
+```
 
 [Explore the difference between `.call` and `.apply` in JavaScript on GreatFrontEnd](/questions/quiz/whats-the-difference-between-call-and-apply?format=quiz)
 
 ## 11. Explain `Function.prototype.bind`
 
-    **`Function.prototype.bind`** creates a new function with a specific **`this`** context and optionally preset arguments. It's useful for maintaining the correct **`this`** value in methods passed to other functions.
+`Function.prototype.bind` creates a new function with a specific `this` context and optionally preset arguments. It's useful for maintaining the correct `this` value in methods passed to other functions.
 
-    **Example:**
+**Example:**
 
-    ```js
-    const john = {
-      age: 42,
-      getAge: function () {
-        return this.age;
-      },
-    };
+```js
+const john = {
+  age: 42,
+  getAge: function () {
+    return this.age;
+  },
+};
 
-    console.log(john.getAge()); // 42
+console.log(john.getAge()); // 42
 
-    const unboundGetAge = john.getAge;
-    console.log(unboundGetAge()); // undefined
+const unboundGetAge = john.getAge;
+console.log(unboundGetAge()); // undefined
 
-    const boundGetAge = john.getAge.bind(john);
-    console.log(boundGetAge()); // 42
+const boundGetAge = john.getAge.bind(john);
+console.log(boundGetAge()); // 42
 
-    const mary = { age: 21 };
-    const boundGetAgeMary = john.getAge.bind(mary);
-    console.log(boundGetAgeMary()); // 21
-    ```
+const mary = { age: 21 };
+const boundGetAgeMary = john.getAge.bind(mary);
+console.log(boundGetAgeMary()); // 21
+```
 
-    Its main purposes are:
+Its main purposes are:
 
-    1. **Binding `this` to preserve context:** The primary function of **`bind`** is to attach the **`this`** value of a function to a specific object. When you use **`func.bind(thisArg)`**, it generates a new function with the same code as **`func`**, but with **`this`** permanently set to **`thisArg`**.
-    2. **Partial application of arguments:** **`bind`** also enables you to pre-set arguments for the new function. Any arguments provided to **`bind`** after **`thisArg`** will be prepended to the argument list when the new function is invoked.
-    3. **Method borrowing:** **`bind`** allows you to borrow methods from one object and use them on another object, even if the methods were not initially designed for that object.
+1. **Binding `this` to preserve context:** The primary function of `bind` is to attach the `this` value of a function to a specific object. When you use `func.bind(thisArg)`, it generates a new function with the same code as `func`, but with `this` permanently set to `thisArg`.
+2. **Partial application of arguments:** `bind` also enables you to pre-set arguments for the new function. Any arguments provided to `bind` after `thisArg` will be prepended to the argument list when the new function is invoked.
+3. **Method borrowing:** `bind` allows you to borrow methods from one object and use them on another object, even if the methods were not initially designed for that object.
 
 [Explore `Function.prototype.bind` on GreatFrontEnd](/questions/quiz/explain-function-prototype-bind?format=quiz)
 
 ## 12. What advantage is there for using the arrow syntax for a method in a constructor?
 
-    The advantage of using the arrow syntax for a method in a constructor is that it automatically binds the **`this`** value to the constructor's **`this`** context. This means that when the method is called, it will always refer to the constructor's **`this`** context, rather than the global scope or some other unexpected context.
+The advantage of using the arrow syntax for a method in a constructor is that it automatically binds the `this` value to the constructor's `this` context. This means that when the method is called, it will always refer to the constructor's `this` context, rather than the global scope or some other unexpected context.
 
-    In traditional function expressions, the **`this`** value is determined by how the function is called, which can lead to unexpected behavior if not properly bound. By using an arrow function, you can ensure that the **`this`** value is always bound to the constructor's **`this`** context, making your code more predictable and easier to maintain.
+In traditional function expressions, the `this` value is determined by how the function is called, which can lead to unexpected behavior if not properly bound. By using an arrow function, you can ensure that the `this` value is always bound to the constructor's `this` context, making your code more predictable and easier to maintain.
 
-    For example, in the code snippet:
+For example, in the code snippet:
 
-    ```js
-    const Person = function (name) {
-      this.name = name;
-      this.sayName1 = function () {
-        console.log(this.name);
-      };
-      this.sayName2 = () => {
-        console.log(this.name);
-      };
-    };
-    const john = new Person('John');
-    const dave = new Person('Dave');
+```js
+const Person = function (name) {
+  this.name = name;
+  this.sayName1 = function () {
+    console.log(this.name);
+  };
+  this.sayName2 = () => {
+    console.log(this.name);
+  };
+};
+const john = new Person('John');
+const dave = new Person('Dave');
 
-    john.sayName1(); // John
-    john.sayName2(); // John
+john.sayName1(); // John
+john.sayName2(); // John
 
-    // `this` can change for regular functions but not for arrow functions
-    john.sayName1.call(dave); // Dave
-    john.sayName2.call(dave); // John
-    ```
+// `this` can change for regular functions but not for arrow functions
+john.sayName1.call(dave); // Dave
+john.sayName2.call(dave); // John
+```
 
-    The **`sayName1`** method uses a traditional function expression, which means its **`this`** value is determined by how it's called. If you call **`john.sayName1.call(dave)`**, the **`this`** value will be **`dave`**, and the method will log **`Dave`** to the console.
+The `sayName1` method uses a traditional function expression, which means its `this` value is determined by how it's called. If you call `john.sayName1.call(dave)`, the `this` value will be `dave`, and the method will log `Dave` to the console.
 
-    On the other hand, the **`sayName2`** method uses an arrow function, which means its **`this`** value is automatically bound to the constructor's **`this`** context. If you call **`john.sayName2.call(dave)`**, the **`this`** value will still be **`john`**, and the method will log **`John`** to the console.
+On the other hand, the `sayName2` method uses an arrow function, which means its `this` value is automatically bound to the constructor's `this` context. If you call `john.sayName2.call(dave)`, the `this` value will still be `john`, and the method will log `John` to the console.
 
-    This can be particularly helpful in React class components, where you often need to pass methods as props to child components. By using arrow functions, you can ensure that the methods always refer to the correct **`this`** context, without having to manually bind **`this`** in the constructor.
+This can be particularly helpful in React class components, where you often need to pass methods as props to child components. By using arrow functions, you can ensure that the methods always refer to the correct `this` context, without having to manually bind `this` in the constructor.
 
 [Explore the advantage for using the arrow syntax for a method in a constructor on GreatFrontEnd](/questions/quiz/what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor?format=quiz)
 
@@ -759,7 +764,7 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
     #### 1. Prototypes
 
        - Every object has a prototype, another object it inherits from.
-       - Access or modify prototypes using **`Object.getPrototypeOf()`** and **`Object.setPrototypeOf()`**.
+       - Access or modify prototypes using `Object.getPrototypeOf()` and `Object.setPrototypeOf()`.
 
        ```js
        function Person(name, age) {
@@ -779,11 +784,11 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
 
     #### 2. Prototype Chain
 
-       JavaScript looks for properties/methods on the object, then its prototype, and so on up the chain until **`null`**.
+       JavaScript looks for properties/methods on the object, then its prototype, and so on up the chain until `null`.
 
     #### 3. Constructor Functions
 
-       Functions used with **`new`** to create objects, setting their prototype to the constructor's **`prototype`**.
+       Functions used with `new` to create objects, setting their prototype to the constructor's `prototype`.
 
        ```js
        function Animal(name) {
@@ -831,15 +836,15 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
 
     ### Function Declaration
 
-    **`function Person(){}`** is a standard function declaration in JavaScript. When written in PascalCase, it follows the convention for functions intended to be used as constructors.
+    `function Person(){}` is a standard function declaration in JavaScript. When written in PascalCase, it follows the convention for functions intended to be used as constructors.
 
     ### Function Call
 
-    **`const person = Person()`** simply calls the function and executes its code. If no return value is specified, **`person`** will be **`undefined`**. This is not a constructor call and does not create a new object.
+    `const person = Person()` simply calls the function and executes its code. If no return value is specified, `person` will be `undefined`. This is not a constructor call and does not create a new object.
 
     ### Constructor Call
 
-    **`const person = new Person()`** creates a new object using the **`Person`** constructor function. The **`new`** keyword creates a new object and sets its prototype to **`Person.prototype`**. The **`this`** keyword inside the constructor function refers to the new object being created.
+    `const person = new Person()` creates a new object using the `Person` constructor function. The `new` keyword creates a new object and sets its prototype to `Person.prototype`. The `this` keyword inside the constructor function refers to the new object being created.
 
 [Explore the difference between: `function Person(){}`, `const person = Person()`, and `const person = new Person()` on GreatFrontEnd](/questions/quiz/difference-between-function-person-var-person-person-and-var-person-new-person?format=quiz)
 
@@ -847,7 +852,7 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
 
     ### Function Declarations
 
-    - **Syntax:** **`function foo() {}`**
+    - **Syntax:** `function foo() {}`
     - **Description:** Defines a named function that can be called throughout the enclosing scope.
     - **Example:**
 
@@ -859,7 +864,7 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
 
     ### Function Expressions
 
-    - **Syntax:** **`var foo = function() {}`**
+    - **Syntax:** `var foo = function() {}`
     - **Description:** Defines a function and assigns it to a variable, often used in specific contexts.
     - **Example:**
 
@@ -918,7 +923,7 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
 
     Here are the various ways to create objects in JavaScript:
 
-    1. **Object Literals** (**`{}`**): Simplest way to create objects using key-value pairs within curly braces.
+    1. **Object Literals** (`{}`): Simplest way to create objects using key-value pairs within curly braces.
 
        ```jsx
        const person = {
@@ -927,7 +932,7 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
        };
        ```
 
-    2. **Object() Constructor**: Using the **`new`** keyword with the built-in **`Object`** constructor to create an object.
+    2. **Object() Constructor**: Using the `new` keyword with the built-in `Object` constructor to create an object.
 
        ```jsx
        const person = new Object();
@@ -972,7 +977,7 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
        person.greet(); // Output: Hello, my name is John and I'm 30 years old.
        ```
 
-    5. **Constructor Functions**: Reusable blueprints for objects, using the **`new`** keyword to create instances.
+    5. **Constructor Functions**: Reusable blueprints for objects, using the `new` keyword to create instances.
 
        ```js
        // Constructor function
@@ -1060,7 +1065,7 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
 
     ### ES2015 Classes
 
-    Uses the **`class`** syntax, making code more readable and adding features.
+    Uses the `class` syntax, making code more readable and adding features.
 
     - **Example:**
 
@@ -1087,22 +1092,22 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
       #### Syntax and Readability
 
       - ES5: Function constructors and prototypes
-      - ES2015: **`class`** keyword, more concise and easier to understand
+      - ES2015: `class` keyword, more concise and easier to understand
 
       #### Static Methods
 
       - ES5: Added directly to the constructor function
-      - ES2015: Defined within the class using **`static`** keyword
+      - ES2015: Defined within the class using `static` keyword
 
       #### Inheritance
 
-      - ES5: Using **`Object.create()`** and manual prototype chain setting
-      - ES2015: Using **`extends`** keyword, simpler and more intuitive
+      - ES5: Using `Object.create()` and manual prototype chain setting
+      - ES2015: Using `extends` keyword, simpler and more intuitive
 
       ### Super Calls
 
       - ES5: Manual parent constructor function call
-      - ES2015: Using **`super`** keyword to call parent class's constructor and methods
+      - ES2015: Using `super` keyword to call parent class's constructor and methods
 
 [Explore differences between ES2015 classes and ES5 function constructors on GreatFrontEnd](/questions/quiz/what-are-the-differences-between-es6-class-and-es5-function-constructors?format=quiz)
 
@@ -1136,7 +1141,7 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
 
     **Stopping Event Bubbling:**
 
-    - **Method:** Use **`stopPropagation()`** to stop the event from bubbling up the DOM tree.
+    - **Method:** Use `stopPropagation()` to stop the event from bubbling up the DOM tree.
     - **Example:**
 
       ```js
@@ -1161,7 +1166,7 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
     **Enabling Event Capturing:**
 
     - Event capturing is disabled by default.
-    - Enable it by passing **`{ capture: true }`** as the third argument to **`addEventListener()`**.
+    - Enable it by passing `{ capture: true }` as the third argument to `addEventListener()`.
 
     **Example:**
 
@@ -1190,7 +1195,7 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
 
     **Stopping Propagation:**
 
-    - Use **`stopPropagation()`** to prevent the event from traveling further down the DOM tree during the capturing phase.
+    - Use `stopPropagation()` to prevent the event from traveling further down the DOM tree during the capturing phase.
     - Example:
 
       ```js
@@ -1278,7 +1283,7 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
 
     - **Asynchronous:** AJAX enables web applications to update parts of a web page without reloading the whole page.
     - **Data Formats:** Initially used XML, but JSON is now more common due to its compatibility with JavaScript.
-    - **APIs:** Traditionally used **`XMLHttpRequest`**, but **`fetch()`** is now preferred for modern web applications.
+    - **APIs:** Traditionally used `XMLHttpRequest`, but `fetch()` is now preferred for modern web applications.
 
     ### `XMLHttpRequest` API
 
@@ -1299,7 +1304,7 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
     xhr.send();
     ```
 
-    - **Flow:** Creates a new **`XMLHttpRequest`**, sets up a callback function to handle state changes, opens a request to a URL, and sends the request.
+    - **Flow:** Creates a new `XMLHttpRequest`, sets up a callback function to handle state changes, opens a request to a URL, and sends the request.
 
     ### `fetch()` API
 
@@ -1317,13 +1322,13 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
       .catch((error) => console.error('Fetch error:', error));
     ```
 
-    - **Flow:** Initiates a fetch request, handles the response with **`.then()`** to parse JSON data, and manages errors with **`.catch()`**.
+    - **Flow:** Initiates a fetch request, handles the response with `.then()` to parse JSON data, and manages errors with `.catch()`.
 
     ### How AJAX Works with `fetch`
 
     #### 1. Making a Request
 
-       - **`fetch()`** initiates an asynchronous request to fetch a resource from a URL.
+       - `fetch()` initiates an asynchronous request to fetch a resource from a URL.
        - **Example:**
 
          ```js
@@ -1336,10 +1341,10 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
          ```
 
     #### 2. Return a Promise
-       - **`fetch()`** returns a Promise that resolves to a **`Response`** object representing the server's response.
+       - `fetch()` returns a Promise that resolves to a `Response` object representing the server's response.
     #### 3. Handling the Response
 
-       - The **`Response`** object offers methods to handle the body content, such as **`.json()`**, **`.text()`**, **`.blob()`**.
+       - The `Response` object offers methods to handle the body content, such as `.json()`, `.text()`, `.blob()`.
        - **Example:**
 
          ```js
@@ -1350,12 +1355,12 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
          ```
 
     #### 4. Asynchronous Nature
-       - **`fetch()`** is asynchronous, allowing the browser to continue executing other tasks while waiting for the server response.
-       - Promises (**`.then()`**, **`.catch()`**) are handled in the microtask queue as part of the event loop.
+       - `fetch()` is asynchronous, allowing the browser to continue executing other tasks while waiting for the server response.
+       - Promises (`.then()`, `.catch()`) are handled in the microtask queue as part of the event loop.
     #### 5. Request Options
-       - The optional second argument to **`fetch()`** configures various request aspects, such as HTTP method, headers, body, credentials, and caching.
+       - The optional second argument to `fetch()` configures various request aspects, such as HTTP method, headers, body, credentials, and caching.
     #### 6. Error Handling
-       - Errors (e.g., network failures, invalid responses) are caught and propagated through the Promise chain using **`.catch()`** or **`try/catch`** with **`async/await`**.
+       - Errors (e.g., network failures, invalid responses) are caught and propagated through the Promise chain using `.catch()` or `try/catch` with `async/await`.
 
 [Explore how to explain AJAX in as much detail as possible on GreatFrontEnd](/questions/quiz/explain-ajax-in-as-much-detail-as-possible?format=quiz)
 
@@ -1631,8 +1636,6 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
     - **Iteration**: Not directly iterable. Use methods like `Object.keys()`, `Object.values()`, or `Object.entries()` for iteration.
     - **Performance**: Faster for small datasets and simple operations.
 
-    ### Example
-
     ```js
     // Map
     const map = new Map();
@@ -1694,8 +1697,6 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
 
     In asynchronous programming, a callback function is passed as an argument to another function and invoked when a task completes, such as fetching data or handling I/O operations. Here's a concise explanation:
 
-    ### Example
-
     ```js
     function fetchData(callback) {
       setTimeout(() => {
@@ -1748,8 +1749,6 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
 
     Destructuring assignment simplifies extracting values from arrays or properties from objects into separate variables:
 
-    ### Example
-
     ```js
     // Array destructuring
     const [a, b] = [1, 2];
@@ -1765,8 +1764,6 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
 ## 35. Explain the concept of hoisting with regards to functions
 
     Hoisting moves function declarations to the top of their scope during compilation, allowing them to be called before their actual placement in the code. Function expressions and arrow functions, however, must be defined before they are called to avoid errors.
-
-    ### Example
 
     ```js
     // Function declaration
@@ -1787,8 +1784,6 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
 ## 36. Explain the concept of inheritance in ES2015 classes
 
     In ES2015, classes use `extends` to enable one class to inherit properties and methods from another. The `super` keyword accesses the parent class's constructor and methods.
-
-    ### Example
 
     ```js
     class Animal {
@@ -1824,8 +1819,6 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
 
     Lexical scoping in JavaScript determines variable access based on its position in the source code. Nested functions can access variables from their outer scope.
 
-    ### Example
-
     ```js
     function outerFunction() {
       let outerVariable = 'I am outside!';
@@ -1847,8 +1840,6 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
 ## 38. Explain the concept of scope in JavaScript
 
     Scope in JavaScript determines the visibility of variables and functions within different parts of the code. There are three main types: global scope, function scope, and block scope.
-
-    ### Example
 
     ```js
     // Global scope
@@ -1878,8 +1869,6 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
 ## 39. Explain the concept of the spread operator and its uses
 
     The spread operator (...) in JavaScript expands elements of an iterable (like arrays or objects) into individual elements. It's used for copying arrays or objects, merging them, and passing array elements as function arguments.
-
-    ### Examples
 
     ```js
     // Copying an array
@@ -2033,7 +2022,7 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
 
 ## 46. Explain the difference in hoisting between `var`, `let`, and `const`
 
-    **`var`:**
+    `var`:**
 
     - Hoisted to the top of its scope.
     - Initialized with undefined.
@@ -2044,7 +2033,7 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
     var myVar = 'Hello';
     ```
 
-    **`let` and `const`:**
+    `let` and `const`:**
 
     - Hoisted to the top of their scope.
     - Not initialized (temporal dead zone).
@@ -2058,7 +2047,7 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
     const myConst = '!';
     ```
 
-    **`const`:**
+    `const`:**
 
     - Requires an initial value at declaration.
     - Once assigned, its value cannot be changed (immutable).
@@ -2124,7 +2113,6 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
     ```
 
 [Explore how to access the index of an element in an array during iteration on GreatFrontEnd](/questions/quiz/how-do-you-access-the-index-of-an-element-in-an-array-during-iteration?format=quiz)
-
 
 ## 50. How do you check the data type of a variable?
 

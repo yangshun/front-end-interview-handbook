@@ -1,22 +1,33 @@
 ---
 title: 100+ React Interview Questions Straight from Ex-interviewers
 description: 100 prioritized React interview questions and answers, carefully selected and prepared by senior engineers and ex-interviewers from leading tech companies
+imageUrl: /img/blog/100-react-interview-questions-straight-from-ex-interviewers.webp
 tags:
   - react
   - interviews
 level: starter
-createdAt: 2025-01-27
-author: blog/author/nitesh-seram.json
+createdAt: 2025-07-16
+author: blog/author/greatfrontend.json
 category: blog/category/front-end-interviews.json
 series: blog/series/beginner-interview-questions.json
 published: true
 relatedPosts:
-  - slug: 30-basic-to-advanced-react-interview-questions-with-solution
+  - slug: 30-basic-to-advanced-react-interview-questions-with-solutions
 ---
 
-Preparing for a React interview can be daunting, but having access to the right questions can make all the difference. We've curated a prioritized list of over 100 questions, covering essential topics like React fundamentals, hooks, React Router, React internationalization, and React testing. This comprehensive guide is designed to help you prepare effectively, boost your confidence, and ensure you make a strong impression during your interview.
+Preparing for a React interview can be daunting, but having access to the right questions can make all the difference. We've created a prioritized list of the top 100 questions and solutions, covering essential topics like React fundamentals, React Hooks, React Router, internationalization in React, and testing of React apps.
 
-## React Fundamentals
+This comprehensive guide is designed to help you prepare effectively, boost your confidence, and ensure you make a strong impression during your interview.
+
+If you're looking for more in-depth React interview preparation materials, also check out these resources:
+
+- [React Interview Playbook](/react-interview-playbook)
+- [Practice React coding interview questions](/questions/react-interview-questions)
+- [Practice React quiz interview questions](/questions/react-interview-questions/quiz)
+
+## React fundamentals
+
+Mastering React fundamentals is crucial in front end interviews because most companies rely on React for building modern web applications, and interview questions often test your ability to reason about components, state management, and data flow. A solid grasp of these core concepts is an important step to achieving interview success.
 
 ### 1. What is React, and what are its main features?
 
@@ -24,7 +35,7 @@ React is a JavaScript library developed by Facebook for creating user interfaces
 
 ![React Features](/img/blog/react-article/features.jpg)
 
-[Read more about it here](/questions/quiz/what-is-react-describe-the-benefits-of-react)
+[Find in-depth explanations and track study progress here ->](/questions/quiz/what-is-react-describe-the-benefits-of-react)
 
 ### 2. What is JSX and how does it work?
 
@@ -32,25 +43,28 @@ JSX, short for JavaScript XML, is a syntax extension for JavaScript that allows 
 
 ![How JSX works](/img/blog/react-article/babel-to-react.jpg)
 
-[Read more about it here](/questions/quiz/what-is-jsx-and-how-does-it-work)
+[Find in-depth explanations and track study progress here ->](/questions/quiz/what-is-jsx-and-how-does-it-work)
 
 ### 3. Explain the concept of the Virtual DOM in React.
 
 The virtual DOM is a simplified version of the actual DOM used by React. It allows for efficient UI updates by comparing the virtual DOM to the real DOM and making only the necessary changes through a process known as reconciliation.
 
-[Read more about it here](/questions/quiz/what-is-virtual-dom-in-react)
+[Find in-depth explanations and track study progress here ->](/questions/quiz/what-is-virtual-dom-in-react)
 
 ### 4. How does virtual DOM in React work? What are its benefits and downsides?
 
-The virtual DOM operates by generating a new tree when a component's state changes and then comparing it to the previous tree using "reconciliation." This process ensures that only the differences are reflected in the actual DOM, boosting performance. While it offers benefits like increased efficiency and a declarative approach to UI management, it can add complexity to simpler applications.
+The virtual DOM in React is an in-memory representation of the real DOM. When state or props change, React creates a new virtual DOM tree, compares it to the previous one using a diffing algorithm, and efficiently updates only the parts of the real DOM that changed.
 
-[Read more about it here](/questions/quiz/how-does-virtual-dom-in-react-work-what-are-its-benefits-and-downsides)
+- **Benefits**: It improves performance by reducing costly direct DOM manipulations and makes UI updates declarative and predictable.
+- **Downsides**: There's some overhead from diffing and extra memory usage, and in very dynamic UIs, it may not always outperform manual optimizations.
 
-### 5. Difference Between React Node, Element, and Component.
+[Find in-depth explanations and track study progress here ->](/questions/quiz/how-does-virtual-dom-in-react-work-what-are-its-benefits-and-downsides)
+
+### 5. What is the difference Between React Node, React Element, and React Component?
 
 A React Node refers to any unit that can be rendered in React, such as an element, string, number, or `null`. A React Element is an immutable object that defines what should be rendered, typically created using JSX or `React.createElement`. A React Component is either a function or class that returns React Elements, enabling the creation of reusable UI components.
 
-[Read more about it here](/questions/quiz/what-is-the-difference-between-react-node-react-element-and-a-react-component)
+[Find in-depth explanations and track study progress here ->](/questions/quiz/what-is-the-difference-between-react-node-react-element-and-a-react-component)
 
 ### 6. What are React Fragments used for?
 
@@ -65,7 +79,7 @@ return (
 );
 ```
 
-[Read more about it here](/questions/quiz/what-are-react-fragments-used-for)
+[Find in-depth explanations and track study progress here ->](/questions/quiz/what-are-react-fragments-used-for)
 
 ### 7. What is the purpose of the `key` prop in React?
 
@@ -77,19 +91,19 @@ In React, the `key` prop is used to uniquely identify elements in a list, allowi
 }
 ```
 
-[Read more about it here](/questions/quiz/what-is-the-purpose-of-the-key-prop-in-react)
+[Find in-depth explanations and track study progress here ->](/questions/quiz/what-is-the-purpose-of-the-key-prop-in-react)
 
 ### 8. What is the consequence of using array indices as keys in React?
 
 Using array indices as `key`s can lead to performance issues and unexpected behavior, especially when reordering or deleting items. React relies on keys to identify elements uniquely, and using indices can cause components to be re-rendered unnecessarily or display incorrect data.
 
-[Read more about it here](/questions/quiz/what-is-the-consequence-of-using-array-indices-as-the-value-for-key-s-in-react)
+[Find in-depth explanations and track study progress here ->](/questions/quiz/what-is-the-consequence-of-using-array-indices-as-the-value-for-key-s-in-react)
 
 ### 9. What are props in React? How are they different from state?
 
 Props (short for properties) are inputs to React components that allow you to pass data from a parent component to a child component. They are immutable and are used to configure a component. In contrast, state is internal to a component and can change over time, typically due to user interactions or other events.
 
-[Read more about it here](/questions/quiz/what-is-the-difference-between-state-and-props-in-react)
+[Find in-depth explanations and track study progress here ->](/questions/quiz/what-is-the-difference-between-state-and-props-in-react)
 
 ### 10. What is the difference between React's class components and functional components?
 
@@ -103,7 +117,7 @@ Class components are useful when you need to manage state, use lifecycle methods
 
 React Fiber is a complete rewrite of the React core algorithm, designed to improve performance and enable new features like async rendering, error boundaries, and incremental rendering. It breaks down the rendering process into smaller chunks, allowing React to pause, abort, or prioritize updates as needed.
 
-[Read more about it here](/questions/quiz/what-is-react-fiber-and-how-is-it-an-improvement-over-the-previous-approach)
+[Find in-depth explanations and track study progress here ->](/questions/quiz/what-is-react-fiber-and-how-is-it-an-improvement-over-the-previous-approach)
 
 ### 13. What is reconciliation?
 
@@ -111,7 +125,7 @@ Reconciliation is the process by which React updates the DOM to match the virtua
 
 ![React Reconciliation](/img/blog/react-article/react-reconciliation.jpg)
 
-[Read more about it here](/questions/quiz/what-is-reconciliation-in-react)
+[Find in-depth explanations and track study progress here ->](/questions/quiz/what-is-reconciliation-in-react)
 
 ### 14. What is the difference between Shadow DOM and Virtual DOM?
 
@@ -147,13 +161,11 @@ function UncontrolledInput() {
 }
 ```
 
-[Read more about it here](/questions/quiz/what-is-the-difference-between-controlled-and-uncontrolled-react-components)
+[Find in-depth explanations and track study progress here ->](/questions/quiz/what-is-the-difference-between-controlled-and-uncontrolled-react-components)
 
 ### 16. How would you lift the state up in a React application, and why is it necessary?
 
 Lifting state up in React involves moving the state from child components to their nearest common ancestor. This pattern is used to share state between components that don't have a direct parent-child relationship. By lifting state up, you can avoid prop drilling and simplify the management of shared data.
-
-Example:
 
 ```jsx
 // Lifting state up
@@ -182,8 +194,6 @@ Pure Components in React are components that only re-render when their props or 
 
 - Class components can extend `React.PureComponent` to become pure
 - Functional components can use `React.memo` for the same effect
-
-Example:
 
 ```jsx
 const PureFunctionalExample = React.memo(function ({ value }) {
@@ -220,8 +230,6 @@ const clonedElement = React.cloneElement(element, { className: 'btn-primary' });
 
 PropTypes in React is used for type-checking props passed to components, ensuring the correct data types are used and warning developers during development.
 
-Example:
-
 ```jsx
 import PropTypes from 'prop-types';
 
@@ -239,17 +247,17 @@ MyComponent.propTypes = {
 };
 ```
 
-It helps catch errors early, improving code quality.
+It helps catch errors early, improving code quality. However, modern React components tend to be written in TypeScript and prop type mismatches can be caught at compile time rather than at runtime.
 
 ### 20. What are stateless components?
 
 Stateless components in React are components that do not manage or hold any internal state. They simply receive data via props and render UI based on that data. These components are often functional components and are used for presentational purposes.
 
-#### Key Points:
+#### Key points:
 
-- Do not use this.state.
-- Render UI based on props.
-- Focused on displaying information, not managing behavior. Example:
+- Do not use `this.state`
+- Render UI based on `props`
+- Focused on displaying information, not managing behavior
 
 ```jsx
 function StatelessComponent({ message }) {
@@ -257,17 +265,17 @@ function StatelessComponent({ message }) {
 }
 ```
 
-Stateless components are simpler, easier to test, and often more reusable.
+Stateless components are simpler, easier to test, and often more reusable. With the introduction of hooks, React components are mostly written using functions and can contain state via the `useState` hook.
 
 ### 21. What are stateful components?
 
 Stateful components in React are components that manage and hold their own internal state. They can modify their state in response to user interactions or other events and re-render themselves when the state changes.
 
-#### Key Points:
+#### Key points:
 
-- Use this.state (in class components) or useState (in functional components).
-- Can update state using event handlers or lifecycle methods.
-- Handle logic and data management. Example:
+- Use `this.state` (in class components) or `useState` (in functional components)
+- Can update state using event handlers or lifecycle methods
+- Handle logic and data management
 
 ```jsx
 function StatefulComponent() {
@@ -284,13 +292,11 @@ function StatefulComponent() {
 
 Stateful components are essential for handling dynamic and interactive UIs.
 
-### 22. What are the recommended ways for static type checking?
+### 22. What are the recommended ways for type checking of React component props?
 
 The recommended ways for static type checking in React are:
 
 **TypeScript**: A superset of JavaScript that adds optional static typing. It provides strong type checking, autocompletion, and other benefits at development time.
-
-Example:
 
 ```jsx
 interface MyComponentProps {
@@ -304,8 +310,6 @@ function MyComponent({ name, age }: MyComponentProps) {
 ```
 
 **PropTypes**: A runtime type-checking tool for React props, primarily for development purposes. It helps catch errors by checking prop types during development but doesn't offer full static analysis like TypeScript.
-
-Example:
 
 ```jsx
 import PropTypes from 'prop-types';
@@ -330,21 +334,25 @@ TypeScript is the preferred choice for static type checking due to its integrati
 
 React advises against mutating state as it can lead to unexpected behaviors and bugs. State immutability helps efficiently determine when components need re-rendering; direct mutations may prevent React from detecting changes.
 
-[Read more about it here](/questions/quiz/why-does-react-recommend-against-mutating-state)
+[Find in-depth explanations and track study progress here ->](/questions/quiz/why-does-react-recommend-against-mutating-state)
 
 ## React Hooks
 
+Mastering React hooks is important in front end interviews because hooks are the standard way to manage state, side effects, and component lifecycle in modern React. Demonstrating a solid understanding of hooks shows you can write clean, functional components and solve complex problems without relying on outdated class patterns.
+
 ### 24. What are the benefits of using hooks in React?
 
-Hooks enable the use of state and other React features in functional components, removing the need for class components. They streamline code by reducing the reliance on lifecycle methods, enhance readability, and facilitate the reuse of stateful logic across components. Popular hooks like `useState` and `useEffect` are used for managing state and side effects.
+Hooks enable the use of state and other React features in functional components, replacing the need for class components. They streamline code by reducing the reliance on lifecycle methods, enhance readability, and facilitate the reuse of stateful logic across components.
 
-[Read more about it here](/questions/quiz/what-are-the-benefits-of-using-hooks-in-react)
+Popular hooks like `useState` and `useEffect` are used for managing state and side effects.
+
+[Find in-depth explanations and track study progress here ->](/questions/quiz/what-are-the-benefits-of-using-hooks-in-react)
 
 ### 25. What are the rules of React hooks?
 
 React hooks should be called at the top level of a function, not inside loops, conditions, or nested functions. They must only be used within React function components or custom hooks. These guidelines ensure proper state management and lifecycle behavior.
 
-[Read more about it here](/questions/quiz/what-are-the-rules-of-react-hooks)
+[Find in-depth explanations and track study progress here ->](/questions/quiz/what-are-the-rules-of-react-hooks)
 
 ### 26. What is the difference between `useEffect` and `useLayoutEffect` in React?
 
@@ -372,7 +380,7 @@ function Example() {
 }
 ```
 
-[Read more about it here](/questions/quiz/what-is-the-difference-between-useeffect-and-uselayouteffect-in-react)
+[Find in-depth explanations and track study progress here ->](/questions/quiz/what-is-the-difference-between-useeffect-and-uselayouteffect-in-react)
 
 ### 27. What does the dependency array of `useEffect` affect?
 
@@ -382,11 +390,13 @@ The dependency array of `useEffect` controls when the effect re-runs:
 - If it contains variables, the effect re-runs whenever any of those variables change.
 - If omitted, the effect runs after every render.
 
-[Read more about it here](/questions/quiz/what-does-the-dependency-array-of-useeffect-affect)
+[Find in-depth explanations and track study progress here ->](/questions/quiz/what-does-the-dependency-array-of-useeffect-affect)
 
 ### 28. What is the `useRef` hook in React and when should it be used?
 
-The `useRef` hook creates a mutable object that persists through renders, allowing direct access to DOM elements, storing mutable values without causing re-renders, and maintaining references to values. For instance, `useRef` can be utilized to focus on an input element:
+The `useRef` hook creates a mutable object that persists through renders, allowing direct access to DOM elements, storing mutable values without causing re-renders, and maintaining references to values.
+
+For instance, `useRef` can be utilized to focus on an input element:
 
 ```jsx
 import React, { useRef, useEffect } from 'react';
@@ -400,9 +410,9 @@ function TextInputWithFocusButton() {
 }
 ```
 
-[Read more about it here](/questions/quiz/what-is-the-useref-hook-in-react-and-when-should-it-be-used)
+[Find in-depth explanations and track study progress here ->](/questions/quiz/what-is-the-useref-hook-in-react-and-when-should-it-be-used)
 
-### 29. What is the purpose of callback function argument format of `setState()` in React and when should it be used?
+### 29. What is the purpose of callback function argument format of `setState()` in React class components and when should it be used?
 
 The callback function format of `setState()` in React ensures that state updates are based on the most current state and props. This is essential when the new state depends on the previous state. Instead of passing an object directly to `setState()`, you provide a function that takes the previous state and props as arguments, returning the updated state.
 
@@ -414,7 +424,7 @@ this.setState((prevState, props) => ({
 
 Using this approach helps avoid issues related to asynchronous updates, ensuring that your state reflects the latest values accurately.
 
-[Read more about it here](/questions/quiz/what-is-the-purpose-of-callback-function-argument-format-of-setstate-in-react-and-when-should-it-be-used)
+[Find in-depth explanations and track study progress here ->](/questions/quiz/what-is-the-purpose-of-callback-function-argument-format-of-setstate-in-react-and-when-should-it-be-used)
 
 ### 30. What is the `useCallback` hook in React and when should it be used?
 
@@ -426,7 +436,7 @@ const memoizedCallback = useCallback(() => {
 }, [a, b]);
 ```
 
-[Read more about it here](/questions/quiz/what-is-the-usecallback-hook-in-react-and-when-should-it-be-used)
+[Find in-depth explanations and track study progress here ->](/questions/quiz/what-is-the-usecallback-hook-in-react-and-when-should-it-be-used)
 
 ### 31. What is the `useMemo` hook in React and when should it be used?
 
@@ -436,27 +446,30 @@ The `useMemo` hook memoizes costly calculations, recomputing them only when depe
 const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
 ```
 
-[Read more about it here](/questions/quiz/what-is-the-usememo-hook-in-react-and-when-should-it-be-used)
+[Find in-depth explanations and track study progress here ->](/questions/quiz/what-is-the-usememo-hook-in-react-and-when-should-it-be-used)
 
 ### 32. What is the `useReducer` hook in React and when should it be used?
 
-The `useReducer` hook manages complex state logic in functional components, serving as an alternative to useState. It's ideal when state has multiple sub-values or when the next state relies on the previous one. It accepts a reducer function and an initial state.
+The `useReducer` hook manages complex state logic in functional components, serving as an alternative to `useState`. It's ideal when state has multiple fields (and there are constraints around how they should be mutated), or when the next state relies on the previous one.
+
+The `useReducer` hook accepts a reducer function + an initial state. The `reducer` function is passed the current `state` and `action` and returns a new state.
 
 ```jsx
 const [state, dispatch] = useReducer(reducer, initialState);
 ```
 
-[Read more about it here](/questions/quiz/what-is-the-usereducer-hook-in-react-and-when-should-it-be-used)
+[Find in-depth explanations and track study progress here ->](/questions/quiz/what-is-the-usereducer-hook-in-react-and-when-should-it-be-used)
 
 ### 33. What is the `useId` hook in React and when should it be used?
 
-The `useId` hook generates unique IDs for elements within a component, which is crucial for accessibility by linking form inputs with labels. It guarantees unique IDs across the application even if the component renders multiple times.
+The `useId` hook generates unique IDs for elements within a component, which is crucial for accessibility by dynamically creating ids that can be used for linking form inputs and labels. It guarantees unique IDs across the application even if the component renders multiple times.
 
 ```jsx
 import { useId } from 'react';
 
 function MyComponent() {
   const id = useId();
+
   return (
     <div>
       <label htmlFor={id}>Name:</label>
@@ -466,36 +479,9 @@ function MyComponent() {
 }
 ```
 
-[Read more about it here](/questions/quiz/what-is-the-useid-hook-in-react-and-when-should-it-be-used)
+[Find in-depth explanations and track study progress here ->](/questions/quiz/what-is-the-useid-hook-in-react-and-when-should-it-be-used)
 
-### 34. What does re-rendering mean in React?
-
-In React, re-rendering refers to the process of updating the user interface (UI) in response to changes in the component's state or props. When the state or props of a component change, React re-renders the component to reflect the updated data in the UI.
-
-This involves:
-
-1. Recalculating the JSX returned by the component.
-2. Comparing the new JSX with the previous one (using the Virtual DOM).
-3. Updating the real DOM with only the differences (efficient rendering).
-4. Re-rendering ensures that the UI stays in sync with the component's state and props.
-
-![Virtual DOM vs Browser DOM](/img/blog/react-article/virtual-dom-vs-browser-dom.jpg)
-
-[Read more about it here](/questions/quiz/what-does-re-rendering-mean-in-react)
-
-### 35. What is `forwardRef()` in React used for?
-
-`forwardRef()` allows passing a ref through a component to one of its children. This is useful for accessing a DOM element or child component's instance directly from a parent.
-
-```jsx
-import React, { forwardRef } from 'react';
-
-const MyComponent = forwardRef((props, ref) => <input ref={ref} {...props} />);
-```
-
-[Read more about it here](/questions/quiz/what-is-forwardref-in-react-used-for)
-
-### 36. Can you explain how to create and use custom hooks in React?
+### 34. Can you explain how to create and use custom hooks in React?
 
 To create and use custom hooks in React:
 
@@ -524,17 +510,46 @@ function MyForm() {
 
 Custom hooks let you reuse logic across components, keeping your code clean.
 
-## Advanced Concepts
+## Advanced concepts
+
+Mastering React's advanced concepts like Suspense, forwardRef(), and context demonstrates that you can handle performance optimization, code splitting, and complex component patterns. In interviews, this shows you're prepared to build scalable, maintainable applications beyond just basic component logic.
+
+### 35. What does re-rendering mean in React?
+
+In React, re-rendering refers to the process of updating the user interface (UI) in response to changes in the component's state or props. When the state or props of a component change, React re-renders the component to reflect the updated data in the UI.
+
+This involves:
+
+1. Recalculating the JSX returned by the component
+2. Comparing the new JSX with the previous one (using the Virtual DOM)
+3. Updating the real DOM with only the differences (efficient rendering)
+4. Re-rendering ensures that the UI stays in sync with the component's state and props
+
+![Virtual DOM vs Browser DOM](/img/blog/react-article/virtual-dom-vs-browser-dom.jpg)
+
+[Find in-depth explanations and track study progress here ->](/questions/quiz/what-does-re-rendering-mean-in-react)
+
+### 36. What is `forwardRef()` in React used for?
+
+`forwardRef()` allows passing a ref through a component to one of its children. This is useful for accessing a DOM element or child component's instance directly from a parent.
+
+```jsx
+import React, { forwardRef } from 'react';
+
+const MyComponent = forwardRef((props, ref) => <input ref={ref} {...props} />);
+```
+
+[Find in-depth explanations and track study progress here ->](/questions/quiz/what-is-forwardref-in-react-used-for)
 
 ### 37. What are error boundaries in React for?
 
 Error boundaries catch JavaScript errors in their child components, log them, and display fallback UI instead of crashing the application. They utilize `componentDidCatch` and `static getDerivedStateFromError` methods but do not catch errors in event handlers or asynchronous code.
 
-[Read more about it here](/questions/quiz/what-are-error-boundaries-in-react-for)
+[Find in-depth explanations and track study progress here ->](/questions/quiz/what-are-error-boundaries-in-react-for)
 
 ### 38. What is React Suspense?
 
-React Suspense allows handling asynchronous operations more elegantly within components. It provides fallback content while waiting for resources like data or code to load. You can use it alongside React.lazy for code splitting.
+React Suspense allows handling asynchronous operations more elegantly within components. It provides fallback content while waiting for resources like data or code to load. You can use it alongside `React.lazy()` for code splitting.
 
 ```jsx
 const LazyComponent = React.lazy(() => import('./LazyComponent'));
@@ -548,30 +563,30 @@ function MyComponent() {
 }
 ```
 
-[Read more about it here](/questions/quiz/what-is-react-suspense-and-what-does-it-enable)
+[Find in-depth explanations and track study progress here ->](/questions/quiz/what-is-react-suspense-and-what-does-it-enable)
 
-### 39. Explain what React hydration is.
+### 39. Explain what React hydration is?
 
 Hydration involves attaching event listeners and making server-rendered HTML interactive on the client side. After server-side rendering, React initializes dynamic behavior by attaching event handlers.
 
 ![React Hydration](/img/blog/react-article/react-hydration.jpg)
 
-[Read more about it here](/questions/quiz/explain-what-react-hydration-is)
+[Find in-depth explanations and track study progress here ->](/questions/quiz/explain-what-react-hydration-is)
 
 ### 40. What are React Portals used for?
 
 React Portals allow rendering children into a DOM node outside the parent component's hierarchy. This is useful for modals or tooltips that need to escape parent overflow or z-index constraints.
 
-[Read more about it here](/questions/quiz/what-are-react-portals-used-for)
+[Find in-depth explanations and track study progress here ->](/questions/quiz/what-are-react-portals-used-for)
 
 ### 41. What is React strict mode and what are its benefits?
 
 React Strict Mode is a development feature in React that activates extra checks and warnings to help identify potential issues in your app.
 
-- Detects Unsafe Lifecycles: Warns about deprecated lifecycle methods.
-- Identifies Side Effects: Highlights components with side effects in render methods.
-- Warns About Unexpected State Changes: Catches unexpected state mutations.
-- Enforces Best Practices: Flags potential problems, encouraging modern practices. Example
+- **Detects unsafe lifecycles**: Warns about deprecated lifecycle methods
+- **Identifies side effects**: Highlights components with side effects in render methods
+- **Warns about unexpected state changes**: Catches unexpected state mutations
+- **Enforces best practices**: Flags potential problems, encouraging modern practices
 
 ```jsx
 <React.StrictMode>
@@ -598,7 +613,7 @@ function App() {
 }
 ```
 
-[Read more about it here](/questions/quiz/what-is-code-splitting-in-a-react-application)
+[Find in-depth explanations and track study progress here ->](/questions/quiz/what-is-code-splitting-in-a-react-application)
 
 ### 43. How would one optimize the performance of React contexts to reduce rerenders?
 
@@ -608,7 +623,7 @@ Optimizing context performance involves memoizing context values with useMemo, s
 const value = useMemo(() => ({ state, dispatch }), [state, dispatch]);
 ```
 
-[Read more about it here](/questions/quiz/how-would-one-optimize-the-performance-of-react-contexts-to-reduce-rerenders)
+[Find in-depth explanations and track study progress here ->](/questions/quiz/how-would-one-optimize-the-performance-of-react-contexts-to-reduce-rerenders)
 
 ### 44. What is the Flux pattern?
 
@@ -616,14 +631,14 @@ The Flux pattern manages application state through unidirectional data flow, sim
 
 ![Flux pattern](/img/blog/react-article/flux-pattern.jpg)
 
-[Read more about it here](/questions/quiz/what-is-the-flux-pattern-and-what-are-its-benefits)
+[Find in-depth explanations and track study progress here ->](/questions/quiz/what-is-the-flux-pattern-and-what-are-its-benefits)
 
-### 45. Explain one-way data flow of React.
+### 45. Explain one-way data flow of React
 
 In React, one-way data flow means data moves from parent to child components through props.
 
-- Parent to Child: The parent passes data to the child.
-- State Updates: To change data, the child calls a function passed down by the parent.
+- **Parent to child**: The parent passes data to the child
+- **State updates**: To change data, the child calls a function passed down by the parent
 
 Example:
 
@@ -642,41 +657,41 @@ This ensures data flows in one direction, making the app more predictable.
 
 ![React data flow](/img/blog/react-article/react-data-flow.jpg)
 
-[Read more about it here](/questions/quiz/explain-one-way-data-flow-of-react-and-its-benefits)
+[Find in-depth explanations and track study progress here ->](/questions/quiz/explain-one-way-data-flow-of-react-and-its-benefits)
 
 ### 46. What are some pitfalls of using context in React?
 
 Context in React can lead to performance issues if not handled carefully, causing unnecessary re-renders of components that consume the context, even if only part of the context changes. Overusing context for state management can also make the code harder to maintain and understand. It's best to use context sparingly and consider other state management solutions like Redux or Zustand for more complex scenarios.
 
-[Read more about it here](/questions/quiz/what-are-some-pitfalls-about-using-context-in-react)
+[Find in-depth explanations and track study progress here ->](/questions/quiz/what-are-some-pitfalls-about-using-context-in-react)
 
 ### 47. What are some React anti-patterns?
 
 React anti-patterns are practices that can lead to inefficient or hard-to-maintain code. Common examples include:
 
-- Directly mutating state instead of using setState
-- Using componentWillMount for data fetching
-- Overusing componentWillReceiveProps
-- Not using keys in lists
+- Directly mutating state instead of using `setState`
+- Using `componentWillMount` for data fetching
+- Overusing `componentWillReceiveProps`
+- Not using keys in lists or using array index for keys
 - Excessive inline functions in render
 - Deeply nested state
 
-[Read more about it here](/questions/quiz/what-are-some-react-anti-patterns)
+[Find in-depth explanations and track study progress here ->](/questions/quiz/what-are-some-react-anti-patterns)
 
 ### 48. How do you decide between using React state, context, and external state managers?
 
-Choosing between React state, context, and external state managers depends on your application's complexity. Use React state for local component state, context for global state shared across multiple components, and external managers like Redux or MobX for complex state management requiring advanced features.
+Choosing between React state, context, and external state managers depends on your application's complexity. Use React state for local component state, context for global state shared across multiple components, and external managers like Redux or MobX for complex state management requiring advanced features like optimizing re-renders.
 
-[Read more about it here](/questions/quiz/how-do-you-decide-between-using-react-state-context-and-external-state-managers)
+[Find in-depth explanations and track study progress here ->](/questions/quiz/how-do-you-decide-between-using-react-state-context-and-external-state-managers)
 
-### 49. Explain what happens when `setState` is called in React.
+### 49. Explain what happens when `setState` is called in React?
 
 When `setState` is called in React:
 
-1. State Update: It updates the component's state, triggering a re-render of the component.
-2. Batching: React may batch multiple setState calls into a single update for performance optimization.
-3. Re-render: React re-renders the component (and its child components if needed) with the new state.
-4. Asynchronous: State updates may be asynchronous, meaning React doesn't immediately apply the state change; it schedules it for later to optimize performance.
+1. **State update**: It updates the component's state, triggering a re-render of the component
+2. **Batching**: React may batch multiple setState calls into a single update for performance optimization
+3. **Re-render**: React re-renders the component (and its child components if needed) with the new state
+4. **Asynchronous**: State updates may be asynchronous, meaning React doesn't immediately apply the state change; it schedules it for later to optimize performance
 
 Example:
 
@@ -694,7 +709,7 @@ function Counter() {
 
 In this example, calling `setState` (via `setCount`) triggers a re-render with the updated `count`.
 
-### 50. Explain prop drilling.
+### 50. Explain prop drilling
 
 Prop drilling is when you pass data from a parent component to a deeply nested child component through props, even if intermediate components don't use it.
 
@@ -715,9 +730,9 @@ function Child({ data }) {
 }
 ```
 
-In this example, `data` is passed through multiple components, even though only the `Child` component uses it.
+In this example, `data` is passed through multiple components, even though only the `Child` component uses it. Prop drilling is acceptable for small applications where the component hierarchy is shallow. When global state is needed to be accessed in deeper levels of the app, using context and/or external state managers might be better.
 
-### 51. Describe lazy loading in React.
+### 51. Describe lazy loading in React
 
 Lazy loading in React is a technique where components are loaded only when they are needed, rather than at the initial page load. This helps reduce the initial load time and improve performance by splitting the code into smaller chunks.
 
@@ -739,7 +754,7 @@ function App() {
 
 In this example, `LazyComponent` is loaded only when it's rendered, and while loading, a fallback UI (Loading...) is displayed.
 
-### 52. Discuss synthetic events in React.
+### 52. Discuss synthetic events in React
 
 Synthetic events in React are a wrapper around native DOM events that ensure consistent behavior across browsers. They normalize the way events are handled, providing a unified API for React applications.
 
@@ -817,19 +832,19 @@ useEffect(() => {
 }, []);
 ```
 
-### 57. Explain server-side rendering of React applications and its benefits.
+### 57. Explain server-side rendering of React applications and its benefits
 
 Server-side rendering (SSR) involves rendering components on the server before sending fully rendered HTML to clients, improving initial load times and SEO through efficient hydration processes.
 
 ![Server side rendering](/img/blog/react-article/server-side-rendering.jpg)
 
-[Read more about it here](/questions/quiz/explain-server-side-rendering-of-react-applications-and-its-benefits)
+[Find in-depth explanations and track study progress here ->](/questions/quiz/explain-server-side-rendering-of-react-applications-and-its-benefits)
 
-### 58. Explain static generation of React applications.
+### 58. Explain static generation of React applications
 
 Static generation pre-renders HTML at build time instead of runtime; this approach enhances performance by delivering static content quickly while improving SEO outcomes.
 
-[Read more about it here](/questions/quiz/explain-static-generation-of-react-applications-and-its-benefits)
+[Find in-depth explanations and track study progress here ->](/questions/quiz/explain-static-generation-of-react-applications-and-its-benefits)
 
 ### 59. What are higher-order components in React?
 
@@ -843,13 +858,13 @@ const withExtraProps = (WrappedComponent) => {
 const EnhancedComponent = withExtraProps(MyComponent);
 ```
 
-[Read more about it here](/questions/quiz/what-are-higher-order-components-in-react)
+[Find in-depth explanations and track study progress here ->](/questions/quiz/what-are-higher-order-components-in-react)
 
-### 60. Explain the presentational vs container component pattern in React.
+### 60. Explain the presentational vs container component pattern in React
 
 In React, the presentational vs container component pattern distinguishes between components that focus on appearance (presentational components) and those that manage logic and state (container components). Presentational components render HTML and CSS, while container components handle data and behavior. This separation leads to a cleaner and more organized codebase.
 
-[Read more about it here](/questions/quiz/explain-the-presentational-vs-container-component-pattern-in-react)
+[Find in-depth explanations and track study progress here ->](/questions/quiz/explain-the-presentational-vs-container-component-pattern-in-react)
 
 ### 61. What are render props in React?
 
@@ -877,7 +892,7 @@ class DataFetcher extends React.Component {
 />;
 ```
 
-[Read more about it here](https://dev.greatfrontend.com/questions/quiz/what-are-render-props-in-react-and-what-are-they-for)
+[Find in-depth explanations and track study progress here ->](https://dev.greatfrontend.com/questions/quiz/what-are-render-props-in-react-and-what-are-they-for)
 
 ### 62. Explain the composition pattern in React.
 
@@ -898,7 +913,7 @@ function Dialog(props) {
 }
 ```
 
-[Read more about it here](/questions/quiz/explain-the-composition-pattern-in-react)
+[Find in-depth explanations and track study progress here ->](/questions/quiz/explain-the-composition-pattern-in-react)
 
 ### 63. How do you re-render the view when the browser is resized?
 
@@ -967,15 +982,17 @@ const FetchAndDisplayData = () => {
 export default FetchAndDisplayData;
 ```
 
-[Read more about it here](/questions/quiz/how-do-you-handle-asynchronous-data-loading-in-react-applications)
+[Find in-depth explanations and track study progress here ->](/questions/quiz/how-do-you-handle-asynchronous-data-loading-in-react-applications)
 
 ### 65. What are some common pitfalls when doing data fetching in React?
 
 Common pitfalls in data fetching with React include failing to handle loading and error states, neglecting to clean up subscriptions which can cause memory leaks, and improperly using lifecycle methods or hooks. Always ensure proper handling of these states, clean up after components, and utilize `useEffect` for side effects in functional components.
 
-[Read more about it here](https://dev.greatfrontend.com/questions/quiz/what-are-some-common-pitfalls-when-doing-data-fetching-in-react)
+[Find in-depth explanations and track study progress here ->](https://dev.greatfrontend.com/questions/quiz/what-are-some-common-pitfalls-when-doing-data-fetching-in-react)
 
 ## React Router
+
+Understanding React Router is important in front end interviews because most real-world applications need client-side routing to handle navigation, dynamic URLs, and nested layouts. Proficiency with routing shows you can structure applications effectively and provide a seamless user experience.
 
 ### 66. What is a React Router?
 
@@ -984,8 +1001,6 @@ React Router is a popular routing library for React applications that enables na
 ### 67. How does React Router work, and how do you implement dynamic routing?
 
 React Router maps URL paths to components, enabling navigation in single-page apps. Dynamic routing allows you to use URL parameters to render components based on dynamic values.
-
-Example:
 
 ```jsx
 import { BrowserRouter, Routes, Route, useParams } from 'react-router-dom';
@@ -1006,7 +1021,7 @@ export default function App() {
 }
 ```
 
-**Key Features:**
+**Key features**:
 
 - Dynamic Segments: `:id` captures dynamic data from the URL.
 - `useParams` Hook: Accesses these dynamic values for rendering.
@@ -1015,7 +1030,7 @@ export default function App() {
 
 Nested routes allow you to create hierarchies of components, and `useParams` helps access dynamic route parameters.
 
-### Key Techniques:
+**Key techniques**:
 
 - `<Outlet>`: Renders child routes within a parent layout
 - `useParams`: Retrieves route parameters for dynamic routing
@@ -1256,6 +1271,8 @@ In this example, the `propValue` prop is passed to the `MyComponent` component w
 
 ## React Internationalization
 
+Understanding internationalization (i18n) in React is important in front end interviews because many products serve global audiences and must support multiple languages and locales. Showing you can implement i18n demonstrates attention to accessibility, user experience, and readiness to build applications for diverse users.
+
 ### 80. How do you localize React applications?
 
 Localization typically involves libraries like react-i18next or react-intl. Set up translation files for different languages and configure the library within your app using provided hooks or components.
@@ -1270,30 +1287,27 @@ const MyComponent = () => {
 };
 ```
 
-[Read more about it here](/questions/quiz/how-do-you-localize-react-applications)
+[Find in-depth explanations and track study progress here ->](/questions/quiz/how-do-you-localize-react-applications)
 
-### 81. What is React Intl?
+### 81. What is `react-intl`?
 
-React Intl is a library that provides internationalization (i18n) support for React applications. It helps in formatting numbers, dates, strings, and handling translation/localization. It integrates with the `Intl` API in JavaScript to provide locale-specific data and translation management.
+`react-intl` is a library that provides internationalization (i18n) support for React applications. It helps in formatting numbers, dates, strings, and handling translation/localization. It integrates with the `Intl` API in JavaScript to provide locale-specific data and translation management.
 
-### 82. What are the main features of React Intl?
+### 82. What are the main features of `react-intl`?
 
-- Formatted Text: Helps in formatting messages and strings with placeholders.
-- Number Formatting: Allows for formatting numbers, currencies, and percentages according to the locale.
-- Date and Time Formatting: Helps in formatting dates and times in various formats based on the locale.
-- Plural and Gender Support: Provides plural and gender-aware string formatting.
-- Translation Management: Simplifies handling translations through message catalogs.
+- **Formatted text**: Helps in formatting messages and strings with placeholders.
+- **Number formatting**: Allows for formatting numbers, currencies, and percentages according to the locale.
+- **Date and time formatting**: Helps in formatting dates and times in various formats based on the locale.
+- **Plural and gender support**: Provides plural and gender-aware string formatting.
 
-### 83. What are the two ways of formatting in React Intl?
+### 83. What are the two ways of formatting in `react-intl`?
 
 - Component-based formatting: Using React components like `<FormattedMessage />`, `<FormattedNumber />`, `<FormattedDate />`, etc., to format content.
 - Hook-based formatting: Using hooks like `useIntl` for formatting messages, numbers, or dates imperatively within components.
 
-### 84. How to use `FormattedMessage` as a placeholder using React Intl?
+### 84. How to use `FormattedMessage` as a placeholder using `react-intl`?
 
 You can use the `FormattedMessage` component to handle placeholders within strings. Placeholders are replaced dynamically with variables in the translated string.
-
-Example:
 
 ```jsx
 import { FormattedMessage } from 'react-intl';
@@ -1315,7 +1329,7 @@ Here, `{name}` is a placeholder, and `John` will replace it.
 
 You can access the current locale using the `useIntl` hook or the `IntlProvider`'s `locale` prop.
 
-- Using `useIntl`:
+Using `useIntl`:
 
 ```jsx
 import { useIntl } from 'react-intl';
@@ -1326,7 +1340,7 @@ function LocaleDisplay() {
 }
 ```
 
-- Using `IntlProvider`:
+Using `IntlProvider`:
 
 ```jsx
 <IntlProvider locale="en" messages={messages}>
@@ -1336,11 +1350,11 @@ function LocaleDisplay() {
 
 Here, `locale="en"` defines the current locale.
 
-### 86. How to format date using React Intl?
+### 86. How to format date using `react-intl`?
 
 You can format dates using the `<FormattedDate />` component or the `useIntl` hook's `formatDate` method.
 
-- Using `<FormattedDate />` component:
+Using `<FormattedDate />` component:
 
 ```jsx
 import { FormattedDate } from 'react-intl';
@@ -1357,7 +1371,7 @@ function DateComponent() {
 }
 ```
 
-- Using `useIntl` hook:
+Using `useIntl` hook:
 
 ```jsx
 import { useIntl } from 'react-intl';
@@ -1377,11 +1391,13 @@ These methods allow you to format the date in a locale-sensitive manner.
 
 ## React Testing
 
+Understanding testing in React is important in front end interviews because it shows you can write reliable, maintainable code and catch bugs early through unit, integration, and UI tests. Proficiency with tools like Jest and React Testing Library signals that you prioritize code quality and can work effectively in team environments with CI/CD workflows.
+
 ### 87. How do you test React applications?
 
 Testing React applications can be done using Jest and React Testing Library. Jest serves as the testing framework while React Testing Library provides utilities for testing components similarly to user interactions.
 
-[Read more about it here](/questions/quiz/how-do-you-test-react-applications)
+[Find in-depth explanations and track study progress here ->](/questions/quiz/how-do-you-test-react-applications)
 
 ### 88. What is Jest and how is it used for testing React applications?
 
@@ -1624,3 +1640,11 @@ expect(tree).toMatchSnapshot();
 ```
 
 In this example, the `TestRenderer.create` function renders the `MyComponent` and converts it to a JSON tree. The `toMatchSnapshot` function saves the snapshot of the component's output for testing.
+
+## Conclusion
+
+These 100 questions should give you a good idea on what to expect in React interviews. If you're looking for more in-depth React interview preparation materials, check out these:
+
+- [React Interview Playbook](/react-interview-playbook)
+- [Practice React coding interview questions](/questions/react-interview-questions)
+- [Practice React quiz interview questions](/questions/react-interview-questions/quiz)
