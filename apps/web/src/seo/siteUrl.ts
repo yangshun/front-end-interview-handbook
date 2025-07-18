@@ -1,4 +1,4 @@
-const previewUrl = 'https://dev.greatfrontend.com';
+const previewUrl = 'https://trunk.greatfrontend.com';
 const productionUrl = 'https://www.greatfrontend.com';
 
 // This function is used on both server and client, don't add any client-specific code.

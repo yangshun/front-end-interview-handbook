@@ -13,7 +13,7 @@ export const EmailsItemConfigSponsorsAdRequestReview: EmailItemConfig<
         id: 'global-banner',
         sponsorName: 'GreatFrontEnd',
         text: 'GFE',
-        url: 'https://dev.greatfrontend.com/questions#framework-language',
+        url: 'https://trunk.greatfrontend.com/questions#framework-language',
         weeks: ['2025/12'],
       },
       {
