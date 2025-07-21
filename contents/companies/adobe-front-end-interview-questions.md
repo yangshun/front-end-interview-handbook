@@ -1,6 +1,7 @@
 ---
 title: Adobe Front End Interview Questions
 sidebar_label: Adobe interview questions
+description: Adobe Front End Interview Questions guide with real interview experiences, coding challenges, and insider tips for 2025.
 ---
 
 ## Insider tips from the GreatFrontEnd community

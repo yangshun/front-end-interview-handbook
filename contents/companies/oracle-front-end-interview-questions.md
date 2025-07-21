@@ -1,6 +1,7 @@
 ---
 title: Oracle Front End Interview Questions
 sidebar_label: Oracle interview questions
+description: Oracle front end interview questions with real SDE-3 experience. DSA, JavaScript, React, system design & behavioral rounds. Insider tips included.
 ---
 
 :::info Latest version on GreatFrontEnd

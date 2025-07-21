@@ -1,6 +1,7 @@
 ---
 title: Amazon Front End Interview Questions
 sidebar_label: Amazon interview questions
+description: Complete Amazon front end developer interview guide with coding questions, system design, Leadership Principles, and insider tips from candidates.
 ---
 
 :::info Latest version on GreatFrontEnd

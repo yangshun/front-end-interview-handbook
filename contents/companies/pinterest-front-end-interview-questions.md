@@ -1,6 +1,7 @@
 ---
 title: Pinterest Front End Interview Questions
 sidebar_label: Pinterest interview questions
+description: Get insider Pinterest front end interview tips from real candidates. Covers React coding, system design, algorithms & behavioral rounds.
 ---
 
 :::info Latest version on GreatFrontEnd

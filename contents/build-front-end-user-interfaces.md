@@ -2,6 +2,7 @@
 title: User Interface Interview Questions (Machine Coding) in Front End Interviews
 slug: coding/build-front-end-user-interfaces
 sidebar_label: User interface coding
+description: Master coded UI interview questions with 200+ practice problems. Learn components, widgets, apps & games with React, Vue, Angular solutions on GreatFrontEnd
 ---
 
 :::info Latest version on GreatFrontEnd

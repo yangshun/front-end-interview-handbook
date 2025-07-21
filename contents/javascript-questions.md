@@ -1,6 +1,7 @@
 ---
 title: JavaScript Interview Questions (Quiz) for Front End Interviews
 sidebar_label: JavaScript quiz
+description: Master JavaScript interview prep with 50+ essential coding questions, quiz topics, and detailed answers for front end developers. Practice now
 ---
 
 :::info Latest version on GreatFrontEnd

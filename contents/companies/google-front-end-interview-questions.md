@@ -1,6 +1,7 @@
 ---
 title: Google Front End Interview Questions
 sidebar_label: Google interview questions
+description: "Complete Google front-end interview guide: JavaScript coding, UI components, system design & DSA. Practice questions for L4-L6 roles."
 ---
 
 :::info Latest version on GreatFrontEnd

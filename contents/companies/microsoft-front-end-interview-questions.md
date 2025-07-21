@@ -1,6 +1,7 @@
 ---
 title: Microsoft Front End Interview Questions
 sidebar_label: Microsoft interview questions
+description: Microsoft coding round questions & system design interview prep. JavaScript, React, DOM concepts + real candidate experiences and insider tips.
 ---
 
 :::info Latest version on GreatFrontEnd

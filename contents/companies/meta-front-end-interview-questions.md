@@ -1,6 +1,7 @@
 ---
 title: Meta Front End Interview Questions
 sidebar_label: Meta interview questions
+description: Master Meta front end interviews with real insider tips, coding challenges, and proven strategies from successful candidates. Free expert guide.
 ---
 
 :::info Latest version on GreatFrontEnd

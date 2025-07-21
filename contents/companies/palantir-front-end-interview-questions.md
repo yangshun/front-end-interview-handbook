@@ -1,6 +1,7 @@
 ---
 title: Palantir Front End Interview Questions
 sidebar_label: Palantir interview questions
+description: Palantir frontend interview guide with real candidate experiences. Master leetcode problems, algorithms & system design for tech interviews.
 ---
 
 ## Insider tips from the GreatFrontEnd community
