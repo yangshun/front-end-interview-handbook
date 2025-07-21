@@ -2,6 +2,7 @@
 title: Front End System Design Interview - User Interface Components
 slug: front-end-system-design/ui-components
 sidebar_label: User interface components
+description: Complete guide to frontend system design interviews for UI components. Learn the RADIO framework with real examples and optimization techniques.
 ---
 
 :::info Latest version on GreatFrontEnd

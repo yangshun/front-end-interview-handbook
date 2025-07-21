@@ -1,6 +1,7 @@
 ---
 title: Shopify Front End Interview Questions
 sidebar_label: Shopify interview questions
+description: Ace your Shopify front end interview with real questions, insider tips from successful candidates, and coding challenges. Latest prep strategies.
 ---
 
 :::info Latest version on GreatFrontEnd

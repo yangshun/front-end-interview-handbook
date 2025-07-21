@@ -1,6 +1,7 @@
 ---
 title: LinkedIn Front End Interview Questions
 sidebar_label: LinkedIn interview questions
+description: "LinkedIn front end interview questions: JavaScript coding, UI components, algorithms & quiz questions. Real candidate experiences & insider tips."
 ---
 
 :::info Latest version on GreatFrontEnd

@@ -1,6 +1,7 @@
 ---
 title: Lyft Front End Interview Questions
 sidebar_label: Lyft interview questions
+description: Lyft front end interview questions with JavaScript coding challenges, UI problems, and insider tips from successful candidates. 
 ---
 
 :::info Latest version on GreatFrontEnd

@@ -2,6 +2,7 @@
 title: JavaScript Interview Questions (Machine Coding) for Front End Interviews
 slug: coding/javascript-utility-function
 sidebar_label: JavaScript coding
+description: Master JavaScript machine coding for front end interviews. Practice debounce, throttle, Promise.all & essential utilities with real examples.
 ---
 
 :::info Latest version on GreatFrontEnd

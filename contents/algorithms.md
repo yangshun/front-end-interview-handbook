@@ -2,6 +2,7 @@
 title: Algorithms Interview Questions (Machine Coding) in Front End Interviews
 slug: coding/algorithms
 sidebar_label: Algorithms coding
+description: Master algorithms for front end developers. Practice data structures, tree traversals & JavaScript coding problems with free resources and expert guidance.
 ---
 
 :::info Latest version on GreatFrontEnd

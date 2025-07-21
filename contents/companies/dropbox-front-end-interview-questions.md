@@ -1,6 +1,7 @@
 ---
 title: Dropbox Front End Interview Questions
 sidebar_label: Dropbox interview questions
+description: "Complete Dropbox front end interview guide: coding questions, UI challenges & system design. Real JavaScript, HTML/CSS examples plus insider tips."
 ---
 
 :::info Latest version on GreatFrontEnd

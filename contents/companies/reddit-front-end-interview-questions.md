@@ -1,6 +1,7 @@
 ---
 title: Reddit Front End Interview Questions
 sidebar_label: Reddit interview questions
+description: Reddit front end interview guide with real candidate experiences. JavaScript fundamentals, HTML forms, array problems, and system design tips
 ---
 
 :::info Latest version on GreatFrontEnd

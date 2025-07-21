@@ -1,6 +1,7 @@
 ---
 title: X/Twitter Front End Interview Questions
 sidebar_label: Twitter interview questions
+description: "Get X (Twitter) front end interview questions & coding challenges. Practice typeahead, tic-tac-toe problems & JavaScript concepts plus insider tips."
 ---
 
 :::info Latest version on GreatFrontEnd

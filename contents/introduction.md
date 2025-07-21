@@ -1,5 +1,7 @@
 ---
 title: Introduction
+description: "Complete frontend developer interview guide: JavaScript coding questions, UI components, system design, quiz prep & expert tips from ex FAANG engineers."
+
 ---
 
 :::info Latest version on GreatFrontEnd

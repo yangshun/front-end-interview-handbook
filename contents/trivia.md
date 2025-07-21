@@ -1,6 +1,7 @@
 ---
 title: Quiz/trivia questions in front end interviews
 sidebar_label: Overview
+description: Master coding trivia for front end interviews. Practice JavaScript, CSS & React questions on closures, promises, box model + more with expert solutions.
 ---
 
 :::info Latest version on GreatFrontEnd
