@@ -1,6 +1,7 @@
 ---
 title: Salesforce Front End Interview Questions
 sidebar_label: Salesforce interview questions
+description: "Salesforce front end developer interview questions: coding challenges, JavaScript quiz on event loop, closures, CSS positioning. Real experiences & tips."
 ---
 
 :::info Latest version on GreatFrontEnd

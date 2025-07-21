@@ -1,6 +1,7 @@
 ---
 title: Uber Front End Interview Questions
 sidebar_label: Uber interview questions
+description: "Complete Uber front end interview guide: JavaScript coding, UI challenges, rate limiters, progress bars & insider tips. Latest 2025 experiences included."
 ---
 
 :::info Latest version on GreatFrontEnd

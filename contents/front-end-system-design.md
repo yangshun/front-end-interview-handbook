@@ -1,6 +1,7 @@
 ---
 title: Front End System Design Interview Overview
 sidebar_label: Overview
+description: Master front-end system design interviews with our comprehensive guide. UI components, applications, RADIO framework + free examples included.
 ---
 
 :::info Latest version on GreatFrontEnd
