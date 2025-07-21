@@ -1,7 +1,7 @@
 ---
 title: Apple Front End Interview Questions
 sidebar_label: Apple interview questions
-description: Apple frontend interview questions & answers including JavaScript coding, UI challenges, and insider tips to help you land your dream Apple job.
+description: Apple front end interview questions & answers including JavaScript coding, UI challenges, and insider tips to help you land your dream Apple job.
 ---
 
 :::info Latest version on GreatFrontEnd

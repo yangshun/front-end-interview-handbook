@@ -1,7 +1,7 @@
 ---
 title: Airbnb Front End Interview Questions
 sidebar_label: Airbnb interview questions
-description: Airbnb frontend interview questions covering JavaScript coding, UI development, system design, and LeetCode problems with real candidate experiences.
+description: Airbnb front end interview questions covering JavaScript coding, UI development, system design, and LeetCode problems with real candidate experiences.
 ---
 
 :::info Latest version on GreatFrontEnd

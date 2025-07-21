@@ -2,7 +2,7 @@
 title: Front End System Design Interview - Applications
 slug: front-end-system-design/applications
 sidebar_label: Applications
-description: Master frontend system design interviews with the RADIO framework. Real examples from Facebook, Instagram, Netflix with senior engineer insights.
+description: Master front end system design interviews with the RADIO framework. Real examples from Facebook, Instagram, Netflix with senior engineer insights.
 ---
 
 :::info Latest version on GreatFrontEnd

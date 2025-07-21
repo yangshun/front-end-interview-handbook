@@ -1,7 +1,7 @@
 ---
 title: HTML Interview Questions (Quiz) for Front End Interviews
 sidebar_label: HTML quiz
-description: Complete HTML interview questions guide with detailed answers on DOCTYPE, storage types, templating, and multilingual sites for frontend developers
+description: Complete HTML interview questions guide with detailed answers on DOCTYPE, storage types, templating, and multilingual sites for front end developers
 ---
 
 :::info Latest version on GreatFrontEnd
