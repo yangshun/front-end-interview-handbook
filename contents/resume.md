@@ -1,6 +1,6 @@
 ---
 title: Resume preparation
-description: "Front end engineer resume guide: Expert templates, ATS tips, and FAANG hiring manager strategies to land your dream tech job"
+description: "Frontend engineer resume guide: Expert templates, ATS tips, and FAANG hiring manager strategies to land your dream tech job"
 ---
 
 :::info Latest version on GreatFrontEnd

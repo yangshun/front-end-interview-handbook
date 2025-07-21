@@ -1,7 +1,7 @@
 ---
 title: ByteDance/TikTok Front End Interview Questions
 sidebar_label: ByteDance/TikTok interview questions
-description: Master TikTok front end engineer interviews with real coding questions, UI components, algorithms & insider tips from successful candidates.
+description: Master TikTok frontend engineer interviews with real coding questions, UI components, algorithms & insider tips from successful candidates.
 ---
 
 :::info Latest version on GreatFrontEnd

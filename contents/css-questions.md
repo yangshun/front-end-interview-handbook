@@ -1,7 +1,7 @@
 ---
 title: CSS Interview Questions (Quiz) for Front End Interviews
 sidebar_label: CSS quiz
-description: Master CSS interview questions with comprehensive answers on specificity, box model, flexbox, grid, positioning & more. Perfect prep for front end roles.
+description: Master CSS interview questions with comprehensive answers on specificity, box model, flexbox, grid, positioning & more. Perfect prep for frontend roles.
 ---
 
 :::info Latest version on GreatFrontEnd
