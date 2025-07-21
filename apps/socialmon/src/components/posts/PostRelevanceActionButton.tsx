@@ -6,8 +6,9 @@ import { RiCheckLine } from 'react-icons/ri';
 import { trpc } from '~/hooks/trpc';
 import useCurrentProjectSlug from '~/hooks/useCurrentProjectSlug';
 
-import KeyboardChar from '~/components/common/KeyboardChar';
+import ShortcutDisplay from '~/components/common/ShortcutDisplay';
 
+import { ShortcutAction } from '~/config/shortcuts';
 import { PostRelevancy } from '~/prisma/client';
 type Props = Readonly<{
   iconOnly?: boolean;
@@ -62,7 +63,7 @@ export default function PostRelevanceActionButton({
       <Tooltip
         label={
           <>
-            {label} <KeyboardChar char="T" />
+            {label} <ShortcutDisplay action={ShortcutAction.TOGGLE_RELEVANCE} />
           </>
         }
         withArrow={true}>

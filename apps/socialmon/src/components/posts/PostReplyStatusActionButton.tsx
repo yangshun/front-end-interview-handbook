@@ -6,8 +6,9 @@ import { RiReplyLine } from 'react-icons/ri';
 import { trpc } from '~/hooks/trpc';
 import useCurrentProjectSlug from '~/hooks/useCurrentProjectSlug';
 
-import KeyboardChar from '~/components/common/KeyboardChar';
+import ShortcutDisplay from '~/components/common/ShortcutDisplay';
 
+import { ShortcutAction } from '~/config/shortcuts';
 import { PostRepliedStatus } from '~/prisma/client';
 
 type Props = Readonly<{
@@ -70,7 +71,7 @@ export default function PostReplyStatusActionButton({
       <Tooltip
         label={
           <>
-            {label} <KeyboardChar char="R" />
+            {label} <ShortcutDisplay action={ShortcutAction.TOGGLE_REPLY_STATUS} />
           </>
         }
         withArrow={true}>

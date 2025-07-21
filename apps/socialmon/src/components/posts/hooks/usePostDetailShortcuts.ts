@@ -2,6 +2,7 @@
 
 import { useHotkeys } from 'react-hotkeys-hook';
 
+import { getShortcut, ShortcutAction } from '~/config/shortcuts';
 import type { PostExtended } from '~/types';
 
 import { redditPermalinkToUrl } from '../utils';
@@ -24,33 +25,43 @@ export function usePostDetailShortcuts({
   post,
 }: UsePostDetailShortcutsProps) {
   // Navigation shortcuts
-  useHotkeys('j', onNextPost, {
-    description: 'Go to next post',
+  const nextPostShortcut = getShortcut(ShortcutAction.NEXT_POST);
+
+  useHotkeys(String(nextPostShortcut.keys), onNextPost, {
+    description: nextPostShortcut.description,
     enabled,
-    scopes: ['post-detail'],
+    scopes: [nextPostShortcut.scope as string],
   });
 
-  useHotkeys('k', onPrevPost, {
-    description: 'Go to previous post',
+  const prevPostShortcut = getShortcut(ShortcutAction.PREV_POST);
+
+  useHotkeys(String(prevPostShortcut.keys), onPrevPost, {
+    description: prevPostShortcut.description,
     enabled,
-    scopes: ['post-detail'],
+    scopes: [prevPostShortcut.scope as string],
   });
 
   // Action shortcuts
-  useHotkeys('t', onToggleRelevant, {
-    description: 'Toggle post relevance',
+  const toggleRelevanceShortcut = getShortcut(ShortcutAction.TOGGLE_RELEVANCE);
+
+  useHotkeys(String(toggleRelevanceShortcut.keys), onToggleRelevant, {
+    description: toggleRelevanceShortcut.description,
     enabled,
-    scopes: ['post-detail'],
+    scopes: [toggleRelevanceShortcut.scope as string],
   });
 
-  useHotkeys('r', onToggleReplied, {
-    description: 'Toggle reply status',
+  const toggleReplyShortcut = getShortcut(ShortcutAction.TOGGLE_REPLY_STATUS);
+
+  useHotkeys(String(toggleReplyShortcut.keys), onToggleReplied, {
+    description: toggleReplyShortcut.description,
     enabled,
-    scopes: ['post-detail'],
+    scopes: [toggleReplyShortcut.scope as string],
   });
+
+  const openRedditShortcut = getShortcut(ShortcutAction.OPEN_ON_REDDIT);
 
   useHotkeys(
-    'e',
+    String(openRedditShortcut.keys),
     () => {
       if (post.permalink) {
         const url = redditPermalinkToUrl(post.permalink);
@@ -59,9 +70,9 @@ export function usePostDetailShortcuts({
       }
     },
     {
-      description: 'Open post on Reddit',
+      description: openRedditShortcut.description,
       enabled,
-      scopes: ['post-detail'],
+      scopes: [openRedditShortcut.scope as string],
     },
   );
 }

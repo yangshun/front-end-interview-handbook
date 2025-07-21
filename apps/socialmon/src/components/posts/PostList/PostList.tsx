@@ -9,10 +9,11 @@ import { trpc } from '~/hooks/trpc';
 import useCurrentProjectSlug from '~/hooks/useCurrentProjectSlug';
 
 import RelativeTimestamp from '~/components/common/datetime/RelativeTimestamp';
-import KeyboardChar from '~/components/common/KeyboardChar';
+import ShortcutDisplay from '~/components/common/ShortcutDisplay';
 import { usePostTabShortcuts } from '~/components/posts/hooks/usePostTabShortcuts';
 import { usePostsContext } from '~/components/posts/PostsContext';
 
+import { ShortcutAction } from '~/config/shortcuts';
 import type { PostListTab } from '~/types';
 
 import FetchPostButton from './FetchPostButton';
@@ -69,44 +70,28 @@ export default function PostList() {
           onChange={(value) => setActiveTab(value as PostListTab)}>
           <Tabs.List>
             <Tooltip
-              label={
-                <>
-                  <KeyboardChar char="G" /> then <KeyboardChar char="1" />
-                </>
-              }
+              label={<ShortcutDisplay action={ShortcutAction.GO_TO_PENDING} />}
               withArrow={true}>
               <Tabs.Tab fw={500} value="PENDING">
                 Pending
               </Tabs.Tab>
             </Tooltip>
             <Tooltip
-              label={
-                <>
-                  <KeyboardChar char="G" /> then <KeyboardChar char="2" />
-                </>
-              }
+              label={<ShortcutDisplay action={ShortcutAction.GO_TO_REPLIED} />}
               withArrow={true}>
               <Tabs.Tab fw={500} value="REPLIED">
                 Replied
               </Tabs.Tab>
             </Tooltip>
             <Tooltip
-              label={
-                <>
-                  <KeyboardChar char="G" /> then <KeyboardChar char="3" />
-                </>
-              }
+              label={<ShortcutDisplay action={ShortcutAction.GO_TO_IRRELEVANT} />}
               withArrow={true}>
               <Tabs.Tab fw={500} value="IRRELEVANT">
                 Irrelevant
               </Tabs.Tab>
             </Tooltip>
             <Tooltip
-              label={
-                <>
-                  <KeyboardChar char="G" /> then <KeyboardChar char="4" />
-                </>
-              }
+              label={<ShortcutDisplay action={ShortcutAction.GO_TO_ALL} />}
               withArrow={true}>
               <Tabs.Tab fw={500} value="ALL">
                 All
