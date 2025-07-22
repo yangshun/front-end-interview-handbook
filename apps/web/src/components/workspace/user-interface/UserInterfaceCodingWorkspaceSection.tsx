@@ -9,6 +9,7 @@ import type {
   QuestionUserInterface,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
+import { SandpackTimeout } from '~/components/workspace/common/sandpack/SandpackTimeout';
 import { useSandpackBundlerURL } from '~/components/workspace/common/sandpack/useSandpackBundlerURL';
 import UserInterfaceCodingWorkspace from '~/components/workspace/user-interface/UserInterfaceCodingWorkspace';
 import { loadLocalUserInterfaceQuestionCode } from '~/components/workspace/user-interface/UserInterfaceCodingWorkspaceCodeStorage';
@@ -44,7 +45,8 @@ export default function UserInterfaceCodingWorkspaceSection({
   studyListKey,
 }: Props) {
   const { colorScheme } = useColorSchemePreferences();
-  const bundlerURL = useSandpackBundlerURL(sandpackO11yInstance);
+  const [bundlerURL, changeToFallbackUrl] =
+    useSandpackBundlerURL(sandpackO11yInstance);
 
   const loadedFiles = loadLocalUserInterfaceQuestionCode(
     question,
@@ -104,6 +106,10 @@ export default function UserInterfaceCodingWorkspaceSection({
           similarQuestions={similarQuestions}
           studyListKey={studyListKey}
           onFrameworkChange={onFrameworkChange}
+        />
+        <SandpackTimeout
+          instance={sandpackO11yInstance}
+          onTimeout={changeToFallbackUrl}
         />
         <SandpackObservability
           bundlerURL={bundlerURL}

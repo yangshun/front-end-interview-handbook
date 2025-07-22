@@ -8,6 +8,7 @@ import CodingPreferencesProvider from '~/components/global/CodingPreferencesProv
 import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
 import type { ProjectsChallengeSolutionBundle } from '~/components/projects/challenges/types';
 import SandpackObservability from '~/components/workspace/common/sandpack/SandpackObservability';
+import { SandpackTimeout } from '~/components/workspace/common/sandpack/SandpackTimeout';
 import { useSandpackBundlerURL } from '~/components/workspace/common/sandpack/useSandpackBundlerURL';
 
 import ProjectsChallengeSolutionWorkspace from './ProjectsChallengeSolutionWorkspace';
@@ -20,7 +21,8 @@ const sandpackO11yInstance = 'projects.challenge_solution';
 
 export default function ProjectsChallengeSolutionSection({ solution }: Props) {
   const { colorScheme } = useColorSchemePreferences();
-  const bundlerURL = useSandpackBundlerURL(sandpackO11yInstance);
+  const [bundlerURL, changeToFallbackUrl] =
+    useSandpackBundlerURL(sandpackO11yInstance);
   const { files, workspace } = solution;
 
   return (
@@ -48,6 +50,10 @@ export default function ProjectsChallengeSolutionSection({ solution }: Props) {
         <ProjectsChallengeSolutionWorkspace
           activeTabScrollIntoView={true}
           defaultFiles={files}
+        />
+        <SandpackTimeout
+          instance={sandpackO11yInstance}
+          onTimeout={changeToFallbackUrl}
         />
         <SandpackObservability
           bundlerURL={bundlerURL}

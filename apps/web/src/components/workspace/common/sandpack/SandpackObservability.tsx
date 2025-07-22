@@ -73,20 +73,8 @@ export default function SandpackObservability({ bundlerURL, instance }: Props) {
   const { status: sandpackStatus } = sandpack;
   const loadingStartedRef = useRef(false);
   const readySentRef = useRef(false);
-  const timeoutSentRef = useRef(false);
 
   usePingSandpackBundler({ bundlerURL, instance });
-
-  useEffect(() => {
-    if (sandpackStatus === 'timeout' && !timeoutSentRef.current) {
-      logEvent('sandpack.timeout', {
-        instance,
-        namespace: 'workspace',
-      });
-      timeoutSentRef.current = true;
-    }
-  }, [instance, sandpackStatus]);
-
   useEffect(() => {
     if (loadingStartedRef.current) {
       return;
