@@ -22,7 +22,7 @@ import { trpc } from '~/hooks/trpc';
 import type { PostExtended } from '~/types';
 
 import PostCommentsList from '../comments/PostCommentsList';
-import { parseMarkdown } from '../markdownParser';
+import { parseMarkdown } from '../../common/ParseMarkdown';
 import PostRelevanceActionButton from '../PostRelevanceActionButton';
 import PostReplyStatusActionButton from '../PostReplyStatusActionButton';
 import PostMetadata from './PostMetadata';

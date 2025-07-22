@@ -70,6 +70,13 @@ export default function PostList() {
           onChange={(value) => setActiveTab(value as PostListTab)}>
           <Tabs.List>
             <Tooltip
+              label={<ShortcutDisplay action={ShortcutAction.GO_TO_ALL} />}
+              withArrow={true}>
+              <Tabs.Tab fw={500} value="ALL">
+                All
+              </Tabs.Tab>
+            </Tooltip>
+            <Tooltip
               label={<ShortcutDisplay action={ShortcutAction.GO_TO_PENDING} />}
               withArrow={true}>
               <Tabs.Tab fw={500} value="PENDING">
@@ -84,17 +91,12 @@ export default function PostList() {
               </Tabs.Tab>
             </Tooltip>
             <Tooltip
-              label={<ShortcutDisplay action={ShortcutAction.GO_TO_IRRELEVANT} />}
+              label={
+                <ShortcutDisplay action={ShortcutAction.GO_TO_IRRELEVANT} />
+              }
               withArrow={true}>
               <Tabs.Tab fw={500} value="IRRELEVANT">
                 Irrelevant
-              </Tabs.Tab>
-            </Tooltip>
-            <Tooltip
-              label={<ShortcutDisplay action={ShortcutAction.GO_TO_ALL} />}
-              withArrow={true}>
-              <Tabs.Tab fw={500} value="ALL">
-                All
               </Tabs.Tab>
             </Tooltip>
           </Tabs.List>

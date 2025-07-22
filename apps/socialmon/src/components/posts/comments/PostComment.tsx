@@ -8,7 +8,7 @@ import RelativeTimestamp from '~/components/common/datetime/RelativeTimestamp';
 
 import type { Comment } from '~/types';
 
-import { parseMarkdown } from '../markdownParser';
+import { parseMarkdown } from '../../common/ParseMarkdown';
 import { isRedditComments } from '../utils';
 import CommentRepliesThreadLines from './CommentRepliesThreadLines';
 import PostCommentReplies from './PostCommentReplies';

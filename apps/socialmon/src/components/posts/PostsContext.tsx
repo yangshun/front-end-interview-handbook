@@ -46,13 +46,12 @@ export function PostsProvider({
   children: React.ReactNode;
   projectSlug: string;
 }) {
-  const [activeTab, setActiveTab] = useState<PostListTab>('PENDING');
+  const [activeTab, setActiveTab] = useState<PostListTab>('ALL');
   const [selectedPostId, setSelectedPostId] = useState<string | null>(null);
   const router = useRouter();
   const params = useParams();
   const utils = trpc.useUtils();
 
-  // Single TRPC query - this replaces PostList's query
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading } =
     trpc.socialPosts.getPosts.useInfiniteQuery(
       {
@@ -99,22 +98,22 @@ export function PostsProvider({
   }, [posts, selectedPostId]);
 
   // Navigation handlers
-  const handlePostClick = (postId: string) => {
+  function handlePostClick(postId: string) {
     setSelectedPostId(postId);
     router.push(`/projects/${projectSlug}/posts/${postId}`);
-  };
+  }
 
-  const handlePrevPost = () => {
+  function handlePrevPost() {
     if (adjacentPosts.prev) {
       handlePostClick(adjacentPosts.prev.id);
     }
-  };
+  }
 
-  const handleNextPost = () => {
+  function handleNextPost() {
     if (adjacentPosts.next) {
       handlePostClick(adjacentPosts.next.id);
     }
-  };
+  }
 
   // Mutations for toggling relevant/replied status
   const projectSlugForMutation = projectSlug;
@@ -123,7 +122,7 @@ export function PostsProvider({
   const markPostReplyStatusMutation =
     trpc.socialPosts.markPostReplyStatus.useMutation();
 
-  const markPostRelevancy = (postId: string, relevancy: PostRelevancy) => {
+  function markPostRelevancy(postId: string, relevancy: PostRelevancy) {
     markPostRelevancyMutation.mutate(
       {
         postId,
@@ -137,12 +136,9 @@ export function PostsProvider({
         },
       },
     );
-  };
+  }
 
-  const markPostReplyStatus = (
-    postId: string,
-    replyStatus: ManualReplyStatus,
-  ) => {
+  function markPostReplyStatus(postId: string, replyStatus: ManualReplyStatus) {
     markPostReplyStatusMutation.mutate(
       {
         postId,
@@ -156,7 +152,7 @@ export function PostsProvider({
         },
       },
     );
-  };
+  }
 
   const contextValue: PostsContextType = {
     activeTab,

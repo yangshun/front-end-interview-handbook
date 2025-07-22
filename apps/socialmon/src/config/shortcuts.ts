@@ -30,7 +30,7 @@ export type ShortcutConfig = {
 export const SHORTCUTS: Record<ShortcutAction, ShortcutConfig> = {
   [ShortcutAction.GO_TO_ALL]: {
     description: 'Go to all posts',
-    keys: ['g', '4'],
+    keys: ['g', '1'],
   },
   [ShortcutAction.GO_TO_IRRELEVANT]: {
     description: 'Go to irrelevant posts',
@@ -38,7 +38,7 @@ export const SHORTCUTS: Record<ShortcutAction, ShortcutConfig> = {
   },
   [ShortcutAction.GO_TO_PENDING]: {
     description: 'Go to pending posts',
-    keys: ['g', '1'],
+    keys: ['g', '4'],
   },
   [ShortcutAction.GO_TO_REPLIED]: {
     description: 'Go to replied posts',
