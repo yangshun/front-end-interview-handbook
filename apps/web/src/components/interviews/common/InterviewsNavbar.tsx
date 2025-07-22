@@ -3,7 +3,7 @@
 import { useUser } from '@supabase/auth-helpers-react';
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
-import { memo, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { RiArrowRightSLine, RiMenuFill, RiStarSmileFill } from 'react-icons/ri';
 
 import gtag from '~/lib/gtag';
@@ -61,39 +61,15 @@ export default function InterviewsNavbar({
   hideAdvertiseWithUsBadge,
   hideOnDesktop = false,
 }: Props) {
-  const navbarRef = useRef(null);
-  const { isSticky } = useIsSticky(navbarRef);
-  const translucent = !isSticky;
-
-  return (
-    <div
-      ref={navbarRef}
-      className={clsx(
-        'z-fixed sticky top-[var(--banner-height)]',
-        bottomBorder && ['border-b', themeBorderColor],
-        translucent ? 'backdrop-blur' : bgClassName,
-        'transition-[background-color]',
-        hideOnDesktop && 'lg:hidden',
-      )}>
-      <MemoizedInterviewsNavbarImpl
-        hideAdvertiseWithUsBadge={hideAdvertiseWithUsBadge}
-      />
-    </div>
-  );
-}
-
-function InterviewsNavbarImpl({
-  bottomBorder = true,
-  hideAdvertiseWithUsBadge,
-  hideOnDesktop = false,
-}: Props) {
   const user = useUser();
   const isLoggedIn = user != null;
   const { isLoading: isUserProfileLoading, userProfile } = useUserProfile();
   const intl = useIntl();
   const isPremium = userProfile?.premium ?? false;
   const navLinksFull = useInterviewsNavLinks(isLoggedIn, isPremium);
+  const navbarRef = useRef(null);
   const pathname = usePathname();
+  const { isSticky } = useIsSticky(navbarRef);
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
   const navItems = useInterviewsNavItems('nav');
@@ -113,12 +89,21 @@ function InterviewsNavbarImpl({
   const displayName = userProfile?.name ?? user?.email;
 
   const endAddOnItems = <InterviewsNavbarEndAddOnItems />;
+  const translucent = !isSticky;
 
   const leftLinks = navLinksFull.filter(({ position }) => position === 'start');
   const rightLinks = navLinksFull.filter(({ position }) => position === 'end');
 
   return (
-    <>
+    <div
+      ref={navbarRef}
+      className={clsx(
+        'z-fixed sticky top-[var(--banner-height)]',
+        bottomBorder && ['border-b', themeBorderColor],
+        translucent ? 'backdrop-blur' : bgClassName,
+        'transition-[background-color]',
+        hideOnDesktop && 'lg:hidden',
+      )}>
       <NavbarHeightStyles
         borderHeight={bottomBorder ? 1 : 0}
         hideOnDesktop={hideOnDesktop}
@@ -385,11 +370,9 @@ function InterviewsNavbarImpl({
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
-
-const MemoizedInterviewsNavbarImpl = memo(InterviewsNavbarImpl);
 
 // Below components are extracted out as a separate component to avoid re-rendering of whole the InterviewsNavbar component
 // due to useAuthSignInUp when the location changes
