@@ -34,15 +34,15 @@ export const SHORTCUTS: Record<ShortcutAction, ShortcutConfig> = {
   },
   [ShortcutAction.GO_TO_IRRELEVANT]: {
     description: 'Go to irrelevant posts',
-    keys: ['g', '3'],
+    keys: ['g', '4'],
   },
   [ShortcutAction.GO_TO_PENDING]: {
     description: 'Go to pending posts',
-    keys: ['g', '4'],
+    keys: ['g', '2'],
   },
   [ShortcutAction.GO_TO_REPLIED]: {
     description: 'Go to replied posts',
-    keys: ['g', '2'],
+    keys: ['g', '3'],
   },
   [ShortcutAction.NEXT_POST]: {
     description: 'Go to next post',
