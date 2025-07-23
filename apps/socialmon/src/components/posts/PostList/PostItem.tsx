@@ -1,5 +1,6 @@
 import { Anchor, Box, Flex, Text, Title, Tooltip } from '@mantine/core';
 import clsx from 'clsx';
+import { useEffect, useRef } from 'react';
 
 import type { PostExtended } from '~/types';
 
@@ -21,8 +22,29 @@ type Props = Readonly<{
 }>;
 
 export default function PostItem({ isSelected, onClick, post }: Props) {
+  const postItemRef = useRef<HTMLDivElement>(null);
+
+  // Scroll into view when this item becomes selected
+  useEffect(() => {
+    if (isSelected) {
+      const timeoutId = setTimeout(() => {
+        // Add a small delay to ensure DOM has updated and allow for smooth scrolling
+        postItemRef.current?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+        });
+      }, 50);
+
+      // Cleanup function to cancel timeout if component unmounts or isSelected changes
+      return () => {
+        clearTimeout(timeoutId);
+      };
+    }
+  }, [isSelected]);
+
   return (
     <Box
+      ref={postItemRef}
       bg={isSelected ? 'gray.1' : 'white'}
       className={clsx('w-full', 'p-3', 'flex flex-col', 'rounded-lg')}
       onClick={onClick} // Use onClick instead of Link
