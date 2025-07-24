@@ -1,7 +1,14 @@
 'use client';
 
 import { useParams, useRouter } from 'next/navigation';
-import { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 
 import { trpc } from '~/hooks/trpc';
 
@@ -51,6 +58,89 @@ export function PostsProvider({
   const router = useRouter();
   const params = useParams();
   const utils = trpc.useUtils();
+
+  // Store navigation context before mutations to handle auto-navigation
+  const navigationContextRef = useRef<{
+    currentIndex: number;
+    postsSnapshot: Array<QueriedRedditPost>;
+  } | null>(null);
+
+  // Helper function to find the next logical post after a state change
+  const findNextLogicalPost = (
+    currentPostId: string,
+    postsSnapshot: Array<QueriedRedditPost>,
+  ): string | null => {
+    const currentIndex = postsSnapshot.findIndex(
+      (post) => post.id === currentPostId,
+    );
+
+    if (currentIndex === -1) return null;
+
+    // Try next post first
+    if (currentIndex < postsSnapshot.length - 1) {
+      return postsSnapshot[currentIndex + 1]!.id;
+    }
+
+    // If no next post, try previous post
+    if (currentIndex > 0) {
+      return postsSnapshot[currentIndex - 1]!.id;
+    }
+
+    // No adjacent posts available
+    return null;
+  };
+
+  // Helper function to determine if auto-navigation should happen based on current tab
+  const shouldAutoNavigateForTab = (
+    currentTab: PostListTab,
+    actionType: 'relevancy' | 'reply',
+  ): boolean => {
+    switch (currentTab) {
+      case 'ALL':
+        // Posts always stay visible in ALL tab, no navigation needed
+        return false;
+
+      case 'PENDING':
+        // Navigate when marking as replied or irrelevant (removes from pending)
+        return actionType === 'reply' || actionType === 'relevancy';
+
+      case 'REPLIED':
+        // Navigate when marking as not replied (removes from replied tab)
+        return actionType === 'reply';
+
+      case 'IRRELEVANT':
+        // Navigate when marking as relevant (removes from irrelevant tab)
+        return actionType === 'relevancy';
+
+      default:
+        // Conservative default: navigate for unknown tabs
+        return true;
+    }
+  };
+
+  // Helper function to handle auto-navigation after successful mutation
+  const handleAutoNavigation = (
+    postId: string,
+    actionType: 'relevancy' | 'reply',
+  ): void => {
+    // Only navigate if current post was selected and we have navigation context
+    if (selectedPostId === postId && navigationContextRef.current) {
+      const shouldNavigate = shouldAutoNavigateForTab(activeTab, actionType);
+
+      if (shouldNavigate) {
+        const nextPostId = findNextLogicalPost(
+          postId,
+          navigationContextRef.current.postsSnapshot,
+        );
+
+        if (nextPostId) {
+          // Navigate to next post immediately
+          setSelectedPostId(nextPostId);
+          router.push(`/projects/${projectSlug}/posts/${nextPostId}`);
+        }
+      }
+    }
+  };
 
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading } =
     trpc.socialPosts.getPosts.useInfiniteQuery(
@@ -106,12 +196,18 @@ export function PostsProvider({
   function handlePrevPost() {
     if (adjacentPosts.prev) {
       handlePostClick(adjacentPosts.prev.id);
+    } else if (posts.length > 0) {
+      // Fallback: if no prev post but we have posts, go to the first post
+      handlePostClick(posts[0]!.id);
     }
   }
 
   function handleNextPost() {
     if (adjacentPosts.next) {
       handlePostClick(adjacentPosts.next.id);
+    } else if (posts.length > 0) {
+      // Fallback: if no next post but we have posts, go to the last post
+      handlePostClick(posts[posts.length - 1]!.id);
     }
   }
 
@@ -123,6 +219,14 @@ export function PostsProvider({
     trpc.socialPosts.markPostReplyStatus.useMutation();
 
   function markPostRelevancy(postId: string, relevancy: PostRelevancy) {
+    // Capture navigation context before mutation
+    const currentIndex = posts.findIndex((post) => post.id === postId);
+
+    navigationContextRef.current = {
+      currentIndex,
+      postsSnapshot: [...posts], // Create a snapshot
+    };
+
     markPostRelevancyMutation.mutate(
       {
         postId,
@@ -130,15 +234,35 @@ export function PostsProvider({
         relevancy,
       },
       {
+        onError() {
+          // Clear navigation context on error
+          navigationContextRef.current = null;
+        },
         onSuccess() {
+          // First, invalidate and refresh the data
           utils.socialPosts.getPosts.invalidate();
+
+          // Handle auto-navigation if needed
+          handleAutoNavigation(postId, 'relevancy');
+
           router.refresh();
+
+          // Clear navigation context
+          navigationContextRef.current = null;
         },
       },
     );
   }
 
   function markPostReplyStatus(postId: string, replyStatus: ManualReplyStatus) {
+    // Capture navigation context before mutation
+    const currentIndex = posts.findIndex((post) => post.id === postId);
+
+    navigationContextRef.current = {
+      currentIndex,
+      postsSnapshot: [...posts], // Create a snapshot
+    };
+
     markPostReplyStatusMutation.mutate(
       {
         postId,
@@ -146,9 +270,21 @@ export function PostsProvider({
         replyStatus,
       },
       {
+        onError() {
+          // Clear navigation context on error
+          navigationContextRef.current = null;
+        },
         onSuccess() {
+          // First, invalidate and refresh the data
           utils.socialPosts.getPosts.invalidate();
+
+          // Handle auto-navigation if needed
+          handleAutoNavigation(postId, 'reply');
+
           router.refresh();
+
+          // Clear navigation context
+          navigationContextRef.current = null;
         },
       },
     );
@@ -187,4 +323,10 @@ export function usePostsContext() {
   }
 
   return context;
+}
+
+export function useOptionalPostsContext() {
+  const context = useContext(PostsContext);
+
+  return context; // Returns undefined if no provider, doesn't throw
 }

@@ -7,6 +7,7 @@ import { trpc } from '~/hooks/trpc';
 import useCurrentProjectSlug from '~/hooks/useCurrentProjectSlug';
 
 import ShortcutDisplay from '~/components/common/ShortcutDisplay';
+import { useOptionalPostsContext } from '~/components/posts/PostsContext';
 
 import { ShortcutAction } from '~/config/shortcuts';
 import { PostRelevancy } from '~/prisma/client';
@@ -27,30 +28,42 @@ export default function PostRelevanceActionButton({
   const markPostRelevancyMutation =
     trpc.socialPosts.markPostRelevancy.useMutation();
 
+  // Try to get context (undefined if not in PostsProvider)
+  const context = useOptionalPostsContext();
+  const { markPostRelevancy: contextMarkPostRelevancy } = context || {};
+
+  const targetRelevancy =
+    relevancy === PostRelevancy.IRRELEVANT
+      ? PostRelevancy.RELEVANT
+      : PostRelevancy.IRRELEVANT;
+
   const onMarkPostRelevancy = () => {
-    markPostRelevancyMutation.mutate(
-      {
-        postId,
-        projectSlug,
-        relevancy:
-          relevancy === PostRelevancy.IRRELEVANT
-            ? PostRelevancy.RELEVANT
-            : PostRelevancy.IRRELEVANT,
-      },
-      {
-        onSuccess() {
-          // Fast update for posts list (badge appears immediately)
-          utils.socialPosts.getPosts.invalidate();
-          // Comprehensive update for everything else (button text updates)
-          router.refresh();
-          toast.success(
-            relevancy === PostRelevancy.IRRELEVANT
-              ? 'Marked the post as relevant successfully!'
-              : 'Marked the post as irrelevant successfully!',
-          );
+    if (contextMarkPostRelevancy) {
+      // Use context method with auto-navigation (when in post list)
+      contextMarkPostRelevancy(postId, targetRelevancy);
+    } else {
+      // Fall back to direct mutation (when in standalone post)
+      markPostRelevancyMutation.mutate(
+        {
+          postId,
+          projectSlug,
+          relevancy: targetRelevancy,
         },
-      },
-    );
+        {
+          onSuccess() {
+            // Fast update for posts list (badge appears immediately)
+            utils.socialPosts.getPosts.invalidate();
+            // Comprehensive update for everything else (button text updates)
+            router.refresh();
+            toast.success(
+              relevancy === PostRelevancy.IRRELEVANT
+                ? 'Marked the post as relevant successfully!'
+                : 'Marked the post as irrelevant successfully!',
+            );
+          },
+        },
+      );
+    }
   };
 
   const label =

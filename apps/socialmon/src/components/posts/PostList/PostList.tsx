@@ -77,13 +77,6 @@ export default function PostList() {
               </Tabs.Tab>
             </Tooltip>
             <Tooltip
-              label={<ShortcutDisplay action={ShortcutAction.GO_TO_PENDING} />}
-              withArrow={true}>
-              <Tabs.Tab fw={500} value="PENDING">
-                Pending
-              </Tabs.Tab>
-            </Tooltip>
-            <Tooltip
               label={<ShortcutDisplay action={ShortcutAction.GO_TO_REPLIED} />}
               withArrow={true}>
               <Tabs.Tab fw={500} value="REPLIED">
@@ -97,6 +90,13 @@ export default function PostList() {
               withArrow={true}>
               <Tabs.Tab fw={500} value="IRRELEVANT">
                 Irrelevant
+              </Tabs.Tab>
+            </Tooltip>
+            <Tooltip
+              label={<ShortcutDisplay action={ShortcutAction.GO_TO_PENDING} />}
+              withArrow={true}>
+              <Tabs.Tab fw={500} value="PENDING">
+                Pending
               </Tabs.Tab>
             </Tooltip>
           </Tabs.List>

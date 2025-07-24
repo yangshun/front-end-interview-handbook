@@ -21,8 +21,8 @@ import { trpc } from '~/hooks/trpc';
 
 import type { PostExtended } from '~/types';
 
-import PostCommentsList from '../comments/PostCommentsList';
 import { parseMarkdown } from '../../common/ParseMarkdown';
+import PostCommentsList from '../comments/PostCommentsList';
 import PostRelevanceActionButton from '../PostRelevanceActionButton';
 import PostReplyStatusActionButton from '../PostReplyStatusActionButton';
 import PostMetadata from './PostMetadata';

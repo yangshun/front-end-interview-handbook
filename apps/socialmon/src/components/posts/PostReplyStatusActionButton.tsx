@@ -7,6 +7,7 @@ import { trpc } from '~/hooks/trpc';
 import useCurrentProjectSlug from '~/hooks/useCurrentProjectSlug';
 
 import ShortcutDisplay from '~/components/common/ShortcutDisplay';
+import { useOptionalPostsContext } from '~/components/posts/PostsContext';
 
 import { ShortcutAction } from '~/config/shortcuts';
 import { PostRepliedStatus } from '~/prisma/client';
@@ -28,32 +29,48 @@ export default function PostReplyStatusActionButton({
   const markPostReplyStatusMutation =
     trpc.socialPosts.markPostReplyStatus.useMutation();
 
-  const onMarkPostReplyStatus = () => {
-    const newStatus =
-      replyStatus === PostRepliedStatus.NOT_REPLIED
-        ? PostRepliedStatus.REPLIED_MANUALLY
-        : PostRepliedStatus.NOT_REPLIED;
+  // Try to get context (undefined if not in PostsProvider)
+  const context = useOptionalPostsContext();
+  const { markPostReplyStatus: contextMarkPostReplyStatus } = context || {};
 
-    markPostReplyStatusMutation.mutate(
-      {
-        postId,
-        projectSlug,
-        replyStatus: newStatus,
-      },
-      {
-        onSuccess() {
-          // Fast update for posts list (badge appears immediately)
-          utils.socialPosts.getPosts.invalidate();
-          // Comprehensive update for everything else (button text updates)
-          router.refresh();
-          toast.success(
-            newStatus === PostRepliedStatus.REPLIED_MANUALLY
-              ? 'Marked the post as replied successfully!'
-              : 'Marked the post as not replied successfully!',
-          );
+  const newStatus =
+    replyStatus === PostRepliedStatus.NOT_REPLIED
+      ? PostRepliedStatus.REPLIED_MANUALLY
+      : PostRepliedStatus.NOT_REPLIED;
+
+  // Convert to context type
+  const contextReplyStatus: 'NOT_REPLIED' | 'REPLIED_MANUALLY' =
+    newStatus === PostRepliedStatus.REPLIED_MANUALLY
+      ? 'REPLIED_MANUALLY'
+      : 'NOT_REPLIED';
+
+  const onMarkPostReplyStatus = () => {
+    if (contextMarkPostReplyStatus) {
+      // Use context method with auto-navigation (when in post list)
+      contextMarkPostReplyStatus(postId, contextReplyStatus);
+    } else {
+      // Fall back to direct mutation (when in standalone post)
+      markPostReplyStatusMutation.mutate(
+        {
+          postId,
+          projectSlug,
+          replyStatus: newStatus,
         },
-      },
-    );
+        {
+          onSuccess() {
+            // Fast update for posts list (badge appears immediately)
+            utils.socialPosts.getPosts.invalidate();
+            // Comprehensive update for everything else (button text updates)
+            router.refresh();
+            toast.success(
+              newStatus === PostRepliedStatus.REPLIED_MANUALLY
+                ? 'Marked the post as replied successfully!'
+                : 'Marked the post as not replied successfully!',
+            );
+          },
+        },
+      );
+    }
   };
 
   // Don't show button if post was replied via app
