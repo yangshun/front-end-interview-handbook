@@ -5,7 +5,7 @@ import logEvent from '~/logging/logEvent';
 
 type Props = Readonly<{
   instance: string;
-  onTimeout: (instance: string) => void;
+  onTimeout: () => void;
 }>;
 
 export function SandpackTimeout({ instance, onTimeout }: Props) {
@@ -16,7 +16,7 @@ export function SandpackTimeout({ instance, onTimeout }: Props) {
 
   useEffect(() => {
     if (sandpackStatus === 'timeout' && !timeoutSentRef.current) {
-      onTimeout(instance);
+      onTimeout();
       logEvent('sandpack.timeout', {
         instance,
         namespace: 'workspace',

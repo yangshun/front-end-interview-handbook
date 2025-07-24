@@ -92,7 +92,7 @@ export default function UserInterfaceCodingWorkspaceSolutionPreviewTab({
           <UserInterfaceCodingWorkspacePreview />
           <SandpackTimeout
             instance={sandpackO11yInstance}
-            onTimeout={changeToFallbackUrl}
+            onTimeout={() => changeToFallbackUrl('timeout')}
           />
           <SandpackObservability
             bundlerURL={bundlerURL}

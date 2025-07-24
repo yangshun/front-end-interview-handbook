@@ -18,7 +18,7 @@ export function useSandpackBundlerURL(instance: string) {
   );
 
   const changeToFallbackUrl = useCallback(
-    (reason: string) => {
+    (reason: 'blocked' | 'timeout' | 'unknown') => {
       setUrl(fallbackBundlerURL);
       logEvent('sandpack.bundler_fallback', {
         instance,

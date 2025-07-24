@@ -53,7 +53,7 @@ export default function ProjectsChallengeSolutionSection({ solution }: Props) {
         />
         <SandpackTimeout
           instance={sandpackO11yInstance}
-          onTimeout={changeToFallbackUrl}
+          onTimeout={() => changeToFallbackUrl('timeout')}
         />
         <SandpackObservability
           bundlerURL={bundlerURL}
