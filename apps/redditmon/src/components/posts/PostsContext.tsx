@@ -169,6 +169,25 @@ export function PostsProvider({
     }
   }, [params?.id]);
 
+  // Auto-load next page when user reaches the last post
+  useEffect(() => {
+    if (
+      selectedPostId &&
+      posts.length > 0 &&
+      hasNextPage &&
+      !isFetchingNextPage
+    ) {
+      const currentPostIndex = posts.findIndex(
+        (post) => post.id === selectedPostId,
+      );
+
+      // If user is on the last post in the current list, auto-load more
+      if (currentPostIndex === posts.length - 1) {
+        fetchNextPage();
+      }
+    }
+  }, [selectedPostId, hasNextPage, isFetchingNextPage, fetchNextPage, posts]);
+
   // Calculate adjacent posts
   const adjacentPosts = useMemo(() => {
     if (!selectedPostId || !posts.length) {
