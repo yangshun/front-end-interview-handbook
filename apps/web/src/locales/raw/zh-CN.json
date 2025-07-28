@@ -83,10 +83,6 @@
     "defaultMessage": "这个网站上的材料简直就是一座金矿。在使用 GreatFrontEnd 之前，我一直在电话面试中屡屡失败。我甚至从未接近过现场面试。在学习了 GFE 上的材料后，我能够获得几次现场面试，并通过了我的第一次现场面试！在亚马逊学习 GFE 大约 2.5 个月后，我才找到了一份工作！GFE 上的材料特别容易理解，我个人被问到 GFE 的问题无数次。此外，GFE 的 Discord 频道和社区在分享他们之前的面试经验方面非常有帮助。它非常活跃，每个人都非常乐于助人！",
     "description": "User testimonial for GreatFrontEnd Interviews"
   },
-  "+JhlMu": {
-    "defaultMessage": "恭喜您完成了这个题目！登录您的帐户或免费注册以保存您的进度！",
-    "description": "Message shown when user completes a question"
-  },
   "+NbHNn": {
     "defaultMessage": "通过实现诸如节流或填充之类的实用函数来练习 JavaScript 代码面试问题。在浏览器中进行编码，并获得来自前面试官的解决方案。",
     "description": "SEO description for JavaScript coding question format page"
@@ -2691,6 +2687,10 @@
     "defaultMessage": "启动项目以访问提交和部署步骤",
     "description": "Title for project overlay on projects details page"
   },
+  "Ak+Tl1": {
+    "defaultMessage": "登录链接已过期",
+    "description": "Error name for expired login"
+  },
   "AkAu0m": {
     "defaultMessage": "高",
     "description": "High importance question"
@@ -5119,6 +5119,10 @@
     "defaultMessage": "代码已成功应用！ {percentOff} 折",
     "description": "Message when promo code is successfully applied"
   },
+  "Lsk0wX": {
+    "defaultMessage": "一键加入 GreatFrontEnd",
+    "description": "Auth card title"
+  },
   "Ludb5F": {
     "defaultMessage": "我们的平台旨在支持社区驱动的开发。从项目讨论到代码审查和方法分享，您将永远不会在学习中感到孤单。",
     "description": "Description of 'Learn together' feature in Projects marketing page"
@@ -5266,10 +5270,6 @@
   "Mai1gI": {
     "defaultMessage": "我们会审核您的广告请求，并在 {approvalDays} 个工作日内回复确认和付款。",
     "description": "Advertise request success message"
-  },
-  "MaorIw": {
-    "defaultMessage": "登录以保存进度",
-    "description": "Instructions for saving platform progress"
   },
   "MdIpF6": {
     "defaultMessage": "浏览我们社区的项目解决方案。",
@@ -5742,6 +5742,10 @@
   "P9nVrb": {
     "defaultMessage": "按原始项目简报的难度筛选",
     "description": "Tooltip for Difficulty filter for submissions list"
+  },
+  "P9zzt7": {
+    "defaultMessage": "不要落后于其他 {count} 位用户",
+    "description": "Auth dialog testimonials subtitle"
   },
   "PAq50+": {
     "defaultMessage": "选择最多 2 个您来此的原因，以便我们改进您的体验",
@@ -6234,10 +6238,6 @@
   "RDN4Md": {
     "defaultMessage": "系列",
     "description": "Label for series blog"
-  },
-  "RDQ253": {
-    "defaultMessage": "登录以保存您的进度",
-    "description": "Message shown when user completes a question without signing in"
   },
   "RFAHTi": {
     "defaultMessage": "根据您的需要选择一个计划。",
@@ -7891,10 +7891,6 @@
     "defaultMessage": "经过验证的准备计划",
     "description": "Title for proven preparation plans feature"
   },
-  "YXs0ZC": {
-    "defaultMessage": "取消",
-    "description": "Cancel and close the sign in modal"
-  },
   "YYJEeq": {
     "defaultMessage": "无",
     "description": "No available slots"
@@ -8019,6 +8015,10 @@
     "defaultMessage": "由前 FAANG 高级开发人员撰写",
     "description": "Title of 'Written by ex-FAANG senior devs' sub-feature in Projects marketing page"
   },
+  "ZEPn1r": {
+    "defaultMessage": "或",
+    "description": "Label for or"
+  },
   "ZFDU0d": {
     "defaultMessage": "耶！",
     "description": "Toast title for project session started"
@@ -8054,10 +8054,6 @@
   "ZRUNG5": {
     "defaultMessage": "促销",
     "description": "Title of Promotions page"
-  },
-  "ZV4dGC": {
-    "defaultMessage": "登录您的帐户或免费注册以保存您的进度！",
-    "description": "Instructions for saving platform progress"
   },
   "ZWMfa0": {
     "defaultMessage": "定价计划",
@@ -8546,6 +8542,10 @@
   "bONB6m": {
     "defaultMessage": "级别",
     "description": "Blog level label"
+  },
+  "bOVGLU": {
+    "defaultMessage": "请登录或创建一个帐户以继续",
+    "description": "Subtitle of auth sign up dialog"
   },
   "bQ3XUx": {
     "defaultMessage": "暂无测试",
@@ -9054,6 +9054,10 @@
   "dlRik2": {
     "defaultMessage": "考虑与其他 {bannerCount} 个横幅的轮换",
     "description": "Item 1 for global banner placement impressions info"
+  },
+  "dlrooM": {
+    "defaultMessage": "此次登录已过期。请重试。",
+    "description": "Error message for expired login"
   },
   "do4njS": {
     "defaultMessage": "系统设计内容将陆续发布。系统设计内容完成后，价格将上涨。立即订阅终身会员，锁定更优惠的价格！",
@@ -10147,6 +10151,10 @@
     "defaultMessage": "没有社区贡献",
     "description": "Title for empty state when there are no contributions"
   },
+  "iwMZfR": {
+    "defaultMessage": "使用 Github 注册",
+    "description": "Auth card button label"
+  },
   "iyzDmo": {
     "defaultMessage": "提交摘要",
     "description": "Form label"
@@ -10194,6 +10202,10 @@
   "jACcNE": {
     "defaultMessage": "请先填写您的联系信息，以便我们联系您。",
     "description": "Subtitle for advertising inquiry"
+  },
+  "jCB415": {
+    "defaultMessage": "发生错误",
+    "description": "Error message title"
   },
   "jCBp3Z": {
     "defaultMessage": "推荐的准备策略",
@@ -11034,6 +11046,10 @@
   "n1Wo2N": {
     "defaultMessage": "地址用于协议中",
     "description": "Address section description"
+  },
+  "n1m6Nx": {
+    "defaultMessage": "前端工程师的聚集地。提升技能，通过面试，获得灵感。",
+    "description": "Auth card description"
   },
   "n25pZ5": {
     "defaultMessage": "姓名",
@@ -12222,6 +12238,10 @@
   "soQjY2": {
     "defaultMessage": "你赞成此项",
     "description": "Tooltip for upvoted submission button"
+  },
+  "sr38Pg": {
+    "defaultMessage": "使用邮箱注册",
+    "description": "Auth card button label"
   },
   "ssyz8C": {
     "defaultMessage": "用户评价",
@@ -13498,6 +13518,10 @@
   "z9RrSL": {
     "defaultMessage": "JavaScript 代码面试问题",
     "description": "Social title for JavaScript coding question format page"
+  },
+  "z9Ymn4": {
+    "defaultMessage": "使用以下方式注册",
+    "description": "Auth card button label"
   },
   "z9d6Ys": {
     "defaultMessage": "此广告将显示的特定位置",

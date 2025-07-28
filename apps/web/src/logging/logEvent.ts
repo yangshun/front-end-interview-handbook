@@ -1,5 +1,6 @@
 type LoggingAction =
-  | 'auth.login_success'
+  | 'auth.login.fail'
+  | 'auth.login.success'
   | 'auth.password.change'
   | 'auth.password.reset.fail'
   | 'auth.password.reset.success'

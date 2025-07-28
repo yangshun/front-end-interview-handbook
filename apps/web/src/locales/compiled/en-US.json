@@ -213,12 +213,6 @@
       "value": "The material on this site is a literal gold mine. Before using GreatFrontEnd, I was failing phone screening rounds left and right. I never even came close to making it to the onsite round. After going through the material on GFE, I was able to land several onsites and passed my very first one! I was able to secure a job only after ~2.5 months of studying GFE at Amazon! The material on GFE is especially easy to understand and I have personally been asked questions from GFE NUMEROUS times. Additionally, GFE's Discord channel and community are so very helpful when it comes to sharing their previous interview experiences. It is very active and everyone is very open to helping!"
     }
   ],
-  "+JhlMu": [
-    {
-      "type": 0,
-      "value": "Congratulations on completing the question! Sign into your account or sign up for free to save your progress!"
-    }
-  ],
   "+NbHNn": [
     {
       "type": 0,
@@ -5699,6 +5693,12 @@
       "value": "Start the project to access submission and deployment steps"
     }
   ],
+  "Ak+Tl1": [
+    {
+      "type": 0,
+      "value": "Login link expired"
+    }
+  ],
   "AkAu0m": [
     {
       "type": 0,
@@ -10497,6 +10497,12 @@
       "value": "% off"
     }
   ],
+  "Lsk0wX": [
+    {
+      "type": 0,
+      "value": "Join GreatFrontEnd in 1 click"
+    }
+  ],
   "Ludb5F": [
     {
       "type": 0,
@@ -10827,12 +10833,6 @@
     {
       "type": 0,
       "value": " business days."
-    }
-  ],
-  "MaorIw": [
-    {
-      "type": 0,
-      "value": "Sign in to save progress"
     }
   ],
   "MdIpF6": [
@@ -11741,6 +11741,20 @@
     {
       "type": 0,
       "value": "Filter by Difficulty of the original project brief"
+    }
+  ],
+  "P9zzt7": [
+    {
+      "type": 0,
+      "value": "Don't fall behind "
+    },
+    {
+      "type": 1,
+      "value": "count"
+    },
+    {
+      "type": 0,
+      "value": " other users"
     }
   ],
   "PAq50+": [
@@ -12878,12 +12892,6 @@
     {
       "type": 0,
       "value": "Series"
-    }
-  ],
-  "RDQ253": [
-    {
-      "type": 0,
-      "value": "Sign in to save progress"
     }
   ],
   "RFAHTi": [
@@ -16198,12 +16206,6 @@
       "value": "Proven preparation plans"
     }
   ],
-  "YXs0ZC": [
-    {
-      "type": 0,
-      "value": "Cancel"
-    }
-  ],
   "YYJEeq": [
     {
       "type": 0,
@@ -16498,6 +16500,12 @@
       "value": "Written by ex-FAANG senior devs"
     }
   ],
+  "ZEPn1r": [
+    {
+      "type": 0,
+      "value": "or"
+    }
+  ],
   "ZFDU0d": [
     {
       "type": 0,
@@ -16572,12 +16580,6 @@
     {
       "type": 0,
       "value": "Promotions"
-    }
-  ],
-  "ZV4dGC": [
-    {
-      "type": 0,
-      "value": "Sign into your account or sign up for free to save your progress!"
     }
   ],
   "ZWMfa0": [
@@ -17482,6 +17484,12 @@
     {
       "type": 0,
       "value": "Level"
+    }
+  ],
+  "bOVGLU": [
+    {
+      "type": 0,
+      "value": "Please sign in or create an account to continue"
     }
   ],
   "bQ3XUx": [
@@ -18436,6 +18444,12 @@
     {
       "type": 0,
       "value": " other banners"
+    }
+  ],
+  "dlrooM": [
+    {
+      "type": 0,
+      "value": "Login for this sign-in has expired. Please try to sign in again."
     }
   ],
   "do4njS": [
@@ -20858,6 +20872,12 @@
       "value": "No community contributions"
     }
   ],
+  "iwMZfR": [
+    {
+      "type": 0,
+      "value": "Sign up with Github"
+    }
+  ],
   "iyzDmo": [
     {
       "type": 0,
@@ -20932,6 +20952,12 @@
     {
       "type": 0,
       "value": "Start by simply filling in your contact information so that we know who to reach out to."
+    }
+  ],
+  "jCB415": [
+    {
+      "type": 0,
+      "value": "An error has occurred"
     }
   ],
   "jCBp3Z": [
@@ -22855,6 +22881,12 @@
     {
       "type": 0,
       "value": "The address is used in the agreement"
+    }
+  ],
+  "n1m6Nx": [
+    {
+      "type": 0,
+      "value": "The place for front end engineers. Upskill, ace interviews, get inspired."
     }
   ],
   "n25pZ5": [
@@ -25503,6 +25535,12 @@
       "value": "You upvoted this"
     }
   ],
+  "sr38Pg": [
+    {
+      "type": 0,
+      "value": "Sign up with email"
+    }
+  ],
   "ssyz8C": [
     {
       "type": 0,
@@ -27929,6 +27967,12 @@
     {
       "type": 0,
       "value": "JavaScript Coding Interview Questions"
+    }
+  ],
+  "z9Ymn4": [
+    {
+      "type": 0,
+      "value": "Sign up with"
     }
   ],
   "z9d6Ys": [

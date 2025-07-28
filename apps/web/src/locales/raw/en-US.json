@@ -83,10 +83,6 @@
     "defaultMessage": "The material on this site is a literal gold mine. Before using GreatFrontEnd, I was failing phone screening rounds left and right. I never even came close to making it to the onsite round. After going through the material on GFE, I was able to land several onsites and passed my very first one! I was able to secure a job only after ~2.5 months of studying GFE at Amazon! The material on GFE is especially easy to understand and I have personally been asked questions from GFE NUMEROUS times. Additionally, GFE's Discord channel and community are so very helpful when it comes to sharing their previous interview experiences. It is very active and everyone is very open to helping!",
     "description": "User testimonial for GreatFrontEnd Interviews"
   },
-  "+JhlMu": {
-    "defaultMessage": "Congratulations on completing the question! Sign into your account or sign up for free to save your progress!",
-    "description": "Message shown when user completes a question"
-  },
   "+NbHNn": {
     "defaultMessage": "Practice JavaScript coding interview questions by implementing utility functions like throttle or polyfills. Code in-browser with solutions from ex-interviewers.",
     "description": "SEO description for JavaScript coding question format page"
@@ -2691,6 +2687,10 @@
     "defaultMessage": "Start the project to access submission and deployment steps",
     "description": "Title for project overlay on projects details page"
   },
+  "Ak+Tl1": {
+    "defaultMessage": "Login link expired",
+    "description": "Error name for expired login"
+  },
   "AkAu0m": {
     "defaultMessage": "High",
     "description": "High importance question"
@@ -5119,6 +5119,10 @@
     "defaultMessage": "Code successfully applied! {percentOff}% off",
     "description": "Message when promo code is successfully applied"
   },
+  "Lsk0wX": {
+    "defaultMessage": "Join GreatFrontEnd in 1 click",
+    "description": "Auth card title"
+  },
   "Ludb5F": {
     "defaultMessage": "Our platform was built to support community-driven development. From project discussion to code reviews and approach sharing, you will never feel alone in your learning.",
     "description": "Description of 'Learn together' feature in Projects marketing page"
@@ -5266,10 +5270,6 @@
   "Mai1gI": {
     "defaultMessage": "We will review your advertising request and get back to you with the confirmation and payment in {approvalDays} business days.",
     "description": "Advertise request success message"
-  },
-  "MaorIw": {
-    "defaultMessage": "Sign in to save progress",
-    "description": "Instructions for saving platform progress"
   },
   "MdIpF6": {
     "defaultMessage": "Browse project solutions from our community.",
@@ -5742,6 +5742,10 @@
   "P9nVrb": {
     "defaultMessage": "Filter by Difficulty of the original project brief",
     "description": "Tooltip for Difficulty filter for submissions list"
+  },
+  "P9zzt7": {
+    "defaultMessage": "Don't fall behind {count} other users",
+    "description": "Auth dialog testimonials subtitle"
   },
   "PAq50+": {
     "defaultMessage": "Choose up to 2 reasons why you are here so that we can improve your experience",
@@ -6234,10 +6238,6 @@
   "RDN4Md": {
     "defaultMessage": "Series",
     "description": "Label for series blog"
-  },
-  "RDQ253": {
-    "defaultMessage": "Sign in to save progress",
-    "description": "Message shown when user completes a question without signing in"
   },
   "RFAHTi": {
     "defaultMessage": "Choose a plan based on what you need.",
@@ -7891,10 +7891,6 @@
     "defaultMessage": "Proven preparation plans",
     "description": "Title for proven preparation plans feature"
   },
-  "YXs0ZC": {
-    "defaultMessage": "Cancel",
-    "description": "Cancel and close the sign in modal"
-  },
   "YYJEeq": {
     "defaultMessage": "None",
     "description": "No available slots"
@@ -8019,6 +8015,10 @@
     "defaultMessage": "Written by ex-FAANG senior devs",
     "description": "Title of 'Written by ex-FAANG senior devs' sub-feature in Projects marketing page"
   },
+  "ZEPn1r": {
+    "defaultMessage": "or",
+    "description": "Label for or"
+  },
   "ZFDU0d": {
     "defaultMessage": "Woohoo!",
     "description": "Toast title for project session started"
@@ -8054,10 +8054,6 @@
   "ZRUNG5": {
     "defaultMessage": "Promotions",
     "description": "Title of Promotions page"
-  },
-  "ZV4dGC": {
-    "defaultMessage": "Sign into your account or sign up for free to save your progress!",
-    "description": "Instructions for saving platform progress"
   },
   "ZWMfa0": {
     "defaultMessage": "Pricing plans",
@@ -8546,6 +8542,10 @@
   "bONB6m": {
     "defaultMessage": "Level",
     "description": "Blog level label"
+  },
+  "bOVGLU": {
+    "defaultMessage": "Please sign in or create an account to continue",
+    "description": "Subtitle of auth sign up dialog"
   },
   "bQ3XUx": {
     "defaultMessage": "No Tests",
@@ -9054,6 +9054,10 @@
   "dlRik2": {
     "defaultMessage": "Accounting for rotations with {bannerCount} other banners",
     "description": "Item 1 for global banner placement impressions info"
+  },
+  "dlrooM": {
+    "defaultMessage": "Login for this sign-in has expired. Please try to sign in again.",
+    "description": "Error message for expired login"
   },
   "do4njS": {
     "defaultMessage": "System Design content will be released on a rolling basis. Prices will be increased after System Design content is complete. Subscribe to lifetime today and secure the better deal!",
@@ -10147,6 +10151,10 @@
     "defaultMessage": "No community contributions",
     "description": "Title for empty state when there are no contributions"
   },
+  "iwMZfR": {
+    "defaultMessage": "Sign up with Github",
+    "description": "Auth card button label"
+  },
   "iyzDmo": {
     "defaultMessage": "Submission summary",
     "description": "Form label"
@@ -10194,6 +10202,10 @@
   "jACcNE": {
     "defaultMessage": "Start by simply filling in your contact information so that we know who to reach out to.",
     "description": "Subtitle for advertising inquiry"
+  },
+  "jCB415": {
+    "defaultMessage": "An error has occurred",
+    "description": "Error message title"
   },
   "jCBp3Z": {
     "defaultMessage": "Recommended prep strategy",
@@ -11034,6 +11046,10 @@
   "n1Wo2N": {
     "defaultMessage": "The address is used in the agreement",
     "description": "Address section description"
+  },
+  "n1m6Nx": {
+    "defaultMessage": "The place for front end engineers. Upskill, ace interviews, get inspired.",
+    "description": "Auth card description"
   },
   "n25pZ5": {
     "defaultMessage": "Name",
@@ -12222,6 +12238,10 @@
   "soQjY2": {
     "defaultMessage": "You upvoted this",
     "description": "Tooltip for upvoted submission button"
+  },
+  "sr38Pg": {
+    "defaultMessage": "Sign up with email",
+    "description": "Auth card button label"
   },
   "ssyz8C": {
     "defaultMessage": "Testimonials",
@@ -13498,6 +13518,10 @@
   "z9RrSL": {
     "defaultMessage": "JavaScript Coding Interview Questions",
     "description": "Social title for JavaScript coding question format page"
+  },
+  "z9Ymn4": {
+    "defaultMessage": "Sign up with",
+    "description": "Auth card button label"
   },
   "z9d6Ys": {
     "defaultMessage": "Specific locations this ad will be shown",
