@@ -1,5 +1,6 @@
 import { Axiom } from '@axiomhq/js';
 import { startOfDay, subDays } from 'date-fns';
+import type { NextRequest } from 'next/server';
 import { Pool } from 'pg';
 
 const daysBefore = 30;
@@ -9,9 +10,18 @@ const pgPool = new Pool({
   ssl: { rejectUnauthorized: false },
 });
 
-const aplQuery = `
+function aplQuery({
+  countryExclude,
+  countryInclude,
+}: {
+  countryExclude?: string | null;
+  countryInclude?: string | null;
+}) {
+  return `
 events
 | extend shifted_time = _time + 8h
+${countryInclude ? `| where ['request.country'] == '${countryInclude}'` : ''}
+${countryExclude ? `| where ['request.country'] != '${countryExclude}'` : ''}
 | summarize
     CheckoutSuccess = countif(['event.name'] == 'checkout.success' and ['event.payload.namespace'] == 'interviews'),
     CheckoutInitiate = dcountif(['user.fingerprint'], ['event.name'] == 'checkout.attempt' and ['event.payload.namespace'] == 'interviews'),
@@ -41,6 +51,7 @@ events
 | extend CheckoutInitiateToCheckoutSuccessSameDayRate = round(100.0 * CheckoutSuccessSameDay / CheckoutInitiateSameDay, 2)
 | order by _time desc
 `;
+}
 
 const pgQuerySignUps = `SELECT
   date_trunc('day', created_at AT TIME ZONE 'Asia/Singapore') AS date,
@@ -67,11 +78,15 @@ GROUP BY
 ORDER BY
   date DESC;`;
 
-export async function GET(_request: Request) {
-  const axiom = new Axiom({
-    orgId: process.env.AXIOM_ORG_ID!,
-    token: process.env.AXIOM_TOKEN!,
-  });
+const axiom = new Axiom({
+  orgId: process.env.AXIOM_ORG_ID!,
+  token: process.env.AXIOM_TOKEN!,
+});
+
+export async function GET(request: NextRequest) {
+  const { searchParams } = request.nextUrl;
+  const countryInclude = searchParams.get('country_include');
+  const countryExclude = searchParams.get('country_exclude');
 
   try {
     await pgPool.connect();
@@ -80,7 +95,7 @@ export async function GET(_request: Request) {
   }
 
   const [axiomRes, pgResSignUps, pgResEmailSignUps] = await Promise.all([
-    axiom.query(aplQuery, {
+    axiom.query(aplQuery({ countryExclude, countryInclude }), {
       startTime: startOfDay(subDays(new Date(), daysBefore)).toISOString(),
     }),
     pgPool.query(pgQuerySignUps),
