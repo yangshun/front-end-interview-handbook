@@ -34,6 +34,8 @@ export default function InterceptedPostDetailClient({
     handlePrevPost,
     markPostRelevancy,
     markPostReplyStatus,
+    posts,
+    selectedPostId,
   } = usePostsContext();
 
   const toggleRelevant = () => {
@@ -67,6 +69,15 @@ export default function InterceptedPostDetailClient({
       disableScope('post-detail');
     };
   }, [disableScope, enableScope]);
+
+  // Check if the current post is still valid in the context
+  const isPostValidInCurrentContext =
+    selectedPostId === post.id && posts.some((p) => p.id === post.id);
+
+  // If the post is not valid in the current context, don't render the detail
+  if (!isPostValidInCurrentContext) {
+    return null;
+  }
 
   return (
     <div className="flex h-full flex-col">

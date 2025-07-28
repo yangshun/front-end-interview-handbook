@@ -59,6 +59,8 @@ export function PostsProvider({
   const params = useParams();
   const utils = trpc.useUtils();
 
+  const prevActiveTabRef = useRef<PostListTab>(activeTab);
+
   // Store navigation context before mutations to handle auto-navigation
   const navigationContextRef = useRef<{
     currentIndex: number;
@@ -169,6 +171,25 @@ export function PostsProvider({
     }
   }, [params?.id]);
 
+  useEffect(() => {
+    const hasTabChanged = prevActiveTabRef.current !== activeTab;
+
+    prevActiveTabRef.current = activeTab;
+
+    if (hasTabChanged) {
+      setSelectedPostId(null);
+
+      return;
+    }
+
+    if (!isLoading && posts.length > 0 && !selectedPostId) {
+      const firstPostId = posts[0]!.id;
+
+      setSelectedPostId(firstPostId);
+      router.push(`/projects/${projectSlug}/posts/${firstPostId}`);
+    }
+  }, [posts, selectedPostId, isLoading, projectSlug, router, activeTab]);
+  
   // Auto-load next page when user reaches the last post
   useEffect(() => {
     if (
