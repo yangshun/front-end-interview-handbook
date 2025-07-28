@@ -2,18 +2,16 @@
 
 import { useUser } from '@supabase/auth-helpers-react';
 import { usePathname } from 'next/navigation';
-import React, { useState } from 'react';
+import React from 'react';
 import { FaCheck } from 'react-icons/fa6';
 import url from 'url';
 
 import { queryParamActionKey } from '~/hooks/useQueryParamAction';
-import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
+import { useAuthSignupDialogContext } from '~/components/auth/AuthSignupDialogContext';
 import { useToast } from '~/components/global/toasts/useToast';
-import { FormattedMessage, useIntl } from '~/components/intl';
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
-import Dialog from '~/components/ui/Dialog';
-import Text from '~/components/ui/Text';
 
 import {
   useMutationQuestionProgressAdd,
@@ -29,25 +27,22 @@ import { MARK_AS_COMPLETE_ACTION_NAME } from './useQuestionsAutoMarkAsComplete';
 
 type Props = Readonly<{
   metadata: Pick<QuestionMetadata, 'access' | 'format' | 'slug'>;
-  signInModalContents?: React.ReactNode;
   studyListKey?: string;
 }>;
 
 export default function QuestionProgressAction({
   metadata,
-  signInModalContents,
   studyListKey,
 }: Props) {
   const intl = useIntl();
   const pathname = usePathname();
   const user = useUser();
+  const { showAuthSignupDialog } = useAuthSignupDialogContext();
 
-  const [isLoginDialogShown, setIsLoginDialogShown] = useState(false);
   const markCompleteMutation = useMutationQuestionProgressAdd();
   const deleteProgressMutation = useMutationQuestionProgressDelete();
 
   const { showToast } = useToast();
-  const { signInUpHref, signInUpLabel } = useAuthSignInUp();
 
   const { data, isFetching } = useQueryQuestionProgress(
     metadata,
@@ -60,65 +55,27 @@ export default function QuestionProgressAction({
     }
 
     return (
-      <>
-        <Button
-          addonPosition="start"
-          icon={FaCheck}
-          label={intl.formatMessage({
-            defaultMessage: 'Mark complete',
-            description: 'Mark question as complete',
-            id: 'C4am9n',
-          })}
-          size="xs"
-          variant="secondary"
-          onClick={() => setIsLoginDialogShown(true)}
-        />
-        <Dialog
-          isShown={isLoginDialogShown}
-          primaryButton={
-            <Button
-              href={signInUpHref({
-                next: url.format({
-                  pathname,
-                  query: {
-                    [queryParamActionKey]: MARK_AS_COMPLETE_ACTION_NAME,
-                  },
-                }),
-                query: { source: 'track_progress' },
-              })}
-              label={signInUpLabel}
-              variant="primary"
-              onClick={() => setIsLoginDialogShown(false)}
-            />
-          }
-          secondaryButton={
-            <Button
-              label={intl.formatMessage({
-                defaultMessage: 'Cancel',
-                description: 'Cancel and close the sign in modal',
-                id: 'YXs0ZC',
-              })}
-              variant="secondary"
-              onClick={() => setIsLoginDialogShown(false)}
-            />
-          }
-          title={intl.formatMessage({
-            defaultMessage: 'Sign in to save progress',
-            description:
-              'Message shown when user completes a question without signing in',
-            id: 'RDQ253',
-          })}
-          onClose={() => setIsLoginDialogShown(false)}>
-          <Text className="block" color="secondary" size="body2">
-            <FormattedMessage
-              defaultMessage="Congratulations on completing the question! Sign into your account or sign up for free to save your progress!"
-              description="Message shown when user completes a question"
-              id="+JhlMu"
-            />
-          </Text>
-          {signInModalContents}
-        </Dialog>
-      </>
+      <Button
+        addonPosition="start"
+        icon={FaCheck}
+        label={intl.formatMessage({
+          defaultMessage: 'Mark complete',
+          description: 'Mark question as complete',
+          id: 'C4am9n',
+        })}
+        size="xs"
+        variant="secondary"
+        onClick={() =>
+          showAuthSignupDialog({
+            next: url.format({
+              pathname,
+              query: {
+                [queryParamActionKey]: MARK_AS_COMPLETE_ACTION_NAME,
+              },
+            }),
+          })
+        }
+      />
     );
   }
 

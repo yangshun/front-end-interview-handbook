@@ -6,6 +6,7 @@ import clsx from 'clsx';
 import { useCallback, useState } from 'react';
 import { RiCodeLine } from 'react-icons/ri';
 
+import { useAuthPointOnActions } from '~/components/auth/auth-points';
 import type {
   QuestionCodingWorkingLanguage,
   QuestionJavaScript,
@@ -100,6 +101,17 @@ function JavaScriptCodingWorkspaceImpl({
   const intl = useIntl();
   const { description, metadata, solution } = question;
   const { dispatch } = useJavaScriptCodingWorkspaceTilesContext();
+  const { increaseAuthPoints } = useAuthPointOnActions({
+    showAuthSignupDialogOnMaxPoints: !embed,
+  });
+  const incrementAuthPoints = useCallback(() => {
+    const { maxAuthPointsReached } = increaseAuthPoints(
+      'coding',
+      metadata.slug,
+    );
+
+    return maxAuthPointsReached;
+  }, [increaseAuthPoints, metadata.slug]);
 
   const { sandpack } = useSandpack();
   const { files, updateFile } = sandpack;
@@ -367,6 +379,7 @@ function JavaScriptCodingWorkspaceImpl({
 
   return (
     <CodingWorkspaceProvider
+      incrementAuthPoints={incrementAuthPoints}
       loadedFilesFromLocalStorage={loadedFilesFromLocalStorage}
       value={{
         defaultFiles,
@@ -418,7 +431,6 @@ function JavaScriptCodingWorkspaceImpl({
             <JavaScriptCodingWorkspaceBottomBar
               layout={embed ? 'minimal' : 'full'}
               metadata={metadata}
-              nextQuestions={nextQuestions}
               slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE="qns_slideout_mobile"
               studyListKey={studyListKey}
             />
@@ -453,7 +465,7 @@ function JavaScriptCodingWorkspaceImpl({
                 renderTab={(tabId) => (
                   <CodingWorkspaceErrorBoundary>
                     {tabContents[tabId] != null ? (
-                      <div className="size-full flex">
+                      <div className="flex size-full">
                         {tabContents[tabId]!.contents}
                       </div>
                     ) : (
@@ -475,7 +487,6 @@ function JavaScriptCodingWorkspaceImpl({
           <JavaScriptCodingWorkspaceBottomBar
             layout={embed ? 'minimal' : 'full'}
             metadata={metadata}
-            nextQuestions={nextQuestions}
             slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE="qns_slideout"
             studyListKey={studyListKey}
           />
