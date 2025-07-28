@@ -193,10 +193,14 @@ export const ToastImpl = React.forwardRef<
     'data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)]',
     'data-[swipe=move]:transition-none',
     'data-[state=open]:animate-in',
-    'data-[state=open]:sm:slide-in-from-left-full',
+    props.animateFrom === 'left'
+      ? 'data-[state=open]:sm:slide-in-from-left-full'
+      : 'data-[state=open]:sm:slide-in-from-bottom-full',
     'data-[state=closed]:animate-out',
     'data-[state=closed]:fade-out-80',
-    'data-[state=closed]:slide-out-to-left-full',
+    props.animateFrom === 'left'
+      ? 'data-[state=closed]:slide-out-to-left-full'
+      : 'data-[state=closed]:slide-out-to-bottom-full',
     'flex',
     props.side === 'start' && 'self-start',
     props.side === 'end' && 'self-end justify-end',
@@ -206,7 +210,7 @@ export const ToastImpl = React.forwardRef<
     const { customComponent: Component, ...remainingProps } = props;
 
     return (
-      <li ref={ref} className={commonClass} {...remainingProps}>
+      <li ref={ref} {...remainingProps} className={commonClass}>
         <Component />
       </li>
     );
@@ -311,7 +315,7 @@ type BaseToastProps = Omit<
   React.ComponentPropsWithoutRef<typeof ToastPrimitive.Root>,
   'children' | 'title'
 > &
-  Readonly<{ side?: 'end' | 'start' }>;
+  Readonly<{ animateFrom?: 'bottom' | 'left'; side?: 'end' | 'start' }>;
 
 export type DefaultToastProps = BaseToastProps & DefaultProps;
 
@@ -324,11 +328,24 @@ const Toast = React.forwardRef<
   ToastProps
 >((props, ref) => {
   if (props.variant === 'custom') {
-    const { customComponent, variant, ...remainingProps } = props;
+    const {
+      animateFrom = 'left',
+      className,
+      customComponent,
+      side,
+      variant,
+      ...remainingProps
+    } = props;
 
     return (
       <ToastPrimitive.Root ref={ref} asChild={true} {...remainingProps}>
-        <ToastImpl customComponent={customComponent} variant={variant} />
+        <ToastImpl
+          animateFrom={animateFrom}
+          className={className}
+          customComponent={customComponent}
+          side={side}
+          variant={variant}
+        />
       </ToastPrimitive.Root>
     );
   }
@@ -336,6 +353,7 @@ const Toast = React.forwardRef<
   const {
     addOnIcon,
     addOnLabel,
+    animateFrom = 'left',
     className,
     description,
     icon,
@@ -352,6 +370,7 @@ const Toast = React.forwardRef<
       <ToastImpl
         addOnIcon={addOnIcon}
         addOnLabel={addOnLabel}
+        animateFrom={animateFrom}
         className={className}
         description={description}
         icon={icon}

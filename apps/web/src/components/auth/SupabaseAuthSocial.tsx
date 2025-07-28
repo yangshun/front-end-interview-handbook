@@ -1,16 +1,14 @@
 import type { Provider } from '@supabase/supabase-js';
 import clsx from 'clsx';
-import { useState } from 'react';
 import { RiGithubFill, RiGoogleFill } from 'react-icons/ri';
-import url from 'url';
 
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 
 import logEvent from '~/logging/logEvent';
-import type { SupabaseClientGFE } from '~/supabase/SupabaseServerGFE';
 
 import Alert from '../ui/Alert';
+import { useOAuthSignIn } from './useOAuthSignIn';
 
 export type SupabaseProviderGFE = 'github' | 'google';
 
@@ -43,49 +41,17 @@ export type SocialAuthProps = {
   layout?: 'horizontal' | 'vertical';
   next: string;
   providers?: Array<SupabaseProviderGFE>;
-  supabaseClient: SupabaseClientGFE;
 };
 
 export default function SupabaseAuthSocial({
   layout,
   next,
   providers,
-  supabaseClient,
 }: SocialAuthProps) {
   const intl = useIntl();
-  const [loading, setLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
-
-  async function handleProviderSignIn(provider: SupabaseProviderGFE) {
-    setLoading(true);
-
-    const redirectTo =
-      window.location.origin +
-      url.format({
-        pathname: '/auth/login-redirect',
-        query: {
-          next,
-        },
-      });
-
-    const { error } = await supabaseClient.auth.signInWithOAuth({
-      options: { redirectTo },
-      provider,
-    });
-
-    if (error) {
-      setErrorMessage(error.message);
-      logEvent('auth.sign_in.fail', {
-        message: error.message,
-        name: error.name,
-        namespace: 'auth',
-        stack: error.stack,
-        type: provider,
-      });
-    }
-
-    setLoading(false);
-  }
+  const { errorMessage, loading, signInWithProvider } = useOAuthSignIn({
+    next,
+  });
 
   if (!providers || providers.length === 0) {
     return null;
@@ -131,7 +97,7 @@ export default function SupabaseAuthSocial({
                     label,
                     namespace: 'auth',
                   });
-                  handleProviderSignIn(provider);
+                  signInWithProvider(provider);
                 }}
               />
             </div>
