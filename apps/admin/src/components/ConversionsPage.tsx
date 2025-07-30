@@ -1,5 +1,6 @@
 'use client';
 
+import clsx from 'clsx';
 import { useState } from 'react';
 import useSWR from 'swr';
 
@@ -47,60 +48,15 @@ export default function ConversionsPage() {
   return (
     <div className="flex flex-col gap-2 p-4">
       <h1 className="text-2xl font-bold">Critical data</h1>
-      <form
-        className="flex items-center gap-4"
-        onSubmit={(e) => {
-          e.preventDefault();
-
-          const formData = new FormData(e.currentTarget);
-
-          setCountry(formData.get('country') as string);
-          setCountryFilter(formData.get('countryFilter') as CountryFilter);
-        }}>
-        <label className="flex items-center gap-2">
-          <input
-            className="rounded border border-neutral-300 p-1 text-sm"
-            defaultValue={country ?? ''}
-            name="country"
-            placeholder="Country (e.g. US)"
-            type="text"
-          />
-        </label>
-        <div className="flex items-center gap-2">
-          <label className="flex items-center gap-2 text-sm">
-            <input
-              defaultChecked={countryFilter === 'none'}
-              name="countryFilter"
-              type="radio"
-              value="none"
-            />
-            None
-          </label>
-          <label className="flex items-center gap-2 text-sm">
-            <input
-              defaultChecked={countryFilter === 'include'}
-              name="countryFilter"
-              type="radio"
-              value="include"
-            />
-            Only include
-          </label>
-          <label className="flex items-center gap-2 text-sm">
-            <input
-              defaultChecked={countryFilter === 'exclude'}
-              name="countryFilter"
-              type="radio"
-              value="exclude"
-            />
-            Exclude
-          </label>
-        </div>
-        <button
-          className="mt-2 rounded-full bg-blue-500 px-4 py-2 text-sm text-white"
-          type="submit">
-          Search
-        </button>
-      </form>
+      <FilterForm
+        onSubmit={({
+          country: countryParam,
+          countryFilter: countryFilterParam,
+        }) => {
+          setCountryFilter(countryFilterParam);
+          setCountry(countryParam);
+        }}
+      />
       {isLoading && <div className="text-sm">Loading...</div>}
       {error && (
         <div className="text-sm text-red-600">Error: {error.toString()}</div>
@@ -113,5 +69,86 @@ export default function ConversionsPage() {
         />
       )}
     </div>
+  );
+}
+
+function FilterForm({
+  onSubmit,
+}: {
+  onSubmit: ({
+    country,
+    countryFilter,
+  }: Readonly<{ country: string; countryFilter: CountryFilter }>) => void;
+}) {
+  const [countryFilter, setCountryFilter] = useState<CountryFilter>('none');
+
+  return (
+    <form
+      className={clsx(
+        'flex items-center gap-4 p-3',
+        'rounded-lg border border-gray-300',
+      )}
+      onSubmit={(e) => {
+        e.preventDefault();
+
+        const formData = new FormData(e.currentTarget);
+
+        onSubmit({
+          country: formData.get('country') as string,
+          countryFilter: formData.get('countryFilter') as CountryFilter,
+        });
+      }}>
+      <fieldset>
+        <legend className="text-sm/6 font-semibold text-gray-900">
+          Country
+        </legend>
+        <div className="flex items-end gap-4">
+          {(
+            [
+              {
+                label: 'None',
+                value: 'none',
+              },
+              {
+                label: 'Include only',
+                value: 'include',
+              },
+              {
+                label: 'Exclude',
+                value: 'exclude',
+              },
+            ] as const
+          ).map((option) => (
+            <label
+              key={option.value}
+              className="flex items-center gap-1 text-sm">
+              <input
+                checked={countryFilter === option.value}
+                name="countryFilter"
+                type="radio"
+                value="include"
+                onChange={() => setCountryFilter(option.value)}
+              />
+              {option.label}
+            </label>
+          ))}
+        </div>
+      </fieldset>
+      {countryFilter !== 'none' && (
+        <label className="flex items-center gap-2">
+          <input
+            className="rounded border border-neutral-300 p-1 text-sm"
+            name="country"
+            placeholder="Country (e.g. US)"
+            type="text"
+          />
+        </label>
+      )}
+      <button
+        className="mt-2 rounded-full bg-blue-500 px-4 py-2 text-sm text-white"
+        type="submit">
+        Search
+      </button>
+    </form>
   );
 }
