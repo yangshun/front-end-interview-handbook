@@ -193,7 +193,7 @@ export const sponsorsRouter = router({
         '.jpg';
       // Generate a signed upload URL
       const { data, error } = await supabaseAdmin.storage
-        .from('ads')
+        .from('sponsors')
         .createSignedUploadUrl(storagePath);
 
       if (error) {
