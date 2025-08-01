@@ -2,6 +2,8 @@ import clsx from 'clsx';
 import type { ComponentProps } from 'react';
 import { RiArrowRightLine } from 'react-icons/ri';
 
+import { UsersCountAllTimeShort } from '~/data/Stats';
+
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import CardContainer from '~/components/ui/Card/CardContainer';
@@ -62,7 +64,7 @@ export default function InterviewsMarketingTestimonialsSection({
             description="Testimonial section title"
             id="wm6L7K"
             values={{
-              count: '500k+',
+              count: UsersCountAllTimeShort + '+',
             }}
           />
         </Heading>

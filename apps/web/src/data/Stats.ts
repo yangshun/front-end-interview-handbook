@@ -1,3 +1,3 @@
-export const UsersCountAllTimeShort = '700k';
-export const UsersCountAllTime = '700,000';
+export const UsersCountAllTimeShort = '1M';
+export const UsersCountAllTime = '1,000,000';
 export const UsersCountLastYear = '600,000';
