@@ -66,7 +66,7 @@ function MarketingMessageImpl({
     },
     {
       onSuccess() {
-        const rotatedBanners: Array<BannerType> = ['ad', 'swag'];
+        const rotatedBanners: Array<BannerType> = ['swag'];
 
         if (!isProjectsPremium) {
           rotatedBanners.push('projects');
@@ -76,8 +76,8 @@ function MarketingMessageImpl({
 
         setBanners(
           isInterviewsPremium
-            ? shuffledBanners
-            : ['social', ...shuffledBanners],
+            ? [shuffledBanners[0], 'ad', ...shuffledBanners.slice(1)]
+            : ['social', 'ad', ...shuffledBanners],
         );
       },
     },
