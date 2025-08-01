@@ -126,7 +126,7 @@ function FilterForm({
                 checked={countryFilter === option.value}
                 name="countryFilter"
                 type="radio"
-                value="include"
+                value={option.value}
                 onChange={() => setCountryFilter(option.value)}
               />
               {option.label}
