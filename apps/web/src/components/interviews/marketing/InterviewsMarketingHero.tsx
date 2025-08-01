@@ -45,12 +45,12 @@ export default function InterviewsMarketingHero() {
   });
 
   const testimonials = [
-    marketingTestimonials.lamTran,
-    marketingTestimonials.leanneZhang,
-    marketingTestimonials.cliffordFung,
+    marketingTestimonials.jessieShen,
+    marketingTestimonials.praveenKumar,
     marketingTestimonials.faithMorante,
-    marketingTestimonials.locChuong,
     marketingTestimonials.anubhavKhanna,
+    marketingTestimonials.lamTran,
+    marketingTestimonials.kana,
   ];
 
   return (

@@ -3,7 +3,7 @@
 import InterviewsMarketingTestimonialsSection from './InterviewsMarketingTestimonialsSection';
 import { useInterviewsMarketingTestimonials } from './useInterviewsMarketingTestimonials';
 
-const columns = 4;
+const columns = 3;
 
 export default function InterviewsMarketingTestimonialPage() {
   const testimonials = useInterviewsMarketingTestimonials(true, columns);

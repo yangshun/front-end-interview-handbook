@@ -21,6 +21,10 @@ export function useInterviewsMarketingTestimonials(
         return [...featuredItems, ...nonFeaturedItems];
       })()
     : [
+        testimonialsObjects.jessieShen,
+        testimonialsObjects.praveenKumar,
+        testimonialsObjects.jaydeMitchell,
+        testimonialsObjects.anubhavKhanna,
         testimonialsObjects.davidZhou,
         testimonialsObjects.lamTran,
         testimonialsObjects.revatiDamle,
