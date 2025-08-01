@@ -15,12 +15,11 @@ import {
   questionUserInterfaceDescriptionPath,
   questionUserInterfaceSolutionPath,
 } from '~/components/interviews/questions/content/user-interface/QuestionUserInterfaceRoutes';
-import SandpackObservability from '~/components/workspace/common/sandpack/SandpackObservability';
-import { SandpackTimeout } from '~/components/workspace/common/sandpack/SandpackTimeout';
 import { useSandpackBundlerURL } from '~/components/workspace/common/sandpack/useSandpackBundlerURL';
 
 import { useI18nRouter } from '~/next-i18nostic/src';
 
+import SandpackObservability from '../common/sandpack/SandpackObservability';
 import UserInterfaceCodingWorkspace from './UserInterfaceCodingWorkspace';
 import { UserInterfaceCodingWorkspaceSavesContextProvider } from './UserInterfaceCodingWorkspaceSaveContext';
 
@@ -45,8 +44,7 @@ export default function UserInterfaceCodingWorkspaceSavesPage({
 }: Props) {
   const router = useI18nRouter();
   const { colorScheme } = useColorSchemePreferences();
-  const [bundlerURL, changeToFallbackUrl] =
-    useSandpackBundlerURL(sandpackO11yInstance);
+  const bundlerURL = useSandpackBundlerURL(sandpackO11yInstance);
 
   const { metadata, skeletonBundle } = question;
   const { files: defaultFiles, workspace } = skeletonBundle;
@@ -107,10 +105,6 @@ export default function UserInterfaceCodingWorkspaceSavesPage({
                   : questionUserInterfaceSolutionPath(metadata, frameworkValue),
               );
             }}
-          />
-          <SandpackTimeout
-            instance={sandpackO11yInstance}
-            onTimeout={() => changeToFallbackUrl('timeout')}
           />
           <SandpackObservability
             bundlerURL={bundlerURL}

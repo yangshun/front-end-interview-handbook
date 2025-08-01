@@ -9,7 +9,6 @@ import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
 import SandpackObservability from '~/components/workspace/common/sandpack/SandpackObservability';
-import { SandpackTimeout } from '~/components/workspace/common/sandpack/SandpackTimeout';
 import { useSandpackBundlerURL } from '~/components/workspace/common/sandpack/useSandpackBundlerURL';
 
 import UserInterfaceCodingWorkspacePreview from './UserInterfaceCodingWorkspacePreview';
@@ -26,8 +25,7 @@ export default function UserInterfaceCodingWorkspaceSolutionPreviewTab({
 }: Props) {
   const intl = useIntl();
   const { colorScheme } = useColorSchemePreferences();
-  const [bundlerURL, changeToFallbackUrl] =
-    useSandpackBundlerURL(sandpackO11yInstance);
+  const bundlerURL = useSandpackBundlerURL(sandpackO11yInstance);
   const { dispatch, getTabById } =
     useUserInterfaceCodingWorkspaceTilesContext();
 
@@ -90,10 +88,6 @@ export default function UserInterfaceCodingWorkspaceSolutionPreviewTab({
           }}
           theme={colorScheme === 'dark' ? 'dark' : undefined}>
           <UserInterfaceCodingWorkspacePreview />
-          <SandpackTimeout
-            instance={sandpackO11yInstance}
-            onTimeout={() => changeToFallbackUrl('timeout')}
-          />
           <SandpackObservability
             bundlerURL={bundlerURL}
             instance={sandpackO11yInstance}

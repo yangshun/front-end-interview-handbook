@@ -8,7 +8,6 @@ import type {
   QuestionJavaScript,
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
-import { SandpackTimeout } from '~/components/workspace/common/sandpack/SandpackTimeout';
 import JavaScriptCodingWorkspace from '~/components/workspace/javascript/JavaScriptCodingWorkspace';
 import { loadLocalJavaScriptQuestionCode } from '~/components/workspace/javascript/JavaScriptCodingWorkspaceCodeStorage';
 
@@ -39,8 +38,7 @@ export default function JavaScriptCodingWorkspaceSection({
   studyListKey,
 }: Props) {
   const { colorScheme } = useColorSchemePreferences();
-  const [bundlerURL, changeToFallbackUrl] =
-    useSandpackBundlerURL(sandpackO11yInstance);
+  const bundlerURL = useSandpackBundlerURL(sandpackO11yInstance);
 
   const { files, skeleton, workspace } = question;
   const loadedCode = loadLocalJavaScriptQuestionCode(
@@ -99,10 +97,6 @@ export default function JavaScriptCodingWorkspaceSection({
           studyListKey={studyListKey}
           workspace={workspace}
           onLanguageChange={onLanguageChange}
-        />
-        <SandpackTimeout
-          instance={sandpackO11yInstance}
-          onTimeout={() => changeToFallbackUrl('timeout')}
         />
         <SandpackObservability
           bundlerURL={bundlerURL}

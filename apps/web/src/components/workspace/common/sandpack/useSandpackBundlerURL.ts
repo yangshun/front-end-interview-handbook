@@ -8,27 +8,13 @@ import { getErrorMessage } from '~/utils/getErrorMessage';
 const defaultBundlerURL = 'https://bundler.greatfrontend.io';
 const fallbackBundlerURL = 'https://bundler.greatfrontend.com';
 
-export function useSandpackBundlerURL(instance: string) {
+export function useSandpackBundlerURL(instance: string): string {
   const [url, setUrl] = useGreatStorageLocal(
     'workspace:bundler-url', // Change the key if you want to reset the URL in local storage
     defaultBundlerURL,
     {
       ttl: 24 * 60 * 60 * 7, // 7 days
     },
-  );
-
-  const changeToFallbackUrl = useCallback(
-    (reason: 'blocked' | 'timeout' | 'unknown') => {
-      setUrl(fallbackBundlerURL);
-      logEvent('sandpack.bundler_fallback', {
-        instance,
-        namespace: 'workspace',
-        online: navigator.onLine,
-        reason,
-        url: fallbackBundlerURL,
-      });
-    },
-    [instance, setUrl],
   );
 
   const pingBundlerURL = useCallback(async () => {
@@ -83,5 +69,5 @@ export function useSandpackBundlerURL(instance: string) {
     pingBundlerURL();
   }, [url, pingBundlerURL]);
 
-  return [url, changeToFallbackUrl] as const;
+  return url;
 }
