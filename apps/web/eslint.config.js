@@ -17,6 +17,7 @@ export default [
       formatjs,
     },
     rules: {
+      'formatjs/enforce-default-message': ['error', 'literal'],
       'formatjs/enforce-description': ['error', 'literal'],
       'formatjs/enforce-id': [
         'error',
@@ -24,7 +25,17 @@ export default [
           idInterpolationPattern: '[sha512:contenthash:base64:6]',
         },
       ],
-      'formatjs/enforce-default-message': ['error', 'literal'],
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              group: ['react-intl', 'react-intl/*'],
+              message: 'Please use `~/components/intl` instead.',
+            },
+          ],
+        },
+      ],
     },
   },
 ];
