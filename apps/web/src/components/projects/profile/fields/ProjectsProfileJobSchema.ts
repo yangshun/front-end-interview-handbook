@@ -1,6 +1,6 @@
-import type { IntlShape } from 'react-intl';
 import { z } from 'zod';
 
+import type { IntlShape } from '~/components/intl';
 import { useIntl } from '~/components/intl';
 import useProjectsMonthYearExperienceSchema from '~/components/projects/hooks/useProjectsMonthYearExperienceSchema';
 import { yoeReplacementSchema } from '~/components/projects/misc';

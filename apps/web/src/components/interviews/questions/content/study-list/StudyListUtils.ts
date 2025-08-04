@@ -15,7 +15,8 @@ import {
 } from 'react-icons/ri';
 import { SiLodash } from 'react-icons/si';
 import { TbBinaryTree, TbForms } from 'react-icons/tb';
-import type { IntlShape } from 'react-intl';
+
+import type { IntlShape } from '~/components/intl';
 
 export const FocusAreaIcons: Record<
   string,

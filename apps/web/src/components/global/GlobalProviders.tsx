@@ -6,10 +6,10 @@ import { SessionContextProvider } from '@supabase/auth-helpers-react';
 import nextI18nosticConfig from 'next-i18nostic/config';
 import { NuqsAdapter } from 'nuqs/adapters/next/app';
 import { useState } from 'react';
-import { IntlProvider } from 'react-intl';
 
 import useScrollToHash from '~/hooks/useScrollToHash';
 
+import { IntlProvider } from '~/components/intl';
 import MDXComponents from '~/components/mdx/MDXComponents';
 
 import type { IntlMessages } from '~/i18n';

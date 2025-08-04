@@ -1,8 +1,8 @@
-import type { IntlShape } from 'react-intl';
 import { z } from 'zod';
 
 import { urlSchema } from '~/lib/urlValidation';
 
+import type { IntlShape } from '~/components/intl';
 import { useIntl } from '~/components/intl';
 
 const MIN_LENGTH = 2;

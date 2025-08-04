@@ -2,8 +2,8 @@
 
 import React, { Fragment, useState } from 'react';
 import { RiCalendar2Line } from 'react-icons/ri';
-import type { IntlShape } from 'react-intl';
 
+import type { IntlShape } from '~/components/intl';
 import { useIntl } from '~/components/intl';
 import {
   Accordion,

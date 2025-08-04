@@ -1,10 +1,10 @@
 'use client';
 
 import { RiArrowRightCircleLine, RiCodeSSlashLine } from 'react-icons/ri';
-import { FormattedMessage } from 'react-intl';
 
 import { SocialLinks } from '~/data/SocialLinks';
 
+import { FormattedMessage } from '~/components/intl';
 import type { ProjectsPricingPlanPaymentConfigLocalizedRecord } from '~/components/projects/purchase/ProjectsPricingPlans';
 import ProjectsPurchaseSuccessLogging from '~/components/projects/purchase/ProjectsPurchaseSuccessLogging';
 import PurchasePaymentSuccessSection from '~/components/purchase/PurchasePaymentSuccessSection';

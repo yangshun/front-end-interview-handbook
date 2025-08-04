@@ -1,8 +1,8 @@
 import { createHeadlessEditor } from '@lexical/headless';
 import { $getRoot } from 'lexical';
-import type { IntlShape } from 'react-intl';
 import { z } from 'zod';
 
+import type { IntlShape } from '~/components/intl';
 import { useIntl } from '~/components/intl';
 import { RichTextEditorConfig } from '~/components/ui/RichTextEditor/RichTextEditorConfig';
 

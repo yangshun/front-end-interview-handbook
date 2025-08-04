@@ -2,13 +2,13 @@ import { useUser } from '@supabase/auth-helpers-react';
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
 import { RiArrowRightLine } from 'react-icons/ri';
-import { FormattedMessage } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 import useUserProfile from '~/hooks/user/useUserProfile';
 
 import { PROMO_SOCIAL_DISCOUNT_PERCENTAGE } from '~/data/PromotionConfig';
 
+import { FormattedMessage } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Text from '~/components/ui/Text';
 import {
@@ -106,7 +106,7 @@ function SocialDiscountAlertImpl() {
                   percentOff: PROMO_SOCIAL_DISCOUNT_PERCENTAGE,
                 }}
               />
-              <RiArrowRightLine className="size-4 ml-0.5 inline-flex shrink-0" />
+              <RiArrowRightLine className="ml-0.5 inline-flex size-4 shrink-0" />
             </Text>
           </Anchor>
         </div>

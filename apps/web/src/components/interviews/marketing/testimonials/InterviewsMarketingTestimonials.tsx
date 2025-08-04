@@ -1,6 +1,6 @@
 'use client';
 
-import type { IntlShape } from 'react-intl';
+import type { IntlShape } from '~/components/intl';
 
 import type { InterviewsMarketingTestimonial } from './InterviewsMarketingTestimonialCard';
 

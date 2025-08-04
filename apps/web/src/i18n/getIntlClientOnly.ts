@@ -1,4 +1,4 @@
-import { createIntl, createIntlCache } from 'react-intl';
+import { createIntl, createIntlCache } from '~/components/intl';
 
 import { getLocaleMessages } from '.';
 

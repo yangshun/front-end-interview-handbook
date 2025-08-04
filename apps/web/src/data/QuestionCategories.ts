@@ -12,7 +12,6 @@ import {
   RiVuejsLine,
 } from 'react-icons/ri';
 import { TbBinaryTree } from 'react-icons/tb';
-import type { IntlShape } from 'react-intl';
 
 import type {
   QuestionCodingFormat,
@@ -25,6 +24,7 @@ import type {
   QuestionLanguageSEO,
   QuestionTopic,
 } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { IntlShape } from '~/components/intl';
 import { useIntl } from '~/components/intl';
 
 import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';

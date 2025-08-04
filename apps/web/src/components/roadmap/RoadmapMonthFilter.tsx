@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import { startCase } from 'lodash-es';
 import { RiArrowDownSLine } from 'react-icons/ri';
-import type { IntlShape } from 'react-intl';
 
+import type { IntlShape } from '~/components/intl';
 import { useIntl } from '~/components/intl';
 import FilterButton from '~/components/ui/FilterButton/FilterButton';
 import Popover from '~/components/ui/Popover';

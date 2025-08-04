@@ -1,11 +1,12 @@
 import type { InterviewsStudyList } from 'contentlayer/generated';
-import type { IntlShape } from 'react-intl';
 
 import {
   getQuestionFormatsData,
   getQuestionFrameworksData,
   getQuestionLanguagesData,
 } from '~/data/QuestionCategories';
+
+import type { IntlShape } from '~/components/intl';
 
 import { fetchInterviewsAllStudyLists } from './contentlayer/InterviewsStudyListReader';
 

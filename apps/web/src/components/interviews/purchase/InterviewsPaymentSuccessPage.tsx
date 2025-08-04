@@ -1,11 +1,11 @@
 'use client';
 
 import { RiArrowRightCircleLine, RiCodeSSlashLine } from 'react-icons/ri';
-import { FormattedMessage } from 'react-intl';
 
 import { SocialLinks } from '~/data/SocialLinks';
 
 import type { InterviewsPricingPlanPaymentConfigLocalizedRecord } from '~/components/interviews/purchase/InterviewsPricingPlans';
+import { FormattedMessage } from '~/components/intl';
 import PromotionsInterviewsPremiumPerksProjectDiscountSection from '~/components/promotions/perks/PromotionsInterviewsPremiumPerksProjectDiscountSection';
 import PurchasePaymentSuccessSection from '~/components/purchase/PurchasePaymentSuccessSection';
 import Container from '~/components/ui/Container';

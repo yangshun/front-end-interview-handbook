@@ -3,10 +3,10 @@ import { useInView } from 'framer-motion';
 import type { ReactNode } from 'react';
 import { useEffect, useRef, useState } from 'react';
 import { RiAmazonFill, RiMetaFill } from 'react-icons/ri';
-import type { IntlShape } from 'react-intl';
 
 import SideNavigation from '~/components/common/SideNavigation';
 import TypingString from '~/components/common/TypingString';
+import type { IntlShape } from '~/components/intl';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
 import Container from '~/components/ui/Container';

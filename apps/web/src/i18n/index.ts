@@ -1,5 +1,6 @@
 import { createIntl, createIntlCache } from '@formatjs/intl';
-import type { ResolvedIntlConfig } from 'react-intl';
+
+import type { ResolvedIntlConfig } from '~/components/intl';
 
 export type IntlMessages = ResolvedIntlConfig['messages'];
 
