@@ -17,6 +17,7 @@ import useUserProfileWithProjectsProfile from '~/components/projects/common/useU
 import SponsorsAdFormatGlobalBanner from '~/components/sponsors/ads/SponsorsAdFormatGlobalBanner';
 import Text from '~/components/ui/Text';
 
+import KombaiLogo from '../logos/KombaiLogo';
 import SwagOverflowLogo from '../logos/SwagOverflowLogo';
 import { useUserPreferences } from '../UserPreferencesProvider';
 import GlobalBannerShell from './GlobalBannerShell';
@@ -135,11 +136,26 @@ function MarketingMessageImpl({
           <SponsorsAdFormatGlobalBanner
             adId={data.adId}
             isLoading={isLoading}
-            text={data.text}
             url={data.url}
-            onHide={hideBanner}
-          />
+            variant="neutral"
+            onHide={hideBanner}>
+            <KombaiLogo
+              className="-mt-0.5 mr-2 hidden sm:inline"
+              height={16}
+              width={59}
+            />
+            {data.text}
+          </SponsorsAdFormatGlobalBanner>
         );
+        // Return (
+        //   <SponsorsAdFormatGlobalBanner
+        //     adId={data.adId}
+        //     isLoading={isLoading}
+        //     text={data.text}
+        //     url={data.url}
+        //     onHide={hideBanner}
+        //   />
+        // );
       }
       break;
     }
