@@ -1,6 +1,5 @@
 import type { InterviewsStudyList } from 'contentlayer/generated';
 
-import AuthGoogleOneTap from '~/components/auth/AuthGoogleOneTap';
 import InterviewsMarketingEmbedSection from '~/components/interviews/marketing/embed/InterviewsMarketingEmbedSection';
 import type { EmbedUIQuestion } from '~/components/interviews/marketing/embed/InterviewsMarketingEmbedUIQuestion';
 import InterviewsMarketingForeword from '~/components/interviews/marketing/InterviewsMarketingForeword';
@@ -31,7 +30,6 @@ export default function InterviewsMarketingHomePage({
 }: Props) {
   return (
     <main>
-      <AuthGoogleOneTap next="/" />
       <InterviewsMarketingHero />
       <Section>
         <InterviewsMarketingEmbedSection
