@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
 import { getEmptyImage } from 'react-dnd-html5-backend';
 
@@ -41,6 +41,8 @@ export default function TilesPanelTabsSection<TabType extends string>({
     useDragHighlightContext();
   const tabListRef = useRef<HTMLDivElement>(null);
   const tabRightEmptySpaceRef = useRef<HTMLDivElement>(null);
+  const [isStabilizingWidth, setIsStabilizingWidth] = useState(false);
+  const [stableWidth, setStableWidth] = useState<number | null>(null);
   const [{ isOver }, drop] = useDrop<
     TilesPanelDragItem<TabType> | TilesPanelDragPanel,
     void,
@@ -106,6 +108,22 @@ export default function TilesPanelTabsSection<TabType extends string>({
       }
     },
   });
+
+  useEffect(() => {
+    const currentWidth = tabListRef.current?.scrollWidth;
+
+    if (currentWidth) {
+      setStableWidth(currentWidth);
+      setIsStabilizingWidth(true);
+
+      const timeoutId = setTimeout(() => {
+        setIsStabilizingWidth(false);
+        setStableWidth(null);
+      }, 10);
+
+      return () => clearTimeout(timeoutId);
+    }
+  }, [tabs.length]);
 
   const [{ isDragging }, drag, dragPreview] = useDrag<
     TilesPanelDragPanel,
@@ -181,9 +199,14 @@ export default function TilesPanelTabsSection<TabType extends string>({
         ref={tabListRef}
         scrollbars="horizontal"
         size="thin"
+        style={
+          isStabilizingWidth && stableWidth
+            ? { width: `${stableWidth}px` }
+            : undefined
+        }
         viewportClass="flex items-center"
-        widthClass="w-fit">
-        <div className="size-full flex gap-x-2 overflow-y-hidden py-1.5">
+        widthClass={isStabilizingWidth && stableWidth ? 'w-full' : 'w-fit'}>
+        <div className="flex size-full gap-x-2 overflow-y-hidden py-1.5">
           {tabs.map((tabItem, index) => {
             const isActive =
               mode === 'interactive' && activeTabId === tabItem.id;
