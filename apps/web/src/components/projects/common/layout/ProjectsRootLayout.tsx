@@ -3,7 +3,6 @@
 import { useEffect } from 'react';
 
 import AuthGoogleOneTap from '~/components/auth/AuthGoogleOneTap';
-import AuthOneClickSignup from '~/components/auth/AuthOneClickSignUp';
 import { ProductThemeScript } from '~/components/global/product-theme/ProductThemeScript';
 import { useProductMenuUnseenIndicator } from '~/components/global/product-theme/useProductMenuUnseenIndicator';
 
@@ -26,7 +25,6 @@ export default function ProjectsRootLayout({ children }: Props) {
     <>
       <ProductThemeScript theme="projects" />
       <AuthGoogleOneTap showOnMobileOnly={true} />
-      <AuthOneClickSignup />
       {children}
     </>
   );
