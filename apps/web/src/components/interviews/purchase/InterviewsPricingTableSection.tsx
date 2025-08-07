@@ -26,6 +26,7 @@ import type {
 } from '~/components/interviews/purchase/InterviewsPricingPlans';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import { SocialDiscountAlert } from '~/components/promotions/social/SocialDiscountAlert';
+import { isValidStudentEmail } from '~/components/promotions/student/studentEmail';
 import PurchasePriceAnnualComparison from '~/components/purchase/comparison/PurchasePriceAnnualComparison';
 import PurchasePriceMonthlyComparison from '~/components/purchase/comparison/PurchasePriceMonthlyComparison';
 import PurchasePriceQuarterlyComparison from '~/components/purchase/comparison/PurchasePriceQuarterlyComparison';
@@ -148,12 +149,14 @@ function PricingButtonNonLoggedIn({
 function PricingButtonNonPremium({
   'aria-describedby': ariaDescribedBy,
   countryCode,
+  disabledReason,
   paymentConfig,
   useCurrentPageAsCancelUrl,
   variant,
 }: Readonly<{
   'aria-describedby': string;
   countryCode: string | null;
+  disabledReason?: string;
   paymentConfig: InterviewsPricingPlanPaymentConfigLocalized;
   useCurrentPageAsCancelUrl: boolean;
   variant: ComponentProps<typeof Button>['variant'];
@@ -262,7 +265,11 @@ function PricingButtonNonPremium({
     <div className="flex flex-col gap-4">
       <PricingButton
         aria-describedby={ariaDescribedBy}
-        isDisabled={showUserThereIsAsyncRequest || isUserProfileLoading}
+        isDisabled={
+          Boolean(disabledReason) ||
+          showUserThereIsAsyncRequest ||
+          isUserProfileLoading
+        }
         isLoading={showUserThereIsAsyncRequest}
         label={intl.formatMessage({
           defaultMessage: 'Buy now',
@@ -303,6 +310,11 @@ function PricingButtonNonPremium({
           {errorMessage}
         </Text>
       )}
+      {disabledReason && (
+        <Text className="text-center" color="error" size="body3">
+          {disabledReason}
+        </Text>
+      )}
     </div>
   );
 }
@@ -310,12 +322,14 @@ function PricingButtonNonPremium({
 function PricingButtonSection({
   'aria-describedby': ariaDescribedBy,
   countryCode,
+  disabledReason,
   paymentConfig,
   useCurrentPageAsCancelUrl,
   variant,
 }: Readonly<{
   'aria-describedby': string;
   countryCode: string;
+  disabledReason?: string;
   paymentConfig: InterviewsPricingPlanPaymentConfigLocalized;
   useCurrentPageAsCancelUrl: boolean;
   variant: ComponentProps<typeof Button>['variant'];
@@ -337,6 +351,7 @@ function PricingButtonSection({
         <PricingButtonNonPremium
           aria-describedby={ariaDescribedBy}
           countryCode={countryCode}
+          disabledReason={disabledReason}
           paymentConfig={paymentConfig}
           useCurrentPageAsCancelUrl={useCurrentPageAsCancelUrl}
           variant={variant}
@@ -860,6 +875,16 @@ export default function InterviewsPricingTableSection({
                   <PricingButtonSection
                     aria-describedby={featuredPlanId}
                     countryCode={countryCode}
+                    disabledReason={
+                      user != null && isValidStudentEmail(user.email!).valid
+                        ? intl.formatMessage({
+                            defaultMessage:
+                              'Student accounts are not eligible for this plan',
+                            description: 'Account purchase eligibility',
+                            id: 'DsZlem',
+                          })
+                        : undefined
+                    }
                     paymentConfig={featuredPlan.paymentConfig}
                     useCurrentPageAsCancelUrl={useCurrentPageAsCancelUrl}
                     variant="primary"

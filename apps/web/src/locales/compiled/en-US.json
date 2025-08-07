@@ -6861,12 +6861,6 @@
       "value": "Premium feature"
     }
   ],
-  "DSb8Hf": [
-    {
-      "type": 0,
-      "value": "JS + Polyfills + GreatFrontEnd = Interview Confidence. Learning JavaScript polyfills was a turning point in my frontend interview prep. Implementing methods like Array.prototype.map, bind, or Promise.all deepened my understanding of how JavaScript works under the hood. What really helped? GreatFrontEnd. Their challenges on re-creating core JS methods were spot-on—practical, clear, and exactly the kind of stuff that comes up in interviews. If you're preparing for frontend interviews, don't just memorize, implement. GreatFrontEnd is an excellent place to start."
-    }
-  ],
   "DTIb2e": [
     {
       "type": 0,
@@ -7025,6 +7019,12 @@
     {
       "type": 0,
       "value": "."
+    }
+  ],
+  "DsZlem": [
+    {
+      "type": 0,
+      "value": "Student accounts are not eligible for this plan"
     }
   ],
   "Dt0MpD": [
@@ -10925,6 +10925,12 @@
     {
       "type": 0,
       "value": "Resize and customize the workspace as you like"
+    }
+  ],
+  "N06KWk": [
+    {
+      "type": 0,
+      "value": "JS + Polyfills + GreatFrontEnd = Interview Confidence. Learning JavaScript polyfills was a turning point in my frontend interview prep. Implementing methods like Array.prototype.map, bind, or Promise.all deepened my understanding of how JavaScript works under the hood. What really helped? GreatFrontEnd. Their challenges on re-creating core JS methods were spot-on – practical, clear, and exactly the kind of stuff that comes up in interviews. If you're preparing for frontend interviews, don't just memorize, implement. GreatFrontEnd is an excellent place to start."
     }
   ],
   "N0z+Fz": [
@@ -16346,6 +16352,12 @@
       "value": " instead of building the same thing as everyone else. Each project within our platform is made up of reusable components which adhere to the same design system, making them inherently modular and compatible with one another. This means you can seamlessly combine components from various projects to construct unique and customized applications for your portfolio. These components cover a diverse range of applications, including Marketing, E-Commerce, Web Apps, Games, and even Portfolios, which means you'd be able to compose a wide variety of apps from them."
     }
   ],
+  "Yj7hpx": [
+    {
+      "type": 0,
+      "value": "I had interviewed at a few startups and had noticed a deviation in the interview landscape away from the classic DSA / Distributed System Style interviews. I was caught off guard by some of the Front-End leaning interview problems, and while I had gotten very close to some offers, I was edged out by other competitors. The bar across the industry was higher than ever, and I had witnessed the brutality of the 2025 market first-hand watching loads of high-performing MAANG engineers get laid off with no notice. When MAANG reached out, I could't afford any liabilities and I had to go all in on the opportunity – I didn't have 6 months to wait to try again if I didn't make it, so this was my Hail Mary. It was \"get this or throw in the towel and go to Law School\". I love engineering and creativity, but I also love financial security. I was on a very limited schedule, as Amazon moved extremely quickly once they had unexpectedly accepted me into the loop. GFE came up in my searches, and appeared to be a one-stop-shop for my best bet at being prepared. I did 100% of the Amazon Prep Guide across a few days. It's the largest pool of problems for a company on the site, by coincidence, and helped me brush off the cobwebs surrounding Vanilla JS, HTML, and CSS basics I hadn't really worked with since I first learned to program. Not only did the guide quickly get me up to speed, but the advanced component builds provided a lot of new information and confidence around accessibility, abstraction, and CSS that made me feel like I could exhibit a lot of strength and depth in an interview setting under tight time constraints. This, of course, played out exactly as described . Outside of the Amazon guide, I explored the additional system design questions. I know for a fact that I would have failed this interview without spending time with the system design solutions on GFE. To close, I'll say this: I'm a self-taught SWE, and I actually taught at an amazing bootcamp called LaunchCode that provided free tech education particularly focused towards underprivileged communities. I taught Web Dev basics for many years to thousands, and every semester loads of students would ask: \"Is it really possible to get into FAANG and make that kind of life-changing money for my family? Without having gone to Stanford? Without a degree?\" It took years of hard work and self-driven study, but yes, you can. And if I can do it, anyone can (with GFE)."
+    }
+  ],
   "YpJ3q8": [
     {
       "type": 0,
@@ -17846,12 +17858,6 @@
     {
       "type": 0,
       "value": "Prepare for front end interviews with a vast question bank covering every format and popular frameworks/languages. Includes solutions and tests from ex-interviewers."
-    }
-  ],
-  "cO2uWp": [
-    {
-      "type": 0,
-      "value": "I had interviewed at a few startups and had noticed a deviation in the interview landscape away from the classic DSA / Distributed System Style interviews. I was caught off guard by some of the Front-End leaning interview problems, and while I had gotten very close to some offers, I was edged out by other competitors. The bar across the industry was higher than ever, and I had witnessed the brutality of the 2025 market first-hand watching loads of high-performing MAANG engineers get laid off with no notice. When MAANG reached out, I could't afford any liabilities and I had to go all in on the opportunity -- I didn't have 6 months to wait to try again if I didn't make it, so this was my Hail Mary. It was \"get this or throw in the towel and go to Law School\". I love engineering and creativity, but I also love financial security. I was on a very limited schedule, as Amazon moved extremely quickly once they had unexpectedly accepted me into the loop. GFE came up in my searches, and appeared to be a one-stop-shop for my best bet at being prepared. I did 100% of the Amazon Prep Guide across a few days. It's the largest pool of problems for a company on the site, by coincidence, and helped me brush off the cobwebs surrounding Vanilla JS, HTML, and CSS basics I hadn't really worked with since I first learned to program. Not only did the guide quickly get me up to speed, but the advanced component builds provided a lot of new information and confidence around accessibility, abstraction, and CSS that made me feel like I could exhibit a lot of strength and depth in an interview setting under tight time constraints. This, of course, played out exactly as described . Outside of the Amazon guide, I explored the additional system design questions. I know for a fact that I would have failed this interview without spending time with the system design solutions on GFE. To close, I'll say this: I'm a self-taught SWE, and I actually taught at an amazing bootcamp called LaunchCode that provided free tech education particularly focused towards underprivileged communities. I taught Web Dev basics for many years to thousands, and every semester loads of students would ask: \"Is it really possible to get into FAANG and make that kind of life-changing money for my family? Without having gone to Stanford? Without a degree?\" It took years of hard work and self-driven study, but yes, you can. And if I can do it, anyone can (with GFE)."
     }
   ],
   "cOExUy": [
