@@ -4,12 +4,13 @@ import { useState } from 'react';
 import { RiArrowGoBackLine, RiPlayLine, RiSettings2Line } from 'react-icons/ri';
 import { VscLayout } from 'react-icons/vsc';
 
-import { useAuthActiveEngagementPoints } from '~/components/auth/auth-points';
 import QuestionProgressAction from '~/components/interviews/questions/common/QuestionProgressAction';
 import QuestionReportIssueButton from '~/components/interviews/questions/common/QuestionReportIssueButton';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import QuestionNextQuestions from '~/components/interviews/questions/content/QuestionNextQuestions';
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
+import Divider from '~/components/ui/Divider';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 
 import logEvent from '~/logging/logEvent';
@@ -22,6 +23,7 @@ import JavaScriptCodingWorkspaceLayoutDialog from './JavaScriptCodingWorkspaceLa
 type Props = Readonly<{
   layout: 'full' | 'minimal';
   metadata: QuestionMetadata;
+  nextQuestions: ReadonlyArray<QuestionMetadata>;
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE: string;
   studyListKey?: string;
 }>;
@@ -29,18 +31,13 @@ type Props = Readonly<{
 export default function JavaScriptCodingWorkspaceBottomBar({
   layout,
   metadata,
+  nextQuestions,
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE,
   studyListKey,
 }: Props) {
   const intl = useIntl();
   const { resetToDefaultCode, runTests, status, submit } =
     useCodingWorkspaceContext();
-
-  useAuthActiveEngagementPoints({
-    entityId: metadata.slug,
-    entityType: 'coding',
-  });
-
   const [isLayoutDialogOpen, setIsLayoutDialogOpen] = useState(false);
 
   const rightPostElements = (
@@ -121,7 +118,19 @@ export default function JavaScriptCodingWorkspaceBottomBar({
       <div className="hidden lg:inline">
         <CodingWorkspaceTimer qnMetadata={metadata} />
       </div>
-      <QuestionProgressAction metadata={metadata} studyListKey={studyListKey} />
+      <QuestionProgressAction
+        metadata={metadata}
+        signInModalContents={
+          nextQuestions &&
+          nextQuestions.length > 0 && (
+            <div className="mt-4 space-y-4">
+              <Divider />
+              <QuestionNextQuestions questions={nextQuestions} />
+            </div>
+          )
+        }
+        studyListKey={studyListKey}
+      />
       {rightPostElements}
     </>
   );

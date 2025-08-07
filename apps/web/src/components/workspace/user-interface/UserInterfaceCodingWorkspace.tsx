@@ -502,6 +502,7 @@ function UserInterfaceCodingWorkspaceImpl({
             frameworkSolutionPath={frameworkSolutionPath}
             metadata={metadata}
             mode={mode}
+            nextQuestions={nextQuestions}
             question={question}
             resetToDefaultCode={resetToDefaultCode}
             slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE="qns_slideout_mobile"
@@ -538,7 +539,7 @@ function UserInterfaceCodingWorkspaceImpl({
               renderTab={(tabId) => (
                 <CodingWorkspaceErrorBoundary>
                   {tabContents[tabId] != null ? (
-                    <div className="flex size-full">
+                    <div className="size-full flex">
                       {tabContents[tabId]!.contents}
                     </div>
                   ) : (
@@ -597,6 +598,7 @@ function UserInterfaceCodingWorkspaceImpl({
             frameworkSolutionPath={frameworkSolutionPath}
             metadata={metadata}
             mode={mode}
+            nextQuestions={nextQuestions}
             question={question}
             resetToDefaultCode={resetToDefaultCode}
             slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE="qns_slideout"

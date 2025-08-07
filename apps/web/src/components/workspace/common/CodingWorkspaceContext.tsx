@@ -40,7 +40,6 @@ type BaseContext = Readonly<{
 
 type Props = Readonly<{
   children: ReactNode;
-  incrementAuthPoints?: () => boolean;
   loadedFilesFromLocalStorage?: boolean;
   value: BaseContext;
 }>;
@@ -80,7 +79,6 @@ const submitCompleteEventName = 'workspace-submit-complete';
 
 export function CodingWorkspaceProvider({
   children,
-  incrementAuthPoints,
   loadedFilesFromLocalStorage = false,
   value,
 }: Props) {
@@ -94,31 +92,19 @@ export function CodingWorkspaceProvider({
   ] = useState(loadedFilesFromLocalStorage);
 
   const runTests = useCallback(() => {
-    const maxAuthPointsReached = incrementAuthPoints?.();
-
-    if (maxAuthPointsReached) {
-      return;
-    }
-
     setStatus('running_tests');
     lastExecutionMode.current = 'test';
     runTestsSequenceNumber.current += 1;
     performance.mark(runTestsStartedEventName);
-  }, [incrementAuthPoints]);
+  }, []);
 
   const submit = useCallback(() => {
-    const maxAuthPointsReached = incrementAuthPoints?.();
-
-    if (maxAuthPointsReached) {
-      return;
-    }
-
     CodingWorkspaceBottomBarEmitter.emit('pause_timer');
     setStatus('submitting');
     lastExecutionMode.current = 'submit';
     submitSequenceNumber.current += 1;
     performance.mark(submitStartedEventName);
-  }, [incrementAuthPoints]);
+  }, []);
 
   useEffect(() => {
     if (status !== 'idle' || lastExecutionMode.current === null) {

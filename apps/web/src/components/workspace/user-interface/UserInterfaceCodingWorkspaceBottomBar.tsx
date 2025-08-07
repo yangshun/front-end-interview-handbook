@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { RiArrowGoBackLine, RiSettings2Line } from 'react-icons/ri';
 import { VscLayout } from 'react-icons/vsc';
 
-import { useAuthActiveEngagementPoints } from '~/components/auth/auth-points';
 import QuestionProgressAction from '~/components/interviews/questions/common/QuestionProgressAction';
 import QuestionReportIssueButton from '~/components/interviews/questions/common/QuestionReportIssueButton';
 import type {
@@ -13,7 +12,9 @@ import type {
   QuestionUserInterface,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
+import QuestionNextQuestions from '~/components/interviews/questions/content/QuestionNextQuestions';
 import { useIntl } from '~/components/intl';
+import Divider from '~/components/ui/Divider';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 
 import CodingWorkspaceBottomBar from '../common/CodingWorkspaceBottomBar';
@@ -26,6 +27,7 @@ type Props = Readonly<{
   frameworkSolutionPath: string;
   metadata: QuestionMetadata;
   mode: QuestionUserInterfaceMode;
+  nextQuestions: ReadonlyArray<QuestionMetadata>;
   question: QuestionUserInterface;
   resetToDefaultCode: () => void;
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE: string;
@@ -37,6 +39,7 @@ export default function UserInterfaceCodingWorkspaceBottomBar({
   frameworkSolutionPath,
   metadata,
   mode,
+  nextQuestions,
   question,
   resetToDefaultCode,
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE,
@@ -44,11 +47,6 @@ export default function UserInterfaceCodingWorkspaceBottomBar({
 }: Props) {
   const intl = useIntl();
   const [isLayoutDialogOpen, setIsLayoutDialogOpen] = useState(false);
-
-  useAuthActiveEngagementPoints({
-    entityId: metadata.slug,
-    entityType: 'coding',
-  });
 
   const leftElements = (
     <div className="hidden flex-1 items-center gap-x-2 sm:inline-flex">
@@ -134,7 +132,19 @@ export default function UserInterfaceCodingWorkspaceBottomBar({
       <div className="hidden lg:inline">
         <CodingWorkspaceTimer qnMetadata={metadata} />
       </div>
-      <QuestionProgressAction metadata={metadata} studyListKey={studyListKey} />
+      <QuestionProgressAction
+        metadata={metadata}
+        signInModalContents={
+          nextQuestions &&
+          nextQuestions.length > 0 && (
+            <div className="mt-4 space-y-4">
+              <Divider />
+              <QuestionNextQuestions questions={nextQuestions} />
+            </div>
+          )
+        }
+        studyListKey={studyListKey}
+      />
       {mode === 'practice' ? (
         <div className="hidden min-[450px]:block">
           <UserInterfaceCodingWorkspaceSaveButton

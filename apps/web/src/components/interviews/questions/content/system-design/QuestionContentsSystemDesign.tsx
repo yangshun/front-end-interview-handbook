@@ -1,4 +1,3 @@
-import { useAuthActiveEngagementPoints } from '~/components/auth/auth-points';
 import QuestionReportIssueButton from '~/components/interviews/questions/common/QuestionReportIssueButton';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Badge from '~/components/ui/Badge';
@@ -37,10 +36,6 @@ export default function QuestionContentsSystemDesign({
   );
 
   useQuestionsAutoMarkAsComplete(question.metadata, studyListKey);
-  useAuthActiveEngagementPoints({
-    entityId: question.metadata.slug,
-    entityType: 'system-design',
-  });
 
   const copyRef = useQuestionLogEventCopyContents<HTMLElement>();
 

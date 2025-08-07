@@ -11,17 +11,16 @@ import SupabaseAuth from './SupabaseAuth';
 import type { AuthViewType } from './SupabaseAuthTypes';
 
 type Props = Readonly<{
-  next?: string;
   variant?: 'compact' | 'full';
   view: AuthViewType;
 }>;
 
-export default function AuthForm({ next, variant = 'full', view }: Props) {
+export default function AuthForm({ variant = 'full', view }: Props) {
   const intl = useIntl();
   const { error } = useSessionContext();
   const supabaseClient = useSupabaseClientGFE();
   const searchParams = useSearchParams();
-  const nextSearchParam = next || searchParams?.get('next');
+  const nextSearchParam = searchParams?.get('next');
   const sourceSearchParam = searchParams?.get('source');
 
   return (
