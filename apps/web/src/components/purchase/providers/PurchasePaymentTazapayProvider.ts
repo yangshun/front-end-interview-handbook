@@ -1,9 +1,9 @@
 import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
 
 const TAZAPAY_BASE_URL =
-  process.env.NODE_ENV !== 'production'
-    ? 'https://service-sandbox.tazapay.com/v3'
-    : 'https://service.tazapay.com/v3';
+  process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
+    ? 'https://service.tazapay.com/v3'
+    : 'https://service-sandbox.tazapay.com/v3';
 const TAZAPAY_TOKEN = Buffer.from(
   `${process.env.TAZAPAY_API_KEY}:${process.env.TAZAPAY_SECRET_KEY}`,
 ).toString('base64');
