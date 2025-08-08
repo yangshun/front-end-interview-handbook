@@ -11,6 +11,7 @@ import { trpc } from '~/hooks/trpc';
 import useCopyToClipboardWithRevert from '~/hooks/useCopyToClipboardWithRevert';
 
 import { FormattedMessage, useIntl } from '~/components/intl';
+import usePurchaseLastUsedPaymentProvider from '~/components/purchase/providers/usePurchaseLastUsedPaymentProvider';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
@@ -35,10 +36,14 @@ export default function PromotionsInterviewsPremiumPerksProjectDiscountSection()
     };
     expires_at: number | null;
   }> | null>(null);
+  const { lastPaymentProvider } = usePurchaseLastUsedPaymentProvider();
   const generateOrGetPromoCodeMutation =
     trpc.promotions.generateOrGetInterviewsPremiumPerksProjectsDiscountPromoCode.useMutation();
   const { data: checkoutSessionMetadata } =
-    trpc.purchases.latestCheckoutSessionMetadata.useQuery();
+    trpc.purchases.latestCheckoutSessionMetadata.useQuery({
+      checkoutId: lastPaymentProvider?.id ?? '',
+      paymentProvider: lastPaymentProvider?.provider ?? 'stripe',
+    });
   const [isCopied, onCopy] = useCopyToClipboardWithRevert(1000);
   const earnedFTL = checkoutSessionMetadata?.ftl;
   const hasBothFTLAndProjectsPromoCode = earnedFTL && promoCode != null;
@@ -141,7 +146,7 @@ export default function PromotionsInterviewsPremiumPerksProjectDiscountSection()
         {promoCode != null && (
           <div className="flex w-full flex-1 grow flex-col items-center gap-4 md:gap-6">
             <Ticket padding="md" ratio="wide" variant="normal" width={280}>
-              <div className="size-full m-auto flex flex-col items-center justify-between">
+              <div className="m-auto flex size-full flex-col items-center justify-between">
                 <div className="flex flex-col items-center justify-center gap-1.5">
                   <Heading level="heading6">{promoCode.code}</Heading>
                   <Text color="subtitle" size="body2" weight="medium">

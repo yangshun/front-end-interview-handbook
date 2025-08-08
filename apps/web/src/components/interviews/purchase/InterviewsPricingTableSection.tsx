@@ -30,6 +30,9 @@ import { isValidStudentEmail } from '~/components/promotions/student/studentEmai
 import PurchasePriceAnnualComparison from '~/components/purchase/comparison/PurchasePriceAnnualComparison';
 import PurchasePriceMonthlyComparison from '~/components/purchase/comparison/PurchasePriceMonthlyComparison';
 import PurchasePriceQuarterlyComparison from '~/components/purchase/comparison/PurchasePriceQuarterlyComparison';
+import { resolvePaymentProvider } from '~/components/purchase/providers/PurchasePaymentProvider';
+import usePurchaseLastUsedPaymentProvider from '~/components/purchase/providers/usePurchaseLastUsedPaymentProvider';
+import PurchaseLifetimePlanPromoCodeDialog from '~/components/purchase/PurchaseLifetimePlanPromoCodeDialog';
 import {
   purchaseFailureLogging,
   purchaseInitiateLogging,
@@ -39,6 +42,7 @@ import {
 } from '~/components/purchase/PurchaseLogging';
 import PurchasePriceLabel from '~/components/purchase/PurchasePriceLabel';
 import PurchaseProhibitedCountryAlert from '~/components/purchase/PurchaseProhibitedCountryAlert';
+import type { PurchasePaymentProvider } from '~/components/purchase/PurchaseTypes';
 import type { Props as AnchorProps } from '~/components/ui/Anchor';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
@@ -177,11 +181,24 @@ function PricingButtonNonPremium({
   const [isCheckoutSessionLoading, setIsCheckoutSessionLoading] =
     useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [showPromoCodeDialog, setShowPromoCodeDialog] = useState(false);
+  const { setLastPaymentProvider } = usePurchaseLastUsedPaymentProvider();
 
-  async function processSubscription(planType: InterviewsPricingPlanType) {
+  const paymentProvider = resolvePaymentProvider(
+    paymentConfig,
+    countryCode ?? 'US',
+  );
+
+  async function processSubscription(
+    planType: InterviewsPricingPlanType,
+    promoCodeId?: string,
+    finalPaymentProvider?: PurchasePaymentProvider,
+  ) {
     if (isCheckoutSessionLoading) {
       return;
     }
+
+    const provider = finalPaymentProvider ?? 'stripe';
 
     setIsCheckoutSessionLoading(true);
     setErrorMessage(null);
@@ -200,8 +217,10 @@ function PricingButtonNonPremium({
             cancel_url: useCurrentPageAsCancelUrl
               ? window.location.href
               : undefined,
+            payment_provider: provider,
             plan_type: planType,
             product_domain: 'interviews',
+            stripe_promo_code_id: promoCodeId,
           },
         }),
       );
@@ -215,6 +234,10 @@ function PricingButtonNonPremium({
       });
 
       if (hasClickedRef.current) {
+        setLastPaymentProvider({
+          id: payload.id,
+          provider,
+        });
         window.location.href = payload.url;
 
         return;
@@ -250,7 +273,8 @@ function PricingButtonNonPremium({
       userProfile != null &&
       !userProfile.isInterviewsPremium &&
       paymentConfig.planType === 'lifetime' &&
-      checkoutSessionHref == null
+      checkoutSessionHref == null &&
+      paymentProvider !== 'tazapay'
     ) {
       // Eagerly generate the checkout page URL for lifetime plan
       // in the background because it takes a while.
@@ -287,6 +311,12 @@ function PricingButtonNonPremium({
             purchasePrice: paymentConfig,
           });
 
+          if (paymentProvider === 'tazapay') {
+            setShowPromoCodeDialog(true);
+
+            return;
+          }
+
           if (user != null) {
             checkoutInitiateEmailMutation.mutateAsync({
               countryCode,
@@ -294,6 +324,10 @@ function PricingButtonNonPremium({
           }
 
           if (checkoutSessionHref != null) {
+            setLastPaymentProvider({
+              id: '', // Okay to be empty, because we are not using it for Stripe provider
+              provider: paymentProvider,
+            });
             // Had to move this checkout redirection here
             // Otherwise with href passed to the PricingButton, the checkoutInitiateEmailMutation is unable to execute it
             // before the window is changed to stripe
@@ -315,6 +349,20 @@ function PricingButtonNonPremium({
           {disabledReason}
         </Text>
       )}
+      <PurchaseLifetimePlanPromoCodeDialog
+        errorMessage={errorMessage}
+        isLoading={isCheckoutSessionLoading}
+        isShown={showPromoCodeDialog}
+        paymentConfig={paymentConfig}
+        onClose={() => setShowPromoCodeDialog(false)}
+        onContinue={(promoCodeId, finalPaymentProvider) =>
+          processSubscription(
+            paymentConfig.planType,
+            promoCodeId,
+            finalPaymentProvider,
+          )
+        }
+      />
     </div>
   );
 }
@@ -483,9 +531,13 @@ export default function InterviewsPricingTableSection({
   const intl = useIntl();
   const featuredPlanId = useId();
   const user = useUser();
+  const { lastPaymentProvider } = usePurchaseLastUsedPaymentProvider();
   const { isUserProfileLoading, userProfile } = useUserProfile();
   const { data: lastPaymentError } = trpc.purchases.lastPaymentError.useQuery(
-    undefined,
+    {
+      checkoutId: lastPaymentProvider?.id ?? '',
+      provider: lastPaymentProvider?.provider ?? 'stripe',
+    },
     {
       enabled: !!user,
     },

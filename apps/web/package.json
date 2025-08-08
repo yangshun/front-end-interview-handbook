@@ -121,6 +121,7 @@
     "prism-react-renderer": "2.4.0",
     "prisma": "5.7.0",
     "puppeteer-core": "24.1.1",
+    "raw-body": "^3.0.0",
     "react": "^18.2.0",
     "react-advanced-cropper": "0.19.4",
     "react-circular-progressbar": "2.1.0",

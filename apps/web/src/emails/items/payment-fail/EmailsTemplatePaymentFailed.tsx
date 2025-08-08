@@ -21,7 +21,7 @@ import {
 import { containerStyle, mainStyle } from '~/emails/components/EmailsStyles';
 
 type Props = Readonly<{
-  billingPortalUrl: string;
+  billingPortalUrl?: string;
   name?: string | null;
   pricingPageUrl: string;
 }>;
@@ -64,14 +64,14 @@ export default function EmailsTemplatePaymentFailed({
               using a debit card, ensure that there are sufficient funds in your
               account.
             </EmailsParagraph>
-            <EmailsParagraph defaultMargins={true}>
-              3. <EmailsStrong>Re-add your card</EmailsStrong>: If the payment
-              still doesn't succeed, go to the{' '}
-              <EmailsLink href={billingPortalUrl}>
-                Stripe Customer Portal
-              </EmailsLink>
-              , delete any cards that have been added, then try paying again.
-            </EmailsParagraph>
+            {billingPortalUrl && (
+              <EmailsParagraph defaultMargins={true}>
+                3. <EmailsStrong>Re-add your card</EmailsStrong>: If the payment
+                still doesn't succeed, go to the{' '}
+                <EmailsLink href={billingPortalUrl}>Customer Portal</EmailsLink>
+                , delete any cards that have been added, then try paying again.
+              </EmailsParagraph>
+            )}
             <Row style={{ marginBottom: 40, marginTop: 40 }}>
               <Column align="center">
                 <EmailsButton href={pricingPageUrl} variant="primary">

@@ -1,11 +1,12 @@
 import type { ProjectsSubscriptionPlan } from '@prisma/client';
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
-import Stripe from 'stripe';
 
 import { isProhibitedCountry } from '~/lib/stripeUtils';
 
-import type { InterviewsPricingPlanType } from '~/components/interviews/purchase/InterviewsPricingPlans';
+import { type InterviewsPricingPlanType } from '~/components/interviews/purchase/InterviewsPricingPlans';
+import { PurchasePaymentStripeProvider } from '~/components/purchase/providers/PurchasePaymentStripeProvider';
+import { PurchasePaymentTazapayProvider } from '~/components/purchase/providers/PurchasePaymentTazapayProvider';
 
 import {
   createSupabaseAdminClientGFE_SERVER_ONLY,
@@ -84,12 +85,24 @@ export default async function handler(req: NextRequest) {
       throw new Error(`Prohibited region: ${region}`);
     }
 
-    // Step 3: Create Stripe customer if it doesn't exist for the user..
+    // Extract query params from the request URL
+    const url = new URL(req.url);
+    const { origin, searchParams } = url;
+    const productDomain = searchParams.get(
+      'product_domain',
+    ) as CheckoutProductDomain;
+    const planType = searchParams.get('plan_type');
+    const cancelUrl = searchParams.get('cancel_url');
+    const countryCode = resolveCountryCode(req) ?? 'US';
+    const stripePromoCodeId = searchParams.get('stripe_promo_code_id');
+    const paymentProvider = searchParams.get('payment_provider') ?? 'stripe';
+
+    // Step 3: Create Stripe/Tazapay customer if it doesn't exist for the user..
     const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
     // Can't use Prisma here because it's not supported in edge functions.
     const { data: userProfile, error } = await supabaseAdmin
       .from('Profile')
-      .select('stripeCustomer')
+      .select('stripeCustomer, name, tazapayCustomerId')
       .eq('id', user.id)
       .single();
 
@@ -101,59 +114,47 @@ export default async function handler(req: NextRequest) {
       throw new Error(`No user found for ${user.id}`);
     }
 
-    let stripeCustomerId = userProfile.stripeCustomer;
+    let customerId = null;
 
-    // This happens when Supabase's webhooks don't fire during user signup
-    // and there's no corresponding Stripe customer for the user.
-    // We create a customer on the fly and update the `Profile` table.
-    if (!stripeCustomerId) {
-      console.info(`No Stripe customer found for ${user.id}, creating one`);
+    if (paymentProvider === 'stripe') {
+      customerId = userProfile.stripeCustomer;
+      if (!customerId) {
+        const paymentProviderCustomer =
+          await PurchasePaymentStripeProvider.createCustomer({
+            email: user.email,
+            id: user.id,
+          });
 
-      const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-        apiVersion: '2023-10-16',
-        maxNetworkRetries: 2,
-      });
+        customerId = paymentProviderCustomer.id;
+      }
+    } else {
+      customerId = userProfile.tazapayCustomerId;
+      if (!customerId) {
+        const paymentProviderCustomer =
+          await PurchasePaymentTazapayProvider.createCustomer({
+            countryCode,
+            email: user.email,
+            id: user.id,
+            name: userProfile.name || user.email,
+          });
 
-      const customer = await stripe.customers.create(
-        // Keep parameters across customer creation synced
-        // because they use the same idempotency key
-        {
-          email: user.email,
-        },
-        {
-          idempotencyKey: user.id,
-        },
-      );
-
-      // Can't use Prisma here because it's not supported in edge functions.
-      await supabaseAdmin
-        .from('Profile')
-        .update({
-          stripeCustomer: customer.id,
-        })
-        .eq('id', user.id);
-
-      stripeCustomerId = customer.id;
+        customerId = paymentProviderCustomer.id;
+      }
     }
 
     // Step 4: Create checkout session.
-    const url = new URL(req.url);
-    const { origin, searchParams } = url;
-    const productDomain = searchParams.get(
-      'product_domain',
-    ) as CheckoutProductDomain;
-    const planType = searchParams.get('plan_type');
-    const cancelUrl = searchParams.get('cancel_url');
-    const countryCode = resolveCountryCode(req) ?? 'US';
-
     const commonQueryParams = {
       cancel_url: cancelUrl ?? '',
       country_code: countryCode,
+      customer_id: customerId,
       // First Promoter tracking ID.
       first_promoter_tid: req.cookies.get('_fprom_tid')?.value,
       receipt_email: user?.email,
-      stripe_customer_id: stripeCustomerId,
       'x-vercel-protection-bypass': process.env.VERCEL_AUTOMATION_BYPASS_SECRET,
+      ...(stripePromoCodeId && {
+        stripe_promo_code_id: stripePromoCodeId,
+      }),
+      payment_provider: paymentProvider,
     };
 
     const queryParams: CheckoutQueryParams =

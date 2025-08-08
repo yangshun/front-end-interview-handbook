@@ -36,20 +36,26 @@ export function useProjectsPurchaseSuccessLogging(
     }
   }, [planSearchParam, plansPaymentConfig]);
 
-  trpc.purchases.lastSuccessfulPaymentThatHasntBeenLogged.useQuery(undefined, {
-    onSuccess: (data) => {
-      if (data == null) {
-        return;
-      }
-
-      purchaseSuccessLogging({
-        amount: data.amount,
-        currency: data.currency,
-        plan: planSearchParam!,
-        product: 'projects',
-      });
+  trpc.purchases.lastSuccessfulPaymentThatHasntBeenLogged.useQuery(
+    {
+      checkoutId: '', // We don't need checkoutId for stripe
+      paymentProvider: 'stripe',
     },
-  });
+    {
+      onSuccess: (data) => {
+        if (data == null) {
+          return;
+        }
+
+        purchaseSuccessLogging({
+          amount: data.amount,
+          currency: data.currency,
+          plan: planSearchParam!,
+          product: 'projects',
+        });
+      },
+    },
+  );
 }
 
 type Props = Readonly<{

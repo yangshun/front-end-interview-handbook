@@ -9,7 +9,9 @@ import {
   purchaseCustomerRemovePlan,
 } from '~/components/purchase/PurchaseStripeWebhookHandlers';
 
-import sendPaymentFailedEmail from '~/emails/items/payment-fail/EmailsSenderPaymentFailed';
+import sendPaymentFailedEmail, {
+  productHrefs,
+} from '~/emails/items/payment-fail/EmailsSenderPaymentFailed';
 import prisma from '~/server/prisma';
 import { getErrorMessage } from '~/utils/getErrorMessage';
 
@@ -129,7 +131,14 @@ export default async function handler(
         },
       });
 
+      const { pricingPageUrl } = productHrefs(product);
+      const session = await stripe.billingPortal.sessions.create({
+        customer: customerId.toString(),
+        return_url: pricingPageUrl,
+      });
+
       await sendPaymentFailedEmail({
+        billingPortalUrl: session.url,
         email,
         name: name || userProfile.name,
         product,

@@ -1,8 +1,5 @@
-import Stripe from 'stripe';
-
 import { sendEmailItemWithChecks } from '~/emails/mailjet/EmailsMailjetUtils';
 import { getSiteOrigin } from '~/seo/siteUrl';
-import prisma from '~/server/prisma';
 
 import { EmailsItemConfigPaymentFailed } from './EmailsItemConfigPaymentFailed';
 
@@ -10,7 +7,7 @@ const THIRTY_DAYS_IN_SECS = 30 * 24 * 3600;
 
 type Product = 'interviews' | 'projects';
 
-function productHrefs(product: Product) {
+export function productHrefs(product: Product) {
   switch (product) {
     case 'interviews': {
       return {
@@ -32,35 +29,19 @@ function productHrefs(product: Product) {
 }
 
 export default async function sendPaymentFailedEmail({
+  billingPortalUrl,
   email,
   name,
   product,
   userId,
 }: Readonly<{
+  billingPortalUrl?: string;
   email: string;
   name: string | null;
   product: 'interviews' | 'projects';
   userId: string;
 }>) {
   const { pricingPageUrl } = productHrefs(product);
-
-  const { stripeCustomer: stripeCustomerId } =
-    await prisma.profile.findFirstOrThrow({
-      select: {
-        stripeCustomer: true,
-      },
-      where: {
-        id: userId,
-      },
-    });
-
-  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
-    apiVersion: '2023-10-16',
-  });
-  const session = await stripe.billingPortal.sessions.create({
-    customer: stripeCustomerId!,
-    return_url: pricingPageUrl,
-  });
 
   return await sendEmailItemWithChecks(
     {
@@ -71,7 +52,7 @@ export default async function sendPaymentFailedEmail({
       emailItemConfig: {
         config: EmailsItemConfigPaymentFailed,
         props: {
-          billingPortalUrl: session.url,
+          billingPortalUrl,
           name,
           pricingPageUrl,
         },

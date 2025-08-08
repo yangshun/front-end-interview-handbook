@@ -50,6 +50,7 @@ export const InterviewsPricingPlansPaymentConfig: Record<
     priceType: 'recurring',
     productId,
     recurring: { count: 1, interval: 'year' },
+    tazapayEnabled: false,
     urls,
   },
   lifetime: {
@@ -65,6 +66,7 @@ export const InterviewsPricingPlansPaymentConfig: Record<
     priceType: 'one_time',
     productId,
     recurring: null,
+    tazapayEnabled: true,
     urls,
   },
   monthly: {
@@ -80,6 +82,7 @@ export const InterviewsPricingPlansPaymentConfig: Record<
     priceType: 'recurring',
     productId,
     recurring: { count: 1, interval: 'month' },
+    tazapayEnabled: false,
     urls,
   },
   quarterly: {
@@ -95,6 +98,7 @@ export const InterviewsPricingPlansPaymentConfig: Record<
     priceType: 'recurring',
     productId,
     recurring: { count: 3, interval: 'month' },
+    tazapayEnabled: false,
     urls,
   },
 };

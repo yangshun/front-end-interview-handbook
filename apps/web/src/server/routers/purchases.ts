@@ -8,6 +8,8 @@ import countryNames from '~/data/countryCodesToNames.json';
 
 import fetchInterviewsPricingPlanPaymentConfigLocalizedRecord from '~/components/interviews/purchase/fetchInterviewsPricingPlanPaymentConfigLocalizedRecord';
 import fetchProjectsPricingPlanPaymentConfigLocalizedRecord from '~/components/projects/purchase/fetchProjectsPricingPlanPaymentConfigLocalizedRecord';
+import { PurchasePaymentTazapayProvider } from '~/components/purchase/providers/PurchasePaymentTazapayProvider';
+import type { PurchasePaymentProvider } from '~/components/purchase/PurchaseTypes';
 
 import prisma from '~/server/prisma';
 
@@ -107,54 +109,40 @@ export const purchasesRouter = router({
         plans,
       };
     }),
-  lastPaymentError: userProcedure.query(async ({ ctx }) => {
-    // Set headers to disable caching
-    ctx.res.setHeader(
-      'Cache-Control',
-      'no-store, no-cache, must-revalidate, proxy-revalidate',
-    );
-    ctx.res.setHeader('Pragma', 'no-cache');
-    ctx.res.setHeader('Expires', '0');
+  lastPaymentError: userProcedure
+    .input(
+      z.object({
+        checkoutId: z.string(),
+        provider: z.enum(['stripe', 'tazapay']),
+      }),
+    )
+    .query(async ({ ctx, input: { checkoutId, provider } }) => {
+      // Set headers to disable caching
+      ctx.res.setHeader(
+        'Cache-Control',
+        'no-store, no-cache, must-revalidate, proxy-revalidate',
+      );
+      ctx.res.setHeader('Pragma', 'no-cache');
+      ctx.res.setHeader('Expires', '0');
 
-    const userProfile = await prisma.profile.findFirst({
-      select: {
-        stripeCustomer: true,
-      },
-      where: {
-        id: ctx.viewer.id,
-      },
-    });
+      if (provider === 'tazapay') {
+        const paymentAttempt =
+          await PurchasePaymentTazapayProvider.getLastPaymentAttempt(
+            checkoutId,
+          );
 
-    // A Stripe customer hasn't been created yet.
-    if (userProfile?.stripeCustomer == null) {
-      return null;
-    }
+        if (!paymentAttempt || paymentAttempt.status !== 'failed') {
+          return null;
+        }
 
-    const { stripeCustomer: stripeCustomerId } = userProfile;
+        return {
+          code: paymentAttempt.error.code,
+          declineCode_DO_NOT_DISPLAY_TO_USER: paymentAttempt.error.code,
+          message: paymentAttempt.error.message,
+          provider: 'tazapay' as PurchasePaymentProvider,
+        };
+      }
 
-    const paymentIntents = await stripe.paymentIntents.list({
-      customer: stripeCustomerId,
-    });
-
-    if (paymentIntents.data.length === 0) {
-      return null;
-    }
-
-    const lastPaymentIntent = paymentIntents.data[0];
-
-    if (lastPaymentIntent.last_payment_error == null) {
-      return null;
-    }
-
-    return {
-      code: lastPaymentIntent.last_payment_error.code,
-      declineCode_DO_NOT_DISPLAY_TO_USER:
-        lastPaymentIntent.last_payment_error.decline_code,
-      message: lastPaymentIntent.last_payment_error.message,
-    };
-  }),
-  lastSuccessfulPaymentThatHasntBeenLogged: userProcedure.query(
-    async ({ ctx }) => {
       const userProfile = await prisma.profile.findFirst({
         select: {
           stripeCustomer: true,
@@ -164,41 +152,106 @@ export const purchasesRouter = router({
         },
       });
 
-      // No Stripe customer or non-existent user
+      // A Stripe customer hasn't been created yet.
       if (userProfile?.stripeCustomer == null) {
         return null;
       }
 
       const { stripeCustomer: stripeCustomerId } = userProfile;
 
-      const oneDayInSeconds = 24 * 3600;
-      const oneDayAgo = Math.floor(Date.now() / 1000) - oneDayInSeconds;
       const paymentIntents = await stripe.paymentIntents.list({
-        created: {
-          gte: oneDayAgo,
-        },
         customer: stripeCustomerId,
       });
 
-      const successfulPaymentIntents = paymentIntents.data.filter(
-        (paymentIntent) => paymentIntent.status === 'succeeded',
-      );
-
-      if (successfulPaymentIntents.length === 0) {
+      if (paymentIntents.data.length === 0) {
         return null;
       }
 
-      const lastSuccessfulPaymentIntent = successfulPaymentIntents[0];
+      const lastPaymentIntent = paymentIntents.data[0];
+
+      if (lastPaymentIntent.last_payment_error == null) {
+        return null;
+      }
+
+      return {
+        code: lastPaymentIntent.last_payment_error.code,
+        declineCode_DO_NOT_DISPLAY_TO_USER:
+          lastPaymentIntent.last_payment_error.decline_code,
+        message: lastPaymentIntent.last_payment_error.message,
+        provider: 'stripe' as PurchasePaymentProvider,
+      };
+    }),
+  lastSuccessfulPaymentThatHasntBeenLogged: userProcedure
+    .input(
+      z.object({
+        checkoutId: z.string(),
+        paymentProvider: z.enum(['stripe', 'tazapay']),
+      }),
+    )
+    .query(async ({ ctx, input: { checkoutId, paymentProvider } }) => {
+      let lastSuccessPaymentId = null;
+      let currency = null;
+      let amount = null;
+      const oneDayInSeconds = 24 * 3600;
+      const oneDayAgo = Math.floor(Date.now() / 1000) - oneDayInSeconds;
+
+      if (paymentProvider === 'tazapay') {
+        const paymentAttempt =
+          await PurchasePaymentTazapayProvider.getLastPaymentAttempt(
+            checkoutId,
+          );
+
+        if (!paymentAttempt || paymentAttempt.status !== 'succeeded') {
+          return null;
+        }
+
+        lastSuccessPaymentId = paymentAttempt.id;
+        ({ amount, currency } = paymentAttempt);
+      } else {
+        const userProfile = await prisma.profile.findFirst({
+          select: {
+            stripeCustomer: true,
+          },
+          where: {
+            id: ctx.viewer.id,
+          },
+        });
+
+        // No Stripe customer or non-existent user
+        if (userProfile?.stripeCustomer == null) {
+          return null;
+        }
+
+        const { stripeCustomer: stripeCustomerId } = userProfile;
+
+        const paymentIntents = await stripe.paymentIntents.list({
+          created: {
+            gte: oneDayAgo,
+          },
+          customer: stripeCustomerId,
+        });
+
+        const successfulPaymentIntents = paymentIntents.data.filter(
+          (paymentIntent) => paymentIntent.status === 'succeeded',
+        );
+
+        if (successfulPaymentIntents.length === 0) {
+          return null;
+        }
+
+        const lastSuccessfulPaymentIntent = successfulPaymentIntents[0];
+
+        lastSuccessPaymentId = lastSuccessfulPaymentIntent.id;
+        ({ amount, currency } = lastSuccessfulPaymentIntent);
+      }
 
       const redis = Redis.fromEnv();
-      const paymentKey = `purchases:${lastSuccessfulPaymentIntent.id}`;
+      const paymentKey = `purchases:${lastSuccessPaymentId}`;
       const paymentAlreadyLogged = await redis.get(paymentKey);
 
       if (paymentAlreadyLogged) {
         return null;
       }
-
-      const { amount, currency } = lastSuccessfulPaymentIntent;
 
       // Prematurely setting the redis key to true to prevent duplicate logging
       // Will be inaccurate it the client doesn't log, but should be rare
@@ -210,37 +263,49 @@ export const purchasesRouter = router({
         amount: convertStripeValueToCurrencyValue(amount, currency),
         currency,
       };
-    },
-  ),
-  latestCheckoutSessionMetadata: userProcedure.query(async ({ ctx }) => {
-    const userProfile = await prisma.profile.findFirst({
-      select: {
-        stripeCustomer: true,
-      },
-      where: {
-        id: ctx.viewer.id,
-      },
-    });
+    }),
+  latestCheckoutSessionMetadata: userProcedure
+    .input(
+      z.object({
+        checkoutId: z.string(),
+        paymentProvider: z.enum(['stripe', 'tazapay']),
+      }),
+    )
+    .query(async ({ ctx, input: { checkoutId, paymentProvider } }) => {
+      if (paymentProvider === 'tazapay') {
+        return await PurchasePaymentTazapayProvider.getCheckoutSessionMetdata(
+          checkoutId,
+        );
+      }
 
-    // A Stripe customer hasn't been created yet.
-    if (userProfile?.stripeCustomer == null) {
-      return null;
-    }
+      const userProfile = await prisma.profile.findFirst({
+        select: {
+          stripeCustomer: true,
+        },
+        where: {
+          id: ctx.viewer.id,
+        },
+      });
 
-    const { stripeCustomer: stripeCustomerId } = userProfile;
+      // A Stripe customer hasn't been created yet.
+      if (userProfile?.stripeCustomer == null) {
+        return null;
+      }
 
-    const sessions = await stripe.checkout.sessions.list({
-      // Get the most recent session
-      customer: stripeCustomerId,
-      limit: 1,
-    });
+      const { stripeCustomer: stripeCustomerId } = userProfile;
 
-    if (!sessions.data || sessions.data.length === 0) {
-      return null;
-    }
+      const sessions = await stripe.checkout.sessions.list({
+        // Get the most recent session
+        customer: stripeCustomerId,
+        limit: 1,
+      });
 
-    return sessions.data[0].metadata;
-  }),
+      if (!sessions.data || sessions.data.length === 0) {
+        return null;
+      }
+
+      return sessions.data[0].metadata;
+    }),
   projectsPlans: publicProcedure
     .input(z.string().optional())
     .query(async ({ ctx: { req }, input: country }) => {

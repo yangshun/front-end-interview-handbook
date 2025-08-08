@@ -550,6 +550,49 @@ export const promotionsRouter = router({
       return promotionCode;
     },
   ),
+  getPromoCode: userProcedure
+    .input(
+      z.object({
+        code: z.string().trim(),
+      }),
+    )
+    .mutation(async ({ ctx: { viewer }, input: { code } }) => {
+      const userId = viewer.id;
+      const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
+        apiVersion: '2023-10-16',
+      });
+      const [promoCodeList, profile] = await Promise.all([
+        stripe.promotionCodes.list({
+          active: true,
+          code,
+          limit: 1,
+        }),
+        prisma.profile.findFirst({
+          select: {
+            stripeCustomer: true,
+          },
+          where: {
+            id: userId,
+          },
+        }),
+      ]);
+
+      if (promoCodeList.data.length === 0) {
+        return null;
+      }
+
+      const promoCode = promoCodeList.data[0];
+
+      // If promo code is not for the user, return null
+      if (
+        promoCode.customer &&
+        promoCode.customer !== profile?.stripeCustomer
+      ) {
+        return null;
+      }
+
+      return promoCode;
+    }),
   getSocialTasksPromoCode: userProcedure.query(async ({ ctx: { viewer } }) => {
     const userId = viewer.id;
     const profile = await prisma.profile.findFirst({

@@ -40,6 +40,7 @@ export const ProjectsPricingPlansPaymentConfig: Record<
     priceType: 'recurring',
     productId,
     recurring: { count: 1, interval: 'year' },
+    tazapayEnabled: false,
     urls,
   },
   MONTH: {
@@ -54,6 +55,7 @@ export const ProjectsPricingPlansPaymentConfig: Record<
     priceType: 'recurring',
     productId,
     recurring: { count: 1, interval: 'month' },
+    tazapayEnabled: false,
     urls,
   },
 };

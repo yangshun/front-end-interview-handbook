@@ -46,7 +46,10 @@ export async function interviewsCustomerAddPlan(
       premium: true,
     },
     where: {
-      stripeCustomer: customerId.toString(),
+      OR: [
+        { stripeCustomer: customerId.toString() },
+        { tazapayCustomerId: customerId.toString() },
+      ],
     },
   });
 }

@@ -3,6 +3,7 @@ import { Suspense, useEffect } from 'react';
 
 import { trpc } from '~/hooks/trpc';
 
+import usePurchaseLastUsedPaymentProvider from '~/components/purchase/providers/usePurchaseLastUsedPaymentProvider';
 import {
   purchaseSuccessLogging,
   purchaseSuccessLoggingGA,
@@ -38,20 +39,28 @@ export function useInterviewsPurchaseSuccessLogging(
     }
   }, [planSearchParam, plansPaymentConfig]);
 
-  trpc.purchases.lastSuccessfulPaymentThatHasntBeenLogged.useQuery(undefined, {
-    onSuccess: (data) => {
-      if (data == null) {
-        return;
-      }
+  const { lastPaymentProvider } = usePurchaseLastUsedPaymentProvider();
 
-      purchaseSuccessLogging({
-        amount: data.amount,
-        currency: data.currency,
-        plan: planSearchParam!,
-        product: 'interviews',
-      });
+  trpc.purchases.lastSuccessfulPaymentThatHasntBeenLogged.useQuery(
+    {
+      checkoutId: lastPaymentProvider?.id ?? '',
+      paymentProvider: lastPaymentProvider?.provider ?? 'stripe',
     },
-  });
+    {
+      onSuccess: (data) => {
+        if (data == null) {
+          return;
+        }
+
+        purchaseSuccessLogging({
+          amount: data.amount,
+          currency: data.currency,
+          plan: planSearchParam!,
+          product: 'interviews',
+        });
+      },
+    },
+  );
 }
 
 type Props = Readonly<{
