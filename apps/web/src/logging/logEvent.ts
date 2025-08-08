@@ -131,7 +131,8 @@ export default async function logEvent(
   });
 
   const shouldLog =
-    process.env.NODE_ENV === 'production' || searchParams?.get('debug');
+    process.env.NEXT_PUBLIC_VERCEL_ENV === 'production' ||
+    searchParams?.get('debug');
 
   if (!shouldLog) {
     console.info('[axiom]', action, payload);
