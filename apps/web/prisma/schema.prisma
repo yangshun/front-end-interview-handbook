@@ -54,10 +54,11 @@ model Profile {
   startWorkDate    DateTime?
   currentStatus    String?
 
-  stripeCustomer   String?
-  premium          Boolean @default(false)
-  plan             String?
-  mailjetContactId String?
+  stripeCustomer    String?
+  tazapayCustomerId String?
+  premium           Boolean @default(false)
+  plan              String?
+  mailjetContactId  String?
 
   createdAt DateTime @default(now()) @db.Timestamptz(6)
   updatedAt DateTime @default(now()) @updatedAt
