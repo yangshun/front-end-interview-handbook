@@ -107,7 +107,7 @@ function ProductSection() {
             'inline-flex items-center gap-1 rounded-lg px-4 py-2',
             'bg-neutral-100 dark:bg-neutral-800/40',
           )}>
-          <FaCheck aria-hidden={true} className="text-success size-4 -ml-1" />
+          <FaCheck aria-hidden={true} className="text-success -ml-1 size-4" />
           <Text color="secondary" size="body2" weight="medium">
             {feature}
           </Text>
@@ -142,7 +142,11 @@ function SliderSection() {
         </Text>
       </div>
       <SliderPrimitive.Root
-        className="relative flex h-4 w-full items-center"
+        className={clsx(
+          'flex items-center',
+          'relative h-4 w-full',
+          'touch-none select-none',
+        )}
         id="weeks"
         max={100}
         min={1}
@@ -156,7 +160,7 @@ function SliderSection() {
           )}>
           <SliderPrimitive.Range className="bg-brand-dark absolute h-full rounded" />
         </SliderPrimitive.Track>
-        <SliderPrimitive.Thumb className="bg-brand-dark hover:bg-brand-darker focus:ring-brand-darker size-8 block rounded-full shadow-sm focus:outline-none focus:ring-4 focus:ring-offset-2" />
+        <SliderPrimitive.Thumb className="bg-brand-dark hover:bg-brand-darker focus:ring-brand-darker block size-8 rounded-full shadow-sm focus:outline-none focus:ring-4 focus:ring-offset-2" />
       </SliderPrimitive.Root>
       <Text
         className="mt-8 block text-center text-2xl"
