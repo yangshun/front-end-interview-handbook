@@ -250,14 +250,14 @@ function ProjectsPlanLabel({
 }
 
 function ManageSubscriptionSection(): JSX.Element | null {
-  const { userProfile } = useUserProfileWithProjectsProfile();
   const intl = useIntl();
   const billingPortalMutation =
     trpc.purchases.billingPortalSessionUrl.useMutation();
 
-  const plan = userProfile?.plan;
+  const { data: latestStripePaymentIntent } =
+    trpc.purchases.latestStripePaymentIntent.useQuery();
 
-  if (plan == null && userProfile?.projectsProfile?.plan == null) {
+  if (!latestStripePaymentIntent) {
     return null;
   }
 

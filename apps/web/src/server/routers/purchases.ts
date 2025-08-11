@@ -306,6 +306,34 @@ export const purchasesRouter = router({
 
       return sessions.data[0].metadata;
     }),
+  latestStripePaymentIntent: userProcedure.query(
+    async ({ ctx: { viewer } }) => {
+      const userProfile = await prisma.profile.findFirst({
+        select: {
+          stripeCustomer: true,
+        },
+        where: {
+          id: viewer.id,
+        },
+      });
+
+      // A Stripe customer hasn't been created yet.
+      if (userProfile?.stripeCustomer == null) {
+        return null;
+      }
+
+      const paymentIntents = await stripe.paymentIntents.list({
+        customer: userProfile.stripeCustomer,
+        limit: 1,
+      });
+
+      if (!paymentIntents.data || paymentIntents.data.length === 0) {
+        return null;
+      }
+
+      return paymentIntents.data[0];
+    },
+  ),
   projectsPlans: publicProcedure
     .input(z.string().optional())
     .query(async ({ ctx: { req }, input: country }) => {
