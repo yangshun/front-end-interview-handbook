@@ -116,7 +116,7 @@ export default function PurchaseLifetimePlanPromoCodeDialog({
       title={label}
       width="sm"
       onClose={onClose}>
-      <div className="mb-2 space-y-2.5">
+      <div className="mb-2 mt-3.5 space-y-2.5">
         <div className="flex items-center justify-between gap-2.5">
           <Text color="secondary" size="body2">
             {label}
@@ -167,7 +167,8 @@ export default function PurchaseLifetimePlanPromoCodeDialog({
           </button>
         )}
         <Divider color="emphasized" />
-        <div className="flex items-center justify-between gap-2.5">
+        <div
+          className={clsx('flex items-center justify-between gap-2.5', 'pt-3')}>
           <Text color="secondary" size="body2">
             {intl.formatMessage({
               defaultMessage: 'Total due',
