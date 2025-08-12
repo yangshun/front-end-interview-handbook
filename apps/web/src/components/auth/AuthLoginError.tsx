@@ -17,7 +17,7 @@ type Props = Readonly<{
 export default function AuthLoginError({ code, description }: Props) {
   const errorContent = useErrorMessages();
   const intl = useIntl();
-  const { signInUpHref } = useAuthSignInUp();
+  const { signInUpHref } = useAuthSignInUp(false);
 
   const { message: errorMessage, name: errorName } =
     errorContent[code ?? ''] || {};

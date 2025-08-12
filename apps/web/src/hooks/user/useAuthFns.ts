@@ -15,7 +15,7 @@ type AuthHrefProps = Readonly<{
   query?: ParsedUrlQueryInput;
 }>;
 
-export function useAuthSignInUp() {
+export function useAuthSignInUp(returnToCurrentPage = true) {
   const [signedInBefore] = useAuthSignedInBefore();
   const intl = useIntl();
   const router = useI18nRouter();
@@ -40,7 +40,7 @@ export function useAuthSignInUp() {
     return url.format({
       pathname: signedInBefore ? '/login' : '/sign-up',
       query: {
-        ...(finalNext ? { next: finalNext } : {}),
+        ...(returnToCurrentPage && finalNext ? { next: finalNext } : {}),
         ...query,
       },
     });
