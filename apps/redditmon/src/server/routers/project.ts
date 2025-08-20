@@ -91,6 +91,7 @@ export const projectRouter = router({
       }),
     )
     .query(async ({ input: { projectSlug } }) => {
+      // TODO: This fetch is not secure, anyone with the slug can fetch it!
       return await prisma.project.findUnique({
         include: {
           subredditKeywords: true,
@@ -129,7 +130,7 @@ export const projectRouter = router({
       if (response.status === 429) {
         throw new TRPCError({
           code: 'INTERNAL_SERVER_ERROR',
-          message: `Failed to fetch subreddits. Reddit API rate limit exceeded! Please try again some time.`,
+          message: `Failed to fetch subreddits. Reddit API rate limit exceeded! Please try again after some time.`,
         });
       }
       if (!response.ok) {

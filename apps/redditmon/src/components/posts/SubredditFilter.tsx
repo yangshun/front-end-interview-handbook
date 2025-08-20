@@ -43,7 +43,6 @@ export default function SubredditFilter({
       clearable={true}
       data={availableSubreddits}
       placeholder="Filter by subreddits"
-      pt="md"
       searchable={true}
       size="sm"
       value={selectedSubreddits}

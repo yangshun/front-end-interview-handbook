@@ -123,7 +123,7 @@ export default function PostList() {
           )}
           <FetchPostButton />
         </div>
-        <div className="px-2 pb-2">
+        <div className="px-2 py-2">
           <SubredditFilter
             selectedSubreddits={selectedSubreddits}
             onChange={setSelectedSubreddits}
