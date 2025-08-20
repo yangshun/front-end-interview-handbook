@@ -92,6 +92,9 @@ export const projectRouter = router({
     )
     .query(async ({ input: { projectSlug } }) => {
       return await prisma.project.findUnique({
+        include: {
+          subredditKeywords: true,
+        },
         where: {
           slug: projectSlug,
         },

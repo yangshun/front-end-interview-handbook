@@ -132,6 +132,7 @@ export const socialPostsRouter = router({
       z.object({
         cursor: z.string().nullish(),
         filter: z.object({
+          subreddits: z.array(z.string()).optional(),
           tab: z.enum(['ALL', 'PENDING', 'REPLIED', 'IRRELEVANT']),
         }),
         pagination: z.object({
@@ -143,7 +144,7 @@ export const socialPostsRouter = router({
     .query(async ({ input }) => {
       const { cursor, filter, pagination, projectSlug } = input;
       const { limit } = pagination;
-      const { tab } = filter;
+      const { subreddits, tab } = filter;
 
       let postFilter = {};
 
@@ -223,6 +224,11 @@ export const socialPostsRouter = router({
         where: {
           ...postFilter,
           projectId: project.id,
+          ...(subreddits && subreddits.length > 0 && {
+            subreddit: {
+              in: subreddits,
+            },
+          }),
         },
       });
 

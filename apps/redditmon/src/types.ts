@@ -94,7 +94,6 @@ export type QueriedRedditPost = Omit<
   | 'postId'
   | 'projectId'
   | 'response'
-  | 'response'
   | 'updatedAt'
 > & {
   reply: RedditPostReply | null;

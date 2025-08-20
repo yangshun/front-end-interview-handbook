@@ -40,8 +40,11 @@ type PostsContextType = {
   posts: Array<QueriedRedditPost>;
   // Selection state
   selectedPostId: string | null;
+  // Subreddit filtering
+  selectedSubreddits: Array<string>;
   setActiveTab: (tab: PostListTab) => void;
   setSelectedPostId: (id: string | null) => void;
+  setSelectedSubreddits: (subreddits: Array<string>) => void;
 };
 
 const PostsContext = createContext<PostsContextType | undefined>(undefined);
@@ -55,11 +58,15 @@ export function PostsProvider({
 }) {
   const [activeTab, setActiveTab] = useState<PostListTab>('ALL');
   const [selectedPostId, setSelectedPostId] = useState<string | null>(null);
+  const [selectedSubreddits, setSelectedSubreddits] = useState<Array<string>>(
+    [],
+  );
   const router = useRouter();
   const params = useParams();
   const utils = trpc.useUtils();
 
   const prevActiveTabRef = useRef<PostListTab>(activeTab);
+  const prevSelectedSubredditsRef = useRef<Array<string>>(selectedSubreddits);
 
   // Store navigation context before mutations to handle auto-navigation
   const navigationContextRef = useRef<{
@@ -147,7 +154,10 @@ export function PostsProvider({
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading } =
     trpc.socialPosts.getPosts.useInfiniteQuery(
       {
-        filter: { tab: activeTab },
+        filter: { 
+          subreddits: selectedSubreddits.length > 0 ? selectedSubreddits : undefined, 
+          tab: activeTab 
+        },
         pagination: { limit: 20 },
         projectSlug,
       },
@@ -173,10 +183,14 @@ export function PostsProvider({
 
   useEffect(() => {
     const hasTabChanged = prevActiveTabRef.current !== activeTab;
+    const hasSubredditFilterChanged = 
+      JSON.stringify(prevSelectedSubredditsRef.current) !== 
+      JSON.stringify(selectedSubreddits);
 
     prevActiveTabRef.current = activeTab;
+    prevSelectedSubredditsRef.current = selectedSubreddits;
 
-    if (hasTabChanged) {
+    if (hasTabChanged || hasSubredditFilterChanged) {
       setSelectedPostId(null);
 
       return;
@@ -188,8 +202,8 @@ export function PostsProvider({
       setSelectedPostId(firstPostId);
       router.push(`/projects/${projectSlug}/posts/${firstPostId}`);
     }
-  }, [posts, selectedPostId, isLoading, projectSlug, router, activeTab]);
-  
+  }, [posts, selectedPostId, isLoading, projectSlug, router, activeTab, selectedSubreddits]);
+
   // Auto-load next page when user reaches the last post
   useEffect(() => {
     if (
@@ -344,8 +358,10 @@ export function PostsProvider({
     markPostReplyStatus,
     posts,
     selectedPostId,
+    selectedSubreddits,
     setActiveTab,
     setSelectedPostId,
+    setSelectedSubreddits,
   };
 
   return (

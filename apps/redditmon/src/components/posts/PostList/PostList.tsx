@@ -16,6 +16,7 @@ import { usePostsContext } from '~/components/posts/PostsContext';
 import { ShortcutAction } from '~/config/shortcuts';
 import type { PostListTab } from '~/types';
 
+import SubredditFilter from '../SubredditFilter';
 import FetchPostButton from './FetchPostButton';
 import PostItem from './PostItem';
 
@@ -43,7 +44,9 @@ export default function PostList() {
     isLoading,
     posts,
     selectedPostId,
+    selectedSubreddits,
     setActiveTab,
+    setSelectedSubreddits,
   } = usePostsContext();
 
   usePostTabShortcuts({ setActiveTab });
@@ -119,6 +122,12 @@ export default function PostList() {
             </div>
           )}
           <FetchPostButton />
+        </div>
+        <div className="px-2 pb-2">
+          <SubredditFilter
+            selectedSubreddits={selectedSubreddits}
+            onChange={setSelectedSubreddits}
+          />
         </div>
       </div>
       <div className="h-0 grow overflow-y-auto">
