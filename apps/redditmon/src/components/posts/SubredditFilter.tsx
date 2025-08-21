@@ -21,8 +21,6 @@ export default function SubredditFilter({
   });
 
   const availableSubreddits = useMemo(() => {
-    console.info(project?.subredditKeywords);
-
     const subreddits =
       project?.subredditKeywords?.flatMap(
         (group: { subreddits: Array<string> }) => group.subreddits,
