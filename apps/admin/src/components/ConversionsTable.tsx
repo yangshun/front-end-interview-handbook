@@ -77,8 +77,10 @@ export default function ConversionsTable({
     return {
       ...acc,
       [date]: {
-        confirmedEmailSignUps: Number(emailSignUpDay.confirmedEmailSignUps),
-        emailSignUps: Number(emailSignUpDay.emailSignUps),
+        confirmedEmailSignUps: Number(
+          emailSignUpDay?.confirmedEmailSignUps ?? 0,
+        ),
+        emailSignUps: Number(emailSignUpDay?.emailSignUps ?? 0),
         signUps: Number(signup.signUps),
       },
     };
@@ -270,7 +272,7 @@ export default function ConversionsTable({
       description:
         'Number of users who have email as their primary sign up method but did not verify (on that day) out of users who signed up using email',
       getValue: (_row, signUp) =>
-        signUp && signUp.signUps > 0
+        signUp && signUp.emailSignUps > 0
           ? `${((signUp.confirmedEmailSignUps / signUp.emailSignUps) * 100).toFixed(2)}%`
           : '-',
       header: 'Email verification rate',

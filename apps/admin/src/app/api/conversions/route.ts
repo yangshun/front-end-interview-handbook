@@ -62,7 +62,8 @@ WHERE
   created_at >= NOW() - INTERVAL '${daysBefore} days'
 GROUP BY
   date
-ORDER BY date DESC;`;
+ORDER BY
+  date DESC;`;
 
 const pgQueryEmailSignUps = `SELECT
   date_trunc('day', created_at AT TIME ZONE 'Asia/Singapore') AS date,
