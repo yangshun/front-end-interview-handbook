@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import type { ReactNode } from 'react';
 
 import VignetteOverlay from '~/components/common/VignetteOverlay';
 import { questionHrefFrameworkSpecificAndListType } from '~/components/interviews/questions/common/QuestionHrefUtils';
@@ -29,6 +30,7 @@ type Props<Q extends QuestionMetadata> = Readonly<{
     typeof InterviewsQuestionsListSlideOutQuestionListItem
   >['onClick'];
   questions: ReadonlyArray<Q>;
+  renderQuestionsListTopAddOnItem?: () => ReactNode;
   showCompanyPaywall?: boolean;
 }>;
 
@@ -43,6 +45,7 @@ export default function InterviewsQuestionsListSlideOutQuestionList<
   mode,
   onClickQuestion,
   questions,
+  renderQuestionsListTopAddOnItem,
   showCompanyPaywall,
 }: Props<Q>) {
   const intl = useIntl();
@@ -74,7 +77,7 @@ export default function InterviewsQuestionsListSlideOutQuestionList<
   );
 
   return (
-    <div className={clsx('size-full relative')}>
+    <div className={clsx('relative size-full')}>
       <VignetteOverlay
         className={clsx('min-h-[500px]')}
         overlay={
@@ -113,6 +116,7 @@ export default function InterviewsQuestionsListSlideOutQuestionList<
               </Text>
             </div>
           )}
+          {renderQuestionsListTopAddOnItem && renderQuestionsListTopAddOnItem()}
           {questions.map((questionMetadata, index) => {
             const hasCompletedQuestion =
               checkIfCompletedQuestion?.(questionMetadata);

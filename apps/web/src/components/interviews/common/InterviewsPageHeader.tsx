@@ -15,6 +15,7 @@ type Props = Readonly<{
   children?: ReactNode;
   className?: string;
   description: ReactNode;
+  descriptionWidthFull?: boolean;
   features: ReadonlyArray<{
     icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
     label: string;
@@ -37,6 +38,7 @@ export default function InterviewsPageHeader({
   children,
   className,
   description,
+  descriptionWidthFull,
   features,
   headingAddOnElement,
   logoImgSrc,
@@ -95,7 +97,10 @@ export default function InterviewsPageHeader({
               </div>
             </div>
             <Text
-              className={clsx('block max-w-2xl text-sm xl:text-base')}
+              className={clsx(
+                'block text-sm xl:text-base',
+                !descriptionWidthFull && 'max-w-2xl',
+              )}
               color="subtitle"
               size="inherit"
               weight="medium">

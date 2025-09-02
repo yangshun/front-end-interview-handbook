@@ -34,7 +34,7 @@ type Props = Readonly<{
   listIsShownInSidebarOnDesktop: boolean;
   listTabs?: ReadonlyArray<QuestionPracticeFormat>;
   processedQuestions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
-  slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE: string;
+  slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE: string | null;
   title?: string;
 }>;
 
@@ -64,12 +64,21 @@ function InterviewsQuestionsListSlideOutImpl({
 
   // Have to be controlled because we don't want to
   // fetch the question lists for nothing
-  const [isSlideOutShown, setIsSlideOutShown] = useQueryState(
-    slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE,
-    parseAsBoolean.withDefault(false),
-  );
+  const [isSlideOutShownQueryState, setIsSlideOutShownQueryState] =
+    useQueryState(
+      slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE ?? '',
+      parseAsBoolean.withDefault(false),
+    );
+  const [isSlideOutShownState, setIsSlideOutShownState] = useState(false);
+  const isSlideOutShown = slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE
+    ? isSlideOutShownQueryState
+    : isSlideOutShownState;
+  const setIsSlideOutShown = slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE
+    ? setIsSlideOutShownQueryState
+    : setIsSlideOutShownState;
+
   const isMobile = useMediaQuery('(max-width: 640px)');
-  const isDesktop = useMediaQuery('(min-width: 1367px)');
+  const isDesktop = useMediaQuery('(min-width: 1025px)');
   const router = useRouter();
   const [currentListType, setCurrentListType] =
     useState<QuestionListTypeWithLabel>(initialListType);

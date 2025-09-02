@@ -2,7 +2,6 @@ import { useSearchParams } from 'next/navigation';
 
 import { trpc } from '~/hooks/trpc';
 
-import { QuestionListTypeDefault } from '~/components/interviews/questions/common/QuestionHrefUtils';
 import type {
   QuestionFormatForList,
   QuestionFramework,
@@ -78,7 +77,7 @@ export function useQuestionsListTypeCurrent(
     };
   }
 
-  return QuestionListTypeDefault;
+  return null;
 }
 
 export function useQuestionsListDataForType(

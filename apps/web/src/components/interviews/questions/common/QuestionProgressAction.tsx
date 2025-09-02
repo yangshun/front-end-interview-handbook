@@ -33,6 +33,8 @@ type Props = Readonly<{
   studyListKey?: string;
 }>;
 
+const ButtonIcon = FaCheck;
+
 export default function QuestionProgressAction({
   metadata,
   signInModalContents,
@@ -41,6 +43,11 @@ export default function QuestionProgressAction({
   const intl = useIntl();
   const pathname = usePathname();
   const user = useUser();
+  const buttonLabelMarkComplete = intl.formatMessage({
+    defaultMessage: 'Mark complete',
+    description: 'Mark question as complete',
+    id: 'C4am9n',
+  });
 
   const [isLoginDialogShown, setIsLoginDialogShown] = useState(false);
   const markCompleteMutation = useMutationQuestionProgressAdd();
@@ -54,6 +61,10 @@ export default function QuestionProgressAction({
     studyListKey ?? null,
   );
 
+  if (data?.isQuestionLockedForViewer) {
+    return null;
+  }
+
   if (user == null) {
     if (metadata.access === 'premium') {
       return null;
@@ -63,12 +74,8 @@ export default function QuestionProgressAction({
       <>
         <Button
           addonPosition="start"
-          icon={FaCheck}
-          label={intl.formatMessage({
-            defaultMessage: 'Mark complete',
-            description: 'Mark question as complete',
-            id: 'C4am9n',
-          })}
+          icon={ButtonIcon}
+          label={buttonLabelMarkComplete}
           size="xs"
           variant="secondary"
           onClick={() => setIsLoginDialogShown(true)}
@@ -122,14 +129,23 @@ export default function QuestionProgressAction({
     );
   }
 
-  if (isFetching || data?.isQuestionLockedForViewer) {
-    return null;
+  if (isFetching) {
+    return (
+      <Button
+        addonPosition="start"
+        className="cursor-disabled"
+        icon={ButtonIcon}
+        label={buttonLabelMarkComplete}
+        size="xs"
+        variant="secondary"
+      />
+    );
   }
 
   if (data?.questionProgress?.status === 'complete') {
     return (
       <Button
-        icon={FaCheck}
+        icon={ButtonIcon}
         isDisabled={deleteProgressMutation.isLoading}
         isLoading={deleteProgressMutation.isLoading}
         label={intl.formatMessage({
@@ -186,14 +202,10 @@ export default function QuestionProgressAction({
   return (
     <Button
       addonPosition="start"
-      icon={FaCheck}
+      icon={ButtonIcon}
       isDisabled={markCompleteMutation.isLoading}
       isLoading={markCompleteMutation.isLoading}
-      label={intl.formatMessage({
-        defaultMessage: 'Mark complete',
-        description: 'Mark the question as complete',
-        id: 'pj07uD',
-      })}
+      label={buttonLabelMarkComplete}
       size="xs"
       variant="secondary"
       onClick={() => {

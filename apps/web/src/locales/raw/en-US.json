@@ -403,6 +403,10 @@
     "defaultMessage": "Warm up question",
     "description": "Label for warm up questions"
   },
+  "/mpSVj": {
+    "defaultMessage": "Scrolling view",
+    "description": "Label for quiz scroll mode toggle button"
+  },
   "/n0jtw": {
     "defaultMessage": "Contact your bank to get a new card issued.",
     "description": "Reason label for new card issue"
@@ -907,6 +911,10 @@
     "defaultMessage": "Gamification and progress tracking",
     "description": "Answer to 'What is unique about GreatFrontEnd Projects vs other challenge platforms?' on projects FAQs"
   },
+  "2HQlrS": {
+    "defaultMessage": "{category} Interview Questions and Answers | by Ex-FAANG interviewers",
+    "description": "Title of quiz scrolling mode page"
+  },
   "2Hqklu": {
     "defaultMessage": "You contributed a code review for <recipientProfileLink>{recipient}</recipientProfileLink> on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for you reviewing others submission"
@@ -966,6 +974,10 @@
   "2T4Rg2": {
     "defaultMessage": "Algorithmic Coding Interview Questions",
     "description": "Social title for algo coding question format page"
+  },
+  "2TPnld": {
+    "defaultMessage": "Instant UI preview for UI-related questions",
+    "description": "Label for code preview features"
   },
   "2a6qgD": {
     "defaultMessage": "Your code was restored from client storage. <link>Reset to default</link>",
@@ -1070,6 +1082,10 @@
   "38b6CQ": {
     "defaultMessage": "Coding-focused",
     "description": "Coding workspace layout name"
+  },
+  "3A1yG3": {
+    "defaultMessage": "{category} Quiz Questions",
+    "description": "Label for Quiz question"
   },
   "3C1g+S": {
     "defaultMessage": "Don't settle for single placements - we'll give you repeated ad exposure",
@@ -1422,6 +1438,10 @@
   "4gshRJ": {
     "defaultMessage": "Start a new version",
     "description": "Start a new version of the question button label"
+  },
+  "4gumtt": {
+    "defaultMessage": "{category} Interview Questions",
+    "description": "Title of scrolling mode page"
   },
   "4jymHU": {
     "defaultMessage": "{skipCount} skipped",
@@ -1902,6 +1922,10 @@
   "71+OLd": {
     "defaultMessage": "Join over {userCount} users in our private Discord community for Premium users",
     "description": "Button subtitle for joining the Premium Discord community on interviews payment success page"
+  },
+  "71Hlcg": {
+    "defaultMessage": "Reference solutions from ex-interviewers at Big Tech companies",
+    "description": "Label for coding questions solution"
   },
   "72GwzV": {
     "defaultMessage": "Available in {frameworkLabel}",
@@ -3255,6 +3279,10 @@
     "defaultMessage": "Progress imported successfully",
     "description": "Success message for import progress"
   },
+  "Dabxa8": {
+    "defaultMessage": "{questionCount}+ most important TypeScript interview questions and answers in quiz-style format, answered by ex-FAANG interviewers",
+    "description": "Description of Typescript quiz scrolling mode page"
+  },
   "Dc5QrJ": {
     "defaultMessage": "Coding",
     "description": "Tile for coding question type"
@@ -3523,6 +3551,10 @@
     "defaultMessage": "Project started! Leverage the provided resources and submit a link to your site once ready!",
     "description": "Toast subtitle for project session started"
   },
+  "EtDVci": {
+    "defaultMessage": "{questionCount}+ {category} interview questions and answers in quiz-style format, answered by ex-FAANG interviewers",
+    "description": "Description of scroll mode quiz questions page"
+  },
   "Euaee/": {
     "defaultMessage": "Resubscribe to unlock",
     "description": "Title for a premium project paywall"
@@ -3691,6 +3723,10 @@
     "defaultMessage": "JavaScript Functions",
     "description": "Page title for JavaScript coding question format"
   },
+  "Fxe4CE": {
+    "defaultMessage": "Total due",
+    "description": "Label for total due price"
+  },
   "FyfO1X": {
     "defaultMessage": "Front End System Design Playbook",
     "description": "Front end system design guidebook title"
@@ -3778,6 +3814,14 @@
   "GPFB6p": {
     "defaultMessage": "Get full access",
     "description": "Button CTA to encourage upgrading"
+  },
+  "GPM7SF": {
+    "defaultMessage": "New File",
+    "description": "Button tooltip for creating a new file"
+  },
+  "GPQg5j": {
+    "defaultMessage": "If you're looking for {languageOrFramework} coding questions -",
+    "description": "Header for coding section in interview quiz page"
   },
   "GPp0wf": {
     "defaultMessage": "Welcome to GreatFrontEnd Projects!",
@@ -5747,6 +5791,10 @@
     "defaultMessage": "Support us by starring our GitHub repo and consider contributing!",
     "description": "Description for github star"
   },
+  "P6sA19": {
+    "defaultMessage": "We've got you covered as well, with:",
+    "description": "Subheader for coding section in interview quiz page"
+  },
   "P99cBr": {
     "defaultMessage": "Overview of various question formats",
     "description": "Overview of front end system design interview question formats"
@@ -5994,6 +6042,10 @@
   "Q7apLT": {
     "defaultMessage": "Blog | GreatFrontEnd",
     "description": "Title of GreatFrontEnd blog homepage"
+  },
+  "Q891Ht": {
+    "defaultMessage": "One-click automated, transparent test cases",
+    "description": "Label for test cases in coding questions"
   },
   "QAFkOT": {
     "defaultMessage": "No coupons available",
@@ -6427,6 +6479,10 @@
     "defaultMessage": "Privacy policy",
     "description": "Link to privacy policy page"
   },
+  "Rxyjw3": {
+    "defaultMessage": "Introduction",
+    "description": "Title for introduction section in quiz questions list"
+  },
   "RyuIJe": {
     "defaultMessage": "Your request has been submitted successfully",
     "description": "Success message for request submission"
@@ -6738,6 +6794,10 @@
   "THTioO": {
     "defaultMessage": "Tell us anything - about your journey as a front end developer, your goals and next steps, or how you want to connect with others",
     "description": "Bio field description"
+  },
+  "THbGFn": {
+    "defaultMessage": "Questions appear on different pages",
+    "description": "Tooltip for quiz scroll mode toggle button"
   },
   "TJD+8A": {
     "defaultMessage": "Project steps",
@@ -7619,6 +7679,10 @@
     "defaultMessage": "How to use Figma for development",
     "description": "Figma guide link"
   },
+  "XCqQUO": {
+    "defaultMessage": "Get Started",
+    "description": "Label for get started button"
+  },
   "XG1Wfg": {
     "defaultMessage": "Join Discord (premium)",
     "description": "Tooltip for join premium discord"
@@ -7830,6 +7894,10 @@
   "YBlo/J": {
     "defaultMessage": "As mentioned above, there are many ways to host your project for free. Our recommend hosts are:",
     "description": "Text for Deployment Info in Projects"
+  },
+  "YEEd13": {
+    "defaultMessage": "In-browser coding workspace that mimics real interview conditions",
+    "description": "Label for browser-based coding environment"
   },
   "YFKKP4": {
     "defaultMessage": "Expires",
@@ -8323,6 +8391,10 @@
     "defaultMessage": "Outdent line",
     "description": "Text describing outdent line command in the coding workspace shortcuts menu"
   },
+  "al0GiV": {
+    "defaultMessage": "There was a technical error while processing the payment.",
+    "description": "Decline message for technical error"
+  },
   "alG3Yi": {
     "defaultMessage": "Reputation",
     "description": "Subtext for Reputation Reputation"
@@ -8582,6 +8654,10 @@
   "bVOC6y": {
     "defaultMessage": "Now in BETA.",
     "description": "Project marketing hero section badge"
+  },
+  "bYOK+T": {
+    "defaultMessage": "{category} Interview Questions and Answers",
+    "description": "SEO title of quiz scrolling mode page"
   },
   "bYY9Mh": {
     "defaultMessage": "Crop your new profile photo",
@@ -10155,6 +10231,10 @@
     "defaultMessage": "In Content Ad Placement in system design",
     "description": "Alt text for ads in content placement preview"
   },
+  "inlaDX": {
+    "defaultMessage": "Practice {questionCount}+ curated {category} Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers",
+    "description": "Description of quiz scrolling mode page"
+  },
   "iqz/fo": {
     "defaultMessage": "Types of JS questions, concepts to cover and rubrics",
     "description": "JavaScript questions, concepts and rubrics during front end interviews"
@@ -10246,6 +10326,10 @@
   "jKbWY+": {
     "defaultMessage": "Stopped at",
     "description": "Stopped at label"
+  },
+  "jL6ul2": {
+    "defaultMessage": "Join {engineersCount}+ engineers",
+    "description": "Label for total engineers using the platform"
   },
   "jLHxac": {
     "defaultMessage": "Coming Soon",
@@ -10367,6 +10451,10 @@
     "defaultMessage": "Suitable to get your foot in the door.",
     "description": "Resume review starter pricing tier description"
   },
+  "jjdVOP": {
+    "defaultMessage": "All questions appear on a single page",
+    "description": "Tooltip for quiz scroll mode toggle button"
+  },
   "jlTtgt": {
     "defaultMessage": "Please <link>leave us an email</link> if you have any other needs or wants. We would love to discuss them!",
     "description": "Question base section subtitle - third paragraph"
@@ -10386,6 +10474,10 @@
   "jqfqCr": {
     "defaultMessage": "Regular payouts through PayPal",
     "description": "Affiliate program payout section title"
+  },
+  "jrT2Ow": {
+    "defaultMessage": "{questionCount}+ {languageOrFramework} Coding Questions",
+    "description": "Number of questions in coding section"
   },
   "jtnskJ": {
     "defaultMessage": "Creator's YOE",
@@ -10939,6 +11031,10 @@
     "defaultMessage": "In Content Ad Placement in guides",
     "description": "Alt text for ads in content placement preview"
   },
+  "mLrZGz": {
+    "defaultMessage": "{amountOff} off",
+    "description": "Label for promotion code discount"
+  },
   "mNb3b2": {
     "defaultMessage": "Hard",
     "description": "Hard difficulty question"
@@ -11163,6 +11259,10 @@
     "defaultMessage": "More settings",
     "description": "Button label to show more settings for the console in the coding workspace"
   },
+  "nSJ/yC": {
+    "defaultMessage": "Continue",
+    "description": "Label for continue to checkout button"
+  },
   "nTu2nu": {
     "defaultMessage": "Privacy Policy",
     "description": "Title of Privacy Policy page"
@@ -11254,6 +11354,10 @@
   "nmG3eE": {
     "defaultMessage": "We have a \"fair use\" refund policy within 7 days of starting your first subscription. \"Fair use\" means that if you have accessed a significant amount of premium interview content (more than 5 premium content pieces), we reserve the right to reject the request for a refund. To request a refund, send an email to {contactEmail}.",
     "description": "Answer to 'What's the refund policy for GreatFrontEnd Interviews?' on Purchase's FAQ sections"
+  },
+  "nnXIFO": {
+    "defaultMessage": "{questionCount}+ most important JavaScript interview questions and answers, covering everything from core concepts to advanced JavaScript features",
+    "description": "Description of quiz scrolling mode page"
   },
   "nodFHk": {
     "defaultMessage": "Go to this submission's GitHub repository",
@@ -11398,6 +11502,10 @@
   "ofFMGr": {
     "defaultMessage": "Check out other available <link>promotions</link>.",
     "description": "Promotional message"
+  },
+  "ofJOh2": {
+    "defaultMessage": "Javascript coding",
+    "description": "Alt text for ads in content placement preview"
   },
   "ofUX5S": {
     "defaultMessage": "Challenge status",
@@ -11646,14 +11754,6 @@
   "piqimi": {
     "defaultMessage": "OFF",
     "description": "Amount cashback/discount"
-  },
-  "pj07uD": {
-    "defaultMessage": "Mark complete",
-    "description": "Mark the question as complete"
-  },
-  "pjH0jb": {
-    "defaultMessage": "{name} front end interview questions",
-    "description": "Label for company guides"
   },
   "pjndkX": {
     "defaultMessage": "Unvote",
@@ -11974,6 +12074,10 @@
   "rBnWDc": {
     "defaultMessage": "No Projects profile",
     "description": "User does not have a profile for the Projects product"
+  },
+  "rCqW54": {
+    "defaultMessage": "Page-by-page",
+    "description": "Label for quiz scroll mode toggle button"
   },
   "rGbEEY": {
     "defaultMessage": "Resources & discussions",
@@ -12395,6 +12499,10 @@
     "defaultMessage": "Starter",
     "description": "Starter blog"
   },
+  "tRQG6L": {
+    "defaultMessage": "{percentOff}% off",
+    "description": "Label for promotion code discount"
+  },
   "tWtbVf": {
     "defaultMessage": "OOP",
     "description": "Computer science topic"
@@ -12758,6 +12866,10 @@
   "vLdUUt": {
     "defaultMessage": "View other's code and learn from their approach",
     "description": "Description for recommended action for new projects platform user"
+  },
+  "vLsSQG": {
+    "defaultMessage": "Sub total",
+    "description": "Label for sub total price"
   },
   "vMy9f3": {
     "defaultMessage": "Months",
@@ -13602,6 +13714,10 @@
   "zGTH+Q": {
     "defaultMessage": "What do I do once I'm done coding?",
     "description": "FAQ question for projects platform"
+  },
+  "zI3w61": {
+    "defaultMessage": "Instantly preview your code for UI questions",
+    "description": "Label for code preview features"
   },
   "zIQsmk": {
     "defaultMessage": "Terms of Service",

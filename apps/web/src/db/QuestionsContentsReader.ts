@@ -7,6 +7,7 @@ import { questionsFindClosestToSlug } from '~/components/interviews/questions/co
 import type {
   QuestionFramework,
   QuestionJavaScript,
+  QuestionListTypeData,
   QuestionMetadata,
   QuestionQuiz,
   QuestionSystemDesign,
@@ -177,6 +178,25 @@ export async function readQuestionQuizContents(
     loadedLocale,
     question: JSON.parse(String(response)) as QuestionQuiz,
   };
+}
+
+export async function readQuestionQuizContentsAll(
+  listType: QuestionListTypeData,
+  requestedLocale = 'en-US',
+): Promise<ReadonlyArray<{
+  exactMatch: boolean;
+  loadedLocale: string;
+  question: QuestionQuiz;
+}> | null> {
+  const { questions } = await fetchQuestionsList(listType, requestedLocale);
+
+  const questionsContents = await Promise.all(
+    questions.map((question) =>
+      readQuestionQuizContents(question.slug, requestedLocale),
+    ),
+  );
+
+  return questionsContents.flatMap((qn) => (qn != null ? [qn] : []));
 }
 
 export function readQuestionSystemDesignContents(

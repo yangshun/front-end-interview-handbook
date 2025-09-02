@@ -1,11 +1,15 @@
 import clsx from 'clsx';
+import { useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 import { RiFilterLine } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
 import useUserProfile from '~/hooks/user/useUserProfile';
 
-import { useQuestionFormatsData } from '~/data/QuestionCategories';
+import {
+  QuestionLanguageLabels,
+  useQuestionFormatsData,
+} from '~/data/QuestionCategories';
 
 import SidebarPremiumChip from '~/components/global/sidebar/SidebarPremiumChip';
 import InterviewsPricingTableDialog from '~/components/interviews/purchase/InterviewsPricingTableDialog';
@@ -23,7 +27,14 @@ import ScrollArea from '~/components/ui/ScrollArea';
 import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 
-import type { QuestionListTypeData } from '../../common/QuestionsTypes';
+import type {
+  QuestionListTypeData,
+  QuestionPracticeFormat,
+} from '../../common/QuestionsTypes';
+import {
+  questionsFrameworkTabs,
+  questionsLanguageTabs,
+} from '../utils/QuestionsListTabsConfig';
 
 export type QuestionListTypeWithLabel = QuestionListTypeData &
   Readonly<{ label: string }>;
@@ -38,6 +49,8 @@ function DropdownContent({
   openPricingDialog: (feature: InterviewsPurchasePremiumFeature) => void;
 }>) {
   const intl = useIntl();
+  const searchParams = useSearchParams();
+  const currentTab = searchParams?.get('tab');
   const { data: questionLists, isLoading } = trpc.questionLists.get.useQuery();
   const { userProfile } = useUserProfile();
   const formatData = useQuestionFormatsData();
@@ -154,6 +167,9 @@ function DropdownContent({
             ({
               menuType: 'item',
               ...item,
+              tab: questionsFrameworkTabs(item.value)?.includes('quiz')
+                ? ((currentTab || item.tab) as QuestionPracticeFormat)
+                : item.tab,
             }) as const,
         ),
         { menuType: 'divider', value: 'divider-1' },
@@ -171,6 +187,9 @@ function DropdownContent({
             ({
               menuType: 'item',
               ...item,
+              tab: questionsLanguageTabs().includes('quiz')
+                ? ((currentTab || item.tab) as QuestionPracticeFormat)
+                : item.tab,
             }) as const,
         ),
       ],
@@ -179,6 +198,54 @@ function DropdownContent({
         defaultMessage: 'Frameworks / languages',
         description: 'Front end frameworks or language',
         id: 'pHQFA0',
+      }),
+      menuType: 'list',
+    },
+    {
+      items: [
+        ...questionLists.languages
+          .filter((item) => item.value !== 'ts')
+          .map(
+            (item) =>
+              ({
+                ...item,
+                label: intl.formatMessage(
+                  {
+                    defaultMessage: '{category} Quiz Questions',
+                    description: 'Label for Quiz question',
+                    id: '3A1yG3',
+                  },
+                  {
+                    category: QuestionLanguageLabels[item.value],
+                  },
+                ),
+                menuType: 'item',
+                tab: 'quiz',
+                type: 'language',
+              }) as const,
+          ),
+        {
+          label: intl.formatMessage(
+            {
+              defaultMessage: '{category} Quiz Questions',
+              description: 'Label for Quiz question',
+              id: '3A1yG3',
+            },
+            {
+              category: 'React',
+            },
+          ),
+          menuType: 'item',
+          tab: 'quiz',
+          type: 'framework',
+          value: 'react',
+        },
+      ],
+      key: 'quiz',
+      label: intl.formatMessage({
+        defaultMessage: 'Quizzes',
+        description: 'Tile for quiz question type',
+        id: 'QqddKP',
       }),
       menuType: 'list',
     },

@@ -1,35 +1,68 @@
 import clsx from 'clsx';
 import { useSelectedLayoutSegment } from 'next/navigation';
+import type { ReactNode } from 'react';
 import { Suspense, useState } from 'react';
 
-import { questionListFilterNamespace } from '~/components/interviews/questions/common/QuestionHrefUtils';
+import useHashChange from '~/hooks/useHashChange';
+
+import {
+  questionListFilterNamespace,
+  QuestionListTypeDefault,
+} from '~/components/interviews/questions/common/QuestionHrefUtils';
+import type {
+  QuestionListTypeData,
+  QuestionPracticeFormat,
+} from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsListSlideOutSwitcher from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOutSwitcher';
 import {
   useQuestionsListDataForType,
   useQuestionsListTypeCurrent,
 } from '~/components/interviews/questions/listings/utils/useQuestionsListDataForType';
-import { themeBorderColor } from '~/components/ui/theme';
+import type Anchor from '~/components/ui/Anchor';
 
 import { hashQuestion } from '~/db/QuestionsUtils';
 
 import InterviewsQuestionsListSlideOutContents from '../../listings/slideout/InterviewsQuestionsListSlideOutContents';
 import type { QuestionListTypeWithLabel } from '../../listings/slideout/InterviewsQuestionsListSlideOutSwitcher';
 
-export default function QuestionQuizSidebarQuestionList() {
+type QuestionClickEvent = Parameters<
+  NonNullable<React.ComponentProps<typeof Anchor>['onClick']>
+>[0];
+
+type Props = Readonly<{
+  initialListType?: QuestionListTypeData;
+  renderQuestionsListTopAddOnItem?: ({
+    listType,
+    onClick,
+    tab,
+  }: {
+    listType: QuestionListTypeData;
+    onClick?: (event: QuestionClickEvent, href: string) => void;
+    tab: QuestionPracticeFormat | undefined;
+  }) => ReactNode;
+}>;
+
+export default function QuestionQuizSidebarQuestionList(props: Props) {
   // Because useQuestionsListTypeCurrent() uses useSearchParams()
   // Because of nuqs
   return (
     <Suspense>
-      <QuestionQuizSidebarQuestionListLoader />
+      <QuestionQuizSidebarQuestionListLoader {...props} />
     </Suspense>
   );
 }
 
-function QuestionQuizSidebarQuestionListLoader() {
+function QuestionQuizSidebarQuestionListLoader({
+  initialListType: initialListTypeParam,
+  renderQuestionsListTopAddOnItem,
+}: Props) {
   const studyListKey = undefined;
   const framework = undefined;
 
-  const listType = useQuestionsListTypeCurrent(studyListKey, framework);
+  const listType =
+    useQuestionsListTypeCurrent(studyListKey, framework) ??
+    initialListTypeParam ??
+    QuestionListTypeDefault;
   const { data, isLoading } = useQuestionsListDataForType(listType);
 
   const hidden = isLoading || data == null;
@@ -41,16 +74,29 @@ function QuestionQuizSidebarQuestionListLoader() {
   const initialListType = { ...data.listType, label: data.title };
 
   return (
-    <QuestionsQuizSidebarQuestionListImpl initialListType={initialListType} />
+    <QuestionsQuizSidebarQuestionListImpl
+      initialListType={initialListType}
+      renderQuestionsListTopAddOnItem={renderQuestionsListTopAddOnItem}
+    />
   );
 }
 
 function QuestionsQuizSidebarQuestionListImpl({
   initialListType,
+  renderQuestionsListTopAddOnItem,
 }: Readonly<{
   initialListType: QuestionListTypeWithLabel;
+  renderQuestionsListTopAddOnItem?: ({
+    listType,
+    tab,
+  }: {
+    listType: QuestionListTypeData;
+    onClick?: (event: QuestionClickEvent, href: string) => void;
+    tab: QuestionPracticeFormat | undefined;
+  }) => ReactNode;
 }>) {
   const segment = useSelectedLayoutSegment();
+  const hash = useHashChange();
 
   const [currentListType, setCurrentListType] =
     useState<QuestionListTypeWithLabel>(initialListType);
@@ -74,7 +120,7 @@ function QuestionsQuizSidebarQuestionListImpl({
     }));
   }
 
-  const questionSlug = segment;
+  const questionSlug = (hash || segment || '').replace(/#/g, '');
 
   const currentQuestionHash = questionSlug
     ? hashQuestion({
@@ -87,32 +133,41 @@ function QuestionsQuizSidebarQuestionListImpl({
     initialListType.type !== currentListType.type ||
     initialListType.value !== currentListType.value;
 
+  function handleOnClickQuestion(event: QuestionClickEvent, href: string) {
+    if (hasChangedList) {
+      event.preventDefault();
+      setShowSwitchQuestionListDialog({
+        href,
+        show: true,
+        type: 'question-click',
+      });
+    }
+  }
+
   return (
     <div className={clsx('flex flex-col', 'w-full')}>
-      <div className={clsx('px-6 py-2', ['border-b', themeBorderColor])}>
+      <div className={clsx('px-6 py-2')}>
         <InterviewsQuestionsListSlideOutSwitcher
           listType={currentListType}
           onChangeListType={setCurrentListType}
         />
       </div>
-      <div className="h-0 grow pt-4">
+      <div className="h-0 grow">
         <InterviewsQuestionsListSlideOutContents
           key={filterNamespace}
           currentQuestionHash={currentQuestionHash}
           isDifferentListFromInitial={hasChangedList}
           listType={currentListType}
           mode="embedded"
+          renderQuestionsListTopAddOnItem={({ listType, tab }) =>
+            renderQuestionsListTopAddOnItem?.({
+              listType,
+              onClick: handleOnClickQuestion,
+              tab,
+            })
+          }
           showSwitchQuestionListDialog={showSwitchQuestionListDialog}
-          onClickQuestion={(event, href: string) => {
-            if (hasChangedList) {
-              event.preventDefault();
-              setShowSwitchQuestionListDialog({
-                href,
-                show: true,
-                type: 'question-click',
-              });
-            }
-          }}
+          onClickQuestion={handleOnClickQuestion}
           onCloseSwitchQuestionListDialog={onCloseSwitchQuestionListDialog}
           onListTabChange={(newTab) =>
             setCurrentListType({

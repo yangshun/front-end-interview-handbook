@@ -767,6 +767,12 @@
       "value": "Warm up question"
     }
   ],
+  "/mpSVj": [
+    {
+      "type": 0,
+      "value": "Scrolling view"
+    }
+  ],
   "/n0jtw": [
     {
       "type": 0,
@@ -1910,6 +1916,16 @@
       "value": "Gamification and progress tracking"
     }
   ],
+  "2HQlrS": [
+    {
+      "type": 1,
+      "value": "category"
+    },
+    {
+      "type": 0,
+      "value": " Interview Questions and Answers | by Ex-FAANG interviewers"
+    }
+  ],
   "2Hqklu": [
     {
       "type": 0,
@@ -2048,6 +2064,12 @@
     {
       "type": 0,
       "value": "Algorithmic Coding Interview Questions"
+    }
+  ],
+  "2TPnld": [
+    {
+      "type": 0,
+      "value": "Instant UI preview for UI-related questions"
     }
   ],
   "2a6qgD": [
@@ -2375,6 +2397,16 @@
     {
       "type": 0,
       "value": "Coding-focused"
+    }
+  ],
+  "3A1yG3": [
+    {
+      "type": 1,
+      "value": "category"
+    },
+    {
+      "type": 0,
+      "value": " Quiz Questions"
     }
   ],
   "3C1g+S": [
@@ -3113,6 +3145,16 @@
     {
       "type": 0,
       "value": "Start a new version"
+    }
+  ],
+  "4gumtt": [
+    {
+      "type": 1,
+      "value": "category"
+    },
+    {
+      "type": 0,
+      "value": " Interview Questions"
     }
   ],
   "4jymHU": [
@@ -4139,6 +4181,12 @@
     {
       "type": 0,
       "value": " users in our private Discord community for Premium users"
+    }
+  ],
+  "71Hlcg": [
+    {
+      "type": 0,
+      "value": "Reference solutions from ex-interviewers at Big Tech companies"
     }
   ],
   "72GwzV": [
@@ -6897,6 +6945,16 @@
       "value": "Progress imported successfully"
     }
   ],
+  "Dabxa8": [
+    {
+      "type": 1,
+      "value": "questionCount"
+    },
+    {
+      "type": 0,
+      "value": "+ most important TypeScript interview questions and answers in quiz-style format, answered by ex-FAANG interviewers"
+    }
+  ],
   "Dc5QrJ": [
     {
       "type": 0,
@@ -7450,6 +7508,24 @@
       "value": "Project started! Leverage the provided resources and submit a link to your site once ready!"
     }
   ],
+  "EtDVci": [
+    {
+      "type": 1,
+      "value": "questionCount"
+    },
+    {
+      "type": 0,
+      "value": "+ "
+    },
+    {
+      "type": 1,
+      "value": "category"
+    },
+    {
+      "type": 0,
+      "value": " interview questions and answers in quiz-style format, answered by ex-FAANG interviewers"
+    }
+  ],
   "Euaee/": [
     {
       "type": 0,
@@ -7770,6 +7846,12 @@
       "value": "JavaScript Functions"
     }
   ],
+  "Fxe4CE": [
+    {
+      "type": 0,
+      "value": "Total due"
+    }
+  ],
   "FyfO1X": [
     {
       "type": 0,
@@ -7922,6 +8004,26 @@
     {
       "type": 0,
       "value": "Get full access"
+    }
+  ],
+  "GPM7SF": [
+    {
+      "type": 0,
+      "value": "New File"
+    }
+  ],
+  "GPQg5j": [
+    {
+      "type": 0,
+      "value": "If you're looking for "
+    },
+    {
+      "type": 1,
+      "value": "languageOrFramework"
+    },
+    {
+      "type": 0,
+      "value": " coding questions -"
     }
   ],
   "GPp0wf": [
@@ -11749,6 +11851,12 @@
       "value": "Support us by starring our GitHub repo and consider contributing!"
     }
   ],
+  "P6sA19": [
+    {
+      "type": 0,
+      "value": "We've got you covered as well, with:"
+    }
+  ],
   "P99cBr": [
     {
       "type": 0,
@@ -12395,6 +12503,12 @@
     {
       "type": 0,
       "value": "Blog | GreatFrontEnd"
+    }
+  ],
+  "Q891Ht": [
+    {
+      "type": 0,
+      "value": "One-click automated, transparent test cases"
     }
   ],
   "QAFkOT": [
@@ -13224,6 +13338,12 @@
       "value": "Privacy policy"
     }
   ],
+  "Rxyjw3": [
+    {
+      "type": 0,
+      "value": "Introduction"
+    }
+  ],
   "RyuIJe": [
     {
       "type": 0,
@@ -13909,6 +14029,12 @@
     {
       "type": 0,
       "value": "Tell us anything - about your journey as a front end developer, your goals and next steps, or how you want to connect with others"
+    }
+  ],
+  "THbGFn": [
+    {
+      "type": 0,
+      "value": "Questions appear on different pages"
     }
   ],
   "TJD+8A": [
@@ -15636,6 +15762,12 @@
       "value": "How to use Figma for development"
     }
   ],
+  "XCqQUO": [
+    {
+      "type": 0,
+      "value": "Get Started"
+    }
+  ],
   "XG1Wfg": [
     {
       "type": 0,
@@ -16098,6 +16230,12 @@
     {
       "type": 0,
       "value": "As mentioned above, there are many ways to host your project for free. Our recommend hosts are:"
+    }
+  ],
+  "YEEd13": [
+    {
+      "type": 0,
+      "value": "In-browser coding workspace that mimics real interview conditions"
     }
   ],
   "YFKKP4": [
@@ -17098,6 +17236,12 @@
       "value": "Outdent line"
     }
   ],
+  "al0GiV": [
+    {
+      "type": 0,
+      "value": "There was a technical error while processing the payment."
+    }
+  ],
   "alG3Yi": [
     {
       "type": 0,
@@ -17544,6 +17688,16 @@
     {
       "type": 0,
       "value": "Now in BETA."
+    }
+  ],
+  "bYOK+T": [
+    {
+      "type": 1,
+      "value": "category"
+    },
+    {
+      "type": 0,
+      "value": " Interview Questions and Answers"
     }
   ],
   "bYY9Mh": [
@@ -20878,6 +21032,28 @@
       "value": "In Content Ad Placement in system design"
     }
   ],
+  "inlaDX": [
+    {
+      "type": 0,
+      "value": "Practice "
+    },
+    {
+      "type": 1,
+      "value": "questionCount"
+    },
+    {
+      "type": 0,
+      "value": "+ curated "
+    },
+    {
+      "type": 1,
+      "value": "category"
+    },
+    {
+      "type": 0,
+      "value": " Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers"
+    }
+  ],
   "iqz/fo": [
     {
       "type": 0,
@@ -21018,6 +21194,20 @@
     {
       "type": 0,
       "value": "Stopped at"
+    }
+  ],
+  "jL6ul2": [
+    {
+      "type": 0,
+      "value": "Join "
+    },
+    {
+      "type": 1,
+      "value": "engineersCount"
+    },
+    {
+      "type": 0,
+      "value": "+ engineers"
     }
   ],
   "jLHxac": [
@@ -21316,6 +21506,12 @@
       "value": "Suitable to get your foot in the door."
     }
   ],
+  "jjdVOP": [
+    {
+      "type": 0,
+      "value": "All questions appear on a single page"
+    }
+  ],
   "jlTtgt": [
     {
       "type": 0,
@@ -21358,6 +21554,24 @@
     {
       "type": 0,
       "value": "Regular payouts through PayPal"
+    }
+  ],
+  "jrT2Ow": [
+    {
+      "type": 1,
+      "value": "questionCount"
+    },
+    {
+      "type": 0,
+      "value": "+ "
+    },
+    {
+      "type": 1,
+      "value": "languageOrFramework"
+    },
+    {
+      "type": 0,
+      "value": " Coding Questions"
     }
   ],
   "jtnskJ": [
@@ -22537,6 +22751,16 @@
       "value": "In Content Ad Placement in guides"
     }
   ],
+  "mLrZGz": [
+    {
+      "type": 1,
+      "value": "amountOff"
+    },
+    {
+      "type": 0,
+      "value": " off"
+    }
+  ],
   "mNb3b2": [
     {
       "type": 0,
@@ -23105,6 +23329,12 @@
       "value": "More settings"
     }
   ],
+  "nSJ/yC": [
+    {
+      "type": 0,
+      "value": "Continue"
+    }
+  ],
   "nTu2nu": [
     {
       "type": 0,
@@ -23283,6 +23513,16 @@
     {
       "type": 0,
       "value": "."
+    }
+  ],
+  "nnXIFO": [
+    {
+      "type": 1,
+      "value": "questionCount"
+    },
+    {
+      "type": 0,
+      "value": "+ most important JavaScript interview questions and answers, covering everything from core concepts to advanced JavaScript features"
     }
   ],
   "nodFHk": [
@@ -23666,6 +23906,12 @@
     {
       "type": 0,
       "value": "."
+    }
+  ],
+  "ofJOh2": [
+    {
+      "type": 0,
+      "value": "Javascript coding"
     }
   ],
   "ofUX5S": [
@@ -24243,22 +24489,6 @@
     {
       "type": 0,
       "value": "OFF"
-    }
-  ],
-  "pj07uD": [
-    {
-      "type": 0,
-      "value": "Mark complete"
-    }
-  ],
-  "pjH0jb": [
-    {
-      "type": 1,
-      "value": "name"
-    },
-    {
-      "type": 0,
-      "value": " front end interview questions"
     }
   ],
   "pjndkX": [
@@ -24981,6 +25211,12 @@
     {
       "type": 0,
       "value": "No Projects profile"
+    }
+  ],
+  "rCqW54": [
+    {
+      "type": 0,
+      "value": "Page-by-page"
     }
   ],
   "rGbEEY": [
@@ -25793,6 +26029,16 @@
       "value": "Starter"
     }
   ],
+  "tRQG6L": [
+    {
+      "type": 1,
+      "value": "percentOff"
+    },
+    {
+      "type": 0,
+      "value": "% off"
+    }
+  ],
   "tWtbVf": [
     {
       "type": 0,
@@ -26445,6 +26691,12 @@
     {
       "type": 0,
       "value": "View other's code and learn from their approach"
+    }
+  ],
+  "vLsSQG": [
+    {
+      "type": 0,
+      "value": "Sub total"
     }
   ],
   "vMy9f3": [
@@ -28126,6 +28378,12 @@
     {
       "type": 0,
       "value": "What do I do once I'm done coding?"
+    }
+  ],
+  "zI3w61": [
+    {
+      "type": 0,
+      "value": "Instantly preview your code for UI questions"
     }
   ],
   "zIQsmk": [

@@ -61,6 +61,7 @@ function Anchor(
     typeof href === 'string' ? /^(http|mailto)/.test(href ?? '') : false;
 
   const finalHref = href ?? '#';
+
   const rel = relProp ?? (isExternalURL ? 'noreferrer noopener' : undefined);
   const className = anchorVariants({
     className: clsx(

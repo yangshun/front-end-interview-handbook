@@ -21,6 +21,7 @@ type MetadataElement =
   | 'users_completed';
 
 type Props = Readonly<{
+  className?: string;
   elements?: ReadonlyArray<MetadataElement>;
   justify?: 'center' | 'start';
   metadata: QuestionMetadata;
@@ -36,6 +37,7 @@ const DEFAULT_ELEMENTS: ReadonlyArray<MetadataElement> = [
 ];
 
 export default function QuestionMetadataSection({
+  className,
   elements = DEFAULT_ELEMENTS,
   justify = 'start',
   metadata,
@@ -47,7 +49,8 @@ export default function QuestionMetadataSection({
         'flex flex-wrap items-center',
         justify === 'start' && 'justify-start',
         justify === 'center' && 'justify-center',
-        'gap-x-6 gap-y-4 ',
+        'gap-x-6 gap-y-4',
+        className,
       )}>
       {elements.includes('author') && metadata.author && (
         <QuestionAuthor author={metadata.author} size={size} />
