@@ -4,7 +4,7 @@ title: 描述块格式化上下文 (BFC) 及其工作原理。
 
 块格式化上下文 (BFC) 是网页视觉 CSS 渲染的一部分，其中会布局块级盒子。浮动、绝对定位的元素、`inline-blocks`、`table-cells`、`table-caption` 以及 `overflow` 值不为 `visible` 的元素（除非该值已传播到视口）会建立新的块格式化上下文。
 
-了解如何建立块格式化上下文非常重要，因为如果不这样做，包含框将无法[包含浮动子元素](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context#Make_float_content_and_alongside_content_the_same_height)。这类似于折叠外边距，但更隐蔽，因为您会发现整个盒子以奇怪的方式折叠。
+了解如何建立块格式化上下文非常重要，因为如果不这样做，包含框将不会[包含浮动子元素](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_display/Block_formatting_context#Make_float_content_and_alongside_content_the_same_height)。这类似于折叠边距，但更隐蔽，因为您会发现整个框以奇怪的方式折叠。
 
 BFC 是满足以下至少一个条件的 HTML 盒子：
 
