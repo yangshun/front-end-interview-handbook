@@ -1171,6 +1171,26 @@ export function InterviewsMarketingTestimonialsDict(intl: IntlShape) {
     }),
     title: 'Frontend Engineer',
   };
+  const tylerHoldren: InterviewsMarketingTestimonial = {
+    anonymous: false,
+    authorThumbnailUrl: '/img/testimonials/users/tyler-holdren.webp',
+    authorUrl: 'https://www.linkedin.com/in/tyler-holdren/',
+    companyLogoUrl: '/img/testimonials/company/apple.svg',
+    createdAt: '2025-09-04',
+    featured: true,
+    featuredOffer: 'Apple',
+    id: 'tyler-holdren',
+    location: 'New York, US',
+    name: 'Tyler Holdren',
+    offers: [],
+    testimonial: intl.formatMessage({
+      defaultMessage:
+        "GreatFrontEnd completely transformed my interview prep. I went from feeling uncertain in my JS fundamentals to being able to impress my interviewers with my depth of knowledge and understanding. The coding solutions are official, optimal, and explained by the authors with unmatched clarity, rigor, and evidence. The system design docs are also next-level, breaking down front-end architecture in a way that's clear and approachable, which enabled me to speak confidently in my interviews. I directly attribute my success in navigating the interview landscape to consistent, focused effort and the quality of the content on this platform.",
+      description: 'User testimonial for GreatFrontEnd Interviews',
+      id: 'PMSHEJ',
+    }),
+    title: 'Software Engineer',
+  };
   // Const template: InterviewsMarketingTestimonial = {
   //   anonymous: false,
   //   authorThumbnailUrl: 'TO_BE_FILLED',
@@ -1242,6 +1262,7 @@ export function InterviewsMarketingTestimonialsDict(intl: IntlShape) {
     skarKing,
     skykillz,
     t4d95,
+    tylerHoldren,
     uncleTito,
     vali,
     vietnam,

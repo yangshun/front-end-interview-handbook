@@ -45,6 +45,7 @@ export default function InterviewsMarketingHero() {
   });
 
   const testimonials = [
+    marketingTestimonials.tylerHoldren,
     marketingTestimonials.jessieShen,
     marketingTestimonials.praveenKumar,
     marketingTestimonials.faithMorante,
