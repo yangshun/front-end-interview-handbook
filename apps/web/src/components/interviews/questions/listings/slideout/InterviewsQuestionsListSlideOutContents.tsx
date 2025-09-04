@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import type { ReactNode } from 'react';
 import { useEffect, useState } from 'react';
 import {
@@ -220,6 +220,7 @@ export default function InterviewsQuestionsListSlideOutContents({
 }: Props) {
   const intl = useIntl();
   const router = useRouter();
+  const pathname = usePathname();
   const { userProfile } = useUserProfile();
 
   const [showFilters, setShowFilters] = useState(false);
@@ -379,6 +380,7 @@ export default function InterviewsQuestionsListSlideOutContents({
           processedQuestions[0],
           listType,
           framework,
+          pathname,
         ),
       );
     }
@@ -388,6 +390,7 @@ export default function InterviewsQuestionsListSlideOutContents({
     processedQuestions,
     setFirstQuestionHref,
     showCompanyPaywall,
+    pathname,
   ]);
 
   const label = intl.formatMessage({

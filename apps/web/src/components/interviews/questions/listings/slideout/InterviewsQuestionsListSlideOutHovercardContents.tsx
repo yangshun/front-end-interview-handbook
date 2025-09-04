@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { usePathname } from 'next/navigation';
 
 import { questionHrefFrameworkSpecificAndListType } from '~/components/interviews/questions/common/QuestionHrefUtils';
 import QuestionAuthor from '~/components/interviews/questions/metadata/QuestionAuthor';
@@ -27,6 +28,8 @@ export default function InterviewsQuestionsListSlideOutHovercardContents({
   question,
   size = 'body3',
 }: Props) {
+  const pathname = usePathname();
+
   return (
     <div
       className={clsx(
@@ -45,11 +48,12 @@ export default function InterviewsQuestionsListSlideOutHovercardContents({
             question,
             listType,
             framework,
+            pathname,
           )}
           variant="flat">
           {question.title}
         </Anchor>
-        <Text className="text-pretty grow" color="secondary" size="body2">
+        <Text className="grow text-pretty" color="secondary" size="body2">
           {question.excerpt}
         </Text>
       </div>

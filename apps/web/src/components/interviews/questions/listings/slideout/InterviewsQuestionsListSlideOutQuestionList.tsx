@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { usePathname } from 'next/navigation';
 import type { ReactNode } from 'react';
 
 import VignetteOverlay from '~/components/common/VignetteOverlay';
@@ -49,6 +50,7 @@ export default function InterviewsQuestionsListSlideOutQuestionList<
   showCompanyPaywall,
 }: Props<Q>) {
   const intl = useIntl();
+  const pathname = usePathname();
 
   if (questions.length === 0) {
     return (
@@ -138,6 +140,7 @@ export default function InterviewsQuestionsListSlideOutQuestionList<
               questionMetadata,
               listType,
               framework,
+              pathname,
             );
 
             return (

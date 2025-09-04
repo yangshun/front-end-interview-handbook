@@ -1,6 +1,8 @@
 'use client';
 
 import clsx from 'clsx';
+import { usePathname } from 'next/navigation';
+import type { ComponentProps } from 'react';
 import { Suspense } from 'react';
 import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
 
@@ -142,17 +144,8 @@ function InterviewsQuestionsListSlideOutButtonImpl({
 
   return (
     <div className="flex h-7 gap-x-2">
-      <Button
+      <NavigationButton
         addonPosition="start"
-        href={
-          prevQuestion
-            ? questionHrefFrameworkSpecificAndListType(
-                prevQuestion,
-                listType,
-                framework,
-              )
-            : undefined
-        }
         icon={RiArrowLeftSLine}
         isDisabled={prevQuestion == null}
         isLabelHidden={true}
@@ -161,6 +154,17 @@ function InterviewsQuestionsListSlideOutButtonImpl({
           description: 'Previous question',
           id: 'WPfIhl',
         })}
+        questionHref={
+          prevQuestion
+            ? (pathname: string | null) =>
+                questionHrefFrameworkSpecificAndListType(
+                  prevQuestion,
+                  listType,
+                  framework,
+                  pathname,
+                )
+            : undefined
+        }
         size="xs"
         tooltip={prevQuestion ? prevQuestion?.title : undefined}
         variant="tertiary"
@@ -178,17 +182,8 @@ function InterviewsQuestionsListSlideOutButtonImpl({
           slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE
         }
       />
-      <Button
+      <NavigationButton
         addonPosition="start"
-        href={
-          nextQuestion
-            ? questionHrefFrameworkSpecificAndListType(
-                nextQuestion,
-                listType,
-                framework,
-              )
-            : undefined
-        }
         icon={RiArrowRightSLine}
         isDisabled={nextQuestion == null}
         isLabelHidden={true}
@@ -197,10 +192,35 @@ function InterviewsQuestionsListSlideOutButtonImpl({
           description: 'Next question',
           id: 'DqvEKB',
         })}
+        questionHref={
+          nextQuestion
+            ? (pathname: string | null) =>
+                questionHrefFrameworkSpecificAndListType(
+                  nextQuestion,
+                  listType,
+                  framework,
+                  pathname,
+                )
+            : undefined
+        }
         size="xs"
         tooltip={nextQuestion ? nextQuestion?.title : undefined}
         variant="tertiary"
       />
     </div>
   );
+}
+
+function NavigationButton({
+  questionHref,
+  ...props
+}: ComponentProps<typeof Button> &
+  Readonly<{
+    questionHref?: (pathname: string | null) => string;
+  }>) {
+  const pathname = usePathname();
+
+  const href = questionHref?.(pathname);
+
+  return <Button {...props} href={href} />;
 }

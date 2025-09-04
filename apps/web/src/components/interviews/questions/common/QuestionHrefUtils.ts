@@ -60,6 +60,7 @@ export function questionHrefWithListType(
   href: string,
   listType?: QuestionListTypeData | null,
   questionMetadata?: QuestionMetadata,
+  currentPathname?: string | null, // We need this prop and cannot use window.location instead because Next.js doesn't update location when we do the navigation
 ): string {
   if (listType == null) {
     return href;
@@ -96,33 +97,38 @@ export function questionHrefWithListType(
       case 'framework': {
         switch (listType.value) {
           case 'react':
-            return (
-              `/questions/quiz/${QuestionFrameworkRawToSEOMapping.react}` +
-              urlObject.search +
-              `#${questionMetadata.slug}`
+            return getQuizQuestionUrl(
+              `/questions/quiz/${QuestionFrameworkRawToSEOMapping.react}`,
+              questionMetadata.slug,
+              urlObject,
+              currentPathname,
             );
         }
         break;
       }
       case 'language': {
         switch (listType.value) {
-          case 'js':
-            return (
-              `/questions/quiz/${QuestionLanguageRawToSEOMapping.js}` +
-              urlObject.search +
-              `#${questionMetadata.slug}`
+          case 'js': {
+            return getQuizQuestionUrl(
+              `/questions/quiz/${QuestionLanguageRawToSEOMapping.js}`,
+              questionMetadata.slug,
+              urlObject,
+              currentPathname,
             );
+          }
           case 'html':
-            return (
-              `/questions/quiz/${QuestionLanguageRawToSEOMapping.html}` +
-              urlObject.search +
-              `#${questionMetadata.slug}`
+            return getQuizQuestionUrl(
+              `/questions/quiz/${QuestionLanguageRawToSEOMapping.html}`,
+              questionMetadata.slug,
+              urlObject,
+              currentPathname,
             );
           case 'css':
-            return (
-              `/questions/quiz/${QuestionLanguageRawToSEOMapping.css}` +
-              urlObject.search +
-              `#${questionMetadata.slug}`
+            return getQuizQuestionUrl(
+              `/questions/quiz/${QuestionLanguageRawToSEOMapping.css}`,
+              questionMetadata.slug,
+              urlObject,
+              currentPathname,
             );
         }
       }
@@ -136,6 +142,7 @@ export function questionHrefFrameworkSpecificAndListType(
   questionMetadata: QuestionMetadata,
   listType?: QuestionListTypeData | null,
   framework?: QuestionFramework,
+  currentPathname?: string | null,
 ): string {
   const hrefWithMaybeFramework = questionHrefFrameworkSpecific(
     questionMetadata,
@@ -147,12 +154,19 @@ export function questionHrefFrameworkSpecificAndListType(
     hrefWithMaybeFramework,
     listType,
     questionMetadata,
+    currentPathname,
   );
 
-  return questionHrefStripSamePathnameAndSearch(hrefWithListType);
+  return questionHrefStripSamePathnameAndSearch(
+    hrefWithListType,
+    currentPathname,
+  );
 }
 
-function questionHrefStripSamePathnameAndSearch(href: string): string {
+function questionHrefStripSamePathnameAndSearch(
+  href: string,
+  currentPathname?: string | null,
+): string {
   if (typeof window === 'undefined') {
     return href;
   }
@@ -162,11 +176,41 @@ function questionHrefStripSamePathnameAndSearch(href: string): string {
   // Leave only the hash if the current URL is the same as the href
   // Next.js has problems pushing to the same URL with a hash
   if (
-    window.location.pathname === urlObj.pathname &&
+    currentPathname === urlObj.pathname &&
     window.location.search === urlObj.search
   ) {
     return urlObj.hash || '#';
   }
 
   return href;
+}
+
+function getQuizQuestionUrl(
+  base: string,
+  slug: string,
+  urlObject: URL,
+  currentPathname?: string | null,
+) {
+  const scrollModeUrls = [
+    `/questions/quiz/${QuestionFrameworkRawToSEOMapping.react}`,
+    `/questions/quiz/${QuestionLanguageRawToSEOMapping.js}`,
+    `/questions/quiz/${QuestionLanguageRawToSEOMapping.html}`,
+    `/questions/quiz/${QuestionLanguageRawToSEOMapping.css}`,
+  ];
+  const scrollModeUrl = base + urlObject.search + `#${slug}`;
+
+  if (typeof window === 'undefined') {
+    return scrollModeUrl;
+  }
+
+  const isQuizPage = currentPathname?.includes('/questions/quiz');
+  // Check if the current URL is scroll mode url type
+  const isScrollMode = scrollModeUrls.includes(currentPathname ?? '');
+
+  if (!isQuizPage || isScrollMode) {
+    return scrollModeUrl;
+  }
+
+  // Return quiz page by page url if the current page is page by page mode
+  return `/questions/quiz/${slug}` + urlObject.search;
 }
