@@ -64,11 +64,11 @@ export const teamUsers: ReadonlyArray<TeamUser> = [
       '/img/company-logos/amazon-logomark.svg',
     ],
     description:
-      'Zhenghao is an Engineering Manager at Robinhood who was previously from Docusign, Instacart, and Amazon. He has developed multiple modern large-scale web apps and writes about software development and web technologies on zhenghao.io',
+      'Zhenghao is an Engineering Manager at Rippling who was previously from  Instacart, and Amazon. He has developed multiple modern large-scale web apps and writes about software development and web technologies on zhenghao.io',
     href: 'https://www.zhenghao.io/',
     image: '/img/team/zhenghao.jpg',
     name: 'Zhenghao He',
-    title: 'Engineering Manager @ Robinhood. Ex-Amazon',
+    title: 'Engineering Manager @ Rippling. Ex-Amazon',
   },
   {
     category: 'team',
@@ -90,11 +90,11 @@ export const teamUsers: ReadonlyArray<TeamUser> = [
       '/img/company-logos/google-logomark.svg',
     ],
     description:
-      'Beng is a software engineer who is well-versed in databases and distributed systems. Previously Ad Speed tech lead at Google.',
+      'Beng is a founding software engineer at Supabase and is well-versed in databases and distributed systems. Previously Ad Speed tech lead at Google.',
     href: 'https://www.linkedin.com/in/thebengeu/',
     image: '/img/team/beng.jpg',
     name: 'Beng Eu',
-    title: 'Software Engineer @ Supabase. Ex-Google',
+    title: 'Founding Engineer @ Supabase. Ex-Google',
   },
   {
     category: 'expert',
@@ -105,6 +105,16 @@ export const teamUsers: ReadonlyArray<TeamUser> = [
     image: '/img/team/sebastien-lorber.jpg',
     name: 'Sébastien Lorber',
     title: 'Creator of This Week In React, Docusaurus maintainer',
+  },
+  {
+    category: 'team',
+    companyLogos: [],
+    description:
+      'Taha is excited about building web apps with a focus on user-centric design. He is big on writing clean, maintainable code, and does his best working with collaborative teams where he has opportunities to grow.',
+    href: 'https://www.linkedin.com/in/tahacheema/',
+    image: '/img/team/taha.webp',
+    name: 'Muhammad Taha Cheema',
+    title: 'Software Engineering Intern @ GreatFrontEnd',
   },
   {
     category: 'expert',
@@ -118,6 +128,16 @@ export const teamUsers: ReadonlyArray<TeamUser> = [
     image: '/img/team/quanyang.jpg',
     name: 'Quan Yang Yeo',
     title: 'AppSec Tech Lead @ Snap. Ex-Apple',
+  },
+  {
+    category: 'expert',
+    companyLogos: [],
+    description:
+      "Shruti Kapoor is a frontend engineer, educator, and speaker with 10+ years of experience, previously at PayPal and Slack. Now a full-time content creator, she's known for making React 18 and 19 easy (and fun) to understand—DevJokes included.",
+    href: 'https://shrutikapoor.substack.com/',
+    image: '/img/team/shruti.webp',
+    name: 'Shruti Kapoor',
+    title: 'Frontend developer, Educator, Author',
   },
   {
     category: 'expert',
@@ -202,15 +222,5 @@ export const teamUsers: ReadonlyArray<TeamUser> = [
     image: '/img/team/minh-man.jpg',
     name: 'Tram Minh Man',
     title: 'Ex-Software Engineering Intern @ GreatFrontEnd',
-  },
-  {
-    category: 'team',
-    companyLogos: [],
-    description:
-      'Taha is excited about building web apps with a focus on user-centric design. He is big on writing clean, maintainable code, and does his best working with collaborative teams where he has opportunities to grow.',
-    href: 'https://www.linkedin.com/in/tahacheema/',
-    image: '/img/team/taha.webp',
-    name: 'Muhammad Taha Cheema',
-    title: 'Software Engineering Intern @ GreatFrontEnd',
   },
 ];
