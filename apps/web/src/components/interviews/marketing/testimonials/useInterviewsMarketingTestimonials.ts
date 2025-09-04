@@ -21,6 +21,7 @@ export function useInterviewsMarketingTestimonials(
         return [...featuredItems, ...nonFeaturedItems];
       })()
     : [
+        testimonialsObjects.tylerHoldren,
         testimonialsObjects.jessieShen,
         testimonialsObjects.praveenKumar,
         testimonialsObjects.jaydeMitchell,
@@ -44,13 +45,9 @@ export function useInterviewsMarketingTestimonials(
         testimonialsObjects.luca,
         testimonialsObjects.shoaibAhmed,
         testimonialsObjects.pratikMehta,
-        testimonialsObjects.yuhuiWang,
         testimonialsObjects.lunghaoLee,
         testimonialsObjects.nam,
-        testimonialsObjects.alan,
         testimonialsObjects.faithKomlo,
-        testimonialsObjects.nafis,
-        testimonialsObjects.anand,
       ];
 
   const testimonialColumns: ReadonlyArray<{

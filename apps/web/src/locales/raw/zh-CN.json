@@ -83,6 +83,10 @@
     "defaultMessage": "这个网站上的材料简直就是一座金矿。在使用 GreatFrontEnd 之前，我一直在电话面试中屡屡失败。我甚至从未接近过现场面试。在学习了 GFE 上的材料后，我能够获得几次现场面试，并通过了我的第一次现场面试！在亚马逊学习 GFE 大约 2.5 个月后，我才找到了一份工作！GFE 上的材料特别容易理解，我个人被问到 GFE 的问题无数次。此外，GFE 的 Discord 频道和社区在分享他们之前的面试经验方面非常有帮助。它非常活跃，每个人都非常乐于助人！",
     "description": "User testimonial for GreatFrontEnd Interviews"
   },
+  "+JhlMu": {
+    "defaultMessage": "恭喜您完成了问题！ 登录您的帐户或免费注册以保存您的进度！",
+    "description": "Message shown when user completes a question"
+  },
   "+NbHNn": {
     "defaultMessage": "通过实现诸如节流或填充之类的实用函数来练习 JavaScript 代码面试问题。在浏览器中进行编码，并获得来自前面试官的解决方案。",
     "description": "SEO description for JavaScript coding question format page"
@@ -402,6 +406,10 @@
   "/mJXTQ": {
     "defaultMessage": "热身问题",
     "description": "Label for warm up questions"
+  },
+  "/mpSVj": {
+    "defaultMessage": "滚动视图",
+    "description": "Label for quiz scroll mode toggle button"
   },
   "/n0jtw": {
     "defaultMessage": "联系您的银行以获取新卡。",
@@ -907,6 +915,10 @@
     "defaultMessage": "游戏化和进度跟踪",
     "description": "Answer to 'What is unique about GreatFrontEnd Projects vs other challenge platforms?' on projects FAQs"
   },
+  "2HQlrS": {
+    "defaultMessage": "{category} 问答 | 由前 FAANG 面试官提供",
+    "description": "Title of quiz scrolling mode page"
+  },
   "2Hqklu": {
     "defaultMessage": "您为 <recipientProfileLink>{recipient}</recipientProfileLink> 的提交 <link>{submissionTitle}</link> 撰写了代码审查意见：<comment>\"{description}\"</comment>",
     "description": "Log message for you reviewing others submission"
@@ -1070,6 +1082,10 @@
   "38b6CQ": {
     "defaultMessage": "专注于编码",
     "description": "Coding workspace layout name"
+  },
+  "3A1yG3": {
+    "defaultMessage": "{category} 测验问题",
+    "description": "Label for Quiz question"
   },
   "3C1g+S": {
     "defaultMessage": "不要只做一次投放——我们会让您的广告反复曝光",
@@ -1422,6 +1438,10 @@
   "4gshRJ": {
     "defaultMessage": "开始新版本",
     "description": "Start a new version of the question button label"
+  },
+  "4gumtt": {
+    "defaultMessage": "{category} 面试问题",
+    "description": "Title of scrolling mode page"
   },
   "4jymHU": {
     "defaultMessage": "{skipCount} 条已跳过",
@@ -1902,6 +1922,10 @@
   "71+OLd": {
     "defaultMessage": "加入超过 {userCount} 位用户的专属 Discord 社区，为高级用户提供服务",
     "description": "Button subtitle for joining the Premium Discord community on interviews payment success page"
+  },
+  "71Hlcg": {
+    "defaultMessage": "来自 Big Tech 公司前面试官的参考解决方案",
+    "description": "Label for coding questions solution"
   },
   "72GwzV": {
     "defaultMessage": "在 {frameworkLabel} 中可用",
@@ -2562,6 +2586,10 @@
   "A5COe1": {
     "defaultMessage": "取消",
     "description": "Label for cancel button on import progress dialog"
+  },
+  "A5JdsM": {
+    "defaultMessage": "UI 相关问题的即时 UI 预览",
+    "description": "Label for related UI preview features"
   },
   "A7IkHe": {
     "defaultMessage": "<bold>{completedArticles}</bold>/{totalArticles} 篇文章",
@@ -3523,6 +3551,10 @@
     "defaultMessage": "项目启动！利用提供的资源，准备好后提交您的站点链接！",
     "description": "Toast subtitle for project session started"
   },
+  "EtDVci": {
+    "defaultMessage": "{questionCount}+ {category} 问答，采用测验形式，由前 FAANG 面试官解答",
+    "description": "Description of scroll mode quiz questions page"
+  },
   "Euaee/": {
     "defaultMessage": "重新订阅以解锁",
     "description": "Title for a premium project paywall"
@@ -3691,6 +3723,10 @@
     "defaultMessage": "JavaScript 函数",
     "description": "Page title for JavaScript coding question format"
   },
+  "Fxe4CE": {
+    "defaultMessage": "总计",
+    "description": "Label for total due price"
+  },
   "FyfO1X": {
     "defaultMessage": "前端系统设计指南",
     "description": "Front end system design guidebook title"
@@ -3778,6 +3814,10 @@
   "GPFB6p": {
     "defaultMessage": "获得完整访问权限",
     "description": "Button CTA to encourage upgrading"
+  },
+  "GPQg5j": {
+    "defaultMessage": "如果您正在寻找 {languageOrFramework} 编码问题 -",
+    "description": "Header for coding section in interview quiz page"
   },
   "GPp0wf": {
     "defaultMessage": "欢迎使用 GreatFrontEnd 项目！",
@@ -4251,6 +4291,10 @@
     "defaultMessage": "隐私政策",
     "description": "Link to privacy policy page"
   },
+  "IVpb44": {
+    "defaultMessage": "大家好。 我能够在 HubSpot 获得 Senior Software Engineer II 的非正式录用通知。 我也在 Airbnb 完成流程，感觉很好。 非常感谢 GreatFrontEnd 的人们。 系统设计内容改变了我的生活。 期待更深入地探索系统设计内容。",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "IWhajc": {
     "defaultMessage": "加入我们全球热情洋溢的前端工程师大家庭。",
     "description": "Marketing page section subtitle"
@@ -4578,6 +4622,10 @@
   "Jn7AHE": {
     "defaultMessage": "这是一个不可逆的操作。您将失去所有进度。您确定吗？",
     "description": "Confirmation text for reseting study plan progress"
+  },
+  "JnZMCy": {
+    "defaultMessage": "来自 Big Tech 前面试官的参考解决方案",
+    "description": "Label for JavaScript solutions in coding questions"
   },
   "Jnlfx1": {
     "defaultMessage": "前端面试学习计划",
@@ -5127,10 +5175,6 @@
     "defaultMessage": "代码已成功应用！ {percentOff} 折",
     "description": "Message when promo code is successfully applied"
   },
-  "Lsk0wX": {
-    "defaultMessage": "一键加入 GreatFrontEnd",
-    "description": "Auth card title"
-  },
   "Ludb5F": {
     "defaultMessage": "我们的平台旨在支持社区驱动的开发。从项目讨论到代码审查和方法分享，您将永远不会在学习中感到孤单。",
     "description": "Description of 'Learn together' feature in Projects marketing page"
@@ -5278,6 +5322,10 @@
   "Mai1gI": {
     "defaultMessage": "我们会审核您的广告请求，并在 {approvalDays} 个工作日内回复确认和付款。",
     "description": "Advertise request success message"
+  },
+  "MaorIw": {
+    "defaultMessage": "登录以保存进度",
+    "description": "Instructions for saving platform progress"
   },
   "MdIpF6": {
     "defaultMessage": "浏览我们社区的项目解决方案。",
@@ -5567,6 +5615,10 @@
     "defaultMessage": "通过构建真实的专业项目来学习",
     "description": "Title of 'Learn by building real world projects for professionals' feature in Projects marketing page"
   },
+  "OFTutj": {
+    "defaultMessage": "在失业 6 个月后，我刚刚在纽约的一家金融科技初创公司签约担任全栈（前端为主）职位！ 另外还获得了高于范围的报价。 如果没有在 GFE 上努力工作，我不可能做到这一点",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "OIHF83": {
     "defaultMessage": "访问实用的开发指南和官方解决方案",
     "description": "Answer to 'Why is it worth it to buy Premium?' on projects FAQs"
@@ -5747,6 +5799,10 @@
     "defaultMessage": "通过在 GitHub 仓库上给我们点星来支持我们，并考虑贡献！",
     "description": "Description for github star"
   },
+  "P6sA19": {
+    "defaultMessage": "我们也会为您提供：",
+    "description": "Subheader for coding section in interview quiz page"
+  },
   "P99cBr": {
     "defaultMessage": "各种题目形式概述",
     "description": "Overview of front end system design interview question formats"
@@ -5754,10 +5810,6 @@
   "P9nVrb": {
     "defaultMessage": "按原始项目简报的难度筛选",
     "description": "Tooltip for Difficulty filter for submissions list"
-  },
-  "P9zzt7": {
-    "defaultMessage": "不要落后于其他 {count} 位用户",
-    "description": "Auth dialog testimonials subtitle"
   },
   "PAq50+": {
     "defaultMessage": "选择最多 2 个您来此的原因，以便我们改进您的体验",
@@ -5806,6 +5858,10 @@
   "PLPXbS": {
     "defaultMessage": "多页且功能齐全的应用",
     "description": "Label for apps feature"
+  },
+  "PMSHEJ": {
+    "defaultMessage": "GreatFrontEnd 完全改变了我的面试准备。 我从对我的 JS 基础知识感到不确定，到能够以我的知识和理解的深度给我的面试官留下深刻印象。 编码解决方案是官方的、最佳的，并由作者以无与伦比的清晰度、严谨性和证据进行解释。 系统设计文档也很棒，以清晰易懂的方式分解了前端架构，这使我能够在面试中自信地表达自己。 我在驾驭面试领域取得的成功直接归功于持续、专注的努力以及该平台内容的质量。",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "PMbV3v": {
     "defaultMessage": "查看更多可用时段",
@@ -5994,6 +6050,10 @@
   "Q7apLT": {
     "defaultMessage": "博客 | GreatFrontEnd",
     "description": "Title of GreatFrontEnd blog homepage"
+  },
+  "Q891Ht": {
+    "defaultMessage": "一键式自动化、透明的测试用例",
+    "description": "Label for test cases in coding questions"
   },
   "QAFkOT": {
     "defaultMessage": "没有优惠券可用",
@@ -6251,6 +6311,10 @@
     "defaultMessage": "系列",
     "description": "Label for series blog"
   },
+  "RDQ253": {
+    "defaultMessage": "登录以保存进度",
+    "description": "Message shown when user completes a question without signing in"
+  },
   "RFAHTi": {
     "defaultMessage": "根据您的需要选择一个计划。",
     "description": "Resume review pricing plans description"
@@ -6426,6 +6490,10 @@
   "RxU5TE": {
     "defaultMessage": "隐私政策",
     "description": "Link to privacy policy page"
+  },
+  "Rxyjw3": {
+    "defaultMessage": "介绍",
+    "description": "Title for introduction section in quiz questions list"
   },
   "RyuIJe": {
     "defaultMessage": "您的请求已成功提交",
@@ -6739,6 +6807,10 @@
     "defaultMessage": "告诉我们任何事情——关于您作为前端开发人员的旅程、您的目标和下一步计划，或者您如何想与他人建立联系",
     "description": "Bio field description"
   },
+  "THbGFn": {
+    "defaultMessage": "问题显示在不同的页面上",
+    "description": "Tooltip for quiz scroll mode toggle button"
+  },
   "TJD+8A": {
     "defaultMessage": "项目步骤",
     "description": "Label for Project steps tabs"
@@ -6750,10 +6822,6 @@
   "TL822E": {
     "defaultMessage": "JavaScript 控制台",
     "description": "Title of JavaScript console panel"
-  },
-  "TLRzU5": {
-    "defaultMessage": "大家好。我能够获得 HubSpot 的高级软件工程师 II 的额外 offer。我还在 Airbnb 完成了流程，感觉很好。非常感谢 GreatFrontEnd 的人们。系统设计内容改变了我的生活。期待更深入地探索系统设计内容。",
-    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "TNt++l": {
     "defaultMessage": "一个学习前端开发的平台，通过构建真实的项目，从入门到精通。",
@@ -7211,6 +7279,10 @@
     "defaultMessage": "由前面试官",
     "description": "Label for resume review by ex-interviewers"
   },
+  "VWfO56": {
+    "defaultMessage": "自动化测试用例",
+    "description": "Label for automated test cases in coding questions"
+  },
   "VWlSLh": {
     "defaultMessage": "{count} 更多",
     "description": "Label for more challenges count"
@@ -7619,6 +7691,10 @@
     "defaultMessage": "如何使用 Figma 进行开发",
     "description": "Figma guide link"
   },
+  "XCqQUO": {
+    "defaultMessage": "开始使用",
+    "description": "Label for get started button"
+  },
   "XG1Wfg": {
     "defaultMessage": "加入 Discord（高级版）",
     "description": "Tooltip for join premium discord"
@@ -7903,6 +7979,10 @@
     "defaultMessage": "经过验证的准备计划",
     "description": "Title for proven preparation plans feature"
   },
+  "YXs0ZC": {
+    "defaultMessage": "取消",
+    "description": "Cancel and close the sign in modal"
+  },
   "YYJEeq": {
     "defaultMessage": "无",
     "description": "No available slots"
@@ -8031,10 +8111,6 @@
     "defaultMessage": "由前 FAANG 高级开发人员撰写",
     "description": "Title of 'Written by ex-FAANG senior devs' sub-feature in Projects marketing page"
   },
-  "ZEPn1r": {
-    "defaultMessage": "或",
-    "description": "Label for or"
-  },
   "ZFDU0d": {
     "defaultMessage": "耶！",
     "description": "Toast title for project session started"
@@ -8070,6 +8146,10 @@
   "ZRUNG5": {
     "defaultMessage": "促销",
     "description": "Title of Promotions page"
+  },
+  "ZV4dGC": {
+    "defaultMessage": "登录您的帐户或免费注册以保存您的进度！",
+    "description": "Instructions for saving platform progress"
   },
   "ZWMfa0": {
     "defaultMessage": "定价计划",
@@ -8207,6 +8287,10 @@
     "defaultMessage": "公司邮箱",
     "description": "Company emails label"
   },
+  "aA3ERo": {
+    "defaultMessage": "类似于真实面试环境的基于浏览器的编码工作区",
+    "description": "Label for browser-based coding environment"
+  },
   "aCS7aj": {
     "defaultMessage": "<strong>订阅</strong>：您将根据您选择的计划，在每个周期的开始时被收取固定金额。 您可以随时选择取消。",
     "description": "Answer to 'What are the various options to purchase GreatFrontEnd Interviews premium?' on Purchase's FAQ sections"
@@ -8322,6 +8406,10 @@
   "akHBWv": {
     "defaultMessage": "减少缩进",
     "description": "Text describing outdent line command in the coding workspace shortcuts menu"
+  },
+  "al0GiV": {
+    "defaultMessage": "处理付款时发生技术错误。",
+    "description": "Decline message for technical error"
   },
   "alG3Yi": {
     "defaultMessage": "声誉",
@@ -8559,10 +8647,6 @@
     "defaultMessage": "级别",
     "description": "Blog level label"
   },
-  "bOVGLU": {
-    "defaultMessage": "请登录或创建一个帐户以继续",
-    "description": "Subtitle of auth sign up dialog"
-  },
   "bQ3XUx": {
     "defaultMessage": "暂无测试",
     "description": "Label indicating that no test cases are available for this question"
@@ -8582,6 +8666,10 @@
   "bVOC6y": {
     "defaultMessage": "现在处于测试阶段。",
     "description": "Project marketing hero section badge"
+  },
+  "bYOK+T": {
+    "defaultMessage": "{category} 问答",
+    "description": "SEO title of quiz scrolling mode page"
   },
   "bYY9Mh": {
     "defaultMessage": "裁剪您的新个人资料照片",
@@ -9279,6 +9367,10 @@
     "defaultMessage": "{percent}% 折扣",
     "description": "Promo code discount percentage"
   },
+  "ej+6cH": {
+    "defaultMessage": "{questionCount}+ {languageOrFramework} 编码面试问题",
+    "description": "Number of questions in coding section"
+  },
   "ej7o90": {
     "defaultMessage": "挑战",
     "description": "Sidebar navigation label"
@@ -9490,6 +9582,10 @@
   "fbNW2f": {
     "defaultMessage": "取消邮件订阅",
     "description": "Title of email unsubcription page"
+  },
+  "fbZwwj": {
+    "defaultMessage": "一个模拟真实面试条件的浏览器内编码工作区",
+    "description": "Label for browser-based coding environment"
   },
   "fc1KZ/": {
     "defaultMessage": "关注我们的 LinkedIn 页面",
@@ -10167,10 +10263,6 @@
     "defaultMessage": "没有社区贡献",
     "description": "Title for empty state when there are no contributions"
   },
-  "iwMZfR": {
-    "defaultMessage": "使用 Github 注册",
-    "description": "Auth card button label"
-  },
   "iyzDmo": {
     "defaultMessage": "提交摘要",
     "description": "Form label"
@@ -10246,6 +10338,10 @@
   "jKbWY+": {
     "defaultMessage": "停留在",
     "description": "Stopped at label"
+  },
+  "jL6ul2": {
+    "defaultMessage": "加入 {engineersCount}+ 工程师",
+    "description": "Label for total engineers using the platform"
   },
   "jLHxac": {
     "defaultMessage": "即将推出",
@@ -10366,6 +10462,10 @@
   "jhV+k9": {
     "defaultMessage": "适合入门。",
     "description": "Resume review starter pricing tier description"
+  },
+  "jjdVOP": {
+    "defaultMessage": "所有问题都显示在单个页面上",
+    "description": "Tooltip for quiz scroll mode toggle button"
   },
   "jlTtgt": {
     "defaultMessage": "如果您有任何其他需求，请 <link>给我们发送一封电子邮箱</link> 。我们会很乐意讨论这些需求！",
@@ -10498,10 +10598,6 @@
   "kEx00C": {
     "defaultMessage": "{count, plural, one {您的提交 <bold>{title}</bold> 获得了第一个赞 {timestamp}} other {您的提交 <bold>{title}</bold> 获得了 # 个赞 {timestamp}}}",
     "description": "Number of comments for project submission"
-  },
-  "kH/nSq": {
-    "defaultMessage": "在失业 6 个月后，我刚刚在纽约的一家金融科技初创公司签了一份全栈（前端倾斜）职位！另外还获得了一个超出范围的 offer。如果没有在 GFE 上努力工作，我不可能做到这一点",
-    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "kJOJ4u": {
     "defaultMessage": "购买 GreatFrontEnd 面试真的值得吗？",
@@ -10939,6 +11035,10 @@
     "defaultMessage": "内容广告投放指南",
     "description": "Alt text for ads in content placement preview"
   },
+  "mLrZGz": {
+    "defaultMessage": "优惠 {amountOff}",
+    "description": "Label for promotion code discount"
+  },
   "mNb3b2": {
     "defaultMessage": "困难",
     "description": "Hard difficulty question"
@@ -11063,10 +11163,6 @@
     "defaultMessage": "地址用于协议中",
     "description": "Address section description"
   },
-  "n1m6Nx": {
-    "defaultMessage": "前端工程师的聚集地。提升技能，通过面试，获得灵感。",
-    "description": "Auth card description"
-  },
   "n25pZ5": {
     "defaultMessage": "姓名",
     "description": "Label for name field"
@@ -11163,6 +11259,10 @@
     "defaultMessage": "更多设置",
     "description": "Button label to show more settings for the console in the coding workspace"
   },
+  "nSJ/yC": {
+    "defaultMessage": "继续",
+    "description": "Label for continue to checkout button"
+  },
   "nTu2nu": {
     "defaultMessage": "隐私政策",
     "description": "Title of Privacy Policy page"
@@ -11254,6 +11354,10 @@
   "nmG3eE": {
     "defaultMessage": "我们有一个“公平使用”退款政策，在您开始首次订阅后的 7 天内有效。“公平使用”是指如果您访问了大量高级面试内容（超过 5 个高级内容），我们保留拒绝退款请求的权利。要申请退款，请发送电子邮件至 {contactEmail}。",
     "description": "Answer to 'What's the refund policy for GreatFrontEnd Interviews?' on Purchase's FAQ sections"
+  },
+  "nnXIFO": {
+    "defaultMessage": "{questionCount}+ 最重要的 JavaScript 问答，涵盖从核心概念到高级 JavaScript 功能的所有内容",
+    "description": "Description of quiz scrolling mode page"
   },
   "nodFHk": {
     "defaultMessage": "前往此提交的 GitHub 存储库",
@@ -11398,6 +11502,10 @@
   "ofFMGr": {
     "defaultMessage": "查看其他可用 <link>促销</link>。",
     "description": "Promotional message"
+  },
+  "ofJOh2": {
+    "defaultMessage": "Javascript 编码",
+    "description": "Alt text for ads in content placement preview"
   },
   "ofUX5S": {
     "defaultMessage": "挑战状态",
@@ -11646,10 +11754,6 @@
   "piqimi": {
     "defaultMessage": "关闭",
     "description": "Amount cashback/discount"
-  },
-  "pj07uD": {
-    "defaultMessage": "标记为已完成",
-    "description": "Mark the question as complete"
   },
   "pjH0jb": {
     "defaultMessage": "{name} 前端面试题",
@@ -11975,6 +12079,10 @@
     "defaultMessage": "无项目配置文件",
     "description": "User does not have a profile for the Projects product"
   },
+  "rCqW54": {
+    "defaultMessage": "逐页",
+    "description": "Label for quiz scroll mode toggle button"
+  },
   "rGbEEY": {
     "defaultMessage": "资源与讨论",
     "description": "Subtitle for \"Tips, Resources and Discussions\" tab on Projects project page"
@@ -12255,10 +12363,6 @@
     "defaultMessage": "你赞成此项",
     "description": "Tooltip for upvoted submission button"
   },
-  "sr38Pg": {
-    "defaultMessage": "使用邮箱注册",
-    "description": "Auth card button label"
-  },
   "ssyz8C": {
     "defaultMessage": "用户评价",
     "description": "Title of testimonials page"
@@ -12395,6 +12499,10 @@
     "defaultMessage": "入门",
     "description": "Starter blog"
   },
+  "tRQG6L": {
+    "defaultMessage": "优惠 {percentOff}%",
+    "description": "Label for promotion code discount"
+  },
   "tWtbVf": {
     "defaultMessage": "OOP",
     "description": "Computer science topic"
@@ -12450,6 +12558,10 @@
   "tk7bcb": {
     "defaultMessage": "在特定前端框架和语言中的定向练习",
     "description": "Description for interviews practice by frameworks and languages"
+  },
+  "tmk5rv": {
+    "defaultMessage": "UI 问题的即时 UI 预览",
+    "description": "Label for UI preview features"
   },
   "tnHfa2": {
     "defaultMessage": "向下移动一行",
@@ -12759,6 +12871,10 @@
     "defaultMessage": "查看其他人的代码并从他们的方法中学习",
     "description": "Description for recommended action for new projects platform user"
   },
+  "vLsSQG": {
+    "defaultMessage": "小计",
+    "description": "Label for sub total price"
+  },
   "vMy9f3": {
     "defaultMessage": "月份",
     "description": "Title of months accordion in Roadmap Slide out filter"
@@ -12958,6 +13074,10 @@
   "wD01Al": {
     "defaultMessage": "(例如，新闻通讯、网站)",
     "description": "Medium for other media"
+  },
+  "wG+caE": {
+    "defaultMessage": "{questionCount}+ {languageOrFramework} 编码问题",
+    "description": "Number of questions in coding section"
   },
   "wGf7+G": {
     "defaultMessage": "启动项目并下载入门代码和资产",
@@ -13251,6 +13371,10 @@
     "defaultMessage": "探索前端面试问题及准备资源，面向顶级科技公司，例如 Google、Facebook、Amazon、Apple、Microsoft、TikTok 等。",
     "description": "Page description for company guides listing"
   },
+  "xtk4b8": {
+    "defaultMessage": "{questionCount}+ 最重要的 {category} 问答，采用测验形式，由前 FAANG 面试官解答",
+    "description": "Description of quiz scrolling mode page"
+  },
   "xv/L23": {
     "defaultMessage": "公司指南及技巧",
     "description": "Marketing section title"
@@ -13535,10 +13659,6 @@
     "defaultMessage": "JavaScript 代码面试问题",
     "description": "Social title for JavaScript coding question format page"
   },
-  "z9Ymn4": {
-    "defaultMessage": "使用以下方式注册",
-    "description": "Auth card button label"
-  },
   "z9d6Ys": {
     "defaultMessage": "此广告将显示的特定位置",
     "description": "Label for specific locations this ad will be shown"
@@ -13602,6 +13722,10 @@
   "zGTH+Q": {
     "defaultMessage": "编码完成后我该怎么办？",
     "description": "FAQ question for projects platform"
+  },
+  "zI3w61": {
+    "defaultMessage": "立即预览您的 UI 问题代码",
+    "description": "Label for code preview features"
   },
   "zIQsmk": {
     "defaultMessage": "服务条款",

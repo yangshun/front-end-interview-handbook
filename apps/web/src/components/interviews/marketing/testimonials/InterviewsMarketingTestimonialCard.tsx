@@ -79,7 +79,7 @@ export default function InterviewsMarketingTestimonialCard({
                 )}>
                 <Img
                   alt={featuredOffer}
-                  className={clsx('size-4')}
+                  className={clsx('size-4', 'object-contain')}
                   src={companyLogoUrl}
                 />
               </div>

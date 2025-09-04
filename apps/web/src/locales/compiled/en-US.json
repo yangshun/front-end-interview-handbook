@@ -213,6 +213,12 @@
       "value": "The material on this site is a literal gold mine. Before using GreatFrontEnd, I was failing phone screening rounds left and right. I never even came close to making it to the onsite round. After going through the material on GFE, I was able to land several onsites and passed my very first one! I was able to secure a job only after ~2.5 months of studying GFE at Amazon! The material on GFE is especially easy to understand and I have personally been asked questions from GFE NUMEROUS times. Additionally, GFE's Discord channel and community are so very helpful when it comes to sharing their previous interview experiences. It is very active and everyone is very open to helping!"
     }
   ],
+  "+JhlMu": [
+    {
+      "type": 0,
+      "value": "Congratulations on completing the question! Sign into your account or sign up for free to save your progress!"
+    }
+  ],
   "+NbHNn": [
     {
       "type": 0,
@@ -2064,12 +2070,6 @@
     {
       "type": 0,
       "value": "Algorithmic Coding Interview Questions"
-    }
-  ],
-  "2TPnld": [
-    {
-      "type": 0,
-      "value": "Instant UI preview for UI-related questions"
     }
   ],
   "2a6qgD": [
@@ -5475,6 +5475,12 @@
       "value": "Cancel"
     }
   ],
+  "A5JdsM": [
+    {
+      "type": 0,
+      "value": "Instant UI preview for UI-related questions"
+    }
+  ],
   "A7IkHe": [
     {
       "children": [
@@ -6945,16 +6951,6 @@
       "value": "Progress imported successfully"
     }
   ],
-  "Dabxa8": [
-    {
-      "type": 1,
-      "value": "questionCount"
-    },
-    {
-      "type": 0,
-      "value": "+ most important TypeScript interview questions and answers in quiz-style format, answered by ex-FAANG interviewers"
-    }
-  ],
   "Dc5QrJ": [
     {
       "type": 0,
@@ -8006,12 +8002,6 @@
       "value": "Get full access"
     }
   ],
-  "GPM7SF": [
-    {
-      "type": 0,
-      "value": "New File"
-    }
-  ],
   "GPQg5j": [
     {
       "type": 0,
@@ -8971,6 +8961,12 @@
       "value": "Privacy Policy"
     }
   ],
+  "IVpb44": [
+    {
+      "type": 0,
+      "value": "Hey, all. I was able to get an out of band offer for Senior Software Engineer II at HubSpot. I'm also wrapping up the process at Airbnb and feel pretty good about it. Huge thanks to the folks at GreatFrontEnd. The system design content was life changing. Looking forward to exploring the system design content even deeper."
+    }
+  ],
   "IWhajc": [
     {
       "type": 0,
@@ -9609,6 +9605,12 @@
     {
       "type": 0,
       "value": "This is an irreversible action. You will lose all progress. Are you sure?"
+    }
+  ],
+  "JnZMCy": [
+    {
+      "type": 0,
+      "value": "Reference solutions from Big Tech Ex-interviewers"
     }
   ],
   "Jnlfx1": [
@@ -10611,12 +10613,6 @@
       "value": "% off"
     }
   ],
-  "Lsk0wX": [
-    {
-      "type": 0,
-      "value": "Join GreatFrontEnd in 1 click"
-    }
-  ],
   "Ludb5F": [
     {
       "type": 0,
@@ -10947,6 +10943,12 @@
     {
       "type": 0,
       "value": " business days."
+    }
+  ],
+  "MaorIw": [
+    {
+      "type": 0,
+      "value": "Sign in to save progress"
     }
   ],
   "MdIpF6": [
@@ -11487,6 +11489,12 @@
       "value": "Learn by building real world projects for professionals"
     }
   ],
+  "OFTutj": [
+    {
+      "type": 0,
+      "value": "After 6 months of unemployment I just signed for a fintech startup in nyc for a full stack (FE leaning) role! plus got an above range offer. couldn't have done it without grinding on GFE"
+    }
+  ],
   "OIHF83": [
     {
       "type": 0,
@@ -11869,20 +11877,6 @@
       "value": "Filter by Difficulty of the original project brief"
     }
   ],
-  "P9zzt7": [
-    {
-      "type": 0,
-      "value": "Don't fall behind "
-    },
-    {
-      "type": 1,
-      "value": "count"
-    },
-    {
-      "type": 0,
-      "value": " other users"
-    }
-  ],
   "PAq50+": [
     {
       "type": 0,
@@ -11971,6 +11965,12 @@
     {
       "type": 0,
       "value": "Multi-page & fully-functional apps"
+    }
+  ],
+  "PMSHEJ": [
+    {
+      "type": 0,
+      "value": "GreatFrontEnd completely transformed my interview prep. I went from feeling uncertain in my JS fundamentals to being able to impress my interviewers with my depth of knowledge and understanding. The coding solutions are official, optimal, and explained by the authors with unmatched clarity, rigor, and evidence. The system design docs are also next-level, breaking down front-end architecture in a way that's clear and approachable, which enabled me to speak confidently in my interviews. I directly attribute my success in navigating the interview landscape to consistent, focused effort and the quality of the content on this platform."
     }
   ],
   "PMbV3v": [
@@ -13026,6 +13026,12 @@
       "value": "Series"
     }
   ],
+  "RDQ253": [
+    {
+      "type": 0,
+      "value": "Sign in to save progress"
+    }
+  ],
   "RFAHTi": [
     {
       "type": 0,
@@ -14055,12 +14061,6 @@
       "value": "JavaScript Console"
     }
   ],
-  "TLRzU5": [
-    {
-      "type": 0,
-      "value": "Hey, all. I was able to get an out of band offer for Senior Software Engineer II at HubSpot. I’m also wrapping up the process at Airbnb and feel pretty good about it. Huge thanks to the folks at GreatFrontEnd. The system design content was life changing. Looking forward to exploring the system design content even deeper."
-    }
-  ],
   "TNt++l": [
     {
       "type": 0,
@@ -14976,6 +14976,12 @@
     {
       "type": 0,
       "value": "By ex-interviewers at"
+    }
+  ],
+  "VWfO56": [
+    {
+      "type": 0,
+      "value": "Automated test cases"
     }
   ],
   "VWlSLh": [
@@ -16232,12 +16238,6 @@
       "value": "As mentioned above, there are many ways to host your project for free. Our recommend hosts are:"
     }
   ],
-  "YEEd13": [
-    {
-      "type": 0,
-      "value": "In-browser coding workspace that mimics real interview conditions"
-    }
-  ],
   "YFKKP4": [
     {
       "type": 0,
@@ -16360,6 +16360,12 @@
     {
       "type": 0,
       "value": "Proven preparation plans"
+    }
+  ],
+  "YXs0ZC": [
+    {
+      "type": 0,
+      "value": "Cancel"
     }
   ],
   "YYJEeq": [
@@ -16662,12 +16668,6 @@
       "value": "Written by ex-FAANG senior devs"
     }
   ],
-  "ZEPn1r": [
-    {
-      "type": 0,
-      "value": "or"
-    }
-  ],
   "ZFDU0d": [
     {
       "type": 0,
@@ -16742,6 +16742,12 @@
     {
       "type": 0,
       "value": "Promotions"
+    }
+  ],
+  "ZV4dGC": [
+    {
+      "type": 0,
+      "value": "Sign into your account or sign up for free to save your progress!"
     }
   ],
   "ZWMfa0": [
@@ -17000,6 +17006,12 @@
     {
       "type": 0,
       "value": "Company email(s)"
+    }
+  ],
+  "aA3ERo": [
+    {
+      "type": 0,
+      "value": "In-browser coding workspace similar to real interview environment"
     }
   ],
   "aCS7aj": [
@@ -17652,12 +17664,6 @@
     {
       "type": 0,
       "value": "Level"
-    }
-  ],
-  "bOVGLU": [
-    {
-      "type": 0,
-      "value": "Please sign in or create an account to continue"
     }
   ],
   "bQ3XUx": [
@@ -19024,6 +19030,24 @@
       "value": "% off"
     }
   ],
+  "ej+6cH": [
+    {
+      "type": 1,
+      "value": "questionCount"
+    },
+    {
+      "type": 0,
+      "value": "+ "
+    },
+    {
+      "type": 1,
+      "value": "languageOrFramework"
+    },
+    {
+      "type": 0,
+      "value": " coding interview questions"
+    }
+  ],
   "ej7o90": [
     {
       "type": 0,
@@ -19486,6 +19510,12 @@
     {
       "type": 0,
       "value": "Email unsubscription"
+    }
+  ],
+  "fbZwwj": [
+    {
+      "type": 0,
+      "value": "An in-browser coding workspace that mimics real interview conditions"
     }
   ],
   "fc1KZ/": [
@@ -21032,28 +21062,6 @@
       "value": "In Content Ad Placement in system design"
     }
   ],
-  "inlaDX": [
-    {
-      "type": 0,
-      "value": "Practice "
-    },
-    {
-      "type": 1,
-      "value": "questionCount"
-    },
-    {
-      "type": 0,
-      "value": "+ curated "
-    },
-    {
-      "type": 1,
-      "value": "category"
-    },
-    {
-      "type": 0,
-      "value": " Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers"
-    }
-  ],
   "iqz/fo": [
     {
       "type": 0,
@@ -21070,12 +21078,6 @@
     {
       "type": 0,
       "value": "No community contributions"
-    }
-  ],
-  "iwMZfR": [
-    {
-      "type": 0,
-      "value": "Sign up with Github"
     }
   ],
   "iyzDmo": [
@@ -21556,24 +21558,6 @@
       "value": "Regular payouts through PayPal"
     }
   ],
-  "jrT2Ow": [
-    {
-      "type": 1,
-      "value": "questionCount"
-    },
-    {
-      "type": 0,
-      "value": "+ "
-    },
-    {
-      "type": 1,
-      "value": "languageOrFramework"
-    },
-    {
-      "type": 0,
-      "value": " Coding Questions"
-    }
-  ],
   "jtnskJ": [
     {
       "type": 0,
@@ -21855,12 +21839,6 @@
       "pluralType": "cardinal",
       "type": 6,
       "value": "count"
-    }
-  ],
-  "kH/nSq": [
-    {
-      "type": 0,
-      "value": "After 6 months of unemployment I just signed for a fintech startup in nyc for a full stack (FE leaning) role! plus got an above range offer. couldn’t have done it without grinding on GFE"
     }
   ],
   "kJOJ4u": [
@@ -23129,12 +23107,6 @@
     {
       "type": 0,
       "value": "The address is used in the agreement"
-    }
-  ],
-  "n1m6Nx": [
-    {
-      "type": 0,
-      "value": "The place for front end engineers. Upskill, ace interviews, get inspired."
     }
   ],
   "n25pZ5": [
@@ -24491,6 +24463,16 @@
       "value": "OFF"
     }
   ],
+  "pjH0jb": [
+    {
+      "type": 1,
+      "value": "name"
+    },
+    {
+      "type": 0,
+      "value": " front end interview questions"
+    }
+  ],
   "pjndkX": [
     {
       "type": 0,
@@ -25795,12 +25777,6 @@
       "value": "You upvoted this"
     }
   ],
-  "sr38Pg": [
-    {
-      "type": 0,
-      "value": "Sign up with email"
-    }
-  ],
   "ssyz8C": [
     {
       "type": 0,
@@ -26121,6 +26097,12 @@
     {
       "type": 0,
       "value": "Targeted practice in specific front end frameworks and languages"
+    }
+  ],
+  "tmk5rv": [
+    {
+      "type": 0,
+      "value": "Instant UI preview for UI questions"
     }
   ],
   "tnHfa2": [
@@ -27081,6 +27063,24 @@
       "value": "(e.g. Newsletter, Website)"
     }
   ],
+  "wG+caE": [
+    {
+      "type": 1,
+      "value": "questionCount"
+    },
+    {
+      "type": 0,
+      "value": "+ "
+    },
+    {
+      "type": 1,
+      "value": "languageOrFramework"
+    },
+    {
+      "type": 0,
+      "value": " coding questions"
+    }
+  ],
   "wGf7+G": [
     {
       "type": 0,
@@ -27665,6 +27665,24 @@
       "value": "Discover front end interview questions and preparation resources for top tech companies like Google, Facebook, Amazon, Apple, Microsoft, TikTok and more."
     }
   ],
+  "xtk4b8": [
+    {
+      "type": 1,
+      "value": "questionCount"
+    },
+    {
+      "type": 0,
+      "value": "+ most important "
+    },
+    {
+      "type": 1,
+      "value": "category"
+    },
+    {
+      "type": 0,
+      "value": " interview questions and answers in quiz-style format, answered by ex-FAANG interviewers"
+    }
+  ],
   "xv/L23": [
     {
       "type": 0,
@@ -28243,12 +28261,6 @@
     {
       "type": 0,
       "value": "JavaScript Coding Interview Questions"
-    }
-  ],
-  "z9Ymn4": [
-    {
-      "type": 0,
-      "value": "Sign up with"
     }
   ],
   "z9d6Ys": [

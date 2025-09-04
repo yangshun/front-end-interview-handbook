@@ -83,6 +83,10 @@
     "defaultMessage": "The material on this site is a literal gold mine. Before using GreatFrontEnd, I was failing phone screening rounds left and right. I never even came close to making it to the onsite round. After going through the material on GFE, I was able to land several onsites and passed my very first one! I was able to secure a job only after ~2.5 months of studying GFE at Amazon! The material on GFE is especially easy to understand and I have personally been asked questions from GFE NUMEROUS times. Additionally, GFE's Discord channel and community are so very helpful when it comes to sharing their previous interview experiences. It is very active and everyone is very open to helping!",
     "description": "User testimonial for GreatFrontEnd Interviews"
   },
+  "+JhlMu": {
+    "defaultMessage": "Congratulations on completing the question! Sign into your account or sign up for free to save your progress!",
+    "description": "Message shown when user completes a question"
+  },
   "+NbHNn": {
     "defaultMessage": "Practice JavaScript coding interview questions by implementing utility functions like throttle or polyfills. Code in-browser with solutions from ex-interviewers.",
     "description": "SEO description for JavaScript coding question format page"
@@ -974,10 +978,6 @@
   "2T4Rg2": {
     "defaultMessage": "Algorithmic Coding Interview Questions",
     "description": "Social title for algo coding question format page"
-  },
-  "2TPnld": {
-    "defaultMessage": "Instant UI preview for UI-related questions",
-    "description": "Label for code preview features"
   },
   "2a6qgD": {
     "defaultMessage": "Your code was restored from client storage. <link>Reset to default</link>",
@@ -2587,6 +2587,10 @@
     "defaultMessage": "Cancel",
     "description": "Label for cancel button on import progress dialog"
   },
+  "A5JdsM": {
+    "defaultMessage": "Instant UI preview for UI-related questions",
+    "description": "Label for related UI preview features"
+  },
   "A7IkHe": {
     "defaultMessage": "<bold>{completedArticles}</bold>/{totalArticles} articles",
     "description": "Line describing the number of articles completed by user over the total number of articles"
@@ -3279,10 +3283,6 @@
     "defaultMessage": "Progress imported successfully",
     "description": "Success message for import progress"
   },
-  "Dabxa8": {
-    "defaultMessage": "{questionCount}+ most important TypeScript interview questions and answers in quiz-style format, answered by ex-FAANG interviewers",
-    "description": "Description of Typescript quiz scrolling mode page"
-  },
   "Dc5QrJ": {
     "defaultMessage": "Coding",
     "description": "Tile for coding question type"
@@ -3815,10 +3815,6 @@
     "defaultMessage": "Get full access",
     "description": "Button CTA to encourage upgrading"
   },
-  "GPM7SF": {
-    "defaultMessage": "New File",
-    "description": "Button tooltip for creating a new file"
-  },
   "GPQg5j": {
     "defaultMessage": "If you're looking for {languageOrFramework} coding questions -",
     "description": "Header for coding section in interview quiz page"
@@ -4295,6 +4291,10 @@
     "defaultMessage": "Privacy Policy",
     "description": "Link to privacy policy page"
   },
+  "IVpb44": {
+    "defaultMessage": "Hey, all. I was able to get an out of band offer for Senior Software Engineer II at HubSpot. I'm also wrapping up the process at Airbnb and feel pretty good about it. Huge thanks to the folks at GreatFrontEnd. The system design content was life changing. Looking forward to exploring the system design content even deeper.",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "IWhajc": {
     "defaultMessage": "Be part of our large community of passionate Front End Engineers across the world.",
     "description": "Marketing page section subtitle"
@@ -4622,6 +4622,10 @@
   "Jn7AHE": {
     "defaultMessage": "This is an irreversible action. You will lose all progress. Are you sure?",
     "description": "Confirmation text for reseting study plan progress"
+  },
+  "JnZMCy": {
+    "defaultMessage": "Reference solutions from Big Tech Ex-interviewers",
+    "description": "Label for JavaScript solutions in coding questions"
   },
   "Jnlfx1": {
     "defaultMessage": "Study Plans for Front End Interviews",
@@ -5171,10 +5175,6 @@
     "defaultMessage": "Code successfully applied! {percentOff}% off",
     "description": "Message when promo code is successfully applied"
   },
-  "Lsk0wX": {
-    "defaultMessage": "Join GreatFrontEnd in 1 click",
-    "description": "Auth card title"
-  },
   "Ludb5F": {
     "defaultMessage": "Our platform was built to support community-driven development. From project discussion to code reviews and approach sharing, you will never feel alone in your learning.",
     "description": "Description of 'Learn together' feature in Projects marketing page"
@@ -5322,6 +5322,10 @@
   "Mai1gI": {
     "defaultMessage": "We will review your advertising request and get back to you with the confirmation and payment in {approvalDays} business days.",
     "description": "Advertise request success message"
+  },
+  "MaorIw": {
+    "defaultMessage": "Sign in to save progress",
+    "description": "Instructions for saving platform progress"
   },
   "MdIpF6": {
     "defaultMessage": "Browse project solutions from our community.",
@@ -5611,6 +5615,10 @@
     "defaultMessage": "Learn by building real world projects for professionals",
     "description": "Title of 'Learn by building real world projects for professionals' feature in Projects marketing page"
   },
+  "OFTutj": {
+    "defaultMessage": "After 6 months of unemployment I just signed for a fintech startup in nyc for a full stack (FE leaning) role! plus got an above range offer. couldn't have done it without grinding on GFE",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "OIHF83": {
     "defaultMessage": "Access to practical development guides and official solutions",
     "description": "Answer to 'Why is it worth it to buy Premium?' on projects FAQs"
@@ -5803,10 +5811,6 @@
     "defaultMessage": "Filter by Difficulty of the original project brief",
     "description": "Tooltip for Difficulty filter for submissions list"
   },
-  "P9zzt7": {
-    "defaultMessage": "Don't fall behind {count} other users",
-    "description": "Auth dialog testimonials subtitle"
-  },
   "PAq50+": {
     "defaultMessage": "Choose up to 2 reasons why you are here so that we can improve your experience",
     "description": "Subtitle for Projects onboarding page"
@@ -5854,6 +5858,10 @@
   "PLPXbS": {
     "defaultMessage": "Multi-page & fully-functional apps",
     "description": "Label for apps feature"
+  },
+  "PMSHEJ": {
+    "defaultMessage": "GreatFrontEnd completely transformed my interview prep. I went from feeling uncertain in my JS fundamentals to being able to impress my interviewers with my depth of knowledge and understanding. The coding solutions are official, optimal, and explained by the authors with unmatched clarity, rigor, and evidence. The system design docs are also next-level, breaking down front-end architecture in a way that's clear and approachable, which enabled me to speak confidently in my interviews. I directly attribute my success in navigating the interview landscape to consistent, focused effort and the quality of the content on this platform.",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "PMbV3v": {
     "defaultMessage": "See more available slots",
@@ -6302,6 +6310,10 @@
   "RDN4Md": {
     "defaultMessage": "Series",
     "description": "Label for series blog"
+  },
+  "RDQ253": {
+    "defaultMessage": "Sign in to save progress",
+    "description": "Message shown when user completes a question without signing in"
   },
   "RFAHTi": {
     "defaultMessage": "Choose a plan based on what you need.",
@@ -6811,10 +6823,6 @@
     "defaultMessage": "JavaScript Console",
     "description": "Title of JavaScript console panel"
   },
-  "TLRzU5": {
-    "defaultMessage": "Hey, all. I was able to get an out of band offer for Senior Software Engineer II at HubSpot. I’m also wrapping up the process at Airbnb and feel pretty good about it. Huge thanks to the folks at GreatFrontEnd. The system design content was life changing. Looking forward to exploring the system design content even deeper.",
-    "description": "User testimonial for GreatFrontEnd Interviews"
-  },
   "TNt++l": {
     "defaultMessage": "A platform to learn front-end development the practical way—by building real-world projects from beginner to pro.",
     "description": "Description for projects product"
@@ -7270,6 +7278,10 @@
   "VWe5VR": {
     "defaultMessage": "By ex-interviewers at",
     "description": "Label for resume review by ex-interviewers"
+  },
+  "VWfO56": {
+    "defaultMessage": "Automated test cases",
+    "description": "Label for automated test cases in coding questions"
   },
   "VWlSLh": {
     "defaultMessage": "{count} more",
@@ -7895,10 +7907,6 @@
     "defaultMessage": "As mentioned above, there are many ways to host your project for free. Our recommend hosts are:",
     "description": "Text for Deployment Info in Projects"
   },
-  "YEEd13": {
-    "defaultMessage": "In-browser coding workspace that mimics real interview conditions",
-    "description": "Label for browser-based coding environment"
-  },
   "YFKKP4": {
     "defaultMessage": "Expires",
     "description": "Expiration date"
@@ -7970,6 +7978,10 @@
   "YWz2ko": {
     "defaultMessage": "Proven preparation plans",
     "description": "Title for proven preparation plans feature"
+  },
+  "YXs0ZC": {
+    "defaultMessage": "Cancel",
+    "description": "Cancel and close the sign in modal"
   },
   "YYJEeq": {
     "defaultMessage": "None",
@@ -8099,10 +8111,6 @@
     "defaultMessage": "Written by ex-FAANG senior devs",
     "description": "Title of 'Written by ex-FAANG senior devs' sub-feature in Projects marketing page"
   },
-  "ZEPn1r": {
-    "defaultMessage": "or",
-    "description": "Label for or"
-  },
   "ZFDU0d": {
     "defaultMessage": "Woohoo!",
     "description": "Toast title for project session started"
@@ -8138,6 +8146,10 @@
   "ZRUNG5": {
     "defaultMessage": "Promotions",
     "description": "Title of Promotions page"
+  },
+  "ZV4dGC": {
+    "defaultMessage": "Sign into your account or sign up for free to save your progress!",
+    "description": "Instructions for saving platform progress"
   },
   "ZWMfa0": {
     "defaultMessage": "Pricing plans",
@@ -8274,6 +8286,10 @@
   "a9qEXk": {
     "defaultMessage": "Company email(s)",
     "description": "Company emails label"
+  },
+  "aA3ERo": {
+    "defaultMessage": "In-browser coding workspace similar to real interview environment",
+    "description": "Label for browser-based coding environment"
   },
   "aCS7aj": {
     "defaultMessage": "<strong>Subscription</strong>: You will be billed a fixed amount at the start of every period according to your selected plan. You can choose to cancel anytime.",
@@ -8630,10 +8646,6 @@
   "bONB6m": {
     "defaultMessage": "Level",
     "description": "Blog level label"
-  },
-  "bOVGLU": {
-    "defaultMessage": "Please sign in or create an account to continue",
-    "description": "Subtitle of auth sign up dialog"
   },
   "bQ3XUx": {
     "defaultMessage": "No Tests",
@@ -9355,6 +9367,10 @@
     "defaultMessage": "{percent}% off",
     "description": "Promo code discount percentage"
   },
+  "ej+6cH": {
+    "defaultMessage": "{questionCount}+ {languageOrFramework} coding interview questions",
+    "description": "Number of questions in coding section"
+  },
   "ej7o90": {
     "defaultMessage": "Challenges",
     "description": "Sidebar navigation label"
@@ -9566,6 +9582,10 @@
   "fbNW2f": {
     "defaultMessage": "Email unsubscription",
     "description": "Title of email unsubcription page"
+  },
+  "fbZwwj": {
+    "defaultMessage": "An in-browser coding workspace that mimics real interview conditions",
+    "description": "Label for browser-based coding environment"
   },
   "fc1KZ/": {
     "defaultMessage": "Follow our LinkedIn page",
@@ -10231,10 +10251,6 @@
     "defaultMessage": "In Content Ad Placement in system design",
     "description": "Alt text for ads in content placement preview"
   },
-  "inlaDX": {
-    "defaultMessage": "Practice {questionCount}+ curated {category} Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers",
-    "description": "Description of quiz scrolling mode page"
-  },
   "iqz/fo": {
     "defaultMessage": "Types of JS questions, concepts to cover and rubrics",
     "description": "JavaScript questions, concepts and rubrics during front end interviews"
@@ -10246,10 +10262,6 @@
   "iw1XYQ": {
     "defaultMessage": "No community contributions",
     "description": "Title for empty state when there are no contributions"
-  },
-  "iwMZfR": {
-    "defaultMessage": "Sign up with Github",
-    "description": "Auth card button label"
   },
   "iyzDmo": {
     "defaultMessage": "Submission summary",
@@ -10475,10 +10487,6 @@
     "defaultMessage": "Regular payouts through PayPal",
     "description": "Affiliate program payout section title"
   },
-  "jrT2Ow": {
-    "defaultMessage": "{questionCount}+ {languageOrFramework} Coding Questions",
-    "description": "Number of questions in coding section"
-  },
   "jtnskJ": {
     "defaultMessage": "Creator's YOE",
     "description": "Label for experience filter for submissions list"
@@ -10590,10 +10598,6 @@
   "kEx00C": {
     "defaultMessage": "{count, plural, one {Your submission <bold>{title}</bold> has received its 1st upvote {timestamp}} other {Your submission <bold>{title}</bold> has received # upvotes {timestamp}}}",
     "description": "Number of comments for project submission"
-  },
-  "kH/nSq": {
-    "defaultMessage": "After 6 months of unemployment I just signed for a fintech startup in nyc for a full stack (FE leaning) role! plus got an above range offer. couldn’t have done it without grinding on GFE",
-    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "kJOJ4u": {
     "defaultMessage": "Is it really worth it to buy GreatFrontEnd Interviews?",
@@ -11158,10 +11162,6 @@
   "n1Wo2N": {
     "defaultMessage": "The address is used in the agreement",
     "description": "Address section description"
-  },
-  "n1m6Nx": {
-    "defaultMessage": "The place for front end engineers. Upskill, ace interviews, get inspired.",
-    "description": "Auth card description"
   },
   "n25pZ5": {
     "defaultMessage": "Name",
@@ -11754,6 +11754,10 @@
   "piqimi": {
     "defaultMessage": "OFF",
     "description": "Amount cashback/discount"
+  },
+  "pjH0jb": {
+    "defaultMessage": "{name} front end interview questions",
+    "description": "Label for company guides"
   },
   "pjndkX": {
     "defaultMessage": "Unvote",
@@ -12359,10 +12363,6 @@
     "defaultMessage": "You upvoted this",
     "description": "Tooltip for upvoted submission button"
   },
-  "sr38Pg": {
-    "defaultMessage": "Sign up with email",
-    "description": "Auth card button label"
-  },
   "ssyz8C": {
     "defaultMessage": "Testimonials",
     "description": "Title of testimonials page"
@@ -12558,6 +12558,10 @@
   "tk7bcb": {
     "defaultMessage": "Targeted practice in specific front end frameworks and languages",
     "description": "Description for interviews practice by frameworks and languages"
+  },
+  "tmk5rv": {
+    "defaultMessage": "Instant UI preview for UI questions",
+    "description": "Label for UI preview features"
   },
   "tnHfa2": {
     "defaultMessage": "Move line down",
@@ -13071,6 +13075,10 @@
     "defaultMessage": "(e.g. Newsletter, Website)",
     "description": "Medium for other media"
   },
+  "wG+caE": {
+    "defaultMessage": "{questionCount}+ {languageOrFramework} coding questions",
+    "description": "Number of questions in coding section"
+  },
   "wGf7+G": {
     "defaultMessage": "Start the project and download starter code and assets",
     "description": "Instruction for projects"
@@ -13363,6 +13371,10 @@
     "defaultMessage": "Discover front end interview questions and preparation resources for top tech companies like Google, Facebook, Amazon, Apple, Microsoft, TikTok and more.",
     "description": "Page description for company guides listing"
   },
+  "xtk4b8": {
+    "defaultMessage": "{questionCount}+ most important {category} interview questions and answers in quiz-style format, answered by ex-FAANG interviewers",
+    "description": "Description of quiz scrolling mode page"
+  },
   "xv/L23": {
     "defaultMessage": "Company guides and tips",
     "description": "Marketing section title"
@@ -13646,10 +13658,6 @@
   "z9RrSL": {
     "defaultMessage": "JavaScript Coding Interview Questions",
     "description": "Social title for JavaScript coding question format page"
-  },
-  "z9Ymn4": {
-    "defaultMessage": "Sign up with",
-    "description": "Auth card button label"
   },
   "z9d6Ys": {
     "defaultMessage": "Specific locations this ad will be shown",
