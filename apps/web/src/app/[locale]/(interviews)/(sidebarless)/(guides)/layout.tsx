@@ -8,7 +8,7 @@ type Props = Readonly<{
   children: React.ReactNode;
 }>;
 
-export default function InterviewsSidebarlessLayout({ children }: Props) {
+export default function InterviewsSidebarlessGuidesLayout({ children }: Props) {
   return (
     <>
       <GlobalBannerInterviews />
