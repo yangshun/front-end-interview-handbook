@@ -128,6 +128,16 @@ export default function QuestionQuizScrollableList({
     }, 250);
   };
 
+  useEffect(() => {
+    // Disable scroll restoration to prevent conflicts with our scrollToIndex
+    window.history.scrollRestoration = 'manual';
+
+    return () => {
+      // Restore original scroll restoration setting
+      window.history.scrollRestoration = 'auto';
+    };
+  }, []);
+
   useQuestionsAutoMarkAsComplete(currentQuestion);
 
   return (
