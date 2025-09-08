@@ -181,7 +181,7 @@ export default function QuestionQuizScrollableList({
           <Section>
             <WindowVirtualizer
               ref={virtuaContainerRef}
-              ssrCount={questions.length}
+              ssrCount={Math.min(questions.length, 40)}
               onScroll={() => {}}>
               {questions.map((question, index) => (
                 <div key={question.slug}>
