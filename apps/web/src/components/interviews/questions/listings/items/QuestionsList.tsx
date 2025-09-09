@@ -27,6 +27,7 @@ import type {
   QuestionMetadata,
 } from '../../common/QuestionsTypes';
 import { ReadyQuestions } from '../../content/system-design/SystemDesignConfig';
+import QuestionBookmarkBadge from '../../metadata/QuestionBookmarkBadge';
 import QuestionDifficultyLabel from '../../metadata/QuestionDifficultyLabel';
 import QuestionFormatLabel from '../../metadata/QuestionFormatLabel';
 import QuestionFrameworks from '../../metadata/QuestionFrameworks';
@@ -38,6 +39,7 @@ import QuestionUsersCompletedLabel from '../../metadata/QuestionUsersCompletedLa
 import QuestionsListItemProgressChip from './QuestionsListItemProgressChip';
 
 type Props<Q extends QuestionMetadata> = Readonly<{
+  checkIfBookmarkedQuestion?: (question: Q) => boolean;
   checkIfCompletedQuestion: (question: Q) => boolean;
   checkIfCompletedQuestionBefore?: (question: Q) => boolean;
   framework?: QuestionFramework;
@@ -54,6 +56,7 @@ type Props<Q extends QuestionMetadata> = Readonly<{
 }>;
 
 export default function QuestionsList<Q extends QuestionMetadata>({
+  checkIfBookmarkedQuestion,
   checkIfCompletedQuestion,
   checkIfCompletedQuestionBefore,
   framework,
@@ -111,6 +114,8 @@ export default function QuestionsList<Q extends QuestionMetadata>({
           listType,
           framework,
         );
+        const isQuestionBookmarked =
+          checkIfBookmarkedQuestion?.(questionMetadata);
 
         return (
           <li
@@ -152,6 +157,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                     <span aria-hidden="true" className="absolute inset-0" />
                     {questionMetadata.title}
                   </Anchor>
+                  {isQuestionBookmarked && <QuestionBookmarkBadge />}
                   {/* TODO(interviews): remove hardcoding of "counter" and shift it into metadata */}
                   {questionMetadata.slug === 'counter' && (
                     <Badge
@@ -276,7 +282,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
             {index === questions.length - 1 && showOverlayAtLastItem && (
               <div
                 className={clsx(
-                  'size-full absolute inset-0',
+                  'absolute inset-0 size-full',
                   'rounded-[inherit]',
                   'bg-gradient-to-b from-transparent to-white backdrop-blur-[4px] dark:to-neutral-900',
                 )}

@@ -7,7 +7,7 @@ import { useQuestionFormatsData } from '~/data/QuestionCategories';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import { countQuestionsTotalDurationMins } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import QuestionsList from '~/components/interviews/questions/listings/items/QuestionsList';
-import useQuestionsWithCompletionStatus from '~/components/interviews/questions/listings/items/useQuestionsWithCompletionStatus';
+import useQuestionsWithStatus from '~/components/interviews/questions/listings/items/useQuestionsWithStatus';
 import QuestionCountLabel from '~/components/interviews/questions/metadata/QuestionCountLabel';
 import QuestionTotalTimeLabel from '~/components/interviews/questions/metadata/QuestionTotalTimeLabel';
 import { useIntl } from '~/components/intl';
@@ -42,7 +42,7 @@ export default function InterviewsDashboardPracticeQuestionsPreviewQuestionsList
 
   const previewQuestions = categoryQuestions.slice(0, MAX_TO_SHOW);
   const questionsWithCompletionStatus =
-    useQuestionsWithCompletionStatus(previewQuestions);
+    useQuestionsWithStatus(previewQuestions);
 
   const totalDurationMins = countQuestionsTotalDurationMins(categoryQuestions);
   const listMetadata = (

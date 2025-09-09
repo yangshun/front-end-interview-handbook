@@ -1,40 +1,30 @@
 'use client';
 
+import type { ComponentType } from 'react';
+
 import type {
   QuestionJavaScript,
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 
-import useCodingWorkspaceWorkingLanguage from '../common/useCodingWorkspaceWorkingLanguage';
+import type { JavaScriptWorkspaceRenderProps } from './JavaScriptCodingWorkspace';
 import JavaScriptCodingWorkspaceSection from './JavaScriptCodingWorkspaceSection';
 
 type Props = Readonly<{
   canViewPremiumContent: boolean;
+  isUserAgentTablet?: boolean;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
   question: QuestionJavaScript;
+  renderWorkspace: ComponentType<JavaScriptWorkspaceRenderProps>;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
   studyListKey?: string;
 }>;
 
-export default function JavaScriptCodingWorkspacePage({
-  canViewPremiumContent,
-  nextQuestions,
-  question,
-  similarQuestions,
-  studyListKey,
-}: Props) {
-  const [language, setLanguage] = useCodingWorkspaceWorkingLanguage();
-
+export default function JavaScriptCodingWorkspacePage(props: Props) {
   return (
     <JavaScriptCodingWorkspaceSection
-      canViewPremiumContent={canViewPremiumContent}
-      language={language}
-      nextQuestions={nextQuestions}
-      question={question}
+      {...props}
       sandpackO11yInstance="workspace.js"
-      similarQuestions={similarQuestions}
-      studyListKey={studyListKey}
-      onLanguageChange={setLanguage}
     />
   );
 }

@@ -11,7 +11,7 @@ import InterviewsPurchasePaywall from '~/components/interviews/purchase/Intervie
 import type {
   QuestionFormat,
   QuestionMetadata,
-  QuestionMetadataWithCompletedStatus,
+  QuestionMetadataWithStatus,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import {
   countQuestionsTotalDurationMins,
@@ -59,7 +59,7 @@ type Props = Readonly<{
   onMarkAsCompleted?: (question: QuestionMetadata) => void;
   onMarkAsNotCompleted?: (question: QuestionMetadata) => void;
   questionCompletionCount?: QuestionCompletionCount;
-  questions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
+  questions: ReadonlyArray<QuestionMetadataWithStatus>;
   searchPlaceholder?: string;
   showCount_TEMPORARY?: boolean;
   sideColumnAddOn?: ReactNode;
@@ -288,6 +288,9 @@ export default function QuestionsUnifiedListWithFilters({
                     <InterviewsGuideCard key={guideCard.title} {...guideCard} />
                   )}
                   <QuestionsList
+                    checkIfBookmarkedQuestion={(question) =>
+                      question.isBookmarked
+                    }
                     checkIfCompletedQuestion={(question) =>
                       question.isCompleted
                     }

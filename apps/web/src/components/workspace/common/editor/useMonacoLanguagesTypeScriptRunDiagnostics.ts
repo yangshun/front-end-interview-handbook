@@ -1,4 +1,4 @@
-import { useSandpack } from '@codesandbox/sandpack-react';
+import type { SandpackBundlerFiles } from '@codesandbox/sandpack-client';
 import type { Monaco } from '@monaco-editor/react';
 import { debounce } from 'lodash-es';
 import { useEffect, useRef } from 'react';
@@ -11,9 +11,8 @@ export default function useMonacoLanguagesTypeScriptRunDiagnostics(
   monaco: Monaco | null,
   shouldUseTypeScript = false,
   enabled = true,
+  files: SandpackBundlerFiles,
 ) {
-  const { sandpack } = useSandpack();
-  const { files } = sandpack;
   const runDiagnostics = useRef<() => null | void>();
 
   useEffect(() => {

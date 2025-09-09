@@ -32,7 +32,6 @@ import {
   codingWorkspaceTabFileId,
   codingWorkspaceTabFilePattern,
 } from '~/components/workspace/common/tabs/codingWorkspaceTabId';
-import UserInterfaceCodingWorkspaceCodeEditor from '~/components/workspace/user-interface/UserInterfaceCodingWorkspaceCodeEditor';
 import UserInterfaceCodingWorkspacePreview from '~/components/workspace/user-interface/UserInterfaceCodingWorkspacePreview';
 import useUserInterfaceCodingWorkspaceTilesContext from '~/components/workspace/user-interface/useUserInterfaceCodingWorkspaceTilesContext';
 
@@ -45,6 +44,7 @@ import type {
   ProjectsChallengeSolutionWorkspacePredefinedTabsContents,
   ProjectsChallengeSolutionWorkspaceTabsType,
 } from './ProjectsChallengeSolutionWorkspaceTypes';
+import ProjectsUserInterfaceCodingWorkspaceCodeEditor from './ProjectsUserInterfaceCodingWorkspaceCodeEditor';
 
 const UserInterfaceCodingWorkspaceTilesPanelRoot =
   TilesPanelRoot<ProjectsChallengeSolutionWorkspaceTabsType>;
@@ -56,9 +56,10 @@ function ProjectsChallengeSolutionWorkspaceImpl({
 }>) {
   const intl = useIntl();
   const copyRef = useQuestionLogEventCopyContents<HTMLDivElement>();
-  const { dispatch } = useUserInterfaceCodingWorkspaceTilesContext();
-  const { sandpack } = useSandpack();
-  const { activeFile, files, visibleFiles } = sandpack;
+  const { tilesDispatch } = useUserInterfaceCodingWorkspaceTilesContext();
+  const {
+    sandpack: { activeFile, files, updateFile, visibleFiles },
+  } = useSandpack();
 
   useRestartSandpack();
 
@@ -79,7 +80,12 @@ function ProjectsChallengeSolutionWorkspaceImpl({
     shouldUseTypeScript,
     files['/package.json']?.code,
   );
-  useMonacoLanguagesTypeScriptRunDiagnostics(monaco, shouldUseTypeScript);
+  useMonacoLanguagesTypeScriptRunDiagnostics(
+    monaco,
+    shouldUseTypeScript,
+    true,
+    files,
+  );
 
   useMonacoEditorModels(monaco, files);
   useMonacoEditorRegisterEditorOpener(
@@ -95,16 +101,16 @@ function ProjectsChallengeSolutionWorkspaceImpl({
   );
 
   useEffect(() => {
-    dispatch({
+    tilesDispatch({
       payload: {
         tabId: codingWorkspaceTabFileId(activeFile),
       },
       type: 'tab-set-active',
     });
-  }, [activeFile, dispatch]);
+  }, [activeFile, tilesDispatch]);
 
   function resetToDefaultCode() {
-    sandpack.updateFile(defaultFiles);
+    updateFile(defaultFiles);
   }
 
   function openFile(filePath: string, fromFilePath: string | undefined) {
@@ -114,7 +120,7 @@ function ProjectsChallengeSolutionWorkspaceImpl({
       ...tabContents,
       [tabIdForFile]: {
         contents: (
-          <UserInterfaceCodingWorkspaceCodeEditor
+          <ProjectsUserInterfaceCodingWorkspaceCodeEditor
             filePath={filePath}
             showNotSavedBanner={true}
           />
@@ -125,7 +131,7 @@ function ProjectsChallengeSolutionWorkspaceImpl({
       },
     });
 
-    dispatch({
+    tilesDispatch({
       payload: {
         fallbackNeighborTabId: 'file_explorer',
         openBesideTabId:
@@ -153,7 +159,11 @@ function ProjectsChallengeSolutionWorkspaceImpl({
       file_explorer: {
         contents: (
           <div className="flex w-full p-2">
-            <CodingWorkspaceExplorer onOpenFile={openFile} />
+            <CodingWorkspaceExplorer
+              activeFile={activeFile}
+              files={files}
+              onOpenFile={openFile}
+            />
           </div>
         ),
         icon: CodingWorkspaceTabIcons.explorer.icon,
@@ -185,7 +195,7 @@ function ProjectsChallengeSolutionWorkspaceImpl({
           codingWorkspaceTabFileId(filePath),
           {
             contents: (
-              <UserInterfaceCodingWorkspaceCodeEditor
+              <ProjectsUserInterfaceCodingWorkspaceCodeEditor
                 filePath={filePath}
                 showNotSavedBanner={true}
               />
@@ -204,7 +214,6 @@ function ProjectsChallengeSolutionWorkspaceImpl({
       value={{
         defaultFiles,
         deleteCodeFromLocalStorage: () => {},
-        openFile,
         resetToDefaultCode,
       }}>
       <div ref={copyRef} className={clsx('size-full flex-col text-sm', 'flex')}>
@@ -223,7 +232,7 @@ function ProjectsChallengeSolutionWorkspaceImpl({
               renderTab={(tabId) => (
                 <CodingWorkspaceErrorBoundary>
                   {tabContents[tabId] != null ? (
-                    <div className="size-full flex">
+                    <div className="flex size-full">
                       {tabContents[tabId]!.contents}
                     </div>
                   ) : (
@@ -235,7 +244,7 @@ function ProjectsChallengeSolutionWorkspaceImpl({
                             data.payload.file,
                           );
 
-                          dispatch({
+                          tilesDispatch({
                             payload: {
                               newTabId,
                               oldTabId: tabId,
@@ -246,7 +255,7 @@ function ProjectsChallengeSolutionWorkspaceImpl({
                             ...tabContents,
                             [newTabId]: {
                               contents: (
-                                <UserInterfaceCodingWorkspaceCodeEditor
+                                <ProjectsUserInterfaceCodingWorkspaceCodeEditor
                                   filePath={data.payload.file}
                                   showNotSavedBanner={true}
                                 />
@@ -288,8 +297,9 @@ export default function ProjectsChallengeSolutionWorkspace({
   activeTabScrollIntoView?: boolean;
   defaultFiles: SandpackFiles;
 }>) {
-  const { sandpack } = useSandpack();
-  const { activeFile, visibleFiles } = sandpack;
+  const {
+    sandpack: { activeFile, visibleFiles },
+  } = useSandpack();
 
   const layout: TilesPanelConfig<ProjectsChallengeSolutionWorkspaceTabsType> = {
     direction: 'horizontal',

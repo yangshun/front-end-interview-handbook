@@ -1,6 +1,5 @@
 'use client';
 
-import { useSandpack } from '@codesandbox/sandpack-react';
 import { Controller, useForm } from 'react-hook-form';
 
 import { trpc } from '~/hooks/trpc';
@@ -19,6 +18,8 @@ import TextInput from '~/components/ui/TextInput';
 
 import { staticUpperCase } from '~/utils/typescript/stringTransform';
 
+import { useUserInterfaceCodingWorkspaceSelector } from './store/hooks';
+
 type Props = Readonly<{
   framework: QuestionFramework;
   metadata: QuestionMetadata;
@@ -36,10 +37,9 @@ function UserInterfaceCodingWorkspaceCommunitySolutionCreateTabImpl({
   const intl = useIntl();
   const { showToast } = useToast();
   const trpcUtils = trpc.useUtils();
-
-  const {
-    sandpack: { files },
-  } = useSandpack();
+  const files = useUserInterfaceCodingWorkspaceSelector(
+    (state) => state.sandpack.current.files,
+  );
 
   const { control, formState, handleSubmit, reset } =
     useForm<CommunitySolutionDraft>({

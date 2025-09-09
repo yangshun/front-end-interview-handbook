@@ -1,146 +1,182 @@
 'use client';
 
+import { useUser } from '@supabase/auth-helpers-react';
 import clsx from 'clsx';
 
 import { trpc } from '~/hooks/trpc';
+import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
-import Timestamp from '~/components/common/datetime/Timestamp';
-import { useUserProfile } from '~/components/global/UserProfileProvider';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
-import QuestionLanguages from '~/components/interviews/questions/metadata/QuestionLanguages';
 import { useIntl } from '~/components/intl';
-import Badge from '~/components/ui/Badge';
+import Button from '~/components/ui/Button';
 import EmptyState from '~/components/ui/EmptyState';
+import ScrollArea from '~/components/ui/ScrollArea';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundElementEmphasizedStateColor_Hover,
-  themeBorderEmphasizeColor,
-  themeDivideEmphasizeColor,
+  themeBorderColor,
+  themeDivideColor,
 } from '~/components/ui/theme';
 
-import { staticLowerCase } from '~/utils/typescript/stringTransform';
-
-import { useCodingWorkspaceContext } from '../common/CodingWorkspaceContext';
+import JavaScriptCodingWorkspaceSubmissionMetadata from './JavaScriptCodingWorkspaceSubmissionMetadata';
+import { useJavaScriptCodingWorkspaceSelector } from './store/hooks';
 
 type Props = Readonly<{
   metadata: QuestionMetadata;
+  openSubmission: (submissionId: string, name: string) => void;
 }>;
 
 export default function JavaScriptCodingWorkspaceSubmissionList({
   metadata,
+  openSubmission,
 }: Props) {
-  const intl = useIntl();
-  const { userProfile } = useUserProfile();
+  const user = useUser();
 
-  if (userProfile == null) {
-    return (
-      <div className="w-full">
-        <div className="flex h-full flex-col p-4">
-          <div className="flex grow items-center justify-center">
-            <EmptyState
-              title={intl.formatMessage({
-                defaultMessage:
-                  'You must be signed in to view your submissions',
-                description: 'Coding workspace sign in to view submissions',
-                id: 'qzrGfv',
-              })}
-              variant="empty"
-            />
-          </div>
-        </div>
-      </div>
-    );
+  if (user == null) {
+    return <SubmissionSignInState />;
   }
 
-  return <JavaScriptCodingWorkspaceSubmissionListImpl metadata={metadata} />;
+  return (
+    <JavaScriptCodingWorkspaceSubmissionListImpl
+      metadata={metadata}
+      openSubmission={openSubmission}
+    />
+  );
 }
 
-function JavaScriptCodingWorkspaceSubmissionListImpl({ metadata }: Props) {
+function JavaScriptCodingWorkspaceSubmissionListImpl({
+  metadata,
+  openSubmission,
+}: Props) {
   const intl = useIntl();
-  const { openSubmission } = useCodingWorkspaceContext();
   const { data: submissions } =
     trpc.questionSubmission.javaScriptGetAll.useQuery({
       slug: metadata.slug,
     });
+  const currentOpenedSolution = useJavaScriptCodingWorkspaceSelector(
+    (state) => state.solution.currentOpenedSolution,
+  );
 
   return (
     <div className="w-full">
       {submissions == null || submissions?.length === 0 ? (
-        <div className="flex h-full flex-col p-4">
-          <div className="flex grow items-center justify-center">
-            <EmptyState
-              title={intl.formatMessage({
-                defaultMessage: 'No submissions',
-                description: 'No submissions in coding workspace',
-                id: 'hz7oG3',
-              })}
-              variant="empty"
-            />
-          </div>
+        <div
+          className={clsx(
+            'mx-auto max-w-sm',
+            'flex h-full flex-col p-4',
+            'flex grow items-center justify-center',
+          )}>
+          <EmptyState
+            subtitle={intl.formatMessage(
+              {
+                defaultMessage:
+                  'Solve the question and click <b>"Submit"</b> to view your submitted code for this question here.',
+                description: 'No submissions yet in coding workspace',
+                id: 'NHYkBT',
+              },
+              {
+                b: (chunks: React.ReactNode) => (
+                  <Text size="inherit" weight="bold">
+                    {chunks}
+                  </Text>
+                ),
+              },
+            )}
+            title={intl.formatMessage({
+              defaultMessage: 'No submissions yet',
+              description: 'No submissions in coding workspace',
+              id: 'Yv2HLr',
+            })}
+            variant="empty"
+          />
         </div>
       ) : (
-        <div className="p-4">
+        <ScrollArea>
           <div
             className={clsx(
               'flex flex-col rounded-md',
-              ['border', themeBorderEmphasizeColor],
-              ['divide-y', themeDivideEmphasizeColor],
+              ['divide-y', themeDivideColor],
+              ['border-b', themeBorderColor],
               'overflow-hidden',
             )}>
-            {submissions?.map(({ createdAt, id, language, result }) => (
-              <div
-                key={id}
-                className={clsx(
-                  'relative isolate',
-                  'flex items-center justify-between gap-x-2',
-                  themeBackgroundElementEmphasizedStateColor_Hover,
-                  'p-3',
-                )}>
-                <div className="flex gap-x-2">
+            {submissions?.map(({ createdAt, id, language, result }, index) => {
+              const name = `Attempt ${submissions.length - index}`;
+
+              return (
+                <div
+                  key={id}
+                  className={clsx(
+                    'relative isolate',
+                    'flex items-center justify-between gap-x-2',
+                    themeBackgroundElementEmphasizedStateColor_Hover,
+                    'px-4 py-3',
+                  )}>
                   <button
+                    className="absolute inset-0"
                     type="button"
                     onClick={() => {
-                      openSubmission?.(id);
-                    }}>
-                    <Text
-                      className="whitespace-nowrap"
-                      size="body3"
-                      weight="medium">
-                      <Timestamp date={createdAt} />
-                    </Text>
-                    <span className="absolute inset-0" />
-                  </button>
-                  <QuestionLanguages languages={[staticLowerCase(language)]} />
+                      openSubmission(id, name);
+                    }}
+                  />
+                  <JavaScriptCodingWorkspaceSubmissionMetadata
+                    createdAt={createdAt}
+                    isActive={currentOpenedSolution?.attemptId === id}
+                    isCorrect={result === 'CORRECT'}
+                    language={language}
+                    name={name}
+                  />
                 </div>
-                <div>
-                  {result === 'CORRECT' && (
-                    <Badge
-                      label={intl.formatMessage({
-                        defaultMessage: 'Correct',
-                        description: 'Correct submission in coding workspace',
-                        id: 'OlFjm9',
-                      })}
-                      size="sm"
-                      variant="success"
-                    />
-                  )}
-                  {result === 'WRONG' && (
-                    <Badge
-                      label={intl.formatMessage({
-                        defaultMessage: 'Wrong',
-                        description: 'Wrong submission in coding workspace',
-                        id: 'y+NJ/O',
-                      })}
-                      size="sm"
-                      variant="danger"
-                    />
-                  )}
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
-        </div>
+        </ScrollArea>
       )}
+    </div>
+  );
+}
+
+function SubmissionSignInState() {
+  const intl = useIntl();
+  const { signInUpHref } = useAuthSignInUp();
+
+  return (
+    <div
+      className={clsx(
+        'mx-auto size-full max-w-xs p-4',
+        'flex grow items-center justify-center',
+      )}>
+      <EmptyState
+        action={
+          <div className="flex justify-center gap-x-3">
+            <Button
+              href={signInUpHref()}
+              label={intl.formatMessage({
+                defaultMessage: 'Sign in',
+                description: 'Sign in button label',
+                id: 'xrhUzU',
+              })}
+              size="xs"
+              variant="secondary"
+            />
+            <Button
+              href={signInUpHref()}
+              label={intl.formatMessage({
+                defaultMessage: 'Create an account',
+                description: 'Create account button label',
+                id: 'Rhdhem',
+              })}
+              size="xs"
+              variant="primary"
+            />
+          </div>
+        }
+        title={intl.formatMessage({
+          defaultMessage: 'You must be signed in to view your submissions',
+          description: 'Coding workspace sign in to view submissions',
+          id: 'qzrGfv',
+        })}
+        variant="empty"
+      />
     </div>
   );
 }

@@ -91,6 +91,11 @@ export default function JavaScriptCodingWorkspaceCommunitySolutionTab({
               renderExtraButtons={() => (
                 <JavaScriptCodingWorkspacePushCodeToEditorButton
                   contents={solution.code}
+                  metadata={{
+                    id: solution.id,
+                    name: 'Attempt',
+                  }}
+                  type="attempt"
                 />
               )}>
               {solution.code}

@@ -1,6 +1,5 @@
 'use client';
 
-import { useSandpack } from '@codesandbox/sandpack-react';
 import { RiCodeLine } from 'react-icons/ri';
 
 import { INTERVIEWS_UI_COMMUNITY_SOLUTIONS_IS_LIVE } from '~/data/FeatureFlags';
@@ -8,13 +7,14 @@ import { INTERVIEWS_UI_COMMUNITY_SOLUTIONS_IS_LIVE } from '~/data/FeatureFlags';
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
-
-import { codingWorkspaceExtractFileNameFromPath } from '../common/codingWorkspaceExtractFileNameFromPath';
-import { codingWorkspaceExplorerFilePathToIcon } from '../common/explorer/codingWorkspaceExplorerFilePathToIcon';
+import { codingWorkspaceExtractFileNameFromPath } from '~/components/workspace/common/codingWorkspaceExtractFileNameFromPath';
+import { codingWorkspaceExplorerFilePathToIcon } from '~/components/workspace/common/explorer/codingWorkspaceExplorerFilePathToIcon';
 import {
   codingWorkspaceTabFileId,
   codingWorkspaceTabFilePattern,
-} from '../common/tabs/codingWorkspaceTabId';
+} from '~/components/workspace/common/tabs/codingWorkspaceTabId';
+
+import { useUserInterfaceCodingWorkspaceSelector } from './store/hooks';
 import type {
   UserInterfaceCodingWorkspacePredefinedTabsContents,
   UserInterfaceCodingWorkspacePredefinedTabsType,
@@ -38,8 +38,9 @@ export default function UserInterfaceCodingWorkspaceNewTab({
   predefinedTabs: UserInterfaceCodingWorkspacePredefinedTabsContents;
 }>) {
   const intl = useIntl();
-  const { sandpack } = useSandpack();
-  const { files } = sandpack;
+  const files = useUserInterfaceCodingWorkspaceSelector(
+    (state) => state.sandpack.current.files,
+  );
   const { queryTabByPattern } = useUserInterfaceCodingWorkspaceTilesContext();
   const openedFiles = new Set(
     queryTabByPattern(codingWorkspaceTabFilePattern).map(({ tabId }) => tabId),

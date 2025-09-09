@@ -10,6 +10,7 @@ import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 import useScrollToTop from '~/hooks/useScrollToTop';
 
 import GuidesPagination from '~/components/guides/GuidesPagination';
+import QuestionBookmarkAction from '~/components/interviews/questions/common/QuestionBookmarkAction';
 import QuestionProgressAction from '~/components/interviews/questions/common/QuestionProgressAction';
 import QuestionReportIssueButton from '~/components/interviews/questions/common/QuestionReportIssueButton';
 import { useIntl } from '~/components/intl';
@@ -198,10 +199,13 @@ function GuidesMainContent<GuideSlug extends string>(
               showTooltip={false}
               slug={questionMetadata.slug}
             />
-            <QuestionProgressAction
-              metadata={questionMetadata}
-              studyListKey={studyListKey}
-            />
+            <div className="flex gap-x-2">
+              <QuestionBookmarkAction metadata={questionMetadata} />
+              <QuestionProgressAction
+                metadata={questionMetadata}
+                studyListKey={studyListKey}
+              />
+            </div>
           </div>
         )}
         {guideMetadata && (

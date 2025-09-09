@@ -1,71 +1,37 @@
-'use client';
-
-import {
-  questionHrefWithListType,
-  QuestionListTypeDefault,
-} from '~/components/interviews/questions/common/QuestionHrefUtils';
 import type {
-  QuestionFramework,
   QuestionMetadata,
   QuestionUserInterface,
 } from '~/components/interviews/questions/common/QuestionsTypes';
-import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
-import {
-  questionUserInterfaceDescriptionPath,
-  questionUserInterfaceSolutionPath,
-} from '~/components/interviews/questions/content/user-interface/QuestionUserInterfaceRoutes';
-import { useQuestionsListTypeCurrent } from '~/components/interviews/questions/listings/utils/useQuestionsListDataForType';
 
-import { useI18nRouter } from '~/next-i18nostic/src';
-
+import UserInterfaceCodingWorkspaceAboveMobile from './UserInterfaceCodingWorkspaceAboveMobile';
+import UserInterfaceCodingWorkspaceMobile from './UserInterfaceCodingWorkspaceMobile';
 import UserInterfaceCodingWorkspaceSection from './UserInterfaceCodingWorkspaceSection';
 
 type Props = Readonly<{
   canViewPremiumContent: boolean;
   embed?: boolean;
-  mode: QuestionUserInterfaceMode;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
   question: QuestionUserInterface;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
   studyListKey?: string;
+  userAgent: 'desktop' | 'mobile' | 'tablet';
 }>;
 
 export default function UserInterfaceCodingWorkspacePage({
-  studyListKey,
+  userAgent,
   ...props
 }: Props) {
-  const router = useI18nRouter();
-  const {
-    question: { metadata },
-  } = props;
-
-  const listType =
-    useQuestionsListTypeCurrent(studyListKey) ?? QuestionListTypeDefault;
-
   return (
     <UserInterfaceCodingWorkspaceSection
       {...props}
       embed={false}
+      isUserAgentTablet={userAgent === 'tablet'}
+      renderWorkspace={
+        userAgent === 'mobile'
+          ? UserInterfaceCodingWorkspaceMobile
+          : UserInterfaceCodingWorkspaceAboveMobile
+      }
       sandpackO11yInstance="workspace.ui"
-      studyListKey={studyListKey}
-      onFrameworkChange={(value, contentType) => {
-        const frameworkValue = value as QuestionFramework;
-        const frameworkItem = metadata.frameworks.find(
-          ({ framework: frameworkItemValue }) =>
-            frameworkItemValue === frameworkValue,
-        );
-
-        if (frameworkItem == null) {
-          return;
-        }
-
-        const href =
-          contentType === 'description'
-            ? questionUserInterfaceDescriptionPath(metadata, frameworkValue)
-            : questionUserInterfaceSolutionPath(metadata, frameworkValue);
-
-        router.push(questionHrefWithListType(href, listType));
-      }}
     />
   );
 }

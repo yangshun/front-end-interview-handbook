@@ -9,6 +9,7 @@ import { profileRouter } from './profile';
 import { projectsRouter } from './projects';
 import { promotionsRouter } from './promotions';
 import { purchasesRouter } from './purchases';
+import { questionBookmarkRouter } from './question-bookmark';
 import { questionCommunitySolutionRouter } from './question-community-solution';
 import { questionListsRouter } from './question-lists';
 import { questionProgressRouter } from './question-progress';
@@ -20,6 +21,7 @@ import { sponsorsRouter } from './sponsors';
 
 export const appRouter = router({
   auth: authRouter,
+  bookmark: questionBookmarkRouter,
   dev: devRouter,
   emails: emailsRouter,
   feedback: feedbackRouter,

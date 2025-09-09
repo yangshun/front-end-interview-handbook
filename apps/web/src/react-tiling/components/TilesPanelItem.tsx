@@ -15,21 +15,22 @@ import { Panel } from 'react-resizable-panels';
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
 import {
-  themeBackgroundColor,
   themeBackgroundElementColor,
   themeBackgroundElementEmphasizedStateColor_Hover,
   themeBackgroundElementPressedStateColor_Active,
-  themeBorderColor,
-  themeDivideColor,
   themeOutlineElementBrandColor_FocusVisible,
   themeTextBrandColor_Hover,
+  themeTextColor,
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 
 import { useTilesContext } from '../state/useTilesContext';
 import type { TilesPanelItemTab } from '../types';
-import TilesPanelActions from './TilesPanelActions';
+import TilesPanelActions, {
+  type CustomActionsOrComponent,
+} from './TilesPanelActions';
 import TilesPanelBody from './TilesPanelBody';
+import { tilesPanelItemClass } from './TilesPanelStyles';
 import TilesPanelTabsSection from './TilesPanelTabsSection';
 
 const MAXIMUM_LEVEL_FOR_SPLITTING = 2;
@@ -41,7 +42,9 @@ export default function TilesPanelItem<TabType extends string>({
   collapsed = false,
   collapsedTitle,
   collapsible,
+  customActionsOrComponents,
   defaultSize = 100,
+  dropdownIcon,
   fullScreen,
   getTabLabel,
   id: panelId,
@@ -49,6 +52,8 @@ export default function TilesPanelItem<TabType extends string>({
   order,
   parentDirection,
   renderTab,
+  showActionsButton = true,
+  showNewTabButton = true,
   sizeAfterExpansion,
   tabs,
 }: Readonly<{
@@ -56,7 +61,9 @@ export default function TilesPanelItem<TabType extends string>({
   collapsed?: boolean;
   collapsedTitle?: string;
   collapsible?: PanelProps['collapsible'];
+  customActionsOrComponents?: ReadonlyArray<CustomActionsOrComponent>;
   defaultSize?: PanelProps['defaultSize'];
+  dropdownIcon?: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
   fullScreen?: boolean;
   getTabLabel: (tabId: TabType) => Readonly<{
     icon?: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
@@ -68,10 +75,12 @@ export default function TilesPanelItem<TabType extends string>({
   order?: number;
   parentDirection: PanelGroupProps['direction'];
   renderTab: (tabId: TabType) => JSX.Element;
+  showActionsButton?: boolean;
+  showNewTabButton?: boolean;
   sizeAfterExpansion?: number;
   tabs: ReadonlyArray<TilesPanelItemTab<TabType>>;
 }>) {
-  const { dispatch } = useTilesContext();
+  const { tilesDispatch } = useTilesContext();
   const ref = useRef<ImperativePanelHandle>(null);
 
   useEffect(() => {
@@ -96,7 +105,7 @@ export default function TilesPanelItem<TabType extends string>({
     defaultSize,
     id: panelId,
     onCollapse: (collapsedValue: boolean) =>
-      dispatch({
+      tilesDispatch({
         payload: {
           collapsed: collapsedValue,
           panelId,
@@ -126,9 +135,8 @@ export default function TilesPanelItem<TabType extends string>({
       <Panel
         {...commonProps}
         className={clsx(
-          'flex flex-col items-stretch rounded-lg py-2',
-          ['border', themeBorderColor],
-          themeBackgroundColor,
+          'flex flex-col items-stretch py-2',
+          tilesPanelItemClass,
         )}
         collapsedSize={5}>
         <div className="flex justify-center">
@@ -139,7 +147,7 @@ export default function TilesPanelItem<TabType extends string>({
             size="lg"
             variant="tertiary"
             onClick={() => {
-              dispatch({
+              tilesDispatch({
                 payload: {
                   collapsed: false,
                   panelId,
@@ -173,7 +181,7 @@ export default function TilesPanelItem<TabType extends string>({
                 size="lg"
                 variant="unstyled"
                 onClick={() => {
-                  dispatch({
+                  tilesDispatch({
                     payload: {
                       panelId,
                       tabId: tabItem.id,
@@ -197,29 +205,26 @@ export default function TilesPanelItem<TabType extends string>({
     <Panel
       {...commonProps}
       className={clsx(
-        'rounded-lg',
-        ['border', themeBorderColor],
-        themeBackgroundColor,
-        ['divide-y', themeDivideColor],
+        tilesPanelItemClass,
         fullScreen && 'absolute inset-0 z-20',
       )}
       collapsedSize={5}>
-      <div ref={panelRef} className="size-full flex flex-col">
+      <div ref={panelRef} className="flex size-full flex-col">
         <div
           className={clsx(
             'flex shrink-0 items-center justify-between',
             collapsed ? 'h-full' : 'h-10',
-            !showCollapsedTitle && 'px-2',
+            !showCollapsedTitle && 'px-1.5',
           )}>
           {showCollapsedTitle ? (
             <button
               className={clsx(
-                'size-full px-3',
+                'size-full px-3.5',
                 'flex items-center gap-2',
-                'text-left text-xs font-medium',
+                'text-left text-xs',
                 'transition-colors',
                 'bg-transparent',
-                'text-neutral-600 dark:text-neutral-200',
+                themeTextColor,
                 [
                   themeTextBrandColor_Hover,
                   themeBackgroundElementEmphasizedStateColor_Hover,
@@ -228,7 +233,7 @@ export default function TilesPanelItem<TabType extends string>({
               )}
               type="button"
               onClick={() => {
-                dispatch({
+                tilesDispatch({
                   payload: {
                     collapsed: false,
                     panelId,
@@ -241,7 +246,7 @@ export default function TilesPanelItem<TabType extends string>({
             </button>
           ) : (
             <>
-              {!collapsed && (
+              {!collapsed && showNewTabButton && (
                 <span className={clsx('flex h-full items-center pr-0.5')}>
                   <Button
                     icon={RiAddLine}
@@ -251,7 +256,7 @@ export default function TilesPanelItem<TabType extends string>({
                     tooltip="New tab"
                     variant="tertiary"
                     onClick={() => {
-                      dispatch({
+                      tilesDispatch({
                         payload: {
                           panelId,
                         },
@@ -268,15 +273,19 @@ export default function TilesPanelItem<TabType extends string>({
                 panelId={panelId}
                 tabs={tabs}
               />
-              <div className="flex h-full items-center">
-                <TilesPanelActions
-                  closeable={tabs.every((tab) => tab.closeable)}
-                  mode={mode}
-                  panelId={panelId}
-                  parentDirection={parentDirection}
-                  showSplitButton={showSplitButton}
-                />
-              </div>
+              {showActionsButton && (
+                <div className="flex h-full items-center">
+                  <TilesPanelActions
+                    closeable={tabs.every((tab) => tab.closeable)}
+                    customActionsOrComponents={customActionsOrComponents}
+                    dropdownIcon={dropdownIcon}
+                    mode={mode}
+                    panelId={panelId}
+                    parentDirection={parentDirection}
+                    showSplitButton={showSplitButton}
+                  />
+                </div>
+              )}
             </>
           )}
         </div>
@@ -286,7 +295,7 @@ export default function TilesPanelItem<TabType extends string>({
           panelId={panelId}
           tabs={tabs}
           onPanelDrop={(dropAreaSection, src) => {
-            dispatch({
+            tilesDispatch({
               payload: {
                 dst: {
                   dropAreaSection,
@@ -298,7 +307,7 @@ export default function TilesPanelItem<TabType extends string>({
             });
           }}
           onTabDrop={(dropAreaSection, src) => {
-            dispatch({
+            tilesDispatch({
               payload: {
                 dst: {
                   dropAreaSection,

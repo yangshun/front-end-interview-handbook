@@ -4,15 +4,27 @@ import { useIntl } from '~/components/intl';
 import Alert from '~/components/ui/Alert';
 import CodingWorkspaceExplorer from '~/components/workspace/common/explorer/CodingWorkspaceExplorer';
 
-import { useCodingWorkspaceContext } from '../common/CodingWorkspaceContext';
+import { useUserInterfaceCodingWorkspaceSelector } from './store/hooks';
 
-export default function UserInterfaceCodingWorkspaceExplorer() {
+type Props = Readonly<{
+  openFile: (filePath: string, fromFilePath?: string) => void;
+}>;
+
+export default function UserInterfaceCodingWorkspaceExplorer({
+  openFile,
+}: Props) {
   const intl = useIntl();
-  const { openFile } = useCodingWorkspaceContext();
+  const activeFile = useUserInterfaceCodingWorkspaceSelector(
+    (state) => state.sandpack.current.activeFile,
+  );
+  const files = useUserInterfaceCodingWorkspaceSelector(
+    (state) => state.sandpack.current.files,
+  );
 
   return (
-    <div className="flex w-full p-2">
+    <div className="flex w-full p-2 dark:bg-[#1B1C22]">
       <CodingWorkspaceExplorer
+        activeFile={activeFile}
         bottomAddOn={
           <Alert bodySize="body3" variant="warning">
             {intl.formatMessage({
@@ -24,6 +36,7 @@ export default function UserInterfaceCodingWorkspaceExplorer() {
             })}
           </Alert>
         }
+        files={files}
         onOpenFile={openFile}
       />
     </div>

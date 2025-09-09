@@ -3,12 +3,6 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
 import { RiCloseLine } from 'react-icons/ri';
 
-import {
-  themeTextBrandColor_Hover,
-  themeTextColor,
-  themeTextSubtleColor,
-} from '~/components/ui/theme';
-
 import { I18nLink } from '~/next-i18nostic/src';
 
 import { useDragHighlightContext } from '../state/useDragHighlightContext';
@@ -16,6 +10,7 @@ import { useTilesContext } from '../state/useTilesContext';
 import type { TilesPanelDragItem, TilesPanelDragPanel } from '../types';
 import getDragId from '../utils/getDragId';
 import isDragTab from '../utils/isDragTab';
+import { tilesPanelTabClasses } from './TilesPanelStyles';
 
 function TabButton({
   onClick,
@@ -84,6 +79,7 @@ export default function TilesPanelTab<TabType extends string>({
   onPanelDrop,
   onTabDrop,
   panelId,
+  showIcon = true,
   tabId,
 }: Readonly<{
   closeable: boolean;
@@ -103,9 +99,10 @@ export default function TilesPanelTab<TabType extends string>({
     dst: Readonly<{ panelId: string; tabId: TabType }>,
   ) => void;
   panelId: string;
+  showIcon?: boolean;
   tabId: TabType;
 }>) {
-  const { activeTabScrollIntoView, dispatch } = useTilesContext();
+  const { activeTabScrollIntoView, tilesDispatch } = useTilesContext();
   const { draggedItemId, parentRect, setDraggedItemId, setPosition } =
     useDragHighlightContext();
   const tabRef = useRef<HTMLDivElement>(null);
@@ -220,7 +217,7 @@ export default function TilesPanelTab<TabType extends string>({
 
   const contents = (
     <>
-      {Icon && <Icon className="size-4 shrink-0" />}
+      {showIcon && Icon && <Icon className="size-4 shrink-0" />}
       {label}
       {IconSecondary && <IconSecondary className="size-4 shrink-0" />}
     </>
@@ -229,16 +226,7 @@ export default function TilesPanelTab<TabType extends string>({
   return (
     <div
       ref={tabRef}
-      className={clsx(
-        'group relative isolate flex grow items-center gap-x-0.5 rounded font-medium',
-        isOver
-          ? 'bg-neutral-100 dark:bg-neutral-900'
-          : 'hover:bg-neutral-100 dark:hover:bg-neutral-900',
-        isActive
-          ? themeTextColor
-          : [themeTextSubtleColor, themeTextBrandColor_Hover],
-        closeable ? 'pl-2 pr-1' : 'px-2',
-      )}>
+      className={tilesPanelTabClasses.container(isActive, isOver, closeable)}>
       {href ? (
         <I18nLink
           className={clsx(
@@ -250,7 +238,7 @@ export default function TilesPanelTab<TabType extends string>({
       ) : (
         <TabButton
           className={clsx(
-            'flex items-center gap-x-1.5 whitespace-nowrap text-xs',
+            tilesPanelTabClasses.button,
             isDragging && 'invisible',
           )}
           onClick={onClick}
@@ -262,16 +250,13 @@ export default function TilesPanelTab<TabType extends string>({
       {closeable && (
         <button
           className={clsx(
-            'z-20 ml-1 rounded p-0.5',
-            'hover:bg-neutral-200 dark:hover:bg-neutral-700',
-            'text-neutral-500',
+            tilesPanelTabClasses.closeButton(isActive),
             isDragging && 'invisible',
-            !isActive && 'opacity-0 focus:opacity-100 group-hover:opacity-100',
           )}
           title="Close tab"
           type="button"
           onClick={() => {
-            dispatch({
+            tilesDispatch({
               payload: {
                 tabId,
               },

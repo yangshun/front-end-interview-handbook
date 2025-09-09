@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { RiDeleteBinLine, RiEditLine, RiMoreLine } from 'react-icons/ri';
+import { RiDeleteBinLine, RiEditLine, RiMoreFill } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
 
@@ -10,6 +10,9 @@ import Button from '~/components/ui/Button';
 import Dialog from '~/components/ui/Dialog';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import TextInput from '~/components/ui/TextInput';
+import useUserInterfaceCodingWorkspaceTilesContext from '~/components/workspace/user-interface/useUserInterfaceCodingWorkspaceTilesContext';
+
+import { codingWorkspaceTabAttemptId } from '../common/tabs/codingWorkspaceTabId';
 
 type Props = Readonly<{
   saveId: string;
@@ -24,6 +27,7 @@ export default function UserInterfaceCodingWorkspaceSavesListItemActions({
   const intl = useIntl();
   const { showToast } = useToast();
   const inputRef = useRef<HTMLInputElement>(null);
+  const { tilesDispatch } = useUserInterfaceCodingWorkspaceTilesContext();
 
   const invalidateUserInterface = () => {
     trpcUtils.questionSave.userInterfaceGet.invalidate();
@@ -71,7 +75,7 @@ export default function UserInterfaceCodingWorkspaceSavesListItemActions({
     <div className="flex justify-end gap-x-2">
       <DropdownMenu
         align="end"
-        icon={RiMoreLine}
+        icon={RiMoreFill}
         isLabelHidden={true}
         label={intl.formatMessage({
           defaultMessage: 'More actions',
@@ -132,6 +136,15 @@ export default function UserInterfaceCodingWorkspaceSavesListItemActions({
             {
               onSuccess: (data) => {
                 setIsDeleting(false);
+
+                const tabIdForSubmission = codingWorkspaceTabAttemptId(saveId);
+
+                tilesDispatch({
+                  payload: {
+                    tabId: tabIdForSubmission,
+                  },
+                  type: 'tab-close',
+                });
                 showToast({
                   title: intl.formatMessage(
                     {

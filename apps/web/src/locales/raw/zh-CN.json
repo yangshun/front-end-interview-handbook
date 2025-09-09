@@ -179,6 +179,10 @@
     "defaultMessage": "二进制",
     "description": "Computer science topic"
   },
+  "+oqIZ2": {
+    "defaultMessage": "在移动设备上不支持运行自动化测试用例和提交。请使用更宽的屏幕以获得更好的体验。",
+    "description": "Coding workspace not supported on mobile warning"
+  },
   "+s7kuS": {
     "defaultMessage": "上一个",
     "description": "Previous label"
@@ -230,10 +234,6 @@
   "/06NwY": {
     "defaultMessage": "企业题库",
     "description": "Title for company-tagged questions feature"
-  },
-  "/08n88": {
-    "defaultMessage": "查看解决方案",
-    "description": "Coding workspace view solution button label"
   },
   "/17ryO": {
     "defaultMessage": "您是否正在为前端工程师面试做准备，却因行为面试环节而感到不知所措？您并不孤单。虽然编码技能至关重要，但公司同样关注您如何思考、沟通和协作。",
@@ -298,6 +298,10 @@
   "/Foz6K": {
     "defaultMessage": "我们已将密码重置链接发送到您的电子邮件。 如果您没有看到该电子邮件，请务必检查您的垃圾邮件或垃圾邮件文件夹。",
     "description": "Description for password reset email sent"
+  },
+  "/Fu42K": {
+    "defaultMessage": "继续",
+    "description": "Confirmation button label"
   },
   "/FyqAR": {
     "defaultMessage": "{locale}的翻译是测试版，可能不准确。 如果您有兴趣帮助翻译，请提供反馈或<link>联系我们</link>！",
@@ -403,6 +407,10 @@
     "defaultMessage": "如果您无法输入有效的 CVC，请尝试使用不同的卡片。",
     "description": "Reason label for different card"
   },
+  "/lcG8X": {
+    "defaultMessage": "解决方案",
+    "description": "Navigate to solution page button"
+  },
   "/mJXTQ": {
     "defaultMessage": "热身问题",
     "description": "Label for warm up questions"
@@ -418,6 +426,10 @@
   "/nidaR": {
     "defaultMessage": "在 GreatFrontEnd 创建您的开发者个人资料。展示您的技能、经验并与社区建立联系。",
     "description": "Description of projects onboarding profile page"
+  },
+  "/oPXLd": {
+    "defaultMessage": "使用此尝试覆盖您的代码。然后将对尝试所做的更改保存在本地",
+    "description": "Tooltip for the overwrite button in the solution banner"
   },
   "/p5g3I": {
     "defaultMessage": "设置",
@@ -851,6 +863,10 @@
     "defaultMessage": "在GitHub上编辑",
     "description": "Edit on GitHub button"
   },
+  "1wvFld": {
+    "defaultMessage": "正确答案",
+    "description": "Correct submission in coding workspace"
+  },
   "1y0w+K": {
     "defaultMessage": "已停止",
     "description": "Stopped a challenge"
@@ -886,10 +902,6 @@
   "23bxK1": {
     "defaultMessage": "博客列表",
     "description": "Screen reader text indicating the blog list component on blog homepage"
-  },
-  "23pktm": {
-    "defaultMessage": "解决方案",
-    "description": "Coding workspace view solution title"
   },
   "23zW1O": {
     "defaultMessage": "{totalCount, plural, one {<bold>{completedCount}</bold>/# 挑战} other {<bold>{completedCount}</bold>/# 挑战}}",
@@ -1055,10 +1067,6 @@
     "defaultMessage": "编辑测试用例",
     "description": "Workspace edit test cases button label"
   },
-  "3+Q/U6": {
-    "defaultMessage": "您正在查看解决方案页面上的描述。要练习此问题，请点击 <backLink>返回</backLink> 工作区页面或 <savedLink>加载已保存版本</savedLink>。",
-    "description": "Description from solution page alert"
-  },
   "3+YLNZ": {
     "defaultMessage": "您在 <link>{challengeTitle}</link> 的挑战论坛上回复了 <recipientProfileLink>{recipient}</recipientProfileLink>：<comment>\"{description}\"</comment>",
     "description": "Log message for you replying to someone on the challenge forum"
@@ -1098,10 +1106,6 @@
   "3FeosO": {
     "defaultMessage": "新",
     "description": "Label for new questions ribbon"
-  },
-  "3HrE7g": {
-    "defaultMessage": "查看提交测试用例。",
-    "description": "Coding workspace view submission test cases link"
   },
   "3I2UJ4": {
     "defaultMessage": "入门",
@@ -1159,6 +1163,10 @@
     "defaultMessage": "返回所有提交",
     "description": "Label to go back to submissions page"
   },
+  "3Tf+UB": {
+    "defaultMessage": "此文件为空",
+    "description": "Message shown when a solution file has no content"
+  },
   "3U95FQ": {
     "defaultMessage": "展开侧边栏",
     "description": "Expand sidebar label"
@@ -1190,6 +1198,10 @@
   "3Z408Q": {
     "defaultMessage": "日程安排",
     "description": "Label for schedule"
+  },
+  "3ZmbwR": {
+    "defaultMessage": "在工作区中打开尝试？",
+    "description": "Dialog title for opening solution in workspace"
   },
   "3aT98+": {
     "defaultMessage": "为你推荐的操作",
@@ -1242,6 +1254,10 @@
   "3n0B1m": {
     "defaultMessage": "您当前拥有 {count, plural, =0 {无高级积分} one {<bold>1 个高级积分</bold>} other {<bold># 个高级积分</bold>}}. 继续解锁？",
     "description": "Confirmation text for unlocking a premium challenge"
+  },
+  "3n7hDQ": {
+    "defaultMessage": "覆盖现有",
+    "description": "Button label to overwrite existing save"
   },
   "3nYNbd": {
     "defaultMessage": "与志同道合的人一起学习",
@@ -1979,6 +1995,10 @@
     "defaultMessage": "使用电子邮件登录",
     "description": "Subtitle of Sign Up page"
   },
+  "7A5m56": {
+    "defaultMessage": "您想将其保存为<bold>新尝试</bold>，还是覆盖现有的尝试？",
+    "description": "Coding workspace save code dialog description"
+  },
   "7AiLO9": {
     "defaultMessage": "GreatFrontEnd 项目现已进入 BETA 测试阶段！使用 {promoCode} 享受 {percentage}% 折扣",
     "description": "Text on Promo Banner"
@@ -2467,6 +2487,10 @@
     "defaultMessage": "文件大小必须小于 {size}",
     "description": "Error message for image size exceeded"
   },
+  "9Myxlt": {
+    "defaultMessage": "在工作区中打开此解决方案的代码，替换您当前的代码。如果需要，您可以随时恢复到之前的代码。非常适合探索或试验解决方案。",
+    "description": "Tooltip for opening solution in workspace"
+  },
   "9NUuQM": {
     "defaultMessage": "轨迹 | 进度 | {name}",
     "description": "Title of user profile progress tracks page"
@@ -2631,13 +2655,13 @@
     "defaultMessage": "前任面试官的回答",
     "description": "Features for question format page"
   },
+  "AINf9L": {
+    "defaultMessage": "官方解决方案",
+    "description": "Questions official solution label"
+  },
   "AJuXmH": {
     "defaultMessage": "添加个人资料照片",
     "description": "Label for add profile photo button on projects profile"
-  },
-  "AKgBO+": {
-    "defaultMessage": "隐藏解决方案",
-    "description": "Coding workspace hide solution button"
   },
   "AKnqip": {
     "defaultMessage": "姓名必须包含至少 {minLength} 个字符。",
@@ -2650,10 +2674,6 @@
   "ANSxyW": {
     "defaultMessage": "低",
     "description": "Low importance question"
-  },
-  "AQTvh2": {
-    "defaultMessage": "运行测试用例 (可自定义)",
-    "description": "Coding workspace run test cases tooltip"
   },
   "ATjflV": {
     "defaultMessage": "选择最多 2 个原因，以便我们改进您的体验",
@@ -2839,6 +2859,10 @@
     "defaultMessage": "无法从存储库加载文件",
     "description": "Error message when files from a repository could not be loaded"
   },
+  "BJ0Mm1": {
+    "defaultMessage": "键盘快捷键",
+    "description": "Label for keyboard shortcuts menu item"
+  },
   "BJEmxH": {
     "defaultMessage": "作业状态",
     "description": "Title of job status section of projects profile edit page"
@@ -2874,6 +2898,10 @@
   "BQSRxW": {
     "defaultMessage": "推荐资源",
     "description": "Features for focus areas question listing"
+  },
+  "BQuU/8": {
+    "defaultMessage": "在提交之前运行最终测试用例以验证您的解决方案。这些用例无法自定义。",
+    "description": "Coding workspace run test cases tooltip"
   },
   "BRZJBS": {
     "defaultMessage": "树",
@@ -3070,6 +3098,10 @@
   "CUkv2F": {
     "defaultMessage": "您的订阅在<bold>{date}</bold>续订",
     "description": "Information about subscription"
+  },
+  "CXucIh": {
+    "defaultMessage": "测试用例",
+    "description": "Coding workspace test cases heading"
   },
   "CYr24j": {
     "defaultMessage": "价格",
@@ -3403,6 +3435,10 @@
     "defaultMessage": "逐步构建全面的前端/全栈技能。磨练特定技能，或从零开始遵循我们的技能提升路径。",
     "description": "Description of Projects skill tree page"
   },
+  "EB0DMx": {
+    "defaultMessage": "控制台",
+    "description": "Coding workspace console heading"
+  },
   "ECjV1e": {
     "defaultMessage": "准备好开始构建了吗？",
     "description": "Ready to start building section title"
@@ -3719,6 +3755,10 @@
     "defaultMessage": "探索我们的入门指南，在开始练习之前先全面了解 {category} 面试准备。",
     "description": "Description for guide card"
   },
+  "FvrHUh": {
+    "defaultMessage": "分钟",
+    "description": "Duration minutes"
+  },
   "Fvz5KG": {
     "defaultMessage": "JavaScript 函数",
     "description": "Page title for JavaScript coding question format"
@@ -3838,6 +3878,10 @@
   "GUGImr": {
     "defaultMessage": "{offerCount, plural, =1 {1 条评价} other {# 条评价}}",
     "description": "Testimonials overview"
+  },
+  "GWqOMJ": {
+    "defaultMessage": "使用此尝试永久覆盖您的代码。然后将对解决方案所做的更改保存在本地",
+    "description": "Dialog content for overwriting code in workspace"
   },
   "GWzQrD": {
     "defaultMessage": "<authorLink>{author}</authorLink> 在 <submissionLink>{entityTitle}</submissionLink> 问题上回复了您 {timestamp}",
@@ -4067,6 +4111,14 @@
     "defaultMessage": "固定在整个网站顶部的横幅",
     "description": "Ad format description"
   },
+  "HUdL/0": {
+    "defaultMessage": "窗口/标签页",
+    "description": "Label for window / tabs actions"
+  },
+  "HVUDyn": {
+    "defaultMessage": "准备好提交您的代码了吗？",
+    "description": "Title of test panel for coding workspace"
+  },
   "HXZeeh": {
     "defaultMessage": "学习计划和主题",
     "description": "Marketing section title"
@@ -4078,10 +4130,6 @@
   "HYUdzA": {
     "defaultMessage": "排序",
     "description": "Computer science algorithm"
-  },
-  "HYkgJI": {
-    "defaultMessage": "版本",
-    "description": "Coding workspace saved code version"
   },
   "HZh7Wb": {
     "defaultMessage": "请求已更新",
@@ -4178,6 +4226,10 @@
   "Hu5E0P": {
     "defaultMessage": "如前所述，托管您的网站有很多方法。我们推荐的托管商有：",
     "description": "Recommended hosts to deploy project"
+  },
+  "Hv6acz": {
+    "defaultMessage": "从这里开始编写您的解决方案",
+    "description": "Coding workspace code editor description"
   },
   "Hz9Ok0": {
     "defaultMessage": "GFE 将我之前平淡无奇的简历改造成了一个结构良好的简历，并展示了有影响力的技能。 他量身定制的建议、实用的策略和技巧为我的简历带来了新的吸引力。 我从他们对简历审查的处理方式中学到了很多东西，我相信它将继续使我受益于我未来的求职。",
@@ -4451,6 +4503,10 @@
     "defaultMessage": "删除 \"{saveName}\"",
     "description": "Dialog title for deleting a saved code"
   },
+  "J5CHN5": {
+    "defaultMessage": "恢复到您的代码",
+    "description": "Label for the revert button in the solution banner"
+  },
   "J6Yt0F": {
     "defaultMessage": "Atlassian",
     "description": "Company name for Atlassian"
@@ -4530,10 +4586,6 @@
   "JMDUrK": {
     "defaultMessage": "职业发展",
     "description": "Link to careers page"
-  },
-  "JNG61K": {
-    "defaultMessage": "前往解决方案",
-    "description": "Coding workspace go to solution button label"
   },
   "JNe0+O": {
     "defaultMessage": "便捷的代码审查",
@@ -4686,10 +4738,6 @@
   "K2TQiz": {
     "defaultMessage": "行为面试手册 | 专为前端工程师设计",
     "description": "Page title for behavioral interview playbook cover page"
-  },
-  "K2gA7K": {
-    "defaultMessage": "\" {title} \" 的提交",
-    "description": "Coding workspace submission title"
   },
   "K366Ff": {
     "defaultMessage": "开始完成简单的任务，即可解锁 GreatFrontEnd 提供的 {discount}% 折扣。",
@@ -4867,6 +4915,10 @@
     "defaultMessage": "隐藏子技能",
     "description": "Label to collapse skills card"
   },
+  "KimNHi": {
+    "defaultMessage": "在工作区中打开",
+    "description": "Open in workspace button label"
+  },
   "Kj5nRS": {
     "defaultMessage": "公司指南",
     "description": "Company interview guides"
@@ -4986,6 +5038,10 @@
   "L515WN": {
     "defaultMessage": "查看页面",
     "description": "View page button label"
+  },
+  "L5rbBy": {
+    "defaultMessage": "使用此解决方案覆盖您的代码。然后将对解决方案所做的更改保存在本地",
+    "description": "Tooltip for the overwrite button in the solution banner"
   },
   "L7w0Ka": {
     "defaultMessage": "计算机科学基础",
@@ -5235,6 +5291,10 @@
     "defaultMessage": "{questionCount} 个已知问题及解决方案",
     "description": "Features for company guides question listing"
   },
+  "M6U+gd": {
+    "defaultMessage": "打开解决方案",
+    "description": "Confirm button to open solution in workspace"
+  },
   "M7RwUF": {
     "defaultMessage": "您在提交 <link>{submissionTitle}</link> 上留下了一个问题：<comment>\"{description}\"</comment>",
     "description": "Log message for you asking question on your submission"
@@ -5376,7 +5436,7 @@
     "description": "Label for item 2 for simulate real interviews section"
   },
   "N06KWk": {
-    "defaultMessage": "JS + Polyfills + GreatFrontEnd = 面试信心。学习 JavaScript polyfills 是我前端面试准备的转折点。实现 Array.prototype.map、bind 或 Promise.all 等方法加深了我对 JavaScript 内部工作原理的理解。什么真的有帮助？GreatFrontEnd。他们关于重新创建核心 JS 方法的挑战非常到位——实用、清晰，正是面试中会出现的那种东西。如果你正在准备前端面试，不要只是死记硬背，要实现。GreatFrontEnd 是一个很好的起点。",
+    "defaultMessage": "JS + Polyfills + GreatFrontEnd = 访谈信心。学习 JavaScript polyfills 是我前端面试准备的转折点。实现诸如 Array.prototype.map、bind 或 Promise.all 之类的方法加深了我对 JavaScript 如何在幕后工作的理解。什么真的有帮助？GreatFrontEnd。他们关于重新创建核心 JS 方法的挑战非常到位——实用、清晰，正是面试中会出现的那种东西。如果您正在准备前端面试，不要只是死记硬背，要实现。GreatFrontEnd 是一个很好的起点。",
     "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "N0z+Fz": {
@@ -5426,6 +5486,10 @@
   "NEkaZ4": {
     "defaultMessage": "入门",
     "description": "Starter level blog"
+  },
+  "NHYkBT": {
+    "defaultMessage": "解决问题并点击<b>“提交”</b>以在此处查看您为此问题提交的代码。",
+    "description": "No submissions yet in coding workspace"
   },
   "NL7HsI": {
     "defaultMessage": "预览解决方案",
@@ -5706,10 +5770,6 @@
   "Ol2L0M": {
     "defaultMessage": "查看 GitHub 个人资料",
     "description": "Link to GitHub profile"
-  },
-  "OlFjm9": {
-    "defaultMessage": "纠正",
-    "description": "Correct submission in coding workspace"
   },
   "OmFm8C": {
     "defaultMessage": "发布",
@@ -6175,6 +6235,10 @@
     "defaultMessage": "其他媒体（例如，新闻通讯、网站）",
     "description": "Title for other media"
   },
+  "QjBlCT": {
+    "defaultMessage": "代码编辑器",
+    "description": "Coding workspace code editor heading"
+  },
   "QjQj5L": {
     "defaultMessage": "构建项目，从入门到精通，训练每个前端技能",
     "description": "Description for recommended action for new projects platform user"
@@ -6215,10 +6279,6 @@
     "defaultMessage": "公司指南：",
     "description": "Paragraph 3 for \"What does GreatFrontEnd Interviews offer exactly?\" on Homepage FAQ sections"
   },
-  "QrHNsv": {
-    "defaultMessage": "您当前正在编辑来自已保存版本的代码：<strong>\"{saveName}\"</strong>。",
-    "description": "Viewing saved version alert message"
-  },
   "QrikGf": {
     "defaultMessage": "复制到剪贴板",
     "description": "Button label for copy button"
@@ -6251,6 +6311,10 @@
     "defaultMessage": "难度：困难到简单",
     "description": "Sorting option for submissions list - sort by difficulty from hard to easy"
   },
+  "QybPto": {
+    "defaultMessage": "另存为新文件",
+    "description": "Save as new button label"
+  },
   "R+pt9h": {
     "defaultMessage": "提供的资源",
     "description": "Title for Assets Provided section on Projects project page"
@@ -6278,6 +6342,10 @@
   "R4OrtB": {
     "defaultMessage": "算法",
     "description": "Algorithm Coding Interview Questions"
+  },
+  "R56YnA": {
+    "defaultMessage": "当前",
+    "description": "Current active submission label"
   },
   "R5FPug": {
     "defaultMessage": "联系我们",
@@ -6443,6 +6511,10 @@
     "defaultMessage": "随时联系我们，我们随时为您提供帮助。",
     "description": "Title for marketing page section"
   },
+  "RdY2p1": {
+    "defaultMessage": "问题",
+    "description": "Navigate to question page button"
+  },
   "Rdi3ic": {
     "defaultMessage": "活动",
     "description": "Profile activity tab title"
@@ -6450,6 +6522,10 @@
   "RfVhtP": {
     "defaultMessage": "立即使用",
     "description": "Button label for use now button"
+  },
+  "Rhdhem": {
+    "defaultMessage": "创建一个帐户",
+    "description": "Create account button label"
   },
   "RjpadL": {
     "defaultMessage": "参考实用指南，从其他人的提交中学习，并在“”中提出任何问题",
@@ -6646,6 +6722,10 @@
   "SWnsuA": {
     "defaultMessage": "设置",
     "description": "Link label to the profile page"
+  },
+  "SXLeRI": {
+    "defaultMessage": "打开此尝试将替换编辑器中的代码。如果需要，您可以恢复。继续？",
+    "description": "Dialog content for opening solution in workspace"
   },
   "SaUyXa": {
     "defaultMessage": "{company} 前端面试指南",
@@ -7035,9 +7115,21 @@
     "defaultMessage": "未找到测试文件。",
     "description": "Workspace no test files found"
   },
+  "UFcqJO": {
+    "defaultMessage": "使用此解决方案永久覆盖您的代码。然后将对解决方案所做的更改保存在本地",
+    "description": "Dialog content for overwriting code in workspace"
+  },
+  "UFv6qd": {
+    "defaultMessage": "恢复到您的代码",
+    "description": "Dialog title for reverting code in workspace"
+  },
   "UISwUX": {
     "defaultMessage": "探索 {topicsCount} 个前端面试的关键主题。 通过针对性的练习题（每个问题都有详细的解答和可供学习的测试）掌握它们。",
     "description": "Page description for focus areas listing"
+  },
+  "UK7olU": {
+    "defaultMessage": "实时测试和预览您的 UI",
+    "description": "Coding workspace preview description"
   },
   "ULuy8I": {
     "defaultMessage": "难度",
@@ -7291,10 +7383,6 @@
     "defaultMessage": "{category} 面试指南",
     "description": "Description for guide card"
   },
-  "VYJBxW": {
-    "defaultMessage": "运行提交测试用例并标记为完成",
-    "description": "Coding workspace run test cases tooltip"
-  },
   "VYwrk6": {
     "defaultMessage": "使用高级版，即可访问我们一些最棒的真实项目挑战和资源。",
     "description": "Description of Pricing page"
@@ -7402,6 +7490,10 @@
   "VuIvcH": {
     "defaultMessage": "阅读项目详情",
     "description": "Instruction for projects"
+  },
+  "VyuRF6": {
+    "defaultMessage": "恢复将放弃对该解决方案所做的任何更改。您要继续吗？",
+    "description": "Dialog content for reverting code in workspace"
   },
   "W+3cZW": {
     "defaultMessage": "在 X 上关注我们",
@@ -7899,9 +7991,17 @@
     "defaultMessage": "通过继续，您同意 GreatFrontEnd 的 <tos>服务条款</tos> 和 <pp>隐私政策</pp>。",
     "description": "Disclaimer of agreement to terms of service and privacy policy on Email Sign Up page"
   },
+  "Y735Gk": {
+    "defaultMessage": "覆盖",
+    "description": "Label for the overwrite button in the solution banner"
+  },
   "Y7zgiT": {
     "defaultMessage": "包含什么",
     "description": "Label for what is included for the resume review page"
+  },
+  "Y9i87T": {
+    "defaultMessage": "对当前打开的解决方案所做的更改将被放弃。继续？",
+    "description": "Dialog content for unsaved changes in solution"
   },
   "YBlo/J": {
     "defaultMessage": "如上所述，有很多免费托管项目的方法。我们推荐的主机有：",
@@ -8020,8 +8120,12 @@
     "description": "Answer to 'What does GreatFrontEnd Projects offer?' on projects FAQs"
   },
   "Yj7hpx": {
-    "defaultMessage": "我曾在几家初创公司面试过，并注意到面试格局与经典的 DSA / 分布式系统风格的面试有所不同。我被一些偏向前端的面试问题难住了，虽然我非常接近一些 offer，但我被其他竞争者淘汰了。整个行业的门槛比以往任何时候都高，我亲眼目睹了 2025 年市场的残酷，看到大量表现优异的 MAANG 工程师在没有通知的情况下被解雇。当 MAANG 联系我时，我无法承担任何责任，我必须全力以赴抓住这个机会——如果我没有成功，我就没有 6 个月的时间再试一次，所以这是我的“绝杀”。这是“要么得到它，要么放弃并去法学院”。我热爱工程和创造力，但我也热爱财务安全。我的时间非常有限，因为亚马逊一旦意外地接受我进入面试流程，行动就非常迅速。GFE 出现在我的搜索结果中，似乎是为我做好准备的最佳选择的一站式商店。我在几天内完成了亚马逊准备指南的 100%。碰巧，这是该网站上针对一家公司的最大问题库，它帮助我掸去了自学编程以来我没有真正使用过的 Vanilla JS、HTML 和 CSS 基础知识上的灰尘。该指南不仅让我迅速赶上了进度，而且高级组件构建提供了大量关于可访问性、抽象和 CSS 的新信息和信心，这让我感觉我可以在紧张的时间限制下在面试环境中展现出很多实力和深度。当然，这与描述完全一样。在亚马逊指南之外，我探索了额外的系统设计问题。我确信，如果我不花时间研究 GFE 上的系统设计解决方案，我就会在这次面试中失败。最后，我要说的是：我是一名自学成才的软件工程师，我实际上在一家名为 LaunchCode 的很棒的训练营任教，该训练营提供免费的技术教育，特别关注弱势社区。我多年来向成千上万的人教授 Web 开发基础知识，每个学期都有大量的学生会问：“真的有可能进入 FAANG 并为我的家人赚到那种改变人生的钱吗？没有上过斯坦福大学？没有学位？”这需要多年的努力工作和自学，但你可以。如果我能做到，任何人都可以（使用 GFE）。",
+    "defaultMessage": "我曾在几家初创公司面试过，并且注意到面试格局与经典的 DSA / 分布式系统风格的面试有所不同。我被一些偏向前端的面试问题难住了，虽然我非常接近一些 offer，但我被其他竞争者淘汰了。整个行业的门槛比以往任何时候都高，我亲眼目睹了 2025 年市场的残酷，看到大量表现优异的 MAANG 工程师在没有通知的情况下被解雇。当 MAANG 联系我时，我无法承担任何责任，我不得不全力以赴——我没有 6 个月的时间等待，如果我没有成功，就再试一次，所以这是我的 Hail Mary。这是“要么得到它，要么认输，去法学院”。我热爱工程和创造力，但我也热爱财务安全。我的时间表非常有限，因为亚马逊在他们意外地接受我进入这个环节后行动非常迅速。GFE 出现在我的搜索结果中，似乎是为我做好准备的最佳选择。我在几天内完成了亚马逊准备指南的 100%。碰巧，这是该网站上针对一家公司的最大问题库，它帮助我摆脱了自第一次学习编程以来我没有真正使用过的 Vanilla JS、HTML 和 CSS 基础知识。该指南不仅让我迅速掌握了知识，而且高级组件构建提供了大量关于可访问性、抽象和 CSS 的新信息和信心，这让我感觉我可以在紧张的时间限制下在面试环境中展现出很多实力和深度。当然，这与描述完全一样。在亚马逊指南之外，我探索了额外的系统设计问题。我知道，如果我不花时间在 GFE 上的系统设计解决方案上，我肯定会失败这次面试。最后，我要说的是：我是一名自学成才的 SWE，我实际上在一家名为 LaunchCode 的很棒的训练营任教，该训练营特别关注弱势群体，提供免费的技术教育。我多年来向成千上万的人教授 Web 开发基础知识，每个学期都会有很多学生问：“真的有可能进入 FAANG 并为我的家人赚到那种改变人生的钱吗？没有上斯坦福大学？没有学位？”这需要多年的辛勤工作和自学，但是的，你可以。如果我能做到，任何人都可以（使用 GFE）。",
     "description": "User testimonial for GreatFrontEnd Interviews"
+  },
+  "YlKe4g": {
+    "defaultMessage": "尚未保存任何代码",
+    "description": "No saved code yet in coding workspace"
   },
   "YpJ3q8": {
     "defaultMessage": "回复评论",
@@ -8030,6 +8134,10 @@
   "YrEBRj": {
     "defaultMessage": "系统设计面试",
     "description": "Front End system design interview questions"
+  },
+  "Yv2HLr": {
+    "defaultMessage": "尚无提交",
+    "description": "No submissions in coding workspace"
   },
   "YwBuE7": {
     "defaultMessage": "您在此项目中使用的技能，这些技能包含于我们的技能路线图中。这有助于我们跟踪您在技能发展方面的进度",
@@ -8123,10 +8231,6 @@
     "defaultMessage": "注册于 {date}",
     "description": "Date the user joined the service"
   },
-  "ZJQ+uw": {
-    "defaultMessage": "提交您的代码以检查是否符合 <button>所有测试用例</button>。",
-    "description": "Text that appears in the DevTool under the Tests tab before the user has submitted their code"
-  },
   "ZMFRjh": {
     "defaultMessage": "噩梦",
     "description": "Nightmare level blog"
@@ -8171,21 +8275,17 @@
     "defaultMessage": "国际化",
     "description": "Front end topic"
   },
-  "ZYk9jl": {
-    "defaultMessage": "没有保存的版本",
-    "description": "No saved versions in coding workspace"
-  },
   "ZZIJ0i": {
     "defaultMessage": "自 {date} 起",
     "description": "Since date for current project session card"
   },
+  "ZdJ2fl": {
+    "defaultMessage": "解决问题并点击<b>“保存到云端”</b>以存储您的代码。您为此问题保存的代码将显示在此处。",
+    "description": "No saved code yet in coding workspace"
+  },
   "Zdojj9": {
     "defaultMessage": "其他",
     "description": "Label for \"Other\" onboarding option in Projects"
-  },
-  "ZeoQdS": {
-    "defaultMessage": "重置问题",
-    "description": "Coding workspace reset question"
   },
   "Zf0jlB": {
     "defaultMessage": "我们将在 1-2 个工作日内给您回复",
@@ -8335,10 +8435,6 @@
     "defaultMessage": "重置密码",
     "description": "Title of Password Reset page"
   },
-  "aPrOAu": {
-    "defaultMessage": "提交",
-    "description": "Coding workspace submission tab label"
-  },
   "aQYg46": {
     "defaultMessage": "广告",
     "description": "Label for ads"
@@ -8467,10 +8563,6 @@
     "defaultMessage": "您将在这里找到我们精心策划的、最具洞察力和参与度的博客内容精选，这些内容已整齐地组织成系列，方便您使用。每个系列都专注于一个独特的主题或话题，深入探讨该主题。",
     "description": "Explore series page description"
   },
-  "as1hw8": {
-    "defaultMessage": "提交您的代码",
-    "description": "Title of test panel for coding workspace"
-  },
   "asFaPd": {
     "defaultMessage": "季节性",
     "description": "Badge label for seasonal promotion"
@@ -8527,17 +8619,9 @@
     "defaultMessage": "完成内容包括访谈平台上的问题和文章",
     "description": "Label for completions tooltip"
   },
-  "b/3jGp": {
-    "defaultMessage": "提交于",
-    "description": "Coding workspace submission submitted at label"
-  },
   "b/4l5Z": {
     "defaultMessage": "订阅会自动续订，届时您将再次被收费。您可以随时通过 Stripe 账单门户取消订阅。",
     "description": "Call to action text to uppgrade plan."
-  },
-  "b/dKUR": {
-    "defaultMessage": "此测试用例子集用于运行您的代码。",
-    "description": "Message to explain the custom tests cases"
   },
   "b/zX4C": {
     "defaultMessage": "作为既参加过又参加过很多面试的人，我可以肯定地说 GreatFrontEnd 是一个金矿。我强烈推荐 GreatFrontEnd 给任何正在准备前端面试的人或任何只想学习一些新概念的人。内容组织良好，有一些很棒的实际编码挑战，系统设计部分简直太棒了！！！",
@@ -8663,6 +8747,10 @@
     "defaultMessage": "所有问题类型的技巧",
     "description": "Features for React interviews playbook page"
   },
+  "bUOVVm": {
+    "defaultMessage": "键盘快捷键",
+    "description": "Label for slideout for code editor shortcuts"
+  },
   "bVOC6y": {
     "defaultMessage": "现在处于测试阶段。",
     "description": "Project marketing hero section badge"
@@ -8775,6 +8863,10 @@
     "defaultMessage": "全局横幅显示在我们网站的所有页面上",
     "description": "Item 1 for global banner placement pages info"
   },
+  "bz5XgE": {
+    "defaultMessage": "恢复到我的代码",
+    "description": "Revert code button label"
+  },
   "c+UYdY": {
     "defaultMessage": "最受欢迎",
     "description": "Label for most popular pricing tier"
@@ -8822,10 +8914,6 @@
   "cB23kJ": {
     "defaultMessage": "安全 | 个人资料",
     "description": "Title of Profile Security page"
-  },
-  "cBUPgC": {
-    "defaultMessage": "{questionTitle} 在 {questionFramework} 中的解决方案 | UI 面试问题",
-    "description": "Title of Front End Interview UI Coding Questions solution page"
   },
   "cCQIST": {
     "defaultMessage": "在新标签页中打开",
@@ -8931,10 +9019,6 @@
     "defaultMessage": "公司指南",
     "description": "Title for prepare by company"
   },
-  "cjgzTz": {
-    "defaultMessage": "阅读如何使用 {questionFramework} 解决 {questionTitle}",
-    "description": "Description of Front End Interview UI Coding Questions solution page"
-  },
   "cotxax": {
     "defaultMessage": "组件跟踪",
     "description": "Label for Component Track filter for submissions list"
@@ -8982,6 +9066,10 @@
   "cxo3yi": {
     "defaultMessage": "创建您自己的框架",
     "description": "Title for bring your own framework feature"
+  },
+  "cyhNCa": {
+    "defaultMessage": "已成功更新“{saveName}”",
+    "description": "Coding workspace save code toast title"
   },
   "d+1G/V": {
     "defaultMessage": "最新资讯 | GreatFrontEnd",
@@ -9343,6 +9431,10 @@
     "defaultMessage": "使用不同的卡或付款方式完成付款。",
     "description": "Reason label for different card"
   },
+  "ebi9uh": {
+    "defaultMessage": "保存到当前尝试？",
+    "description": "Coding workspace save code label"
+  },
   "edBcYW": {
     "defaultMessage": "主题",
     "description": "Question quiz topic"
@@ -9534,6 +9626,10 @@
   "fKjzxf": {
     "defaultMessage": "代码将于 {expiryDate} 到期。",
     "description": "Instruction to apply discount"
+  },
+  "fLrQo7": {
+    "defaultMessage": "先保存为提交",
+    "description": "Cancel button label in confirmation dialog"
   },
   "fMAedf": {
     "defaultMessage": "您在 {challengeTitle} 的挑战论坛上回复了 <bold>自己</bold>：<comment>\"{description}\"</comment>",
@@ -9727,6 +9823,10 @@
     "defaultMessage": "查看",
     "description": "Check it out button label"
   },
+  "g7S4IJ": {
+    "defaultMessage": "用此解决方案覆盖您的代码",
+    "description": "Dialog title for overwriting code in workspace"
+  },
   "g9OX0J": {
     "defaultMessage": "{replyCount, plural, one {显示 # 条回复} other {显示 # 条回复}}",
     "description": "Label for more replies button on project discussions page"
@@ -9779,10 +9879,6 @@
     "defaultMessage": "最新资讯",
     "description": "Section title for blog home page"
   },
-  "gIeLON": {
-    "defaultMessage": "高级",
-    "description": "Premium content"
-  },
   "gIvdNL": {
     "defaultMessage": "我们帮助您通过构建来学习，无需教程地狱",
     "description": "Heading of the 'We help you learn through building - without tutorial hell' marketing section on Projects home page"
@@ -9795,10 +9891,6 @@
     "defaultMessage": "执行代码",
     "description": "Execute code in editor tooltip"
   },
-  "gLY3I/": {
-    "defaultMessage": "查看解决方案",
-    "description": "Coding workspace show solution button"
-  },
   "gRN6GJ": {
     "defaultMessage": "提供的资产",
     "description": "Label for Assets Provided card on start project overlay on Projects project assets page"
@@ -9810,6 +9902,10 @@
   "gTOYrn": {
     "defaultMessage": "有额外时间，根据需要继续处理下面的列表！",
     "description": "Label for more learning section"
+  },
+  "gU1jUE": {
+    "defaultMessage": "将问题代码重置为默认值",
+    "description": "Coding workspace reset question"
   },
   "gU6oac": {
     "defaultMessage": "查看所有评价",
@@ -9874,6 +9970,10 @@
   "gtouN7": {
     "defaultMessage": "中等",
     "description": "Medium question difficulty"
+  },
+  "guixJ6": {
+    "defaultMessage": "已保存的代码（{name}）",
+    "description": "Coding workspace saved code tab label"
   },
   "gv2f4M": {
     "defaultMessage": "对于像 <bold>https://instagram.com/johndoe</bold> 这样的个人资料 URL，您的用户名是 <bold>johndoe</bold>。",
@@ -10130,10 +10230,6 @@
   "hz5dJR": {
     "defaultMessage": "尚未收到通知！",
     "description": "Label for no notification"
-  },
-  "hz7oG3": {
-    "defaultMessage": "没有提交",
-    "description": "No submissions in coding workspace"
   },
   "i+1FrX": {
     "defaultMessage": "运行测试",
@@ -10447,6 +10543,10 @@
     "defaultMessage": "标题：由Z至A",
     "description": "Sorting option for question list - sort titles from Z to A"
   },
+  "jdfqZM": {
+    "defaultMessage": "当您“运行”代码时，这组可自定义的测试用例就会运行。",
+    "description": "Message to explain the custom tests cases"
+  },
   "jgGtvR": {
     "defaultMessage": "作品集网站审查",
     "description": "Resume review feature"
@@ -10731,6 +10831,14 @@
     "defaultMessage": "节省时间的重点",
     "description": "Paywall tags"
   },
+  "kqqb+v": {
+    "defaultMessage": "还原将放弃对本次尝试所做的任何更改。要继续吗？",
+    "description": "Dialog content for reverting code in workspace"
+  },
+  "krxWYh": {
+    "defaultMessage": "使用高级版解锁公司数据",
+    "description": "Label for the premium badge for companies data"
+  },
   "ks4qo1": {
     "defaultMessage": "重新订阅以访问",
     "description": "Title for a paywall of a submission for a premium project"
@@ -10746,10 +10854,6 @@
   "kxzXZj": {
     "defaultMessage": "UI 组件",
     "description": "Front end development topic"
-  },
-  "kyUg36": {
-    "defaultMessage": "没有这样的保存。",
-    "description": "Saved solution not found"
   },
   "kzklH3": {
     "defaultMessage": "从入门到精通",
@@ -10770,6 +10874,10 @@
   "l1ZqoW": {
     "defaultMessage": "加入 Discord",
     "description": "Join Discord channel"
+  },
+  "l2/VeQ": {
+    "defaultMessage": "在工作区中打开此尝试的代码，替换您当前的代码。如果需要，您可以随时恢复到之前的代码。非常适合探索或试验该尝试。",
+    "description": "Tooltip for opening attempt in workspace"
   },
   "l27vTV": {
     "defaultMessage": "返回所有挑战",
@@ -11063,6 +11171,10 @@
     "defaultMessage": "完成之后",
     "description": "Tab label for projects challenges"
   },
+  "mUwaS5": {
+    "defaultMessage": "将此问题标记为已完成，以跟踪您的进度。",
+    "description": "Tooltip for marking a question as complete"
+  },
   "mVFZ09": {
     "defaultMessage": "我们已开始跟踪您在 {studyListName} 的进度",
     "description": "Success message for starting a study plan"
@@ -11114,6 +11226,10 @@
   "mjEvFf": {
     "defaultMessage": "步骤 2",
     "description": "Title for \"Step 2\" tab on Projects project page"
+  },
+  "mq4G2a": {
+    "defaultMessage": "已保存为“{saveName}”",
+    "description": "Coding workspace save code toast title"
   },
   "msvqkR": {
     "defaultMessage": "每个项目都属于 7 个可重用组件库中的一个",
@@ -11206,6 +11322,10 @@
   "nAvA8M": {
     "defaultMessage": "进度 | {name}",
     "description": "Title of user profile progress page"
+  },
+  "nCqgeQ": {
+    "defaultMessage": "官方解决方案",
+    "description": "Label for the solution name in workspace"
   },
   "nHJcbV": {
     "defaultMessage": "测验问题",
@@ -11375,6 +11495,10 @@
     "defaultMessage": "每个项目都属于 7 个轨道之一，包含行业/用例中常用的组件",
     "description": "Description for \"Component libraries\" feature on Projects home page"
   },
+  "ntmnHg": {
+    "defaultMessage": "提交后，我们会根据<button>提交测试</button>运行您的代码。这些测试超出了<run>“运行”</run>的基本检查。",
+    "description": "Text that appears in the DevTool under the Tests tab before the user has submitted their code"
+  },
   "nv3dMg": {
     "defaultMessage": "最新资讯",
     "description": "Latest blog articles page title"
@@ -11466,6 +11590,10 @@
   "oRCEvl": {
     "defaultMessage": "高级省时功能",
     "description": "Button title for leveraging time-savers on interviews payment success page"
+  },
+  "oRJbie": {
+    "defaultMessage": "浏览器预览和控制台",
+    "description": "Coding workspace preview heading"
   },
   "oU0tf/": {
     "defaultMessage": "周",
@@ -11815,6 +11943,10 @@
     "defaultMessage": "发送另一封验证邮件",
     "description": "Send another verification email"
   },
+  "q/prth": {
+    "defaultMessage": "文件",
+    "description": "Solution files section heading"
+  },
   "q0J0CA": {
     "defaultMessage": "使用 {authProviderLabel} 继续",
     "description": "Label of social media sign in button on Social Sign In page"
@@ -11863,10 +11995,6 @@
     "defaultMessage": "您正在使用的其他技能，这些技能不在技能路线图中。这也帮助社区成员更多地了解技术栈。如果您找不到所需的标签，请给我们发送电子邮件。",
     "description": "Description for tech stack input on project submit page"
   },
-  "qBtGwR": {
-    "defaultMessage": "在新页面上查看完整解决方案",
-    "description": "Coding workspace view solution subtitle"
-  },
   "qDIWna": {
     "defaultMessage": "社区",
     "description": "Coding workspace community solutions tab label"
@@ -11886,6 +12014,10 @@
   "qJhNva": {
     "defaultMessage": "公开路线图",
     "description": "Title of Public roadmap page"
+  },
+  "qJvX+m": {
+    "defaultMessage": "打开尝试",
+    "description": "Confirm button to open solution in workspace"
   },
   "qLH4+p": {
     "defaultMessage": "GreatFrontEnd (GFE) 是我面试准备中不可或缺的资源。 它提供了结构良好、深入的解释，大大提高了我的前端系统设计技能和 JavaScript 基础知识。 详细的解决方案和精心策划的问题集不仅帮助我通过了面试，而且让我成为了一名更好的工程师。 感谢 GFE，我成功获得了 Microsoft、Lululemon、ADIA 和 LaunchDarkly 的职位，我强烈推荐给任何准备前端面试的人。",
@@ -11939,6 +12071,10 @@
     "defaultMessage": "正文",
     "description": "Label for body input"
   },
+  "qYkkOP": {
+    "defaultMessage": "在工作区中打开解决方案？",
+    "description": "Dialog title for opening solution in workspace"
+  },
   "qdOBuk": {
     "defaultMessage": "练习题",
     "description": "Section title"
@@ -11966,10 +12102,6 @@
   "qmXBt3": {
     "defaultMessage": "如果您使用的是借记卡，请确保卡中有足够的资金。",
     "description": "Reason label for insufficient balance"
-  },
-  "qn8hx+": {
-    "defaultMessage": "当前",
-    "description": "Current saved code version badge"
   },
   "qnBYb6": {
     "defaultMessage": "高级组件跟踪",
@@ -12135,10 +12267,6 @@
     "defaultMessage": "取消固定一个或多个现有提交以固定新的提交。",
     "description": "Dialog subtitle for pinned submission"
   },
-  "rdN/ZV": {
-    "defaultMessage": "{questionTitle} 解决方案在 {questionFramework}",
-    "description": "Title of Front End Interview UI Coding Questions solution page"
-  },
   "reqKoj": {
     "defaultMessage": "世界最佳公司高级到资深工程师的经验",
     "description": "Prep resources companies"
@@ -12198,10 +12326,6 @@
   "rvt7cN": {
     "defaultMessage": "如果您正在寻找前端面试，GreatFrontEnd 适合您。它有各种各样的编码问题，从 HTML、CSS、JavaScript 到 React。它还涵盖了函数、算法、用户界面、测验等格式。如果您想进入顶级科技公司担任前端职位，GreatFrontEnd 是您的最佳选择。",
     "description": "User testimonial for GreatFrontEnd Interviews"
-  },
-  "rx8kx8": {
-    "defaultMessage": "已保存为“{saveName}”",
-    "description": "Coding workspace save code toast title"
   },
   "rzOz2q": {
     "defaultMessage": "我们仍在扩展挑战库",
@@ -12335,6 +12459,10 @@
     "defaultMessage": "分享我们的产品",
     "description": "Affiliate program step"
   },
+  "shjtM6": {
+    "defaultMessage": "文件",
+    "description": "Coding workspace file explorer label"
+  },
   "sjLtW1": {
     "defaultMessage": "管理订阅",
     "description": "Manage user membership subscription button label"
@@ -12371,9 +12499,9 @@
     "defaultMessage": "返回作业",
     "description": "Back to jobs page"
   },
-  "sv1dLw": {
-    "defaultMessage": "移动设备不支持编码和提交。请使用更宽的屏幕在编辑器中练习解决此问题。",
-    "description": "Coding workspace not supported on mobile warning"
+  "suLGue": {
+    "defaultMessage": "未保存的更改",
+    "description": "Confirmation model title"
   },
   "swjkuF": {
     "defaultMessage": "学习计划",
@@ -12426,6 +12554,10 @@
   "t6SUbS": {
     "defaultMessage": "Angular 面试题及解答 | GreatFrontEnd",
     "description": "Title of React Interview Questions page"
+  },
+  "t7Smz8": {
+    "defaultMessage": "编辑器快捷键",
+    "description": "Coding workspace editor shortcuts tab label"
   },
   "t9eK65": {
     "defaultMessage": "编辑广告",
@@ -12599,6 +12731,10 @@
     "defaultMessage": "缩进行",
     "description": "Text describing indent line in the coding workspace shortcuts menu"
   },
+  "tvSiGC": {
+    "defaultMessage": "为了获得最佳体验，请切换到桌面。",
+    "description": "Coding workspace mobile experience message"
+  },
   "tvsV5d": {
     "defaultMessage": "子功能",
     "description": "Subfeatures of a feature in Projects marketing page"
@@ -12655,6 +12791,10 @@
     "defaultMessage": "Svelte 面试问题 | 前 FAANG 面试官解答",
     "description": "Title of React Interview Questions page"
   },
+  "uGFfcx": {
+    "defaultMessage": "先保存到云端",
+    "description": "Save button label in confirmation dialog"
+  },
   "uGbcAo": {
     "defaultMessage": "75 个最重要算法问题的著名列表",
     "description": "Description of Blind 75"
@@ -12682,6 +12822,10 @@
   "uMAaCa": {
     "defaultMessage": "前端博客",
     "description": "Blog home page title"
+  },
+  "uOuP05": {
+    "defaultMessage": "来自<button>{name}</button>",
+    "description": "Label for the solution name"
   },
   "uQG7Ed": {
     "defaultMessage": "JavaScript 面试题",
@@ -12727,6 +12871,10 @@
     "defaultMessage": "现有学生",
     "description": "Button label for student discount"
   },
+  "ub+gSX": {
+    "defaultMessage": "用此尝试覆盖您的代码",
+    "description": "Dialog title for overwriting code in workspace"
+  },
   "ub/oYs": {
     "defaultMessage": "标记为完成（之前已完成）",
     "description": "Label for questions solved in the past"
@@ -12742,10 +12890,6 @@
   "ucUZT7": {
     "defaultMessage": "{category} 用户界面面试问题",
     "description": "Title for front end interview questions page"
-  },
-  "ucl849": {
-    "defaultMessage": "分钟",
-    "description": "Duration minutes"
   },
   "ufyNP1": {
     "defaultMessage": "创建日期：最新到最旧",
@@ -12786,6 +12930,10 @@
   "uvLNHA": {
     "defaultMessage": "运行",
     "description": "Run code button label in workspace"
+  },
+  "uvm0O2": {
+    "defaultMessage": "覆盖",
+    "description": "Overwrite code button label"
   },
   "uvoNYz": {
     "defaultMessage": "您已完成或标记为已完成 {completed} 个问题中的 {total} 个问题，涵盖编码、测验和系统设计。",
@@ -12850,6 +12998,10 @@
   "v9//lW": {
     "defaultMessage": "特定前端框架和语言的定向练习。",
     "description": "Description for framework and language section"
+  },
+  "v95SRd": {
+    "defaultMessage": "打开此解决方案将替换编辑器中的代码。如果需要，您可以恢复。继续吗？",
+    "description": "Dialog content for opening solution in workspace"
   },
   "vC3/M4": {
     "defaultMessage": "定价计划",
@@ -12959,6 +13111,10 @@
     "defaultMessage": "官方解答",
     "description": "Features for all practice questions page"
   },
+  "vmDW39": {
+    "defaultMessage": "正在加载已保存的代码",
+    "description": "Coding workspace saved code loading"
+  },
   "vmqlMW": {
     "defaultMessage": "掌握前端面试中常见问题格式",
     "description": "Description for question formats section"
@@ -13030,10 +13186,6 @@
   "w+HZnz": {
     "defaultMessage": "我们的项目从来都不是一次性的——它们总是与其他项目一起融入某个组件库或设计系统中。您可以构建的任何项目都可以组合起来构建未来的项目，从而形成一个不断增长的未来工具包。",
     "description": "Part 1 of subtitle of the 'Permanent toolkit' marketing section on Projects home page"
-  },
-  "w3T2Ld": {
-    "defaultMessage": "编辑器快捷键",
-    "description": "Tooltip for button to open code editor shortcuts"
   },
   "w54c/f": {
     "defaultMessage": "已选择",
@@ -13211,10 +13363,6 @@
     "defaultMessage": "编辑个人资料",
     "description": "Title of Projects edit profile page"
   },
-  "x8JeGI": {
-    "defaultMessage": "用代码替换编辑器",
-    "description": "Coding workspace replace editor with code label"
-  },
   "x8SJHC": {
     "defaultMessage": "GreatFrontEnd",
     "description": "Social title of GreatFrontEnd standard page"
@@ -13258,6 +13406,10 @@
   "xK578g": {
     "defaultMessage": "请输入有效的电子邮件地址。",
     "description": "Email validation error message"
+  },
+  "xKcTPG": {
+    "defaultMessage": "您的代码将在桌面上运行的自动化测试用例",
+    "description": "Coding workspace test cases description"
   },
   "xP6aru": {
     "defaultMessage": "请重试截图。",
@@ -13306,6 +13458,10 @@
   "xYKCsE": {
     "defaultMessage": "简洁的逐步实用指南",
     "description": "Short description for \"Official guides\" feature on Projects home page"
+  },
+  "xanXX3": {
+    "defaultMessage": "对当前打开的尝试所做的更改将被放弃。继续吗？",
+    "description": "Dialog content for unsaved changes in workspace"
   },
   "xaoljh": {
     "defaultMessage": "在此处输入一些内容...",
@@ -13359,6 +13515,10 @@
     "defaultMessage": "默认显示附加标签。适用于大型显示器。",
     "description": "Coding workspace layout description"
   },
+  "xrhUzU": {
+    "defaultMessage": "登录",
+    "description": "Sign in button label"
+  },
   "xsLz0P": {
     "defaultMessage": "安全",
     "description": "Profile security tab title"
@@ -13386,10 +13546,6 @@
   "xyPOJe": {
     "defaultMessage": "{points} 声誉",
     "description": "Label showing reputation count in profile header of Projects sidebar"
-  },
-  "y+NJ/O": {
-    "defaultMessage": "错误",
-    "description": "Wrong submission in coding workspace"
   },
   "y/r8Q+": {
     "defaultMessage": "路线图 | GreatFrontEnd 项目",
@@ -13459,6 +13615,10 @@
     "defaultMessage": "永久访问面试平台，包括未来的更新和新内容",
     "description": "Subtitle of LifeTime Access Pricing Plan found on Homepage or Pricing page"
   },
+  "yHSENd": {
+    "defaultMessage": "将文件还原为默认值",
+    "description": "Revert file to default button label"
+  },
   "yM3vbW": {
     "defaultMessage": "编辑器快捷键",
     "description": "Label for slideout for code editor shortcuts"
@@ -13486,6 +13646,10 @@
   "yUfdpX": {
     "defaultMessage": "指导他人",
     "description": "Page title for mentoring others in their projects"
+  },
+  "yUzfU2": {
+    "defaultMessage": "提交（{name}）",
+    "description": "Coding workspace submission tab label"
   },
   "yWnRZS": {
     "defaultMessage": "找不到您要找的答案？查看所有 <link>常见问题</link>。",
@@ -13594,10 +13758,6 @@
   "yqjkfw": {
     "defaultMessage": "请输入您的姓名",
     "description": "Error message for empty \"Name\" input on Projects profile onboarding page"
-  },
-  "yrC3kR": {
-    "defaultMessage": "编辑器快捷键",
-    "description": "Label for button to open code editor shortcuts"
   },
   "ysth0B": {
     "defaultMessage": "搜索公司指南",
@@ -13870,6 +14030,10 @@
   "zskRVQ": {
     "defaultMessage": "这是我第一次参加全栈/前端面试。来自 Meta，从事前端工作 3 年，我仍然觉得我在 JavaScript、HTML 的基础知识方面有很多漏洞。GFE 的题库涵盖了几乎所有可能在包括初创公司和 FAANG 在内的公司前端面试中被问到的问题。感谢题库和解释中使用的会话语言，我能够在 Snap 获得一个高级职位。",
     "description": "User testimonial for GreatFrontEnd Interviews"
+  },
+  "zuH0Tc": {
+    "defaultMessage": "运行可自定义的测试用例以检查您的代码进度。您可以在“测试用例”选项卡下修改这些测试用例。",
+    "description": "Coding workspace run test cases tooltip"
   },
   "zul/L1": {
     "defaultMessage": "本月初",

@@ -5,8 +5,7 @@ import InterviewsPurchaseQuestionPaywallPage from '~/components/interviews/purch
 import QuestionJsonLd from '~/components/interviews/questions/common/QuestionJsonLd';
 import type { QuestionUserInterface } from '~/components/interviews/questions/common/QuestionsTypes';
 import { QuestionFrameworkLabels } from '~/components/interviews/questions/common/QuestionsTypes';
-import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
-import { determineFrameworkAndMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
+import { determineFramework } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
 import { sortQuestionsMultiple } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import UserInterfaceCodingWorkspacePage from '~/components/workspace/user-interface/UserInterfaceCodingWorkspacePage';
 
@@ -19,6 +18,7 @@ import {
   createSupabaseAdminClientGFE_SERVER_ONLY,
   readViewerFromToken,
 } from '~/supabase/SupabaseServerGFE';
+import getUserAgent from '~/utils/getUserAgent';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -28,20 +28,14 @@ type Props = Readonly<{
   }>;
 }>;
 
-function frameworkAgnosticLinks(
-  question: QuestionUserInterface,
-  mode: QuestionUserInterfaceMode,
-) {
-  const frameworkAgnosticPathname = `${question.metadata.href}${
-    mode === 'solution' ? '/solution' : ''
-  }`;
+function frameworkAgnosticLinks(question: QuestionUserInterface) {
   const frameworkAgnosticUrl = new URL(
-    frameworkAgnosticPathname,
+    question.metadata.href,
     getSiteOrigin(),
   ).toString();
 
   return {
-    pathname: frameworkAgnosticPathname,
+    pathname: question.metadata.href,
     url: frameworkAgnosticUrl,
   };
 }
@@ -54,108 +48,59 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     .toLowerCase();
 
   const intl = await getIntlServerOnly(locale);
-  const {
-    codeId,
-    framework: parsedFramework,
-    mode,
-  } = determineFrameworkAndMode(rest);
+  const { framework: parsedFramework } = determineFramework(rest);
 
   try {
     const question = await readQuestionUserInterface(
       slug,
       false,
       parsedFramework,
-      codeId,
     );
 
-    const { pathname } = frameworkAgnosticLinks(question, mode);
-    const socialTitle =
-      mode === 'solution'
-        ? intl.formatMessage(
-            {
-              defaultMessage: '{questionTitle} Solution in {questionFramework}',
-              description:
-                'Title of Front End Interview UI Coding Questions solution page',
-              id: 'rdN/ZV',
-            },
-            {
-              questionFramework: QuestionFrameworkLabels[question.framework],
-              questionTitle: question.metadata.title,
-            },
-          )
-        : intl.formatMessage(
-            {
-              defaultMessage: '{questionTitle} in {questionFramework}',
-              description:
-                'Title of Front End Interview UI Coding Questions practice page',
-              id: '5tLsdY',
-            },
-            {
-              questionFramework: QuestionFrameworkLabels[question.framework],
-              questionTitle: question.metadata.title,
-            },
-          );
+    const { pathname } = frameworkAgnosticLinks(question);
+    const socialTitle = intl.formatMessage(
+      {
+        defaultMessage: '{questionTitle} in {questionFramework}',
+        description:
+          'Title of Front End Interview UI Coding Questions practice page',
+        id: '5tLsdY',
+      },
+      {
+        questionFramework: QuestionFrameworkLabels[question.framework],
+        questionTitle: question.metadata.title,
+      },
+    );
 
     return defaultMetadata({
-      description:
-        mode === 'solution'
-          ? intl.formatMessage(
-              {
-                defaultMessage:
-                  'Read how to solve {questionTitle} using {questionFramework}',
-                description:
-                  'Description of Front End Interview UI Coding Questions solution page',
-                id: 'cjgzTz',
-              },
-              {
-                questionFramework: QuestionFrameworkLabels[question.framework],
-                questionTitle: question.metadata.title,
-              },
-            )
-          : intl.formatMessage(
-              {
-                defaultMessage: '{questionExcerpt} using {questionFramework}',
-                description:
-                  'Description of Front End Interview UI Coding Questions practice page',
-                id: 'KDDzWX',
-              },
-              {
-                questionExcerpt: question.metadata.excerpt,
-                questionFramework: QuestionFrameworkLabels[question.framework],
-              },
-            ),
+      description: intl.formatMessage(
+        {
+          defaultMessage: '{questionExcerpt} using {questionFramework}',
+          description:
+            'Description of Front End Interview UI Coding Questions practice page',
+          id: 'KDDzWX',
+        },
+        {
+          questionExcerpt: question.metadata.excerpt,
+          questionFramework: QuestionFrameworkLabels[question.framework],
+        },
+      ),
       locale,
       ogImageTitle: socialTitle,
       pathname,
       socialTitle,
-      title:
-        mode === 'solution'
-          ? intl.formatMessage(
-              {
-                defaultMessage:
-                  '{questionTitle} Solution in {questionFramework} | UI Interview Question',
-                description:
-                  'Title of Front End Interview UI Coding Questions solution page',
-                id: 'cBUPgC',
-              },
-              {
-                questionFramework: QuestionFrameworkLabels[question.framework],
-                questionTitle: question.metadata.title,
-              },
-            )
-          : intl.formatMessage(
-              {
-                defaultMessage:
-                  '{questionTitle} in {questionFramework} | UI Interview Question',
-                description:
-                  'Title of Front End Interview UI Coding Questions practice page',
-                id: 'X3SfGP',
-              },
-              {
-                questionFramework: QuestionFrameworkLabels[question.framework],
-                questionTitle: question.metadata.title,
-              },
-            ),
+      title: intl.formatMessage(
+        {
+          defaultMessage:
+            '{questionTitle} in {questionFramework} | UI Interview Question',
+          description:
+            'Title of Front End Interview UI Coding Questions practice page',
+          id: 'X3SfGP',
+        },
+        {
+          questionFramework: QuestionFrameworkLabels[question.framework],
+          questionTitle: question.metadata.title,
+        },
+      ),
     });
   } catch {
     notFound();
@@ -163,16 +108,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
+  const userAgent = getUserAgent();
   const { locale, rest, slug: rawSlug } = params;
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(rawSlug)
     .replaceAll(/[^\da-zA-Z-]/g, '')
     .toLowerCase();
-  const {
-    codeId,
-    framework: parsedFramework,
-    mode,
-  } = determineFrameworkAndMode(rest);
+  const { codeId, framework: parsedFramework } = determineFramework(rest);
 
   const isViewerPremium: boolean = await (async () => {
     const viewer = await readViewerFromToken();
@@ -199,21 +141,8 @@ export default async function Page({ params }: Props) {
     codeId,
   );
 
-  const isQuestionLockedForViewer = (() => {
-    if (mode === 'practice') {
-      return question.metadata.access === 'premium' && !isViewerPremium;
-    }
-
-    if (mode === 'solution') {
-      return (
-        (question.metadata.access === 'standard' ||
-          question.metadata.access === 'premium') &&
-        !isViewerPremium
-      );
-    }
-
-    return true;
-  })();
+  const isQuestionLockedForViewer =
+    question.metadata.access === 'premium' && !isViewerPremium;
 
   const { questions } = await fetchQuestionsList(
     { type: 'format', value: 'user-interface' },
@@ -256,15 +185,15 @@ export default async function Page({ params }: Props) {
       {isQuestionLockedForViewer ? (
         <InterviewsPurchaseQuestionPaywallPage
           metadata={question.metadata}
-          mode={mode}
+          mode="practice"
         />
       ) : (
         <UserInterfaceCodingWorkspacePage
           canViewPremiumContent={isViewerPremium}
-          mode={mode}
           nextQuestions={nextQuestions}
           question={question}
           similarQuestions={similarQuestions}
+          userAgent={userAgent}
         />
       )}
     </>

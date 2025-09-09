@@ -2,20 +2,28 @@ import { useSandpackClient } from '@codesandbox/sandpack-react';
 import clsx from 'clsx';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import {
-  RiCheckboxLine,
   RiFlaskLine,
   RiListCheck3,
   RiPencilLine,
   RiPlayLine,
 } from 'react-icons/ri';
 
+import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import EmptyState from '~/components/ui/EmptyState';
 import { themeBorderColor } from '~/components/ui/theme';
+import {
+  executionComplete,
+  runTests,
+  submit,
+} from '~/components/workspace/javascript/store/execution-slice';
+import {
+  useJavaScriptCodingWorkspaceDispatch,
+  useJavaScriptCodingWorkspaceSelector,
+} from '~/components/workspace/javascript/store/hooks';
 
-import { useCodingWorkspaceContext } from '../CodingWorkspaceContext';
 import SpecsInline from './SpecsInline';
 import type { TestsOutcome } from './TestsOutcomeBadge';
 import TestsOutcomeBadge from './TestsOutcomeBadge';
@@ -45,6 +53,7 @@ const INITIAL_STATE: State = {
 };
 
 export type Props = Readonly<{
+  metadata: QuestionMetadata;
   onComplete?: (outcome: TestsOutcome) => void;
   onFocusConsole: () => void;
   onShowTestCase: (
@@ -58,6 +67,7 @@ export type Props = Readonly<{
 }>;
 
 export default function TestsSection({
+  metadata,
   onComplete,
   onFocusConsole,
   onShowTestCase,
@@ -66,8 +76,10 @@ export default function TestsSection({
   specPath,
 }: Props) {
   const intl = useIntl();
-  const { executionComplete, runTests, status, submit } =
-    useCodingWorkspaceContext();
+  const workspaceDispatch = useJavaScriptCodingWorkspaceDispatch();
+  const executionStatus = useJavaScriptCodingWorkspaceSelector(
+    (state) => state.execution.status,
+  );
   const { getClient, iframe, listen, sandpack } = useSandpackClient();
 
   const [state, setState] = useState<State>(INITIAL_STATE);
@@ -104,14 +116,28 @@ export default function TestsSection({
   }, [getClient, sandpack, specPath]);
 
   useEffect(() => {
-    if (
-      (state.status === 'idle' || state.status === 'complete') &&
-      ((status === 'running_tests' && specMode === 'run') ||
-        (status === 'submitting' && specMode === 'submit'))
-    ) {
+    const testsInTerminalState =
+      state.status === 'complete' || state.status === 'error';
+
+    if (executionStatus === 'idle' && testsInTerminalState) {
+      setState((prevState) => ({
+        ...prevState,
+        status: 'idle',
+      }));
+    }
+  }, [executionStatus, state.status]);
+
+  useEffect(() => {
+    const sandpackReadyToRun = state.status === 'idle';
+    const shouldRunTests =
+      executionStatus === 'running_tests' && specMode === 'run';
+    const shouldSubmit =
+      executionStatus === 'submitting' && specMode === 'submit';
+
+    if (sandpackReadyToRun && (shouldRunTests || shouldSubmit)) {
       runSpec();
     }
-  }, [runSpec, specMode, state.status, status]);
+  }, [runSpec, specMode, state.status, executionStatus]);
 
   useEffect(() => {
     let currentDescribeBlocks: Array<string> = [];
@@ -139,7 +165,9 @@ export default function TestsSection({
       }
 
       if (data.type === 'action' && data.action === 'show-error') {
-        executionComplete();
+        workspaceDispatch(
+          executionComplete({ mode: specMode, outcome: 'wrong' }),
+        );
 
         return setState((prevState) => ({
           ...prevState,
@@ -192,8 +220,6 @@ export default function TestsSection({
         }
 
         if (data.event === 'total_test_end') {
-          executionComplete();
-
           return setState((prevState) => {
             const specs = Object.values(prevState.specs).filter(
               (spec) => !!spec.name,
@@ -215,12 +241,18 @@ export default function TestsSection({
               return 'wrong';
             })();
 
-            if (onCompleteRef.current !== undefined) {
-              // Call in next tick as React still updating this component.
-              setTimeout(() => {
+            // Call in next tick as React still updating this component.
+            setTimeout(() => {
+              workspaceDispatch(
+                executionComplete({
+                  mode: specMode,
+                  outcome,
+                }),
+              );
+              if (onCompleteRef.current !== undefined) {
                 onCompleteRef.current?.(outcome);
-              }, 0);
-            }
+              }
+            }, 0);
 
             return {
               ...prevState,
@@ -399,15 +431,15 @@ export default function TestsSection({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.currentSpecPath, sandpack.status]);
 
-  const openSpec = (file: string): void => {
+  function openSpec(file: string) {
     sandpack.setActiveFile(file);
-  };
+  }
 
   const specs = Object.values(state.specs).filter((spec) => !!spec.name);
   const testResults = getAllTestResults(specs);
 
   return (
-    <div className="size-full relative flex">
+    <div className="relative flex size-full">
       <iframe ref={iframe} style={{ display: 'none' }} title="Sandpack Tests" />
       <div className="flex w-full flex-col">
         <div className="flex grow overflow-y-auto">
@@ -432,7 +464,7 @@ export default function TestsSection({
             return (
               <div className="flex w-full grow flex-col">
                 {(() => {
-                  if (state.status === 'idle') {
+                  if (state.status === 'idle' && specs.length === 0) {
                     return (
                       <div className="flex grow items-center justify-center">
                         {(() => {
@@ -445,7 +477,7 @@ export default function TestsSection({
                                       <Button
                                         addonPosition="start"
                                         icon={RiPlayLine}
-                                        isDisabled={status !== 'idle'}
+                                        isDisabled={executionStatus !== 'idle'}
                                         label={intl.formatMessage({
                                           defaultMessage: 'Run',
                                           description:
@@ -453,7 +485,9 @@ export default function TestsSection({
                                           id: 'uvLNHA',
                                         })}
                                         variant="secondary"
-                                        onClick={runTests}
+                                        onClick={() => {
+                                          workspaceDispatch(runTests(metadata));
+                                        }}
                                       />
                                     }
                                     icon={RiFlaskLine}
@@ -496,7 +530,7 @@ export default function TestsSection({
                                   <EmptyState
                                     action={
                                       <Button
-                                        isDisabled={status !== 'idle'}
+                                        isDisabled={executionStatus !== 'idle'}
                                         label={intl.formatMessage({
                                           defaultMessage: 'Submit',
                                           description:
@@ -504,20 +538,24 @@ export default function TestsSection({
                                           id: '05Sh88',
                                         })}
                                         variant="primary"
-                                        onClick={submit}
+                                        onClick={() =>
+                                          workspaceDispatch(submit(metadata))
+                                        }
                                       />
                                     }
-                                    icon={RiCheckboxLine}
+                                    icon={RiListCheck3}
                                     size="sm"
                                     subtitle={
                                       <FormattedMessage
-                                        defaultMessage="Submit your code to check against <button>all test cases</button>."
+                                        defaultMessage='Upon submission, we run your code against <button>submission tests</button>. These go beyond the basic checks of <run>"Run"</run>.'
                                         description="Text that appears in the DevTool under the Tests tab before the user has submitted their code"
-                                        id="ZJQ+uw"
+                                        id="ntmnHg"
                                         values={{
                                           button: (chunks) => (
                                             <Anchor
+                                              className="dark:text-neutral-100"
                                               href="#"
+                                              variant="unstyled"
                                               onClick={(event) => {
                                                 event.preventDefault();
 
@@ -528,14 +566,29 @@ export default function TestsSection({
                                               {chunks}
                                             </Anchor>
                                           ),
+                                          run: (chunks) => (
+                                            <Anchor
+                                              className="dark:text-neutral-100"
+                                              href="#"
+                                              variant="unstyled"
+                                              onClick={(event) => {
+                                                event.preventDefault();
+
+                                                return onShowTestsCases?.(
+                                                  'run',
+                                                );
+                                              }}>
+                                              {chunks}
+                                            </Anchor>
+                                          ),
                                         }}
                                       />
                                     }
                                     title={
                                       <FormattedMessage
-                                        defaultMessage="Submit your code"
+                                        defaultMessage="Ready to submit your code?"
                                         description="Title of test panel for coding workspace"
-                                        id="as1hw8"
+                                        id="HVUDyn"
                                       />
                                     }
                                   />
@@ -586,14 +639,14 @@ export default function TestsSection({
             {state.outcome === 'none' && (
               <TestsRunStatusBadge status={state.status} />
             )}
-            {state.status === 'complete' && testResults.total > 0 && (
+            {state.status === 'idle' && testResults.total > 0 && (
               <TestsOutcomeBadge
                 outcome={state.outcome}
                 results={testResults}
               />
             )}
           </div>
-          {state.status === 'complete' && (
+          {state.status === 'idle' && (
             <div className="flex items-center gap-2">
               {specMode === 'run' ? (
                 <Button

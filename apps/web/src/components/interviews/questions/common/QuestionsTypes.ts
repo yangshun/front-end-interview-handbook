@@ -3,6 +3,7 @@ import type {
   SandboxTemplate,
   SandpackFiles,
 } from '@codesandbox/sandpack-react';
+import { z } from 'zod';
 
 export type QuestionSlug = string;
 export type QuestionHash = string;
@@ -68,12 +69,15 @@ export type QuestionSortField =
   | 'premium'
   | 'ranking'
   | 'title';
-export type QuestionFormat =
-  | 'algo'
-  | 'javascript'
-  | 'quiz'
-  | 'system-design'
-  | 'user-interface';
+export const QuestionsFormats = [
+  'javascript',
+  'user-interface',
+  'algo',
+  'system-design',
+  'quiz',
+] as const;
+export const zodQuestionFormats = z.enum(QuestionsFormats);
+export type QuestionFormat = z.infer<typeof zodQuestionFormats>;
 export type QuestionPracticeFormat = 'coding' | 'quiz' | 'system-design';
 export type QuestionCodingFormat = Extract<
   QuestionFormat,
@@ -202,8 +206,9 @@ export type QuestionUserInterface = QuestionBase &
     solutionBundle: QuestionUserInterfaceBundle;
   }>;
 
-export type QuestionMetadataWithCompletedStatus = QuestionMetadata &
+export type QuestionMetadataWithStatus = QuestionMetadata &
   Readonly<{
+    isBookmarked: boolean;
     isCompleted: boolean;
   }>;
 

@@ -21,6 +21,7 @@ import InterviewsPurchasePaywall from '../../../purchase/InterviewsPurchasePaywa
 import InterviewsQuestionsListSlideOutQuestionListItem from './InterviewsQuestionsListSlideOutQuestionListItem';
 
 type Props<Q extends QuestionMetadata> = Readonly<{
+  checkIfBookmarkedQuestion?: (question: Q) => boolean;
   checkIfCompletedQuestion?: (question: Q) => boolean;
   currentQuestionHash?: QuestionHash;
   framework?: QuestionFramework;
@@ -38,6 +39,7 @@ type Props<Q extends QuestionMetadata> = Readonly<{
 export default function InterviewsQuestionsListSlideOutQuestionList<
   Q extends QuestionMetadata,
 >({
+  checkIfBookmarkedQuestion,
   checkIfCompletedQuestion,
   currentQuestionHash,
   framework,
@@ -122,6 +124,8 @@ export default function InterviewsQuestionsListSlideOutQuestionList<
           {questions.map((questionMetadata, index) => {
             const hasCompletedQuestion =
               checkIfCompletedQuestion?.(questionMetadata);
+            const isBookmarkedQuestion =
+              checkIfBookmarkedQuestion?.(questionMetadata);
 
             const isActiveQuestion = (() => {
               if (mode === 'slideout' && isDifferentListFromInitial) {
@@ -150,6 +154,7 @@ export default function InterviewsQuestionsListSlideOutQuestionList<
                 hasCompletedQuestion={hasCompletedQuestion}
                 href={href}
                 isActiveQuestion={isActiveQuestion}
+                isBookmarkedQuestion={isBookmarkedQuestion}
                 listType={listType}
                 mode={mode}
                 questionMetadata={questionMetadata}

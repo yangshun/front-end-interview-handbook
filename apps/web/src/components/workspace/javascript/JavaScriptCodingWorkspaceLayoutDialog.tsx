@@ -1,6 +1,5 @@
 'use client';
 
-import { useSandpack } from '@codesandbox/sandpack-react';
 import { RiLayout2Line, RiLayoutGridLine } from 'react-icons/ri';
 import { TbColumns3 } from 'react-icons/tb';
 
@@ -8,12 +7,12 @@ import { useIntl } from '~/components/intl';
 
 import type { CodingWorkspaceLayoutItem } from '../common/CodingWorkspaceLayoutDialog';
 import CodingWorkspaceLayoutDialog from '../common/CodingWorkspaceLayoutDialog';
-import { useJavaScriptCodingWorkspaceContext } from './JavaScriptCodingWorkspaceContext';
 import {
   getJavaScriptCodingWorkspaceLayoutGrid,
   getJavaScriptCodingWorkspaceLayoutThreeColumns,
   getJavaScriptCodingWorkspaceLayoutTwoColumns,
 } from './JavaScriptCodingWorkspaceLayouts';
+import { useJavaScriptCodingWorkspaceSelector } from './store/hooks';
 import useJavaScriptCodingWorkspaceTilesContext from './useJavaScriptCodingWorkspaceTilesContext';
 
 type Props = Readonly<{
@@ -26,10 +25,16 @@ export default function JavaScriptCodingWorkspaceLayoutButton({
   onClose,
 }: Props) {
   const intl = useIntl();
-  const { sandpack } = useSandpack();
-  const { activeFile, visibleFiles } = sandpack;
-  const { dispatch } = useJavaScriptCodingWorkspaceTilesContext();
-  const { workspace } = useJavaScriptCodingWorkspaceContext();
+  const activeFile = useJavaScriptCodingWorkspaceSelector(
+    (state) => state.sandpack.current.activeFile,
+  );
+  const visibleFiles = useJavaScriptCodingWorkspaceSelector(
+    (state) => state.sandpack.current.visibleFiles,
+  );
+  const { workspace } = useJavaScriptCodingWorkspaceSelector(
+    (state) => state.workspace,
+  ).question;
+  const { tilesDispatch } = useJavaScriptCodingWorkspaceTilesContext();
 
   const layouts: ReadonlyArray<CodingWorkspaceLayoutItem> = [
     {
@@ -51,7 +56,7 @@ export default function JavaScriptCodingWorkspaceLayoutButton({
         id: 'koARxB',
       }),
       onClick: () => {
-        dispatch({
+        tilesDispatch({
           payload: {
             panels: getJavaScriptCodingWorkspaceLayoutTwoColumns(
               activeFile,
@@ -82,7 +87,7 @@ export default function JavaScriptCodingWorkspaceLayoutButton({
         id: 'pC7+Px',
       }),
       onClick: () => {
-        dispatch({
+        tilesDispatch({
           payload: {
             panels: getJavaScriptCodingWorkspaceLayoutThreeColumns(
               activeFile,
@@ -113,7 +118,7 @@ export default function JavaScriptCodingWorkspaceLayoutButton({
         id: 'n4ZC2Q',
       }),
       onClick: () => {
-        dispatch({
+        tilesDispatch({
           payload: {
             panels: getJavaScriptCodingWorkspaceLayoutGrid(
               workspace.main,

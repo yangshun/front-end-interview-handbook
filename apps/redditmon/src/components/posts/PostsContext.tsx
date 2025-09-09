@@ -154,9 +154,9 @@ export function PostsProvider({
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading } =
     trpc.socialPosts.getPosts.useInfiniteQuery(
       {
-        filter: { 
-          subreddits: selectedSubreddits.length > 0 ? selectedSubreddits : undefined, 
-          tab: activeTab 
+        filter: {
+          subreddits: selectedSubreddits.length > 0 ? selectedSubreddits : undefined,
+          tab: activeTab
         },
         pagination: { limit: 20 },
         projectSlug,
@@ -183,8 +183,8 @@ export function PostsProvider({
 
   useEffect(() => {
     const hasTabChanged = prevActiveTabRef.current !== activeTab;
-    const hasSubredditFilterChanged = 
-      JSON.stringify(prevSelectedSubredditsRef.current) !== 
+    const hasSubredditFilterChanged =
+      JSON.stringify(prevSelectedSubredditsRef.current) !==
       JSON.stringify(selectedSubreddits);
 
     prevActiveTabRef.current = activeTab;

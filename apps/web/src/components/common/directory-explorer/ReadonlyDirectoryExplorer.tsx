@@ -32,8 +32,6 @@ export default function ReadonlyDirectoryExplorer({
       value={{
         activeFile,
         openDirectories,
-        readOnly: true,
-        renamingItem: null,
         setActiveFile: (fullPath) => {
           onActiveFileChange?.(fullPath);
         },

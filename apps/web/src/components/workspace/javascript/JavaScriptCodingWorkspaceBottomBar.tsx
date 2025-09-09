@@ -1,9 +1,10 @@
 'use client';
 
+import type { ComponentProps } from 'react';
 import { useState } from 'react';
-import { RiArrowGoBackLine, RiPlayLine, RiSettings2Line } from 'react-icons/ri';
-import { VscLayout } from 'react-icons/vsc';
+import { RiPlayLine } from 'react-icons/ri';
 
+import QuestionBookmarkAction from '~/components/interviews/questions/common/QuestionBookmarkAction';
 import QuestionProgressAction from '~/components/interviews/questions/common/QuestionProgressAction';
 import QuestionReportIssueButton from '~/components/interviews/questions/common/QuestionReportIssueButton';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
@@ -11,42 +12,61 @@ import QuestionNextQuestions from '~/components/interviews/questions/content/Que
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
-import DropdownMenu from '~/components/ui/DropdownMenu';
+import CodingWorkspaceBottomBar from '~/components/workspace/common/CodingWorkspaceBottomBar';
+import { CodingWorkspaceBottomBarSettingsDropdownMenu } from '~/components/workspace/common/CodingWorkspaceBottomBarSettingsDropdownMenu';
+import CodingWorkspaceMobileSolutionButton from '~/components/workspace/common/CodingWorkspaceMobileSolutionButton';
+import CodingWorkspaceTimer from '~/components/workspace/common/CodingWorkspaceTimer';
+import { updateFile } from '~/components/workspace/common/store/sandpack-slice';
+import { pauseTimer } from '~/components/workspace/common/store/timer-slice';
+import {
+  useJavaScriptCodingWorkspaceDispatch,
+  useJavaScriptCodingWorkspaceSelector,
+} from '~/components/workspace/javascript/store/hooks';
 
-import logEvent from '~/logging/logEvent';
-
-import CodingWorkspaceBottomBar from '../common/CodingWorkspaceBottomBar';
-import { useCodingWorkspaceContext } from '../common/CodingWorkspaceContext';
-import CodingWorkspaceTimer from '../common/CodingWorkspaceTimer';
+import { deleteLocalJavaScriptQuestionCode } from './JavaScriptCodingWorkspaceCodeStorage';
+import JavaScriptCodingWorkspaceLanguageDropdown from './JavaScriptCodingWorkspaceLanguageDropdown';
 import JavaScriptCodingWorkspaceLayoutDialog from './JavaScriptCodingWorkspaceLayoutDialog';
+import { runTests, submit } from './store/execution-slice';
 
+type Mode = ComponentProps<typeof CodingWorkspaceMobileSolutionButton>['mode'];
 type Props = Readonly<{
+  device: 'desktop' | 'mobile' | 'tablet';
   layout: 'full' | 'minimal';
   metadata: QuestionMetadata;
+  mode?: Mode;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
+  onModeChange?: (value: Mode) => void;
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE: string;
   studyListKey?: string;
 }>;
 
 export default function JavaScriptCodingWorkspaceBottomBar({
+  device,
   layout,
   metadata,
+  mode,
   nextQuestions,
+  onModeChange,
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE,
   studyListKey,
 }: Props) {
   const intl = useIntl();
-  const { resetToDefaultCode, runTests, status, submit } =
-    useCodingWorkspaceContext();
+  const javaScriptCodingWorkspaceDispatch =
+    useJavaScriptCodingWorkspaceDispatch();
+  const executionStatus = useJavaScriptCodingWorkspaceSelector(
+    (state) => state.execution.status,
+  );
+
   const [isLayoutDialogOpen, setIsLayoutDialogOpen] = useState(false);
 
   const rightPostElements = (
     <>
-      <span className="hidden lg:inline">
+      {/* Run button for tablet and desktop */}
+      <span className="hidden sm:inline">
         <Button
           addonPosition="start"
           icon={RiPlayLine}
-          isDisabled={status !== 'idle'}
+          isDisabled={executionStatus !== 'idle'}
           label={intl.formatMessage({
             defaultMessage: 'Run',
             description: 'Run code button label',
@@ -54,25 +74,22 @@ export default function JavaScriptCodingWorkspaceBottomBar({
           })}
           size="xs"
           tooltip={intl.formatMessage({
-            defaultMessage: 'Run test cases (customizable)',
+            defaultMessage:
+              "Run customizable test cases to check your code's progress. You can modify these test cases under the 'Test Cases' tab.",
             description: 'Coding workspace run test cases tooltip',
-            id: 'AQTvh2',
+            id: 'zuH0Tc',
           })}
           variant="secondary"
           onClick={() => {
-            logEvent('question.run', {
-              format: metadata.format,
-              namespace: 'interviews',
-              slug: metadata.slug,
-            });
-            runTests();
+            javaScriptCodingWorkspaceDispatch(runTests(metadata));
           }}
         />
       </span>
-      <span className="hidden lg:inline">
+      {/* Submit button for tablet and desktop */}
+      <span className="hidden sm:inline">
         <Button
           addonPosition="start"
-          isDisabled={status !== 'idle'}
+          isDisabled={executionStatus !== 'idle'}
           label={intl.formatMessage({
             defaultMessage: 'Submit',
             description: 'Coding workspace submit code button label',
@@ -80,18 +97,14 @@ export default function JavaScriptCodingWorkspaceBottomBar({
           })}
           size="xs"
           tooltip={intl.formatMessage({
-            defaultMessage: 'Runs submission test cases and marks complete',
+            defaultMessage:
+              "Run final test cases to validate your solution before submission. These cases can't be customized.",
             description: 'Coding workspace run test cases tooltip',
-            id: 'VYJBxW',
+            id: 'BQuU/8',
           })}
           variant="primary"
           onClick={() => {
-            logEvent('question.submit', {
-              format: metadata.format,
-              namespace: 'interviews',
-              slug: metadata.slug,
-            });
-            submit();
+            javaScriptCodingWorkspaceDispatch(submit(metadata));
           }}
         />
       </span>
@@ -108,17 +121,20 @@ export default function JavaScriptCodingWorkspaceBottomBar({
 
   const rightElements = (
     <>
-      <span className="inline sm:hidden">
+      {/* Bug report for tablet and mobile only */}
+      <div className="block sm:hidden">
         <QuestionReportIssueButton
           entity="question"
           format={metadata.format}
           slug={metadata.slug}
         />
-      </span>
-      <div className="hidden lg:inline">
+      </div>
+      <div className="hidden items-center gap-x-2 lg:flex">
         <CodingWorkspaceTimer qnMetadata={metadata} />
+        <QuestionBookmarkAction metadata={metadata} />
       </div>
       <QuestionProgressAction
+        isLabelHidden={device !== 'desktop'}
         metadata={metadata}
         signInModalContents={
           nextQuestions &&
@@ -130,87 +146,54 @@ export default function JavaScriptCodingWorkspaceBottomBar({
           )
         }
         studyListKey={studyListKey}
+        onClick={() => {
+          javaScriptCodingWorkspaceDispatch(pauseTimer());
+        }}
       />
+      {/* Solution button for mobile only */}
+      {onModeChange && (
+        <div className="block sm:hidden">
+          <CodingWorkspaceMobileSolutionButton
+            mode={mode}
+            onModeChange={onModeChange}
+          />
+        </div>
+      )}
       {rightPostElements}
+      <div className="block lg:hidden">
+        <SettingDropdownMenu device={device} />
+      </div>
     </>
+  );
+
+  const leftElements = layout === 'full' && (
+    <div className="hidden flex-1 items-center gap-x-2 sm:inline-flex">
+      <div className="hidden lg:block">
+        <SettingDropdownMenu device={device} />
+      </div>
+      <JavaScriptCodingWorkspaceLanguageDropdown
+        mode={device === 'desktop' ? 'label' : 'icon'}
+      />
+      {/* Bug report for desktop only - rightmost position in left area */}
+      <div className="hidden sm:block">
+        <QuestionReportIssueButton
+          entity="question"
+          format={metadata.format}
+          slug={metadata.slug}
+        />
+      </div>
+      <JavaScriptCodingWorkspaceLayoutDialog
+        isOpen={isLayoutDialogOpen}
+        onClose={() => {
+          setIsLayoutDialogOpen(false);
+        }}
+      />
+    </div>
   );
 
   return (
     <CodingWorkspaceBottomBar
-      leftElements={
-        layout === 'full' && (
-          <div className="hidden items-center gap-x-2 sm:inline-flex">
-            <QuestionReportIssueButton
-              entity="question"
-              format={metadata.format}
-              slug={metadata.slug}
-            />
-            <DropdownMenu
-              icon={RiSettings2Line}
-              isLabelHidden={true}
-              label={intl.formatMessage({
-                defaultMessage: 'Settings',
-                description: 'Coding workspace settings dropdown label',
-                id: '/p5g3I',
-              })}
-              showChevron={false}
-              side="top"
-              size="xs">
-              {[
-                {
-                  icon: VscLayout,
-                  label: intl.formatMessage({
-                    defaultMessage: 'Layout',
-                    description: 'Coding workspace layout',
-                    id: 'yMnCy6',
-                  }),
-                  onClick: () => {
-                    setIsLayoutDialogOpen(true);
-                  },
-                  value: 'layout',
-                },
-                {
-                  icon: RiArrowGoBackLine,
-                  label: intl.formatMessage({
-                    defaultMessage: 'Reset question',
-                    description: 'Coding workspace reset question',
-                    id: 'ZeoQdS',
-                  }),
-                  onClick: () => {
-                    if (
-                      confirm(
-                        intl.formatMessage({
-                          defaultMessage:
-                            'Reset all changes made to this question?',
-                          description:
-                            'Coding workspace reset question confirmation',
-                          id: '2eBsGO',
-                        }),
-                      )
-                    ) {
-                      resetToDefaultCode();
-                    }
-                  },
-                  value: 'reset',
-                },
-              ].map(({ icon, label, onClick, value }) => (
-                <DropdownMenu.Item
-                  key={value}
-                  icon={icon}
-                  label={label}
-                  onClick={onClick}
-                />
-              ))}
-            </DropdownMenu>
-            <JavaScriptCodingWorkspaceLayoutDialog
-              isOpen={isLayoutDialogOpen}
-              onClose={() => {
-                setIsLayoutDialogOpen(false);
-              }}
-            />
-          </div>
-        )
-      }
+      leftElements={leftElements}
       metadata={metadata}
       rightElements={rightElements}
       showQuestionsListButton={layout === 'full'}
@@ -218,6 +201,38 @@ export default function JavaScriptCodingWorkspaceBottomBar({
         slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE
       }
       studyListKey={studyListKey}
+    />
+  );
+}
+
+function SettingDropdownMenu({
+  device,
+}: {
+  device?: 'desktop' | 'mobile' | 'tablet';
+}) {
+  const workspaceDispatch = useJavaScriptCodingWorkspaceDispatch();
+  const defaultFiles = useJavaScriptCodingWorkspaceSelector(
+    (state) => state.sandpack.default.files,
+  );
+  const language = useJavaScriptCodingWorkspaceSelector(
+    (state) => state.workspace.language,
+  );
+  const question = useJavaScriptCodingWorkspaceSelector(
+    (state) => state.workspace.question,
+  );
+  const { metadata } = question;
+
+  function resetToDefaultCode() {
+    deleteLocalJavaScriptQuestionCode(metadata, language);
+    workspaceDispatch(updateFile({ files: defaultFiles }));
+  }
+
+  return (
+    <CodingWorkspaceBottomBarSettingsDropdownMenu
+      device={device}
+      layoutDialogComponent={JavaScriptCodingWorkspaceLayoutDialog}
+      metadata={metadata}
+      resetToDefaultCode={resetToDefaultCode}
     />
   );
 }

@@ -71,6 +71,7 @@ model Profile {
   questionJavaScriptCommunitySolutions    QuestionJavaScriptCommunitySolution[]
   questionUserInterfaceSaves              QuestionUserInterfaceSave[]
   questionUserInterfaceCommunitySolutions QuestionUserInterfaceCommunitySolution[]
+  questionBookmarkLists                   QuestionBookmarkList[]
   projectsProfile                         ProjectsProfile?
   rewardsTaskCompletions                  RewardsTaskCompletion[]
   sponsorsAdRequestReview                 SponsorsAdRequestReview[]
@@ -207,6 +208,35 @@ model QuestionUserInterfaceCommunitySolution {
   profile Profile @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
   @@index([slug]) // Solutions submitted for a qn
+}
+
+model QuestionBookmarkList {
+  id        String   @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  name      String
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+  userId    String   @db.Uuid
+  default   Boolean
+  profile   Profile  @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  bookmarks QuestionBookmark[]
+
+  @@unique([userId, default])
+  @@index([userId])
+}
+
+model QuestionBookmark {
+  id        String               @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  format    String
+  slug      String
+  createdAt DateTime             @default(now()) @db.Timestamptz(6)
+  position  Float
+  listId    String               @db.Uuid
+
+  list      QuestionBookmarkList @relation(fields: [listId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@unique([listId, format, slug])
+  @@index([listId]) // All bookmarks for list
+  @@index([listId, format, slug])
 }
 
 enum LearningSessionStatus {

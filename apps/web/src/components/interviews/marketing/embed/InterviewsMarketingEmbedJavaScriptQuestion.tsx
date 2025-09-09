@@ -1,17 +1,14 @@
 import clsx from 'clsx';
 import dynamic from 'next/dynamic';
-import { useState } from 'react';
 import { useMediaQuery } from 'usehooks-ts';
 
 import gtag from '~/lib/gtag';
 
-import type {
-  QuestionCodingWorkingLanguage,
-  QuestionJavaScript,
-} from '~/components/interviews/questions/common/QuestionsTypes';
+import type { QuestionJavaScript } from '~/components/interviews/questions/common/QuestionsTypes';
 import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
+import JavaScriptCodingWorkspaceAboveMobile from '~/components/workspace/javascript/JavaScriptCodingWorkspaceAboveMobile';
 import JavaScriptCodingWorkspaceDescription from '~/components/workspace/javascript/JavaScriptCodingWorkspaceDescription';
 
 import logEvent from '~/logging/logEvent';
@@ -34,27 +31,25 @@ export default function InterviewsMarketingEmbedJavaScriptQuestion({
 }: Readonly<{
   javaScriptEmbedExample: QuestionJavaScript;
 }>) {
-  const [language, setLanguage] = useState<QuestionCodingWorkingLanguage>('js');
   const intl = useIntl();
   const laptopAndAbove = useMediaQuery('(min-width: 1024px)');
 
   return (
     <div
       className={clsx(
-        'size-full flex flex-col',
+        'flex size-full flex-col',
         'bg-neutral-50 dark:bg-neutral-950',
       )}>
-      <div className="relative flex h-0 grow flex-col lg:pt-3">
+      <div className="relative flex h-0 grow flex-col max-sm:pb-4 lg:pt-3">
         {laptopAndAbove ? (
           <JavaScriptCodingWorkspaceSection
             canViewPremiumContent={false}
             embed={true}
-            language={language}
             nextQuestions={[]}
             question={javaScriptEmbedExample}
+            renderWorkspace={JavaScriptCodingWorkspaceAboveMobile}
             sandpackO11yInstance="marketing.embed.js"
             similarQuestions={[]}
-            onLanguageChange={setLanguage}
           />
         ) : (
           <JavaScriptCodingWorkspaceDescription
@@ -63,6 +58,7 @@ export default function InterviewsMarketingEmbedJavaScriptQuestion({
             metadata={javaScriptEmbedExample.metadata}
             nextQuestions={[]}
             showAd={false}
+            showLanguageSelector={false}
             similarQuestions={[]}
           />
         )}

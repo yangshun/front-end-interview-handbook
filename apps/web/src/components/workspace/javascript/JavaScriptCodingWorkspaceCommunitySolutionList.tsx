@@ -6,10 +6,12 @@ import CodingWorkspaceCommunitySolutionList from '../common/CodingWorkspaceCommu
 
 type Props = Readonly<{
   metadata: QuestionMetadata;
+  openCommunitySolution: (solutionId: string) => void;
 }>;
 
 export default function JavaScriptCodingWorkspaceCommunitySolutionList({
   metadata,
+  openCommunitySolution,
 }: Props) {
   const { data: solutions } =
     trpc.questionCommunitySolution.javaScriptGetAll.useQuery({
@@ -18,6 +20,7 @@ export default function JavaScriptCodingWorkspaceCommunitySolutionList({
 
   return (
     <CodingWorkspaceCommunitySolutionList
+      openCommunitySolution={openCommunitySolution}
       questionType="javascript"
       solutions={solutions}
     />

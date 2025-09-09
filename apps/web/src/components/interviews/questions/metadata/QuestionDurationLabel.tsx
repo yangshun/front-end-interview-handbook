@@ -46,11 +46,11 @@ export default function QuestionDurationLabel({
           color="inherit"
           size={size}>
           <NumberFlow
-            suffix={intl.formatMessage({
-              defaultMessage: ' mins',
+            suffix={` ${intl.formatMessage({
+              defaultMessage: 'mins',
               description: 'Duration minutes',
-              id: 'ucl849',
-            })}
+              id: 'FvrHUh',
+            })}`}
             value={mins}
           />
         </Text>

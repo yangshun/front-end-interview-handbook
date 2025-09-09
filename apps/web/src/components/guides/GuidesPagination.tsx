@@ -11,6 +11,7 @@ import {
 
 import { useGuidesData } from '~/data/Guides';
 
+import QuestionBookmarkAction from '~/components/interviews/questions/common/QuestionBookmarkAction';
 import QuestionProgressAction from '~/components/interviews/questions/common/QuestionProgressAction';
 import { useIntl } from '~/components/intl';
 import Badge from '~/components/ui/Badge';
@@ -250,10 +251,13 @@ export default function GuidesPagination<GuideSlug extends string>({
           />
         )}
         {questionMetadata ? (
-          <QuestionProgressAction
-            metadata={questionMetadata}
-            studyListKey={studyListKey}
-          />
+          <div className="flex items-center gap-x-2">
+            <QuestionBookmarkAction metadata={questionMetadata} />
+            <QuestionProgressAction
+              metadata={questionMetadata}
+              studyListKey={studyListKey}
+            />
+          </div>
         ) : (
           <GuidesProgressAction
             guideName={currentItem.label}

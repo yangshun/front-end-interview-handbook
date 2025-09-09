@@ -367,6 +367,12 @@
       "value": "Binary"
     }
   ],
+  "+oqIZ2": [
+    {
+      "type": 0,
+      "value": "Running automated test cases and submission is not supported on mobile devices. Use a wider screen for a better experience."
+    }
+  ],
   "+s7kuS": [
     {
       "type": 0,
@@ -443,12 +449,6 @@
     {
       "type": 0,
       "value": "Company-tagged questions"
-    }
-  ],
-  "/08n88": [
-    {
-      "type": 0,
-      "value": "View solution"
     }
   ],
   "/17ryO": [
@@ -767,6 +767,12 @@
       "value": "Try a different card if you are unable to enter a valid CVC."
     }
   ],
+  "/lcG8X": [
+    {
+      "type": 0,
+      "value": "Solution"
+    }
+  ],
   "/mJXTQ": [
     {
       "type": 0,
@@ -789,6 +795,12 @@
     {
       "type": 0,
       "value": "Create your developer profile on GreatFrontEnd. Showcase your skills, experiences and connect with the community."
+    }
+  ],
+  "/oPXLd": [
+    {
+      "type": 0,
+      "value": "Overwrite your code with this attempt. Changes made to the attempt will then be saved locally"
     }
   ],
   "/p5g3I": [
@@ -1748,6 +1760,12 @@
       "value": "Edit on GitHub"
     }
   ],
+  "1wvFld": [
+    {
+      "type": 0,
+      "value": "Correct answer"
+    }
+  ],
   "1y0w+K": [
     {
       "type": 0,
@@ -1816,12 +1834,6 @@
     {
       "type": 0,
       "value": "Blogs List"
-    }
-  ],
-  "23pktm": [
-    {
-      "type": 0,
-      "value": "Solution"
     }
   ],
   "23zW1O": [
@@ -2283,40 +2295,6 @@
       "value": "Edit test cases"
     }
   ],
-  "3+Q/U6": [
-    {
-      "type": 0,
-      "value": "You are viewing the description from the solution page. To practice this question, "
-    },
-    {
-      "children": [
-        {
-          "type": 0,
-          "value": "go back"
-        }
-      ],
-      "type": 8,
-      "value": "backLink"
-    },
-    {
-      "type": 0,
-      "value": " to the workspace page or "
-    },
-    {
-      "children": [
-        {
-          "type": 0,
-          "value": "load a saved version"
-        }
-      ],
-      "type": 8,
-      "value": "savedLink"
-    },
-    {
-      "type": 0,
-      "value": "."
-    }
-  ],
   "3+YLNZ": [
     {
       "type": 0,
@@ -2427,12 +2405,6 @@
       "value": "NEW"
     }
   ],
-  "3HrE7g": [
-    {
-      "type": 0,
-      "value": "View submission test cases."
-    }
-  ],
   "3I2UJ4": [
     {
       "type": 0,
@@ -2521,6 +2493,12 @@
       "value": "Back to all submissions"
     }
   ],
+  "3Tf+UB": [
+    {
+      "type": 0,
+      "value": "This file is empty"
+    }
+  ],
   "3U95FQ": [
     {
       "type": 0,
@@ -2567,6 +2545,12 @@
     {
       "type": 0,
       "value": "Schedule"
+    }
+  ],
+  "3ZmbwR": [
+    {
+      "type": 0,
+      "value": "Open attempt in workspace?"
     }
   ],
   "3aT98+": [
@@ -2704,6 +2688,12 @@
     {
       "type": 0,
       "value": ". Proceed to unlock?"
+    }
+  ],
+  "3n7hDQ": [
+    {
+      "type": 0,
+      "value": "Overwrite existing"
     }
   ],
   "3nYNbd": [
@@ -3145,16 +3135,6 @@
     {
       "type": 0,
       "value": "Start a new version"
-    }
-  ],
-  "4gumtt": [
-    {
-      "type": 1,
-      "value": "category"
-    },
-    {
-      "type": 0,
-      "value": " Interview Questions"
     }
   ],
   "4jymHU": [
@@ -4335,12 +4315,6 @@
       "value": "Let's begin!"
     }
   ],
-  "7A1yG8": [
-    {
-      "type": 0,
-      "value": "Sign in with email"
-    }
-  ],
   "7AiLO9": [
     {
       "type": 0,
@@ -5273,6 +5247,12 @@
       "value": "size"
     }
   ],
+  "9Myxlt": [
+    {
+      "type": 0,
+      "value": "Open this solution's code in the workspace, replacing your current code. You can always revert to your previous code if needed. Ideal for exploring or experimenting with the solution."
+    }
+  ],
   "9NUuQM": [
     {
       "type": 0,
@@ -5599,16 +5579,16 @@
       "value": "Answers by ex-interviewers"
     }
   ],
+  "AINf9L": [
+    {
+      "type": 0,
+      "value": "Official Solution"
+    }
+  ],
   "AJuXmH": [
     {
       "type": 0,
       "value": "Add profile photo"
-    }
-  ],
-  "AKgBO+": [
-    {
-      "type": 0,
-      "value": "Hide solution"
     }
   ],
   "AKnqip": [
@@ -5635,6 +5615,12 @@
     {
       "type": 0,
       "value": "Low"
+    }
+  ],
+  "ANnHJ7": [
+    {
+      "type": 0,
+      "value": "Exclusive private Discord channel with real-time support from the team"
     }
   ],
   "AQTvh2": [
@@ -5941,6 +5927,12 @@
       "value": "Could not load files from repository"
     }
   ],
+  "BJ0Mm1": [
+    {
+      "type": 0,
+      "value": "Keyboard shortcuts"
+    }
+  ],
   "BJEmxH": [
     {
       "type": 0,
@@ -6017,6 +6009,12 @@
     {
       "type": 0,
       "value": "Recommended resources"
+    }
+  ],
+  "BQuU/8": [
+    {
+      "type": 0,
+      "value": "Run final test cases to validate your solution before submission. These cases can't be customized."
     }
   ],
   "BRZJBS": [
@@ -6515,6 +6513,12 @@
       ],
       "type": 8,
       "value": "bold"
+    }
+  ],
+  "CXucIh": [
+    {
+      "type": 0,
+      "value": "Test cases"
     }
   ],
   "CYr24j": [
@@ -7155,6 +7159,12 @@
     {
       "type": 0,
       "value": "Build your way up to a well-rounded front end / full stack skillset. Hone a specific skill, or follow our skills progression starting from zero."
+    }
+  ],
+  "EB0DMx": [
+    {
+      "type": 0,
+      "value": "Console"
     }
   ],
   "ECjV1e": [
@@ -7836,6 +7846,12 @@
       "value": " interview prep before jumping into practice."
     }
   ],
+  "FvrHUh": [
+    {
+      "type": 0,
+      "value": "mins"
+    }
+  ],
   "Fvz5KG": [
     {
       "type": 0,
@@ -8067,6 +8083,12 @@
       "pluralType": "cardinal",
       "type": 6,
       "value": "offerCount"
+    }
+  ],
+  "GWqOMJ": [
+    {
+      "type": 0,
+      "value": "Permanently overwrite your code with this attempt. Changes made to the solution will then be saved locally"
     }
   ],
   "GWzQrD": [
@@ -8571,6 +8593,18 @@
       "value": "Pinned top banner that appears across the entire site"
     }
   ],
+  "HUdL/0": [
+    {
+      "type": 0,
+      "value": "Window / Tabs"
+    }
+  ],
+  "HVUDyn": [
+    {
+      "type": 0,
+      "value": "Ready to submit your code?"
+    }
+  ],
   "HXZeeh": [
     {
       "type": 0,
@@ -8587,12 +8621,6 @@
     {
       "type": 0,
       "value": "Sorting"
-    }
-  ],
-  "HYkgJI": [
-    {
-      "type": 0,
-      "value": "Version"
     }
   ],
   "HZh7Wb": [
@@ -8753,6 +8781,12 @@
     {
       "type": 0,
       "value": "As mentioned, there are many ways to host your site. Our recommended hosts are:"
+    }
+  ],
+  "Hv6acz": [
+    {
+      "type": 0,
+      "value": "Start coding your solution here"
     }
   ],
   "Hz9Ok0": [
@@ -9297,6 +9331,12 @@
       "value": "\""
     }
   ],
+  "J5CHN5": [
+    {
+      "type": 0,
+      "value": "Revert to your code"
+    }
+  ],
   "J6Yt0F": [
     {
       "type": 0,
@@ -9427,12 +9467,6 @@
     {
       "type": 0,
       "value": "Careers"
-    }
-  ],
-  "JNG61K": [
-    {
-      "type": 0,
-      "value": "Go to solution"
     }
   ],
   "JNe0+O": [
@@ -9717,20 +9751,6 @@
     {
       "type": 0,
       "value": "Behavioral Interview Playbook | Made For Front End Engineers"
-    }
-  ],
-  "K2gA7K": [
-    {
-      "type": 0,
-      "value": "Submission for \""
-    },
-    {
-      "type": 1,
-      "value": "title"
-    },
-    {
-      "type": 0,
-      "value": "\""
     }
   ],
   "K366Ff": [
@@ -10037,6 +10057,12 @@
       "value": "Hide child skills"
     }
   ],
+  "KimNHi": [
+    {
+      "type": 0,
+      "value": "Open in workspace"
+    }
+  ],
   "Kj5nRS": [
     {
       "type": 0,
@@ -10241,6 +10267,12 @@
     {
       "type": 0,
       "value": "View page"
+    }
+  ],
+  "L5rbBy": [
+    {
+      "type": 0,
+      "value": "Overwrite your code with this solution. Changes made to the solution will then be saved locally"
     }
   ],
   "L7w0Ka": [
@@ -10719,6 +10751,12 @@
       "value": " known questions with solutions"
     }
   ],
+  "M6U+gd": [
+    {
+      "type": 0,
+      "value": "Open solution"
+    }
+  ],
   "M7RwUF": [
     {
       "type": 0,
@@ -11107,6 +11145,26 @@
     {
       "type": 0,
       "value": "Starter"
+    }
+  ],
+  "NHYkBT": [
+    {
+      "type": 0,
+      "value": "Solve the question and click "
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "\"Submit\""
+        }
+      ],
+      "type": 8,
+      "value": "b"
+    },
+    {
+      "type": 0,
+      "value": " to view your submitted code for this question here."
     }
   ],
   "NL7HsI": [
@@ -11683,12 +11741,6 @@
     {
       "type": 0,
       "value": "View GitHub profile"
-    }
-  ],
-  "OlFjm9": [
-    {
-      "type": 0,
-      "value": "Correct"
     }
   ],
   "OmFm8C": [
@@ -12747,6 +12799,12 @@
       "value": "Other media (e.g. Newsletters, Websites)"
     }
   ],
+  "QjBlCT": [
+    {
+      "type": 0,
+      "value": "Code Editor"
+    }
+  ],
   "QjQj5L": [
     {
       "type": 0,
@@ -12838,34 +12896,6 @@
       "value": "Company Guides:"
     }
   ],
-  "QrHNsv": [
-    {
-      "type": 0,
-      "value": "You are currently editing code from the saved version: "
-    },
-    {
-      "children": [
-        {
-          "type": 0,
-          "value": "\""
-        },
-        {
-          "type": 1,
-          "value": "saveName"
-        },
-        {
-          "type": 0,
-          "value": "\""
-        }
-      ],
-      "type": 8,
-      "value": "strong"
-    },
-    {
-      "type": 0,
-      "value": "."
-    }
-  ],
   "QrikGf": [
     {
       "type": 0,
@@ -12912,6 +12942,12 @@
     {
       "type": 0,
       "value": "Difficulty: Hard to Easy"
+    }
+  ],
+  "QybPto": [
+    {
+      "type": 0,
+      "value": "Save as new"
     }
   ],
   "R+pt9h": [
@@ -12972,6 +13008,12 @@
     {
       "type": 0,
       "value": "Algorithms"
+    }
+  ],
+  "R56YnA": [
+    {
+      "type": 0,
+      "value": "Current"
     }
   ],
   "R5FPug": [
@@ -13272,6 +13314,12 @@
       "value": "Don't hesitate to reach out. We're always here to help."
     }
   ],
+  "RdY2p1": [
+    {
+      "type": 0,
+      "value": "Question"
+    }
+  ],
   "Rdi3ic": [
     {
       "type": 0,
@@ -13282,6 +13330,12 @@
     {
       "type": 0,
       "value": "Use now"
+    }
+  ],
+  "Rhdhem": [
+    {
+      "type": 0,
+      "value": "Create an account"
     }
   ],
   "RjpadL": [
@@ -13683,6 +13737,12 @@
     {
       "type": 0,
       "value": "Settings"
+    }
+  ],
+  "SXLeRI": [
+    {
+      "type": 0,
+      "value": "Opening this attempt will replace your code in the editor. You can revert back if needed. Proceed?"
     }
   ],
   "SaUyXa": [
@@ -14546,6 +14606,18 @@
       "value": "No test files found."
     }
   ],
+  "UFcqJO": [
+    {
+      "type": 0,
+      "value": "Permanently overwrite your code with this solution. Changes made to the solution will then be saved locally"
+    }
+  ],
+  "UFv6qd": [
+    {
+      "type": 0,
+      "value": "Revert to your code"
+    }
+  ],
   "UISwUX": [
     {
       "type": 0,
@@ -14558,6 +14630,12 @@
     {
       "type": 0,
       "value": " critical topics for front end interviews. Master them with targeted practice questions—each with detailed solutions and tests to learn from."
+    }
+  ],
+  "UK7olU": [
+    {
+      "type": 0,
+      "value": "Test and preview your UI in real time"
     }
   ],
   "ULuy8I": [
@@ -15004,12 +15082,6 @@
       "value": " Interview Guides"
     }
   ],
-  "VYJBxW": [
-    {
-      "type": 0,
-      "value": "Runs submission test cases and marks complete"
-    }
-  ],
   "VYwrk6": [
     {
       "type": 0,
@@ -15190,6 +15262,12 @@
     {
       "type": 0,
       "value": "Read the project details"
+    }
+  ],
+  "VyuRF6": [
+    {
+      "type": 0,
+      "value": "Reverting will discard any changes made to this solution. Do you want to continue?"
     }
   ],
   "W+3cZW": [
@@ -16226,10 +16304,22 @@
       "value": "."
     }
   ],
+  "Y735Gk": [
+    {
+      "type": 0,
+      "value": "Overwrite"
+    }
+  ],
   "Y7zgiT": [
     {
       "type": 0,
       "value": "What's Included"
+    }
+  ],
+  "Y9i87T": [
+    {
+      "type": 0,
+      "value": "Changes to the currently opened solution will be discarded. Proceed?"
     }
   ],
   "YBlo/J": [
@@ -16496,12 +16586,6 @@
       "value": " instead of building the same thing as everyone else. Each project within our platform is made up of reusable components which adhere to the same design system, making them inherently modular and compatible with one another. This means you can seamlessly combine components from various projects to construct unique and customized applications for your portfolio. These components cover a diverse range of applications, including Marketing, E-Commerce, Web Apps, Games, and even Portfolios, which means you'd be able to compose a wide variety of apps from them."
     }
   ],
-  "Yj7hpx": [
-    {
-      "type": 0,
-      "value": "I had interviewed at a few startups and had noticed a deviation in the interview landscape away from the classic DSA / Distributed System Style interviews. I was caught off guard by some of the Front-End leaning interview problems, and while I had gotten very close to some offers, I was edged out by other competitors. The bar across the industry was higher than ever, and I had witnessed the brutality of the 2025 market first-hand watching loads of high-performing MAANG engineers get laid off with no notice. When MAANG reached out, I could't afford any liabilities and I had to go all in on the opportunity – I didn't have 6 months to wait to try again if I didn't make it, so this was my Hail Mary. It was \"get this or throw in the towel and go to Law School\". I love engineering and creativity, but I also love financial security. I was on a very limited schedule, as Amazon moved extremely quickly once they had unexpectedly accepted me into the loop. GFE came up in my searches, and appeared to be a one-stop-shop for my best bet at being prepared. I did 100% of the Amazon Prep Guide across a few days. It's the largest pool of problems for a company on the site, by coincidence, and helped me brush off the cobwebs surrounding Vanilla JS, HTML, and CSS basics I hadn't really worked with since I first learned to program. Not only did the guide quickly get me up to speed, but the advanced component builds provided a lot of new information and confidence around accessibility, abstraction, and CSS that made me feel like I could exhibit a lot of strength and depth in an interview setting under tight time constraints. This, of course, played out exactly as described . Outside of the Amazon guide, I explored the additional system design questions. I know for a fact that I would have failed this interview without spending time with the system design solutions on GFE. To close, I'll say this: I'm a self-taught SWE, and I actually taught at an amazing bootcamp called LaunchCode that provided free tech education particularly focused towards underprivileged communities. I taught Web Dev basics for many years to thousands, and every semester loads of students would ask: \"Is it really possible to get into FAANG and make that kind of life-changing money for my family? Without having gone to Stanford? Without a degree?\" It took years of hard work and self-driven study, but yes, you can. And if I can do it, anyone can (with GFE)."
-    }
-  ],
   "YpJ3q8": [
     {
       "type": 0,
@@ -16512,6 +16596,12 @@
     {
       "type": 0,
       "value": "System design interviews"
+    }
+  ],
+  "Yv2HLr": [
+    {
+      "type": 0,
+      "value": "No submissions yet"
     }
   ],
   "YwBuE7": [
@@ -16694,26 +16784,6 @@
       "value": "date"
     }
   ],
-  "ZJQ+uw": [
-    {
-      "type": 0,
-      "value": "Submit your code to check against "
-    },
-    {
-      "children": [
-        {
-          "type": 0,
-          "value": "all test cases"
-        }
-      ],
-      "type": 8,
-      "value": "button"
-    },
-    {
-      "type": 0,
-      "value": "."
-    }
-  ],
   "ZMFRjh": [
     {
       "type": 0,
@@ -16780,12 +16850,6 @@
       "value": "Internationalization"
     }
   ],
-  "ZYk9jl": [
-    {
-      "type": 0,
-      "value": "No saved versions"
-    }
-  ],
   "ZZIJ0i": [
     {
       "type": 0,
@@ -16796,16 +16860,30 @@
       "value": "date"
     }
   ],
+  "ZdJ2fl": [
+    {
+      "type": 0,
+      "value": "Solve the question and click "
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "\"Save to cloud\""
+        }
+      ],
+      "type": 8,
+      "value": "b"
+    },
+    {
+      "type": 0,
+      "value": " to store your code. Your saved code for this question will appear here."
+    }
+  ],
   "Zdojj9": [
     {
       "type": 0,
       "value": "Other"
-    }
-  ],
-  "ZeoQdS": [
-    {
-      "type": 0,
-      "value": "Reset question"
     }
   ],
   "Zf0jlB": [
@@ -17102,12 +17180,6 @@
       "value": "Reset password"
     }
   ],
-  "aPrOAu": [
-    {
-      "type": 0,
-      "value": "Submission"
-    }
-  ],
   "aQYg46": [
     {
       "type": 0,
@@ -17360,12 +17432,6 @@
       "value": "Here you'll find a curated collection of our most insightful and engaging blog content, neatly organized into series for your convenience. Each series focuses on a unique theme or topic providing a deep dive subject."
     }
   ],
-  "as1hw8": [
-    {
-      "type": 0,
-      "value": "Submit your code"
-    }
-  ],
   "asFaPd": [
     {
       "type": 0,
@@ -17470,22 +17536,10 @@
       "value": "Completions include both questions and articles across the interviews platform"
     }
   ],
-  "b/3jGp": [
-    {
-      "type": 0,
-      "value": "Submitted at"
-    }
-  ],
   "b/4l5Z": [
     {
       "type": 0,
       "value": "Subscriptions are automatically renewed and you will be charged again then. You may cancel your subscription anytime via the Stripe billing portal."
-    }
-  ],
-  "b/dKUR": [
-    {
-      "type": 0,
-      "value": "This subset of test cases are used when \"Run\"-ning your code."
     }
   ],
   "b/zX4C": [
@@ -17690,6 +17744,12 @@
       "value": "Tips for all questions types"
     }
   ],
+  "bUOVVm": [
+    {
+      "type": 0,
+      "value": "Keyboard shortcuts"
+    }
+  ],
   "bVOC6y": [
     {
       "type": 0,
@@ -17866,6 +17926,12 @@
       "value": "The Global banner appears on all pages on our website"
     }
   ],
+  "bz5XgE": [
+    {
+      "type": 0,
+      "value": "Revert to my code"
+    }
+  ],
   "c+UYdY": [
     {
       "type": 0,
@@ -17944,24 +18010,6 @@
     {
       "type": 0,
       "value": "Security | Profile"
-    }
-  ],
-  "cBUPgC": [
-    {
-      "type": 1,
-      "value": "questionTitle"
-    },
-    {
-      "type": 0,
-      "value": " Solution in "
-    },
-    {
-      "type": 1,
-      "value": "questionFramework"
-    },
-    {
-      "type": 0,
-      "value": " | UI Interview Question"
     }
   ],
   "cCQIST": [
@@ -18210,24 +18258,6 @@
       "value": "Company guides"
     }
   ],
-  "cjgzTz": [
-    {
-      "type": 0,
-      "value": "Read how to solve "
-    },
-    {
-      "type": 1,
-      "value": "questionTitle"
-    },
-    {
-      "type": 0,
-      "value": " using "
-    },
-    {
-      "type": 1,
-      "value": "questionFramework"
-    }
-  ],
   "cotxax": [
     {
       "type": 0,
@@ -18298,6 +18328,20 @@
     {
       "type": 0,
       "value": "Bring your own framework"
+    }
+  ],
+  "cyhNCa": [
+    {
+      "type": 0,
+      "value": "Successfully updated \""
+    },
+    {
+      "type": 1,
+      "value": "saveName"
+    },
+    {
+      "type": 0,
+      "value": "\""
     }
   ],
   "d+1G/V": [
@@ -18990,6 +19034,12 @@
       "value": "Use a different card or payment method to complete the payment."
     }
   ],
+  "ebi9uh": [
+    {
+      "type": 0,
+      "value": "Save to current attempt?"
+    }
+  ],
   "edBcYW": [
     {
       "type": 0,
@@ -19376,6 +19426,12 @@
     {
       "type": 0,
       "value": "."
+    }
+  ],
+  "fLrQo7": [
+    {
+      "type": 0,
+      "value": "Save as submission first"
     }
   ],
   "fMAedf": [
@@ -19822,6 +19878,12 @@
       "value": "Check it out"
     }
   ],
+  "g7S4IJ": [
+    {
+      "type": 0,
+      "value": "Overwrite your code with this solution"
+    }
+  ],
   "g9OX0J": [
     {
       "offset": 0,
@@ -19934,12 +19996,6 @@
       "value": "What's new"
     }
   ],
-  "gIeLON": [
-    {
-      "type": 0,
-      "value": "Premium"
-    }
-  ],
   "gIvdNL": [
     {
       "type": 0,
@@ -19958,12 +20014,6 @@
       "value": "Execute code"
     }
   ],
-  "gLY3I/": [
-    {
-      "type": 0,
-      "value": "View the solution"
-    }
-  ],
   "gRN6GJ": [
     {
       "type": 0,
@@ -19980,6 +20030,12 @@
     {
       "type": 0,
       "value": "With extra time, continue working on the lists below depending on your needs!"
+    }
+  ],
+  "gU1jUE": [
+    {
+      "type": 0,
+      "value": "Reset question code to default"
     }
   ],
   "gU6oac": [
@@ -20164,6 +20220,20 @@
     {
       "type": 0,
       "value": "Medium"
+    }
+  ],
+  "guixJ6": [
+    {
+      "type": 0,
+      "value": "Saved code ("
+    },
+    {
+      "type": 1,
+      "value": "name"
+    },
+    {
+      "type": 0,
+      "value": ")"
     }
   ],
   "gv2f4M": [
@@ -20761,12 +20831,6 @@
     {
       "type": 0,
       "value": "No notification yet!"
-    }
-  ],
-  "hz7oG3": [
-    {
-      "type": 0,
-      "value": "No submissions"
     }
   ],
   "i+1FrX": [
@@ -21484,6 +21548,12 @@
       "value": "Title: Z to A"
     }
   ],
+  "jdfqZM": [
+    {
+      "type": 0,
+      "value": "This set of customizable test cases run when you \"Run\" your code."
+    }
+  ],
   "jgGtvR": [
     {
       "type": 0,
@@ -22047,6 +22117,18 @@
       "value": "Time-savers like focus areas"
     }
   ],
+  "kqqb+v": [
+    {
+      "type": 0,
+      "value": "Reverting will discard any changes made to this attempt. Do you want to continue?"
+    }
+  ],
+  "krxWYh": [
+    {
+      "type": 0,
+      "value": "Unlock Companies data with Premium"
+    }
+  ],
   "ks4qo1": [
     {
       "type": 0,
@@ -22085,12 +22167,6 @@
       "value": "UI component"
     }
   ],
-  "kyUg36": [
-    {
-      "type": 0,
-      "value": "No such save."
-    }
-  ],
   "kzklH3": [
     {
       "type": 0,
@@ -22127,6 +22203,12 @@
     {
       "type": 0,
       "value": "Join Discord"
+    }
+  ],
+  "l2/VeQ": [
+    {
+      "type": 0,
+      "value": "Open this attempt's code in the workspace, replacing your current code. You can always revert to your previous code if needed. Ideal for exploring or experimenting with the attempt."
     }
   ],
   "l27vTV": [
@@ -22779,6 +22861,12 @@
       "value": "After completion"
     }
   ],
+  "mUwaS5": [
+    {
+      "type": 0,
+      "value": "Mark this question as complete to track your progress."
+    }
+  ],
   "mVFZ09": [
     {
       "type": 0,
@@ -22917,6 +23005,20 @@
     {
       "type": 0,
       "value": "Step 2"
+    }
+  ],
+  "mq4G2a": [
+    {
+      "type": 0,
+      "value": "Saved as \""
+    },
+    {
+      "type": 1,
+      "value": "saveName"
+    },
+    {
+      "type": 0,
+      "value": "\""
     }
   ],
   "msvqkR": [
@@ -23181,6 +23283,12 @@
     {
       "type": 1,
       "value": "name"
+    }
+  ],
+  "nCqgeQ": [
+    {
+      "type": 0,
+      "value": "Official Solution"
     }
   ],
   "nHJcbV": [
@@ -23521,6 +23629,40 @@
       "value": "Every project belongs to 1 of 7 tracks comprising of common components used in the industry / use case"
     }
   ],
+  "ntmnHg": [
+    {
+      "type": 0,
+      "value": "Upon submission, we run your code against "
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "submission tests"
+        }
+      ],
+      "type": 8,
+      "value": "button"
+    },
+    {
+      "type": 0,
+      "value": ". These go beyond the basic checks of "
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "\"Run\""
+        }
+      ],
+      "type": 8,
+      "value": "run"
+    },
+    {
+      "type": 0,
+      "value": "."
+    }
+  ],
   "nv3dMg": [
     {
       "type": 0,
@@ -23729,6 +23871,12 @@
     {
       "type": 0,
       "value": "Premium time-savers"
+    }
+  ],
+  "oRJbie": [
+    {
+      "type": 0,
+      "value": "Browser preview and Console"
     }
   ],
   "oU0tf/": [
@@ -24657,6 +24805,12 @@
       "value": "Send another verification email"
     }
   ],
+  "q/prth": [
+    {
+      "type": 0,
+      "value": "Files"
+    }
+  ],
   "q0J0CA": [
     {
       "type": 0,
@@ -24741,12 +24895,6 @@
       "value": "Other skills you are using which are not within the skills roadmap. Also helps community members understand more about the tech stack. If you don't see the tag you need, email us."
     }
   ],
-  "qBtGwR": [
-    {
-      "type": 0,
-      "value": "View the full solution on a new page"
-    }
-  ],
   "qDIWna": [
     {
       "type": 0,
@@ -24787,12 +24935,6 @@
     {
       "type": 0,
       "value": "Public roadmap"
-    }
-  ],
-  "qLH4+p": [
-    {
-      "type": 0,
-      "value": "GreatFrontEnd (GFE) was an indispensable resource in my interview preparation. It provided well-structured, in-depth explanations that significantly improved my frontend system design skills and JavaScript fundamentals. The detailed solutions and curated problem sets helped me not only ace interviews but also become a better engineer overall. Thanks to GFE, I successfully landed offers from Microsoft, Lululemon, ADIA, and LaunchDarkly, and I highly recommend it to anyone preparing for frontend interviews."
     }
   ],
   "qMWBqm": [
@@ -24885,6 +25027,12 @@
       "value": "Body"
     }
   ],
+  "qYkkOP": [
+    {
+      "type": 0,
+      "value": "Open solution in workspace?"
+    }
+  ],
   "qdOBuk": [
     {
       "type": 0,
@@ -24943,12 +25091,6 @@
     {
       "type": 0,
       "value": "If you are using a debit card, ensure that there are sufficient funds in your card."
-    }
-  ],
-  "qn8hx+": [
-    {
-      "type": 0,
-      "value": "Current"
     }
   ],
   "qnBYb6": [
@@ -25353,20 +25495,6 @@
       "value": "Unpin one or more existing submissions to pin a new one."
     }
   ],
-  "rdN/ZV": [
-    {
-      "type": 1,
-      "value": "questionTitle"
-    },
-    {
-      "type": 0,
-      "value": " Solution in "
-    },
-    {
-      "type": 1,
-      "value": "questionFramework"
-    }
-  ],
   "reqKoj": [
     {
       "type": 0,
@@ -25467,20 +25595,6 @@
     {
       "type": 0,
       "value": "If you are looking for front end interviews, GreatFrontEnd is for you. It has a wide variety of coding questions ranging from HTML, CSS, JavaScript, to React. It also covers formats like functions, algorithms, user interface, quiz etc. If you want to get into top tech companies for front end roles, GreatFrontEnd is best for you."
-    }
-  ],
-  "rx8kx8": [
-    {
-      "type": 0,
-      "value": "`Saved as \""
-    },
-    {
-      "type": 1,
-      "value": "saveName"
-    },
-    {
-      "type": 0,
-      "value": "\"`"
     }
   ],
   "rzOz2q": [
@@ -25725,6 +25839,12 @@
       "value": "Share our offerings"
     }
   ],
+  "shjtM6": [
+    {
+      "type": 0,
+      "value": "Files"
+    }
+  ],
   "sjLtW1": [
     {
       "type": 0,
@@ -25789,10 +25909,10 @@
       "value": "Back to jobs"
     }
   ],
-  "sv1dLw": [
+  "suLGue": [
     {
       "type": 0,
-      "value": "Coding and submission is not supported on mobile devices. Use a wider screen to practice solving this question within the editor."
+      "value": "Unsaved changes"
     }
   ],
   "swjkuF": [
@@ -25895,6 +26015,12 @@
     {
       "type": 0,
       "value": "Angular Interview Questions with Solutions | GreatFrontEnd"
+    }
+  ],
+  "t7Smz8": [
+    {
+      "type": 0,
+      "value": "Editor shortcuts"
     }
   ],
   "t9eK65": [
@@ -26005,14 +26131,14 @@
       "value": "Starter"
     }
   ],
-  "tRQG6L": [
+  "tV+VAr": [
     {
       "type": 1,
-      "value": "percentOff"
+      "value": "questionCount"
     },
     {
       "type": 0,
-      "value": "% off"
+      "value": "+ Front End Interview Practice Questions"
     }
   ],
   "tWtbVf": [
@@ -26159,6 +26285,12 @@
       "value": "Indent line"
     }
   ],
+  "tvSiGC": [
+    {
+      "type": 0,
+      "value": "For the best experience, switch to desktop."
+    }
+  ],
   "tvsV5d": [
     {
       "type": 0,
@@ -26269,6 +26401,12 @@
       "value": "Svelte Interview Questions | Solutions by Ex-FAANG interviewers"
     }
   ],
+  "uGFfcx": [
+    {
+      "type": 0,
+      "value": "Save to cloud first"
+    }
+  ],
   "uGbcAo": [
     {
       "type": 0,
@@ -26309,6 +26447,22 @@
     {
       "type": 0,
       "value": "GreatFrontEnd Blog"
+    }
+  ],
+  "uOuP05": [
+    {
+      "type": 0,
+      "value": "From "
+    },
+    {
+      "children": [
+        {
+          "type": 1,
+          "value": "name"
+        }
+      ],
+      "type": 8,
+      "value": "button"
     }
   ],
   "uQG7Ed": [
@@ -26377,6 +26531,12 @@
       "value": "For existing students"
     }
   ],
+  "ub+gSX": [
+    {
+      "type": 0,
+      "value": "Overwrite your code with this attempt"
+    }
+  ],
   "ub/oYs": [
     {
       "type": 0,
@@ -26407,12 +26567,6 @@
     {
       "type": 0,
       "value": " User Interface Interview Questions"
-    }
-  ],
-  "ucl849": [
-    {
-      "type": 0,
-      "value": "mins"
     }
   ],
   "ufyNP1": [
@@ -26499,6 +26653,12 @@
     {
       "type": 0,
       "value": "Run"
+    }
+  ],
+  "uvm0O2": [
+    {
+      "type": 0,
+      "value": "Overwrite"
     }
   ],
   "uvoNYz": [
@@ -26643,6 +26803,12 @@
     {
       "type": 0,
       "value": "Targeted practice in specific front end frameworks and languages."
+    }
+  ],
+  "v95SRd": [
+    {
+      "type": 0,
+      "value": "Opening this solution will replace your code in the editor. You can revert back if needed. Proceed?"
     }
   ],
   "vC3/M4": [
@@ -26833,6 +26999,12 @@
       "value": "Official solutions"
     }
   ],
+  "vmDW39": [
+    {
+      "type": 0,
+      "value": "Loading saved code"
+    }
+  ],
   "vmqlMW": [
     {
       "type": 0,
@@ -26967,12 +27139,6 @@
     {
       "type": 0,
       "value": "Our projects are never one-off - they always fit into some component library or design system with other projects. Any projects you build can be composed to build future projects, forming an ever-growing toolkit for your future."
-    }
-  ],
-  "w3T2Ld": [
-    {
-      "type": 0,
-      "value": "Editor shortcuts"
     }
   ],
   "w54c/f": [
@@ -27329,12 +27495,6 @@
       "value": "Edit profile"
     }
   ],
-  "x8JeGI": [
-    {
-      "type": 0,
-      "value": "Replace editor with code"
-    }
-  ],
   "x8SJHC": [
     {
       "type": 0,
@@ -27419,6 +27579,12 @@
       "value": "Please enter a valid email address."
     }
   ],
+  "xKcTPG": [
+    {
+      "type": 0,
+      "value": "Automated test cases your code will be run against on desktop"
+    }
+  ],
   "xP6aru": [
     {
       "type": 0,
@@ -27499,6 +27665,12 @@
     {
       "type": 0,
       "value": "Сoncise step by step practical guides"
+    }
+  ],
+  "xanXX3": [
+    {
+      "type": 0,
+      "value": "Changes to the currently opened attempt will be discarded. Proceed?"
     }
   ],
   "xaoljh": [
@@ -27647,6 +27819,12 @@
       "value": "Additional tabs shown by default. Suitable for large displays."
     }
   ],
+  "xrhUzU": [
+    {
+      "type": 0,
+      "value": "Sign in"
+    }
+  ],
   "xsLz0P": [
     {
       "type": 0,
@@ -27703,12 +27881,6 @@
     {
       "type": 0,
       "value": " Reputation"
-    }
-  ],
-  "y+NJ/O": [
-    {
-      "type": 0,
-      "value": "Wrong"
     }
   ],
   "y/r8Q+": [
@@ -27835,12 +28007,6 @@
       "value": "Coding questions on JavaScript functions, covering concepts such as closures, event handling, async programming, and DOM manipulation."
     }
   ],
-  "yF2F1c": [
-    {
-      "type": 0,
-      "value": "Get full access to the interviews platform forever, including future updates and new content"
-    }
-  ],
   "yM3vbW": [
     {
       "type": 0,
@@ -27881,6 +28047,20 @@
     {
       "type": 0,
       "value": "Mentor others"
+    }
+  ],
+  "yUzfU2": [
+    {
+      "type": 0,
+      "value": "Submission ("
+    },
+    {
+      "type": 1,
+      "value": "name"
+    },
+    {
+      "type": 0,
+      "value": ")"
     }
   ],
   "yWnRZS": [
@@ -28139,12 +28319,6 @@
     {
       "type": 0,
       "value": "Please enter your name"
-    }
-  ],
-  "yrC3kR": [
-    {
-      "type": 0,
-      "value": "Editor shortcuts"
     }
   ],
   "ysth0B": [
@@ -28787,6 +28961,12 @@
     {
       "type": 0,
       "value": "This was the first time I gave full stack / frontend interviews. Coming from Meta, working in frontend for 3 years, I still felt that I had a lot of loopholes in basics of JavaScript, HTML. The question bank of GFE covers almost everything that might ever be asked in frontend interviews for companies including startups and FAANG. Thanks to the amazing question bank and conversational language in the explanations, I was able to crack a senior role at Snap."
+    }
+  ],
+  "zuH0Tc": [
+    {
+      "type": 0,
+      "value": "Run customizable test cases to check your code's progress. You can modify these test cases under the 'Test Cases' tab."
     }
   ],
   "zul/L1": [

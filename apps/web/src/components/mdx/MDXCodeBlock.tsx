@@ -9,12 +9,11 @@ import type {
 } from 'prism-react-renderer';
 import { Highlight, themes } from 'prism-react-renderer';
 import type { ComponentProps, ReactElement, ReactNode } from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FaCheck } from 'react-icons/fa6';
 import { RiFileCopyLine } from 'react-icons/ri';
 
 import useCopyToClipboardWithRevert from '~/hooks/useCopyToClipboardWithRevert';
-import useHoverState from '~/hooks/useHoverState';
 
 import Button from '~/components/ui/Button';
 import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
@@ -35,8 +34,10 @@ type GetTokenProps = (input: TokenInputProps) => TokenOutputProps;
 
 export type Props = ComponentProps<'pre'> &
   Readonly<{
+    alwaysShowButtons?: boolean;
     language?: Language;
     languages?: LanguagesCode;
+    onSelectedCodeChange?: (value: string) => void;
     renderExtraButtons?: (code: string) => ReactNode;
     renderLineContents?: (params: {
       getTokenProps: GetTokenProps;
@@ -96,9 +97,11 @@ export function convertContentToCode(
 // If this component is ever renamed you need to rename the solutions importing
 // this file along with the mdxBundler global deps.
 export default function MDXCodeBlock({
+  alwaysShowButtons = false,
   children,
   language = 'jsx',
   languages = {},
+  onSelectedCodeChange,
   renderExtraButtons,
   renderLineContents,
   showCopyButton = true,
@@ -127,12 +130,14 @@ export default function MDXCodeBlock({
   }
 
   const defaultLanguage = Object.keys(allLanguages)[0] as Language;
-
-  const { isHovered, onMouseEnter, onMouseLeave } = useHoverState();
   const [selectedLanguage, setSelectedLanguage] =
     useState<Language>(defaultLanguage);
 
   const selectedCode = allLanguages[selectedLanguage] as string;
+
+  useEffect(() => {
+    onSelectedCodeChange?.(selectedCode);
+  }, [selectedCode, onSelectedCodeChange]);
 
   // Direct usage of MDXCodeBlock in MDX.
   return (
@@ -149,17 +154,17 @@ export default function MDXCodeBlock({
           onSelect={setSelectedLanguage}
         />
       )}
-      <div
-        className="relative"
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}>
-        {isHovered && (
-          <div
-            className={clsx('flex gap-x-1 p-1', 'absolute right-0.5 top-0.5')}>
-            {renderExtraButtons?.(selectedCode)}
-            {showCopyButton && <CopyButton contents={selectedCode} />}
-          </div>
-        )}
+      <div className="group relative">
+        <div
+          className={clsx(
+            'flex gap-x-1 p-1',
+            'absolute right-0.5 top-0.5',
+            !alwaysShowButtons &&
+              'opacity-0 transition-opacity duration-200 group-hover:opacity-100',
+          )}>
+          {renderExtraButtons?.(selectedCode)}
+          {showCopyButton && <CopyButton contents={selectedCode} />}
+        </div>
         <Highlight
           code={selectedCode.trim()}
           language={selectedLanguage}

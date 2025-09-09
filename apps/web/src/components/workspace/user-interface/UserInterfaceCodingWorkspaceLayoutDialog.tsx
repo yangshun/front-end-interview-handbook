@@ -1,14 +1,13 @@
 'use client';
 
-import { useSandpack } from '@codesandbox/sandpack-react';
 import { TbColumns3 } from 'react-icons/tb';
 import { VscDebugConsole } from 'react-icons/vsc';
 
-import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
 import { useIntl } from '~/components/intl';
+import type { CodingWorkspaceLayoutItem } from '~/components/workspace/common/CodingWorkspaceLayoutDialog';
+import CodingWorkspaceLayoutDialog from '~/components/workspace/common/CodingWorkspaceLayoutDialog';
 
-import type { CodingWorkspaceLayoutItem } from '../common/CodingWorkspaceLayoutDialog';
-import CodingWorkspaceLayoutDialog from '../common/CodingWorkspaceLayoutDialog';
+import { useUserInterfaceCodingWorkspaceSelector } from './store/hooks';
 import {
   getUserInterfaceCodingWorkspaceLayout,
   getUserInterfaceCodingWorkspaceLayoutAdvanced,
@@ -16,22 +15,22 @@ import {
 import useUserInterfaceCodingWorkspaceTilesContext from './useUserInterfaceCodingWorkspaceTilesContext';
 
 type Props = Readonly<{
-  frameworkSolutionPath: string;
   isOpen: boolean;
-  mode: QuestionUserInterfaceMode;
   onClose: () => void;
 }>;
 
 export default function UserInterfaceCodingWorkspaceLayoutButton({
-  frameworkSolutionPath,
   isOpen,
-  mode,
   onClose,
 }: Props) {
   const intl = useIntl();
-  const { sandpack } = useSandpack();
-  const { activeFile, visibleFiles } = sandpack;
-  const { dispatch } = useUserInterfaceCodingWorkspaceTilesContext();
+  const activeFile = useUserInterfaceCodingWorkspaceSelector(
+    (state) => state.sandpack.current.activeFile,
+  );
+  const visibleFiles = useUserInterfaceCodingWorkspaceSelector(
+    (state) => state.sandpack.current.visibleFiles,
+  );
+  const { tilesDispatch } = useUserInterfaceCodingWorkspaceTilesContext();
 
   const layouts: ReadonlyArray<CodingWorkspaceLayoutItem> = [
     {
@@ -53,13 +52,11 @@ export default function UserInterfaceCodingWorkspaceLayoutButton({
         id: 'vhHkbS',
       }),
       onClick: () => {
-        dispatch({
+        tilesDispatch({
           payload: {
             panels: getUserInterfaceCodingWorkspaceLayout(
-              mode,
               activeFile,
               visibleFiles,
-              frameworkSolutionPath,
             ),
           },
           type: 'layout-change',
@@ -86,13 +83,11 @@ export default function UserInterfaceCodingWorkspaceLayoutButton({
         id: '38b6CQ',
       }),
       onClick: () => {
-        dispatch({
+        tilesDispatch({
           payload: {
             panels: getUserInterfaceCodingWorkspaceLayoutAdvanced(
-              mode,
               activeFile,
               visibleFiles,
-              frameworkSolutionPath,
             ),
           },
           type: 'layout-change',

@@ -6,7 +6,11 @@ import { trpc } from '~/hooks/trpc';
 import { useToast } from '~/components/global/toasts/useToast';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import { useIntl } from '~/components/intl';
-import JavaScriptTestCodesEmitter from '~/components/workspace/javascript/JavaScriptTestCodesEmitter';
+import {
+  useJavaScriptCodingWorkspaceDispatch,
+  useJavaScriptCodingWorkspaceSelector,
+} from '~/components/workspace/javascript/store/hooks';
+import { focusOnTest } from '~/components/workspace/javascript/store/javascript-workspace-slice';
 
 import {
   useMutationQuestionProgressAdd,
@@ -14,10 +18,8 @@ import {
 } from '~/db/QuestionsProgressClient';
 import { staticUpperCase } from '~/utils/typescript/stringTransform';
 
-import { useCodingWorkspaceContext } from '../common/CodingWorkspaceContext';
 import type { CodingWorkspaceTabFileType } from '../common/tabs/codingWorkspaceTabId';
 import TestsSection from '../common/tests/TestsSection';
-import { useJavaScriptCodingWorkspaceContext } from './JavaScriptCodingWorkspaceContext';
 import useJavaScriptCodingWorkspaceTilesContext from './useJavaScriptCodingWorkspaceTilesContext';
 
 export default function JavaScriptCodingWorkspaceTestsSubmitTab({
@@ -34,9 +36,20 @@ export default function JavaScriptCodingWorkspaceTestsSubmitTab({
   const trpcUtils = trpc.useUtils();
 
   const intl = useIntl();
-  const { dispatch } = useJavaScriptCodingWorkspaceTilesContext();
-  const { status } = useCodingWorkspaceContext();
-  const { language, mainFileCode } = useJavaScriptCodingWorkspaceContext();
+  const { tilesDispatch } = useJavaScriptCodingWorkspaceTilesContext();
+  const dispatch = useJavaScriptCodingWorkspaceDispatch();
+  const executionStatus = useJavaScriptCodingWorkspaceSelector(
+    (state) => state.execution.status,
+  );
+  const { language, question } = useJavaScriptCodingWorkspaceSelector(
+    (state) => state.workspace,
+  );
+  const files = useJavaScriptCodingWorkspaceSelector(
+    (state) => state.sandpack.current.files,
+  );
+  const { workspace } = question;
+
+  const mainFileCode = files[workspace.main].code;
   const markCompleteMutation = useMutationQuestionProgressAdd();
   const javaScriptAddSubmissionMutation =
     trpc.questionSubmission.javaScriptAdd.useMutation({
@@ -51,18 +64,19 @@ export default function JavaScriptCodingWorkspaceTestsSubmitTab({
   const { showToast } = useToast();
 
   useEffect(() => {
-    if (status === 'submitting') {
-      dispatch({
+    if (executionStatus === 'submitting') {
+      tilesDispatch({
         payload: {
           tabId: 'submit',
         },
         type: 'tab-set-active',
       });
     }
-  }, [dispatch, status]);
+  }, [tilesDispatch, executionStatus]);
 
   return (
     <TestsSection
+      metadata={metadata}
       specMode="submit"
       specPath={specPath}
       onComplete={(outcome) => {
@@ -122,7 +136,7 @@ export default function JavaScriptCodingWorkspaceTestsSubmitTab({
         }
       }}
       onFocusConsole={() => {
-        dispatch({
+        tilesDispatch({
           payload: {
             tabId: 'console',
           },
@@ -130,7 +144,7 @@ export default function JavaScriptCodingWorkspaceTestsSubmitTab({
         });
       }}
       onShowTestCase={(_, index, specParts) => {
-        dispatch({
+        tilesDispatch({
           payload: {
             fallbackNeighborTabId: openBesideTabId,
             tabId: 'submission_test_cases',
@@ -138,21 +152,33 @@ export default function JavaScriptCodingWorkspaceTestsSubmitTab({
           type: 'tab-set-active-otherwise-open',
         });
         setTimeout(() => {
-          JavaScriptTestCodesEmitter.emit('focus_on_test', {
-            filePath: specPath,
-            index,
-            specParts,
-          });
+          dispatch(
+            focusOnTest({
+              filePath: specPath,
+              index,
+              specParts,
+            }),
+          );
         }, 0);
       }}
-      onShowTestsCases={() => {
-        dispatch({
-          payload: {
-            fallbackNeighborTabId: openBesideTabId,
-            tabId: 'submission_test_cases',
-          },
-          type: 'tab-set-active-otherwise-open',
-        });
+      onShowTestsCases={(specMode: 'run' | 'submit') => {
+        if (specMode === 'run') {
+          tilesDispatch({
+            payload: {
+              fallbackNeighborTabId: openBesideTabId,
+              tabId: 'run_tests',
+            },
+            type: 'tab-set-active-otherwise-open',
+          });
+        } else {
+          tilesDispatch({
+            payload: {
+              fallbackNeighborTabId: openBesideTabId,
+              tabId: 'submission_test_cases',
+            },
+            type: 'tab-set-active-otherwise-open',
+          });
+        }
       }}
     />
   );

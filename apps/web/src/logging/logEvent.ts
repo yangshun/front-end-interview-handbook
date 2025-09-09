@@ -90,6 +90,10 @@ export default async function logEvent(
   action: LoggingAction,
   payload: LoggingPayload,
 ) {
+  if (process.env.NODE_ENV === 'test') {
+    return;
+  }
+
   const searchParams = new URLSearchParams(window.location.search);
   const connection =
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment

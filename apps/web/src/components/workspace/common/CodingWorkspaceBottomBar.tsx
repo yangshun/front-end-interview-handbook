@@ -37,11 +37,12 @@ export default function CodingWorkspaceBottomBar({
       className={clsx(
         'sticky bottom-0',
         'flex flex-wrap items-center justify-between',
-        'px-3 py-3',
+        'h-12',
+        'px-3',
         ['max-lg:border-t', themeBorderColor],
         themeBackgroundDarkColor,
       )}>
-      <div className={clsx('flex items-center gap-x-2 md:flex-1')}>
+      <div className={clsx('flex items-center gap-x-1.5 sm:gap-x-2 md:flex-1')}>
         {leftElements}
       </div>
       <div className={clsx('flex flex-1 sm:justify-center', 'h-7')}>
@@ -57,7 +58,7 @@ export default function CodingWorkspaceBottomBar({
           />
         )}
       </div>
-      <div className="flex items-center justify-end gap-x-2 md:flex-1">
+      <div className="flex items-center justify-end gap-x-1.5 sm:gap-x-2 md:flex-1">
         {rightElements}
       </div>
     </div>

@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import { useId } from 'react';
 import { RiLinkedinBoxFill } from 'react-icons/ri';
 
 import authors from '~/data/authors';
@@ -23,7 +22,6 @@ export default function QuestionAuthor({
   size = 'body3',
 }: Props) {
   const intl = useIntl();
-  const id = useId();
   const authorData = authors[author];
 
   if (authorData == null) {
@@ -37,56 +35,49 @@ export default function QuestionAuthor({
   });
 
   return (
-    <div className={clsx('group block shrink-0', className)}>
-      <span className="sr-only" id={id}>
-        {label}
-      </span>
-      <div aria-labelledby={id} className="flex items-center gap-x-3">
-        <div className="inline-flex h-8">
-          <Tooltip asChild={true} className="inline-flex" label={label}>
-            <Anchor
-              aria-label={authorData.name}
-              href={authorData.links.linkedin || '#'}
-              variant="unstyled">
-              <Avatar alt={authorData.name} src={authorData.imageUrl} />
-            </Anchor>
-          </Tooltip>
-        </div>
-        <div className="flex flex-col gap-y-0.5">
-          <div className="flex items-center gap-x-1">
-            <Anchor
-              className={textVariants({
-                className: 'block whitespace-nowrap',
-                color: 'default',
-                size,
-                weight: 'bold',
-              })}
-              href={authorData.links.linkedin || '#'}
-              variant="flat">
-              {authorData.name}
-            </Anchor>
-            {authorData.links.linkedin && (
-              <Anchor href={authorData.links.linkedin} variant="unstyled">
-                <RiLinkedinBoxFill
-                  aria-hidden={true}
-                  className={textVariants({
-                    className: 'size-4 shrink-0',
-                    color: 'subtitle',
-                    size,
-                    weight: 'bold',
-                  })}
-                />
-              </Anchor>
-            )}
-          </div>
-          <Text
-            className="block whitespace-nowrap"
-            color="secondary"
-            size="body3">
-            {authorData.subtitle}
-          </Text>
-        </div>
-      </div>
+    <div className={clsx('flex items-center gap-x-2', className)}>
+      <Tooltip asChild={true} className="inline-flex" label={label}>
+        <Anchor
+          aria-label={authorData.name}
+          href={authorData.links.linkedin || '#'}
+          variant="unstyled">
+          <Avatar
+            alt={authorData.name}
+            className="!size-5"
+            src={authorData.imageUrl}
+          />
+        </Anchor>
+      </Tooltip>
+      <Anchor
+        className={textVariants({
+          className: 'block whitespace-nowrap',
+          color: 'default',
+          size,
+        })}
+        href={authorData.links.linkedin || '#'}
+        variant="flat">
+        {authorData.name}
+      </Anchor>
+      <Text
+        className="block whitespace-nowrap"
+        color="subtitle"
+        size="body3"
+        weight="medium">
+        {authorData.subtitle}
+      </Text>
+      {authorData.links.linkedin && (
+        <Anchor href={authorData.links.linkedin} variant="unstyled">
+          <RiLinkedinBoxFill
+            aria-hidden={true}
+            className={textVariants({
+              className: 'size-4 shrink-0',
+              color: 'subtitle',
+              size,
+              weight: 'bold',
+            })}
+          />
+        </Anchor>
+      )}
     </div>
   );
 }

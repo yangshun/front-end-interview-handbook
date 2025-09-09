@@ -1,24 +1,27 @@
 import clsx from 'clsx';
-import { Fragment } from 'react';
+import type { ReactNode } from 'react';
+import { RiBuildingLine } from 'react-icons/ri';
 
 import useCompanyNames from '~/hooks/useCompanyNames';
 
-import InterviewsPurchasePaywallSmall from '~/components/interviews/purchase/InterviewsPurchasePaywallSmall';
 import type { QuestionCompany } from '~/components/interviews/questions/common/QuestionsTypes';
 import { FormattedMessage, useIntl } from '~/components/intl';
+import Badge from '~/components/ui/Badge';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text, { textVariants } from '~/components/ui/Text';
-import { themeBorderColor } from '~/components/ui/theme';
+import { themeIconColor } from '~/components/ui/theme';
 
 type Props = Readonly<{
   canViewPremiumContent?: boolean;
   companies: ReadonlyArray<QuestionCompany>;
+  topAddOn?: ReactNode;
 }>;
 
 export default function QuestionCompanies({
   canViewPremiumContent = false,
   companies,
+  topAddOn,
 }: Props) {
   const companyNames = useCompanyNames();
   const recognizedCompanies = companies.filter(
@@ -31,59 +34,69 @@ export default function QuestionCompanies({
   }
 
   return (
-    <div className="flex flex-col gap-y-4">
-      <Heading
-        className={clsx(textVariants({ size: 'body1', weight: 'medium' }))}
-        level="custom">
-        <FormattedMessage
-          defaultMessage="Asked at these companies"
-          description="Title for section on question that shows which companies asked the question"
-          id="wI2SYk"
-        />
-      </Heading>
-      <Section>
-        {!canViewPremiumContent ? (
-          <InterviewsPurchasePaywallSmall
-            subtitle={intl.formatMessage({
-              defaultMessage:
-                'Purchase premium to see companies which ask this question.',
-              description:
-                'Subtitle for paywall over information about companies that asked the question',
-              id: 'vp4zbB',
-            })}
-            title={intl.formatMessage({
-              defaultMessage: 'Premium Feature',
-              description:
-                'Title for paywall over information about companies that asked the question',
-              id: 'BPE/qv',
-            })}
+    <>
+      {topAddOn}
+      <div className="flex flex-col gap-y-4">
+        <Heading
+          className={clsx(
+            textVariants({
+              color: 'subtitle',
+              size: 'body2',
+              weight: 'medium',
+            }),
+          )}
+          level="custom">
+          <FormattedMessage
+            defaultMessage="Asked at these companies"
+            description="Title for section on question that shows which companies asked the question"
+            id="wI2SYk"
           />
-        ) : recognizedCompanies.length > 0 ? (
-          <div className="flex flex-wrap gap-x-2">
-            {recognizedCompanies.map((company) => (
-              <Fragment key={company}>
-                <span
-                  className={clsx(
-                    'relative inline-flex items-center rounded-full border px-3 py-0.5',
-                    themeBorderColor,
-                  )}>
-                  <Text color="secondary" size="body3">
-                    {companyNames[company].label}
-                  </Text>
-                </span>{' '}
-              </Fragment>
-            ))}
-          </div>
-        ) : (
-          <Text className="block" color="secondary" size="body2">
-            <FormattedMessage
-              defaultMessage="No tagged companies"
-              description="Text that appears if the question does not have any tagged comppanies (where the question was known to be asked)"
-              id="ftr2lo"
-            />
-          </Text>
-        )}
-      </Section>
-    </div>
+        </Heading>
+        <Section>
+          {!canViewPremiumContent ? (
+            <div className="flex items-center gap-1.5">
+              <RiBuildingLine
+                aria-hidden={true}
+                className={clsx(themeIconColor, 'size-4')}
+              />
+              <Badge
+                label={intl.formatMessage({
+                  defaultMessage: 'Unlock Companies data with Premium',
+                  description: 'Label for the premium badge for companies data',
+                  id: 'krxWYh',
+                })}
+                size="xs"
+                variant="neutral-active"
+              />
+            </div>
+          ) : recognizedCompanies.length > 0 ? (
+            <div className="flex flex-wrap gap-4">
+              {recognizedCompanies.map((company) => {
+                const Icon = companyNames[company].logo;
+
+                return (
+                  <div key={company} className="flex items-center gap-2">
+                    <div className="rounded bg-white p-[3px]">
+                      <Icon />
+                    </div>
+                    <Text color="subtitle" size="body3" weight="medium">
+                      {companyNames[company].label}
+                    </Text>
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <Text className="block" color="secondary" size="body2">
+              <FormattedMessage
+                defaultMessage="No tagged companies"
+                description="Text that appears if the question does not have any tagged comppanies (where the question was known to be asked)"
+                id="ftr2lo"
+              />
+            </Text>
+          )}
+        </Section>
+      </div>
+    </>
   );
 }

@@ -308,7 +308,7 @@ export default function ProfileShell({ children, user }: Props) {
                   />
                 </div>
               </div>
-              <div className="px-4 py-8 sm:px-6 lg:px-8 xl:px-6">
+              <div className="px-4 pb-8 sm:px-6 lg:px-8 xl:px-6">
                 {children}
               </div>
             </div>

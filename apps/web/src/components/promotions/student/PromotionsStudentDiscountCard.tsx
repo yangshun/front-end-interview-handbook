@@ -305,7 +305,7 @@ export function PromotionsStudentDiscountCard({ variant = 'full' }: Props) {
 
               const promoCodeToDisplay = promoCode ?? existingPromoCode ?? null;
 
-              if (promoCodeToDisplay) {
+              if (promoCodeToDisplay != null) {
                 return (
                   <div>
                     <Button

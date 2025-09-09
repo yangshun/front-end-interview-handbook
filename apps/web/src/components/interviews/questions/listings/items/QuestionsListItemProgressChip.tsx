@@ -220,7 +220,7 @@ export function NotCompleted({
         )}
         type="button"
         onClick={onClick}>
-        {number != null && canShowHoverState && !isHover ? (
+        {(canShowHoverState ? number != null && !isHover : number !== null) ? (
           number
         ) : (
           <FaCheck

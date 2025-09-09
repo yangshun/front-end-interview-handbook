@@ -19,9 +19,9 @@ export default function TestsOutcomeBadge({ outcome, results }: Props) {
   const intl = useIntl();
 
   return (
-    <div className="flex gap-x-4">
+    <div className="flex gap-x-2 font-mono">
       {outcome === 'correct' && (
-        <Text color="success" size="body3" weight="medium">
+        <Text color="success" size="body3" weight="bold">
           {intl.formatMessage({
             defaultMessage: 'Correct',
             description: 'Workspace test outcome correct label',

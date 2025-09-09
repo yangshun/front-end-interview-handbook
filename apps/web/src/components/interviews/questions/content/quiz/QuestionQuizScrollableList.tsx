@@ -18,7 +18,7 @@ import type {
 import QuestionsQuizContentLayout from '~/components/interviews/questions/content/quiz/QuestionsQuizContentLayout';
 import useQuestionCodingSorting from '~/components/interviews/questions/listings/filters/hooks/useQuestionCodingSorting';
 import { sortQuestionsMultiple } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
-import useQuestionsWithCompletionStatus from '~/components/interviews/questions/listings/items/useQuestionsWithCompletionStatus';
+import useQuestionsWithStatus from '~/components/interviews/questions/listings/items/useQuestionsWithStatus';
 import InterviewsStudyListBottomBar from '~/components/interviews/questions/listings/study-list/InterviewsStudyListBottomBar';
 import Divider from '~/components/ui/Divider';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -68,7 +68,7 @@ export default function QuestionQuizScrollableList({
 
   const isUserScroll = useRef(false);
 
-  const questionsWithCompletionStatus = useQuestionsWithCompletionStatus(
+  const questionsWithCompletionStatus = useQuestionsWithStatus(
     questionsList.map((item) => item.metadata),
   );
 

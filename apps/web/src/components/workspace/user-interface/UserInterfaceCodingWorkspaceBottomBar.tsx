@@ -1,9 +1,10 @@
 'use client';
 
-import { useState } from 'react';
-import { RiArrowGoBackLine, RiSettings2Line } from 'react-icons/ri';
-import { VscLayout } from 'react-icons/vsc';
+import type { SandpackFiles } from '@codesandbox/sandpack-react';
+import { pauseTimer } from 'components/workspace/common/store/timer-slice';
+import type { ComponentProps } from 'react';
 
+import QuestionBookmarkAction from '~/components/interviews/questions/common/QuestionBookmarkAction';
 import QuestionProgressAction from '~/components/interviews/questions/common/QuestionProgressAction';
 import QuestionReportIssueButton from '~/components/interviews/questions/common/QuestionReportIssueButton';
 import type {
@@ -11,128 +12,90 @@ import type {
   QuestionMetadata,
   QuestionUserInterface,
 } from '~/components/interviews/questions/common/QuestionsTypes';
-import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
 import QuestionNextQuestions from '~/components/interviews/questions/content/QuestionNextQuestions';
-import { useIntl } from '~/components/intl';
 import Divider from '~/components/ui/Divider';
-import DropdownMenu from '~/components/ui/DropdownMenu';
+import CodingWorkspaceBottomBar from '~/components/workspace/common/CodingWorkspaceBottomBar';
+import { CodingWorkspaceBottomBarSettingsDropdownMenu } from '~/components/workspace/common/CodingWorkspaceBottomBarSettingsDropdownMenu';
+import CodingWorkspaceMobileSolutionButton from '~/components/workspace/common/CodingWorkspaceMobileSolutionButton';
+import CodingWorkspaceTimer from '~/components/workspace/common/CodingWorkspaceTimer';
+import { useCodingWorkspaceDispatch } from '~/components/workspace/common/store/hooks';
 
-import CodingWorkspaceBottomBar from '../common/CodingWorkspaceBottomBar';
-import CodingWorkspaceTimer from '../common/CodingWorkspaceTimer';
+import { useUserInterfaceCodingWorkspaceSelector } from './store/hooks';
+import { deleteLocalUserInterfaceQuestionCode } from './UserInterfaceCodingWorkspaceCodeStorage';
+import UserInterfaceCodingWorkspaceFrameworkDropdown from './UserInterfaceCodingWorkspaceFrameworkDropdown';
 import UserInterfaceCodingWorkspaceLayoutDialog from './UserInterfaceCodingWorkspaceLayoutDialog';
 import UserInterfaceCodingWorkspaceSaveButton from './UserInterfaceCodingWorkspaceSaveButton';
 
+type Mode = ComponentProps<typeof CodingWorkspaceMobileSolutionButton>['mode'];
 type Props = Readonly<{
+  device: 'desktop' | 'mobile' | 'tablet';
   framework: QuestionFramework;
-  frameworkSolutionPath: string;
   metadata: QuestionMetadata;
-  mode: QuestionUserInterfaceMode;
+  mode?: Mode;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
+  onFrameworkChange: (framework: QuestionFramework) => void;
+  onModeChange?: (value: Mode) => void;
   question: QuestionUserInterface;
-  resetToDefaultCode: () => void;
+  replaceCodeEditorContents: (updatedFiles: SandpackFiles) => void;
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE: string;
   studyListKey?: string;
 }>;
 
 export default function UserInterfaceCodingWorkspaceBottomBar({
+  device,
   framework,
-  frameworkSolutionPath,
   metadata,
   mode,
   nextQuestions,
+  onFrameworkChange,
+  onModeChange,
   question,
-  resetToDefaultCode,
+  replaceCodeEditorContents,
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE,
   studyListKey,
 }: Props) {
-  const intl = useIntl();
-  const [isLayoutDialogOpen, setIsLayoutDialogOpen] = useState(false);
+  const workspaceDispatch = useCodingWorkspaceDispatch();
 
   const leftElements = (
     <div className="hidden flex-1 items-center gap-x-2 sm:inline-flex">
-      <QuestionReportIssueButton
-        entity="question"
-        format={metadata.format}
-        slug={metadata.slug}
+      {/* Settings menu for desktop only */}
+      <div className="hidden lg:block">
+        <SettingDropdownMenu
+          device={device}
+          question={question}
+          replaceCodeEditorContents={replaceCodeEditorContents}
+        />
+      </div>
+      <UserInterfaceCodingWorkspaceFrameworkDropdown
+        framework={framework}
+        metadata={metadata}
+        mode={device === 'desktop' ? 'label' : 'icon'}
+        onFrameworkChange={onFrameworkChange}
       />
-      <DropdownMenu
-        icon={RiSettings2Line}
-        isLabelHidden={true}
-        label={intl.formatMessage({
-          defaultMessage: 'Settings',
-          description: 'Coding workspace settings dropdown label',
-          id: '/p5g3I',
-        })}
-        showChevron={false}
-        side="top"
-        size="xs">
-        {[
-          {
-            icon: VscLayout,
-            label: intl.formatMessage({
-              defaultMessage: 'Layout',
-              description: 'Coding workspace layout',
-              id: 'yMnCy6',
-            }),
-            onClick: () => {
-              setIsLayoutDialogOpen(true);
-            },
-            value: 'layout',
-          },
-          {
-            icon: RiArrowGoBackLine,
-            label: intl.formatMessage({
-              defaultMessage: 'Reset question',
-              description: 'Coding workspace reset question',
-              id: 'ZeoQdS',
-            }),
-            onClick: () => {
-              if (
-                confirm(
-                  intl.formatMessage({
-                    defaultMessage: 'Reset all changes made to this question?',
-                    description: 'Coding workspace reset question confirmation',
-                    id: '2eBsGO',
-                  }),
-                )
-              ) {
-                resetToDefaultCode();
-              }
-            },
-            value: 'reset',
-          },
-        ].map(({ icon, label, onClick, value }) => (
-          <DropdownMenu.Item
-            key={value}
-            icon={icon}
-            label={label}
-            onClick={onClick}
-          />
-        ))}
-      </DropdownMenu>
-      <UserInterfaceCodingWorkspaceLayoutDialog
-        frameworkSolutionPath={frameworkSolutionPath}
-        isOpen={isLayoutDialogOpen}
-        mode={mode}
-        onClose={() => {
-          setIsLayoutDialogOpen(false);
-        }}
-      />
-    </div>
-  );
-  const rightElements = (
-    <>
-      <span className="inline sm:hidden">
+      <div className="hidden sm:block">
         <QuestionReportIssueButton
           entity="question"
           format={metadata.format}
           slug={metadata.slug}
         />
-      </span>
-      <div className="hidden lg:inline">
+      </div>
+    </div>
+  );
+  const rightElements = (
+    <>
+      <div className="block sm:hidden">
+        <QuestionReportIssueButton
+          entity="question"
+          format={metadata.format}
+          slug={metadata.slug}
+        />
+      </div>
+      <div className="hidden items-center gap-x-2 lg:flex">
         <CodingWorkspaceTimer qnMetadata={metadata} />
+        <QuestionBookmarkAction metadata={metadata} />
       </div>
       <QuestionProgressAction
+        isLabelHidden={device !== 'desktop'}
         metadata={metadata}
         signInModalContents={
           nextQuestions &&
@@ -144,15 +107,33 @@ export default function UserInterfaceCodingWorkspaceBottomBar({
           )
         }
         studyListKey={studyListKey}
+        onClick={() => {
+          workspaceDispatch(pauseTimer());
+        }}
       />
-      {mode === 'practice' ? (
-        <div className="hidden min-[450px]:block">
-          <UserInterfaceCodingWorkspaceSaveButton
-            question={question}
-            studyListKey={studyListKey}
+      {/* Solution button for mobile only */}
+      {onModeChange && (
+        <div className="block sm:hidden">
+          <CodingWorkspaceMobileSolutionButton
+            mode={mode}
+            onModeChange={onModeChange}
           />
         </div>
-      ) : null}
+      )}
+      <div className="hidden sm:block">
+        <UserInterfaceCodingWorkspaceSaveButton
+          device={device}
+          question={question}
+          studyListKey={studyListKey}
+        />
+      </div>
+      <div className="block lg:hidden">
+        <SettingDropdownMenu
+          device={device}
+          question={question}
+          replaceCodeEditorContents={replaceCodeEditorContents}
+        />
+      </div>
     </>
   );
 
@@ -166,6 +147,34 @@ export default function UserInterfaceCodingWorkspaceBottomBar({
         slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE
       }
       studyListKey={studyListKey}
+    />
+  );
+}
+
+function SettingDropdownMenu({
+  device,
+  question,
+  replaceCodeEditorContents,
+}: {
+  device?: 'desktop' | 'mobile' | 'tablet';
+  question: QuestionUserInterface;
+  replaceCodeEditorContents: (updatedFiles: SandpackFiles) => void;
+}) {
+  const defaultFiles = useUserInterfaceCodingWorkspaceSelector(
+    (state) => state.sandpack.default.files,
+  );
+
+  function resetToDefaultCode() {
+    deleteLocalUserInterfaceQuestionCode(question);
+    replaceCodeEditorContents(defaultFiles);
+  }
+
+  return (
+    <CodingWorkspaceBottomBarSettingsDropdownMenu
+      device={device}
+      layoutDialogComponent={UserInterfaceCodingWorkspaceLayoutDialog}
+      metadata={question.metadata}
+      resetToDefaultCode={resetToDefaultCode}
     />
   );
 }

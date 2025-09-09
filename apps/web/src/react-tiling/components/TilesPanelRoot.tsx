@@ -6,9 +6,18 @@ import type { PanelGroupProps } from 'react-resizable-panels';
 import { useDragHighlightContext } from '../state/useDragHighlightContext';
 import { useTilesContext } from '../state/useTilesContext';
 import TilesPanel from './TilesPanel';
+import type { CustomActionsOrComponent } from './TilesPanelActions';
 
 export type Props<TabType> = Readonly<{
   disablePointerEventsDuringResize?: boolean;
+  getCustomActionsOrComponents?: (
+    panelId: string,
+    tabId: TabType | null,
+  ) => ReadonlyArray<CustomActionsOrComponent> | undefined;
+  getDropdownIcon?: (
+    panelId: string,
+    tabId: TabType | null,
+  ) => ((iconProps: React.ComponentProps<'svg'>) => JSX.Element) | undefined;
   getResizeHandlerProps: (direction: PanelGroupProps['direction']) => Readonly<{
     children?: ReactNode;
     className?: string;
@@ -24,6 +33,8 @@ export type Props<TabType> = Readonly<{
 
 export function TilesPanelRoot<TabType extends string>({
   disablePointerEventsDuringResize,
+  getCustomActionsOrComponents,
+  getDropdownIcon,
   getResizeHandlerProps,
   getTabLabel,
   renderTab,
@@ -41,12 +52,14 @@ export function TilesPanelRoot<TabType extends string>({
   }, [draggedItemId]);
 
   return (
-    <div ref={setParent} className="size-full relative isolate">
+    <div ref={setParent} className="relative isolate size-full">
       <TilesPanel
         level={0}
         parentDirection="horizontal"
         {...tiles}
         disablePointerEventsDuringResize={disablePointerEventsDuringResize}
+        getCustomActionsOrComponents={getCustomActionsOrComponents}
+        getDropdownIcon={getDropdownIcon}
         getResizeHandlerProps={getResizeHandlerProps}
         getTabLabel={getTabLabel}
         renderTab={renderTab}

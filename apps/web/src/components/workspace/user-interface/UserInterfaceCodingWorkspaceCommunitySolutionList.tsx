@@ -18,6 +18,7 @@ export default function UserInterfaceCodingWorkspaceCommunitySolutionList({
 
   return (
     <CodingWorkspaceCommunitySolutionList
+      openCommunitySolution={() => {}}
       questionType="ui"
       solutions={solutions}
     />

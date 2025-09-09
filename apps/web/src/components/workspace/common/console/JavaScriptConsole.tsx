@@ -318,12 +318,15 @@ export default function JavaScriptConsole({
           />
         </div>
       ) : (
-        <div
-          className={clsx(
-            'flex h-full grow items-center justify-center',
-            'px-4 py-4 sm:px-6 lg:px-4',
-          )}>
-          <JavaScriptConsoleEmptyState />
+        <div className={clsx('h-full overflow-y-auto')}>
+          <div
+            className={clsx(
+              'h-full min-h-fit',
+              'px-4 py-4 sm:px-6 lg:px-4',
+              'flex items-center justify-center',
+            )}>
+            <JavaScriptConsoleEmptyState />
+          </div>
         </div>
       )}
     </div>

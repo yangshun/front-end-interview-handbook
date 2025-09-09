@@ -6,8 +6,7 @@ import Alert from '~/components/ui/Alert';
 import EmptyState from '~/components/ui/EmptyState';
 import Prose from '~/components/ui/Prose';
 import Text from '~/components/ui/Text';
-
-import JavaScriptTestCodesEmitter from './JavaScriptTestCodesEmitter';
+import { useJavaScriptCodingWorkspaceSelector } from '~/components/workspace/javascript/store/hooks';
 
 type Props = Readonly<{
   contents: string | null;
@@ -69,32 +68,26 @@ export default function JavaScriptCodingWorkspaceTestsCode({
 }: Props) {
   const codeRef = useRef<HTMLDivElement>(null);
   const intl = useIntl();
+  const testFocus = useJavaScriptCodingWorkspaceSelector(
+    (state) => state.workspace.testFocus,
+  );
 
   useEffect(() => {
-    function highlight({
-      filePath,
-      index,
-      specParts,
-    }: Readonly<{
-      filePath: string;
-      index: number;
-      specParts: ReadonlyArray<string>;
-    }>) {
-      if (specPath !== filePath) {
-        return;
-      }
-
-      // Push to next tick in case the test cases panel not shown yet.
-      setTimeout(() => {
-        highlightElement(codeRef.current, specParts, index);
-      }, 100);
+    if (testFocus == null) {
+      return;
     }
-    JavaScriptTestCodesEmitter.on('focus_on_test', highlight);
 
-    return () => {
-      JavaScriptTestCodesEmitter.off('focus_on_test', highlight);
-    };
-  }, [specPath]);
+    const { filePath, index, specParts } = testFocus;
+
+    if (specPath !== filePath) {
+      return;
+    }
+
+    // Push to next tick in case the test cases panel not shown yet.
+    setTimeout(() => {
+      highlightElement(codeRef.current, specParts, index);
+    }, 100);
+  }, [specPath, testFocus]);
 
   if (contents == null) {
     return (

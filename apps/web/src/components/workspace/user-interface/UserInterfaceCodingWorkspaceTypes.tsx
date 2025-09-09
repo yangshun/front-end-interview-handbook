@@ -1,7 +1,7 @@
 import type { CodingWorkspaceTabContents } from '../common/CodingWorkspaceContext';
 import type {
+  CodingWorkspaceTabAttemptType,
   CodingWorkspaceTabFileType,
-  CodingWorkspaceTabSubmissionType,
 } from '../common/tabs/codingWorkspaceTabId';
 
 export type UserInterfaceCodingWorkspacePredefinedTabsType =
@@ -9,6 +9,7 @@ export type UserInterfaceCodingWorkspacePredefinedTabsType =
   | 'community_solutions'
   | 'console'
   | 'description'
+  | 'editor_shortcuts'
   | 'file_explorer'
   | 'preview'
   | 'solution_preview'
@@ -16,8 +17,8 @@ export type UserInterfaceCodingWorkspacePredefinedTabsType =
   | 'versions';
 
 export type UserInterfaceCodingWorkspaceTabsType =
+  | CodingWorkspaceTabAttemptType
   | CodingWorkspaceTabFileType
-  | CodingWorkspaceTabSubmissionType
   | UserInterfaceCodingWorkspacePredefinedTabsType;
 
 export type UserInterfaceCodingWorkspacePredefinedTabsContents =

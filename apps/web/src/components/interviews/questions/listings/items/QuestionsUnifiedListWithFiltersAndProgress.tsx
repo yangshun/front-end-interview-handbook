@@ -21,7 +21,7 @@ import type {
   QuestionMetadata,
 } from '../../common/QuestionsTypes';
 import QuestionsUnifiedListWithFilters from './QuestionsUnifiedListWithFilters';
-import useQuestionsWithCompletionStatus from './useQuestionsWithCompletionStatus';
+import useQuestionsWithStatus from './useQuestionsWithStatus';
 
 type Props = Omit<
   React.ComponentProps<typeof QuestionsUnifiedListWithFilters>,
@@ -72,7 +72,7 @@ export default function QuestionsUnifiedListWithFiltersAndProgress({
 
   const studyListKey =
     listType?.type === 'study-list' ? listType.value : undefined;
-  const questionsWithCompletionStatus = useQuestionsWithCompletionStatus(
+  const questionsWithCompletionStatus = useQuestionsWithStatus(
     questions,
     studyListKey,
   );

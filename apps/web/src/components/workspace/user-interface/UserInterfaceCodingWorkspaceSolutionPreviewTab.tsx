@@ -26,7 +26,7 @@ export default function UserInterfaceCodingWorkspaceSolutionPreviewTab({
   const intl = useIntl();
   const { colorScheme } = useColorSchemePreferences();
   const bundlerURL = useSandpackBundlerURL(sandpackO11yInstance);
-  const { dispatch, getTabById } =
+  const { getTabById, tilesDispatch } =
     useUserInterfaceCodingWorkspaceTilesContext();
 
   const { files, workspace } = bundle;
@@ -45,13 +45,13 @@ export default function UserInterfaceCodingWorkspaceSolutionPreviewTab({
           variant="unstyled"
           onClick={(event) => {
             event.preventDefault();
-            dispatch({
+            tilesDispatch({
               payload: {
                 tabId: 'solution_preview',
               },
               type: 'tab-close',
             });
-            dispatch({
+            tilesDispatch({
               payload: {
                 tabId: getTabById('description')!.tabId,
               },

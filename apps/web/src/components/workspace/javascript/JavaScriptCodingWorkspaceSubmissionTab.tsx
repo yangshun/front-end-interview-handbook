@@ -1,36 +1,37 @@
 'use client';
 
+import clsx from 'clsx';
+
 import { trpc } from '~/hooks/trpc';
 
-import Timestamp from '~/components/common/datetime/Timestamp';
-import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
-import QuestionLanguages from '~/components/interviews/questions/metadata/QuestionLanguages';
 import { useIntl } from '~/components/intl';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
-import Badge from '~/components/ui/Badge';
-import Heading from '~/components/ui/Heading';
 import Prose from '~/components/ui/Prose';
 import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
-
-import { staticLowerCase } from '~/utils/typescript/stringTransform';
+import { themeBackgroundCardWhiteOnLightColor } from '~/components/ui/theme';
 
 import JavaScriptCodingWorkspacePushCodeToEditorButton from './JavaScriptCodingWorkspacePushCodeToEditorButton';
+import JavaScriptCodingWorkspaceSubmissionMetadata from './JavaScriptCodingWorkspaceSubmissionMetadata';
+import { useJavaScriptCodingWorkspaceSelector } from './store/hooks';
 
 type Props = Readonly<{
-  metadata: QuestionMetadata;
   submissionId: string;
+  submissionName: string;
 }>;
 
 export default function JavaScriptCodingWorkspaceSubmissionTab({
-  metadata,
   submissionId,
+  submissionName,
 }: Props) {
   const intl = useIntl();
   const { data: submission, isLoading } =
     trpc.questionSubmission.javaScriptGet.useQuery({
       submissionId,
     });
+  const currentOpenedSolution = useJavaScriptCodingWorkspaceSelector(
+    (state) => state.solution.currentOpenedSolution,
+  );
 
   return (
     <div className="w-full">
@@ -47,68 +48,39 @@ export default function JavaScriptCodingWorkspaceSubmissionTab({
         </div>
       )}
       {submission && (
-        <div className="flex flex-col gap-y-4 p-4">
-          <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
-            <div className="flex items-center gap-x-4">
-              <Heading level="heading5">
-                {intl.formatMessage(
-                  {
-                    defaultMessage: 'Submission for "{title}"',
-                    description: 'Coding workspace submission title',
-                    id: 'K2gA7K',
-                  },
-                  { title: metadata.title },
-                )}
-              </Heading>
-              <QuestionLanguages
-                languages={[staticLowerCase(submission.language)]}
+        <div>
+          <div
+            className={clsx('px-4 py-3', themeBackgroundCardWhiteOnLightColor)}>
+            <JavaScriptCodingWorkspaceSubmissionMetadata
+              createdAt={submission.createdAt}
+              isActive={currentOpenedSolution?.attemptId === submission.id}
+              isCorrect={submission.result === 'CORRECT'}
+              language={submission.language}
+              name={submissionName}
+            />
+          </div>
+          <div className="flex flex-col gap-y-6 px-4 py-1.5">
+            <div className={clsx('flex items-center justify-between gap-x-2')}>
+              <Text size="body1" weight="bold">
+                {intl.formatMessage({
+                  defaultMessage: 'Files',
+                  description: 'Solution files section heading',
+                  id: 'q/prth',
+                })}
+              </Text>
+              <JavaScriptCodingWorkspacePushCodeToEditorButton
+                contents={submission.code}
+                metadata={{
+                  id: submission.id,
+                  name: submissionName,
+                }}
+                type="attempt"
               />
             </div>
-            {submission.result === 'CORRECT' && (
-              <Badge
-                label={intl.formatMessage({
-                  defaultMessage: 'Correct',
-                  description: 'Correct submission in coding workspace',
-                  id: 'OlFjm9',
-                })}
-                variant="success"
-              />
-            )}
-            {submission.result === 'WRONG' && (
-              <Badge
-                label={intl.formatMessage({
-                  defaultMessage: 'Wrong',
-                  description: 'Wrong submission in coding workspace',
-                  id: 'y+NJ/O',
-                })}
-                variant="danger"
-              />
-            )}
+            <Prose className="m-0 [&>div>div>pre]:my-0" textSize="sm">
+              <MDXCodeBlock>{submission.code}</MDXCodeBlock>
+            </Prose>
           </div>
-          <div className="flex items-center gap-x-4">
-            <Text
-              className="whitespace-nowrap"
-              color="secondary"
-              size="body2"
-              weight="medium">
-              {intl.formatMessage({
-                defaultMessage: 'Submitted at',
-                description: 'Coding workspace submission submitted at label',
-                id: 'b/3jGp',
-              })}
-              <Timestamp date={submission.createdAt} />
-            </Text>
-          </div>
-          <Prose textSize="sm">
-            <MDXCodeBlock
-              renderExtraButtons={() => (
-                <JavaScriptCodingWorkspacePushCodeToEditorButton
-                  contents={submission.code}
-                />
-              )}>
-              {submission.code}
-            </MDXCodeBlock>
-          </Prose>
         </div>
       )}
     </div>

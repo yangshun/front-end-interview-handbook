@@ -23,6 +23,7 @@ type Props<TabType> = Readonly<{
     icon?: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
     iconSecondary?: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
     label: string;
+    showIcon?: boolean;
   }>;
   panelId: string;
   tabs: ReadonlyArray<TilesPanelItemTab<TabType>>;
@@ -36,7 +37,7 @@ export default function TilesPanelTabsSection<TabType extends string>({
   tabs,
 }: Props<TabType>) {
   const mode = collapsed ? 'readonly' : 'interactive';
-  const { dispatch } = useTilesContext();
+  const { tilesDispatch } = useTilesContext();
   const { draggedItemId, parentRect, setDraggedItemId, setPosition } =
     useDragHighlightContext();
   const tabListRef = useRef<HTMLDivElement>(null);
@@ -84,7 +85,7 @@ export default function TilesPanelTabsSection<TabType extends string>({
           }
         }
 
-        dispatch({
+        tilesDispatch({
           payload: {
             dst: {
               dropAreaSection: 'tabs-row',
@@ -95,7 +96,7 @@ export default function TilesPanelTabsSection<TabType extends string>({
           type: 'tab-drop',
         });
       } else {
-        dispatch({
+        tilesDispatch({
           payload: {
             dst: {
               dropAreaSection: 'tabs-row',
@@ -211,10 +212,15 @@ export default function TilesPanelTabsSection<TabType extends string>({
             const isActive =
               mode === 'interactive' && activeTabId === tabItem.id;
             const key = String(tabItem.id) + ' ' + String(index);
-            const { icon, iconSecondary, label } = getTabLabel(tabItem.id);
+            const {
+              icon,
+              iconSecondary,
+              label,
+              showIcon = true,
+            } = getTabLabel(tabItem.id);
 
             return (
-              <div key={key} className={clsx('flex h-8 flex-col')}>
+              <div key={key} className={clsx('flex h-7 flex-col')}>
                 <TilesPanelTab
                   closeable={tabItem.closeable}
                   href={tabItem.href}
@@ -224,9 +230,10 @@ export default function TilesPanelTabsSection<TabType extends string>({
                   isActive={isActive}
                   label={label}
                   panelId={panelId}
+                  showIcon={showIcon}
                   tabId={tabItem.id}
                   onClick={() => {
-                    dispatch({
+                    tilesDispatch({
                       payload: {
                         panelId,
                         tabId: tabItem.id,
@@ -235,7 +242,7 @@ export default function TilesPanelTabsSection<TabType extends string>({
                     });
                   }}
                   onPanelDrop={(src, dst) => {
-                    dispatch({
+                    tilesDispatch({
                       payload: {
                         dst: {
                           dropAreaSection: 'tab',
@@ -247,7 +254,7 @@ export default function TilesPanelTabsSection<TabType extends string>({
                     });
                   }}
                   onTabDrop={(src, dst) => {
-                    dispatch({
+                    tilesDispatch({
                       payload: {
                         dst: {
                           dropAreaSection: 'tab',
@@ -268,7 +275,7 @@ export default function TilesPanelTabsSection<TabType extends string>({
         ref={tabRightEmptySpaceRef}
         className="h-full grow hover:cursor-pointer"
         onDoubleClick={() => {
-          dispatch({
+          tilesDispatch({
             payload: {
               collapsed: !collapsed,
               panelId,

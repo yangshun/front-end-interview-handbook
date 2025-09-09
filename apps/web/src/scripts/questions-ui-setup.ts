@@ -70,7 +70,9 @@ async function generateSetupForQuestion(slug: string) {
         // Read either description or solution Markdown file.
         readMDXFile(
           path.join(frameworksPath, framework, setupType, 'index.mdx'),
-          {},
+          {
+            mdxJsReactGlobal: true,
+          },
         ),
         // Read files needed.
         paths.reduce<Record<string, SandpackFile>>((accFiles, filePath) => {

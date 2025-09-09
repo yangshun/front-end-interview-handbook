@@ -20,7 +20,11 @@ import {
 
 import { hashQuestion } from '~/db/QuestionsUtils';
 
-import CodingWorkspaceBottomBarEmitter from './CodingWorkspaceBottomBarEmitter';
+import {
+  useCodingWorkspaceDispatch,
+  useCodingWorkspaceSelector,
+} from './store/hooks';
+import { pauseTimer, startTimer } from './store/timer-slice';
 
 type Props = Readonly<{
   qnMetadata: QuestionMetadata;
@@ -29,86 +33,69 @@ type Props = Readonly<{
 export default function CodingWorkspaceTimer({ qnMetadata }: Props) {
   const intl = useIntl();
   const qnHash = hashQuestion(qnMetadata);
-  const [storedTime, setStoredTime] = useGreatStorageLocal<number>(
-    `questions:${qnHash}:timer:value`,
-    0,
-  );
-  const [timerIsRunning, setTimerIsRunning] = useGreatStorageLocal<boolean>(
-    `questions:${qnHash}:timer:running`,
-    false,
-    {
-      ttl: 60,
-    },
-  );
+  const [timePassedInSeconds, setTimePassedInSeconds] =
+    useGreatStorageLocal<number>(`questions:${qnHash}:timer:value`, 0);
+  const [showFullTimer, setShowFullTimer] = useState(timePassedInSeconds > 0);
+  const timePassedInSecondsRef = useRef(timePassedInSeconds);
 
-  const [timePassedInSeconds, setTimePassedInSeconds] = useState(storedTime);
+  timePassedInSecondsRef.current = timePassedInSeconds;
+
+  const isTimerRunning = useCodingWorkspaceSelector(
+    (state) => state.timer.running,
+  );
+  const workspaceDispatch = useCodingWorkspaceDispatch();
+
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const [isTimerHovered, setIsTimerHovered] = useState(false);
 
-  const startTimer = useCallback(() => {
-    if (timerRef.current) {
-      return;
-    }
-    setTimerIsRunning(true);
+  const startTimerInterval = useCallback(() => {
+    clearInterval(timerRef.current || undefined);
 
     timerRef.current = setInterval(() => {
-      setTimePassedInSeconds((seconds) => {
-        setStoredTime(seconds + 1);
-
-        return seconds + 1;
-      });
+      setTimePassedInSeconds((seconds) => seconds + 1);
     }, 1000);
-  }, [setStoredTime, setTimerIsRunning]);
+  }, [setTimePassedInSeconds]);
 
-  const pauseTimer = useCallback(() => {
-    setTimerIsRunning(false);
-    setStoredTime(timePassedInSeconds);
+  const clearTimerInterval = useCallback(() => {
+    clearInterval(timerRef.current || undefined);
+    timerRef.current = null;
+  }, []);
 
-    if (timerRef.current) {
-      clearInterval(timerRef.current);
-      timerRef.current = null;
-    }
-  }, [setStoredTime, setTimerIsRunning, timePassedInSeconds]);
+  function resetTimer() {
+    setTimePassedInSeconds(0);
+    clearTimerInterval();
+    workspaceDispatch(pauseTimer());
+  }
 
   useEffect(() => {
-    if (timerIsRunning && !timerRef.current) {
-      startTimer();
+    if (isTimerRunning && !timerRef.current) {
+      startTimerInterval();
+      setShowFullTimer(true);
     }
 
     return () => {
-      if (timerRef.current) {
-        clearInterval(timerRef.current);
-        timerRef.current = null;
-      }
+      clearTimerInterval();
     };
-  }, [startTimer, timerIsRunning]);
+  }, [startTimerInterval, clearTimerInterval, isTimerRunning]);
 
-  useEffect(() => {
-    CodingWorkspaceBottomBarEmitter.on('pause_timer', pauseTimer);
+  const startTimerLabel = intl.formatMessage({
+    defaultMessage: 'Start timer',
+    description: 'Start coding workspace timer label',
+    id: '49NIXE',
+  });
 
-    return () => {
-      CodingWorkspaceBottomBarEmitter.off('pause_timer', pauseTimer);
-    };
-  }, [pauseTimer]);
-
-  if (timerRef.current == null && timePassedInSeconds === 0) {
+  if (!showFullTimer) {
     return (
       <Button
         icon={RxStopwatch}
         isLabelHidden={true}
-        label={intl.formatMessage({
-          defaultMessage: 'Start timer',
-          description: 'Start coding workspace timer label',
-          id: '49NIXE',
-        })}
+        label={startTimerLabel}
         size="xs"
-        tooltip={intl.formatMessage({
-          defaultMessage: 'Start timer',
-          description: 'Start coding workspace timer label',
-          id: '49NIXE',
-        })}
+        tooltip={startTimerLabel}
         variant="secondary"
-        onClick={startTimer}
+        onClick={() => {
+          workspaceDispatch(startTimer());
+        }}
       />
     );
   }
@@ -116,7 +103,10 @@ export default function CodingWorkspaceTimer({ qnMetadata }: Props) {
   return (
     <div
       className={clsx(
-        'group flex h-7 items-center gap-x-1 rounded-full px-2',
+        'flex items-center gap-x-1',
+        'group overflow-y-hidden',
+        'rounded-full',
+        'h-7 px-2',
         ['border', themeBorderElementColor],
         themeBackgroundColor,
         themeTextColor,
@@ -127,17 +117,19 @@ export default function CodingWorkspaceTimer({ qnMetadata }: Props) {
           'flex items-center gap-x-1 text-xs',
           'font-mono', // To prevent shifting
         )}
-        title={timerRef.current === null ? 'Start' : 'Pause'}
+        title={timerRef.current === null ? startTimerLabel : 'Pause'}
         type="button"
         onClick={() => {
-          timerRef.current === null ? startTimer() : pauseTimer();
+          isTimerRunning
+            ? workspaceDispatch(pauseTimer())
+            : workspaceDispatch(startTimer());
         }}
         onMouseEnter={() => setIsTimerHovered(true)}
         onMouseLeave={() => setIsTimerHovered(false)}>
-        {timerRef.current === null ? (
-          <RxPlay aria-hidden={true} className="h-3 w-4" />
-        ) : (
+        {isTimerRunning ? (
           <RxPause aria-hidden={true} className="size-4" />
+        ) : (
+          <RxPlay aria-hidden={true} className="h-3 w-4" />
         )}
         <div className="flex items-center">
           <NumberFlowGroup>
@@ -179,9 +171,7 @@ export default function CodingWorkspaceTimer({ qnMetadata }: Props) {
         })}
         type="button"
         onClick={() => {
-          setTimePassedInSeconds(0);
-          pauseTimer();
-          setStoredTime(0);
+          resetTimer();
         }}>
         <RiArrowGoBackLine className="size-3" />
       </button>

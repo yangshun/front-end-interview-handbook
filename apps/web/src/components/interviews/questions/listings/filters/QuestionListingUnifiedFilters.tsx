@@ -25,7 +25,7 @@ import type {
   QuestionImportance,
   QuestionLanguage,
   QuestionMetadata,
-  QuestionMetadataWithCompletedStatus,
+  QuestionMetadataWithStatus,
   QuestionTopic,
 } from '../../common/QuestionsTypes';
 import type { QuestionFilter } from './QuestionFilterType';
@@ -40,7 +40,7 @@ type Props = Readonly<{
   companyFilters: Set<QuestionCompany>;
   completionStatusFilterOptions: QuestionFilter<
     QuestionCompletionStatus,
-    QuestionMetadataWithCompletedStatus
+    QuestionMetadataWithStatus
   >;
   completionStatusFilters: Set<QuestionCompletionStatus>;
   difficultyFilterOptions: QuestionFilter<QuestionDifficulty, QuestionMetadata>;

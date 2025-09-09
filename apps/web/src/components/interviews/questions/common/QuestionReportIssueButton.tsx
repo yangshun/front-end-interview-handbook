@@ -1,4 +1,5 @@
 import type { GuidebookItem } from '@prisma/client';
+import clsx from 'clsx';
 import { kebabCase } from 'lodash-es';
 import { useState } from 'react';
 import { RiBugLine } from 'react-icons/ri';
@@ -84,7 +85,10 @@ export default function QuestionReportIssueButton({
   return (
     <>
       <Button
-        className={className}
+        className={clsx(
+          'border-none bg-transparent dark:bg-transparent',
+          className,
+        )}
         icon={RiBugLine}
         isLabelHidden={isLabelHidden}
         label={intl.formatMessage({

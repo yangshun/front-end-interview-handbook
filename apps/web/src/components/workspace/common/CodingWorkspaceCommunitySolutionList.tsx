@@ -20,24 +20,26 @@ import {
 
 import { staticLowerCase } from '~/utils/typescript/stringTransform';
 
-import { useCodingWorkspaceContext } from './CodingWorkspaceContext';
-
-type Props =
-  | {
-      questionType: 'javascript';
-      solutions: Array<QuestionJavaScriptCommunitySolution> | undefined;
-    }
-  | {
-      questionType: 'ui';
-      solutions: Array<QuestionUserInterfaceCommunitySolution> | undefined;
-    };
+type Props = Readonly<{
+  openCommunitySolution: (solutionId: string) => void;
+}> &
+  (
+    | {
+        questionType: 'javascript';
+        solutions: Array<QuestionJavaScriptCommunitySolution> | undefined;
+      }
+    | {
+        questionType: 'ui';
+        solutions: Array<QuestionUserInterfaceCommunitySolution> | undefined;
+      }
+  );
 
 export default function CodingWorkspaceCommunitySolutionList({
+  openCommunitySolution,
   questionType,
   solutions,
 }: Props) {
   const intl = useIntl();
-  const { openCommunitySolution } = useCodingWorkspaceContext();
 
   const isJavaScript = (
     _:

@@ -1,152 +1,106 @@
 'use client';
 
-import type { SandpackFiles } from '@codesandbox/sandpack-react';
-import { useSandpack } from '@codesandbox/sandpack-react';
 import { useMonaco } from '@monaco-editor/react';
-import clsx from 'clsx';
-import { useCallback, useEffect, useState } from 'react';
-import { RiCodeLine } from 'react-icons/ri';
+import type { ComponentType } from 'react';
+import { useCallback } from 'react';
 
-import InterviewsPremiumBadge from '~/components/interviews/common/InterviewsPremiumBadge';
-import {
-  questionHrefWithListType,
-  QuestionListTypeDefault,
-} from '~/components/interviews/questions/common/QuestionHrefUtils';
+import { questionHrefWithListType } from '~/components/interviews/questions/common/QuestionHrefUtils';
 import type {
   QuestionFramework,
   QuestionMetadata,
   QuestionUserInterface,
 } from '~/components/interviews/questions/common/QuestionsTypes';
-import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
 import useQuestionsAutoMarkAsComplete from '~/components/interviews/questions/common/useQuestionsAutoMarkAsComplete';
-import { questionUserInterfaceSolutionPath } from '~/components/interviews/questions/content/user-interface/QuestionUserInterfaceRoutes';
+import { questionUserInterfacePath } from '~/components/interviews/questions/content/user-interface/QuestionUserInterfaceRoutes';
 import { useQuestionsListTypeCurrent } from '~/components/interviews/questions/listings/utils/useQuestionsListDataForType';
-import { useIntl } from '~/components/intl';
-import SponsorsAdFormatInContentContainer from '~/components/sponsors/ads/SponsorsAdFormatInContentContainer';
-import Button from '~/components/ui/Button';
-import Divider from '~/components/ui/Divider';
-import EmptyState from '~/components/ui/EmptyState';
-import {
-  deleteLocalUserInterfaceQuestionCode,
-  saveUserInterfaceQuestionCodeLocally,
-} from '~/components/workspace/user-interface/UserInterfaceCodingWorkspaceCodeStorage';
+import { CodingWorkspaceUnsavedSolutionProvider } from '~/components/workspace/common/CodingWorkspaceUnsavedSolutionContext';
+import useCodingWorkspaceSyncSandpackFiles from '~/components/workspace/common/useCodingWorkspaceSyncSandpackFiles';
 
-import { TilesPanelRoot } from '~/react-tiling/components/TilesPanelRoot';
+import { useI18nRouter } from '~/next-i18nostic/src';
 import { TilesProvider } from '~/react-tiling/state/TilesProvider';
 
 import { codingFilesShouldUseTypeScript } from '../common/codingFilesShouldUseTypeScript';
-import type { CodingWorkspaceTabContents } from '../common/CodingWorkspaceContext';
-import { CodingWorkspaceProvider } from '../common/CodingWorkspaceContext';
-import CodingWorkspaceDivider, {
-  CodingWorkspaceDividerWrapperClassname,
-} from '../common/CodingWorkspaceDivider';
-import CodingWorkspaceErrorBoundary from '../common/CodingWorkspaceErrorBoundary';
-import { codingWorkspaceExtractFileNameFromPath } from '../common/codingWorkspaceExtractFileNameFromPath';
-import { CodingWorkspaceTabIcons } from '../common/CodingWorkspaceTabIcons';
-import CodingWorkspaceConsole from '../common/console/CodingWorkspaceConsole';
 import useMonacoEditorModels from '../common/editor/useMonacoEditorModels';
-import useMonacoEditorRegisterEditorOpener from '../common/editor/useMonacoEditorRegisterEditorOpener';
 import useMonacoLanguagesFetchTypeDeclarations from '../common/editor/useMonacoLanguagesFetchTypeDeclarations';
 import useMonacoLanguagesJSONDefaults from '../common/editor/useMonacoLanguagesJSONDefaults';
 import useMonacoLanguagesLoadTSConfig from '../common/editor/useMonacoLanguagesLoadTSConfig';
 import useMonacoLanguagesTypeScriptRunDiagnostics from '../common/editor/useMonacoLanguagesTypeScriptRunDiagnostics';
-import { codingWorkspaceExplorerFilePathToIcon } from '../common/explorer/codingWorkspaceExplorerFilePathToIcon';
 import useRestartSandpack from '../common/sandpack/useRestartSandpack';
 import useSandpackModuleErrorRefreshBrowser from '../common/sandpack/useSandpackModuleErrorRefreshBrowser';
+import { useUserInterfaceCodingWorkspaceSelector } from './store/hooks';
 import {
-  codingWorkspaceTabFileId,
-  codingWorkspaceTabFilePattern,
-} from '../common/tabs/codingWorkspaceTabId';
-import UserInterfaceCodingWorkspaceBottomBar from './UserInterfaceCodingWorkspaceBottomBar';
-import UserInterfaceCodingWorkspaceCodeEditor from './UserInterfaceCodingWorkspaceCodeEditor';
-import UserInterfaceCodingWorkspaceCommunitySolutionCreateTab from './UserInterfaceCodingWorkspaceCommunitySolutionCreateTab';
-import UserInterfaceCodingWorkspaceCommunitySolutionList from './UserInterfaceCodingWorkspaceCommunitySolutionList';
-import UserInterfaceCodingWorkspaceExplorer from './UserInterfaceCodingWorkspaceExplorer';
-import { getUserInterfaceCodingWorkspaceLayout } from './UserInterfaceCodingWorkspaceLayouts';
-import UserInterfaceCodingWorkspaceMobile from './UserInterfaceCodingWorkspaceMobile';
-import UserInterfaceCodingWorkspaceNewTab from './UserInterfaceCodingWorkspaceNewTab';
-import UserInterfaceCodingWorkspacePreview from './UserInterfaceCodingWorkspacePreview';
-import UserInterfaceCodingWorkspaceSavesList from './UserInterfaceCodingWorkspaceSavesList';
-import UserInterfaceCodingWorkspaceSolutionPreviewTab from './UserInterfaceCodingWorkspaceSolutionPreviewTab';
-import type {
-  UserInterfaceCodingWorkspacePredefinedTabsContents,
-  UserInterfaceCodingWorkspaceTabsType,
-} from './UserInterfaceCodingWorkspaceTypes';
-import UserInterfaceCodingWorkspaceWriteup from './UserInterfaceCodingWorkspaceWriteup';
-import useUserInterfaceCodingWorkspaceTilesContext from './useUserInterfaceCodingWorkspaceTilesContext';
+  getUserInterfaceCodingWorkspaceLayout,
+  getUserInterfaceCodingWorkspaceLayoutMobile,
+} from './UserInterfaceCodingWorkspaceLayouts';
+import useUserInterfaceCodingWorkspaceSaveCodeLocally from './useUserInterfaceCodingWorkspaceSaveCodeLocally';
 
-const UserInterfaceCodingWorkspaceTilesPanelRoot =
-  TilesPanelRoot<UserInterfaceCodingWorkspaceTabsType>;
-
-// Find files that are not in defaultFiles but exist in sandpack.files
-const getNonDefaultFiles = (
-  sandpackFiles: SandpackFiles,
-  defaultFiles: SandpackFiles,
-) => {
-  const nonDefaultFiles: Array<string> = [];
-
-  if (sandpackFiles) {
-    Object.keys(sandpackFiles).forEach((filePath) => {
-      if (!defaultFiles[filePath]) {
-        nonDefaultFiles.push(filePath);
-      }
-    });
-  }
-
-  return nonDefaultFiles;
-};
-
-function UserInterfaceCodingWorkspaceImpl({
-  canViewPremiumContent,
-  defaultFiles,
-  embed,
-  frameworkSolutionPath,
-  loadedFilesFromLocalStorage,
-  mode,
-  nextQuestions,
-  onFrameworkChange,
-  question,
-  similarQuestions,
-  studyListKey,
-}: Readonly<{
+export type UserInterfaceWorkspaceProps = Readonly<{
   canViewPremiumContent: boolean;
-  defaultFiles: SandpackFiles;
   embed: boolean;
-  frameworkSolutionPath: string;
-  loadedFilesFromLocalStorage: boolean;
-  mode: QuestionUserInterfaceMode;
+  isUserAgentTablet: boolean;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
-  onFrameworkChange: (
-    framework: QuestionFramework,
-    contentType: 'description' | 'solution',
-  ) => void;
+  onFrameworkChange?: (framework: QuestionFramework) => void;
   question: QuestionUserInterface;
+  renderWorkspace: ComponentType<UserInterfaceWorkspaceRenderProps>;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
   studyListKey?: string;
-}>) {
-  const intl = useIntl();
-  const { description, framework, metadata: rawMetadata, solution } = question;
+}>;
 
-  const metadata = {
-    ...rawMetadata,
-    author:
-      (mode === 'practice'
-        ? question.skeletonBundle.author
-        : question.solutionBundle?.author) ?? rawMetadata.author,
+function UserInterfaceCodingWorkspaceImpl(props: UserInterfaceWorkspaceProps) {
+  const {
+    onFrameworkChange: onFrameworkChangeProp,
+    question,
+    renderWorkspace: Workspace,
+    studyListKey,
+  } = props;
+  const router = useI18nRouter();
+  const { metadata } = question;
+
+  const listType = useQuestionsListTypeCurrent(studyListKey);
+
+  const onFrameworkChange = useCallback(
+    (value: QuestionFramework) => {
+      const frameworkValue = value as QuestionFramework;
+      const frameworkItem = metadata.frameworks.find(
+        ({ framework: frameworkItemValue }) =>
+          frameworkItemValue === frameworkValue,
+      );
+
+      if (frameworkItem == null) {
+        return;
+      }
+
+      const href = questionUserInterfacePath(metadata, frameworkValue);
+
+      router.push(questionHrefWithListType(href, listType));
+    },
+    [listType, metadata, router],
+  );
+
+  const workspaceProps = {
+    ...props,
+    onFrameworkChange: onFrameworkChangeProp ?? onFrameworkChange,
   };
 
-  const { dispatch } = useUserInterfaceCodingWorkspaceTilesContext();
-  const { sandpack } = useSandpack();
-  const { activeFile, files, visibleFiles } = sandpack;
+  return (
+    <CodingWorkspaceUnsavedSolutionProvider>
+      <CodingWorkspaceEffects {...props} />
+      <Workspace {...workspaceProps} />
+    </CodingWorkspaceUnsavedSolutionProvider>
+  );
+}
+
+// This component is just to manage side effects in lower level instead of in the parent JavaScriptCodingWorkspaceImpl
+// otherwise it causes unnecessary re-render in the workspace due to state changes like files state
+function CodingWorkspaceEffects(props: UserInterfaceWorkspaceProps) {
+  const { question, studyListKey } = props;
+  const files = useUserInterfaceCodingWorkspaceSelector(
+    (state) => state.sandpack.current.files,
+  );
+  const { metadata } = question;
 
   useRestartSandpack();
   useSandpackModuleErrorRefreshBrowser();
-
-  useEffect(() => {
-    if (mode === 'practice') {
-      saveUserInterfaceQuestionCodeLocally(question, sandpack.files);
-    }
-  });
 
   const shouldUseTypeScript = codingFilesShouldUseTypeScript(
     Object.keys(files),
@@ -165,515 +119,61 @@ function UserInterfaceCodingWorkspaceImpl({
     shouldUseTypeScript,
     files['/package.json']?.code,
   );
-  useMonacoLanguagesTypeScriptRunDiagnostics(monaco, shouldUseTypeScript);
-
-  useMonacoEditorModels(monaco, files);
-  useMonacoEditorRegisterEditorOpener(
+  useMonacoLanguagesTypeScriptRunDiagnostics(
     monaco,
-    (filePathToOpen: string, fromFilePath?: string) => {
-      if (!files[filePathToOpen]) {
-        // Non-existent file cannot be opened.
-        return;
-      }
-
-      openFile(filePathToOpen, fromFilePath);
-    },
+    shouldUseTypeScript,
+    true,
+    files,
   );
-
+  useMonacoEditorModels(monaco, files);
   useQuestionsAutoMarkAsComplete(metadata, studyListKey);
+  useCodingWorkspaceSyncSandpackFiles();
+  useUserInterfaceCodingWorkspaceSaveCodeLocally(question);
 
-  useEffect(() => {
-    dispatch({
-      payload: {
-        tabId: codingWorkspaceTabFileId(activeFile),
-      },
-      type: 'tab-set-active',
-    });
-  }, [activeFile, dispatch]);
-
-  const deleteCodeFromLocalStorage = useCallback(() => {
-    deleteLocalUserInterfaceQuestionCode(question);
-  }, [question]);
-
-  function resetToDefaultCode() {
-    deleteCodeFromLocalStorage();
-
-    const nonDefaultFiles = getNonDefaultFiles(sandpack.files, defaultFiles);
-
-    if (nonDefaultFiles.length > 0) {
-      nonDefaultFiles.forEach((filePath) => {
-        sandpack.deleteFile(filePath);
-      });
-    }
-    sandpack.updateFile(defaultFiles);
-  }
-
-  function openFile(filePath: string, fromFilePath: string | undefined) {
-    const tabIdForFile = codingWorkspaceTabFileId(filePath);
-
-    setTabContents({
-      ...tabContents,
-      [tabIdForFile]: {
-        contents: (
-          <UserInterfaceCodingWorkspaceCodeEditor
-            filePath={filePath}
-            showNotSavedBanner={mode === 'solution'}
-          />
-        ),
-        icon:
-          codingWorkspaceExplorerFilePathToIcon(filePath)?.icon ?? RiCodeLine,
-        label: codingWorkspaceExtractFileNameFromPath(filePath),
-      },
-    });
-
-    dispatch({
-      payload: {
-        fallbackNeighborTabId: 'file_explorer',
-        openBesideTabId:
-          fromFilePath != null
-            ? codingWorkspaceTabFileId(fromFilePath)
-            : undefined,
-        tabCategoryPattern: codingWorkspaceTabFilePattern,
-        tabId: tabIdForFile,
-      },
-      type: 'tab-set-active-otherwise-open',
-    });
-  }
-
-  const predefinedTabs: UserInterfaceCodingWorkspacePredefinedTabsContents = {
-    community_solution_create: {
-      contents: (
-        <UserInterfaceCodingWorkspaceCommunitySolutionCreateTab
-          framework={framework}
-          metadata={metadata}
-        />
-      ),
-      icon: CodingWorkspaceTabIcons.community_solution_create.icon,
-      label: intl.formatMessage({
-        defaultMessage: 'Post solution',
-        description: 'Coding workspace post solution tab label',
-        id: 'q91wY2',
-      }),
-    },
-    community_solutions: {
-      contents: (
-        <UserInterfaceCodingWorkspaceCommunitySolutionList
-          metadata={metadata}
-        />
-      ),
-      icon: CodingWorkspaceTabIcons.community_solutions.icon,
-      label: intl.formatMessage({
-        defaultMessage: 'Community',
-        description: 'Coding workspace community solutions tab label',
-        id: 'qDIWna',
-      }),
-    },
-    console: {
-      contents: <CodingWorkspaceConsole />,
-      icon: CodingWorkspaceTabIcons.console.icon,
-      label: intl.formatMessage({
-        defaultMessage: 'Console',
-        description: 'Coding workspace console tab label',
-        id: 'hWpv5f',
-      }),
-    },
-    description: {
-      contents: (
-        <UserInterfaceCodingWorkspaceWriteup
-          canViewPremiumContent={canViewPremiumContent}
-          contentType="description"
-          framework={framework}
-          metadata={metadata}
-          mode={mode}
-          nextQuestions={nextQuestions}
-          showAd={!embed}
-          similarQuestions={similarQuestions}
-          studyListKey={studyListKey}
-          writeup={description}
-          onFrameworkChange={onFrameworkChange}
-        />
-      ),
-      icon: CodingWorkspaceTabIcons.description.icon,
-      label: intl.formatMessage({
-        defaultMessage: 'Description',
-        description: 'Coding workspace description tab label',
-        id: '60Qm8N',
-      }),
-    },
-    file_explorer: {
-      contents: <UserInterfaceCodingWorkspaceExplorer />,
-      icon: CodingWorkspaceTabIcons.explorer.icon,
-      label: intl.formatMessage({
-        defaultMessage: 'File explorer',
-        description: 'Coding workspace file explorer label',
-        id: '7hMBWU',
-      }),
-    },
-    preview: {
-      contents: <UserInterfaceCodingWorkspacePreview embed={embed} />,
-      icon: CodingWorkspaceTabIcons.browser.icon,
-      label: intl.formatMessage({
-        defaultMessage: 'Browser',
-        description: 'Coding workspace browser tab label',
-        id: 'ZNFWBy',
-      }),
-    },
-    solution: {
-      contents:
-        mode === 'practice' ? (
-          <div className="flex w-full items-center p-2">
-            <EmptyState
-              action={
-                <Button
-                  href={frameworkSolutionPath}
-                  label={intl.formatMessage({
-                    defaultMessage: 'Go to solution',
-                    description: 'Coding workspace go to solution button label',
-                    id: 'JNG61K',
-                  })}
-                  variant="secondary"
-                />
-              }
-              icon={CodingWorkspaceTabIcons.solution.icon}
-              size="sm"
-              subtitle={intl.formatMessage({
-                defaultMessage: 'View the full solution on a new page',
-                description: 'Coding workspace view solution subtitle',
-                id: 'qBtGwR',
-              })}
-              title={intl.formatMessage({
-                defaultMessage: 'Solution',
-                description: 'Coding workspace view solution title',
-                id: '23pktm',
-              })}
-            />
-          </div>
-        ) : (
-          <UserInterfaceCodingWorkspaceWriteup
-            canViewPremiumContent={canViewPremiumContent}
-            contentType="solution"
-            framework={framework}
-            metadata={metadata}
-            mode={mode}
-            nextQuestions={nextQuestions}
-            showAd={!embed}
-            similarQuestions={similarQuestions}
-            studyListKey={studyListKey}
-            writeup={solution}
-            onFrameworkChange={onFrameworkChange}
-          />
-        ),
-      icon:
-        question.metadata.access !== 'free'
-          ? () => <InterviewsPremiumBadge iconOnly={true} />
-          : CodingWorkspaceTabIcons.solution.icon,
-      label: intl.formatMessage({
-        defaultMessage: 'Solution',
-        description: 'Coding workspace solution tab label',
-        id: 'ZquLVV',
-      }),
-    },
-    solution_preview: {
-      contents: (
-        <UserInterfaceCodingWorkspaceSolutionPreviewTab
-          bundle={question.solutionBundle}
-        />
-      ),
-      icon: CodingWorkspaceTabIcons.browser.icon,
-      label: intl.formatMessage({
-        defaultMessage: 'Solution preview',
-        description: 'Coding workspace solution preview tab label',
-        id: 'sV/LsP',
-      }),
-    },
-    versions: {
-      contents: <UserInterfaceCodingWorkspaceSavesList metadata={metadata} />,
-      icon: CodingWorkspaceTabIcons.versions.icon,
-      label: intl.formatMessage({
-        defaultMessage: 'Saved code',
-        description: 'Coding workspace saved code tab label',
-        id: '8nTsZn',
-      }),
-    },
-  };
-
-  const [tabContents, setTabContents] = useState<
-    CodingWorkspaceTabContents<UserInterfaceCodingWorkspaceTabsType>
-  >({
-    ...predefinedTabs,
-    ...Object.fromEntries(
-      visibleFiles
-        .filter((filePath) => files[filePath] != null)
-        .map((filePath) => [
-          codingWorkspaceTabFileId(filePath),
-          {
-            contents: (
-              <UserInterfaceCodingWorkspaceCodeEditor
-                filePath={filePath}
-                showNotSavedBanner={mode === 'solution'}
-              />
-            ),
-            icon:
-              codingWorkspaceExplorerFilePathToIcon(filePath)?.icon ??
-              RiCodeLine,
-            label: codingWorkspaceExtractFileNameFromPath(filePath),
-          },
-        ]),
-    ),
-  });
-
-  return (
-    <CodingWorkspaceProvider
-      loadedFilesFromLocalStorage={loadedFilesFromLocalStorage}
-      value={{
-        defaultFiles,
-        deleteCodeFromLocalStorage,
-        openFile,
-        resetToDefaultCode,
-      }}>
-      {/* Mobile version */}
-      {!embed && (
-        <div
-          className={clsx(
-            'flex flex-col',
-            'lg:hidden',
-            'size-full min-h-[calc(100vh_-_var(--global-sticky-height))]',
-          )}>
-          <div className="flex grow flex-col gap-y-4">
-            {mode === 'practice' && (
-              <UserInterfaceCodingWorkspaceWriteup
-                canViewPremiumContent={canViewPremiumContent}
-                contentType="description"
-                framework={framework}
-                metadata={metadata}
-                mode={mode}
-                nextQuestions={[]}
-                showAd={!embed}
-                similarQuestions={[]}
-                studyListKey={studyListKey}
-                writeup={description}
-                onFrameworkChange={onFrameworkChange}
-              />
-            )}
-            {mode === 'solution' && (
-              <UserInterfaceCodingWorkspaceWriteup
-                canViewPremiumContent={canViewPremiumContent}
-                contentType="solution"
-                framework={framework}
-                metadata={metadata}
-                mode={mode}
-                nextQuestions={[]}
-                showAd={!embed}
-                similarQuestions={[]}
-                studyListKey={studyListKey}
-                writeup={solution}
-                onFrameworkChange={onFrameworkChange}
-              />
-            )}
-            <UserInterfaceCodingWorkspaceMobile
-              topAddOn={
-                mode === 'practice' && (
-                  <Button
-                    display="block"
-                    href={frameworkSolutionPath}
-                    label={intl.formatMessage({
-                      defaultMessage: 'View solution',
-                      description:
-                        'Coding workspace view solution button label',
-                      id: '/08n88',
-                    })}
-                    variant="secondary"
-                  />
-                )
-              }
-            />
-            <div
-              className={clsx(
-                'flex flex-col gap-y-6',
-                'px-4 pb-6',
-                'mx-auto w-full max-w-3xl',
-              )}>
-              <Divider />
-              <SponsorsAdFormatInContentContainer
-                adPlacement="questions_ui"
-                size="sm"
-              />
-            </div>
-          </div>
-          <UserInterfaceCodingWorkspaceBottomBar
-            framework={framework}
-            frameworkSolutionPath={frameworkSolutionPath}
-            metadata={metadata}
-            mode={mode}
-            nextQuestions={nextQuestions}
-            question={question}
-            resetToDefaultCode={resetToDefaultCode}
-            slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE="qns_slideout_mobile"
-            studyListKey={studyListKey}
-          />
-        </div>
-      )}
-      <div
-        className={clsx(
-          'size-full flex-col text-sm',
-          !embed ? 'hidden lg:flex' : 'flex',
-        )}>
-        <div
-          className={clsx(
-            'flex grow overflow-x-auto',
-            !embed && 'max-lg:pb-3',
-          )}>
-          <div
-            className={clsx(
-              'flex w-full grow px-3',
-              !embed && 'min-w-[1024px]',
-            )}>
-            <UserInterfaceCodingWorkspaceTilesPanelRoot
-              disablePointerEventsDuringResize={true}
-              getResizeHandlerProps={(direction) => ({
-                children: <CodingWorkspaceDivider direction={direction} />,
-                className: CodingWorkspaceDividerWrapperClassname(direction),
-              })}
-              getTabLabel={(tabId) => ({
-                icon: tabContents[tabId]?.icon,
-                iconSecondary: tabContents[tabId]?.iconSecondary,
-                label: tabContents[tabId]?.label ?? `New tab`,
-              })}
-              renderTab={(tabId) => (
-                <CodingWorkspaceErrorBoundary>
-                  {tabContents[tabId] != null ? (
-                    <div className="size-full flex">
-                      {tabContents[tabId]!.contents}
-                    </div>
-                  ) : (
-                    <UserInterfaceCodingWorkspaceNewTab
-                      predefinedTabs={predefinedTabs}
-                      onSelectTabType={(data) => {
-                        if (data.type === 'code') {
-                          const newTabId = codingWorkspaceTabFileId(
-                            data.payload.file,
-                          );
-
-                          dispatch({
-                            payload: {
-                              newTabId,
-                              oldTabId: tabId,
-                            },
-                            type: 'tab-change-id',
-                          });
-                          setTabContents({
-                            ...tabContents,
-                            [newTabId]: {
-                              contents: (
-                                <UserInterfaceCodingWorkspaceCodeEditor
-                                  filePath={data.payload.file}
-                                  showNotSavedBanner={mode === 'solution'}
-                                />
-                              ),
-                              icon:
-                                codingWorkspaceExplorerFilePathToIcon(
-                                  data.payload.file,
-                                )?.icon ?? RiCodeLine,
-                              label: codingWorkspaceExtractFileNameFromPath(
-                                data.payload.file,
-                              ),
-                            },
-                          });
-
-                          return;
-                        }
-
-                        setTabContents({
-                          ...tabContents,
-                          [tabId]: { ...tabContents[data.type] },
-                        });
-                      }}
-                    />
-                  )}
-                </CodingWorkspaceErrorBoundary>
-              )}
-            />
-          </div>
-        </div>
-        {!embed && (
-          <UserInterfaceCodingWorkspaceBottomBar
-            framework={framework}
-            frameworkSolutionPath={frameworkSolutionPath}
-            metadata={metadata}
-            mode={mode}
-            nextQuestions={nextQuestions}
-            question={question}
-            resetToDefaultCode={resetToDefaultCode}
-            slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE="qns_slideout"
-            studyListKey={studyListKey}
-          />
-        )}
-      </div>
-    </CodingWorkspaceProvider>
-  );
+  return null;
 }
+
+export type UserInterfaceWorkspaceRenderProps = Omit<
+  Readonly<{
+    onFrameworkChange: (framework: QuestionFramework) => void;
+  }> &
+    UserInterfaceWorkspaceProps,
+  'renderWorkspace'
+>;
+
+type Props = Readonly<
+  UserInterfaceWorkspaceProps & {
+    activeTabScrollIntoView?: boolean;
+  }
+>;
 
 export default function UserInterfaceCodingWorkspace({
   activeTabScrollIntoView = true,
-  canViewPremiumContent,
-  defaultFiles,
-  embed,
-  loadedFilesFromLocalStorage,
-  mode,
-  nextQuestions,
-  onFrameworkChange,
-  question,
-  similarQuestions,
-  studyListKey,
-}: Readonly<{
-  activeTabScrollIntoView?: boolean;
-  canViewPremiumContent: boolean;
-  defaultFiles: SandpackFiles;
-  embed: boolean;
-  loadedFilesFromLocalStorage: boolean;
-  mode: QuestionUserInterfaceMode;
-  nextQuestions: ReadonlyArray<QuestionMetadata>;
-  onFrameworkChange: (
-    framework: QuestionFramework,
-    contentType: 'description' | 'solution',
-  ) => void;
-  question: QuestionUserInterface;
-  similarQuestions: ReadonlyArray<QuestionMetadata>;
-  studyListKey?: string;
-}>) {
-  const { sandpack } = useSandpack();
-  const { activeFile, visibleFiles } = sandpack;
-  const { framework, metadata } = question;
-
-  const listType =
-    useQuestionsListTypeCurrent(studyListKey, framework) ??
-    QuestionListTypeDefault;
-  const frameworkSolutionPath = questionHrefWithListType(
-    questionUserInterfaceSolutionPath(metadata, framework),
-    listType,
+  isUserAgentTablet = false,
+  ...props
+}: Props) {
+  const visibleFiles = useUserInterfaceCodingWorkspaceSelector(
+    (state) => state.sandpack.current.visibleFiles,
   );
+  const activeFile = useUserInterfaceCodingWorkspaceSelector(
+    (state) => state.sandpack.current.activeFile,
+  );
+  const shouldScrollToActiveTab = activeTabScrollIntoView && !isUserAgentTablet;
 
   return (
     <TilesProvider
-      activeTabScrollIntoView={activeTabScrollIntoView}
-      defaultValue={getUserInterfaceCodingWorkspaceLayout(
-        mode,
-        activeFile,
-        visibleFiles,
-        frameworkSolutionPath,
-      )}>
+      activeTabScrollIntoView={shouldScrollToActiveTab}
+      defaultValue={
+        isUserAgentTablet
+          ? getUserInterfaceCodingWorkspaceLayoutMobile(
+              activeFile,
+              visibleFiles,
+            )
+          : getUserInterfaceCodingWorkspaceLayout(activeFile, visibleFiles)
+      }>
       <UserInterfaceCodingWorkspaceImpl
-        canViewPremiumContent={canViewPremiumContent}
-        defaultFiles={defaultFiles}
-        embed={embed}
-        frameworkSolutionPath={frameworkSolutionPath}
-        loadedFilesFromLocalStorage={loadedFilesFromLocalStorage}
-        mode={mode}
-        nextQuestions={nextQuestions}
-        question={question}
-        similarQuestions={similarQuestions}
-        studyListKey={studyListKey}
-        onFrameworkChange={onFrameworkChange}
+        isUserAgentTablet={isUserAgentTablet}
+        {...props}
       />
     </TilesProvider>
   );

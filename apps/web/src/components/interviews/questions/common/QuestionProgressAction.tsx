@@ -23,12 +23,13 @@ import {
 import { hashQuestion } from '~/db/QuestionsUtils';
 import logEvent from '~/logging/logEvent';
 
-import CodingWorkspaceBottomBarEmitter from '../../../workspace/common/CodingWorkspaceBottomBarEmitter';
 import type { QuestionMetadata } from './QuestionsTypes';
 import { MARK_AS_COMPLETE_ACTION_NAME } from './useQuestionsAutoMarkAsComplete';
 
 type Props = Readonly<{
+  isLabelHidden?: boolean;
   metadata: Pick<QuestionMetadata, 'access' | 'format' | 'slug'>;
+  onClick?: () => void;
   signInModalContents?: React.ReactNode;
   studyListKey?: string;
 }>;
@@ -36,7 +37,9 @@ type Props = Readonly<{
 const ButtonIcon = FaCheck;
 
 export default function QuestionProgressAction({
+  isLabelHidden,
   metadata,
+  onClick,
   signInModalContents,
   studyListKey,
 }: Props) {
@@ -61,6 +64,12 @@ export default function QuestionProgressAction({
     studyListKey ?? null,
   );
 
+  const markAsCompleteTooltip = intl.formatMessage({
+    defaultMessage: 'Mark this question as complete to track your progress.',
+    description: 'Tooltip for marking a question as complete',
+    id: 'mUwaS5',
+  });
+
   if (data?.isQuestionLockedForViewer) {
     return null;
   }
@@ -74,9 +83,15 @@ export default function QuestionProgressAction({
       <>
         <Button
           addonPosition="start"
-          icon={ButtonIcon}
-          label={buttonLabelMarkComplete}
+          icon={FaCheck}
+          isLabelHidden={isLabelHidden}
+          label={intl.formatMessage({
+            defaultMessage: 'Mark complete',
+            description: 'Mark question as complete',
+            id: 'C4am9n',
+          })}
           size="xs"
+          tooltip={markAsCompleteTooltip}
           variant="secondary"
           onClick={() => setIsLoginDialogShown(true)}
         />
@@ -147,6 +162,7 @@ export default function QuestionProgressAction({
       <Button
         icon={ButtonIcon}
         isDisabled={deleteProgressMutation.isLoading}
+        isLabelHidden={isLabelHidden}
         isLoading={deleteProgressMutation.isLoading}
         label={intl.formatMessage({
           defaultMessage: 'Completed',
@@ -204,11 +220,14 @@ export default function QuestionProgressAction({
       addonPosition="start"
       icon={ButtonIcon}
       isDisabled={markCompleteMutation.isLoading}
+      isLabelHidden={isLabelHidden}
       isLoading={markCompleteMutation.isLoading}
       label={buttonLabelMarkComplete}
       size="xs"
+      tooltip={markAsCompleteTooltip}
       variant="secondary"
       onClick={() => {
+        onClick?.();
         markCompleteMutation.mutate(
           {
             question: {
@@ -240,7 +259,6 @@ export default function QuestionProgressAction({
                 }),
                 variant: 'success',
               });
-              CodingWorkspaceBottomBarEmitter.emit('pause_timer');
             },
           },
         );

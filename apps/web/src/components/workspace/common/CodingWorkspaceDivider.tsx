@@ -10,8 +10,8 @@ export function CodingWorkspaceDividerWrapperClassname(
 ) {
   return clsx(
     'relative bg-transparent group',
-    direction === 'horizontal' && 'h-3',
-    direction === 'vertical' && 'w-3',
+    direction === 'horizontal' && 'h-2',
+    direction === 'vertical' && 'w-2',
   );
 }
 
@@ -20,10 +20,10 @@ export default function CodingWorkspaceDivider({ direction }: Props) {
     <div
       className={clsx(
         'absolute rounded-full',
-        'dark:group-hover:bg-brand group-hover:bg-neutral-500',
+        'group-hover:bg-neutral-900 dark:group-hover:bg-neutral-100',
         'transition-color ease-in-out',
-        direction === 'horizontal' && 'inset-x-0 inset-y-1',
-        direction === 'vertical' && 'inset-x-1 inset-y-0',
+        direction === 'horizontal' && 'inset-x-0 inset-y-[3px]',
+        direction === 'vertical' && 'inset-x-[3px] inset-y-0',
       )}
     />
   );

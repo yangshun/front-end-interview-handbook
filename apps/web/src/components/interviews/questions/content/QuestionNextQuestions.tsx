@@ -1,8 +1,12 @@
 import clsx from 'clsx';
 
 import { FormattedMessage } from '~/components/intl';
-import Heading from '~/components/ui/Heading';
-import Section from '~/components/ui/Heading/HeadingContext';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '~/components/ui/Accordion/Accordion';
 import { textVariants } from '~/components/ui/Text';
 
 import type { QuestionMetadata } from '../common/QuestionsTypes';
@@ -18,19 +22,23 @@ export default function QuestionNextQuestions({
   }
 
   return (
-    <div className="flex flex-col gap-y-4">
-      <Heading
-        className={clsx(textVariants({ size: 'body1', weight: 'medium' }))}
-        level="custom">
-        <FormattedMessage
-          defaultMessage="Try these questions next"
-          description="Text above suggested questions to indicate to the user that they can try those questions next"
-          id="7HLv+l"
-        />
-      </Heading>
-      <Section>
-        <QuestionsCodingListBrief questions={questions} />
-      </Section>
-    </div>
+    <Accordion collapsible={true} type="single">
+      <AccordionItem value="next-questions">
+        <AccordionTrigger
+          className={clsx(
+            textVariants({ color: 'subtitle', size: 'body2', weight: 'medium' }),
+            '!py-3',
+          )}>
+          <FormattedMessage
+            defaultMessage="Try these questions next"
+            description="Text above suggested questions to indicate to the user that they can try those questions next"
+            id="7HLv+l"
+          />
+        </AccordionTrigger>
+        <AccordionContent>
+          <QuestionsCodingListBrief questions={questions} />
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
   );
 }

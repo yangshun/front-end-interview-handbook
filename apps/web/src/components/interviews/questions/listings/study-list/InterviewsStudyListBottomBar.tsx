@@ -1,53 +1,66 @@
 'use client';
 
+import { useUser } from '@supabase/auth-helpers-react';
 import clsx from 'clsx';
-import type { ReactNode } from 'react';
-import { Suspense } from 'react';
+import { ReactNode, Suspense } from 'react';
 
+import QuestionBookmarkAction from '~/components/interviews/questions/common/QuestionBookmarkAction';
 import QuestionProgressAction from '~/components/interviews/questions/common/QuestionProgressAction';
 import QuestionReportIssueButton from '~/components/interviews/questions/common/QuestionReportIssueButton';
-import type { QuestionListTypeData } from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsListSlideOutButton from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOutButton';
-import Text from '~/components/ui/Text';
-import { themeBackgroundColor, themeBorderColor } from '~/components/ui/theme';
+import {
+  themeBackgroundDarkColor,
+  themeBorderColor,
+} from '~/components/ui/theme';
 
+import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
 import { hashQuestion } from '~/db/QuestionsUtils';
+import type { QuestionListTypeData } from '~/components/interviews/questions/common/QuestionsTypes';
+import Text from '~/components/ui/Text';
 
 type Props = Readonly<{
-  allowMarkComplete?: boolean;
+  allowBookmark?: boolean;
+  questionTitle?: string;
   initialListType?: QuestionListTypeData;
-  leftAddOnItem?: ReactNode;
+  allowMarkComplete?: boolean;
   listIsShownInSidebarOnDesktop: boolean;
   metadata: React.ComponentProps<typeof QuestionProgressAction>['metadata'];
-  questionTitle?: string;
-  slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE?: string | null;
   studyListKey?: string;
+  leftAddOnItem?: ReactNode;
+  slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE?: string | null;
 }>;
 
 export default function InterviewsStudyListBottomBar({
+  allowBookmark = true,
   allowMarkComplete = true,
-  initialListType,
-  leftAddOnItem,
   listIsShownInSidebarOnDesktop,
   metadata,
+  studyListKey,
+  leftAddOnItem,
+  initialListType,
   questionTitle,
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE = 'qns_slideout',
-  studyListKey,
 }: Props) {
+  const user = useUser();
+  const { isLoading } = useQueryQuestionProgress(
+    metadata,
+    studyListKey ?? null,
+  );
+
   return (
     <div
       className={clsx(
         'sticky inset-x-0 bottom-0',
-        'px-6 py-2.5',
+        'px-3 py-3',
         ['border-t', themeBorderColor],
-        themeBackgroundColor,
+        themeBackgroundDarkColor,
       )}>
       {questionTitle && (
         <Text className="block pb-2.5 lg:hidden" size="body3">
           {questionTitle}
         </Text>
       )}
-      <div className={clsx('flex items-center justify-between gap-2')}>
+      <div className="flex items-center justify-between gap-2">
         <div className="flex shrink-0 justify-center sm:order-2 sm:flex-1">
           <Suspense>
             <InterviewsQuestionsListSlideOutButton
@@ -69,7 +82,12 @@ export default function InterviewsStudyListBottomBar({
           />
           {leftAddOnItem}
         </div>
-        <div className={clsx('flex justify-end gap-3 sm:order-3 sm:flex-1')}>
+        <div
+          className={clsx(
+            'flex justify-end sm:order-3 sm:flex-1',
+            'transition-colors',
+            isLoading && user != null ? 'opacity-0' : 'opacity-100',
+          )}>
           <div className="flex gap-3 sm:hidden">
             <QuestionReportIssueButton
               entity="question"
@@ -78,6 +96,7 @@ export default function InterviewsStudyListBottomBar({
             />
             {leftAddOnItem}
           </div>
+          {allowBookmark && <QuestionBookmarkAction metadata={metadata} />}
           {allowMarkComplete && (
             <QuestionProgressAction
               metadata={metadata}

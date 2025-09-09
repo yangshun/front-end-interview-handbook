@@ -12,9 +12,10 @@ import {
   RiEditLine,
   RiFileList2Line,
   RiFlaskLine,
-  RiFolder3Line,
+  RiFolderLine,
   RiHashtag,
   RiHtml5Fill,
+  RiKeyboardBoxLine,
   RiLightbulbLine,
   RiListCheck3,
   RiNpmjsFill,
@@ -33,6 +34,7 @@ export type CodingWorkspaceTabIconType =
   | 'console'
   | 'css'
   | 'description'
+  | 'editor_shortcuts'
   | 'explorer'
   | 'html'
   | 'js'
@@ -83,8 +85,11 @@ export const CodingWorkspaceTabIcons: Record<
   description: {
     icon: RiFileList2Line,
   },
+  editor_shortcuts: {
+    icon: RiKeyboardBoxLine,
+  },
   explorer: {
-    icon: RiFolder3Line,
+    icon: RiFolderLine,
   },
   html: {
     icon: RiHtml5Fill,

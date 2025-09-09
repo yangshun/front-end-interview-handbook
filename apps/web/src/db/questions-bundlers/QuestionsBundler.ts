@@ -13,6 +13,7 @@ import remarkSlug from 'remark-slug';
 type Options = Readonly<{
   extractHeadings?: boolean;
   loadJSFilesAsText?: boolean;
+  mdxJsReactGlobal?: boolean;
 }>;
 
 /**
@@ -39,7 +40,11 @@ export async function readMDXFileWithLocaleFallback(
 
 export async function readMDXFile(
   filePath: string,
-  { extractHeadings = false, loadJSFilesAsText = true }: Options,
+  {
+    extractHeadings = false,
+    loadJSFilesAsText = true,
+    mdxJsReactGlobal = false,
+  }: Options,
 ): Promise<{
   code: string | null;
   frontmatter: Record<string, AnyIntentional>;
@@ -61,6 +66,15 @@ export async function readMDXFile(
       return options;
     },
     globals: {
+      ...(mdxJsReactGlobal
+        ? {
+            '@mdx-js/react': {
+              defaultExport: false,
+              namedExports: ['useMDXComponents'],
+              varName: 'MdxJsReact',
+            },
+          }
+        : {}),
       MDXCodeBlock: 'MDXCodeBlock',
       MDXTestExamples: 'MDXTestExamples',
     },
@@ -82,7 +96,10 @@ export async function readMDXFile(
       // https://github.com/mdx-js/mdx/pull/2045#issuecomment-1136338668
       options.development = false;
 
-      return options;
+      return {
+        ...options,
+        ...(mdxJsReactGlobal ? { providerImportSource: '@mdx-js/react' } : {}),
+      };
     },
     source,
   });

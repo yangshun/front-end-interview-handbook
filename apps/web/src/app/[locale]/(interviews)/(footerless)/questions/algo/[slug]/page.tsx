@@ -4,6 +4,8 @@ import type { Metadata } from 'next/types';
 import InterviewsPurchaseQuestionPaywallPage from '~/components/interviews/purchase/InterviewsPurchaseQuestionPaywallPage';
 import QuestionJsonLd from '~/components/interviews/questions/common/QuestionJsonLd';
 import { sortQuestionsMultiple } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
+import JavaScriptCodingWorkspaceAboveMobile from '~/components/workspace/javascript/JavaScriptCodingWorkspaceAboveMobile';
+import JavaScriptCodingWorkspaceMobile from '~/components/workspace/javascript/JavaScriptCodingWorkspaceMobile';
 import JavaScriptCodingWorkspacePage from '~/components/workspace/javascript/JavaScriptCodingWorkspacePage';
 
 import { readQuestionAlgoContents } from '~/db/QuestionsContentsReader';
@@ -12,6 +14,7 @@ import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
+import getUserAgent from '~/utils/getUserAgent';
 
 type Props = Readonly<{
   params: Readonly<{ locale: string; slug: string }>;
@@ -51,6 +54,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
+  const userAgent = getUserAgent();
   const { locale, slug: rawSlug } = params;
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(rawSlug)
@@ -126,8 +130,14 @@ export default async function Page({ params }: Props) {
       ) : (
         <JavaScriptCodingWorkspacePage
           canViewPremiumContent={isViewerPremium}
+          isUserAgentTablet={userAgent === 'tablet'}
           nextQuestions={nextQuestions}
           question={question}
+          renderWorkspace={
+            userAgent === 'mobile'
+              ? JavaScriptCodingWorkspaceMobile
+              : JavaScriptCodingWorkspaceAboveMobile
+          }
           similarQuestions={similarQuestions}
         />
       )}

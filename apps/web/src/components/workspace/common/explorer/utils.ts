@@ -59,17 +59,3 @@ export function createDirectoriesFromFilePaths(filePaths: Array<string>): {
 
   return { directoryPaths, rootDirectory };
 }
-
-export function getAllFilesInDirectory(
-  directory: FileExplorerDirectory,
-): Array<FileExplorerFile> {
-  const directoryItems = Object.values(directory.contents);
-  const files = directoryItems.filter(
-    (item) => !item.isDirectory,
-  ) as Array<FileExplorerFile>;
-  const directories = directoryItems.filter(
-    (item) => item.isDirectory,
-  ) as Array<FileExplorerDirectory>;
-
-  return [...files, ...directories.flatMap(getAllFilesInDirectory)];
-}

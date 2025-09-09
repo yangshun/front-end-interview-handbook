@@ -15,24 +15,34 @@ export default function useMonacoEditorModels(
       return;
     }
 
-    // Need to initialize all the models first so that click-to-navigate
-    // also works for files that aren't open.
+    const filePathSet = new Set(
+      Object.keys(files).map((path) => monaco.Uri.parse(path).toString()),
+    );
+
+    // Dispose models that are no longer in the current files
+    monaco.editor
+      .getModels()
+      .filter((model) => !filePathSet.has(model.uri.toString()))
+      .forEach((model) => model.dispose());
+
+    // Create or update monaco models for the current files
     Object.entries(files).forEach(([filePath, bundlerFile]) => {
       const uri = monaco.Uri.parse(filePath);
+      const model = monaco.editor.getModel(uri);
 
-      // Calling createModel() while a model exists for a uri
-      // will cause the editor to crash, so we need to check first.
-      if (monaco.editor.getModel(uri)) {
+      if (model == null) {
+        monaco.editor.createModel(
+          bundlerFile.code,
+          getLanguageFromFilePath(filePath)?.language ?? undefined,
+          uri,
+        );
+
         return;
       }
 
-      const result = getLanguageFromFilePath(filePath);
-
-      monaco.editor.createModel(
-        bundlerFile.code,
-        result?.language ?? undefined,
-        uri,
-      );
+      if (model.getValue() !== bundlerFile.code) {
+        model.setValue(bundlerFile.code);
+      }
     });
   }, [monaco, files]);
 

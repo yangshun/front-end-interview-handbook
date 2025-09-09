@@ -117,6 +117,12 @@ export function hasCompletedQuestion(
 ): boolean {
   return completedQuestions.has(hashQuestion(question));
 }
+export function hasBookmarkedQuestion(
+  bookmarkedQuestions: Set<QuestionSlug>,
+  question: QuestionMetadata,
+): boolean {
+  return bookmarkedQuestions.has(hashQuestion(question));
+}
 
 export type QuestionsCategorizedProgress = Record<QuestionFormat, Set<string>>;
 export type QuestionsCodingFormatCategorizedProgress = Record<

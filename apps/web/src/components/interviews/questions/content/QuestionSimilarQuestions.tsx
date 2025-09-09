@@ -1,8 +1,12 @@
 import clsx from 'clsx';
 
 import { FormattedMessage } from '~/components/intl';
-import Heading from '~/components/ui/Heading';
-import Section from '~/components/ui/Heading/HeadingContext';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '~/components/ui/Accordion/Accordion';
 import { textVariants } from '~/components/ui/Text';
 
 import type { QuestionMetadata } from '../common/QuestionsTypes';
@@ -18,19 +22,27 @@ export default function QuestionSimilarQuestions({
   }
 
   return (
-    <div className="flex flex-col gap-y-4">
-      <Heading
-        className={clsx(textVariants({ size: 'body1', weight: 'medium' }))}
-        level="custom">
-        <FormattedMessage
-          defaultMessage="Similar questions"
-          description="Header for similar questions to the current question"
-          id="TVrovv"
-        />
-      </Heading>
-      <Section>
-        <QuestionsCodingListBrief questions={questions} />
-      </Section>
-    </div>
+    <Accordion collapsible={true} type="single">
+      <AccordionItem value="similar-questions">
+        <AccordionTrigger
+          className={clsx(
+            textVariants({
+              color: 'subtitle',
+              size: 'body2',
+              weight: 'medium',
+            }),
+            '!py-3',
+          )}>
+          <FormattedMessage
+            defaultMessage="Similar questions"
+            description="Header for similar questions to the current question"
+            id="TVrovv"
+          />
+        </AccordionTrigger>
+        <AccordionContent>
+          <QuestionsCodingListBrief questions={questions} />
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
   );
 }

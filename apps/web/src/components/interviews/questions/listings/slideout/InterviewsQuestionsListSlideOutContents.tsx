@@ -17,7 +17,7 @@ import useQuestionUnifiedFilters from '~/components/interviews/questions/listing
 import type { QuestionFilter } from '~/components/interviews/questions/listings/filters/QuestionFilterType';
 import QuestionFrameworkLanguageTooltipLabel from '~/components/interviews/questions/listings/filters/QuestionFrameworkLanguageTooltipLabel';
 import QuestionListingFilterItemCheckboxes from '~/components/interviews/questions/listings/filters/QuestionListingFilterItemCheckboxes';
-import useQuestionsWithCompletionStatus from '~/components/interviews/questions/listings/items/useQuestionsWithCompletionStatus';
+import useQuestionsWithStatus from '~/components/interviews/questions/listings/items/useQuestionsWithStatus';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
@@ -233,7 +233,7 @@ export default function InterviewsQuestionsListSlideOutContents({
   // To fetch the list-specific question when user change the study list
   const { data, isLoading } = useQuestionsListDataForType(listType ?? null);
 
-  const questionsWithCompletionStatus = useQuestionsWithCompletionStatus(
+  const questionsWithCompletionStatus = useQuestionsWithStatus(
     data?.questions ?? [],
     studyListKey,
   );
@@ -511,6 +511,7 @@ export default function InterviewsQuestionsListSlideOutContents({
           ) : (
             <InterviewsQuestionsListSlideOutQuestionList
               key={`${listType.type}/${listType.value}/${listType.tab}`}
+              checkIfBookmarkedQuestion={(question) => question.isBookmarked}
               checkIfCompletedQuestion={(question) => question.isCompleted}
               currentQuestionHash={currentQuestionHash}
               framework={framework}

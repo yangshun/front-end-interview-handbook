@@ -1,4 +1,5 @@
 const languageMapping: Record<string, string> = {
+  css: 'css',
   js: 'javascript',
   jsx: 'javascript',
   svelte: 'html',

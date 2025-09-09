@@ -20,6 +20,7 @@ import {
 } from '~/components/ui/theme';
 
 import type { QuestionMetadata } from '../../common/QuestionsTypes';
+import QuestionBookmarkBadge from '../../metadata/QuestionBookmarkBadge';
 import QuestionDifficultyLabel from '../../metadata/QuestionDifficultyLabel';
 import QuestionFormatLabel from '../../metadata/QuestionFormatLabel';
 import QuestionsListItemProgressChip from '../items/QuestionsListItemProgressChip';
@@ -34,6 +35,7 @@ type Props<Q extends QuestionMetadata> = Readonly<{
   hasCompletedQuestion?: boolean;
   href: string;
   isActiveQuestion: boolean;
+  isBookmarkedQuestion?: boolean;
   listType: QuestionListTypeData;
   mode: 'embedded' | 'slideout';
   onClick: (event: QuestionClickEvent, href: string) => void;
@@ -47,6 +49,7 @@ export default function InterviewsQuestionsListSlideOutQuestionListItem<
   hasCompletedQuestion,
   href,
   isActiveQuestion,
+  isBookmarkedQuestion,
   listType,
   mode,
   onClick,
@@ -112,6 +115,7 @@ export default function InterviewsQuestionsListSlideOutQuestionListItem<
                       {questionMetadata.title}
                     </Anchor>
                   </Text>
+                  {isBookmarkedQuestion && <QuestionBookmarkBadge />}
                   {questionMetadata.access === 'premium' && (
                     <InterviewsPremiumBadge size="xs" />
                   )}

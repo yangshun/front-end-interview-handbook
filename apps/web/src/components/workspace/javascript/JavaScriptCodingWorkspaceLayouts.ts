@@ -209,3 +209,48 @@ export function getJavaScriptCodingWorkspaceLayoutGrid(
     type: 'group',
   } as const;
 }
+
+export function getJavaScriptCodingWorkspaceLayoutTablet(
+  activeFile: string,
+  files: ReadonlyArray<string>,
+): TilesPanelConfig<JavaScriptCodingWorkspaceTabsType> {
+  return {
+    direction: 'vertical',
+    id: 'root',
+    items: [
+      {
+        activeTabId: 'description',
+        collapsible: false,
+        defaultSize: 45,
+        id: 'top-section',
+        tabs: INTERVIEWS_JS_COMMUNITY_SOLUTIONS_IS_LIVE
+          ? [descriptionTab, solutionTab, communitySolutionsTab, submissionsTab]
+          : [descriptionTab, solutionTab, submissionsTab],
+        type: 'item',
+      },
+      {
+        activeTabId: codingWorkspaceTabFileId(activeFile),
+        collapsible: true,
+        defaultSize: 50,
+        id: 'middle-section',
+        tabs: files.map((file) => ({
+          allowOverflow: true,
+          closeable: false,
+          id: codingWorkspaceTabFileId(file),
+        })),
+        type: 'item',
+      },
+      {
+        activeTabId: 'run_tests',
+        collapsed: true,
+        collapsedTitle: 'Run tests / Console',
+        collapsible: true,
+        defaultSize: 5,
+        id: 'bottom-section',
+        tabs: [runTestsTab, consoleTab, submitTab],
+        type: 'item',
+      },
+    ],
+    type: 'group',
+  } as const;
+}

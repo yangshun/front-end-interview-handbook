@@ -1,153 +1,183 @@
 'use client';
 
+import { useUser } from '@supabase/auth-helpers-react';
 import clsx from 'clsx';
 
 import { trpc } from '~/hooks/trpc';
+import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
-import Timestamp from '~/components/common/datetime/Timestamp';
-import { useUserProfile } from '~/components/global/UserProfileProvider';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
-import QuestionFrameworkIcon from '~/components/interviews/questions/metadata/QuestionFrameworkIcon';
 import { useIntl } from '~/components/intl';
-import Anchor from '~/components/ui/Anchor';
-import Badge from '~/components/ui/Badge';
+import Button from '~/components/ui/Button';
 import EmptyState from '~/components/ui/EmptyState';
+import ScrollArea from '~/components/ui/ScrollArea';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundElementEmphasizedStateColor_Hover,
-  themeBorderEmphasizeColor,
-  themeDivideEmphasizeColor,
+  themeBorderColor,
+  themeDivideColor,
 } from '~/components/ui/theme';
 
-import { staticLowerCase } from '~/utils/typescript/stringTransform';
-
-import { useUserInterfaceCodingWorkspaceSavesContext } from './UserInterfaceCodingWorkspaceSaveContext';
+import { useUserInterfaceCodingWorkspaceSelector } from './store/hooks';
+import UserInterfaceCodingWorkspaceSaveMetadata from './UserInterfaceCodingWorkspaceSaveMetadata';
 import UserInterfaceCodingWorkspaceSavesListItemActions from './UserInterfaceCodingWorkspaceSavesListItemActions';
 
 type Props = Readonly<{
   metadata: QuestionMetadata;
+  openSavedCode: (id: string, name: string) => void;
 }>;
 
 export default function UserInterfaceCodingWorkspaceSavesList({
   metadata,
+  openSavedCode,
 }: Props) {
-  const intl = useIntl();
-  const { userProfile } = useUserProfile();
+  const user = useUser();
 
-  if (userProfile == null) {
-    return (
-      <div className="w-full">
-        <div className="flex h-full flex-col p-4">
-          <div className="flex grow items-center justify-center">
-            <EmptyState
-              title={intl.formatMessage({
-                defaultMessage:
-                  'You must be signed in to view your saved versions',
-                description:
-                  'Sign in to view saved versions in coding workspace',
-                id: 'lXY6ap',
-              })}
-              variant="empty"
-            />
-          </div>
-        </div>
-      </div>
-    );
+  if (user == null) {
+    return <SavedCodeSignInState />;
   }
 
-  return <UserInterfaceCodingWorkspaceSavesListImpl metadata={metadata} />;
+  return (
+    <UserInterfaceCodingWorkspaceSavesListImpl
+      metadata={metadata}
+      openSavedCode={openSavedCode}
+    />
+  );
 }
 
-function UserInterfaceCodingWorkspaceSavesListImpl({ metadata }: Props) {
+function UserInterfaceCodingWorkspaceSavesListImpl({
+  metadata,
+  openSavedCode,
+}: Props) {
   const intl = useIntl();
   const { data: saves } = trpc.questionSave.userInterfaceGetAll.useQuery({
     slug: metadata.slug,
   });
-
-  const { save } = useUserInterfaceCodingWorkspaceSavesContext();
+  const currentOpenedSolution = useUserInterfaceCodingWorkspaceSelector(
+    (state) => state.solution.currentOpenedSolution,
+  );
 
   return (
     <div className="w-full">
       {saves == null || saves?.length === 0 ? (
-        <div className="flex h-full flex-col p-4">
-          <div className="flex grow items-center justify-center">
-            <EmptyState
-              title={intl.formatMessage({
-                defaultMessage: 'No saved versions',
-                description: 'No saved versions in coding workspace',
-                id: 'ZYk9jl',
-              })}
-              variant="empty"
-            />
-          </div>
+        <div
+          className={clsx(
+            'mx-auto max-w-sm',
+            'flex h-full flex-col p-4',
+            'flex grow items-center justify-center',
+          )}>
+          <EmptyState
+            subtitle={intl.formatMessage(
+              {
+                defaultMessage:
+                  'Solve the question and click <b>"Save to cloud"</b> to store your code. Your saved code for this question will appear here.',
+                description: 'No saved code yet in coding workspace',
+                id: 'ZdJ2fl',
+              },
+              {
+                b: (chunks: React.ReactNode) => (
+                  <Text size="inherit" weight="bold">
+                    {chunks}
+                  </Text>
+                ),
+              },
+            )}
+            title={intl.formatMessage({
+              defaultMessage: 'No saved code yet',
+              description: 'No saved code yet in coding workspace',
+              id: 'YlKe4g',
+            })}
+            variant="empty"
+          />
         </div>
       ) : (
-        <div className="p-4">
+        <ScrollArea>
           <div
             className={clsx(
               'flex flex-col rounded-md',
-              ['border', themeBorderEmphasizeColor],
-              ['divide-y', themeDivideEmphasizeColor],
+              ['divide-y', themeDivideColor],
+              ['border-b', themeBorderColor],
               'overflow-hidden',
             )}>
-            {saves?.map((savedItem) => (
-              <div
-                key={savedItem.id}
-                className={clsx(
-                  'relative isolate',
-                  'flex items-center gap-x-2',
-                  themeBackgroundElementEmphasizedStateColor_Hover,
-                  'p-2',
-                )}>
-                <div className="p-2">
-                  <QuestionFrameworkIcon
-                    framework={staticLowerCase(savedItem.framework)}
+            {saves?.map((savedItem) => {
+              return (
+                <div
+                  key={savedItem.id}
+                  className={clsx(
+                    'relative isolate',
+                    'flex items-center justify-between',
+                    'px-4 py-3',
+                    themeBackgroundElementEmphasizedStateColor_Hover,
+                  )}>
+                  <button
+                    className="absolute inset-0"
+                    type="button"
+                    onClick={() => openSavedCode(savedItem.id, savedItem.name)}
                   />
-                </div>
-                <div className="grow">
-                  <div className="flex items-center gap-x-2 gap-y-1">
-                    <Anchor
-                      // TODO(workspace): Add study list parameter if exists.
-                      href={`/questions/user-interface/${metadata.slug}/v/${savedItem.id}`}
-                      variant="unstyled">
-                      <Text
-                        className="line-clamp-2"
-                        size="body2"
-                        weight="medium">
-                        {savedItem.name}{' '}
-                      </Text>
-                      <span className="absolute inset-0" />
-                    </Anchor>
-                    {save?.id === savedItem.id && (
-                      <Badge
-                        label={intl.formatMessage({
-                          defaultMessage: 'Current',
-                          description: 'Current saved code version badge',
-                          id: 'qn8hx+',
-                        })}
-                        size="sm"
-                        variant="info"
-                      />
-                    )}
+                  <UserInterfaceCodingWorkspaceSaveMetadata
+                    createdAt={savedItem.updatedAt}
+                    framework={savedItem.framework}
+                    isActive={currentOpenedSolution?.attemptId === savedItem.id}
+                    name={savedItem.name}
+                  />
+                  <div className="relative">
+                    <UserInterfaceCodingWorkspaceSavesListItemActions
+                      saveId={savedItem.id}
+                      saveName={savedItem.name}
+                    />
                   </div>
-                  <Text
-                    className="whitespace-nowrap"
-                    color="secondary"
-                    size="body3">
-                    <Timestamp date={savedItem.updatedAt} />
-                  </Text>
                 </div>
-                <div className="relative">
-                  <UserInterfaceCodingWorkspaceSavesListItemActions
-                    saveId={savedItem.id}
-                    saveName={savedItem.name}
-                  />
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
-        </div>
+        </ScrollArea>
       )}
+    </div>
+  );
+}
+
+function SavedCodeSignInState() {
+  const intl = useIntl();
+  const { signInUpHref } = useAuthSignInUp();
+
+  return (
+    <div
+      className={clsx(
+        'mx-auto size-full max-w-xs p-4',
+        'flex grow items-center justify-center',
+      )}>
+      <EmptyState
+        action={
+          <div className="flex justify-center gap-x-3">
+            <Button
+              href={signInUpHref()}
+              label={intl.formatMessage({
+                defaultMessage: 'Sign in',
+                description: 'Sign in button label',
+                id: 'xrhUzU',
+              })}
+              size="xs"
+              variant="secondary"
+            />
+            <Button
+              href={signInUpHref()}
+              label={intl.formatMessage({
+                defaultMessage: 'Create an account',
+                description: 'Create account button label',
+                id: 'Rhdhem',
+              })}
+              size="xs"
+              variant="primary"
+            />
+          </div>
+        }
+        title={intl.formatMessage({
+          defaultMessage: 'You must be signed in to view your saved versions',
+          description: 'Sign in to view saved versions in coding workspace',
+          id: 'lXY6ap',
+        })}
+        variant="empty"
+      />
     </div>
   );
 }

@@ -14,7 +14,7 @@ import type {
   QuestionFramework,
   QuestionHash,
   QuestionListTypeData,
-  QuestionMetadataWithCompletedStatus,
+  QuestionMetadataWithStatus,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import useQuestionCodingSorting from '~/components/interviews/questions/listings/filters/hooks/useQuestionCodingSorting';
 import useQuestionUnifiedFilters from '~/components/interviews/questions/listings/filters/hooks/useQuestionUnifiedFilters';
@@ -22,7 +22,7 @@ import {
   filterQuestions,
   sortQuestionsMultiple,
 } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
-import useQuestionsWithCompletionStatus from '~/components/interviews/questions/listings/items/useQuestionsWithCompletionStatus';
+import useQuestionsWithStatus from '~/components/interviews/questions/listings/items/useQuestionsWithStatus';
 import InterviewsQuestionsListSlideOut from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOut';
 import {
   useQuestionsListDataForType,
@@ -66,7 +66,7 @@ function InterviewsQuestionsListSlideOutButtonWithLoader({
     QuestionListTypeDefault;
   const { data, isLoading } = useQuestionsListDataForType(listType);
 
-  const questionsWithCompletionStatus = useQuestionsWithCompletionStatus(
+  const questionsWithCompletionStatus = useQuestionsWithStatus(
     data?.questions ?? [],
     studyListKey,
   );
@@ -111,7 +111,7 @@ function InterviewsQuestionsListSlideOutButtonImpl({
 }: Omit<Props, 'studyListKey'> &
   Readonly<{
     listType: QuestionListTypeWithLabel;
-    questions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
+    questions: ReadonlyArray<QuestionMetadataWithStatus>;
   }>) {
   const intl = useIntl();
 

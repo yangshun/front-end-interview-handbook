@@ -21,7 +21,7 @@ export default function useSandpackModuleErrorRefreshBrowser() {
 
   const seenErrors = useRef<Set<string>>(new Set());
 
-  const sb = useSandpack();
+  const { dispatch: sandpackDispatch } = useSandpack();
   const { logs } = useSandpackConsole({
     resetOnPreviewRestart: !consoleShouldPreserveLogs,
     showSyntaxError: false,
@@ -52,7 +52,7 @@ export default function useSandpackModuleErrorRefreshBrowser() {
   });
 
   if (refresh) {
-    sb.dispatch({
+    sandpackDispatch({
       type: 'refresh',
     });
     refresh = false;

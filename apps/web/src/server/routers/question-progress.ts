@@ -2,9 +2,14 @@ import { TRPCClientError } from '@trpc/client';
 import { z } from 'zod';
 
 import { groupByDateFormatter } from '~/components/interviews/dashboard/progress/utils';
-import type { QuestionFormat } from '~/components/interviews/questions/common/QuestionsTypes';
+import {
+  type QuestionFormat,
+  QuestionsFormats,
+  zodQuestionFormats,
+} from '~/components/interviews/questions/common/QuestionsTypes';
 
 import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
+import { fetchQuestionsCompletionCount } from '~/db/QuestionsCount';
 import {
   fetchQuestion,
   fetchQuestionsListByHash,
@@ -16,20 +21,12 @@ import prisma from '~/server/prisma';
 
 import { publicProcedure, router, userProcedure } from '../trpc';
 
-const zodInterviewsQuestionFormats = z.enum([
-  'javascript',
-  'user-interface',
-  'algo',
-  'system-design',
-  'quiz',
-]);
-
 export const questionProgressRouter = router({
   add: userProcedure
     .input(
       z.object({
         question: z.object({
-          format: zodInterviewsQuestionFormats,
+          format: zodQuestionFormats,
           slug: z.string(),
         }),
         studyListKey: z.string().optional(),
@@ -202,7 +199,7 @@ export const questionProgressRouter = router({
     .input(
       z.object({
         question: z.object({
-          format: zodInterviewsQuestionFormats,
+          format: zodQuestionFormats,
           slug: z.string(),
         }),
         studyListKey: z.string().optional(),
@@ -474,10 +471,13 @@ export const questionProgressRouter = router({
         },
       });
     }),
+  getTotalCompletionCount: userProcedure.query(async () => {
+    return await fetchQuestionsCompletionCount(QuestionsFormats);
+  }),
   globalCompleted: publicProcedure
     .input(
       z.object({
-        format: zodInterviewsQuestionFormats,
+        format: zodQuestionFormats,
         slug: z.string(),
       }),
     )
@@ -496,7 +496,7 @@ export const questionProgressRouter = router({
       z.object({
         questions: z.array(
           z.object({
-            format: zodInterviewsQuestionFormats,
+            format: zodQuestionFormats,
             slug: z.string(),
           }),
         ),

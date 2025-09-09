@@ -15,6 +15,8 @@ export type TilesPanelItemConfig<TabType> = Readonly<{
   defaultSize?: PanelProps['defaultSize'];
   fullScreen?: boolean;
   id: string;
+  showActionsButton?: boolean;
+  showNewTabButton?: boolean;
   tabs: ReadonlyArray<TilesPanelItemTab<TabType>>;
   type: 'item';
 }>;

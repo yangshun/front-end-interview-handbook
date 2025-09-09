@@ -36,8 +36,9 @@ export default function ProjectsChallengeSolutionWorkspaceNewTab({
   predefinedTabs: ProjectsChallengeSolutionWorkspacePredefinedTabsContents;
 }>) {
   const intl = useIntl();
-  const { sandpack } = useSandpack();
-  const { files } = sandpack;
+  const {
+    sandpack: { files },
+  } = useSandpack();
   const { queryTabByPattern } = useUserInterfaceCodingWorkspaceTilesContext();
   const openedFiles = new Set(
     queryTabByPattern(codingWorkspaceTabFilePattern).map(({ tabId }) => tabId),

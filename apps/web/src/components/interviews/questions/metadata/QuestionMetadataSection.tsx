@@ -55,39 +55,44 @@ export default function QuestionMetadataSection({
       {elements.includes('author') && metadata.author && (
         <QuestionAuthor author={metadata.author} size={size} />
       )}
-      {elements.includes('languages') &&
-        metadata.languages &&
-        metadata.languages.length > 0 && (
-          <QuestionLanguages languages={metadata.languages} showIcon={true} />
+      <div className="flex flex-wrap items-center gap-x-3.5 gap-y-3">
+        {elements.includes('languages') &&
+          metadata.languages &&
+          metadata.languages.length > 0 && (
+            <QuestionLanguages languages={metadata.languages} showIcon={true} />
+          )}
+        {elements.includes('importance') && metadata.importance && (
+          <QuestionImportanceLabel
+            showIcon={true}
+            value={metadata.importance}
+          />
         )}
-      {elements.includes('importance') && metadata.importance && (
-        <QuestionImportanceLabel showIcon={true} value={metadata.importance} />
-      )}
-      {elements.includes('difficulty') && metadata.difficulty && (
-        <QuestionDifficultyLabel
-          showIcon={true}
-          size={size}
-          value={metadata.difficulty}
-        />
-      )}
-      {elements.includes('topics') &&
-        metadata.topics &&
-        metadata.topics.length > 0 && (
-          <QuestionTopics topics={metadata.topics} />
+        {elements.includes('difficulty') && metadata.difficulty && (
+          <QuestionDifficultyLabel
+            showIcon={true}
+            size={size}
+            value={metadata.difficulty}
+          />
         )}
-      {elements.includes('duration') && metadata.duration && (
-        <QuestionDurationLabel
-          mins={metadata.duration}
-          showIcon={true}
-          size={size}
-        />
-      )}
-      {elements.includes('users_completed') && metadata.duration && (
-        <QuestionUsersCompletedLabelWithFetching
-          metadata={metadata}
-          showIcon={true}
-        />
-      )}
+        {elements.includes('topics') &&
+          metadata.topics &&
+          metadata.topics.length > 0 && (
+            <QuestionTopics topics={metadata.topics} />
+          )}
+        {elements.includes('duration') && metadata.duration && (
+          <QuestionDurationLabel
+            mins={metadata.duration}
+            showIcon={true}
+            size={size}
+          />
+        )}
+        {elements.includes('users_completed') && metadata.duration && (
+          <QuestionUsersCompletedLabelWithFetching
+            metadata={metadata}
+            showIcon={true}
+          />
+        )}
+      </div>
     </section>
   );
 }

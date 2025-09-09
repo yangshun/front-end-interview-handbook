@@ -6,11 +6,20 @@ import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels';
 
 import type { TilesPanelConfig } from '../types';
 import type { TilesPanelItemConfig } from '../types';
+import type { CustomActionsOrComponent } from './TilesPanelActions';
 import TilesPanelItem from './TilesPanelItem';
 
 type TilesPanelCommonProps<TabType> = Readonly<{
   defaultSize?: PanelProps['defaultSize'];
   disablePointerEventsDuringResize?: boolean;
+  getCustomActionsOrComponents?: (
+    panelId: string,
+    tabId: TabType | null,
+  ) => ReadonlyArray<CustomActionsOrComponent> | undefined;
+  getDropdownIcon?: (
+    panelId: string,
+    tabId: TabType | null,
+  ) => ((iconProps: React.ComponentProps<'svg'>) => JSX.Element) | undefined;
   getResizeHandlerProps: (direction: PanelGroupProps['direction']) => Readonly<{
     children?: ReactNode;
     className?: string;
@@ -20,6 +29,7 @@ type TilesPanelCommonProps<TabType> = Readonly<{
     icon?: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
     iconSecondary?: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
     label: string;
+    showIcon?: boolean;
   }>;
   level: number;
   order?: number;
@@ -42,6 +52,8 @@ type TilesPanelGroupTypeProps<TabType> = Readonly<{
 export default function TilesPanel<TabType extends string>({
   defaultSize = 100,
   disablePointerEventsDuringResize,
+  getCustomActionsOrComponents,
+  getDropdownIcon,
   getResizeHandlerProps,
   getTabLabel,
   id,
@@ -59,7 +71,12 @@ export default function TilesPanel<TabType extends string>({
         collapsed={props.collapsed}
         collapsedTitle={props.collapsedTitle}
         collapsible={props.collapsible}
+        customActionsOrComponents={getCustomActionsOrComponents?.(
+          id,
+          props.activeTabId,
+        )}
         defaultSize={defaultSize}
+        dropdownIcon={getDropdownIcon?.(id, props.activeTabId)}
         fullScreen={props.fullScreen}
         getTabLabel={getTabLabel}
         id={id}
@@ -67,6 +84,8 @@ export default function TilesPanel<TabType extends string>({
         order={order}
         parentDirection={parentDirection}
         renderTab={renderTab}
+        showActionsButton={props.showActionsButton}
+        showNewTabButton={props.showNewTabButton}
         sizeAfterExpansion={props.sizeAfterExpansion}
         tabs={props.tabs}
       />
@@ -111,6 +130,8 @@ export default function TilesPanel<TabType extends string>({
               disablePointerEventsDuringResize={
                 disablePointerEventsDuringResize
               }
+              getCustomActionsOrComponents={getCustomActionsOrComponents}
+              getDropdownIcon={getDropdownIcon}
               getResizeHandlerProps={getResizeHandlerProps}
               getTabLabel={getTabLabel}
               level={level + 1}

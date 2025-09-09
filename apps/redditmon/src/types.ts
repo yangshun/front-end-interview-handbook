@@ -89,12 +89,7 @@ export type FetchedRedditPost = Omit<
 
 export type QueriedRedditPost = Omit<
   RedditPost,
-  | 'content'
-  | 'postedAt'
-  | 'postId'
-  | 'projectId'
-  | 'response'
-  | 'updatedAt'
+  'content' | 'postedAt' | 'postId' | 'projectId' | 'response' | 'updatedAt'
 > & {
   reply: RedditPostReply | null;
 };

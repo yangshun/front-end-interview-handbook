@@ -1,8 +1,8 @@
 import type { CodingWorkspaceTabContents } from '../common/CodingWorkspaceContext';
 import type {
+  CodingWorkspaceTabAttemptType,
   CodingWorkspaceTabCommunitySolutionType,
   CodingWorkspaceTabFileType,
-  CodingWorkspaceTabSubmissionType,
 } from '../common/tabs/codingWorkspaceTabId';
 
 export type JavaScriptCodingWorkspacePredefinedTabsType =
@@ -10,15 +10,16 @@ export type JavaScriptCodingWorkspacePredefinedTabsType =
   | 'community_solutions'
   | 'console'
   | 'description'
+  | 'editor_shortcuts'
   | 'run_tests'
   | 'solution'
   | 'submission_test_cases'
   | 'submissions'
   | 'submit';
 export type JavaScriptCodingWorkspaceTabsType =
+  | CodingWorkspaceTabAttemptType
   | CodingWorkspaceTabCommunitySolutionType
   | CodingWorkspaceTabFileType
-  | CodingWorkspaceTabSubmissionType
   | JavaScriptCodingWorkspacePredefinedTabsType;
 
 export type JavaScriptCodingWorkspacePredefinedTabsContents =

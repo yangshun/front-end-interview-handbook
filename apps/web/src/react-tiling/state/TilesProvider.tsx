@@ -1,5 +1,5 @@
 import type { ReactNode, Reducer } from 'react';
-import { useReducer } from 'react';
+import { useReducer, useState } from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 
@@ -73,22 +73,29 @@ function reducer<TabType extends string>(
 }
 
 function TilesProviderImpl<TabType extends string>({
-  activeTabScrollIntoView = true,
+  activeTabScrollIntoView: initialActiveTabScrollIntoView = true,
   children,
   defaultValue,
 }: Props<TabType>) {
-  const [tiles, dispatch] = useReducer<
+  const [tiles, tilesDispatch] = useReducer<
     Reducer<TilesPanelConfig<TabType>, TilesAction<TabType>>
   >(reducer, defaultValue);
+
+  const [activeTabScrollIntoView, setActiveTabScrollIntoView] = useState(
+    initialActiveTabScrollIntoView,
+  );
 
   return (
     <TilesContext.Provider
       value={{
         activeTabScrollIntoView,
-        dispatch,
+        disableActiveTabScrollIntoView: () => setActiveTabScrollIntoView(false),
         getTabById: (tabId: TabType) => getTabById(tiles, tabId),
         queryTabByPattern: (regex: RegExp) => queryTabByPattern(tiles, regex),
+        resetActiveTabScrollIntoView: () =>
+          setActiveTabScrollIntoView(initialActiveTabScrollIntoView),
         tiles,
+        tilesDispatch,
       }}>
       {children}
     </TilesContext.Provider>

@@ -8,7 +8,7 @@ import { useMediaQuery } from 'usehooks-ts';
 import type {
   QuestionFramework,
   QuestionHash,
-  QuestionMetadataWithCompletedStatus,
+  QuestionMetadataWithStatus,
   QuestionPracticeFormat,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import useQuestionUnifiedFilters from '~/components/interviews/questions/listings/filters/hooks/useQuestionUnifiedFilters';
@@ -33,7 +33,7 @@ type Props = Readonly<{
   isLoading: boolean;
   listIsShownInSidebarOnDesktop: boolean;
   listTabs?: ReadonlyArray<QuestionPracticeFormat>;
-  processedQuestions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
+  processedQuestions: ReadonlyArray<QuestionMetadataWithStatus>;
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE: string | null;
   title?: string;
 }>;

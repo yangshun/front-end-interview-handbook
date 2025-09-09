@@ -1,40 +1,63 @@
 'use client';
 
-import { RiArrowRightLine } from 'react-icons/ri';
+import CodingWorkspacePushCodeToEditorButton from '~/components/workspace/common/CodingWorkspacePushCodeToEditorButton';
+import { updateFile } from '~/components/workspace/common/store/sandpack-slice';
 
-import { useIntl } from '~/components/intl';
-import Button from '~/components/ui/Button';
+import { updateCurrentOpenedSolution } from '../common/store/solution-slice';
+import {
+  useJavaScriptCodingWorkspaceDispatch,
+  useJavaScriptCodingWorkspaceSelector,
+} from './store/hooks';
 
-import { useJavaScriptCodingWorkspaceContext } from './JavaScriptCodingWorkspaceContext';
+type Variant = 'attempt' | 'solution';
+
+type Props = Readonly<{
+  contents: string;
+  metadata: {
+    id?: string;
+    name: string;
+  };
+  onOpenSolutionInWorkspace?: () => void;
+  type: Variant;
+}>;
 
 export default function JavaScriptCodingWorkspacePushCodeToEditorButton({
   contents,
-}: Readonly<{ contents: string }>) {
-  const intl = useIntl();
-  const { replaceMainEditorContents } = useJavaScriptCodingWorkspaceContext();
+  metadata,
+  onOpenSolutionInWorkspace,
+  type,
+}: Props) {
+  const workspaceDispatch = useJavaScriptCodingWorkspaceDispatch();
+  const { workspace } = useJavaScriptCodingWorkspaceSelector(
+    (state) => state.workspace.question,
+  );
 
-  if (replaceMainEditorContents == null) {
-    return null;
+  function replaceCodeEditorContents() {
+    workspaceDispatch(
+      updateFile({
+        content: contents,
+        path: workspace.main,
+      }),
+    );
   }
 
   return (
-    <Button
-      icon={RiArrowRightLine}
-      isLabelHidden={true}
-      label={intl.formatMessage({
-        defaultMessage: 'Replace editor with code',
-        description: 'Coding workspace replace editor with code label',
-        id: 'x8JeGI',
-      })}
-      size="xs"
-      tooltip={intl.formatMessage({
-        defaultMessage: 'Replace editor with code',
-        description: 'Coding workspace replace editor with code label',
-        id: 'x8JeGI',
-      })}
-      variant="secondary"
-      onClick={() => {
-        replaceMainEditorContents(contents);
+    <CodingWorkspacePushCodeToEditorButton
+      type={type}
+      onProceed={() => {
+        workspaceDispatch(
+          updateCurrentOpenedSolution({
+            attemptId: metadata.id,
+            files: {
+              [workspace.main]: {
+                code: contents,
+              },
+            },
+            name: metadata.name,
+          }),
+        );
+        replaceCodeEditorContents();
+        onOpenSolutionInWorkspace?.();
       }}
     />
   );

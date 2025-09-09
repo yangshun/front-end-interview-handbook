@@ -12,7 +12,6 @@ import logEvent from '~/logging/logEvent';
 import { getErrorMessage } from '~/utils/getErrorMessage';
 
 import getLanguageFromFilePath from './getLanguageFromFilePath';
-import useMonacoEditorAddActions from './useMonacoEditorAddActions';
 import useMonacoEditorAddFormatter from './useMonacoEditorAddFormatter';
 import useMonacoEditorOnShown from './useMonacoEditorOnShown';
 import useMonacoEditorTheme from './useMonacoEditorTheme';
@@ -132,7 +131,6 @@ export default function MonacoCodeEditor({
 
   const languageExt = getLanguageFromFilePath(filePath);
 
-  useMonacoEditorAddActions(monaco, editorRef.current);
   useMonacoEditorAddFormatter(monaco, editorRef.current, languageExt?.ext);
   useMonacoEditorOnShown(editorContainerRef.current, onFocus);
 

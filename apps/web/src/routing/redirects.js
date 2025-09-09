@@ -56,6 +56,16 @@ export const redirects = [
     permanent: false,
     source: '/questions/quiz/javascript/:path*',
   },
+  {
+    destination: '/questions/user-interface/:path*',
+    permanent: false,
+    source: '/questions/user-interface/:path*/solution',
+  },
+  {
+    destination: '/questions/user-interface/:path*',
+    permanent: false,
+    source: '/questions/user-interface/:path*/v/:version',
+  },
   // Formats
   {
     destination: '/questions',
