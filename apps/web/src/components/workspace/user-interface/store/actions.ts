@@ -1,18 +1,18 @@
 import type { SandpackFiles } from '@codesandbox/sandpack-react';
 
 import {
-  codingWorkspaceConvertFilesToSandpackBundlerFiles,
-  codingWorkspaceConvertFilesToSandpackFiles,
-} from '~/components/workspace/common/codingWorkspaceConvertFiles';
-import {
   replaceCurrentFileState,
   updateFile,
 } from '~/components/workspace/common/store/sandpack-slice';
 import { codingWorkspaceTabFileId } from '~/components/workspace/common/tabs/codingWorkspaceTabId';
+import {
+  codingWorkspaceConvertFilesToSandpackBundlerFiles,
+  codingWorkspaceConvertFilesToSandpackFiles,
+} from '~/components/workspace/common/utils/codingWorkspaceConvertFiles';
 
 import { saveUserInterfaceQuestionCodeLocally } from '../UserInterfaceCodingWorkspaceCodeStorage';
-import userInterfaceCodingWorkspaceNormalizeFilePaths from '../userInterfaceCodingWorkspaceNormalizeSolutionFilePaths';
 import type { UserInterfaceCodingWorkspaceTabsType } from '../UserInterfaceCodingWorkspaceTypes';
+import userInterfaceCodingWorkspaceNormalizeFilePaths from '../utils/userInterfaceCodingWorkspaceNormalizeSolutionFilePaths';
 import type { UserInterfaceCodingWorkspaceThunk } from './user-interface-store';
 
 export const resetUserInterfaceCodingWorkspaceFile =

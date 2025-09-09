@@ -7,7 +7,7 @@ import ConfirmationDialog from '~/components/common/ConfirmationDialog';
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 
-import { useCodingWorkspaceUnsavedSolutionContext } from './CodingWorkspaceUnsavedSolutionContext';
+import { useCodingWorkspaceUnsavedSolutionContext } from './context/CodingWorkspaceUnsavedSolutionContext';
 import { useCodingWorkspaceSelector } from './store/hooks';
 
 type Variant = 'attempt' | 'solution';

@@ -16,15 +16,15 @@ import QuestionNextQuestions from '~/components/interviews/questions/content/Que
 import Divider from '~/components/ui/Divider';
 import CodingWorkspaceBottomBar from '~/components/workspace/common/CodingWorkspaceBottomBar';
 import { CodingWorkspaceBottomBarSettingsDropdownMenu } from '~/components/workspace/common/CodingWorkspaceBottomBarSettingsDropdownMenu';
-import CodingWorkspaceMobileSolutionButton from '~/components/workspace/common/CodingWorkspaceMobileSolutionButton';
 import CodingWorkspaceTimer from '~/components/workspace/common/CodingWorkspaceTimer';
+import CodingWorkspaceMobileSolutionButton from '~/components/workspace/common/solution/CodingWorkspaceMobileSolutionButton';
 import { useCodingWorkspaceDispatch } from '~/components/workspace/common/store/hooks';
 
+import UserInterfaceCodingWorkspaceLayoutDialog from './layout/UserInterfaceCodingWorkspaceLayoutDialog';
+import UserInterfaceCodingWorkspaceSaveButton from './save-code/UserInterfaceCodingWorkspaceSaveButton';
 import { useUserInterfaceCodingWorkspaceSelector } from './store/hooks';
 import { deleteLocalUserInterfaceQuestionCode } from './UserInterfaceCodingWorkspaceCodeStorage';
 import UserInterfaceCodingWorkspaceFrameworkDropdown from './UserInterfaceCodingWorkspaceFrameworkDropdown';
-import UserInterfaceCodingWorkspaceLayoutDialog from './UserInterfaceCodingWorkspaceLayoutDialog';
-import UserInterfaceCodingWorkspaceSaveButton from './UserInterfaceCodingWorkspaceSaveButton';
 
 type Mode = ComponentProps<typeof CodingWorkspaceMobileSolutionButton>['mode'];
 type Props = Readonly<{

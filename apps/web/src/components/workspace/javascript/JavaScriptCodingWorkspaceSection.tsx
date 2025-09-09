@@ -16,12 +16,12 @@ import type { JavaScriptCodingWorkspaceStore } from '~/components/workspace/java
 
 import SandpackObservability from '../common/sandpack/SandpackObservability';
 import { useSandpackBundlerURL } from '../common/sandpack/useSandpackBundlerURL';
+import { loadJavaScriptCodingWorkspaceWorkingLanguage } from './language/JavaScriptCodingWorkspaceWorkingLanguageStorage';
+import { makeJavaScriptCodingWorkspaceStore } from './store/javascript-store';
 import {
   javaScriptCodingWorkspaceGetInitialFiles,
   javascriptCodingWorkspaceGetInitialSandpackState,
-} from './javascriptCodingWorkspaceGetInitialFiles';
-import { loadJavaScriptCodingWorkspaceWorkingLanguage } from './JavaScriptCodingWorkspaceWorkingLanguageStorage';
-import { makeJavaScriptCodingWorkspaceStore } from './store/javascript-store';
+} from './utils/javascriptCodingWorkspaceGetInitialFiles';
 
 type Props = Readonly<{
   activeTabScrollIntoView?: boolean;

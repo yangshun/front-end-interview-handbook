@@ -1,5 +1,5 @@
 import type { QuestionCodingWorkingLanguage } from '~/components/interviews/questions/common/QuestionsTypes';
-import type { SetUnsavedChangesDialogType } from '~/components/workspace/common/CodingWorkspaceUnsavedSolutionContext';
+import type { SetUnsavedChangesDialogType } from '~/components/workspace/common/context/CodingWorkspaceUnsavedSolutionContext';
 import {
   resetFile,
   updateFile,

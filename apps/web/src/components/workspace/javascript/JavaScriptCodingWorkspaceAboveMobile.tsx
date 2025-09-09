@@ -8,14 +8,16 @@ import { useMediaQuery } from 'usehooks-ts';
 
 import InterviewsPremiumBadge from '~/components/interviews/common/InterviewsPremiumBadge';
 import { useIntl } from '~/components/intl';
-import type { CodingWorkspaceTabContents } from '~/components/workspace/common/CodingWorkspaceContext';
 import CodingWorkspaceDescriptionAddOnItems from '~/components/workspace/common/CodingWorkspaceDescriptionAddOnItems';
 import CodingWorkspaceDivider, {
   CodingWorkspaceDividerWrapperClassname,
 } from '~/components/workspace/common/CodingWorkspaceDivider';
 import CodingWorkspaceErrorBoundary from '~/components/workspace/common/CodingWorkspaceErrorBoundary';
 import CodingWorkspaceConsole from '~/components/workspace/common/console/CodingWorkspaceConsole';
+import type { CodingWorkspaceTabContents } from '~/components/workspace/common/context/CodingWorkspaceContext';
 import CodingWorkspaceEditorShortcutsTab from '~/components/workspace/common/editor/CodingWorkspaceEditorShortcutsTab';
+import useCodingWorkspaceCodeEditorCustomActions from '~/components/workspace/common/hooks/useCodingWorkspaceCodeEditorCustomActions';
+import useTabletResponsiveLayout from '~/components/workspace/common/hooks/useTabletResponsiveLayout';
 import {
   codingWorkspaceTabAttemptId,
   codingWorkspaceTabAttemptPattern,
@@ -24,37 +26,35 @@ import {
   codingWorkspaceTabFileId,
   codingWorkspaceTabFilePattern,
 } from '~/components/workspace/common/tabs/codingWorkspaceTabId';
-import useCodingWorkspaceCodeEditorCustomActions from '~/components/workspace/common/useCodingWorkspaceCodeEditorCustomActions';
-import useTabletResponsiveLayout from '~/components/workspace/common/useTabletResponsiveLayout';
+import JavaScriptCodingWorkspaceCodeEditor from '~/components/workspace/javascript/editor/JavaScriptCodingWorkspaceCodeEditor';
+import JavaScriptCodingWorkspaceNewTab from '~/components/workspace/javascript/JavaScriptCodingWorkspaceNewTab';
+import JavaScriptCodingWorkspaceCommunitySolutionCreateTab from '~/components/workspace/javascript/solution/JavaScriptCodingWorkspaceCommunitySolutionCreateTab';
+import JavaScriptCodingWorkspaceCommunitySolutionList from '~/components/workspace/javascript/solution/JavaScriptCodingWorkspaceCommunitySolutionList';
+import JavaScriptCodingWorkspaceCommunitySolutionTab from '~/components/workspace/javascript/solution/JavaScriptCodingWorkspaceCommunitySolutionTab';
+import JavaScriptCodingWorkspaceSolution from '~/components/workspace/javascript/solution/JavaScriptCodingWorkspaceSolution';
 import { useJavaScriptCodingWorkspaceSelector } from '~/components/workspace/javascript/store/hooks';
+import JavaScriptCodingWorkspaceTestsRunTab from '~/components/workspace/javascript/tests/JavaScriptCodingWorkspaceRunTab';
+import JavaScriptCodingWorkspaceTestsSubmitTab from '~/components/workspace/javascript/tests/JavaScriptCodingWorkspaceSubmitTab';
 
 import { TilesPanelRoot } from '~/react-tiling/components/TilesPanelRoot';
 
 import { CodingWorkspaceTabIcons } from '../common/CodingWorkspaceTabIcons';
+import useJavaScriptCodingWorkspaceTilesContext from './hooks/useJavaScriptCodingWorkspaceTilesContext';
 import type { JavaScriptWorkspaceRenderProps } from './JavaScriptCodingWorkspace';
 import JavaScriptCodingWorkspaceBottomBar from './JavaScriptCodingWorkspaceBottomBar';
-import JavaScriptCodingWorkspaceCodeEditor from './JavaScriptCodingWorkspaceCodeEditor';
-import JavaScriptCodingWorkspaceCommunitySolutionCreateTab from './JavaScriptCodingWorkspaceCommunitySolutionCreateTab';
-import JavaScriptCodingWorkspaceCommunitySolutionList from './JavaScriptCodingWorkspaceCommunitySolutionList';
-import JavaScriptCodingWorkspaceCommunitySolutionTab from './JavaScriptCodingWorkspaceCommunitySolutionTab';
 import JavaScriptCodingWorkspaceDescription from './JavaScriptCodingWorkspaceDescription';
-import {
-  getJavaScriptCodingWorkspaceLayoutTablet,
-  getJavaScriptCodingWorkspaceLayoutTwoColumns,
-} from './JavaScriptCodingWorkspaceLayouts';
-import JavaScriptCodingWorkspaceNewTab from './JavaScriptCodingWorkspaceNewTab';
-import JavaScriptCodingWorkspaceTestsRunTab from './JavaScriptCodingWorkspaceRunTab';
-import JavaScriptCodingWorkspaceSolution from './JavaScriptCodingWorkspaceSolution';
-import JavaScriptCodingWorkspaceSubmissionList from './JavaScriptCodingWorkspaceSubmissionList';
-import JavaScriptCodingWorkspaceSubmissionTab from './JavaScriptCodingWorkspaceSubmissionTab';
-import JavaScriptCodingWorkspaceTestsSubmitTab from './JavaScriptCodingWorkspaceSubmitTab';
-import JavaScriptCodingWorkspaceTestsCode from './JavaScriptCodingWorkspaceTestsCode';
-import JavaScriptCodingWorkspaceTestsEditor from './JavaScriptCodingWorkspaceTestsEditor';
 import type {
   JavaScriptCodingWorkspacePredefinedTabsContents,
   JavaScriptCodingWorkspaceTabsType,
 } from './JavaScriptCodingWorkspaceTypes';
-import useJavaScriptCodingWorkspaceTilesContext from './useJavaScriptCodingWorkspaceTilesContext';
+import {
+  getJavaScriptCodingWorkspaceLayoutTablet,
+  getJavaScriptCodingWorkspaceLayoutTwoColumns,
+} from './layout/JavaScriptCodingWorkspaceLayouts';
+import JavaScriptCodingWorkspaceSubmissionList from './submission/JavaScriptCodingWorkspaceSubmissionList';
+import JavaScriptCodingWorkspaceSubmissionTab from './submission/JavaScriptCodingWorkspaceSubmissionTab';
+import JavaScriptCodingWorkspaceTestsCode from './tests/JavaScriptCodingWorkspaceTestsCode';
+import JavaScriptCodingWorkspaceTestsEditor from './tests/JavaScriptCodingWorkspaceTestsEditor';
 
 const JavaScriptCodingWorkspaceTilesPanelRoot =
   TilesPanelRoot<JavaScriptCodingWorkspaceTabsType>;

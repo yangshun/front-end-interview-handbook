@@ -10,30 +10,41 @@ import { useMediaQuery } from 'usehooks-ts';
 
 import InterviewsPremiumBadge from '~/components/interviews/common/InterviewsPremiumBadge';
 import { useIntl } from '~/components/intl';
-import type { CodingWorkspaceTabContents } from '~/components/workspace/common/CodingWorkspaceContext';
 import CodingWorkspaceDescriptionAddOnItems from '~/components/workspace/common/CodingWorkspaceDescriptionAddOnItems';
 import CodingWorkspaceDivider, {
   CodingWorkspaceDividerWrapperClassname,
 } from '~/components/workspace/common/CodingWorkspaceDivider';
 import CodingWorkspaceErrorBoundary from '~/components/workspace/common/CodingWorkspaceErrorBoundary';
-import { codingWorkspaceExtractFileNameFromPath } from '~/components/workspace/common/codingWorkspaceExtractFileNameFromPath';
 import { CodingWorkspaceTabIcons } from '~/components/workspace/common/CodingWorkspaceTabIcons';
 import CodingWorkspaceConsole from '~/components/workspace/common/console/CodingWorkspaceConsole';
+import type { CodingWorkspaceTabContents } from '~/components/workspace/common/context/CodingWorkspaceContext';
 import CodingWorkspaceEditorShortcutsTab from '~/components/workspace/common/editor/CodingWorkspaceEditorShortcutsTab';
 import useMonacoEditorRegisterEditorOpener from '~/components/workspace/common/editor/useMonacoEditorRegisterEditorOpener';
+import useCodingWorkspaceCodeEditorCustomActions from '~/components/workspace/common/hooks/useCodingWorkspaceCodeEditorCustomActions';
+import useTabletResponsiveLayout from '~/components/workspace/common/hooks/useTabletResponsiveLayout';
 import {
   codingWorkspaceTabAttemptId,
   codingWorkspaceTabAttemptPattern,
   codingWorkspaceTabFileId,
   codingWorkspaceTabFilePattern,
 } from '~/components/workspace/common/tabs/codingWorkspaceTabId';
-import useCodingWorkspaceCodeEditorCustomActions from '~/components/workspace/common/useCodingWorkspaceCodeEditorCustomActions';
-import useTabletResponsiveLayout from '~/components/workspace/common/useTabletResponsiveLayout';
-import useUserInterfaceCodingWorkspaceTilesContext from '~/components/workspace/user-interface/useUserInterfaceCodingWorkspaceTilesContext';
+import { codingWorkspaceExtractFileNameFromPath } from '~/components/workspace/common/utils/codingWorkspaceExtractFileNameFromPath';
+import useUserInterfaceCodingWorkspaceTilesContext from '~/components/workspace/user-interface/hooks/useUserInterfaceCodingWorkspaceTilesContext';
+import UserInterfaceCodingWorkspaceSaveCodeTab from '~/components/workspace/user-interface/save-code/UserInterfaceCodingWorkspaceSaveCodeTab';
+import UserInterfaceCodingWorkspaceSavesList from '~/components/workspace/user-interface/save-code/UserInterfaceCodingWorkspaceSavesList';
+import UserInterfaceCodingWorkspaceCommunitySolutionCreateTab from '~/components/workspace/user-interface/solution/UserInterfaceCodingWorkspaceCommunitySolutionCreateTab';
+import UserInterfaceCodingWorkspaceCommunitySolutionList from '~/components/workspace/user-interface/solution/UserInterfaceCodingWorkspaceCommunitySolutionList';
 
 import { TilesPanelRoot } from '~/react-tiling/components/TilesPanelRoot';
 
 import { codingWorkspaceExplorerFilePathToIcon } from '../common/explorer/codingWorkspaceExplorerFilePathToIcon';
+import UserInterfaceCodingWorkspaceCodeEditor from './editor/UserInterfaceCodingWorkspaceCodeEditor';
+import {
+  getUserInterfaceCodingWorkspaceLayout,
+  getUserInterfaceCodingWorkspaceLayoutMobile,
+} from './layout/UserInterfaceCodingWorkspaceLayouts';
+import UserInterfaceCodingWorkspacePreview from './preview/UserInterfaceCodingWorkspacePreview';
+import UserInterfaceCodingWorkspaceSolutionPreviewTab from './solution/UserInterfaceCodingWorkspaceSolutionPreviewTab';
 import { replaceUserInterfaceCodeEditorContents } from './store/actions';
 import {
   useUserInterfaceCodingWorkspaceDispatch,
@@ -41,19 +52,8 @@ import {
 } from './store/hooks';
 import type { UserInterfaceWorkspaceRenderProps } from './UserInterfaceCodingWorkspace';
 import UserInterfaceCodingWorkspaceBottomBar from './UserInterfaceCodingWorkspaceBottomBar';
-import UserInterfaceCodingWorkspaceCodeEditor from './UserInterfaceCodingWorkspaceCodeEditor';
-import UserInterfaceCodingWorkspaceCommunitySolutionCreateTab from './UserInterfaceCodingWorkspaceCommunitySolutionCreateTab';
-import UserInterfaceCodingWorkspaceCommunitySolutionList from './UserInterfaceCodingWorkspaceCommunitySolutionList';
 import UserInterfaceCodingWorkspaceExplorer from './UserInterfaceCodingWorkspaceExplorer';
-import {
-  getUserInterfaceCodingWorkspaceLayout,
-  getUserInterfaceCodingWorkspaceLayoutMobile,
-} from './UserInterfaceCodingWorkspaceLayouts';
 import UserInterfaceCodingWorkspaceNewTab from './UserInterfaceCodingWorkspaceNewTab';
-import UserInterfaceCodingWorkspacePreview from './UserInterfaceCodingWorkspacePreview';
-import UserInterfaceCodingWorkspaceSaveCodeTab from './UserInterfaceCodingWorkspaceSaveCodeTab';
-import UserInterfaceCodingWorkspaceSavesList from './UserInterfaceCodingWorkspaceSavesList';
-import UserInterfaceCodingWorkspaceSolutionPreviewTab from './UserInterfaceCodingWorkspaceSolutionPreviewTab';
 import type {
   UserInterfaceCodingWorkspacePredefinedTabsContents,
   UserInterfaceCodingWorkspaceTabsType,

@@ -13,8 +13,8 @@ import type {
   QuestionMetadata,
   QuestionUserInterface,
 } from '~/components/interviews/questions/common/QuestionsTypes';
-import { codingWorkspaceConvertFilesToSandpackBundlerFiles } from '~/components/workspace/common/codingWorkspaceConvertFiles';
 import { useSandpackBundlerURL } from '~/components/workspace/common/sandpack/useSandpackBundlerURL';
+import { codingWorkspaceConvertFilesToSandpackBundlerFiles } from '~/components/workspace/common/utils/codingWorkspaceConvertFiles';
 import type { UserInterfaceWorkspaceRenderProps } from '~/components/workspace/user-interface/UserInterfaceCodingWorkspace';
 import UserInterfaceCodingWorkspace from '~/components/workspace/user-interface/UserInterfaceCodingWorkspace';
 import { loadLocalUserInterfaceQuestionCode } from '~/components/workspace/user-interface/UserInterfaceCodingWorkspaceCodeStorage';

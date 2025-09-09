@@ -9,16 +9,14 @@ import { RiCodeLine } from 'react-icons/ri';
 
 import useQuestionLogEventCopyContents from '~/components/interviews/questions/common/useQuestionLogEventCopyContents';
 import { useIntl } from '~/components/intl';
-import { codingFilesShouldUseTypeScript } from '~/components/workspace/common/codingFilesShouldUseTypeScript';
-import type { CodingWorkspaceTabContents } from '~/components/workspace/common/CodingWorkspaceContext';
-import { CodingWorkspaceProvider } from '~/components/workspace/common/CodingWorkspaceContext';
 import CodingWorkspaceDivider, {
   CodingWorkspaceDividerWrapperClassname,
 } from '~/components/workspace/common/CodingWorkspaceDivider';
 import CodingWorkspaceErrorBoundary from '~/components/workspace/common/CodingWorkspaceErrorBoundary';
-import { codingWorkspaceExtractFileNameFromPath } from '~/components/workspace/common/codingWorkspaceExtractFileNameFromPath';
 import { CodingWorkspaceTabIcons } from '~/components/workspace/common/CodingWorkspaceTabIcons';
 import CodingWorkspaceConsole from '~/components/workspace/common/console/CodingWorkspaceConsole';
+import type { CodingWorkspaceTabContents } from '~/components/workspace/common/context/CodingWorkspaceContext';
+import { CodingWorkspaceProvider } from '~/components/workspace/common/context/CodingWorkspaceContext';
 import useMonacoEditorModels from '~/components/workspace/common/editor/useMonacoEditorModels';
 import useMonacoEditorRegisterEditorOpener from '~/components/workspace/common/editor/useMonacoEditorRegisterEditorOpener';
 import useMonacoLanguagesFetchTypeDeclarations from '~/components/workspace/common/editor/useMonacoLanguagesFetchTypeDeclarations';
@@ -32,8 +30,10 @@ import {
   codingWorkspaceTabFileId,
   codingWorkspaceTabFilePattern,
 } from '~/components/workspace/common/tabs/codingWorkspaceTabId';
-import UserInterfaceCodingWorkspacePreview from '~/components/workspace/user-interface/UserInterfaceCodingWorkspacePreview';
-import useUserInterfaceCodingWorkspaceTilesContext from '~/components/workspace/user-interface/useUserInterfaceCodingWorkspaceTilesContext';
+import { codingFilesShouldUseTypeScript } from '~/components/workspace/common/utils/codingFilesShouldUseTypeScript';
+import { codingWorkspaceExtractFileNameFromPath } from '~/components/workspace/common/utils/codingWorkspaceExtractFileNameFromPath';
+import useUserInterfaceCodingWorkspaceTilesContext from '~/components/workspace/user-interface/hooks/useUserInterfaceCodingWorkspaceTilesContext';
+import UserInterfaceCodingWorkspacePreview from '~/components/workspace/user-interface/preview/UserInterfaceCodingWorkspacePreview';
 
 import { TilesPanelRoot } from '~/react-tiling/components/TilesPanelRoot';
 import { TilesProvider } from '~/react-tiling/state/TilesProvider';

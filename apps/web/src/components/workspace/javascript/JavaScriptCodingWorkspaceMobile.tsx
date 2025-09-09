@@ -19,12 +19,12 @@ import {
   useCodingWorkspaceSelector,
 } from '~/components/workspace/common/store/hooks';
 import { updateFile } from '~/components/workspace/common/store/sandpack-slice';
+import JavaScriptCodingWorkspaceCodeEditor from '~/components/workspace/javascript/editor/JavaScriptCodingWorkspaceCodeEditor';
+import JavaScriptCodingWorkspaceSolution from '~/components/workspace/javascript/solution/JavaScriptCodingWorkspaceSolution';
 
 import type { JavaScriptWorkspaceRenderProps } from './JavaScriptCodingWorkspace';
 import JavaScriptCodingWorkspaceBottomBar from './JavaScriptCodingWorkspaceBottomBar';
-import JavaScriptCodingWorkspaceCodeEditor from './JavaScriptCodingWorkspaceCodeEditor';
 import JavaScriptCodingWorkspaceDescription from './JavaScriptCodingWorkspaceDescription';
-import JavaScriptCodingWorkspaceSolution from './JavaScriptCodingWorkspaceSolution';
 
 type Props = JavaScriptWorkspaceRenderProps;
 type Mode = ComponentProps<typeof JavaScriptCodingWorkspaceBottomBar>['mode'];

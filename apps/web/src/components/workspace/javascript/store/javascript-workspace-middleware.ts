@@ -2,8 +2,8 @@ import type { Middleware, MiddlewareAPI } from '@reduxjs/toolkit';
 
 import { initializeSandpack } from '~/components/workspace/common/store/sandpack-slice';
 
-import { javascriptCodingWorkspaceGetInitialSandpackState } from '../javascriptCodingWorkspaceGetInitialFiles';
-import { saveJavaScriptCodingWorkspaceWorkingLanguage } from '../JavaScriptCodingWorkspaceWorkingLanguageStorage';
+import { saveJavaScriptCodingWorkspaceWorkingLanguage } from '../language/JavaScriptCodingWorkspaceWorkingLanguageStorage';
+import { javascriptCodingWorkspaceGetInitialSandpackState } from '../utils/javascriptCodingWorkspaceGetInitialFiles';
 import type {
   JavaScriptCodingWorkspaceDispatch,
   JavaScriptCodingWorkspaceState,

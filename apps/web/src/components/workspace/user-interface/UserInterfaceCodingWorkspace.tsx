@@ -13,13 +13,12 @@ import type {
 import useQuestionsAutoMarkAsComplete from '~/components/interviews/questions/common/useQuestionsAutoMarkAsComplete';
 import { questionUserInterfacePath } from '~/components/interviews/questions/content/user-interface/QuestionUserInterfaceRoutes';
 import { useQuestionsListTypeCurrent } from '~/components/interviews/questions/listings/utils/useQuestionsListDataForType';
-import { CodingWorkspaceUnsavedSolutionProvider } from '~/components/workspace/common/CodingWorkspaceUnsavedSolutionContext';
-import useCodingWorkspaceSyncSandpackFiles from '~/components/workspace/common/useCodingWorkspaceSyncSandpackFiles';
+import { CodingWorkspaceUnsavedSolutionProvider } from '~/components/workspace/common/context/CodingWorkspaceUnsavedSolutionContext';
+import useCodingWorkspaceSyncSandpackFiles from '~/components/workspace/common/hooks/useCodingWorkspaceSyncSandpackFiles';
 
 import { useI18nRouter } from '~/next-i18nostic/src';
 import { TilesProvider } from '~/react-tiling/state/TilesProvider';
 
-import { codingFilesShouldUseTypeScript } from '../common/codingFilesShouldUseTypeScript';
 import useMonacoEditorModels from '../common/editor/useMonacoEditorModels';
 import useMonacoLanguagesFetchTypeDeclarations from '../common/editor/useMonacoLanguagesFetchTypeDeclarations';
 import useMonacoLanguagesJSONDefaults from '../common/editor/useMonacoLanguagesJSONDefaults';
@@ -27,12 +26,13 @@ import useMonacoLanguagesLoadTSConfig from '../common/editor/useMonacoLanguagesL
 import useMonacoLanguagesTypeScriptRunDiagnostics from '../common/editor/useMonacoLanguagesTypeScriptRunDiagnostics';
 import useRestartSandpack from '../common/sandpack/useRestartSandpack';
 import useSandpackModuleErrorRefreshBrowser from '../common/sandpack/useSandpackModuleErrorRefreshBrowser';
-import { useUserInterfaceCodingWorkspaceSelector } from './store/hooks';
+import { codingFilesShouldUseTypeScript } from '../common/utils/codingFilesShouldUseTypeScript';
+import useUserInterfaceCodingWorkspaceSaveCodeLocally from './hooks/useUserInterfaceCodingWorkspaceSaveCodeLocally';
 import {
   getUserInterfaceCodingWorkspaceLayout,
   getUserInterfaceCodingWorkspaceLayoutMobile,
-} from './UserInterfaceCodingWorkspaceLayouts';
-import useUserInterfaceCodingWorkspaceSaveCodeLocally from './useUserInterfaceCodingWorkspaceSaveCodeLocally';
+} from './layout/UserInterfaceCodingWorkspaceLayouts';
+import { useUserInterfaceCodingWorkspaceSelector } from './store/hooks';
 
 export type UserInterfaceWorkspaceProps = Readonly<{
   canViewPremiumContent: boolean;

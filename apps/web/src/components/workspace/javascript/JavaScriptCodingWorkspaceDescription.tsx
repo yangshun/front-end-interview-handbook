@@ -18,7 +18,7 @@ import CodingWorkspaceQuestionContentProse from '~/components/workspace/common/C
 
 import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
 
-import JavaScriptCodingWorkspaceLanguageDropdown from './JavaScriptCodingWorkspaceLanguageDropdown';
+import JavaScriptCodingWorkspaceLanguageDropdown from './language/JavaScriptCodingWorkspaceLanguageDropdown';
 
 type Props = Readonly<{
   canViewPremiumContent: boolean;

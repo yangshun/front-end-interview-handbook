@@ -8,23 +8,23 @@ import type {
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import useQuestionsAutoMarkAsComplete from '~/components/interviews/questions/common/useQuestionsAutoMarkAsComplete';
-import useCodingWorkspaceSyncSandpackFiles from '~/components/workspace/common/useCodingWorkspaceSyncSandpackFiles';
+import useCodingWorkspaceSyncSandpackFiles from '~/components/workspace/common/hooks/useCodingWorkspaceSyncSandpackFiles';
 
 import { TilesProvider } from '~/react-tiling/state/TilesProvider';
 
-import { codingFilesShouldUseTypeScript } from '../common/codingFilesShouldUseTypeScript';
-import { CodingWorkspaceUnsavedSolutionProvider } from '../common/CodingWorkspaceUnsavedSolutionContext';
+import { CodingWorkspaceUnsavedSolutionProvider } from '../common/context/CodingWorkspaceUnsavedSolutionContext';
 import useMonacoEditorModels from '../common/editor/useMonacoEditorModels';
 import useMonacoLanguagesFetchTypeDeclarations from '../common/editor/useMonacoLanguagesFetchTypeDeclarations';
 import useMonacoLanguagesLoadTSConfig from '../common/editor/useMonacoLanguagesLoadTSConfig';
 import useMonacoLanguagesTypeScriptRunDiagnostics from '../common/editor/useMonacoLanguagesTypeScriptRunDiagnostics';
 import useRestartSandpack from '../common/sandpack/useRestartSandpack';
+import { codingFilesShouldUseTypeScript } from '../common/utils/codingFilesShouldUseTypeScript';
+import useJavaScriptCodingWorkspaceSaveCodeLocally from './hooks/useJavaScriptCodingWorkspaceSaveLocally';
 import {
   getJavaScriptCodingWorkspaceLayoutTablet,
   getJavaScriptCodingWorkspaceLayoutTwoColumns,
-} from './JavaScriptCodingWorkspaceLayouts';
+} from './layout/JavaScriptCodingWorkspaceLayouts';
 import { useJavaScriptCodingWorkspaceSelector } from './store/hooks';
-import useJavaScriptCodingWorkspaceSaveCodeLocally from './useJavaScriptCodingWorkspaceSaveLocally';
 
 export type JavaScriptCodingWorkspaceProps = Readonly<{
   canViewPremiumContent: boolean;

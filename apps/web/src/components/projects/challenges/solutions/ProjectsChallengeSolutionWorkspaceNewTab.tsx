@@ -6,13 +6,13 @@ import { RiCodeLine } from 'react-icons/ri';
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
-import { codingWorkspaceExtractFileNameFromPath } from '~/components/workspace/common/codingWorkspaceExtractFileNameFromPath';
 import { codingWorkspaceExplorerFilePathToIcon } from '~/components/workspace/common/explorer/codingWorkspaceExplorerFilePathToIcon';
 import {
   codingWorkspaceTabFileId,
   codingWorkspaceTabFilePattern,
 } from '~/components/workspace/common/tabs/codingWorkspaceTabId';
-import useUserInterfaceCodingWorkspaceTilesContext from '~/components/workspace/user-interface/useUserInterfaceCodingWorkspaceTilesContext';
+import { codingWorkspaceExtractFileNameFromPath } from '~/components/workspace/common/utils/codingWorkspaceExtractFileNameFromPath';
+import useUserInterfaceCodingWorkspaceTilesContext from '~/components/workspace/user-interface/hooks/useUserInterfaceCodingWorkspaceTilesContext';
 
 import type {
   ProjectsChallengeSolutionWorkspacePredefinedTabsContents,

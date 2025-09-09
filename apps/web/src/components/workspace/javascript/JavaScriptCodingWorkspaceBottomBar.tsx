@@ -14,18 +14,18 @@ import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
 import CodingWorkspaceBottomBar from '~/components/workspace/common/CodingWorkspaceBottomBar';
 import { CodingWorkspaceBottomBarSettingsDropdownMenu } from '~/components/workspace/common/CodingWorkspaceBottomBarSettingsDropdownMenu';
-import CodingWorkspaceMobileSolutionButton from '~/components/workspace/common/CodingWorkspaceMobileSolutionButton';
 import CodingWorkspaceTimer from '~/components/workspace/common/CodingWorkspaceTimer';
+import CodingWorkspaceMobileSolutionButton from '~/components/workspace/common/solution/CodingWorkspaceMobileSolutionButton';
 import { updateFile } from '~/components/workspace/common/store/sandpack-slice';
 import { pauseTimer } from '~/components/workspace/common/store/timer-slice';
+import JavaScriptCodingWorkspaceLayoutDialog from '~/components/workspace/javascript/layout/JavaScriptCodingWorkspaceLayoutDialog';
 import {
   useJavaScriptCodingWorkspaceDispatch,
   useJavaScriptCodingWorkspaceSelector,
 } from '~/components/workspace/javascript/store/hooks';
 
 import { deleteLocalJavaScriptQuestionCode } from './JavaScriptCodingWorkspaceCodeStorage';
-import JavaScriptCodingWorkspaceLanguageDropdown from './JavaScriptCodingWorkspaceLanguageDropdown';
-import JavaScriptCodingWorkspaceLayoutDialog from './JavaScriptCodingWorkspaceLayoutDialog';
+import JavaScriptCodingWorkspaceLanguageDropdown from './language/JavaScriptCodingWorkspaceLanguageDropdown';
 import { runTests, submit } from './store/execution-slice';
 
 type Mode = ComponentProps<typeof CodingWorkspaceMobileSolutionButton>['mode'];

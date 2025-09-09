@@ -1,4 +1,4 @@
-import type { CodingWorkspaceTabContents } from '../common/CodingWorkspaceContext';
+import type { CodingWorkspaceTabContents } from '../common/context/CodingWorkspaceContext';
 import type {
   CodingWorkspaceTabAttemptType,
   CodingWorkspaceTabFileType,

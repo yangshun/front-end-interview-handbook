@@ -2,12 +2,15 @@
 
 import { useUser } from '@supabase/auth-helpers-react';
 import clsx from 'clsx';
-import { ReactNode, Suspense } from 'react';
+import type { ReactNode} from 'react';
+import { Suspense } from 'react';
 
 import QuestionBookmarkAction from '~/components/interviews/questions/common/QuestionBookmarkAction';
 import QuestionProgressAction from '~/components/interviews/questions/common/QuestionProgressAction';
 import QuestionReportIssueButton from '~/components/interviews/questions/common/QuestionReportIssueButton';
+import type { QuestionListTypeData } from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsListSlideOutButton from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOutButton';
+import Text from '~/components/ui/Text';
 import {
   themeBackgroundDarkColor,
   themeBorderColor,
@@ -15,31 +18,29 @@ import {
 
 import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
 import { hashQuestion } from '~/db/QuestionsUtils';
-import type { QuestionListTypeData } from '~/components/interviews/questions/common/QuestionsTypes';
-import Text from '~/components/ui/Text';
 
 type Props = Readonly<{
   allowBookmark?: boolean;
-  questionTitle?: string;
-  initialListType?: QuestionListTypeData;
   allowMarkComplete?: boolean;
+  initialListType?: QuestionListTypeData;
+  leftAddOnItem?: ReactNode;
   listIsShownInSidebarOnDesktop: boolean;
   metadata: React.ComponentProps<typeof QuestionProgressAction>['metadata'];
-  studyListKey?: string;
-  leftAddOnItem?: ReactNode;
+  questionTitle?: string;
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE?: string | null;
+  studyListKey?: string;
 }>;
 
 export default function InterviewsStudyListBottomBar({
   allowBookmark = true,
   allowMarkComplete = true,
+  initialListType,
+  leftAddOnItem,
   listIsShownInSidebarOnDesktop,
   metadata,
-  studyListKey,
-  leftAddOnItem,
-  initialListType,
   questionTitle,
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE = 'qns_slideout',
+  studyListKey,
 }: Props) {
   const user = useUser();
   const { isLoading } = useQueryQuestionProgress(

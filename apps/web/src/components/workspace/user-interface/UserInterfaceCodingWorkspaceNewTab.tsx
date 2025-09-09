@@ -7,19 +7,19 @@ import { INTERVIEWS_UI_COMMUNITY_SOLUTIONS_IS_LIVE } from '~/data/FeatureFlags';
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
-import { codingWorkspaceExtractFileNameFromPath } from '~/components/workspace/common/codingWorkspaceExtractFileNameFromPath';
 import { codingWorkspaceExplorerFilePathToIcon } from '~/components/workspace/common/explorer/codingWorkspaceExplorerFilePathToIcon';
 import {
   codingWorkspaceTabFileId,
   codingWorkspaceTabFilePattern,
 } from '~/components/workspace/common/tabs/codingWorkspaceTabId';
+import { codingWorkspaceExtractFileNameFromPath } from '~/components/workspace/common/utils/codingWorkspaceExtractFileNameFromPath';
 
+import useUserInterfaceCodingWorkspaceTilesContext from './hooks/useUserInterfaceCodingWorkspaceTilesContext';
 import { useUserInterfaceCodingWorkspaceSelector } from './store/hooks';
 import type {
   UserInterfaceCodingWorkspacePredefinedTabsContents,
   UserInterfaceCodingWorkspacePredefinedTabsType,
 } from './UserInterfaceCodingWorkspaceTypes';
-import useUserInterfaceCodingWorkspaceTilesContext from './useUserInterfaceCodingWorkspaceTilesContext';
 
 type UserInterfaceCodingNewTabTypeData =
   | {

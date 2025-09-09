@@ -1,6 +1,6 @@
 import type { Mock } from 'vitest';
 
-import { codingWorkspaceConvertFilesToSandpackBundlerFiles } from '../codingWorkspaceConvertFiles';
+import { codingWorkspaceConvertFilesToSandpackBundlerFiles } from '../utils/codingWorkspaceConvertFiles';
 import reducer, {
   initializeSandpack,
   replaceCurrentFileState,

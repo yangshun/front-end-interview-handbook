@@ -3,7 +3,7 @@ import type { ComponentProps } from 'react';
 import MDXCodeBlock, {
   convertContentToCode,
 } from '~/components/mdx/MDXCodeBlock';
-import JavaScriptCodingQuizCodeEditor from '~/components/workspace/javascript/JavaScriptCodingQuizCodeEditor';
+import JavaScriptCodingQuizCodeEditor from '~/components/workspace/javascript/editor/JavaScriptCodingQuizCodeEditor';
 
 type Props = ComponentProps<'pre'> & Readonly<{ live?: boolean }>;
 

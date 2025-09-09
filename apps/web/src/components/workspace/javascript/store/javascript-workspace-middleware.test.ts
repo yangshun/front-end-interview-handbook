@@ -6,8 +6,8 @@ import type { QuestionJavaScript } from '~/components/interviews/questions/commo
 import type { SandpackState } from '~/components/workspace/common/store/sandpack-slice';
 import { initializeSandpack } from '~/components/workspace/common/store/sandpack-slice';
 
-import * as InitialFiles from '../javascriptCodingWorkspaceGetInitialFiles';
-import * as LanguageStorage from '../JavaScriptCodingWorkspaceWorkingLanguageStorage';
+import * as LanguageStorage from '../language/JavaScriptCodingWorkspaceWorkingLanguageStorage';
+import * as InitialFiles from '../utils/javascriptCodingWorkspaceGetInitialFiles';
 import { javaScriptWorkspaceMiddleware } from './javascript-workspace-middleware';
 import javascriptWorkspaceReducer, {
   setLanguage,

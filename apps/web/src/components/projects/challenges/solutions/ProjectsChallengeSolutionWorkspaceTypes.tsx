@@ -1,4 +1,4 @@
-import type { CodingWorkspaceTabContents } from '~/components/workspace/common/CodingWorkspaceContext';
+import type { CodingWorkspaceTabContents } from '~/components/workspace/common/context/CodingWorkspaceContext';
 import type { CodingWorkspaceTabFileType } from '~/components/workspace/common/tabs/codingWorkspaceTabId';
 
 export type ProjectsChallengeSolutionWorkspacePredefinedTabsType =

@@ -3,7 +3,7 @@ import type { SandpackFiles } from '@codesandbox/sandpack-react';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 
-import { codingWorkspaceConvertFilesToSandpackBundlerFiles } from '../codingWorkspaceConvertFiles';
+import { codingWorkspaceConvertFilesToSandpackBundlerFiles } from '../utils/codingWorkspaceConvertFiles';
 
 type FileState = Readonly<{
   activeFile: string;

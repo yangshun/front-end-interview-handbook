@@ -7,12 +7,12 @@ import { useIntl } from '~/components/intl';
 import Banner from '~/components/ui/Banner';
 import Button from '~/components/ui/Button';
 import { themeBorderColor } from '~/components/ui/theme';
-import { useCodingWorkspaceContext } from '~/components/workspace/common/CodingWorkspaceContext';
+import { useCodingWorkspaceContext } from '~/components/workspace/common/context/CodingWorkspaceContext';
 import CodingWorkspaceEditorShortcutsButton from '~/components/workspace/common/editor/CodingWorkspaceEditorShortcutsButton';
 import CodingWorkspaceResetButton from '~/components/workspace/common/editor/CodingWorkspaceResetButton';
 import CodingWorkspaceThemeSelect from '~/components/workspace/common/editor/CodingWorkspaceThemeSelect';
 import MonacoCodeEditor from '~/components/workspace/common/editor/MonacoCodeEditor';
-import useUserInterfaceCodingWorkspaceTilesContext from '~/components/workspace/user-interface/useUserInterfaceCodingWorkspaceTilesContext';
+import useUserInterfaceCodingWorkspaceTilesContext from '~/components/workspace/user-interface/hooks/useUserInterfaceCodingWorkspaceTilesContext';
 
 export default function ProjectsUserInterfaceCodingWorkspaceCodeEditor({
   filePath,

@@ -12,7 +12,7 @@ import type { QuestionMetadata } from '~/components/interviews/questions/common/
 import { useIntl } from '~/components/intl';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 
-import { useCodingWorkspaceUnsavedSolutionContext } from './CodingWorkspaceUnsavedSolutionContext';
+import { useCodingWorkspaceUnsavedSolutionContext } from './context/CodingWorkspaceUnsavedSolutionContext';
 import {
   useCodingWorkspaceDispatch,
   useCodingWorkspaceSelector,

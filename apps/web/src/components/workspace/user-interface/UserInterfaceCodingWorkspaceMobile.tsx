@@ -10,11 +10,14 @@ import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Text, { textVariants } from '~/components/ui/Text';
 import CodingWorkspaceDescriptionAddOnItems from '~/components/workspace/common/CodingWorkspaceDescriptionAddOnItems';
-import { codingWorkspaceExtractFileNameFromPath } from '~/components/workspace/common/codingWorkspaceExtractFileNameFromPath';
 import CodingWorkspaceMobileExperienceBanner from '~/components/workspace/common/CodingWorkspaceMobileExperienceBanner';
 import { CodingWorkspaceTabIcons } from '~/components/workspace/common/CodingWorkspaceTabIcons';
 import { codingWorkspaceTabFileId } from '~/components/workspace/common/tabs/codingWorkspaceTabId';
+import { codingWorkspaceExtractFileNameFromPath } from '~/components/workspace/common/utils/codingWorkspaceExtractFileNameFromPath';
 
+import UserInterfaceCodingWorkspaceCodeEditor from './editor/UserInterfaceCodingWorkspaceCodeEditor';
+import UserInterfaceCodingWorkspaceCodeEditorMobile from './editor/UserInterfaceCodingWorkspaceCodeEditorMobile';
+import UserInterfaceCodingWorkspacePreviewMobile from './preview/UserInterfaceCodingWorkspacePreviewMobile';
 import { replaceUserInterfaceCodeEditorContents } from './store/actions';
 import {
   useUserInterfaceCodingWorkspaceDispatch,
@@ -22,10 +25,7 @@ import {
 } from './store/hooks';
 import type { UserInterfaceWorkspaceRenderProps } from './UserInterfaceCodingWorkspace';
 import UserInterfaceCodingWorkspaceBottomBar from './UserInterfaceCodingWorkspaceBottomBar';
-import UserInterfaceCodingWorkspaceCodeEditor from './UserInterfaceCodingWorkspaceCodeEditor';
-import UserInterfaceCodingWorkspaceCodeEditorMobile from './UserInterfaceCodingWorkspaceCodeEditorMobile';
 import UserInterfaceCodingWorkspaceExplorer from './UserInterfaceCodingWorkspaceExplorer';
-import UserInterfaceCodingWorkspacePreviewMobile from './UserInterfaceCodingWorkspacePreviewMobile';
 import type { UserInterfaceCodingWorkspaceTabsType } from './UserInterfaceCodingWorkspaceTypes';
 import UserInterfaceCodingWorkspaceWriteup from './UserInterfaceCodingWorkspaceWriteup';
 

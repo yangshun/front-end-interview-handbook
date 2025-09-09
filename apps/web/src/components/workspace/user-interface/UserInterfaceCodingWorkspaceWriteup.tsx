@@ -26,9 +26,9 @@ import CodingWorkspaceQuestionContentProse from '~/components/workspace/common/C
 
 import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
 
+import useUserInterfaceCodingWorkspaceTilesContext from './hooks/useUserInterfaceCodingWorkspaceTilesContext';
+import UserInterfaceCodingWorkspaceSolutionFilesPreview from './solution/UserInterfaceCodingWorkspaceSolutionFilesPreview';
 import UserInterfaceCodingWorkspaceFrameworkDropdown from './UserInterfaceCodingWorkspaceFrameworkDropdown';
-import UserInterfaceCodingWorkspaceSolutionFilesPreview from './UserInterfaceCodingWorkspaceSolutionFilesPreview';
-import useUserInterfaceCodingWorkspaceTilesContext from './useUserInterfaceCodingWorkspaceTilesContext';
 
 type BaseProps = Readonly<{
   canViewPremiumContent: boolean;
