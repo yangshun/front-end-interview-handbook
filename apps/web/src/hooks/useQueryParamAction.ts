@@ -1,4 +1,4 @@
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { useCallback, useEffect, useRef } from 'react';
 import url from 'url';
 
@@ -13,7 +13,6 @@ export default function useQueryParamAction<T extends string>(
 ) {
   const hasRunRef = useRef(false);
   const pathname = usePathname();
-  const { replace } = useRouter();
 
   const clearActionQueryParams = useCallback(() => {
     const searchParams = new URLSearchParams(window.location.search);
@@ -21,13 +20,18 @@ export default function useQueryParamAction<T extends string>(
     [queryParamActionKey, ...(params ?? [])].forEach((key) => {
       searchParams.delete(key);
     });
-    replace(
-      url.format({
-        pathname,
-        query: Object.fromEntries(searchParams),
-      }),
+    history.replaceState(
+      null,
+      '',
+      url
+        .format({
+          hash: window.location.hash,
+          pathname,
+          query: Object.fromEntries(searchParams),
+        })
+        .toString(),
     );
-  }, [params, pathname, replace]);
+  }, [params, pathname]);
 
   useEffect(() => {
     if (hasRunRef.current) {
@@ -71,6 +75,7 @@ export default function useQueryParamAction<T extends string>(
     }
 
     return url.format({
+      hash: window.location.hash,
       pathname: urlObj.pathname,
       search: urlObj.search,
     });
