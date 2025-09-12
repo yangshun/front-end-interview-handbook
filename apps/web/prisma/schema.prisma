@@ -75,6 +75,10 @@ model Profile {
   projectsProfile                         ProjectsProfile?
   rewardsTaskCompletions                  RewardsTaskCompletion[]
   sponsorsAdRequestReview                 SponsorsAdRequestReview[]
+  discussionComments                      InterviewsDiscussionComment[]
+  discussionCommentVotes                  InterviewsDiscussionCommentVote[]
+  activitiesGiven                         InterviewsActivity[] @relation("ActivityActor")
+  activitiesReceived                      InterviewsActivity[] @relation("ActivityRecipient")
 
   @@index([username])
   @@index([stripeCustomer])
@@ -274,6 +278,74 @@ model LearningSessionProgress {
 
   @@unique([sessionId, key])
   @@index([sessionId])
+}
+
+enum InterviewsDiscussionCommentDomain {
+  QUESTION
+  OFFICIAL_SOLUTION
+}
+
+model InterviewsDiscussionComment {
+  id              String                     @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  entityId        String
+  domain          InterviewsDiscussionCommentDomain
+  body            String
+  profileId       String  @db.Uuid
+  createdAt       DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt       DateTime @default(now()) @updatedAt
+
+  parentCommentId String? @db.Uuid // For replying to a comment
+  parentComment   InterviewsDiscussionComment?      @relation("DiscussionThread", fields: [parentCommentId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  replies         InterviewsDiscussionComment[]     @relation("DiscussionThread")
+
+  repliedToId     String?  @db.Uuid // For replying to a reply
+  repliedTo       InterviewsDiscussionComment? @relation("DirectReply", fields: [repliedToId], references: [id], onDelete: Cascade)
+  directReplies   InterviewsDiscussionComment[] @relation("DirectReply")
+
+  author          Profile                 @relation(fields: [profileId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  votes           InterviewsDiscussionCommentVote[]
+  activities      InterviewsActivity[]
+
+  @@index([entityId])
+  @@index([profileId])
+}
+
+model InterviewsDiscussionCommentVote {
+  id        String   @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  commentId String   @db.Uuid
+  profileId String   @db.Uuid
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+
+  comment   InterviewsDiscussionComment @relation(fields: [commentId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  author    Profile           @relation(fields: [profileId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  activity  InterviewsActivity?
+
+  @@unique([commentId, profileId])
+  @@index([commentId])
+  @@index([profileId])
+}
+
+enum InterviewsActivityCategory {
+  DISCUSSION
+  DISCUSSION_UPVOTE
+}
+model InterviewsActivity {
+  id          String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  actorId     String    @db.Uuid    // who performed the action
+  recipientId String?   @db.Uuid    // who receives the notification
+  createdAt   DateTime  @default(now()) @db.Timestamptz(6)
+  category    InterviewsActivityCategory
+  read        Boolean   @default(false)
+  commentId   String?   @db.Uuid // For "discussion comment"
+  voteId      String?   @unique @db.Uuid // For "discussion comment upvote"
+
+  comment     InterviewsDiscussionComment? @relation(fields: [commentId], references: [id], onDelete: Cascade)
+  vote        InterviewsDiscussionCommentVote? @relation(fields: [voteId], references: [id], onDelete: Cascade)
+  actor       Profile   @relation("ActivityActor", fields: [actorId], references: [id], onDelete: Cascade)
+  recipient   Profile?   @relation("ActivityRecipient", fields: [recipientId], references: [id], onDelete: Cascade)
+
+  @@index([actorId])
+  @@index([recipientId])
 }
 
 enum ProjectsSubscriptionPlan {

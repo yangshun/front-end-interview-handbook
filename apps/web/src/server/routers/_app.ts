@@ -10,6 +10,7 @@ import { projectsRouter } from './projects';
 import { promotionsRouter } from './promotions';
 import { purchasesRouter } from './purchases';
 import { questionBookmarkRouter } from './question-bookmark';
+import { questionCommentsRouter } from './question-comments';
 import { questionCommunitySolutionRouter } from './question-community-solution';
 import { questionListsRouter } from './question-lists';
 import { questionProgressRouter } from './question-progress';
@@ -31,6 +32,7 @@ export const appRouter = router({
   projects: projectsRouter,
   promotions: promotionsRouter,
   purchases: purchasesRouter,
+  questionComments: questionCommentsRouter,
   questionCommunitySolution: questionCommunitySolutionRouter,
   questionLists: questionListsRouter,
   questionProgress: questionProgressRouter,

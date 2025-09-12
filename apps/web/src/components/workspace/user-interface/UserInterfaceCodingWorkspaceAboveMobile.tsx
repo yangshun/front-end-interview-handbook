@@ -286,6 +286,7 @@ export default function UserInterfaceCodingWorkspaceAboveMobile({
         <UserInterfaceCodingWorkspaceWriteup
           canViewPremiumContent={canViewPremiumContent}
           contentType="description"
+          environment={embed ? 'embed' : 'workspace'}
           framework={framework}
           metadata={{ ...question.metadata, author: questionAuthor }}
           nextQuestions={nextQuestions}
@@ -336,6 +337,7 @@ export default function UserInterfaceCodingWorkspaceAboveMobile({
         <UserInterfaceCodingWorkspaceWriteup
           canViewPremiumContent={canViewPremiumContent}
           contentType="solution"
+          environment={embed ? 'embed' : 'workspace'}
           framework={framework}
           metadata={{ ...question.metadata, author: solutionAuthor }}
           nextQuestions={nextQuestions}
@@ -522,6 +524,8 @@ export default function UserInterfaceCodingWorkspaceAboveMobile({
         <CodingWorkspaceDescriptionAddOnItems
           adPlacement="questions_ui"
           className={clsx('lg:hidden', 'space-y-3', 'px-3 pt-2')}
+          contentType="description"
+          metadata={metadata}
           nextQuestions={nextQuestions}
           showAd={true}
           similarQuestions={similarQuestions}

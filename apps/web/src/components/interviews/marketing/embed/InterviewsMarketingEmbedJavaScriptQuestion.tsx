@@ -55,6 +55,7 @@ export default function InterviewsMarketingEmbedJavaScriptQuestion({
           <JavaScriptCodingWorkspaceDescription
             canViewPremiumContent={false}
             description={javaScriptEmbedExample.description}
+            environment="embed"
             metadata={javaScriptEmbedExample.metadata}
             nextQuestions={[]}
             showAd={false}

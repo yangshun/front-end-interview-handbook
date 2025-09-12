@@ -230,6 +230,7 @@ export default function JavaScriptCodingWorkspaceAboveMobile({
         <JavaScriptCodingWorkspaceDescription
           canViewPremiumContent={canViewPremiumContent}
           description={description}
+          environment={embed ? 'embed' : 'workspace'}
           metadata={metadata}
           nextQuestions={nextQuestions}
           showAd={!embed}
@@ -271,6 +272,7 @@ export default function JavaScriptCodingWorkspaceAboveMobile({
       contents: (
         <JavaScriptCodingWorkspaceSolution
           canViewPremiumContent={canViewPremiumContent}
+          environment={embed ? 'embed' : 'workspace'}
           metadata={metadata}
           nextQuestions={nextQuestions}
           showLanguageSelector={embed}
@@ -441,6 +443,8 @@ export default function JavaScriptCodingWorkspaceAboveMobile({
         <CodingWorkspaceDescriptionAddOnItems
           adPlacement="questions_js"
           className={clsx('lg:hidden', 'space-y-3', 'px-3 pt-2')}
+          contentType="description"
+          metadata={metadata}
           nextQuestions={nextQuestions}
           showAd={true}
           similarQuestions={similarQuestions}

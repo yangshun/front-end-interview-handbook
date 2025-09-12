@@ -23,6 +23,7 @@ import JavaScriptCodingWorkspaceLanguageDropdown from './language/JavaScriptCodi
 type Props = Readonly<{
   canViewPremiumContent: boolean;
   description: string | null;
+  environment?: 'embed' | 'workspace';
   metadata: QuestionMetadata;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
   showAd: boolean;
@@ -34,6 +35,7 @@ type Props = Readonly<{
 export default function JavaScriptCodingWorkspaceDescription({
   canViewPremiumContent,
   description,
+  environment = 'workspace',
   metadata,
   nextQuestions,
   showAd,
@@ -102,6 +104,9 @@ export default function JavaScriptCodingWorkspaceDescription({
                 <CodingWorkspaceDescriptionAddOnItems
                   adPlacement="questions_js"
                   className="space-y-3 max-lg:hidden"
+                  contentType="description"
+                  environment={environment}
+                  metadata={metadata}
                   nextQuestions={nextQuestions}
                   showAd={showAd}
                   similarQuestions={similarQuestions}

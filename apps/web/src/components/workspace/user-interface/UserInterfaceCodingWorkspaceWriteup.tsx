@@ -196,6 +196,9 @@ export default function UserInterfaceCodingWorkspaceWriteup({
                         <CodingWorkspaceDescriptionAddOnItems
                           adPlacement="questions_ui"
                           className="space-y-3 max-lg:hidden"
+                          contentType={contentType}
+                          environment={environment}
+                          metadata={metadata}
                           nextQuestions={nextQuestions}
                           showAd={showAd}
                           similarQuestions={similarQuestions}

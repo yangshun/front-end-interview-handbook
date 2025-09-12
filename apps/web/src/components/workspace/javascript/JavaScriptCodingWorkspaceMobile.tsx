@@ -188,6 +188,8 @@ export default function JavaScriptCodingWorkspaceMobile({
         <CodingWorkspaceDescriptionAddOnItems
           adPlacement="questions_js"
           className={clsx('space-y-3', 'px-3 pb-6')}
+          contentType={mode === 'solution' ? 'solution' : 'description'}
+          metadata={metadata}
           nextQuestions={nextQuestions}
           showAd={true}
           similarQuestions={similarQuestions}

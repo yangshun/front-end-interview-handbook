@@ -26,6 +26,7 @@ import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
 
 type Props = Readonly<{
   canViewPremiumContent: boolean;
+  environment?: 'embed' | 'workspace';
   isMobile?: boolean;
   metadata: QuestionMetadata;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
@@ -38,6 +39,7 @@ type Props = Readonly<{
 
 export default function JavaScriptCodingWorkspaceSolution({
   canViewPremiumContent,
+  environment = 'workspace',
   isMobile,
   metadata,
   nextQuestions,
@@ -142,6 +144,9 @@ export default function JavaScriptCodingWorkspaceSolution({
                 <CodingWorkspaceDescriptionAddOnItems
                   adPlacement="questions_js"
                   className="space-y-3 max-lg:hidden"
+                  contentType="solution"
+                  environment={environment}
+                  metadata={metadata}
                   nextQuestions={nextQuestions}
                   similarQuestions={similarQuestions}
                 />
