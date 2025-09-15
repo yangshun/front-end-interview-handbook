@@ -1,6 +1,11 @@
 import { InterviewsDiscussionCommentDomain, Prisma } from '@prisma/client';
 import { z } from 'zod';
 
+import {
+  interviewsActivityForNewComment,
+  interviewsActivityForReplyingToComment,
+  interviewsActivityForUpvotingComment,
+} from '~/components/interviews/activity/InterviewsActivityUtils';
 import { discussionsCommentBodySchemaServer } from '~/components/workspace/common/discussions/CodingWorkspaceDiscussionsComentBodySchema';
 
 import prisma from '~/server/prisma';
@@ -27,7 +32,11 @@ export const questionCommentsRouter = router({
           },
         });
 
-        // TODO(discussions): Add activity triggers
+        // Trigger activity for new comment.
+        interviewsActivityForNewComment({
+          actorId: viewer.id,
+          commentId: comment.id,
+        });
 
         return comment;
       },
@@ -175,7 +184,11 @@ export const questionCommentsRouter = router({
           },
         });
 
-        // TODO(discussions): Add activity triggers
+        // Trigger activity for replying to a comment.
+        interviewsActivityForReplyingToComment({
+          actorId: viewer.id,
+          commentId: comment.id,
+        });
 
         return comment;
       },
@@ -222,14 +235,20 @@ export const questionCommentsRouter = router({
     )
     .mutation(async ({ ctx: { viewer }, input: { commentId } }) => {
       try {
-        return await prisma.interviewsDiscussionCommentVote.create({
+        const upvote = await prisma.interviewsDiscussionCommentVote.create({
           data: {
             commentId,
             profileId: viewer.id,
           },
         });
 
-        // TODO(discussions): Add activity triggers
+        // Trigger activity for upvoting a comment
+        interviewsActivityForUpvotingComment({
+          actorId: viewer.id,
+          voteId: upvote.id,
+        });
+
+        return upvote;
       } catch (error) {
         if (
           error instanceof Prisma.PrismaClientKnownRequestError &&
