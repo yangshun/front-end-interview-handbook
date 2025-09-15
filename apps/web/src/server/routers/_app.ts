@@ -1,5 +1,6 @@
 import { router } from '../trpc';
 import { authRouter } from './auth';
+import { communityContributionsRouter } from './community-contributions';
 import { devRouter } from './dev';
 import { emailsRouter } from './emails';
 import { feedbackRouter } from './feedback';
@@ -24,6 +25,7 @@ import { sponsorsRouter } from './sponsors';
 export const appRouter = router({
   auth: authRouter,
   bookmark: questionBookmarkRouter,
+  communityContributions: communityContributionsRouter,
   dev: devRouter,
   emails: emailsRouter,
   feedback: feedbackRouter,

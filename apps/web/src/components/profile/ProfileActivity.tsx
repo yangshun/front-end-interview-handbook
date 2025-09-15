@@ -8,6 +8,7 @@ import { useIntl } from '~/components/intl';
 import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
 
 import ProfileActivityBookmarkedQuestions from './activity/ProfileActivityBookmarkedQuestions';
+import ProfileActivityCommunityContributions from './activity/ProfileActivityCommunityContributions';
 import ProfileActivityCompletedQuestions from './activity/ProfileActivityCompletedQuestions';
 import ProfileActivityNotifications from './activity/ProfileActivityNotifications';
 
@@ -18,7 +19,7 @@ export default function ProfileActivity() {
   const unreadCount = useInterviewsNotificationUnreadCount();
 
   const [selectedTab, setSelectedTab] = useState<
-    'bookmarked' | 'completed' | 'notifications'
+    'bookmarked' | 'completed' | 'contributions' | 'notifications'
   >(tabParam === 'notifications' ? 'notifications' : 'bookmarked');
 
   function renderTabContent() {
@@ -28,6 +29,8 @@ export default function ProfileActivity() {
         return <ProfileActivityBookmarkedQuestions />;
       case 'completed':
         return <ProfileActivityCompletedQuestions />;
+      case 'contributions':
+        return <ProfileActivityCommunityContributions />;
       case 'notifications':
         return <ProfileActivityNotifications />;
       default:
@@ -55,6 +58,14 @@ export default function ProfileActivity() {
               id: 'DkM28k',
             }),
             value: 'completed',
+          },
+          {
+            label: intl.formatMessage({
+              defaultMessage: 'Community contributions',
+              description: 'Tab label for community contributions',
+              id: 'xfkHFf',
+            }),
+            value: 'contributions',
           },
           {
             label:

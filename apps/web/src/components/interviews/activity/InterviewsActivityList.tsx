@@ -117,7 +117,7 @@ export default function InterviewsActivityList({
           )}
       </div>
       {totalPages > 1 && (
-        <div className="flex items-center justify-between gap-2">
+        <div className="flex flex-col justify-between gap-x-2 gap-y-3 sm:flex-row sm:items-center">
           <Text color="secondary" size="body3">
             {intl.formatMessage(
               {
