@@ -12,6 +12,7 @@ import { useAnchorClickHandler } from '~/hooks/useAnchorClickHandler';
 import useIsSticky from '~/hooks/useIsSticky';
 import useUserProfile from '~/hooks/user/useUserProfile';
 
+import { INTERVIEWS_DISCUSSIONS_IS_LIVE } from '~/data/FeatureFlags';
 import { SocialLinks } from '~/data/SocialLinks';
 
 import NavbarAuthLink from '~/components/common/navigation/NavbarAuthLink';
@@ -42,6 +43,7 @@ import {
   themeBorderColor,
 } from '~/components/ui/theme';
 
+import InterviewsNotification from '../notifications/InterviewsNotification';
 import InterviewsNavbarEndAddOnItems from './InterviewsNavbarEndAddOnItems';
 import useInterviewsLoggedInLinks from './useInterviewsLoggedInLinks';
 import useInterviewsNavItems from './useInterviewsNavItems';
@@ -143,6 +145,18 @@ export default function InterviewsNavbar({
             isLoading={isUserProfileLoading}
             isPremium={isPremium}
             links={rightLinks}
+            startAddOnItems={
+              INTERVIEWS_DISCUSSIONS_IS_LIVE ? (
+                <div
+                  className={clsx(
+                    'mr-3',
+                    'hidden sm:block',
+                    isUserProfileLoading ? 'opacity-0' : 'opacity-100',
+                  )}>
+                  <InterviewsNotification />
+                </div>
+              ) : undefined
+            }
           />
           <div className="-ml-3 lg:hidden">
             <SlideOut

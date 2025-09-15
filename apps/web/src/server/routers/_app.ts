@@ -5,6 +5,7 @@ import { emailsRouter } from './emails';
 import { feedbackRouter } from './feedback';
 import { guideProgressRouter } from './guide-progress';
 import { marketingRouter } from './marketing';
+import { notificationsRouter } from './notifications';
 import { profileRouter } from './profile';
 import { projectsRouter } from './projects';
 import { promotionsRouter } from './promotions';
@@ -28,6 +29,7 @@ export const appRouter = router({
   feedback: feedbackRouter,
   guideProgress: guideProgressRouter,
   marketing: marketingRouter,
+  notifications: notificationsRouter,
   profile: profileRouter,
   projects: projectsRouter,
   promotions: promotionsRouter,
