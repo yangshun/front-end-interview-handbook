@@ -6,7 +6,7 @@ import InterviewsNotificationUnreadIndicator from './InterviewsNotificationUnrea
 
 type Props = Readonly<{
   activity: InterviewsActivityExtended;
-  closeNotification: () => void;
+  closeNotification?: () => void;
   variant?: 'full' | 'minimal';
 }>;
 
@@ -30,7 +30,7 @@ export default function InterviewsNotificationItem({
         id: activity.id,
       });
     }
-    closeNotification();
+    closeNotification?.();
   }
 
   return (
