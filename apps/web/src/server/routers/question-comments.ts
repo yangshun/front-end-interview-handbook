@@ -5,7 +5,7 @@ import {
   interviewsActivityForNewComment,
   interviewsActivityForReplyingToComment,
   interviewsActivityForUpvotingComment,
-} from '~/components/interviews/activity/InterviewsActivityUtils';
+} from '~/components/interviews/activity/InterviewsActivityTriggerUtils';
 import { discussionsCommentBodySchemaServer } from '~/components/workspace/common/discussions/CodingWorkspaceDiscussionsComentBodySchema';
 
 import prisma from '~/server/prisma';
