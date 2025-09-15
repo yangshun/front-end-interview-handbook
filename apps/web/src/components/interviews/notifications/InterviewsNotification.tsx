@@ -26,7 +26,11 @@ export default function InterviewsNotification() {
   return (
     <Popover
       align="start"
-      className={clsx('overflow-y-auto', 'mr-6 w-[464px]')}
+      className={clsx(
+        'thin-scrollbar max-h-[50vh] overflow-y-auto',
+        'mr-6 w-[464px]',
+        '!p-3',
+      )}
       open={showNotification}
       trigger={
         <div className="relative">

@@ -1,19 +1,36 @@
 import clsx from 'clsx';
-import { RiNotification3Line } from 'react-icons/ri';
+import { RiArrowRightLine, RiNotification3Line } from 'react-icons/ri';
+import url from 'url';
+
+import { trpc } from '~/hooks/trpc';
 
 import { FormattedMessage } from '~/components/intl';
+import { useIntl } from '~/components/intl';
+import Button from '~/components/ui/Button';
 import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 import {
-  themeDivideEmphasizeColor,
+  themeDivideColor,
   themeTextSubtitleColor,
 } from '~/components/ui/theme';
 
+import InterviewsNotificationItem from './InterviewsNotificationItem';
+
+const MAX_ITEMS_TO_SHOW = 4;
+
 type Props = Readonly<{ closeNotification: () => void }>;
 
-export default function InterviewsNotificationPopoverContent(_: Props) {
-  const isLoading = false;
-  const notifications = [];
+export default function InterviewsNotificationPopoverContent({
+  closeNotification,
+}: Props) {
+  const intl = useIntl();
+  const { data, isLoading } = trpc.notifications.list.useQuery({
+    pagination: {
+      limit: MAX_ITEMS_TO_SHOW + 1,
+      page: 1,
+    },
+  });
+  const { notifications } = data ?? {};
 
   return (
     <div>
@@ -48,8 +65,39 @@ export default function InterviewsNotificationPopoverContent(_: Props) {
           </div>
         </div>
       ) : (
-        <div className={clsx('divide-y', themeDivideEmphasizeColor)}>
-          Notifications
+        <div className={clsx('divide-y', themeDivideColor)}>
+          {notifications
+            ?.slice(0, MAX_ITEMS_TO_SHOW)
+            .map((notification) => (
+              <InterviewsNotificationItem
+                key={notification.id}
+                activity={notification}
+                closeNotification={closeNotification}
+                variant="minimal"
+              />
+            ))}
+
+          {(notifications?.length ?? 0) > MAX_ITEMS_TO_SHOW && (
+            <div className={clsx('w-full py-4', 'flex justify-center')}>
+              <Button
+                href={url.format({
+                  pathname: '/profile',
+                  query: {
+                    tab: 'notifications',
+                  },
+                })}
+                icon={RiArrowRightLine}
+                label={intl.formatMessage({
+                  defaultMessage: 'See all notifications',
+                  description: 'Label for view all notifications button',
+                  id: 'yvKbxT',
+                })}
+                size="xs"
+                variant="secondary"
+                onClick={closeNotification}
+              />
+            </div>
+          )}
         </div>
       )}
     </div>
