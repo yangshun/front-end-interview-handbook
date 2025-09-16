@@ -59,7 +59,9 @@ export default function CodingWorkspaceDiscussionsComment({ comment }: Props) {
               <UserProfileDisplayName userProfile={author} />
             </Text>
             {' · '}
-            <RelativeTimestamp timestamp={createdAt} />
+            <Text color="inherit" size="body3">
+              <RelativeTimestamp timestamp={createdAt} />
+            </Text>
           </Text>
           <div className="mt-1.5">
             {mode === 'edit' ? (

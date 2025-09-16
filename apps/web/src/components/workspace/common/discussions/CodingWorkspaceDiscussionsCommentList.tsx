@@ -74,6 +74,21 @@ export default function CodingWorkspaceDiscussionsCommentList({
   if (comments?.length === 0 || !comments) {
     return (
       <EmptyState
+        subtitle={
+          domain === 'OFFICIAL_SOLUTION'
+            ? intl.formatMessage({
+                defaultMessage:
+                  'Be the first to share your thoughts or questions on this solution',
+                description: 'No comment subtitle',
+                id: '5V8ehP',
+              })
+            : intl.formatMessage({
+                defaultMessage:
+                  'Be the first to share your thoughts or questions on this question',
+                description: 'No comment subtitle',
+                id: 'LRPQ3H',
+              })
+        }
         title={intl.formatMessage({
           defaultMessage: 'No comments yet',
           description: 'No comment title',
@@ -93,9 +108,12 @@ export default function CodingWorkspaceDiscussionsCommentList({
           {index !== comments.length - 1 && <Divider className="mb-1.5" />}
         </div>
       ))}
-      {(count ?? 0) > 0 && (
+      {totalPages > 1 && (
         <div
-          className={clsx('flex items-center justify-between gap-1', 'mt-2.5')}>
+          className={clsx(
+            'flex flex-col justify-between gap-x-1 gap-y-3 sm:flex-row sm:items-center',
+            'mt-2.5',
+          )}>
           <Text color="secondary" size="body3">
             {intl.formatMessage(
               {
@@ -111,15 +129,13 @@ export default function CodingWorkspaceDiscussionsCommentList({
               },
             )}
           </Text>
-          {totalPages > 1 && (
-            <Pagination
-              count={totalPages}
-              page={currentPage}
-              onPageChange={(value) => {
-                setCurrentPage(value);
-              }}
-            />
-          )}
+          <Pagination
+            count={totalPages}
+            page={currentPage}
+            onPageChange={(value) => {
+              setCurrentPage(value);
+            }}
+          />
         </div>
       )}
     </div>
