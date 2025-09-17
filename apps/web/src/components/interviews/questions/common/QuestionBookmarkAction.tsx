@@ -61,6 +61,17 @@ export default function QuestionBookmarkAction({
   }
 
   const Icon = isBookmarked ? RiBookmarkFill : RiBookmarkLine;
+  const bookmarkTooltip = isBookmarked
+    ? intl.formatMessage({
+        defaultMessage: 'Remove',
+        description: 'Tooltip to remove bookmark',
+        id: 'DY0cPB',
+      })
+    : intl.formatMessage({
+        defaultMessage: 'Add to bookmark',
+        description: 'Tooltip to add bookmark',
+        id: 'LGi4p/',
+      });
 
   const commonProps = {
     href:
@@ -80,32 +91,33 @@ export default function QuestionBookmarkAction({
     return <DropdownMenu.Item {...commonProps} />;
   }
 
+  if (isFetching) {
+    return (
+      <Button
+        addonPosition="start"
+        isLabelHidden={true}
+        size="xs"
+        tooltip={bookmarkTooltip}
+        variant="secondary"
+        {...commonProps}
+        className="cursor-disabled"
+        onClick={() => {}}
+      />
+    );
+  }
+
   return (
     <Button
       addonPosition="start"
       isDisabled={
-        isFetching ||
-        addBookmarkMutation.isLoading ||
-        deleteBookmarkMutation.isLoading
+        addBookmarkMutation.isLoading || deleteBookmarkMutation.isLoading
       }
       isLabelHidden={true}
       isLoading={
         addBookmarkMutation.isLoading || deleteBookmarkMutation.isLoading
       }
       size="xs"
-      tooltip={
-        isBookmarked
-          ? intl.formatMessage({
-              defaultMessage: 'Remove',
-              description: 'Tooltip to remove bookmark',
-              id: 'DY0cPB',
-            })
-          : intl.formatMessage({
-              defaultMessage: 'Add to bookmark',
-              description: 'Tooltip to add bookmark',
-              id: 'LGi4p/',
-            })
-      }
+      tooltip={bookmarkTooltip}
       variant="secondary"
       {...commonProps}
     />
