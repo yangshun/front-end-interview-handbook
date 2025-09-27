@@ -1,14 +1,6 @@
 {
-  "frontmatter": {
-    "title": "b87926c4",
-    "description": "f2bc0b45",
-    "seo_title": "7f6ef26b",
-    "seo_description": "9ac3df1b",
-    "social_title": "35078a6"
-  },
   "content": {
     "source": {
-      "locale": "en-US",
       "hashes": [
         "35c53c11",
         "2bf0e959",
@@ -26,7 +18,7 @@
         "2c871597",
         "ddef7dac",
         "9579c455",
-        "ad3693f7",
+        "a84a371d",
         "c0c09aea",
         "a166c3ae",
         "7e75ddb2",
@@ -41,7 +33,8 @@
         "87e4a903",
         "a6cc79fd",
         "efbc5f44"
-      ]
+      ],
+      "locale": "en-US"
     },
     "targets": {
       "zh-CN": [
@@ -61,7 +54,7 @@
         "2c871597",
         "ddef7dac",
         "9579c455",
-        "ad3693f7",
+        "a84a371d",
         "c0c09aea",
         "a166c3ae",
         "7e75ddb2",
@@ -78,5 +71,12 @@
         "efbc5f44"
       ]
     }
+  },
+  "frontmatter": {
+    "title": "b87926c4",
+    "description": "f2bc0b45",
+    "seo_title": "7f6ef26b",
+    "seo_description": "9ac3df1b",
+    "social_title": "35078a6"
   }
 }
