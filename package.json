@@ -3,10 +3,9 @@
     "format-mdx": "prettier --write \"packages/**/en-US.{md,mdx}\"",
     "i18n": "langnostic translate"
   },
-  "dependencies": {
-    "langnostic": "^0.0.7"
-  },
   "devDependencies": {
+    "langnostic": "^0.0.9",
+    "@langnostic/plugin-mdx": "^0.0.9",
     "prettier": "^3.5.3",
     "typescript": "^5.8.2"
   }

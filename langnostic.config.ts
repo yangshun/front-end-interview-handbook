@@ -1,4 +1,5 @@
 import { ConfigType } from 'langnostic';
+import MdxPlugin from '@langnostic/plugin-mdx';
 
 const config: ConfigType = {
   ai: {
@@ -11,7 +12,7 @@ const config: ConfigType = {
   groups: [
     {
       name: 'quiz',
-      plugin: 'mdx',
+      plugin: MdxPlugin(),
       paths: [
         {
           source: './packages/quiz/**/en-US.mdx',
@@ -21,7 +22,7 @@ const config: ConfigType = {
     },
     {
       name: 'guidebooks',
-      plugin: 'mdx',
+      plugin: MdxPlugin(),
       paths: [
         {
           source: './packages/behavioral-interview-guidebook/**/en-US.mdx',
