@@ -1,27 +1,160 @@
+--- 
+title: 'What does `* { box-sizing: border-box; }` do?' 
+subtitle: What are its advantages 
 ---
-title: 'What does `* { box-sizing: border-box; }` do?'
-subtitle: What are its advantages?
 ---
 
-`* { box-sizing: border-box; }` makes every element on the page use the `box-sizing: border-box` approach for calculating the elements `height` and `width`.
+# What does `* { box-sizing: border-box; }` do?
 
-## What's the difference?
+`* { box-sizing: border-box; }` is a CSS rule that applies the `box-sizing: border-box` property to every element on a webpage, overriding the default `content-box` model. This changes how the `width` and `height` of elements are calculated, making the box model more predictable and intuitive by including `padding` and `border` in the specified dimensions.
 
-By default, elements have `box-sizing: content-box` applied, and only the content size is being accounted for if an element has `height` and `width` specified. `box-sizing: border-box` changes how the `width` and `height` of elements are being calculated, `border` and `padding` are also being included in the calculation. The `height` of an element is now calculated by the content's `height` + vertical `padding` + vertical `border` width. The `width` of an element is now calculated by the content's `width` + horizontal `padding` + horizontal `border` width.
+## Understanding the Box Model
 
-The following table indicates whether the property is included in the element's calculation of height and width when it has the respective `box-sizing`:
+The CSS box model defines how elements are rendered in terms of their dimensions and spacing. Every element is a rectangular box composed of:
+
+- **Content**: The actual content (text, images, etc.).
+- **Padding**: The space between the content and the border.
+- **Border**: The area surrounding the padding.
+- **Margin**: The space outside the border, separating the element from others.
+
+The `box-sizing` property determines which parts of the box model contribute to an element’s `width` and `height`.
+
+### Default Behavior: `box-sizing: content-box`
+
+With `content-box` (the default), the `width` and `height` properties only account for the content area. Any `padding` or `border` added to the element increases its total size beyond the specified `width` or `height`. For example:
+
+```css
+div {
+  box-sizing: content-box;
+  width: 100px;
+  height: 100px;
+  padding: 10px;
+  border: 5px solid black;
+}
+```
+
+- **Content size**: 100px × 100px
+- **Total size**: 100px (content) + 10px (left padding) + 10px (right padding) + 5px (left border) + 5px (right border) = **130px wide**. Similarly, **130px tall**.
+
+This can lead to unexpected layout issues, as the element’s total size exceeds the specified dimensions.
+
+### `box-sizing: border-box`
+
+With `border-box`, the `width` and `height` properties include the content, `padding`, and `border`. The content area shrinks to accommodate `padding` and `border` within the specified dimensions. Using the same example:
+
+```css
+div {
+  box-sizing: border-box;
+  width: 100px;
+  height: 100px;
+  padding: 10px;
+  border: 5px solid black;
+}
+```
+
+- **Total size**: 100px × 100px
+- **Content size**: 100px - 10px (left padding) - 10px (right padding) - 5px (left border) - 5px (right border) = **70px wide**. Similarly, **70px tall**.
+
+The `margin` is **not** included in the `width` or `height` calculation for either `box-sizing` value.
+
+### Comparison Table
 
 | Property  | `box-sizing: content-box` (default) | `box-sizing: border-box` |
-| --------- | ----------------------------------- | ------------------------ |
-| content   | Yes                                 | Yes                      |
-| `padding` | No                                  | Yes                      |
-| `border`  | No                                  | Yes                      |
-| `margin`  | No                                  | No                       |
+|-----------|-------------------------------------|--------------------------|
+| Content   | Included                            | Included                 |
+| Padding   | Excluded                            | Included                 |
+| Border    | Excluded                            | Included                 |
+| Margin    | Excluded                            | Excluded                 |
 
-## Advantages
+## Advantages of `box-sizing: border-box`
 
-Taking into account `padding`s and `border`s as part of the box model resonates better with how designers actually imagine content in grids. This is a much more intuitive way to think about boxes and hence many CSS frameworks set `* { box-sizing: border-box; }` globally, so that all elements use such a box model by default.
+1. **Intuitive Sizing**: Designers often think of an element’s size holistically, including its padding and border. `border-box` aligns with this mental model, making it easier to create layouts where elements fit within predefined grid systems or containers.
+
+2. **Simplified Layout Calculations**: With `border-box`, you don’t need to manually subtract padding and border values to calculate the content size. This reduces errors in responsive designs and complex layouts.
+
+3. **Consistency Across Elements**: Applying `* { box-sizing: border-box; }` globally ensures all elements (e.g., divs, inputs, images) behave consistently, preventing unexpected size increases when styling forms, buttons, or other components with padding or borders.
+
+4. **Better Integration with CSS Frameworks**: Popular frameworks like Bootstrap and Tailwind CSS use `border-box` by default to streamline development and ensure predictable layouts.
+
+5. **Easier Responsive Design**: In responsive layouts, where percentages or viewport units (e.g., `vw`, `vh`) are used, `border-box` prevents elements from overflowing their containers due to added padding or borders.
+
+6. **Improved Form Styling**: Form elements like `input` and `select` often have browser-specific padding and borders. `border-box` ensures consistent sizing across browsers, making it easier to align form fields in a layout.
+
+## Practical Example
+
+Consider a layout with three columns, each intended to be 33.33% wide within a 900px container:
+
+```css
+.container {
+  width: 900px;
+  display: flex;
+}
+
+.column {
+  width: 33.33%;
+  padding: 15px;
+  border: 2px solid black;
+}
+```
+
+- **With `content-box`**: Each column’s total width becomes 33.33% + 15px (left padding) + 15px (right padding) + 2px (left border) + 2px (right border). This exceeds 33.33%, causing the columns to overflow or wrap unexpectedly.
+- **With `border-box`**: Each column’s total width remains 33.33% (approximately 300px in a 900px container), with padding and borders fitting within that size. The content area adjusts to accommodate these additions.
+
+```css
+* {
+  box-sizing: border-box;
+}
+```
+
+This ensures the columns fit perfectly within the container without manual recalculations.
+
+## Additional Considerations
+
+### Performance Implications
+
+Using `* { box-sizing: border-box; }` has negligible performance impact, as it’s a simple CSS property applied during rendering. However, the universal selector (`*`) can be slightly less performant in very large DOM trees due to its broad application. For optimization, you can apply `box-sizing: border-box` to specific elements or use a more targeted selector like:
+
+```css
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+```
+
+This approach sets `border-box` as the default for all elements but allows specific elements to inherit or override it (e.g., revert to `content-box` if needed).
+
+### Browser Support
+
+The `box-sizing` property is universally supported across all modern browsers, including Chrome, Firefox, Safari, Edge, and Internet Explorer 8+. No vendor prefixes are required, making it safe for production use.
+
+### Edge Cases and Gotchas
+
+1. **Legacy Browser Issues**: While rare, older browsers like IE6-7 may not support `box-sizing`. If supporting these browsers is necessary, test layouts thoroughly or use fallbacks.
+2. **Third-Party Components**: Some third-party libraries or widgets may assume `content-box`. Applying `border-box` globally could break their styling, requiring overrides.
+3. **Flexbox and Grid**: In modern layouts using Flexbox or CSS Grid, `border-box` simplifies alignment by ensuring elements respect their container’s constraints without unexpected overflows.
+4. **Percentage-Based Padding**: When padding is defined in percentages, it’s calculated relative to the element’s width (even for vertical padding). With `border-box`, this can reduce the content area more than expected, so test carefully.
+
+## When to Use `content-box`
+
+While `border-box` is generally preferred, `content-box` may be useful in specific scenarios:
+
+- **Precise Content Sizing**: When you need the content area to be exactly the specified `width` or `height`, regardless of padding or borders (e.g., for image galleries or canvas elements).
+- **Legacy Codebases**: If a project was built with `content-box` assumptions, switching to `border-box` globally could break existing layouts.
+
+## Best Practices
+
+1. **Apply Globally Early**: Set `* { box-sizing: border-box; }` at the start of your CSS to ensure consistency across your project.
+2. **Use Resets or Normalize.css**: Many CSS resets (e.g., Normalize.css) include `border-box` by default. Verify your reset to avoid conflicts.
+3. **Test with Dynamic Content**: Ensure `border-box` works as expected with dynamically sized elements, such as those using `min-width`, `max-width`, or percentage-based dimensions.
+4. **Document Overrides**: If you need to use `content-box` for specific elements, document the reason clearly to avoid confusion for other developers.
 
 ## References
 
-- [Box Sizing | CSS-Tricks](https://css-tricks.com/box-sizing/)
+- [MDN Web Docs: box-sizing](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing)
+- [CSS-Tricks: Box Sizing](https://css-tricks.com/box-sizing/)
+- [W3C CSS Box Model Specification](https://www.w3.org/TR/css-box-3/)
+- [Can I Use: box-sizing](https://caniuse.com/css3-boxsizing)
+
+---
