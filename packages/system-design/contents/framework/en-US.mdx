@@ -6,27 +6,58 @@ social_title: The RADIO Framework for structuring Front End System Design answer
 seo_description: A robust framework developed to help you answer front end system design interview questions in a structured fashion.
 ---
 
-A good beginning is half the battle won. By using the **RADIO framework** to answer front end system design questions, you will already be much closer to acing your interview.
+When I (Yangshun) had my first system design interview almost 10 years ago, I fumbled really hard and was going all over the place. Naturally, I didn't pass that interview and I became pretty scared of system design interviews after that. Over the years, I seeked ways to improve how I approach system design interviews and the single biggest change I made was to approach the question using a framework.
 
-In the context of front end system design interviews, the systems you are asked to design tend to be products, so we'll refer to the system as "product" from here on. Start by understanding the **R**equirements, defining the high level **A**rchitecture and the **D**ata Model. Then define the **I**nterfaces between the components in the product and talk about any **O**ptimizations or dive deep into specific areas which require special attention.
+I came up with an easy-to-remember mnemonic called the **RADIO framework** to help me remember how to approach system design questions. This article is the **authoritative source about the RADIO framework**.
 
 ## What is RADIO about?
 
-1. **Requirements exploration**: Understand the problem thoroughly and determine the scope by asking a number of clarifying questions
-1. **Architecture / High-level design**: Identify the key components of the product and how they are related to each other
-1. **Data model / Core entities**: Describe the core entities and its data – the fields each entity contains and which component(s) they belong to
-1. **Interface definition (API)**: Define the interface (API) between components in the product, functionality of each API, their parameters and responses
-1. **Optimizations and deep dive**: Discuss possible optimization opportunities and specific areas of interest when building the product
+In the context of front end system design interviews, the systems you are asked to design tend to be products, so we'll refer to the system as "product" from here on.
+
+Start by understanding the **R**equirements, defining the high level **A**rchitecture and the **D**ata Model. Then define the **I**nterfaces between the components in the product and talk about any **O**ptimizations or dive deep into specific areas which require special attention.
+
+- **Requirements exploration**: Understand the problem thoroughly and determine the scope by asking a number of clarifying questions
+- **Architecture / high-level design**: Identify the key components of the product and how they are related to each other
+- **Data model / core entities**: Describe the core entities and its data – the fields each entity contains and which component(s) they belong to
+- **Interface definition (API)**: Define the interface (API) between components in the product, functionality of each API, their parameters and responses
+- **Optimizations and deep dive**: Discuss possible optimization opportunities and specific areas of interest when building the product
+
+> [!TIP] RADIO framework is not specific to front end system design interviews
+>
+> The RADIO framework is not specific to front end system design; it can also be used for back end system design interviews as well. However, you might need to cover additional areas beyond RADIO, depending on the question.
+
+## Using RADIO framework in interviews
+
+RADIO is fairly easy to remember and we're confident that by the time you complete reading this page you'd have memorized what each letter stands for. Use RADIO as a guide and not as a fixed structure that you have to follow squarely.
+
+You **should not** follow the steps in rigid, linear order (Requirements -> Architecture -> Data model -> Interface -> Optimizations). The framework's main purpose is to ensure you cover all critical aspects of the design in a systematic way. In a real interview, the discussion is often iterative and it makes sense to revisit the various aspects as you handle more features. You might even change the architecture entirely along the way and that is alright (if you have a good reason).
+
+The initial step, Requirements exploration (**R**), is the most crucial step to start with. You cannot design a product without first understanding what problems it needs to solve and the target audience.
+
+Once the requirements are set, the next steps form the **core design phase**: Architecture (**A**) and Data model (**D**) are usually addressed early on, as the fundamental structure and state of the application dictate everything else. Interface definition (**I**) naturally follows the Architecture (**A**) and Data model (**D**), as you need to define how the components (like the APIs between client and server, or within components the client) communicate using the data model you've established. Some people prefer to define the Interface (**I**) first before moving on to Architecture (**A**) and Data model (**D**). That's ok and in fact makes more sense for certain products.
+
+Optimizations (**O**) usually come last, as they are a refinement of the complete design. They often involve deep dives into specific non-functional requirements established in step the Requirements (**R**) step.
+
+You should feel free to backtrack and re-address earlier sections based on new insights or interviewer feedback. For example:
+
+- During the Architecture (**A**) phase, if you realize a feature requirement from **R** means your initial Data model (**D**) won't work or isn't ideal, you should immediately go back and revise the Data model (**D)**.
+- The interviewer might interrupt and ask for a Deep Dive (**O**) into a component immediately after you mention it in the Architecture (**A**) step (unlikely but possible). You should be prepared to follow their lead. However, do remember to resume from where you left off if you have not completed a holistic design of the product and covered every aspect in the core design phase (Architecture (**A**), Data model (**D**), and Interface (**I**)).
+
+**Write things down.** Interviews are nerve-wracking and it's not uncommon to forget some to cover some things along the way. If you want, you can write "RADIO" somewhere on the (virtual) whiteboard to remind you of the aspects you have to cover. Every now and then, refer to it to remind you of what is left to be covered.
+
+> [!WARNING] Do not force RADIO onto every system design question
+>
+> While the RADIO framework can be used for the majority of front end system design questions, there are some cases where the framework cannot be applied, especially for some scenarios which are overly-specific and don't require much architecture (e.g. implement a mention feature in Slack).
 
 ## Requirements exploration
 
 **Objective**: Understand the problem thoroughly and determine the scope by asking a number of clarifying questions.
 
-**Recommended duration**: Not more than 15% of the session.
+**Recommended duration**: Not more than 10% of the session.
 
-System design interview questions are open-ended in nature and are usually vague and under-specified on purpose. **You are required to dig deeper and clarify ambiguities in the problem by asking useful questions.** Treat your interviewer as a product manager you are working with on a new project, ask enough questions so that you know what problems you are trying to solve and what you need to build. In reality, some problems can be solved without any engineering at all!
+System design interview questions are open-ended in nature and are usually vague and under-specified on purpose. **You are required to dig deeper and clarify ambiguities in the problem by asking useful questions.** Treat your interviewer as a product manager you are working with on a new project, ask enough questions so that you know what problems you are trying to solve and what you need to build.
 
-No two system design interview experiences will be the same even if you have been asked the same question before. Interviewers have different backgrounds and might prioritize different aspects of the system. Take this chance to find out what they are most interested in and plan your answers accordingly.
+No two system design interview experiences will be the same even if you are given the same problem. Interviewers have different backgrounds and might prioritize different aspects of the system. Take this chance to find out what they are most interested in and plan your answers accordingly.
 
 Some general questions you should get answers to before moving on to the next part of the interview:
 
@@ -50,19 +81,19 @@ There are two ways you can get the answer to this question:
 1. Take the initiative to list out what you think are the requirements and get feedback and alignment from the interviewer (Preferred).
 1. Ask the interviewer directly. However, most of the time they'd want you to define them. Even if they give you an answer, it won't be too detailed.
 
-At the very minimum, your design has to meet the functional requirements. After meeting all the function requirements, move on to talk about how to fulfill the non-functional requirements.
+At the very least, your design has to meet the functional requirements. After meeting all the functional requirements, move on to talk about how to fulfill the non-functional requirements.
 
 ### What are the core features to focus on and which are good-to-have?
 
-Even after you know the functional requirements, there can still be a ton of small features that make up the large feature. For example, when creating new Facebook posts, what kind of post formats should be supported? Besides the usual text-based posts, should the user be able to upload photos, upload videos, create polls, check in to a location, etc.
+Even after you know the functional requirements, there can still be a ton of small features that make up the large feature. For example, when creating new Facebook posts, what kind of post formats should be supported? Other than text-based posts, should the user be able to upload photos, upload videos, create polls, check in to a location, etc.?
 
-You should clarify the core features beforehand and design for them before moving on to the extra features.
+Aim to clarify the core features beforehand and design for them before moving on to the extra features.
 
-### Other questions:
+### Other possible questions
 
 - What devices/platforms (desktop/tablet/mobile) need to be supported?
-- Is offline support necessary?
 - Who are the main users of the product?
+- Will the app be used offline?
 - What are the performance requirements, if any? Performance requirements typically fall under non-functional requirements
 
 The questions above should give you a good starting list but it is by no means an exhaustive list! Different problems will require you to ask domain-specific questions, which we will talk about in the case studies.
@@ -71,7 +102,7 @@ You are recommended to write down the agreed requirements somewhere so that you 
 
 ---
 
-## Architecture / High-level design
+## Architecture / high-level design
 
 **Objective**: Identify the key components of the product and how they are related to each other.
 
@@ -79,38 +110,50 @@ You are recommended to write down the agreed requirements somewhere so that you 
 
 With the requirements in mind, we can move on to the architecture design proper. Your next task is to come up with a product/system architecture by identifying the key components of the product, how the components interact with each other, and how they are related. Remember to focus on the **client-side architecture**, not the back end.
 
-Diagrams are your friends here. Each component can be represented using a rectangle and your high-level design usually ends up looking like a few rectangular boxes with arrows between them to demonstrate the flow of data. It is also possible to have components within components, in that case, draw the parent using bigger rectangles since they need to fit multiple subcomponents.
+> [!WARNING] You don't have to go in order of Architecture -> Data model -> Interface
+>
+> Think of RADIO as a checklist to ensure a comprehensive answer, not strict linear steps. Lead the discussion with Requirements and Architecture, then be flexible to dive wherever the conversation or technical complexity requires. Some candidates prefer to design the data model first and that's also acceptable and might make more sense depending on the problem.
 
-Examples of components/modules which are commonly found in a high-level front end design:
+### Typical components/modules
 
-- **Server**: In front end system design interviews, we can treat the server as a black box and assume it exposes some APIs you can call via HTTP/WebSockets.
-- **View**: This represents what the user sees, and it usually contains smaller subviews within it. Can contain client-side only state.
-- **Controller**: The module which responds to user interactions and processes the data from the store/model in a format the view expects. This module is not always needed if the application is small and there's not much passing of data between modules.
-- **Model/Client store**: Where the data lives. Stores contain data which will be presented to the user via views and stores tend to be app-wide in an interview context. In reality, you can have multiple stores within an application and stores can contain other stores.
+Examples of components/modules which are commonly found in the high-level design of front end apps:
+
+- **Server**: In front end system design interviews, we can treat the server as a black box and assume it exposes some APIs you can call via HTTP / GraphQL / WebSockets.
+- **View layer**: This represents what the user sees and interacts with and usually contains smaller subviews within it as well as local state. In modern web applications, the view layer is implemented using JavaScript frameworks like React, Vue, or Svelte components. View is responsible for presentation and local interaction state, and that cross-cutting data (shared between multiple views) should live in the store/model layer.
+- **Store/model layer**: This is where the application's data and derived state live. The store manages cross-cutting data such as user profile, authentication, app layout state (e.g. whether the sidebar is open), shared domain data, etc.. Modern approaches favor unidirectional data flow and reactive state management, implemented with state management libraries like Redux Toolkit, Zustand, Jotai, or MobX.
+- **Data access layer**: The front end interacts with this layer through a typed data access layer (e.g., React Query, tRPC, Apollo Client) that handles fetching, caching, and error management. This abstraction allows the client to consume APIs without being tightly coupled to data origin and associated implementation details. An application can start introducing offline storage with periodic background syncing and this is the only layer that is affected. The other layers above do not care about where the data comes from.
+
+Diagrams are your friends here. Each component can be represented using a rectangle and your high-level design usually ends up looking like a few rectangular boxes with arrows connecting the boxes, labelled with data that flows between them. It is also possible to have components within components; in that case, draw the parent using bigger rectangles since they need to fit multiple subcomponents.
+
+As the term "system design" suggests, we should be focused on "design" and not the "implementation". Unless otherwise prompted, it is acceptable to keep the discussion more abstract and refer to the component in terms of their responsibilities and not have to decide on the actual framework/library to use; the choice usually boils down to a matter of experience and and preference.
+
+> [!WARNING] Not every component is relevant or necessary
+>
+> It is important to realize that not every component mentioned above will be relevant and necessary for every product. If the product is small in nature (perhaps a single page, or a UI component), it can be acceptable for the data to live within local component state
 
 Other things to consider when defining the responsibilities of components:
 
 - **Separation of concerns**: Components are meant to be modular and serve to encapsulate a set of functionality and data. Consider the purpose/functionality of each component, what data it should contain and how it can service the rest of the system (what it can do for the other components).
-- **Where computation should occur**: If some amount of computation is needed (e.g. filtering of results given a search term, calculating the total amount for a cart), should the work be done on the server or the client? There are tradeoffs to each approach and the decision is both product-dependent and context-dependent.
-
-It is important to realize that not every common component mentioned above will be relevant and necessary for every product, it depends on the unique aspects of the product.
+- **Where computation should occur**: If some amount of computation is needed (e.g. filtering of results given a search term, calculating the total amount for a cart), should the work be done on the server or the client? There are tradeoffs to each approach and the deciding which depends on both the product and context.
 
 After drawing out the architecture diagram, verbally describe the responsibilities of each component (box in the diagram).
 
-### Architecture example
+Example using News Feed
 
 Here's an example architecture diagram for the [News Feed](/questions/system-design/news-feed-facebook) question drawn using Excalidraw.
 
+{/* TODO: Update the diagram */}
+
 ![Example architecture diagram](/img/questions/news-feed-facebook/news-feed-architecture.png)
 
-#### Component responsibilities
+**Component responsibilities**
 
-- **Server**: Serves feed data and provides a HTTP API for new feed posts to be created.
-- **Controller**: Controls the flow of data within the application and makes network requests to the server.
-- **Client store**: Stores data needed across the whole application. In the context of a news feed, most of the data in the store will be server-originated data needed by the feed UI.
-- **Feed UI**: Contains a list of feed posts and the UI for composing new posts.
-  - **Feed post**: Presents the data for a feed post and contains buttons to interact with the post (like/react/share/comment).
-  - **Post composer**: UI for users to create new feed posts.
+- **Server**: Exposes HTTP APIs to fetch feed posts and to create new feed posts
+- **Store**: Contains data needed across the whole application. In the context of a news feed, most of the data in the store will be server-originated data needed by the view layer
+- **Data access layer**: Makes network requests to the server and passes the fetched data to the store. Also serves as a cache for network data
+- **Feed UI**: Contains a list of feed posts and the UI for composing new posts
+  - **Feed post**: Presents the data for a feed post and contains buttons to interact with the post (like/react/share/comment)
+  - **Post composer**: UI for users to create a new posts
 
 Common free drawing tools that you might be asked to use include [diagrams.net](https://app.diagrams.net/) and [Excalidraw](https://excalidraw.com/). It'd be a good idea to familiarize yourself with these tools beforehand.
 
@@ -130,27 +173,33 @@ Data that originates from the server, usually from a database and meant to be se
 
 ### Client-only data
 
-Client-only data, also commonly known as state, is data that only needs to live on the client and does not have to be sent to the server for writing into the database. Client data can be further broken down into two:
+Client-only data, also commonly known as UI state, is data that only needs to live on the client and does not have to be sent to the server to be persisted into a database.
 
-- **Data to be persisted**: Usually user input such as data entered into form fields. These data usually has to be sent to the server and saved into a database for it to be useful.
-- **Ephemeral data**: Temporary state that lasts for a short time. Common examples include form validation state, current navigation tab, whether a section is expanded, etc. It's usually acceptable to lose these data when the browser tab is closed.
+Client data can be further broken down into:
 
-When listing the data fields, it'd be useful to identify what kind of data that field is, whether it's server-originated data or client-only data.
+- **Data to be persisted**: Data that usually has to be sent to the server and saved into a database for it to be useful. Examples include data the user enters into forms, profile settings, etc.
+- **Ephemeral data**: Temporary data that is acceptable to be lost forever when the browser tab is closed. Common examples include form validation state, current navigation tab, whether a section is expanded, etc.
 
-### Data model example
+When listing the data fields, it'd be useful to identify what data type that field represents (string/array/number/date/etc.), and whether it's server-originated data or client-only data.
+
+**Example using News Feed**
 
 Here's a basic example of data model for the various entities using the [News Feed](/questions/system-design/news-feed-facebook) question.
 
 | Source | Entity | Belongs to | Fields |
 | --- | --- | --- | --- |
-| Server | `Post` | Feed Post | `id`, `created_time`, `content`, `image`, `author` (a `User`), `reactions` |
+| Server | `Post` | Feed post | `id`, `created_time`, `content`, `image`, `author` (a `User`), `reactions` |
 | Server | `Feed` | Feed UI | `posts` (list of `Post`s), `pagination` (pagination metadata) |
-| Server | `User` | Client Store | `id`, `name`, `profile_photo_url` |
-| User input (client) | `NewPost` | Feed Composer UI | `message`, `image` |
+| Server | `User` | Store | `id`, `name`, `profile_photo_url` |
+| User input (client) | `NewPost` | Feed composer UI | `message`, `image` |
+
+You might be thinking "these feed post data looks just like the schema of a database", and you're right! For certain products, the visible data in the UI closely mirrors data from the database. It's common for apps to load a subset of the server data and keeps them in memory (the store) to be presented. As the user interacts with the app (e.g. scroll down the feed and loads more posts), the store merges new data with existing data.
+
+An example of client data that does not resemble database structure is Notion. In Notion, each [block in a document (heading/paragraph) is stored as separate rows in the database](https://www.notion.com/blog/data-model-behind-notion), with fields pointing to other blocks indicating parent/child relationships. To present the document on the page, the client assembles these individual blocks into a tree structure according to their hierarchical relationship.
 
 Depending on how far you progress along in the question and how the requirements have evolved and grown during the interview, you might need to add more fields. It's a dynamic and iterative process.
 
-You might want to write these fields near the components which owns them in your architecture diagram.
+In your architecture diagram, you might want to list down these data fields under the component which owns them.
 
 ---
 
@@ -158,27 +207,46 @@ You might want to write these fields near the components which owns them in your
 
 **Objective**: Define the interface between components in the product, functionality of the various APIs, their parameters and responses.
 
-**Recommended duration**: Roughly 15% of the session.
+**Recommended duration**: Roughly 20% of the session.
 
-With the components and data within each components, we can move on to discuss the interface (APIs) between the components. API is an overloaded term and generally refer to the protocol which software components communicate and request/send data between components. Client and server communicate via network layer APIs (HTTP/WebSockets). Client components generally communicate via functions in the browser runtime. All APIs have three things in common whether they are between the server and the client or between client components:
+With the architectural components and data model defined, we can move on to discuss the interface (APIs) between the components. API is an overloaded term and generally refers to the protocol which software components communicate and request/send data between them.
+
+Servers and clients communicate by exchanging messages over a network, following agreed-upon protocols (e.g. HTTP, WebSocket, Server-sent Events) that define how data is structured, transmitted, and understood on both sides.
+
+Within the browser, client components generally communicate via event listeners and callback functions.
+
+Regardless of components involved, all APIs have three things in common:
 
 | Parts of an API | Server-client | Client-client |
 | --- | --- | --- |
-| Name and functionality | HTTP path | JavaScript function |
-| Parameters | HTTP GET query and POST parameters | Function parameters |
-| Return Value | HTTP response, typically JSON format | Function return value |
+| Name and functionality | HTTP path | JavaScript function / Event name |
+| Parameters | HTTP GET query and POST parameters | Function / event parameters |
+| Return Value | HTTP response, typically JSON format | Return values (optional) |
 
-### Server-client API example
+### Server-client communication
 
-Using the [News Feed system design](/questions/system-design/news-feed-facebook) example yet again, we have a server API that allows the client to fetch the latest feed posts.
+At a high level, all server–client communication boils down to requests and responses, but the specifics depend on the protocol and the application architecture. Here are the major server-client communication mechanisms:
 
-| Field       | Value                                |
-| ----------- | ------------------------------------ |
-| HTTP Method | `GET`                                |
-| Path        | `/feed`                              |
-| Description | Fetches the feed results for a user. |
+- **HTTP**: HTTP is the foundation of the web. The client sends a request to a specific URL, and the server responds with data or a document. Each exchange is stateless, meaning the server does not remember previous requests and clients authenticate/identify themselves using session cookies. Most modern HTTP APIs are structured using [RESTful conventions](https://en.wikipedia.org/wiki/REST). HTTP/REST is the most common server-client communication mechanism you will encounter in system design interviews.
+- **WebSockets**: WebSockets create a persistent, bidirectional channel between client and server after an initial HTTP handshake. Once open, both sides can send messages at any time without reopening new connections. This makes them ideal for real-time apps such as chats, games, live dashboards, or collaborative editing tools.
+- **Server-Sent Events**: SSE allows the server to push a continuous stream of updates to the client over a single long-lived HTTP connection. The client can't send messages back on the same channel, making it one-way (server → client). It's simpler than WebSockets and well-suited for live notifications, stock tickers, or streaming logs.
+- **Long polling**: Long polling is not a protocol, it's more of a technique to simulate real-time updates over standard HTTP. The client sends a request and the server holds it open until new data is available, then returns a response. The client immediately reopens another request. Although inefficient compared to WebSockets, it works when persistent connections aren't available. With better alternatives like WebSockets and SSE, long polling is rarely used these days.
+- **GraphQL**: GraphQL uses HTTP to let clients request exactly the data they need with a single query. The server interprets the query and returns structured JSON matching the client’s shape. It reduces over-fetching and under-fetching problems common with REST APIs. In interviews, it is unlikely that you will encounter any systems that can only be solved with GraphQL.
+- **WebRTC**: WebRTC is a peer-to-peer communication protocol designed for low-latency media and data transfer (e.g., video calls, file sharing). It typically uses a signaling server for connection setup, thereafter data is transmitted directly between clients, without going through the server. WebRTC is used to solve very specific problems
 
-#### Parameters
+Most of the time, front end system design interviews will only require knowledge of HTTP, WebSockets and SSE mechanisms.
+
+**Example using News Feed**
+
+Using the [News Feed system design](/questions/system-design/news-feed-facebook) example, the server provides a RESTful HTTP API that allows clients to fetch the latest feed posts.
+
+| Field       | Value                              |
+| ----------- | ---------------------------------- |
+| HTTP Method | `GET`                              |
+| Path        | `/feed`                            |
+| Description | Fetches the feed posts for a user. |
+
+**Parameters**
 
 A feed response is a paginated list so the API expects pagination parameters.
 
@@ -189,7 +257,7 @@ A feed response is a paginated list so the API expects pagination parameters.
 }
 ```
 
-#### Response
+**Response**
 
 ```json
 {
@@ -217,13 +285,27 @@ A feed response is a paginated list so the API expects pagination parameters.
 }
 ```
 
-### Client-client API example
+### Inter-client communication
 
-The client-client API can be written in a similar fashion as the server-client API, main difference being they are JavaScript functions, or events that are being listened to. The most important parts to describe are the functionality of the API, the parameters and the return/response value.
+Communication between modules in a web client, especially those built with modern frameworks, primarily involves mechanisms for **state management**, **event broadcasting**, and direct interaction:
 
-### API for UI component system design
+- **Props and callbacks**: This is the foundational component communication. Data moves down from parent to child via props. To communicate back up, the parent passes a callback function down, which the child executes. This establishes a clear, but often deeply nested, communication path.
+- **Store dispatching actions**: This involves a centralized data store (e.g., Redux, Zustand, Pinia) that holds the entire application state. Modules don't talk directly; they dispatch actions to the store and subscribe to state changes. This ensures a predictable, unidirectional data flow and simplifies debugging in large applications. Actions are simple objects that contain the action name and action payload.
+- **Publish/subscribe via event listeners**: Modules using a publisher/subscriber model communicate without direct knowledge of each other. Modules can subscribe to events with a callback that will be triggered when the event is published. This is highly flexible for non-hierarchical, decoupled communication but can be difficult to trace in complex applications. This is the most prevalent mode of communication in the browser as `window` / DOM elements can listen for events via `element.addEventListener('...')`.
 
-If you're asked to design a UI component, for the "Interface" section, discuss the customization options for the component, similar to the props of a React component.
+In system design interviews, modern web apps use some sort of central store that responds to actions. Hence the most common type of inter-client communication present is the store actions and their payload, and how the actions change the store data (data model). Actions can be simple objects that encapsulate the action name and payload (e.g. Flux, Redux), or setters functions on the store object (e.g. Zustand, Pinia).
+
+### UI components API design
+
+In the context of designing UI components, the "Interface" refers to component props. Discuss the props for the each component (parent and children), which tend to fall under one of these categories:
+
+- **Data props**: These provide the data that the component needs to render, e.g. `name`, `title`
+- **Event or callback props**: Functions passed down so the child can notify the parent of an event or request an action, e.g. `onClick`, `onSubmit`
+- **Configuration or behavior props**: Customize how the component behaves without changing its data, e.g. `isOpen`, `isDisabled`, `timeout`, `maxResults`
+- **Styling and presentation props**: These influence visual output or layout, e.g. `className`, `style`, `color`, `size`
+- **Render function or slot props**: These invert control and let the parent decide how to render certain parts, e.g. `render`
+
+In interviews, unless you are asked to design a component (e.g. [Autocomplete](/questions/system-design/autocomplete), [Modal dialog](/questions/system-design/modal-dialog), [Dropdown Menu](/questions/system-design/dropdown-menu)) or a component makes up the main part of the product (e.g. [Pinterest's masonry grid](/questions/system-design/pinterest), a fairly complex component), you shouldn't need to spend time on component API design.
 
 ---
 
@@ -233,24 +315,65 @@ If you're asked to design a UI component, for the "Interface" section, discuss t
 
 **Recommended duration**: Roughly 40% of the session.
 
-There's no fixed way to go about the optimization and deep dive section and you are free to focus on different areas of the product. There will not be sufficient time to cover every area, so select how you want to spend your time carefully according to these guidelines:
+There's no fixed way to go about the optimization and deep dive section and you usually have the flexibility to focus on various areas of the product.
 
-- **Focus on the important areas of the product**: For e-commerce websites, performance is crucial and you'd want to spend the bulk of your time diving into the various performance optimizations that can be done. For collaborative editors, the complexity is in how to handle race conditions and concurrent modifications, so you'd want to focus on explaining that.
-- **Focus on your strengths**: Showcase your domain knowledge. If you are well-versed in accessibility, talk about the various accessibility pitfalls that can occur in the product and how to address them. Impress the interviewer with your knowledge. If you are a performance guru, explain the various performance optimization opportunities that can provide a buttery smooth user experience.
+However, there will not be sufficient time to cover every area, it's important to decide how you want to spend your time carefully according to these guidelines:
 
-### General optimization / Deep dive areas
+**1. Focus on the unique/important areas of the product**. For e-commerce websites, SEO and performance are crucial and you'd want to spend the bulk of your time diving into the various SEO techniques and possible performance optimizations. For collaborative editors, the complexity is in how to handle concurrent modifications and resolving any conflicts, so you'd want to focus on explaining that. Avoid topics that do not affect the architecture, like logging, CSS framework, tooling choices, etc.
 
-Here's a list of topics you can talk about for this section. Bear in mind that the importance of a topic depends on the product and some topics are entirely irrelevant to certain products (possible but unlikely).
+**2. Showcase your strengths and knowledge**. If you are well-versed in accessibility, talk about the various accessibility pitfalls that can occur in the product and how to address them. If you are a performance guru, explain the various performance optimization opportunities that can provide a buttery smooth user experience. Impress the interviewer with your knowledge and aim to teach them something new. However, remember to stay relevant to the product, and not start a discussion about something like V8 internals.
 
-- Performance
-- User Experience
-- Network
+### General optimization / deep dive areas
+
+Here's a list of topics you can dive into. Bear in mind that the importance of a topic depends on the product and some topics are entirely irrelevant to certain products.
+
+- Performance optimizations
+- Networking techniques and optimization
+- User experience
 - Accessibility (a11y)
-- Multilingual Support
-- Multi-device Support
+- Search engine optimization
+- Multilingual support
+- Multi-device support
 - Security
 
 Refer to our [Best Practices for Building User Interfaces Guide](/front-end-interview-guidebook/user-interface-questions-cheatsheet) for details on each topic.
+
+### Choosing topics
+
+We emphasize again the importance of staying relevant to the problem/system at hand.
+
+As a general rule of thumb, avoid spending time on the following topics that are not likely to affect the system architecture.
+
+- **JavaScript framework**: Avoid debating React vs Vue vs Angular. The interviewer cares about more how you'd structure the app. Most modern JavaScript frameworks have similar features and most of the time you can build applications using any modern JavaScript framework.
+- **Design system / CSS framework**: Leave out framework choices such as Tailwind vs Material UI unless the question explicitly involves UI scalability or theming.
+- **General performance optimization**: Don't overemphasize generic advice like minification, image compression, or caching unless it's core to the problem being solved (e.g., rendering at scale, large data visualizations).
+- **Auxiliary product infrastructure**: Skip common topics that do not affect the core architecture, like logging, analytics, or monitoring integrations unless they directly influence user experience or system constraints.
+- **Irrelevant DevOps or CI/CD details**: Avoid going deep into deployment pipelines, Docker setups, or GitHub Actions unless it directly impacts client performance or front end release management.
+- **Tooling**: Don't focus on build tools or developer experience topics like webpack vs Vite, linting configurations, or code formatting.
+
+Remember, if the topic isn't uniquely relevant or important to the system, you likely don't want to spend too much time on it, or at all.
+
+### Exceptions
+
+You should only bring up any of the above topics when they directly affects the architecture or constraints of the system you're designing. In other words, mention it when the choice has meaningful implications, not just as a personal preference.
+
+For e.g., mentioning the JavaScript framework or metaframework is relevant when:
+
+1. The problem domain dictates it. If the system's nature aligns with a particular framework paradigm:
+   - Example: You're designing a highly dynamic dashboard with complex client-side interactions → React or Vue may be relevant.
+   - Example: You're building a content-heavy marketing site optimized for SEO → Next.js, Remix, or Nuxt might be worth mentioning due to the ability to perform server-side rendering (SSR) and static site generation (SSG).
+
+2. When performance, rendering, or deployment strategy depends on it. If the architecture discussion involves rendering strategy or performance:
+   - CSR vs SSR vs SSG vs ISR (e.g., Next.js or Remix enabling SSR and caching at the edge).
+   - Trade-offs between SPA navigation and server-rendered first loads.
+   - CDN or edge delivery considerations tied to the framework (e.g., Vercel's Next.js ecosystem).
+
+When not to bring it up:
+
+- When the discussion is about data flow, caching, APIs, or component communication. Those are conceptual and independent of framework choice.
+- When you're asked to "design" a system, not "implement" it. Focus on user flow, data handling, state management, and communication patterns first.
+
+Spend time on a topic only when it changes architectural trade-offs — not when it's just an implementation detail or something every application needs.
 
 ---
 
@@ -258,8 +381,8 @@ Refer to our [Best Practices for Building User Interfaces Guide](/front-end-inte
 
 | Step | Objective | Recommended duration |
 | --- | --- | --- |
-| Requirements exploration | Understand the problem thoroughly and determine the scope by asking a number of clarifying questions. | &lt;15% |
+| Requirements exploration | Understand the problem thoroughly and determine the scope by asking a number of clarifying questions. | ~10% |
 | Architecture / High-level design | Identify the key components of the product and how they are related to each other. | ~20% |
-| Data model | Describe the various data entities, the fields they contain and which component(s) they belong to. | ~10% |
-| Interface definition (API) | Define the interface (API) between components in the product, functionality of each APIs, their parameters and responses. | ~15% |
+| Data model | Describe the various data entities, the fields they contain, and which component(s) they belong to. | ~10% |
+| Interface definition (API) | Define the interface (API) between components in the product, functionality of each APIs, their parameters and responses. | ~20% |
 | Optimizations and deep dive | Discuss about possible optimization opportunities and specific areas of interest when building the product. | ~40% |

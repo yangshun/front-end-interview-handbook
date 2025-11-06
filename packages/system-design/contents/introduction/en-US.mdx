@@ -6,45 +6,63 @@ social_title: Front End System Design Playbook | GreatFrontEnd
 seo_description: The definitive guide to front end system design interviews. Learn useful techniques and how to approach the most common questions. Written by Ex-FAANG interviewers.
 ---
 
-Unlike coding and quiz questions, system design interviews are open-ended style interviews where there are no right answers. You're given a vague problem or scenario and you're expected to work with the interviewer to answer the question by coming up with a suitable software design on a whiteboard, or some collaborative drawing app if it's a virtual interview. It is similar to the process at certain companies where engineers write technical design documents to outline the possible approaches to a project they are working on, explain technical decisions and discuss tradeoffs with coworkers except that you have to do it within 30-60 minutes.
+Unlike coding and quiz questions, system design interviews are open-ended style interviews where there are no right answers. Candidates are given a vague problem or scenario and they are expected to work with the interviewer to answer the question by coming up with a suitable software design on a whiteboard, or in the case of virtual interviews, a collaborative drawing app like Excalidraw.
 
-System design interviews are usually given to candidates who have some number of years of working experience (aka non-fresh grads) and your performance in the system design interview has significant influence on the job level you will be offered. Most of the time, failing the system design interview will result in an overall rejection. It's really important to ace your system design interviews!
+In many ways, system design interviews are similar to the process at certain companies where engineers write technical design documents to outline the possible approaches to a project they are working on, explain technical decisions, and discuss tradeoffs with coworkers except that time is limited (around 30-60 minutes).
 
-However, given the open-ended nature of system design interviews, it is much harder to practice for it as compared to coding interviews. Many candidates also don't have real life experience building various systems and it's hard to draw from experience when answering system design interview questions. Also, there are very few resources available for front end system design. Most existing system design resources are targeted at general Software Engineers and hence focus on distributed systems.
+System design interviews are usually asked to candidates who have some number of years of working experience (aka non-fresh grads) and their performance in the system design interview has significant influence on the job level and salary offered. Most of the time, failing the system design interview will result in an overall rejection. If you are targeting senior and beyond levels, it's really important to ace your system design interviews!
 
-GreatFrontEnd's front end system design resources are perhaps the most comprehensive you can find and will help you ace your front end system design interviews with ease!
+Given the open-ended nature of system design interviews, it is much harder to practice for it as compared to coding interviews. Many candidates also don't have real life experience building various systems and it's hard to draw from experience when answering system design interview questions. Also, there are very few resources available for front end system design. Most existing system design resources are targeted at general Software Engineers and hence focus on distributed systems.
 
-{/* TODO: Add some testimonials regarding front end system design */}
+GreatFrontEnd aims to fill the gap with this Front End System Design Playbook. This guide is among the most comprehensive front end system design resource available and will help you ace your front end system design interviews even if you do not have much experience.
 
 ## Front end vs Back end / Full stack system design
 
-In traditional Software Engineer system design interviews, candidates will be asked to describe the architecture of a distributed system, usually involving web servers, API gateways, load balancers, caches, databases, microservices, message queues, streams, etc.
+In traditional Software Engineer system design interviews, candidates are asked to describe the architecture of a distributed system, usually involving cloud infrastructure — web servers, API gateways, load balancers, caches, databases, microservices, message queues, streams, etc.
 
-For Front End Engineers, system design interviews are slightly different – there's more emphasis on what goes on in the client and API design between the client and the server, as opposed to what goes on in the back end.
+Front end system design interviews are slightly different – there's more emphasis on what goes on in the client and the API details between clients and servers, as opposed to what goes on in the back end.
 
-| Area | Back end / Full stack | Front end |
+| Aspect | Back end / Full stack | Front end |
 | --- | --- | --- |
 | Gather requirements | Required | Required |
-| Architecture / High-level design entities | Distributed cloud services | Application/Component |
-| Back-of-the-envelope estimation | May be required | Not required |
-| Components of the system | Cloud services (e.g. Load balancer, Application server, Database, File storage, Caches, Message queues, CDN, Full-text search) | Application modules (Model, View, Controller) |
+| Architecture / High-level entities | Distributed cloud services (e.g. Load balancer, Application server, Database, File storage, Caches, Message queues, CDN, Full-text search) | Components within the client (View, Store, Networking layer) |
+| Back-of-the-envelope capacity estimation | May be required | Usually not required |
 | Data model | Database schema | Application state |
-| Type of APIs between components | Network (Any protocol) | Network (HTTP, WebSocket), JavaScript functions |
-| Deep dives / focus areas | Scalability, Reliability, Consistency, Availability | Performance, User Experience, Accessibility, Internationalization |
 | Less important (Can treat as a black box) | Client | Server |
+| Type of APIs between components | Between distributed services (HTTP, gRPC, etc.) | Between server and client (HTTP, WebSocket), Events / actions between client-side components |
+| Deep dives / focus areas | Scalability, Reliability, Consistency, Availability | Performance, User Experience, Accessibility, Internationalization |
 
-For example, a classic question is to ask about designing a Facebook news feed which can be asked during both back end and front end system interviews.
+For example, a classic question is to "Design the Facebook news feed". This question can be asked in both back end and front end system interviews, but the focus is entirely different:
 
-- **Back end / Full stack**: Capacity estimation, designing the database schema, APIs between microservices, how to ensure the services can scale with the traffic, how to generate a user's news feed in a scalable fashion, what happens when a post is created by a typical user (hundreds of followers) vs celebrities (millions of followers)
-- **Front end**: HTTP API for the feed, how to implement feed pagination, how to implement interactions with posts, how new posts can be created, user experience and accessibility considerations
+- **Back end / full stack system design**: Capacity estimation, designing the database schema, APIs between microservices, scaling services for high traffic, how to generate a user's news feed in a scalable fashion, what happens when a post is created by a typical user (hundreds of followers) vs celebrities (millions of followers)
+- **Front end system design**: HTTP API to fetch the feed, implementing feed pagination, implementing interactions with posts (liking, commenting), how users can create new posts, performance, user experience, and accessibility considerations
 
-As you can see, the focus of front end system design interviews can be very different from back end, and answering them well requires a different approach.
+To excel in front end system design interviews, knowing what topics to focus on is paramount.
 
 ## What you will learn in this guide
 
-Our Front End System Design guide is structured into two parts, you will first gain a deeper understanding of what system design interviews are about, then dive into some front end system design case studies that use the RADIO framework.
+Our Front End System Design guide is structured into a few parts, you will first gain a deeper understanding of the types of front end system design interviews, then learn a framework to approach front end system design interviews. Lastly, you will learn how candidates are being evaluated and what common mistakes candidates make.
 
 - [Types of questions](/system-design/types-of-questions): Types of Front End System Design interview questions and examples
-- [RADIO framework](/system-design/framework): A framework for answering Front End System Design interview questions
+- [RADIO framework by GreatFrontEnd](/system-design/framework): A framework for approaching Front End System Design interview questions
 - [Evaluation axes](/system-design/evaluation-axes): How you are being evaluated and what interviewers are looking out for
 - [Common mistakes](/system-design/common-mistakes): Common mistakes to avoid during Front End System Design interviews
+
+## How to use this guide
+
+We recommend reading the entire Front End System Design playbook cover-to-cover (entirely free) since it's not that long but full of important information. It aims to give you an overview of front end system design interviews and help you understand how to excel in your interviews.
+
+After which, go through the case studies like [News Feed](/questions/system-design/news-feed-facebook) and [Autocomplete](/questions/system-design/autocomplete). These case studies give you a sense of how to approach the two kinds of questions you can encounter in front end system design interviews. Along the way, you will pick up techniques that can be broadly applied to other questions.
+
+Beyond these two case studies, we also dive into niche front end systems such as:
+
+- Search engine optimization: Airbnb
+- E-commerce performance optimization: Amazon
+- Media upload and optimization: Instagram
+- Media streaming: Netflix
+- Rich text editing: Lexical rich text editor
+- Real-time collaboration and conflict resolution: Google docs
+- Real-time messaging: Messenger
+- Design system components: Dropdown menu, Image carousel, Modal dialog
+
+You can sign up for the [Premium membership](/interviews/pricing), which gives you full access to all case studies.
