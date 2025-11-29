@@ -38,7 +38,7 @@ Further reading on react.dev: [Higher-Order Components – React](https://www.pa
 
 Render props involves passing a function that renders an element as a prop to a component. The component calls the prop with certain parameters, which is usually its own state.
 
-This allows the parent to the component to render based on the the component state still allowing the parent to customize the behavior/appearance from outside.
+This allows the parent of the component to render based on the component state, allowing the parent to still customize the behavior/appearance from outside.
 
 ```jsx
 function MouseTracker({ render }) {
@@ -81,15 +81,15 @@ Further reading on react.dev: [Render Props - React](https://www.patterns.dev/re
 
 The Container/presentational pattern is a design pattern used in React to separate state management (logic) from UI rendering (presentation). It helps in making components reusable, maintainable, and testable by ensuring a clear separation of concerns.
 
-On the client, data can come from the user's input, fetched from an API, `localStorage`, WebSockets, etc. Not assuming where the data comes from is a good way to structure your components.
+On the client, data can come from the user's input, an API, `localStorage`, WebSockets, etc. It is a good idea to structure your components in a way that does not make assumptions about where the data comes.
 
 **Presentational components:**
 
 - Focus only on rendering the UI
 - Do not contain state (except local UI state like toggles)
 - Receive all data via props and use event handlers (e.g. `onClick`, `onChange`)
-- Reusable and easy to test because they are independent of business logic
-- Does not assume how data is fetched
+- Are reusable and easy to test because they are independent of business logic
+- Do not make assumptions about how data is fetched
 
 ```jsx
 function UserList({ users }) {
