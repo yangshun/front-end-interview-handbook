@@ -141,7 +141,7 @@ This problem can be fixed/improved in multiple ways:
 
 1. **Debouncing**: Debouncing ensures that requests are sent only after a period of inactivity, which reduces the chance of race conditions. However, if the request latency is longer than the debounce duration, then race conditions can still occur. Debouncing is not a foolproof approach.
 2. **Cancelling previous requests**: Use `AbortController` to cancel in-flight API requests when a new one is made.
-3. **Ignore/discard outdated responses**: Before displayed data, determine if the response is for the current query, and ignore/discard the responses that aren't relevant.
+3. **Ignore/discard outdated responses**: Before displaying data, determine if the response is for the current query, and ignore/discard the responses that aren't relevant.
 
 ### Setting state after unmount
 
@@ -179,7 +179,7 @@ Data fetching isn't only limited to querying, there's also mutations. A data mut
 
 ### Optimistic updates
 
-The typical steps in a data mutation with any optimizations:
+The typical steps in a data mutation without any optimizations:
 
 1. Trigger the API request (POST, PUT, DELETE)
 1. Show a loading state while the request is in progress
@@ -196,7 +196,7 @@ Optimistic updates are a technique used in data mutations where the UI updates b
 1. If the request succeeds, keep the UI as it is
 1. If the request fails, rollback the UI to its previous state and show an error message
 
-Optimistic updates reduce perceived latency and improves user experience.
+Optimistic updates reduce perceived latency and improve user experience.
 
 ```jsx
 const handleLike = async () => {
@@ -220,7 +220,7 @@ If the UI relies on cached data, the cache should be invalidated either by refet
 
 ## Query libraries
 
-By now you probably agree with me that data fetching is such a huge pain to implement properly. But not to worry, query libraries to the rescue!
+By now you probably agree with me that data fetching is a huge pain to implement properly. But not to worry, query libraries to the rescue!
 
 Query libraries are specially designed to handle data fetching, caching, synchronization, and state management in front end applications. They simplify making API requests while optimizing performance and user experience. Popular examples include [TanStack Query](https://tanstack.com/query/latest), [useSWR](https://swr.vercel.app/), and [Apollo Client](https://www.apollographql.com/) (for GraphQL).
 

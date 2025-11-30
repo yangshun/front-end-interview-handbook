@@ -33,7 +33,7 @@ There are two ways of writing React components:
 
 The modern recommended way is to write JavaScript functions that return JSX. React hooks (e.g. `useState`, `useEffect`, etc.) was introduced in React 16.8 and are used for state and side effects. Prior to the introduction of hooks, function components could only be used for components that didn't contain any state.
 
-Function components require less boilerplate and preferred over class components.
+Function components require less boilerplate and are preferred over class components.
 
 ```jsx
 function Greeting({ name }) {
@@ -55,7 +55,7 @@ class Greeting extends React.Component {
 }
 ```
 
-Although class components can still be asked in interviews, you shouldn't be faulted for not having experience with class components since it has been over half a decade that functions components have been the de facto way of writing components. If you haven't used class components before, there's no need to learn about it and you can just tell your interviewer.
+Although interviewers may still ask about class components, you shouldn't be faulted for not having experience with class components since it has been over half a decade that functional components have been the de facto way of writing components. If you haven't used class components before, you can just tell your interviewer that, there's no need to learn about them.
 
 ## JSX
 
@@ -125,7 +125,7 @@ Further reading on react.dev: [Passing Props to a Component](https://react.dev/l
 
 ### State
 
-State can be viewed as the "memory" of a component instance. Each component instance's state is isolated and cannot be directly modified from external.
+State can be viewed as the "memory" of a component instance. Each component instance's state is isolated and cannot be directly modified from external sources.
 
 - Managed within the component
 - Triggers a re-render when updated
@@ -143,7 +143,7 @@ Further reading on react.dev: [State: A Component's Memory](https://react.dev/le
 
 ## Rendering
 
-Traditionally, rendering in the context of the browser is the process by which a web browser takes the raw code of a webpage – primarily HTML, CSS, and JavaScript – and converts it into the visual, interactive page you see on your screen. However in React also uses the term "rendering" to describe how React converts components into actual DOM elements to be shown on the screen.
+Traditionally, rendering in the context of the browser is the process by which a web browser takes the raw code of a webpage – primarily HTML, CSS, and JavaScript – and converts it into the visual, interactive page you see on your screen. However, React also uses the term "rendering" to describe how React converts components into actual DOM elements to be shown on the screen.
 
 To avoid confusion, in this guide, "rendering" will refer to React's definition and "browser rendering" will be referred to as "browser painting".
 
