@@ -55,7 +55,7 @@ The following is a checklist that contains recommendations for implementing HTML
 
 ## Navigating Content
 
-- MacOS comes built-in with VoiceOver. Press <kbd>CMD</kbd> + <kbd>F5</kbd> to activate.
+- macOS comes built-in with VoiceOver. Press <kbd>CMD</kbd> + <kbd>F5</kbd> to activate.
   - Activate Web Rotor with <kbd>Ctrl</kbd> + <kbd>Option</kbd> + <kbd>U</kbd>. Web Rotor displays landmarks, headings, links and more on the page and allows you to jump to them directly.
 - Heading weight should be decided by its importance on the page and not how big it should look, as the heading tag chosen affects the order the headings are listed on screen readers.
 - Use HTML5 semantic tags like `<main>`, `<nav>`, `<header>`, `<aside>`, `<article>`, `<section>`, `<footer>` to indicate landmarks on the page.
