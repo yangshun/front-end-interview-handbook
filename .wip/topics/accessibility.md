@@ -76,7 +76,6 @@ The following is a checklist that contains recommendations for implementing HTML
 - `aria-role` attributes tell assistive technologies that the element should follow that role's accessibility patterns. There are well-defined roles in the HTML spec. Do not define them on your own.
   - `tabindex="0"` is usually added to it elements that have `role` added so that it can be focused.
 - Assistive labelling
-
   - `aria-label` is useful for labelling buttons where the content is empty or contains only icons.
   - `aria-labelledby` is similar to `<label>` elements, and can be used on any elements.
 

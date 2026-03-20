@@ -6,18 +6,10 @@
   "content": {
     "source": {
       "locale": "en-US",
-      "hashes": [
-        "ed40a328",
-        "cf166ea3",
-        "1346294f"
-      ]
+      "hashes": ["ed40a328", "cf166ea3", "1346294f"]
     },
     "targets": {
-      "zh-CN": [
-        "ed40a328",
-        "cf166ea3",
-        "1346294f"
-      ]
+      "zh-CN": ["ed40a328", "cf166ea3", "1346294f"]
     }
   }
 }

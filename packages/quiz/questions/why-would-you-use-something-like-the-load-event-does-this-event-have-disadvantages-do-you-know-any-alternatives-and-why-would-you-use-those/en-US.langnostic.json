@@ -6,16 +6,10 @@
   "content": {
     "source": {
       "locale": "en-US",
-      "hashes": [
-        "569e6ee9",
-        "3d0dd108"
-      ]
+      "hashes": ["569e6ee9", "3d0dd108"]
     },
     "targets": {
-      "zh-CN": [
-        "569e6ee9",
-        "3d0dd108"
-      ]
+      "zh-CN": ["569e6ee9", "3d0dd108"]
     }
   }
 }

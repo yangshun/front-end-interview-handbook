@@ -6,14 +6,10 @@
   "content": {
     "source": {
       "locale": "en-US",
-      "hashes": [
-        "48e199bc"
-      ]
+      "hashes": ["48e199bc"]
     },
     "targets": {
-      "zh-CN": [
-        "48e199bc"
-      ]
+      "zh-CN": ["48e199bc"]
     }
   }
 }

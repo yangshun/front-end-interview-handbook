@@ -32,12 +32,12 @@ In system design interviews, candidates are supposed to lead the conversation. H
 - Data model
 - Interface definition (API)
 - Optimizations and deep dive
-   - User experience (UX)
-   - Performance
-   - Accessibility (a11y)
-   - Internationalization (i18n)
-   - Multi-device support
-   - Security
+  - User experience (UX)
+  - Performance
+  - Accessibility (a11y)
+  - Internationalization (i18n)
+  - Multi-device support
+  - Security
 
 ### Requirements exploration
 

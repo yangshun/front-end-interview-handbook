@@ -2,8 +2,8 @@
 title: 有哪些清除浮动的方法？在什么情况下使用哪种方法？
 ---
 
-* 空 `div` 方法：`<div style="clear:both;"></div>`。
-* Clearfix 方法：参考上面的 `.clearfix` 类。
-* `overflow: auto` 或 `overflow: hidden` 方法：父元素将建立一个新的块级格式化上下文，并扩展以包含其浮动的子元素。
+- 空 `div` 方法：`<div style="clear:both;"></div>`。
+- Clearfix 方法：参考上面的 `.clearfix` 类。
+- `overflow: auto` 或 `overflow: hidden` 方法：父元素将建立一个新的块级格式化上下文，并扩展以包含其浮动的子元素。
 
 在大型项目中，拥有一个实用程序 `.clearfix` 类将非常有帮助。如果子元素比父元素高并且不太理想，`overflow: hidden` 可能会剪切子元素。

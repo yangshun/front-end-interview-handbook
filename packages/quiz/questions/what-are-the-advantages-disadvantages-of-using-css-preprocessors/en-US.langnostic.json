@@ -5,20 +5,10 @@
   "content": {
     "source": {
       "locale": "en-US",
-      "hashes": [
-        "e25efb62",
-        "c858c20a",
-        "a11dd609",
-        "55504b24"
-      ]
+      "hashes": ["e25efb62", "c858c20a", "a11dd609", "55504b24"]
     },
     "targets": {
-      "zh-CN": [
-        "e25efb62",
-        "c858c20a",
-        "a11dd609",
-        "55504b24"
-      ]
+      "zh-CN": ["e25efb62", "c858c20a", "a11dd609", "55504b24"]
     }
   }
 }

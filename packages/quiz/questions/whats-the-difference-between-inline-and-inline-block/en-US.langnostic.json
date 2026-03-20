@@ -5,14 +5,10 @@
   "content": {
     "source": {
       "locale": "en-US",
-      "hashes": [
-        "9a602624"
-      ]
+      "hashes": ["9a602624"]
     },
     "targets": {
-      "zh-CN": [
-        "9a602624"
-      ]
+      "zh-CN": ["9a602624"]
     }
   }
 }

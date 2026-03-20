@@ -259,14 +259,14 @@ function DataFetchingComponent() {
 
 优点
 
-| 特性 | `useEffect` + `fetch` | 查询库 |
-| --- | --- | --- |
-| 缓存 | 无缓存 | 自动缓存 |
-| 错误处理 | 需要 `try`/`catch` | 内置重试 |
-| 乐观更新 | 需要手动回滚 | 失败时自动回滚 |
-| 分页 | 需要额外的逻辑 | 内置支持 |
-| 后台更新 | 需要手动轮询 | 在后台处理更新 |
-| 重新获取 | 手动 | 自动 |
+| 特性     | `useEffect` + `fetch` | 查询库         |
+| -------- | --------------------- | -------------- |
+| 缓存     | 无缓存                | 自动缓存       |
+| 错误处理 | 需要 `try`/`catch`    | 内置重试       |
+| 乐观更新 | 需要手动回滚          | 失败时自动回滚 |
+| 分页     | 需要额外的逻辑        | 内置支持       |
+| 后台更新 | 需要手动轮询          | 在后台处理更新 |
+| 重新获取 | 手动                  | 自动           |
 
 ## 服务器端数据获取和服务器端渲染 (SSR)
 
@@ -282,13 +282,13 @@ function DataFetchingComponent() {
 
 ## 面试你需要知道的
 
-* **基本数据获取**：
-  * 使用 `useEffect` 和 `useState` 在函数组件中获取数据
-  * 处理加载和错误状态
-  * 理解依赖数组 (`[]` 用于挂载时获取，`[query]` 用于更改时获取)
-  * 避免由于缺少依赖项而导致的无限循环
-  * 清理副作用（例如，中止获取请求以防止在卸载时设置状态）
-* **基本数据获取的问题**：虽然你可能不会被要求实现优化的数据获取方法，但你应该知道问题是什么以及如何在高级别上修复它们
+- **基本数据获取**：
+  - 使用 `useEffect` 和 `useState` 在函数组件中获取数据
+  - 处理加载和错误状态
+  - 理解依赖数组 (`[]` 用于挂载时获取，`[query]` 用于更改时获取)
+  - 避免由于缺少依赖项而导致的无限循环
+  - 清理副作用（例如，中止获取请求以防止在卸载时设置状态）
+- **基本数据获取的问题**：虽然你可能不会被要求实现优化的数据获取方法，但你应该知道问题是什么以及如何在高级别上修复它们
 
 ## 关键面试问题
 
@@ -303,12 +303,12 @@ function DataFetchingComponent() {
 
 **测验**：
 
-* [你如何在 React 应用程序中处理异步数据加载？](/questions/quiz/how-do-you-handle-asynchronous-data-loading-in-react-applications?framework=react\&tab=quiz)
-* [解释 React 应用程序的服务器端渲染及其好处？](/questions/quiz/explain-server-side-rendering-of-react-applications-and-its-benefits?framework=react\&tab=quiz)
-* [在 React 中进行数据获取时，有哪些常见的陷阱？](/questions/quiz/what-are-some-common-pitfalls-when-doing-data-fetching-in-react?framework=react\&tab=quiz)
+- [你如何在 React 应用程序中处理异步数据加载？](/questions/quiz/how-do-you-handle-asynchronous-data-loading-in-react-applications?framework=react&tab=quiz)
+- [解释 React 应用程序的服务器端渲染及其好处？](/questions/quiz/explain-server-side-rendering-of-react-applications-and-its-benefits?framework=react&tab=quiz)
+- [在 React 中进行数据获取时，有哪些常见的陷阱？](/questions/quiz/what-are-some-common-pitfalls-when-doing-data-fetching-in-react?framework=react&tab=quiz)
 
 **编码**:
 
-* [点赞按钮](/questions/user-interface/like-button/react?framework=react\&tab=coding)
-* [出生年份直方图](/questions/user-interface/birth-year-histogram/react?framework=react\&tab=coding)
-* [招聘版块](/questions/user-interface/job-board/react?framework=react\&tab=coding)
+- [点赞按钮](/questions/user-interface/like-button/react?framework=react&tab=coding)
+- [出生年份直方图](/questions/user-interface/birth-year-histogram/react?framework=react&tab=coding)
+- [招聘版块](/questions/user-interface/job-board/react?framework=react&tab=coding)

@@ -1,6 +1,6 @@
---- 
-title: 'What does `* { box-sizing: border-box; }` do?' 
-subtitle: What are its advantages 
+---
+title: 'What does `* { box-sizing: border-box; }` do?'
+subtitle: What are its advantages
 ---
 
 # What does `* { box-sizing: border-box; }` do?
@@ -58,12 +58,12 @@ The `margin` is **not** included in the `width` or `height` calculation for eith
 
 ### Comparison Table
 
-| Property  | `box-sizing: content-box` (default) | `box-sizing: border-box` |
-|-----------|-------------------------------------|--------------------------|
-| Content   | Included                            | Included                 |
-| Padding   | Excluded                            | Included                 |
-| Border    | Excluded                            | Included                 |
-| Margin    | Excluded                            | Excluded                 |
+| Property | `box-sizing: content-box` (default) | `box-sizing: border-box` |
+| -------- | ----------------------------------- | ------------------------ |
+| Content  | Included                            | Included                 |
+| Padding  | Excluded                            | Included                 |
+| Border   | Excluded                            | Included                 |
+| Margin   | Excluded                            | Excluded                 |
 
 ## Advantages of `box-sizing: border-box`
 
@@ -117,7 +117,9 @@ Using `* { box-sizing: border-box; }` has negligible performance impact, as itâ€
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 ```

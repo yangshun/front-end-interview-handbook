@@ -26,9 +26,9 @@ const ProtectedDashboard = withAuth(Dashboard);
 
 HOC 适用于：
 
-* 在多个组件之间重用逻辑（例如，身份验证、分析、日志记录、获取数据）
-* 在不修改原始组件的情况下添加行为
-* 无法使用钩子的情况，例如类组件
+- 在多个组件之间重用逻辑（例如，身份验证、分析、日志记录、获取数据）
+- 在不修改原始组件的情况下添加行为
+- 无法使用钩子的情况，例如类组件
 
 高阶组件在 pre-hooks 时代对于向组件添加功能更有用。现在我们有了 React 钩子以及创建自定义钩子的能力，HOC 已经不再那么普遍。
 
@@ -71,9 +71,9 @@ function App() {
 
 渲染道具适用于：
 
-* 在组件之间共享逻辑，同时保持 UI 灵活性
-* 无法使用钩子的情况，例如类组件
-* 提供逻辑和行为的无头组件，同时允许自定义外观
+- 在组件之间共享逻辑，同时保持 UI 灵活性
+- 无法使用钩子的情况，例如类组件
+- 提供逻辑和行为的无头组件，同时允许自定义外观
 
 在 react.dev 上进一步阅读：[Render Props - React](https://www.patterns.dev/react/render-props-pattern/)
 
@@ -85,11 +85,11 @@ function App() {
 
 **展示组件：**
 
-* 仅专注于渲染 UI
-* 不包含状态（除了本地 UI 状态，如切换）
-* 通过 props 接收所有数据并使用事件处理程序（例如 `onClick`、`onChange`）
-* 可重用且易于测试，因为它们独立于业务逻辑
-* 不假定如何获取数据
+- 仅专注于渲染 UI
+- 不包含状态（除了本地 UI 状态，如切换）
+- 通过 props 接收所有数据并使用事件处理程序（例如 `onClick`、`onChange`）
+- 可重用且易于测试，因为它们独立于业务逻辑
+- 不假定如何获取数据
 
 ```jsx
 function UserList({ users }) {
@@ -107,9 +107,9 @@ function UserList({ users }) {
 
 **容器组件：**
 
-* 管理状态、API 调用和业务逻辑
-* 将数据和函数作为 props 传递给展示组件
-* 不包含 UI 代码（最小 JSX，除了包装展示组件）
+- 管理状态、API 调用和业务逻辑
+- 将数据和函数作为 props 传递给展示组件
+- 不包含 UI 代码（最小 JSX，除了包装展示组件）
 
 ```jsx
 function UserListContainer() {
@@ -127,28 +127,28 @@ function UserListContainer() {
 
 这种模式允许：
 
-* 使用不同的数据源重用 UI 组件
-* UI 和状态逻辑之间的清晰分离
-* 使 UI 组件更易于测试
+- 使用不同的数据源重用 UI 组件
+- UI 和状态逻辑之间的清晰分离
+- 使 UI 组件更易于测试
 
 ### 替代方法
 
-* **自定义钩子（例如，用于获取用户的 `useUser` 钩子）**：一种更现代的方法，可在多个组件中保持逻辑的可重用性
-* **状态管理库（Redux、Zustand）**：单独处理全局状态，无需显式容器组件
+- **自定义钩子（例如，用于获取用户的 `useUser` 钩子）**：一种更现代的方法，可在多个组件中保持逻辑的可重用性
+- **状态管理库（Redux、Zustand）**：单独处理全局状态，无需显式容器组件
 
 在 react.dev 上进一步阅读：[容器/展示模式](https://www.patterns.dev/react/presentational-container-pattern)
 
 ## 面试需要了解的内容
 
-* **首先使用钩子**：虽然 HOC 和 render props 曾经是 React 中代码重用的流行模式，但它们已被钩子取代。但是，它们在某些情况下仍然有用，在某些情况下，仅靠钩子可能不够用或不可用，例如在仍在使用类组件的旧代码库中。
-* **容器/展示超越前端**：容器/展示模式背后的关键思想是将展示与数据源分离。将数据获取与展示分离是一个强大的概念，在前端工程之外也很有用。在构建后端系统时，可以从其他服务获取数据，从数据库加载数据，从文件系统读取数据等。通过进行这种分离，代码将更容易重用和测试。
+- **首先使用钩子**：虽然 HOC 和 render props 曾经是 React 中代码重用的流行模式，但它们已被钩子取代。但是，它们在某些情况下仍然有用，在某些情况下，仅靠钩子可能不够用或不可用，例如在仍在使用类组件的旧代码库中。
+- **容器/展示超越前端**：容器/展示模式背后的关键思想是将展示与数据源分离。将数据获取与展示分离是一个强大的概念，在前端工程之外也很有用。在构建后端系统时，可以从其他服务获取数据，从数据库加载数据，从文件系统读取数据等。通过进行这种分离，代码将更容易重用和测试。
 
 ## 练习题
 
 **测验：**
 
-* [React 中的高阶组件是什么？](/questions/quiz/what-are-higher-order-components-in-react?framework=react\&tab=quiz)
-* [Flux 模式是什么，它有什么好处？](/questions/quiz/what-is-the-flux-pattern-and-what-are-its-benefits?framework=react\&tab=quiz)
-* [解释 React 中的展示组件与容器组件模式](/questions/quiz/explain-the-presentational-vs-container-component-pattern-in-react?framework=react\&tab=quiz)
-* [React 中的 render props 是什么，它们是做什么的？](/questions/quiz/what-are-render-props-in-react-and-what-are-they-for?framework=react\&tab=quiz)
-* [解释 React 中的组合模式](/questions/quiz/explain-the-composition-pattern-in-react?framework=react\&tab=quiz)
+- [React 中的高阶组件是什么？](/questions/quiz/what-are-higher-order-components-in-react?framework=react&tab=quiz)
+- [Flux 模式是什么，它有什么好处？](/questions/quiz/what-is-the-flux-pattern-and-what-are-its-benefits?framework=react&tab=quiz)
+- [解释 React 中的展示组件与容器组件模式](/questions/quiz/explain-the-presentational-vs-container-component-pattern-in-react?framework=react&tab=quiz)
+- [React 中的 render props 是什么，它们是做什么的？](/questions/quiz/what-are-render-props-in-react-and-what-are-they-for?framework=react&tab=quiz)
+- [解释 React 中的组合模式](/questions/quiz/explain-the-composition-pattern-in-react?framework=react&tab=quiz)

@@ -43,8 +43,8 @@ function App() {
 
 想想制作一杯咖啡：
 
-* **命令式：**“拿一个马克杯，倒入热水，加入咖啡，搅拌，然后享用”
-* **声明式：**“我想要一杯咖啡”
+- **命令式：**“拿一个马克杯，倒入热水，加入咖啡，搅拌，然后享用”
+- **声明式：**“我想要一杯咖啡”
 
 在声明式方法中，执行的细节被抽象掉了。你描述最终结果，然后一个系统（例如咖啡机、咖啡师或 React）确保它正确发生。
 
@@ -91,20 +91,20 @@ function App() {
 
 待办事项列表有几种可能的 UI 状态：
 
-* 输入字段，可以接受用户的文本输入
-* 任务列表，可以为空或非空
-* 每个任务可以完成或未完成
-* 任务筛选器的选择器和所选选项
-* 任务列表可以被过滤（全部、活动、已完成）
+- 输入字段，可以接受用户的文本输入
+- 任务列表，可以为空或非空
+- 每个任务可以完成或未完成
+- 任务筛选器的选择器和所选选项
+- 任务列表可以被过滤（全部、活动、已完成）
 
 ### 2. 确定触发状态更改的操作
 
 接下来，我们定义影响状态的操作：
 
-* 添加任务
-* 完成任务
-* 删除任务
-* 过滤任务（显示全部、活动或已完成）
+- 添加任务
+- 完成任务
+- 删除任务
+- 过滤任务（显示全部、活动或已完成）
 
 这些操作将修改状态，React 将相应地自动重新渲染 UI。
 
@@ -148,8 +148,8 @@ const [filter, setFilter] = useState('all'); // all | active | completed
 
 使用此结构：
 
-* `tasks` 是一个数组，其中每个任务都有一个 `id`、`title` 和 `completed` 状态
-* `filter` 确定要显示的任务
+- `tasks` 是一个数组，其中每个任务都有一个 `id`、`title` 和 `completed` 状态
+- `filter` 确定要显示的任务
 
 为了避免状态冗余，我们可以从 `tasks` 派生已完成的任务，而不是保留一个单独的 `completedTasks` 数组。
 
@@ -159,8 +159,8 @@ const [filter, setFilter] = useState('all'); // all | active | completed
 
 操作是响应两种事件而触发的：
 
-* **用户事件**：用户直接执行的操作，例如单击按钮、在输入字段中键入或从下拉列表中选择一个选项
-* **后台事件**：在没有直接用户交互的情况下触发的操作，例如 API 响应、计时器和间隔、WebSocket 实时更新
+- **用户事件**：用户直接执行的操作，例如单击按钮、在输入字段中键入或从下拉列表中选择一个选项
+- **后台事件**：在没有直接用户交互的情况下触发的操作，例如 API 响应、计时器和间隔、WebSocket 实时更新
 
 对于手头的待办事项列表，我们只需要关心用户事件。
 
@@ -255,10 +255,10 @@ export default TodoApp;
 
 这个待办事项列表是声明式的，因为：
 
-* **UI 自动更新**：当 `tasks` 或 `filter` 更改时，React 会相应地重新渲染 UI
-* **没有手动 DOM 操作**：无需选择元素、手动删除任务或通过 `document.querySelector` 更新样式。
-* **最小且结构化的状态**：UI 源自**单一事实来源** (`tasks` 和 `filter`)
-* **事件处理程序更新状态，而不是 DOM**：函数 `addTask`、`toggleTask` 和 `deleteTask` 仅更新状态，React 处理重新渲染。
+- **UI 自动更新**：当 `tasks` 或 `filter` 更改时，React 会相应地重新渲染 UI
+- **没有手动 DOM 操作**：无需选择元素、手动删除任务或通过 `document.querySelector` 更新样式。
+- **最小且结构化的状态**：UI 源自**单一事实来源** (`tasks` 和 `filter`)
+- **事件处理程序更新状态，而不是 DOM**：函数 `addTask`、`toggleTask` 和 `deleteTask` 仅更新状态，React 处理重新渲染。
 
 此示例展示了声明式思维如何简化 React 中的 UI 开发：
 
@@ -275,15 +275,15 @@ export default TodoApp;
 
 ## 面试需要了解的内容
 
-* **以声明方式思考并设计组件**：给定一个 UI 和需求，您应该能够以声明式方式思考，以定义各种必要的组件、道具、状态、更改状态的操作，并将它们全部连接在一起。
+- **以声明方式思考并设计组件**：给定一个 UI 和需求，您应该能够以声明式方式思考，以定义各种必要的组件、道具、状态、更改状态的操作，并将它们全部连接在一起。
 
 ## 练习题
 
 **编码**：
 
-* [Tweet](/questions/user-interface/tweet/react?framework=react\&tab=coding)
-* [进度条](/questions/user-interface/progress-bar/react?framework=react\&tab=coding)
-* [进度条](/questions/user-interface/progress-bars/react?framework=react\&tab=coding)
-* [文件资源管理器](/questions/user-interface/file-explorer/react?framework=react\&tab=coding)
-* [文件资源管理器 II](/questions/user-interface/file-explorer-ii/react?framework=react\&tab=coding)
-* [文件资源管理器 III](/questions/user-interface/file-explorer-iii/react?framework=react\&tab=coding)
+- [Tweet](/questions/user-interface/tweet/react?framework=react&tab=coding)
+- [进度条](/questions/user-interface/progress-bar/react?framework=react&tab=coding)
+- [进度条](/questions/user-interface/progress-bars/react?framework=react&tab=coding)
+- [文件资源管理器](/questions/user-interface/file-explorer/react?framework=react&tab=coding)
+- [文件资源管理器 II](/questions/user-interface/file-explorer-ii/react?framework=react&tab=coding)
+- [文件资源管理器 III](/questions/user-interface/file-explorer-iii/react?framework=react&tab=coding)

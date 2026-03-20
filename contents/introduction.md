@@ -1,7 +1,6 @@
 ---
 title: Introduction
-description: "Complete frontend developer interview guide: JavaScript coding questions, UI components, system design, quiz prep & expert tips from ex FAANG engineers."
-
+description: 'Complete frontend developer interview guide: JavaScript coding questions, UI components, system design, quiz prep & expert tips from ex FAANG engineers.'
 ---
 
 :::info Latest version on GreatFrontEnd
@@ -36,7 +35,7 @@ Look out for interview questions by companies on Glassdoor. Front end questions 
 
 ## Front end interview formats
 
-Unlike Software Engineering interviews, the formats for front end interviews are less known and not standardized across the industry. We painstakingly searched the Internet for front end interview questions asked by popular tech companies and collated the questions which appear very often. 
+Unlike Software Engineering interviews, the formats for front end interviews are less known and not standardized across the industry. We painstakingly searched the Internet for front end interview questions asked by popular tech companies and collated the questions which appear very often.
 
 In general, you should be familiar with the following questions and formats:
 

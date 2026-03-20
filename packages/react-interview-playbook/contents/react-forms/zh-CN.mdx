@@ -90,8 +90,8 @@ function UncontrolledForm() {
 | **表单重置** | 容易 (`setState("")`) | 需要 `ref.current.value = ""` 或触发 `'reset'` 事件 |
 | **用例** | 动态表单、验证、实时更新 | 简单表单、文件上传或集成非 React 代码 |
 
-* 当您需要动态验证、操作或跟踪用户输入（例如，根据先前的响应切换某些表单字段的可见性）或嵌套表单状态时，请使用**受控表单组件**
-* 当使用大型表单、与非 React 代码集成或优化性能时，请使用**非受控表单组件**
+- 当您需要动态验证、操作或跟踪用户输入（例如，根据先前的响应切换某些表单字段的可见性）或嵌套表单状态时，请使用**受控表单组件**
+- 当使用大型表单、与非 React 代码集成或优化性能时，请使用**非受控表单组件**
 
 在面试中，考虑到表单通常没有很多字段，受控组件和非受控方法都是可行的。就我个人而言，我们倾向于使用受控组件，因为您可能会被要求重置值、添加输入时验证等，并且它更容易实现。
 
@@ -124,9 +124,9 @@ function TextInputExample() {
 }
 ```
 
-* 输入字段的值由 React 状态 (`text`) 控制
-* `onChange` 事件使用 `setText(event.target.value)` 更新状态
-* 这确保了 React 动态管理输入值
+- 输入字段的值由 React 状态 (`text`) 控制
+- `onChange` 事件使用 `setText(event.target.value)` 更新状态
+- 这确保了 React 动态管理输入值
 
 `type` 属性有许多其他基于文本的值，每个值都有不同的用途：
 
@@ -144,13 +144,13 @@ function TextInputExample() {
 
 **建议：**
 
-* 将 **`text`** 用于通用输入字段
-* 当您只需要数值和数字的内置验证时，使用 **`number`**
-* 使用 **`email`**、**`url`** 和 **`tel`** 来利用内置验证
-* 使用 **`password`** 进行安全文本输入
-* 使用 **`search`** 进行针对搜索优化的字段
-* 当需要日期和时间选择时，使用 **`datetime-local`**
-* 使用 **`color`** 进行颜色选择
+- 将 **`text`** 用于通用输入字段
+- 当您只需要数值和数字的内置验证时，使用 **`number`**
+- 使用 **`email`**、**`url`** 和 **`tel`** 来利用内置验证
+- 使用 **`password`** 进行安全文本输入
+- 使用 **`search`** 进行针对搜索优化的字段
+- 当需要日期和时间选择时，使用 **`datetime-local`**
+- 使用 **`color`** 进行颜色选择
 
 ### 复选框输入
 
@@ -177,9 +177,9 @@ function CheckboxExample() {
 }
 ```
 
-* `checked` 属性绑定到 `isChecked` 状态
-* `onChange` 事件使用 `setIsChecked(event.target.checked)` 更新状态
-* 这允许 React 跟踪复选框的选中状态
+- `checked` 属性绑定到 `isChecked` 状态
+- `onChange` 事件使用 `setIsChecked(event.target.checked)` 更新状态
+- 这允许 React 跟踪复选框的选中状态
 
 ### 单选组
 
@@ -221,9 +221,9 @@ function RadioGroupExample() {
 }
 ```
 
-* `name="gender"` 确保只能选择一个选项
-* `checked` 属性检查当前值是否与状态匹配 (`gender === "male"` 或 `"female"`)
-* `onChange` 使用选定值更新状态
+- `name="gender"` 确保只能选择一个选项
+- `checked` 属性检查当前值是否与状态匹配 (`gender === "male"` 或 `"female"`)
+- `onChange` 使用选定值更新状态
 
 ### 文本区域
 
@@ -249,8 +249,8 @@ function TextAreaExample() {
 }
 ```
 
-* 与 HTML 不同，React 使用 `value` 而不是在 `<textarea>` 中设置文本
-* `onChange` 使用 `setBio(event.target.value)` 更新状态，确保 React 控制输入
+- 与 HTML 不同，React 使用 `value` 而不是在 `<textarea>` 中设置文本
+- `onChange` 使用 `setBio(event.target.value)` 更新状态，确保 React 控制输入
 
 ### 选择下拉菜单
 
@@ -279,19 +279,19 @@ function SelectExample() {
 }
 ```
 
-* `value` 属性绑定到状态 (`fruit`)
-* 当用户选择一个选项时，`onChange` 更新状态
-* 这确保了下拉菜单的值由 React 控制
+- `value` 属性绑定到状态 (`fruit`)
+- 当用户选择一个选项时，`onChange` 更新状态
+- 这确保了下拉菜单的值由 React 控制
 
 ### 总结
 
-| 输入类型 | 关键元素 | 关键值属性 | 状态更新 |
-| --- | --- | --- | --- |
-| 文本输入 | `<input>` | `value` | `setState(event.target.value)` |
-| 复选框输入 | `<input>` | `checked` | `setState(event.target.checked)` |
-| 单选组 | `<input>` | `checked` | `setState(event.target.value)` |
-| 文本区域 | `<textarea>` | `value` | `setState(event.target.value)` |
-| 选择下拉菜单 | `<select>` | `value` | `setState(event.target.value)` |
+| 输入类型     | 关键元素     | 关键值属性 | 状态更新                         |
+| ------------ | ------------ | ---------- | -------------------------------- |
+| 文本输入     | `<input>`    | `value`    | `setState(event.target.value)`   |
+| 复选框输入   | `<input>`    | `checked`  | `setState(event.target.checked)` |
+| 单选组       | `<input>`    | `checked`  | `setState(event.target.value)`   |
+| 文本区域     | `<textarea>` | `value`    | `setState(event.target.value)`   |
+| 选择下拉菜单 | `<select>`   | `value`    | `setState(event.target.value)`   |
 
 ## 处理复杂的表单状态
 
@@ -369,9 +369,9 @@ function ComplexFormWithReducer() {
 }
 ```
 
-* 保持状态更新可预测且集中
-* 适用于具有条件逻辑和依赖关系的表单
-* 与 `useState` 相比，可防止不必要的重新渲染
+- 保持状态更新可预测且集中
+- 适用于具有条件逻辑和依赖关系的表单
+- 与 `useState` 相比，可防止不必要的重新渲染
 
 ### 处理动态字段
 
@@ -421,8 +421,8 @@ function DynamicForm() {
 }
 ```
 
-* 适用于用户**可以添加多个条目**的表单（例如，多个电子邮件地址）
-* 保持 UI 灵活，无需预定义的字段
+- 适用于用户**可以添加多个条目**的表单（例如，多个电子邮件地址）
+- 保持 UI 灵活，无需预定义的字段
 
 ### 使用表单库处理复杂表单
 
@@ -461,9 +461,9 @@ function FormWithReactHookForm() {
 }
 ```
 
-* **减少重新渲染**，使用引用而不是状态
-* **轻松验证**，内置支持 Zod、Yup 和 Joi 等验证库
-* **高效处理动态字段**，使用 `useFieldArray`
+- **减少重新渲染**，使用引用而不是状态
+- **轻松验证**，内置支持 Zod、Yup 和 Joi 等验证库
+- **高效处理动态字段**，使用 `useFieldArray`
 
 ### 处理嵌套表单结构
 
@@ -521,15 +521,15 @@ function NestedForm() {
 }
 ```
 
-* 帮助在一个对象中**干净地**管理相关数据
-* 适用于**地址、个人资料或嵌套表单部分**
+- 帮助在一个对象中**干净地**管理相关数据
+- 适用于**地址、个人资料或嵌套表单部分**
 
 ### 复杂表单状态的最佳实践
 
-* 使用 `useReducer` 进行结构化状态更新
-* 使用动态字段进行灵活的输入处理
-* 利用 React Hook Form 或 Formik 等表单库来简化验证和状态管理
-* 处理分组表单数据时使用嵌套对象
+- 使用 `useReducer` 进行结构化状态更新
+- 使用动态字段进行灵活的输入处理
+- 利用 React Hook Form 或 Formik 等表单库来简化验证和状态管理
+- 处理分组表单数据时使用嵌套对象
 
 ## 错误处理和验证策略
 
@@ -575,9 +575,9 @@ function BasicValidationForm() {
 }
 ```
 
-* 使用本地状态来跟踪错误
-* 在验证失败时显示错误消息
-* 简单但足以满足基本的验证需求
+- 使用本地状态来跟踪错误
+- 在验证失败时显示错误消息
+- 简单但足以满足基本的验证需求
 
 ### 使用正则表达式验证输入字段
 
@@ -621,8 +621,8 @@ function EmailValidationForm() {
 }
 ```
 
-* 使用正则表达式检查电子邮件是否遵循有效格式
-* 为用户提供实时反馈
+- 使用正则表达式检查电子邮件是否遵循有效格式
+- 为用户提供实时反馈
 
 ### 浏览器内置的 HTML5 验证
 
@@ -653,14 +653,14 @@ function HTML5ValidationForm() {
 }
 ```
 
-* `required`：确保字段已填写
-* `minLength`：限制输入长度
-* `pattern`：直接在 HTML 中使用正则表达式
-* **无需 JavaScript** 即可工作，提高性能
+- `required`：确保字段已填写
+- `minLength`：限制输入长度
+- `pattern`：直接在 HTML 中使用正则表达式
+- **无需 JavaScript** 即可工作，提高性能
 
 ### 用于高效验证的 React Hook Form
 
-对于复杂的表单，\**React Hook Form* 提供了优化的验证，并最大限度地减少了重新渲染。
+对于复杂的表单，\*_React Hook Form_ 提供了优化的验证，并最大限度地减少了重新渲染。
 
 ```jsx
 import { useForm } from 'React Hook Form;
@@ -706,9 +706,9 @@ function HookFormValidation() {
 }
 ```
 
-* **使用 refs 而不是 state**，最大限度地减少重新渲染
-* **更好的性能**，适用于大型表单
-* **内置错误处理**，使用 `formState.errors`
+- **使用 refs 而不是 state**，最大限度地减少重新渲染
+- **更好的性能**，适用于大型表单
+- **内置错误处理**，使用 `formState.errors`
 
 ### 处理服务器端验证
 
@@ -761,33 +761,33 @@ function ServerErrorHandlingForm() {
 }
 ```
 
-* 使用 `fetch()` 在服务器端验证电子邮件
-* 如果验证失败，则显示 API 错误消息
-* 防止安全风险（例如，黑客绕过客户端验证）
+- 使用 `fetch()` 在服务器端验证电子邮件
+- 如果验证失败，则显示 API 错误消息
+- 防止安全风险（例如，黑客绕过客户端验证）
 
 ## 面试的最佳实践
 
-* 对于简单的表单，受控输入和非受控输入都是可行的
-* 包装在 `<form>` 中并利用浏览器表单提交事件
-* 尽可能使用 HTML5 验证，以减少重新渲染，从而获得更好的性能
-* 显示清晰的错误消息，指导用户如何修复其输入
-* 仅仅客户端验证是不够的。还需要服务器端验证以防止安全漏洞
-* 如果允许使用第三方库（例如，在家庭作业中），React Hook Form 是一个很好的补充，它提供了许多有用的功能，可以帮助您同时实现更好的性能
+- 对于简单的表单，受控输入和非受控输入都是可行的
+- 包装在 `<form>` 中并利用浏览器表单提交事件
+- 尽可能使用 HTML5 验证，以减少重新渲染，从而获得更好的性能
+- 显示清晰的错误消息，指导用户如何修复其输入
+- 仅仅客户端验证是不够的。还需要服务器端验证以防止安全漏洞
+- 如果允许使用第三方库（例如，在家庭作业中），React Hook Form 是一个很好的补充，它提供了许多有用的功能，可以帮助您同时实现更好的性能
 
 ## 面试中您需要知道的内容
 
-* **非受控和受控表单**：有什么区别，如何使用，以及何时使用
-* **表单控件**：能够构建使用各种输入类型的表单
-* **复杂表单**：如何构建复杂表单和最佳实践
-* **错误处理和验证**：如何使用原生浏览器方法和 React 方法验证表单并显示错误
+- **非受控和受控表单**：有什么区别，如何使用，以及何时使用
+- **表单控件**：能够构建使用各种输入类型的表单
+- **复杂表单**：如何构建复杂表单和最佳实践
+- **错误处理和验证**：如何使用原生浏览器方法和 React 方法验证表单并显示错误
 
 ## 练习题
 
 **编码**：
 
-* [生成表格](/questions/user-interface/generate-table/react?framework=react\&tab=coding)
-* [联系表单](/questions/user-interface/contact-form/react?framework=react\&tab=coding)
-* [抵押贷款计算器](/questions/user-interface/mortgage-calculator/react?framework=react\&tab=coding)
-* [温度转换器](/questions/user-interface/temperature-converter/react?framework=react\&tab=coding)
-* [航班预订器](/questions/user-interface/flight-booker/react?framework=react\&tab=coding)
-* [身份验证代码输入](/questions/user-interface/auth-code-input/react?framework=react\&tab=coding)
+- [生成表格](/questions/user-interface/generate-table/react?framework=react&tab=coding)
+- [联系表单](/questions/user-interface/contact-form/react?framework=react&tab=coding)
+- [抵押贷款计算器](/questions/user-interface/mortgage-calculator/react?framework=react&tab=coding)
+- [温度转换器](/questions/user-interface/temperature-converter/react?framework=react&tab=coding)
+- [航班预订器](/questions/user-interface/flight-booker/react?framework=react&tab=coding)
+- [身份验证代码输入](/questions/user-interface/auth-code-input/react?framework=react&tab=coding)

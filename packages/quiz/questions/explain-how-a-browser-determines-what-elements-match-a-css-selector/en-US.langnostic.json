@@ -5,16 +5,10 @@
   "content": {
     "source": {
       "locale": "en-US",
-      "hashes": [
-        "f83c53b8",
-        "17357834"
-      ]
+      "hashes": ["f83c53b8", "17357834"]
     },
     "targets": {
-      "zh-CN": [
-        "f83c53b8",
-        "17357834"
-      ]
+      "zh-CN": ["f83c53b8", "17357834"]
     }
   }
 }

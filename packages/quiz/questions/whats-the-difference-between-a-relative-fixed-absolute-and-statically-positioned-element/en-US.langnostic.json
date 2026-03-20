@@ -5,16 +5,10 @@
   "content": {
     "source": {
       "locale": "en-US",
-      "hashes": [
-        "cc707b76",
-        "689ae43d"
-      ]
+      "hashes": ["cc707b76", "689ae43d"]
     },
     "targets": {
-      "zh-CN": [
-        "cc707b76",
-        "689ae43d"
-      ]
+      "zh-CN": ["cc707b76", "689ae43d"]
     }
   }
 }

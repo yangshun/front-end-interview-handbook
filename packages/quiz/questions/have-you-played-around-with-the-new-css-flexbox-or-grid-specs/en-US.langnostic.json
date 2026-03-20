@@ -5,18 +5,10 @@
   "content": {
     "source": {
       "locale": "en-US",
-      "hashes": [
-        "aa260efc",
-        "7f095032",
-        "b75121a7"
-      ]
+      "hashes": ["aa260efc", "7f095032", "b75121a7"]
     },
     "targets": {
-      "zh-CN": [
-        "aa260efc",
-        "7f095032",
-        "b75121a7"
-      ]
+      "zh-CN": ["aa260efc", "7f095032", "b75121a7"]
     }
   }
 }

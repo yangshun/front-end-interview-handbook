@@ -63,14 +63,14 @@ function ClickButton() {
 
 您应该了解以下鼠标事件：
 
-* `onClick`：当元素被点击时触发（鼠标按下 + 鼠标抬起）。常用于面试
-* `onMouseEnter`：当鼠标进入元素时触发。不冒泡（用于悬停交互）。有时用于面试
-* `onMouseLeave`：当鼠标离开元素时触发。不冒泡。有时用于面试
-* `onMouseOver`：当鼠标进入元素或其子元素时触发。会冒泡。有时用于面试
-* `onMouseOut`：当鼠标离开元素或其子元素时触发。会冒泡。有时用于面试
-* `onMouseDown`：当鼠标按钮被按下时触发。很少用于面试，在大多数情况下，您应该使用 `onClick`
-* `onMouseUp`：当鼠标按钮被释放时触发。很少用于面试，在大多数情况下，您应该使用 `onClick`
-* `onDoubleClick`：当元素被双击时触发。很少用于面试
+- `onClick`：当元素被点击时触发（鼠标按下 + 鼠标抬起）。常用于面试
+- `onMouseEnter`：当鼠标进入元素时触发。不冒泡（用于悬停交互）。有时用于面试
+- `onMouseLeave`：当鼠标离开元素时触发。不冒泡。有时用于面试
+- `onMouseOver`：当鼠标进入元素或其子元素时触发。会冒泡。有时用于面试
+- `onMouseOut`：当鼠标离开元素或其子元素时触发。会冒泡。有时用于面试
+- `onMouseDown`：当鼠标按钮被按下时触发。很少用于面试，在大多数情况下，您应该使用 `onClick`
+- `onMouseUp`：当鼠标按钮被释放时触发。很少用于面试，在大多数情况下，您应该使用 `onClick`
+- `onDoubleClick`：当元素被双击时触发。很少用于面试
 
 如果您被提问，您应该能够解释 `onMouseEnter`/`onMouseLeave` 和 `onMouseOver`/`onMouseOut` 之间的区别——前者不[冒泡 DOM](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Event_bubbling)，而后者会。
 
@@ -102,8 +102,8 @@ function Foo() {
 
 您应该了解以下输入事件：
 
-* `onChange`：当输入的值发生变化时触发
-* `onInput`：当用户输入数据时触发（类似于 `onChange`）。大多数情况下，请使用 `onChange` 代替
+- `onChange`：当输入的值发生变化时触发
+- `onInput`：当用户输入数据时触发（类似于 `onChange`）。大多数情况下，请使用 `onChange` 代替
 
 #### `'change'` 和 `'input'` 事件有什么区别？
 
@@ -115,25 +115,25 @@ function Foo() {
 
 当值被提交时（例如失去焦点），浏览器 `'change'` 事件被触发：
 
-* 在大多数情况下，它不会在每次按键时触发
-* 适用于 `<input>`、`<textarea>`、`<select>` 等
+- 在大多数情况下，它不会在每次按键时触发
+- 适用于 `<input>`、`<textarea>`、`<select>` 等
 
 浏览器 `'input'` 事件在每次输入更改时触发，包括打字、粘贴和语音输入：
 
-* 在 React 和 vanilla JS 中均有效
-* 立即在每次字符输入时触发（类似于 React 的 `onChange`）
-* 即使在使用语音输入、拖放和粘贴时也会触发
+- 在 React 和 vanilla JS 中均有效
+- 立即在每次字符输入时触发（类似于 React 的 `onChange`）
+- 即使在使用语音输入、拖放和粘贴时也会触发
 
 **关键区别**
 
-| 特性 | `onChange` | `onInput` |
-| --- | --- | --- |
-| 每次按键触发？ | ✅（仅限 React） | ✅ |
-| 复制粘贴时触发？ | ✅ | ✅ |
-| 在 IME（中文、日文、韩文）上触发？ | ❌（仅在提交时） | ✅（在每个字符上） |
-| 在语音转文本输入时触发？ | ❌（仅在提交时） | ✅（在每个发音词上） |
-| 适用于 `contenteditable`？ | ❌ | ✅ |
-| 检测程序化值更新？ | ❌ | ✅ |
+| 特性                               | `onChange`       | `onInput`            |
+| ---------------------------------- | ---------------- | -------------------- |
+| 每次按键触发？                     | ✅（仅限 React） | ✅                   |
+| 复制粘贴时触发？                   | ✅               | ✅                   |
+| 在 IME（中文、日文、韩文）上触发？ | ❌（仅在提交时） | ✅（在每个字符上）   |
+| 在语音转文本输入时触发？           | ❌（仅在提交时） | ✅（在每个发音词上） |
+| 适用于 `contenteditable`？         | ❌               | ✅                   |
+| 检测程序化值更新？                 | ❌               | ✅                   |
 
 在面试期间，很难知道何时使用 `onChange` 与 `onInput`，如有疑问，请使用 `onChange`。
 
@@ -168,8 +168,8 @@ function SimpleForm() {
 
 您应该了解以下表单事件：
 
-* `onSubmit`：在提交表单时触发。仅在由 `<form>` 中的 `<button type="submit">` 或 `<input type="submit">` 触发时触发
-* `onReset`：在重置表单时触发。仅在由 `<form>` 中的 `<button type="reset">` 或 `<input type="reset">` 触发时触发
+- `onSubmit`：在提交表单时触发。仅在由 `<form>` 中的 `<button type="submit">` 或 `<input type="submit">` 触发时触发
+- `onReset`：在重置表单时触发。仅在由 `<form>` 中的 `<button type="reset">` 或 `<input type="reset">` 触发时触发
 
 由于大多数时候你都在处理单页应用程序并且没有服务器，你可能需要在 `onSubmit` 处理程序中执行 `event.preventDefault()` 以防止整页刷新。
 
@@ -204,8 +204,8 @@ function FocusBlurExample() {
 
 您应该了解以下表单事件：
 
-* `onFocus`：当元素获得焦点时触发
-* `onBlur`：当元素失去焦点时触发
+- `onFocus`：当元素获得焦点时触发
+- `onBlur`：当元素失去焦点时触发
 
 虽然上面的示例使用 `onFocus`/`onBlur` 来添加焦点样式，但最好使用 CSS 的 `:focus` 伪类。当 CSS 能够完成这项工作时，无需使用 JavaScript。
 
@@ -240,9 +240,9 @@ function handleKeyPress(event) {
 
 您应该了解以下键盘事件：
 
-* `onKeyDown`：按下某个键时触发。如果按住该键，则持续触发
-* `onKeyUp`：在按下某个键后释放时触发。用于检测输入后的最终按键输入
-* `onKeyPress`：（已弃用）类似于 `onKeyDown`，但不会检测特殊键
+- `onKeyDown`：按下某个键时触发。如果按住该键，则持续触发
+- `onKeyUp`：在按下某个键后释放时触发。用于检测输入后的最终按键输入
+- `onKeyPress`：（已弃用）类似于 `onKeyDown`，但不会检测特殊键
 
 键盘事件处理程序接收 `KeyboardEvent`，它具有一些属性，这些是您应该知道的：
 
@@ -261,11 +261,11 @@ function handleKeyPress(event) {
 
 **在 React 中处理键盘事件的最佳实践**
 
-* 使用 `onKeyDown` 而不是 `onKeyPress`（因为 `onKeyPress` 已弃用）
-* 使用 `event.key` 而不是 `event.which` 或 `event.keyCode`（它们已弃用）
-* 在需要时使用 `event.preventDefault()`（例如，阻止 `Enter` 提交表单）
-* 为不可聚焦的元素添加 `tabIndex`（例如，`<div>` 需要它来接收键盘事件）
-* 妥善处理可访问性（键盘导航应保持一致）
+- 使用 `onKeyDown` 而不是 `onKeyPress`（因为 `onKeyPress` 已弃用）
+- 使用 `event.key` 而不是 `event.which` 或 `event.keyCode`（它们已弃用）
+- 在需要时使用 `event.preventDefault()`（例如，阻止 `Enter` 提交表单）
+- 为不可聚焦的元素添加 `tabIndex`（例如，`<div>` 需要它来接收键盘事件）
+- 妥善处理可访问性（键盘导航应保持一致）
 
 在大多数情况下，您在面试期间不需要使用键盘事件。使用 `onChange`/`onInput` 检测 `<input>` 中的文本更改更好，使用 `<form>` 上的 `onSubmit` 检测 <kbd>Enter</kbd> 键以提交表单更好。
 
@@ -334,25 +334,25 @@ function PreventFormSubmit() {
 
 ## 面试的最佳实践
 
-* 如果存在过度重新渲染的性能问题，请避免内联事件处理程序并使用 `useCallback` 进行记忆化
-* 对表单输入使用 `onChange` 而不是 `onInput`
-* 使用 `onMouseEnter`/`onMouseLeave` 而不是 `onMouseOver`/`onMouseOut` 以防止冒泡问题
-* 对于对性能敏感的事件，如 `onScroll`，对事件处理程序进行去抖动或节流
+- 如果存在过度重新渲染的性能问题，请避免内联事件处理程序并使用 `useCallback` 进行记忆化
+- 对表单输入使用 `onChange` 而不是 `onInput`
+- 使用 `onMouseEnter`/`onMouseLeave` 而不是 `onMouseOver`/`onMouseOut` 以防止冒泡问题
+- 对于对性能敏感的事件，如 `onScroll`，对事件处理程序进行去抖动或节流
 
 ## 面试你需要知道的
 
-* **事件系统**：解释 React 中的事件系统如何工作以及它与浏览器事件系统的区别
-* **常见事件**：常见的鼠标事件（`onClick`、`onMouseEnter`、`onMouseLeave`）、输入事件（`onChange`）、表单事件（`onSubmit`）和键盘事件（`onKeyDown`）
-* **事件拦截**：何时以及如何使用事件拦截
+- **事件系统**：解释 React 中的事件系统如何工作以及它与浏览器事件系统的区别
+- **常见事件**：常见的鼠标事件（`onClick`、`onMouseEnter`、`onMouseLeave`）、输入事件（`onChange`）、表单事件（`onSubmit`）和键盘事件（`onKeyDown`）
+- **事件拦截**：何时以及如何使用事件拦截
 
 ## 练习题
 
 **编码**：
 
-* [温度转换器](/questions/user-interface/temperature-converter/react?framework=react\&tab=coding)
-* [骰子滚动器](/questions/user-interface/dice-roller/react?framework=react\&tab=coding)
-* [网格灯](/questions/user-interface/grid-lights/react?framework=react\&tab=coding)
-* [星级评分](/questions/user-interface/star-rating/react?framework=react\&tab=coding)
-* [秒表](/questions/user-interface/stopwatch/react?framework=react\&tab=coding)
-* [验证码输入](/questions/user-interface/auth-code-input/react?framework=react\&tab=coding)
-* [可选择的单元格](/questions/user-interface/selectable-cells/react?framework=react\&tab=coding)
+- [温度转换器](/questions/user-interface/temperature-converter/react?framework=react&tab=coding)
+- [骰子滚动器](/questions/user-interface/dice-roller/react?framework=react&tab=coding)
+- [网格灯](/questions/user-interface/grid-lights/react?framework=react&tab=coding)
+- [星级评分](/questions/user-interface/star-rating/react?framework=react&tab=coding)
+- [秒表](/questions/user-interface/stopwatch/react?framework=react&tab=coding)
+- [验证码输入](/questions/user-interface/auth-code-input/react?framework=react&tab=coding)
+- [可选择的单元格](/questions/user-interface/selectable-cells/react?framework=react&tab=coding)

@@ -16,9 +16,7 @@ function FAANGTechLeads({ position }) {
         window.gtag('event', `faangtechleads.${position}.click`);
       }}>
       <p className={styles.tagline}>
-        <span className={styles.title}>
-          Craft the perfect resume for FAANG
-        </span>
+        <span className={styles.title}>Craft the perfect resume for FAANG</span>
         Save time crafting your resume with FAANG Tech Leads'{' '}
         <u>FAANG-quality resume templates and examples</u> which have helped
         many Software Engineers get interviews at top Bay Area companies. Grab
@@ -42,7 +40,8 @@ function GreatFrontEnd({ position }) {
         <span className={styles.title}>
           Navigate front end interviews easily with GreatFrontEnd
         </span>
-        Meet the front end interview prep platform built by <u>ex-FAANG senior engineers</u> to make your life much easier
+        Meet the front end interview prep platform built by{' '}
+        <u>ex-FAANG senior engineers</u> to make your life much easier
       </div>
     </a>
   );
@@ -58,12 +57,7 @@ export default React.memo(function SidebarAd({ position }) {
         // Ugly hack to show conditional sidebar content.
 
         if (path.includes('resume')) {
-          return (
-            <FAANGTechLeads
-              key={Math.random()}
-              position={position}
-            />
-          );
+          return <FAANGTechLeads key={Math.random()} position={position} />;
         }
 
         return <GreatFrontEnd position={position} />;

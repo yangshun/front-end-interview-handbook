@@ -60,8 +60,9 @@ Here are some questions you can start with:
 ## Where to practice
 
 Each of these questions and over 200+ more can be found on [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
-  - Each question comes with official solutions in popular frameworks such as React, Angular, Svelte and Vue
-  - With live previews, you can practice online directly, simulating a real interview environment with no set-up required
+
+- Each question comes with official solutions in popular frameworks such as React, Angular, Svelte and Vue
+- With live previews, you can practice online directly, simulating a real interview environment with no set-up required
 
 [Start practicing immediately](https://www.greatfrontend.com/questions?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
 
