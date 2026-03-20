@@ -196,11 +196,11 @@ module.exports = {
       '@docusaurus/preset-classic',
       {
         docs: {
-          path: '../contents',
+          path: './contents',
           routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl:
-            'https://github.com/yangshun/front-end-interview-handbook/edit/main/contents/',
+            'https://github.com/yangshun/front-end-interview-handbook/edit/main/website/',
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
         },
