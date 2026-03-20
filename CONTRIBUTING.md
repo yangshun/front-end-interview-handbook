@@ -10,7 +10,7 @@ The [original questions repository](https://github.com/h5bp/Front-end-Developer-
 
 You are welcome to make improvements to existing answers and answer unanswered questions. Whenever possible, add a list of references and supplementary material. This would be helpful for readers who would like to go further in-depth into the answer.
 
-Follow the existing format of markdown and code. JavaScript code added should adopt [Standard style](https://standardjs.com/).
+Follow the existing format of markdown and code. JavaScript code added should adopt [Standard style](https://standardjs.com/). Run `npm run fmt` to format English markdown and MDX content with Oxfmt before submitting changes.
 
 ### Translations
 
