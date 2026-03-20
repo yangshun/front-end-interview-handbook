@@ -2,13 +2,12 @@
 title: 'What does `* { box-sizing: border-box; }` do?' 
 subtitle: What are its advantages 
 ---
----
 
 # What does `* { box-sizing: border-box; }` do?
 
 `* { box-sizing: border-box; }` is a CSS rule that applies the `box-sizing: border-box` property to every element on a webpage, overriding the default `content-box` model. This changes how the `width` and `height` of elements are calculated, making the box model more predictable and intuitive by including `padding` and `border` in the specified dimensions.
 
-## Understanding the Box Model
+## Understanding the box model
 
 The CSS box model defines how elements are rendered in terms of their dimensions and spacing. Every element is a rectangular box composed of:
 
@@ -19,7 +18,7 @@ The CSS box model defines how elements are rendered in terms of their dimensions
 
 The `box-sizing` property determines which parts of the box model contribute to an element’s `width` and `height`.
 
-### Default Behavior: `box-sizing: content-box`
+### Default behavior: `box-sizing: content-box`
 
 With `content-box` (the default), the `width` and `height` properties only account for the content area. Any `padding` or `border` added to the element increases its total size beyond the specified `width` or `height`. For example:
 
@@ -80,7 +79,7 @@ The `margin` is **not** included in the `width` or `height` calculation for eith
 
 6. **Improved Form Styling**: Form elements like `input` and `select` often have browser-specific padding and borders. `border-box` ensures consistent sizing across browsers, making it easier to align form fields in a layout.
 
-## Practical Example
+## Practical example
 
 Consider a layout with three columns, each intended to be 33.33% wide within a 900px container:
 
@@ -125,11 +124,11 @@ html {
 
 This approach sets `border-box` as the default for all elements but allows specific elements to inherit or override it (e.g., revert to `content-box` if needed).
 
-### Browser Support
+### Browser support
 
 The `box-sizing` property is universally supported across all modern browsers, including Chrome, Firefox, Safari, Edge, and Internet Explorer 8+. No vendor prefixes are required, making it safe for production use.
 
-### Edge Cases and Gotchas
+### Edge cases and gotchas
 
 1. **Legacy Browser Issues**: While rare, older browsers like IE6-7 may not support `box-sizing`. If supporting these browsers is necessary, test layouts thoroughly or use fallbacks.
 2. **Third-Party Components**: Some third-party libraries or widgets may assume `content-box`. Applying `border-box` globally could break their styling, requiring overrides.
@@ -143,7 +142,7 @@ While `border-box` is generally preferred, `content-box` may be useful in specif
 - **Precise Content Sizing**: When you need the content area to be exactly the specified `width` or `height`, regardless of padding or borders (e.g., for image galleries or canvas elements).
 - **Legacy Codebases**: If a project was built with `content-box` assumptions, switching to `border-box` globally could break existing layouts.
 
-## Best Practices
+## Best practices
 
 1. **Apply Globally Early**: Set `* { box-sizing: border-box; }` at the start of your CSS to ensure consistency across your project.
 2. **Use Resets or Normalize.css**: Many CSS resets (e.g., Normalize.css) include `border-box` by default. Verify your reset to avoid conflicts.
@@ -156,5 +155,3 @@ While `border-box` is generally preferred, `content-box` may be useful in specif
 - [CSS-Tricks: Box Sizing](https://css-tricks.com/box-sizing/)
 - [W3C CSS Box Model Specification](https://www.w3.org/TR/css-box-3/)
 - [Can I Use: box-sizing](https://caniuse.com/css3-boxsizing)
-
----
