@@ -1,7 +1,13 @@
 {
+  "private": true,
+  "packageManager": "pnpm@10.28.1",
   "scripts": {
+    "build": "pnpm --filter ./website build",
+    "deploy": "pnpm --filter ./website deploy",
+    "dev": "pnpm --filter ./website dev",
     "fmt": "oxfmt",
-    "i18n": "langnostic translate"
+    "i18n": "langnostic translate",
+    "start": "pnpm --filter ./website start"
   },
   "devDependencies": {
     "@langnostic/plugin-mdx": "^0.0.9",
