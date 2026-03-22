@@ -2,17 +2,12 @@
   "private": true,
   "packageManager": "pnpm@10.28.1",
   "scripts": {
-    "build": "pnpm --filter ./website build",
-    "deploy": "pnpm --filter ./website deploy",
-    "dev": "pnpm --filter ./website dev",
-    "fmt": "oxfmt",
-    "i18n": "langnostic translate",
-    "start": "pnpm --filter ./website start"
+    "prepare": "vp config"
   },
   "devDependencies": {
     "@langnostic/plugin-mdx": "^0.0.9",
     "langnostic": "^0.0.9",
-    "oxfmt": "^0.41.0",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.2",
+    "vite-plus": "catalog:"
   }
 }
