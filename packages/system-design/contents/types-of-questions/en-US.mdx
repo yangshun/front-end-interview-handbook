@@ -18,6 +18,10 @@ Since web apps are complex software involving multiple modules, common applicati
 
 Each web app has its own unique challenges and certain topics matter more than others. For example, for an e-commerce marketplace, search engine optimization (SEO) and performance are extremely important because they have a direct impact on sales. On the other hand, a messaging app isn't meant to be indexable by search engines and it's therefore not meaningful to discuss about SEO. Instead, candidates should spend more time on real-time communication protocols, which directly affects the core value proposition of the app.
 
+> [!TIP] Let the product category decide which deep-dive topics matter
+>
+> Before diving into optimizations, identify the one or two axes that define the product — SEO and performance for commerce and content sites, real-time protocols for chat and collaboration, media streaming for video. Applying a generic checklist to every question is a reliable way to run out of time on the topics that actually matter.
+
 ### Important areas
 
 Here's a list of commonly-asked applications during front end system design interviews and the important features and areas to focus on:
@@ -46,6 +50,10 @@ Here's a list of commonly-asked applications during front end system design inte
 In modern front end development, it is common to use component libraries to build applications. Some popular component libraries you might have used before include Radix UI,jQuery UI, Bootstrap, Material UI, Chakra UI, etc.
 
 It is an expectation of Front End Engineers to be able to build the various UI components needed by an application. Some UI components can be easy to build (e.g. text, button, badge, etc), while others can be much more complex (autocomplete, dropdown, modal, etc) because it involves more interactions, components, and stricter accessibility requirements. Most of the time, if you are asked to design a UI component, it would be from the latter category.
+
+> [!NOTE] UI component prompts almost always target the interaction-heavy, accessibility-heavy set
+>
+> Expect autocomplete, modal, dropdown, date picker, or rich editor rather than a styled button. Preparation for these components should emphasize keyboard navigation, focus management, and ARIA semantics alongside the visible behavior.
 
 To approach system design for UI components, determine the subcomponents of the components, define the external-facing API of the component (what options/props the component should accept), describe the internal component state, API between the subcomponents (if relevant), then dive into optimizations and considerations for performance, accessibility, user experience, security, etc., where relevant.
 
