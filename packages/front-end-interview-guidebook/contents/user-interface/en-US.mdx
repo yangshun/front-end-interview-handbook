@@ -46,6 +46,10 @@ User interface coding interviews share a fair bit of similarity with non-front e
 1. **Start coding**: Code out your solution and explain your code to your interviewer while you are coding
    - Where possible, test your code in the browser after every milestone/feature added, instead of only at the end
    - Refer to the [User Interface Questions Cheatsheet](/front-end-interview-playbook/user-interface-questions-cheatsheet) for a list of things to take note of during User Interface coding interviews
+
+> [!TIP] Test in the browser after every milestone, not only at the end
+>
+> Bugs caught one feature at a time are cheap to fix. Waiting until the end means you are debugging a pile of interleaved problems with little interview time left, and interviewers notice when basic flows break on first run.
 1. **Review your code**: After coding, read through your code once and try to spot basic errors like typos, using variables before initializing them, using APIs incorrectly, etc.
 1. **Testing**: Outline some basic test cases and some edge cases. Test your code with these cases and determine if your code passes them. If it fails, debug the issue(s) and fix them
 1. **Tradeoff**: Explain any tradeoffs you made, cases you explicitly didn't handle, and how you would improve the code if you had more time
@@ -55,6 +59,10 @@ User interface coding interviews share a fair bit of similarity with non-front e
 
 1. **Core concepts**: Be familiar with the topics under the [Important concepts](#important-concepts) section below. The [Quiz section](/front-end-interview-playbook/quiz) can also be a good start since you might be asked on these concepts in the form of quiz questions during coding.
 1. **Practice writing UI**: It's best to learn how to build UIs in both Vanilla JavaScript and a UI framework of choice. Most companies will allow using JavaScript UI frameworks but some companies (e.g. Google) mandate that you can only use Vanilla JavaScript
+
+> [!IMPORTANT] Stick with the framework you know best on interview day
+>
+> Do not pick up a new framework right before an interview. Use what you are most productive in, even if the role uses a different stack — interviewers care about how you think, not which framework you chose.
    - **Vanilla JavaScript**: Learn the DOM manipulation APIs. At the very least you should know how to create new DOM elements, add classes/attributes to them, and add child elements. If you come from a [jQuery](https://jquery.com/) background, check out [You might not need jQuery](https://youmightnotneedjquery.com), a website showing you how to accomplish the common jQuery operations in Vanilla JavaScript. You will be pleasantly surprised to find out that with modern browser APIs there isn't really much need for jQuery anymore.
    - **JavaScript UI framework**: Be familiar with a UI framework of choice. Stick with the framework that you are most familiar with. There's no need and also probably not enough time to learn a new framework. If you are new to JavaScript UI frameworks, [React](https://react.dev/) will be our recommendation as it is the most popular library/framework to build UI right now and what most companies look for when hiring front end engineers.
 1. **CSS**: Be familiar with writing CSS under interview conditions (small questions which won't require writing that much CSS):
@@ -119,5 +127,9 @@ Many of GreatFrontEnd's coding questions are also broken down into stages, which
 3. [Accordion III](/questions/user-interface/accordion-iii): Built a fully-accessible accordion that has keyboard support according to ARIA specifications
 
 Building the basic accordion component might let you pass the interview, but nailing the accessibility aspects will help you score more points and possibly put you at senior level.
+
+> [!TIP] Layer in accessibility after the basic UI works
+>
+> ARIA roles, proper focus order, and keyboard interactions are what separate a passing answer from a senior-level one. Finish the core functionality first, then upgrade the component with accessibility improvements in remaining time.
 
 Note that we are intentionally vague in some of the questions and don't present the full requirements upfront in the question description. However, we'll cover as much ground as possible in the solution. It may be frustrating while reading the solutions to see that you've missed out some things, but this trains you to think ahead and consider what are the possible areas you have to take note of when working on the solution. Better to find out during practice than during actual interviews.

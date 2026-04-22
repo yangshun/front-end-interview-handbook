@@ -31,6 +31,10 @@ There's more to these functions than meets the eye. Let's take the innocent `Arr
 
 Your implementation doesn't have to handle all of these cases, especially the array mutation one. However, it's a positive signal if you mentioned these cases. The closer your implementation is to the specification, the more senior/experienced you will appear to be.
 
+> [!TIP] Call out edge cases even when you do not implement them
+>
+> Mentioning sparse arrays, callback arguments like `index` and `thisArg`, or spec-defined behaviors — even if you skip handling them — signals depth of understanding. Interviewers reward candidates who know what is out there, not just candidates who cover the happy path.
+
 ### Utility function/class from popular libraries
 
 These functions/classes are commonly needed when building software with JavaScript but aren't in the standard language (for now).
@@ -59,6 +63,10 @@ JavaScript coding interviews share a lot of similarities with algorithmic coding
    - Can you use newer JavaScript syntax (ES2016 and beyond)?
    - Whether the code is meant to run in the browser or on the server (e.g. Node.js)
    - Browser support, as this will affect the browser APIs you can use
+
+> [!IMPORTANT] Clarify the runtime and syntax constraints before coding
+>
+> Runtime (browser vs Node.js), supported syntax, and browser compatibility directly affect which APIs are on the table. Locking these down early prevents rewriting your solution halfway when the interviewer says "this needs to work in IE11" or "no ES2020 features."
 1. Propose a solution to your interviewer. Unlike coding interviews, the focus of JavaScript coding interviews is usually not on complex data structures and algorithms. It's possible and likely you can jump straight to the optimal solution with the best choice of data structures and algorithms.
 1. Code out your solution and explain your code to your interviewer while you are coding.
 1. After coding, read through your code once and try to spot basic errors like typos, using variables before initializing them, using APIs incorrectly, etc.

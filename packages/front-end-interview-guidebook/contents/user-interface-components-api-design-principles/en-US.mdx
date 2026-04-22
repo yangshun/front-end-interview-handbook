@@ -86,6 +86,10 @@ root.render(<Slider max={50} min={10} />);
 
 You will usually not need to call `createRoot()` yourself if the entire page is a React app because there will only be one `createRoot()` call at the root/page-level.
 
+> [!IMPORTANT] Design component APIs around multiple independent instances
+>
+> Whether you use the jQuery-style root element pattern or React's props model, your API must allow the same component to be instantiated many times on a page with independent state. Global variables, singletons, and hardcoded DOM IDs all break this and are common interview red flags.
+
 ## Customizing appearance
 
 Even though UI components in UI libraries provide default styling, developers will usually want to customize them with their company/product's branding and theme colors.
@@ -213,6 +217,10 @@ In the example above, both `.gfe-slider` and `.my-custom-slider` classes specify
 
 If the loading order of the stylesheet is not guaranteed (e.g. if stylesheets are lazily loaded), the visual result will not be deterministic. The results is that developers start using hacks like `!important` or `.my-custom-slider.my-custom-slider` to let their selectors win the specificity war. With all these hacks, the CSS code starts becoming unmaintainable.
 
+> [!WARNING] Class injection leads to non-deterministic styling
+>
+> When library and consumer selectors share specificity, the winner depends on stylesheet load order. Call this out in interviews — it is a classic trap that surfaces when stylesheets are code-split or lazily loaded, and it is why `!important` proliferates in real codebases.
+
 In jQuery UI, if a custom class is added, the existing default value is not used. This removes the "winning style" ambiguity but the user must now reimplement all the necessary styles present in the original class. This approach can also be applied to React components to resolve the ambiguity.
 
 Despite its flaws, class injection is still a very popular option.
@@ -322,6 +330,10 @@ function Slider({ value, label, theme }) {
 
 However, since no classes with conflicting styles are used, and inline styles have higher specificity than classes, there's no specificity conflict and the inline styles will win. However, the number of options that need to be supported can grow really quickly. Inline styles are also present in the DOM per component instance, which can be bad for performance if this component is rendered hundreds/thousands of times within a page.
 
+> [!NOTE] Inline styles duplicate per instance and bloat the DOM
+>
+> A theme object rendered as inline styles repeats every declared property on every rendered component. For hot components rendered hundreds or thousands of times, this adds up in both payload and memory — something to raise in system design discussions.
+
 The theme object is just a way to restrict the styling to certain properties and optionally, an accepted set of values, the values do not need be used as inline styles and instead can be combined with other styling approaches.
 
 ### CSS preprocessor compilation
@@ -381,5 +393,9 @@ Some UI components have label strings within them (e.g. image carousel has label
 Some languages (e.g. Arabic, Hebrew) are read from right-to-left and the UI has to be flipped horizontally. The component can take in a `direction` prop/option and change the order of how elements are rendered. For example, the prev and next buttons will be on the right and left respectively in an RTL language.
 
 Use [CSS logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties) to futureproof your styles and let your layout work for different [writing modes](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Writing_Modes).
+
+> [!TIP] Prefer logical properties like `margin-inline-start` over `margin-left`
+>
+> Logical properties adapt automatically to RTL, vertical, and other writing modes. Mentioning them in a component API design interview is a cheap way to signal i18n awareness without writing custom direction-handling code.
 
 {/* TODO: Give examples of how to implement RTL. */}

@@ -37,6 +37,10 @@ Although you can still be asked any algorithmic question, companies tend to go e
 
 Since the DOM is a tree, prioritize learning about trees and the various tree traversal algorithms.
 
+> [!TIP] Prioritize trees and traversals over exotic algorithm topics
+>
+> Front end interviewers rarely ask hard dynamic programming or graph problems. Spending your limited prep time on trees, recursion, BFS, and DFS pays off more directly because the DOM itself is a tree and many UI coding problems reduce to tree traversal.
+
 | Category | Important topics |
 | --- | --- |
 | Data structures | Arrays, Maps, Stacks, Trees, Graphs, Matrix (2D Arrays), Sets |
@@ -110,6 +114,12 @@ During algorithmic coding interviews, interviewers are evaluating candidates on 
 - **Verification**: Identify various scenarios to test the code against, including edge cases. Be able to diagnose and fix any issues that arise
 
 ## Useful tips
+
+Before diving into the tips, note that most of them are about communication habits, not algorithmic tricks. Interviewers reward candidates who surface tradeoffs and edge cases rather than those who silently produce code.
+
+> [!TIP] Ask to use missing data structures instead of building them
+>
+> JavaScript lacks native queues, heaps, and binary search. Ask the interviewer if you can assume they exist and use them directly. This keeps the focus on the core algorithm and avoids burning interview time reimplementing a priority queue.
 
 - **Wishful thinking**: JavaScript's standard library doesn't have some useful data structures and algorithms like queue, heap, binary search, which can make your life easier during JavaScript coding interviews. However, you can ask the interviewer if you can pretend such a data structure/algorithm exists and use it directly in your solution without implementing it.
 - **Pure functions**: Aim to write pure functions which have the benefit of reusability and modularity, aka functions which don't rely on state outside of the function and doesn't cause side effects.
