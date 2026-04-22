@@ -19,6 +19,7 @@ Find the latest version of this page on [GreatFrontEnd's Front End System Design
 - [Modal dialog](https://www.greatfrontend.com/questions/system-design/modal-dialog?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
 - [Rich text editor](https://www.greatfrontend.com/questions/system-design/rich-text-editor?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
 - [Poll widget](https://www.greatfrontend.com/questions/system-design/poll-widget?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
+- [Data table](https://www.greatfrontend.com/questions/system-design/data-table?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
 - Tooltip
 
 To find out more, check out [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook), which shows you how to approach front end system design interviews with their [Front End System Design Playbook](https://www.greatfrontend.com/front-end-system-design-playbook?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) and case studies. There are also [blog posts](https://www.greatfrontend.com/blog?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) that will cover some of the following topics in more detail.

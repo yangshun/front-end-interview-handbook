@@ -28,6 +28,8 @@ The two main kinds of front end system design interviews are **UI components** a
   - [Dropdown menu](https://www.greatfrontend.com/questions/system-design/dropdown-menu?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
   - [Modal dialog](https://www.greatfrontend.com/questions/system-design/modal-dialog?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
   - [Rich text editor](https://www.greatfrontend.com/questions/system-design/rich-text-editor?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
+  - [Data table](https://www.greatfrontend.com/questions/system-design/data-table?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
+  - [Poll widget](https://www.greatfrontend.com/questions/system-design/poll-widget?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
 - Applications
   - [News feed (e.g. Facebook)](https://www.greatfrontend.com/questions/system-design/news-feed-facebook?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
   - [E-commerce marketplace (e.g. Amazon)](https://www.greatfrontend.com/questions/system-design/e-commerce-amazon?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
@@ -37,6 +39,11 @@ The two main kinds of front end system design interviews are **UI components** a
   - [Collaborative editors (e.g. Google Docs)](https://www.greatfrontend.com/questions/system-design/collaborative-editor-google-docs?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
   - [Travel booking website (e.g. Airbnb)](https://www.greatfrontend.com/questions/system-design/travel-booking-airbnb?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
   - [Video streaming (e.g. Netflix)](https://www.greatfrontend.com/questions/system-design/video-streaming-netflix?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
+  - [Email client (e.g. Microsoft Outlook)](https://www.greatfrontend.com/questions/system-design/email-client-outlook?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
+  - [Design / drawing tool (e.g. Figma)](https://www.greatfrontend.com/questions/system-design/design-drawing-tool-figma-canva?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
+  - [Music streaming (e.g. Spotify)](https://www.greatfrontend.com/questions/system-design/music-streaming-spotify?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
+  - [Video conferencing (e.g. Zoom)](https://www.greatfrontend.com/questions/system-design/video-conferencing-zoom?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
+  - [Collaborative spreadsheet (e.g. Google Sheets)](https://www.greatfrontend.com/questions/system-design/collaborative-spreadsheet-google-sheets?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
 
 If you are interested to find out more, [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) shows you how to approach front end system design interviews with their [Front End System Design Playbook](https://www.greatfrontend.com/front-end-system-design-playbook?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) and case studies.
 

@@ -14,13 +14,17 @@ Find the latest version of this page on [GreatFrontEnd's Front End System Design
 ## Examples
 
 - [News feed (e.g. Facebook)](https://www.greatfrontend.com/questions/system-design/news-feed-facebook?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
-- [E-commerce marketplace (e.g. Amazon)](https://www.greatfrontend.com/questions/system-design/e-commerce-amazon?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
 - [Chat application (e.g. Messenger)](https://www.greatfrontend.com/questions/system-design/chat-application-messenger?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
-- [Photo sharing application (e.g. Instagram)](https://www.greatfrontend.com/questions/system-design/photo-sharing-instagram?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
 - [Pinterest](https://www.greatfrontend.com/questions/system-design/pinterest?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
 - [Collaborative editor (e.g. Google docs)](https://www.greatfrontend.com/questions/system-design/collaborative-editor-google-docs?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
-- [Travel booking website (e.g. Airbnb)](https://www.greatfrontend.com/questions/system-design/travel-booking-airbnb?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
 - [Video streaming (e.g. Netflix)](https://www.greatfrontend.com/questions/system-design/video-streaming-netflix?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
+- [Design / drawing tool (e.g. Figma)](https://www.greatfrontend.com/questions/system-design/design-drawing-tool-figma-canva?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
+- [Music streaming (e.g. Spotify)](https://www.greatfrontend.com/questions/system-design/music-streaming-spotify?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
+- [Video conferencing (e.g. Zoom)](https://www.greatfrontend.com/questions/system-design/video-conferencing-zoom?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
+- [Travel booking website (e.g. Airbnb)](https://www.greatfrontend.com/questions/system-design/travel-booking-airbnb?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
+- [E-commerce marketplace (e.g. Amazon)](https://www.greatfrontend.com/questions/system-design/e-commerce-amazon?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
+- [Collaborative spreadsheet (e.g. Google Sheets)](https://www.greatfrontend.com/questions/system-design/collaborative-spreadsheet-google-sheets?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
+- [Photo sharing application (e.g. Instagram)](https://www.greatfrontend.com/questions/system-design/photo-sharing-instagram?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
 - [Email client (e.g. Microsoft Outlook)](https://www.greatfrontend.com/questions/system-design/email-client-outlook?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
 
 ## Framework
