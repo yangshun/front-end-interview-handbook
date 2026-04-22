@@ -77,6 +77,10 @@ There can be infinitely many possible current UIs – how does React figure out 
 
 Declarative UI is the approach taken by virtually any modern UI framework due to its overwhelming advantages over the imperative approach.
 
+> [!IMPORTANT] In React, you describe the UI for the current state — you never reach into the DOM to mutate it
+>
+> If you find yourself wanting to call `document.querySelector` or manually toggle classes, that is a sign the data should be state instead. Let the render function be the single source of truth for what's on screen.
+
 Further reading on react.dev: [How declarative UI compares to imperative ](https://react.dev/learn/reacting-to-input-with-state#how-declarative-ui-compares-to-imperative)
 
 ## How to think about UI declaratively
@@ -154,6 +158,10 @@ Using this structure:
 To avoid redundant state, instead of keeping a separate `completedTasks` array, we can derive completed tasks from `tasks`.
 
 There are tradeoffs to consider here. Although state is now consolidated, toggling tasks completion will now require cloning of the entire `tasks` array when there wasn't a need to if we use a `Set` for `completedTasks`.
+
+> [!TIP] Design the state shape before writing any JSX
+>
+> Walking through UI states, possible actions, and the minimal data needed makes the component fall out of the design almost mechanically. Interviewers often listen for this reasoning more than the final code.
 
 ### 4. Call actions within event handlers
 

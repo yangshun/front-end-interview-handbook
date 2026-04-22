@@ -76,6 +76,10 @@ In case you get quizzed, you should be able to explain the difference between `o
 
 For accessibility purposes, bear in mind to not add `onClick` handlers to non-interactive (non-clickable and non-focusable) elements.
 
+> [!WARNING] Never attach `onClick` to a bare `<div>` or `<span>`
+>
+> Non-interactive elements are not keyboard-focusable and not announced as clickable by screen readers. If it looks like a button, it should be a `<button>`. Interviewers grading for accessibility will catch this immediately.
+
 90% of the time you'd use `onClick` only on `<button>`s. `<a href="#" onClick={...}>` is also an anti-pattern, just use `<button onClick={...}>` and modify the styling accordingly.
 
 `onMouseEnter`/`onMouseLeave` and `onMouseOver`/`onMouseOut` can be used for adding hover styles, it's better to use CSS's `:hover` pseudo-class. There is no need to use JavaScript when CSS is able to do the job.
@@ -137,6 +141,10 @@ The browser `'input'` event fires on every input change, including typing, pasti
 
 It can be confusing to know when to use `onChange` vs `onInput`, during interviews, when in doubt, use `onChange`.
 
+> [!NOTE] React's `onChange` is not the DOM's `change` event
+>
+> React reimplements `onChange` to fire on every keystroke, aligning it with the DOM's `input` event rather than the browser's `change` (which fires on blur/commit). This is one of React's most-quizzed quirks.
+
 ### Form events
 
 Form event handlers (`onSubmit` and `onReset`) only work on `<form>` elements.
@@ -172,6 +180,10 @@ You should know the following form events:
 - `onReset`: Fires when a form is reset. Only fires when triggered by a `<button type="reset">` or `<input type="reset">` within a `<form>`
 
 Since most of the time you are dealing with single-page applications and do not have a server, you likely have to do `event.preventDefault()` within the `onSubmit` handler to prevent a full-page refresh.
+
+> [!TIP] Always call `event.preventDefault()` in SPA form submit handlers
+>
+> Forgetting this causes a full-page reload and loses any client-side state. Put it as the first line of every `handleSubmit` until it becomes muscle memory.
 
 ### Focus events
 

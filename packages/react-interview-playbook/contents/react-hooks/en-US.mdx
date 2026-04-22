@@ -35,6 +35,10 @@ function Counter() {
 }
 ```
 
+> [!TIP] Default to the functional setter whenever the next state depends on the previous one
+>
+> `setCount(count + 1)` reads `count` from the closure at the time the handler was created, which breaks inside intervals, async callbacks, and rapid successive updates. `setCount((prev) => prev + 1)` always reads the latest committed state.
+
 **Pitfalls**:
 
 - Directly mutating state instead of using the setter function (`setState`) or not passing a new object to the setter function
@@ -44,6 +48,12 @@ function Counter() {
 Further reading on react.dev: [useState - React](https://react.dev/reference/react/useState)
 
 ### Common mistake: mutating state directly
+
+React compares state by reference to decide whether to re-render, so mutating the object in place is invisible to React.
+
+> [!WARNING] Never mutate state objects or arrays in place
+>
+> Assigning to `user.age` or calling `array.push(...)` changes the contents but not the reference, so React will not re-render. Always produce a new object or array via spread, `map`, `filter`, or a setter callback.
 
 ```jsx
 const [user, setUser] = useState({ name: 'Alice', age: 25 });
@@ -101,6 +111,10 @@ Depending on when the effect should run, the `dependencies` array is defined acc
 
 `useEffect` is primarily for side effects / interacting with external services and that isn't too common during interviews. If you find yourself reaching for `useEffect` in your solutions, consider if there are alternatives.
 
+> [!IMPORTANT] If you reach for useEffect in an interview, pause and ask whether you need it
+>
+> Most interview questions are self-contained with no external system to sync to. State derived from other state, logic that runs in response to a user event, or data that could be computed during render should not live inside an effect.
+
 ```jsx
 import { useState, useEffect } from 'react';
 
@@ -145,6 +159,12 @@ Either way, it's best to read the following pages of the React documentation to 
 Further reading on react.dev: [useEffect - React](https://react.dev/reference/react/useEffect)
 
 ### Common mistake: missing dependencies leading to stale closures
+
+Omitting a dependency is one of the most common `useEffect` bugs in interviews and in production code.
+
+> [!WARNING] Every reactive value the effect reads must appear in the dependency array
+>
+> Omitting a prop or state value to silence a re-run silently captures a stale version of it. The effect will keep seeing the initial value forever, leading to mysterious bugs that only surface when the omitted value changes.
 
 ```jsx
 useEffect(() => {
@@ -386,6 +406,10 @@ Further reading on react.dev: [useId - React](https://react.dev/reference/react/
 
 React hooks follow a strict set of rules to ensure they function correctly and maintain state consistency across renders. Violating these rules can lead to bugs, unintended behavior, or broken components.
 
+> [!NOTE] Hooks must be called in the same order on every render
+>
+> React identifies each hook by its call position, not its name. Conditionally calling a hook or calling hooks inside a loop causes the indices to shift between renders, silently corrupting state across all hooks that follow.
+
 1. **Only call hooks at the top level**: Do not call hooks inside loops, conditions, nested functions, or `try`/`catch`/`finally` blocks
 2. **Only call hooks from React function components or custom hooks**: Avoid using hooks in regular JavaScript functions
 
@@ -541,6 +565,10 @@ A custom hook:
 - Must call other React hooks (e.g., `useState`, `useEffect`). If a custom hook does not call any React hooks, then it doesn't need to be a hook
 - Keep them focused – one purpose per hook
 - Optionally, returns state or functions that components can use
+
+> [!NOTE] The "use" prefix is how the linter and React know a function is a hook
+>
+> Without the prefix, the rules-of-hooks linter cannot enforce call-order invariants. If your helper never calls another hook, keep it a plain function rather than inventing a hook name.
 
 Here's an example of a `useCounter` custom hook. The value of such a hook is that it does not expose the `setCount` function and users of the hook are restricted to the exposed operations, they can only increment, decrement, or reset the value.
 

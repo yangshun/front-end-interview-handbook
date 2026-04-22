@@ -32,6 +32,10 @@ HOCs are useful for:
 
 Higher-order components were more useful in the pre-hooks era for adding functionality to components. Now that we have React hooks and the ability to create custom hooks, HOCs are no longer that widespread.
 
+> [!TIP] Prefer a custom hook over an HOC or render prop in modern React code
+>
+> Hooks share logic without wrapping the component tree, avoiding the "wrapper hell" and prop-collision problems HOCs introduced. Reach for HOCs only when integrating with class-component codebases.
+
 Further reading on react.dev: [Higher-Order Components – React](https://www.patterns.dev/react/hoc-pattern/)
 
 ## Render props

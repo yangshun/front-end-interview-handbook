@@ -19,6 +19,10 @@ First and foremost, start with an `<input>` field. `<input>` are the backbone of
 
 All `<input>` tags should have an associated `<label>` for accessibility purposes. This is necessary so that users of assistive technologies can tell what the input is for. Clicking or touching a label will also focus on the label's associated form control.
 
+> [!IMPORTANT] Every form input needs an associated `<label>`
+>
+> Placeholders are not labels — they disappear when the user types and screen readers may skip them. Use `<label htmlFor="...">` paired with an `id`, or wrap the input inside the `<label>`.
+
 The `<label>` and the `<input>` are linked using `for` (`htmlFor` in React) and `id` attributes respectively.
 
 ```jsx
@@ -147,6 +151,10 @@ By specifying attributes like `required`, `minlength`, `pattern`, on `<input>`, 
 ```
 
 Note that browser validation alone is insufficient! Malicious personnel can directly hit your server endpoints without using your HTML form. You should still validate and sanitize all user input on the server.
+
+> [!WARNING] HTML5 validation is a UX hint, not a security control
+>
+> Attackers bypass the browser entirely by calling your endpoint directly. Anything you care about – required fields, length, format – must also be enforced server-side.
 
 ## 9. Link form control descriptions using `aria-describedby`
 

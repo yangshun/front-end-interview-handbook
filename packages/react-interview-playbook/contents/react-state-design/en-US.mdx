@@ -11,6 +11,10 @@ A well-structured state improves code maintainability, enhances performance, and
 
 When creating a stateful component, you need to decide how many state variables to use and how to structure their data. While a suboptimal state design can still produce a functioning application, following these key principles can help you make better decisions and improve maintainability.
 
+> [!IMPORTANT] Good state design is often what separates strong interview solutions from weak ones
+>
+> Before you start coding, spend a minute identifying the minimal set of values the UI actually needs. Interviewers frequently probe this; the rest of the implementation flows naturally from a clean state shape.
+
 ### Keep state local where possible
 
 ❌ **Bad**: Unnecessarily lifting state up when it's only used in one component.
@@ -177,6 +181,10 @@ const [todos, setTodos] = useState(['Task 1', 'Task 2']);
 const count = todos.length; // No need to store it separately
 ```
 
+> [!TIP] If a value can be computed from existing state or props, derive it during render
+>
+> Storing derivable values creates two sources of truth that must be kept in sync, almost always via a `useEffect`. Plain variables recomputed on each render are cheaper than you'd expect and eliminate a class of staleness bugs.
+
 There are other [good principles for structuring state](https://react.dev/learn/choosing-the-state-structure#principles-for-structuring-state) such as ["Avoid duplication in state"](https://react.dev/learn/choosing-the-state-structure#avoid-duplication-in-state) and ["Avoid deeply nested state"](https://react.dev/learn/choosing-the-state-structure#avoid-deeply-nested-state) but they aren't too relevant for interviews.
 
 ## Resetting state
@@ -184,6 +192,10 @@ There are other [good principles for structuring state](https://react.dev/learn/
 The simplest way to reset state is by setting it back to its initial value. However, when there are multiple state values, it can be troublesome to have to call multiple setters to reset to the initial state. You might miss out certain state fields. That's why it's important to group state and also define functions for each possible action.
 
 One way of doing a full reset of a component is to change the `key` property when rendering. When the `key` changes, React will discard the element and recreate it from scratch. `key`s are useful beyond rendering lists.
+
+> [!TIP] Changing a component's `key` is the cleanest way to fully reset its internal state
+>
+> This unmounts and remounts the subtree, clearing every `useState`, ref, and effect-owned resource. It's especially handy when a component has lots of internal state that would be tedious to reset field by field.
 
 ```jsx
 function Form() {
@@ -268,6 +280,10 @@ function Child() {
 ### Pitfalls of context
 
 Context is an easier (but not necessarily best) way to make data available to multiple components because of the following pitfalls:
+
+> [!WARNING] Every consumer re-renders on any provider value change
+>
+> Context is not a performance primitive. Putting frequently-changing data (e.g. text input values, mouse position) into a single provider re-renders the entire subtree on every keystroke. Split contexts by update frequency, or reach for a proper state library.
 
 - **Not statically analyzable**: Unlike props, which are explicitly passed down to components, context is dynamically provided at runtime. This means you can't easily determine at build time whether a component has access to the necessary context, leading to potential errors that only appear when the app is running
 - **May cause unnecessary re-renders**: When a context value updates, all consuming components re-render, even if they don't use the changed part of the context. This can lead to performance issues, especially when the provider holds a large object or updates frequently. Splitting context or memoizing values can help mitigate this

@@ -95,6 +95,10 @@ In uncontrolled components, the input value is not stored in React state. To acc
 
 In interviews, considering the forms usually do not have many fields, both controlled components and uncontrolled approaches are viable. Personally, we'd lean towards controlled components since you might be asked to reset the values, add validation-on-typing, etc and it'd be easier to implement.
 
+> [!TIP] Default to controlled inputs in interviews unless the form is trivial
+>
+> Interviewers frequently tack on follow-ups like live validation, conditional fields, or programmatic reset. Those are straightforward with controlled state but require extra plumbing with refs and `FormData`.
+
 ## Handling different input types
 
 The following are code examples for various input types using the controlled approach, meaning their values are stored in state and updated via `onChange` handlers.
@@ -155,6 +159,10 @@ There are many other text-based values for the `type` attribute, each with vario
 ### Checkbox input
 
 A checkbox is a **boolean value** (checked or unchecked).
+
+> [!NOTE] Checkboxes bind to `checked`, not `value`, and read `event.target.checked`
+>
+> This is a common interview slip. Text inputs use `value` and `event.target.value`; checkboxes and radios require the boolean `checked` attribute and read the boolean off `event.target.checked`.
 
 ```jsx
 import { useState } from 'react';
@@ -372,6 +380,10 @@ function ComplexFormWithReducer() {
 - Keeps state updates predictable and centralized
 - Useful for forms with conditional logic and dependencies
 - Prevents unnecessary re-renders compared to `useState`
+
+> [!TIP] Reach for `useReducer` only when several fields update together or depend on each other
+>
+> For independent fields, `useState` plus a generic `handleChange` keyed on `event.target.name` is usually simpler. Reducers shine when a single action should touch multiple fields atomically (e.g. reset, step transitions, conditional defaults).
 
 ### Handling dynamic fields
 
@@ -764,6 +776,10 @@ function ServerErrorHandlingForm() {
 - Uses `fetch()` to validate email on the server side
 - Displays API error messages if validation fails
 - Prevents security risks (e.g., hackers bypassing client-side validation)
+
+> [!WARNING] Client-side validation is only a UX convenience, never a security boundary
+>
+> Attackers can skip your React form entirely and hit the endpoint directly. Every constraint you care about – required fields, length, format, uniqueness – must be re-checked on the server.
 
 ## Best practices for interviews
 

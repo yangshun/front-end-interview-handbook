@@ -57,6 +57,10 @@ class Greeting extends React.Component {
 
 Although interviewers may still ask about class components, you shouldn't be faulted for not having experience with class components since it has been over half a decade that functional components have been the de facto way of writing components. If you haven't used class components before, you can just tell your interviewer that, there's no need to learn about them.
 
+> [!TIP] Default to function components with hooks for every interview question
+>
+> Unless the interviewer explicitly asks for a class component, function components are the modern, expected style. Attempting a class version just adds lifecycle boilerplate you don't need.
+
 ## JSX
 
 The HTML-like syntax (`<h1>`) within the components looks like HTML but is not actually HTML, it's JSX. JSX (JavaScript XML) is a syntax extension for JavaScript that allows you to write HTML-like code within JavaScript. It is not a requirement for React but is widely used because it makes UI code more readable and expressive.
@@ -126,6 +130,10 @@ Further reading on react.dev: [Passing Props to a Component](https://react.dev/l
 ### State
 
 State can be viewed as the "memory" of a component instance. Each component instance's state is isolated and cannot be directly modified from external sources.
+
+> [!IMPORTANT] Props flow down, state stays local — this is React's one-way data flow
+>
+> Children cannot mutate props, and parents cannot reach into a child's state. To share state across siblings, lift it up to the nearest common parent and pass it back down as props.
 
 - Managed within the component
 - Triggers a re-render when updated

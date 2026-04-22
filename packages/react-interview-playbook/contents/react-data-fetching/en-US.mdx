@@ -137,6 +137,10 @@ One way to resolve this is to debounce the query so that the API request is only
 
 Wastefulness of multiple requests aside, a more serious problem is that the displayed results aren't even for the current search term. Race conditions can occur because when multiple requests are made, the server can return the results in any order. The response for the term `'toma'` can arrive later than the response for the term `'tomato'`, but the code simply displays the results of the latest request, not necessarily the request of the current search term.
 
+> [!WARNING] Debouncing alone does not fix race conditions
+>
+> If a slow response outlives a newer query, the stale response can still overwrite fresher data. Always pair debouncing with either an `AbortController` or an "ignore" flag in the effect cleanup to discard outdated responses.
+
 This problem can be fixed/improved in multiple ways:
 
 1. **Debouncing**: Debouncing ensures that requests are sent only after a period of inactivity, which reduces the chance of race conditions. However, if the request latency is longer than the debounce duration, then race conditions can still occur. Debouncing is not a foolproof approach.
@@ -221,6 +225,10 @@ If the UI relies on cached data, the cache should be invalidated either by refet
 ## Query libraries
 
 By now you probably agree with me that data fetching is a huge pain to implement properly. But not to worry, query libraries to the rescue!
+
+> [!TIP] Mention a query library when asked to scale up client-side data fetching
+>
+> For production or take-home contexts, name-dropping TanStack Query or SWR and explaining what you'd get for free (caching, deduping, refetching, cancellation) shows awareness of what the hand-rolled `useEffect` approach is missing.
 
 Query libraries are specially designed to handle data fetching, caching, synchronization, and state management in front end applications. They simplify making API requests while optimizing performance and user experience. Popular examples include [TanStack Query](https://tanstack.com/query/latest), [useSWR](https://swr.vercel.app/), and [Apollo Client](https://www.apollographql.com/) (for GraphQL).
 
