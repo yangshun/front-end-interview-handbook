@@ -13,7 +13,7 @@ hide_table_of_contents: true
   <link rel="canonical" href="https://www.yangshuntay.com/blog/front-end-career-questions" />
 </head>
 
-Recently a junior front end engineer at a startup in Singapore reached out to me to ask me how front end development as a career.
+Recently a junior front end engineer at a startup in Singapore reached out to me to ask me about front end development as a career.
 
 <!--truncate-->
 
@@ -27,10 +27,10 @@ I'm still doing a lot of Front End development for work. Less in a personal capa
 
 I really like all aspects of Front End development, maybe except optimizing performance. At FB we build a lot of Front End-related tooling (e.g. Jest, GraphQL, Flow) and libraries (our internal CSS-in-JS solution, Docusaurus, React, Flux, etc) which is personally very exciting to me. Even within front end development, there are various layers - very user-facing stuff (HTML/CSS/visual related code) and back end (JavaScript stuff, network layer, storage), tooling (ESLint, Babel, TypeScript, webpack). I call myself a full front end stack developer as I'm decent across the entire front end stack. I'm especially excited about tooling work as the problems there are interesting and challenging. Typically only large companies face such problems because they only occur at scale, hence I really like being at FB because FB is one of such companies.
 
-### Personally, do you have any tips on how best to grow as an Front End engineer? Are there any particular areas that you'd recommend?
+### Personally, do you have any tips on how best to grow as a Front End engineer? Are there any particular areas that you'd recommend?
 
 Learn your fundamentals well. There are many UI and CSS libraries out there, but a good Front End developer still needs to know how to build a website without them. Peek beneath the abstraction layers and understand the problems these libraries are trying to solve, do not use them blindly. Keep building stuff - try to build a simple version of the libraries you frequently use, build interesting user interfaces and products, etc.
 
-### What do you think about developing breadth-wise vs depth-wise? For example, do you think it's important for a software engineer to know more about other fields besides the end he/she is currently working at? In particular, what do you think about an Front End engineer that knows BE (i.e. a full-stack developer), or an Front End engineer that knows mobile development (with the advent of React Native or Flutter)?
+### What do you think about developing breadth-wise vs depth-wise? For example, do you think it's important for a software engineer to know more about other fields besides the one they are currently working on? In particular, what do you think about a Front End engineer who knows BE (i.e. a full-stack developer), or a Front End engineer who knows mobile development (with the advent of React Native or Flutter)?
 
 I somewhat answered this in another [blog post](/blog/are-front-end-development-skills-enough-for-a-career). Lemme know if your question isn't answered after reading it.

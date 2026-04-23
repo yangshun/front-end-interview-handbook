@@ -144,7 +144,7 @@ There is no easy way to remove all properties from an object, you have to delete
 
 #### check property existence
 
-Finally, we can't rely on the dot/bracket notation to check for existence of an property because the value itself could be set as `undefined`. Instead we have to use `Object.prototype.hasOwnProperty` or `Object.hasOwn`.
+Finally, we can't rely on the dot/bracket notation to check for the existence of a property because the value itself could be set as `undefined`. Instead we have to use `Object.prototype.hasOwnProperty` or `Object.hasOwn`.
 
 ```jsx
 const obj = { a: undefined };
@@ -173,15 +173,15 @@ In contrast to `Object`, `Map` provides dedicated APIs for various common tasks:
 - `Map.prototype.has` checks for the existence of a given entry, less awkward compared to having to `Object.prototype.hasOwnProperty` / `Object.hasOwn` on objects.
 - `Map.prototype.get` returns the value associated to the provided key. One might feel this is clunkier than the dot notation or the bracket notation on objects. Nevertheless it provides a clean separation between user data and built-in method.
 - `Map.prototype.size` returns the number of entries in a `Map` and it is a clear winner over the maneuvers you have to perform to get an object's size. Besides, it is much faster.
-- `Map.prototype.clear` removes all the entries in a `Map` and it much faster than the `delete` operator.
+- `Map.prototype.clear` removes all the entries in a `Map` and it is much faster than the `delete` operator.
 
 ## Performance extravaganza
 
-There seems to be a common belief among JavaScript community that `Map` is faster than `Object`, for the most part. There are [people](https://twitter.com/diegohaz/status/1534888291732013058) who claimed to see noticeable performance gains by switching from `Object` to `Map`.
+There seems to be a common belief among the JavaScript community that `Map` is faster than `Object`, for the most part. There are [people](https://twitter.com/diegohaz/status/1534888291732013058) who claimed to see noticeable performance gains by switching from `Object` to `Map`.
 
-My experience of grinding LeetCode seems to confirm this belief: LeetCode feeds a huge amount of data as the test cases to your solution and it times out if your solution is taking too long. Questions like [this](https://leetcode.com/problems/random-pick-with-weight/solutions/671804/Javascript-with-explanation-and-very-interesting-find-regarding-vs-Map/) only times out if you use `Object`, but not on `Map`.
+My experience of grinding LeetCode seems to confirm this belief: LeetCode feeds a huge amount of data as the test cases to your solution and it times out if your solution is taking too long. Questions like [this](https://leetcode.com/problems/random-pick-with-weight/solutions/671804/Javascript-with-explanation-and-very-interesting-find-regarding-vs-Map/) only time out if you use `Object`, but not `Map`.
 
-However, I believe just saying "`Map` is faster than `Object`" is reductive. There must be some nuance that I wanted to find out myself. Therefore. I built [a little app](https://csb-yuu1dm.netlify.app/) to run some benchmarks.
+However, I believe just saying "`Map` is faster than `Object`" is reductive. There must be some nuance that I wanted to find out myself. Therefore, I built [a little app](https://csb-yuu1dm.netlify.app/) to run some benchmarks.
 
 <details>
     <summary>Important Disclaimer</summary>
@@ -209,9 +209,9 @@ function measureFor(f, duration) {
 }
 ```
 
-As for deletion, I am simply going to measure the time taken for using the `delete` operator to remove all properties from an objects and compare it with the time with `Map.prototype.delete` for a `Map` of the same size. I could use `Map.prototype.clear` but it defeats the purpose of the benchmarks as I know for sure it is going to be vastly faster.
+As for deletion, I am simply going to measure the time taken for using the `delete` operator to remove all properties from an object and compare it with the time with `Map.prototype.delete` for a `Map` of the same size. I could use `Map.prototype.clear` but it defeats the purpose of the benchmarks as I know for sure it is going to be vastly faster.
 
-In these three operations, I pay more attention to insertion since it tends to be the most common operation I perform in my day-to-day work. For iteration performance, it is hard to come up with an all-encompassing benchmarks as there are many different variants of iteration we can perform on a given object. Here I am only measuring the `for ... in` loop.
+In these three operations, I pay more attention to insertion since it tends to be the most common operation I perform in my day-to-day work. For iteration performance, it is hard to come up with an all-encompassing benchmark as there are many different variants of iteration we can perform on a given object. Here I am only measuring the `for ... in` loop.
 
 I used three types of keys here:
 
@@ -234,7 +234,7 @@ I started with `Object` and `Map` with a size of 100 properties/entries, all the
 
 ### string keys
 
-Generally speaking, when keys are (non-numeric) string, `Map` outperforms `Object` on all operations.
+Generally speaking, when keys are (non-numeric) strings, `Map` outperforms `Object` on all operations.
 
 ![Map vs Object operations benchmark](https://www.zhenghao.io/art/blog/object-vs-map/deletion-speed.png)
 
@@ -268,7 +268,7 @@ Let's first try integer keys in the range of [0, 1000].
 
 ![Object vs Map insertion performance with integer keys](https://www.zhenghao.io/art/blog/object-vs-map/integer-key-1.png)
 
-As I expected, `Object` **outperform** `Map` this time. They are 65% faster than maps for insertion speed and 16% faster to iterate.
+As I expected, `Object` **outperforms** `Map` this time. They are 65% faster than maps for insertion speed and 16% faster to iterate.
 
 Let's widen the range so that the maximum integer in the keys is 1200.
 
@@ -276,25 +276,25 @@ Let's widen the range so that the maximum integer in the keys is 1200.
 
 It seems like now `Map` s are starting to get a little faster than objects for insertion and 5 times faster for iteration.
 
-Now that we only increased the integer keys' range, not the actual size of `Object` and `Map`. Let's bump up the size to see how that affects the performances.
+Note that we only increased the integer keys' range, not the actual size of `Object` and `Map`. Let's bump up the size to see how that affects the performances.
 
 ![Object vs Map insertion performance with integer keys with 1000 properties](https://www.zhenghao.io/art/blog/object-vs-map/integer-key-3.png)
 
-When a size of 1000 properties, `Object` ends up being 70% faster than `Map` for insertion and 2 times slower for iteration.
+With a size of 1000 properties, `Object` ends up being 70% faster than `Map` for insertion and 2 times slower for iteration.
 
-I played with a bunch of different combinations of `Object`/`Map` sizes and integer key ranges and failed to come up with a clear pattern. But the general trend I am seeing is that, for as the size grows, with some relative small integer being the keys, objects can be _more performant_ than `Map`s in terms of insertion, always roughly the same as to deletion and 4 or 5 times slower to iterate. The threshold of max integer keys at which objects start to be slower for insertion grows with the size of the objects. For example, when the object only has 100 entries, the threshold is 1200; when it has 10000 entries, the threshold seems to be around 24000.
+I played with a bunch of different combinations of `Object`/`Map` sizes and integer key ranges and failed to come up with a clear pattern. But the general trend I am seeing is that, for as the size grows, with some relatively small integer being the keys, objects can be _more performant_ than `Map`s in terms of insertion, always roughly the same for deletion and 4 or 5 times slower to iterate. The threshold of max integer keys at which objects start to be slower for insertion grows with the size of the objects. For example, when the object only has 100 entries, the threshold is 1200; when it has 10000 entries, the threshold seems to be around 24000.
 
 ### numeric keys
 
 Lastly, let's take a look at the last type of keys - numeric keys.
 
-Technically, the previously integer keys are also numeric. Here numeric keys specifically refer to the numeric strings generated by `Math.random().toString()`.
+Technically, the previously mentioned integer keys are also numeric. Here numeric keys specifically refer to the numeric strings generated by `Math.random().toString()`.
 
 The results are similar to those string-key cases: `Map`s start off as much faster than objects (2 times faster for insertion and deletion, 4-5 times faster for iteration), but the delta is getting smaller as we increase the size.
 
 <details>
     <summary>What about nested objects/maps?</summary>
-    <p>You might have noticed that I have been only talking about flat objects and maps with only one depth. I did add some depth but I found the performance characteristics stay largely the same as long as the total number of entries are the same, no matter how many levels of nesting we have.</p>
+    <p>You might have noticed that I have been only talking about flat objects and maps with only one depth. I did add some depth but I found the performance characteristics stay largely the same as long as the total number of entries is the same, no matter how many levels of nesting we have.</p>
     <p>For example, with `width` being 100 and `depth` being 3, we have a total number of one million entries (100 * 100 * 100). The results are pretty much the same compared to just having `1000000` for width and 1 for `depth`</p>
 </details>
 
@@ -364,13 +364,13 @@ It is pretty clear that `Map` consumes less memory than `Object` by anywhere fro
 So what do we take away from all this?
 
 - `Map` is faster than `Object` _unless_ you have small integer, array-indexed keys, and it is more memory-efficient.
-- Use `Map` if you need a hash map with frequent updates; use `Object` if you want to a fixed key-value collection (i.e. record), and watch out for pitfalls that come with prototypal inheritance.
+- Use `Map` if you need a hash map with frequent updates; use `Object` if you want a fixed key-value collection (i.e. record), and watch out for pitfalls that come with prototypal inheritance.
 
 > If you know the details of exactly how V8 optimizes `Map` or simply want to call out the flaws in my benchmarks, ping me. I'll be happy to update this post based on your information!
 
 ## Notes on browser compatibility
 
-`Map` is an ES6 feature. By now most of us shouldn't be worried about its compatibility unless you are targeting a user base with some niche, old browser. By "old" I mean older than IE 11 because even IE 11 supports [`Map`](https://caniuse.com/mdn-javascript_builtins_map) and at this point IE 11 is [dead](https://twitter.com/swyx/status/1536353949132853248). We shouldn't be mindlessly transpiling and adding polyfill to target ES5 by default, because not only does it bloat your bundle size, it is also slower to run compared to modern JavaScript. Most importantly, it penalizes 99.999% of your users who use a modern browser.
+`Map` is an ES6 feature. By now most of us shouldn't be worried about its compatibility unless you are targeting a user base with some niche, old browser. By "old" I mean older than IE 11 because even IE 11 supports [`Map`](https://caniuse.com/mdn-javascript_builtins_map) and at this point IE 11 is [dead](https://twitter.com/swyx/status/1536353949132853248). We shouldn't be mindlessly transpiling and adding polyfills to target ES5 by default, because not only does it bloat your bundle size, it is also slower to run compared to modern JavaScript. Most importantly, it penalizes 99.999% of your users who use a modern browser.
 
 Plus, we don't have to drop support for legacy browsers - serve legacy code via `nomodule` by serving fallback bundles so that we can avoid degrading the experience of visitors with modern browsers. Refer to [_Transitioning to modern JavaScript_](https://www.youtube.com/watch?v=cLxNdLK--yI) if you need more convincing.
 

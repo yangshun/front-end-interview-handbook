@@ -21,7 +21,7 @@ A glimpse into the front end interview process and questions that frequently com
 
 Applying for front end engineer roles is very similar to software engineer roles, but the interviews can be quite different. In my experience, for each company, there tend to be between 3 to 4 sessions. Most of them will be testing on JavaScript and discussion around web development technologies, and the rest on algorithms or behavioral.
 
-One aspect that I have found interesting is that the younger the company, the more questions will lean towards JavaScript. This could be because hiring specifically for front end engineers is relatively new. Older companies used to only hire software engineers without regard if their focus is on the back end or front end.
+One aspect that I have found interesting is that the younger the company, the more questions will lean towards JavaScript. This could be because hiring specifically for front end engineers is relatively new. Older companies used to only hire software engineers without regard to whether their focus was on the back end or front end.
 
 ## JavaScript Rounds
 
@@ -138,7 +138,7 @@ As I had some experience in writing Babel plugins and jscodeshift code mods, I w
 
 In all of my interviews, I have only been asked to implement a feature twice. It is not a common question, but it may come up.
 
-This would come down to how well-versed you are with your basics such as HTML and CSS, as well as tools and frameworks. As an example, one of the question I have gotten was to implement an autocomplete search bar like Google's. If you have built something like that before, it is doable within an hour.
+This would come down to how well-versed you are with your basics such as HTML and CSS, as well as tools and frameworks. As an example, one of the questions I have gotten was to implement an autocomplete search bar like Google's. If you have built something like that before, it is doable within an hour.
 
 Implementation rounds feel very similar to algorithms, as you need to actively find the best solution while thinking out loud and explaining your decisions.
 

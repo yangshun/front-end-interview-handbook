@@ -25,7 +25,7 @@ Both front end-focused and back end-focused system design interviews share a lot
 
 - Starting with gathering system requirements
 - Laying out a clear plan and identifying major distinguishable components of the system
-- Proceeding to end to end api design
+- Proceeding to end-to-end API design
 - Talking about optimization
 
 Other kinds of similarities include:
@@ -41,21 +41,21 @@ During the back end-focused system design interviews, you would spend most of th
 - Back end/server side architecture, hand waving various back end services/components
 - Discussing which type of database to use and how to aggregate data across different shards
 - Designing SQL table schema
-- Choosing the right the cross-region strategy if your service has a global user base
+- Choosing the right cross-region strategy if your service has a global user base
 - Any other kinds of system characteristics like latency, availability, fault tolerance, etc
 
 For front end-focused system design interviews, you would spend most of the time talking about stuff like:
 
 - Front end/client side architecture, such as the appropriate rendering pattern to choose - client side rendering, or server side rendering or static generation or something in between?
-- What kind of data fetching mechanism to use - REST vs. GRAPHQL vs. gRPC and what should the APIs look like?
+- What kind of data fetching mechanism to use - REST vs. GraphQL vs. gRPC and what should the APIs look like?
 - Specifics about UI components
   - A news feed which has an infinite scroll behavior with all the images lazily loaded while ensuring the client side has the aspect ratio of the images upfront to prevent layout shift.
   - An autocomplete UI component which fetches search result data incrementally in batches while receiving images from server pushes in parallel.
-  - a gallery page which pulls images and displays them in the correct order despite the asynchrony that comes with the network requests that might cause them to arrive out of order.
+  - A gallery page which pulls images and displays them in the correct order despite the asynchrony that comes with the network requests that might cause them to arrive out of order.
 - How do you leverage different layers of cache to decrease latency or support offline mode.
-- If they want to get framework-specific, which is totally possible, they might even ask you to define a particular React components's props or manage complex state in a React app.
+- If they want to get framework-specific, which is totally possible, they might even ask you to define a particular React component's props or manage complex state in a React app.
 
-A lot times having one type of system design interviews means you can over simplify the opposite side:
+A lot of the time, having one type of system design interview means you can oversimplify the opposite side:
 
 - In a back end system design interview, the client-side/front end is reduced to an API layer - you don't need to consider all the intricacies of the browser or the pesky rerenders your real-time updates would cause.
 - In a front end system design interview, you can treat the back end as a black box and you don't need to worry about how things like how to scale a database, or how your choice of using web sockets might affect the load balancers because of the need for sticky sessions support.
@@ -67,7 +67,7 @@ Outside of the differences with the technical topics I needed to dig deep into d
 - For front end system design interviews I was often encouraged to treat the interviewer as the **product manager** and we spent some time just fleshing out the brief solution for each user story. For the back end system design interviews, we didn't really get to talk about any user interaction (I am aware that the definition of users of your system might vary, depending on whether it is customer-facing vs. developer-facing)
 - These two types of system design interviews also differ a lot in terms of estimating certain system's needs based on the potential scale of the system. The system needs can be storage needs or throughput needs or any other types of requirements.
   - It is common and expected to do these estimation during back end system design interviews since your design decision is only feasible when all of the system needs can realistically be met.
-  - But for the front end system design interview, I rarely needed to do any **quantitative estimation** - for example, when I was designing some live feed during a front end system design interview, I didn't need to do estimations like "So let's say each message was roughly 140 characters long and it is utf8 so that's 140 bytes and an average user gets 10000 messages over a certain period of time so we ended up allocating 1.4mb memory on user devices". Again, I am not saying that this would never come up during a front end system design interview. in my experience It is just much, much more rare compared to back end ones.
+  - But for the front end system design interview, I rarely needed to do any **quantitative estimation** - for example, when I was designing some live feed during a front end system design interview, I didn't need to do estimations like "So let's say each message was roughly 140 characters long and it is utf8 so that's 140 bytes and an average user gets 10000 messages over a certain period of time so we ended up allocating 1.4mb memory on user devices". Again, I am not saying that this would never come up during a front end system design interview. In my experience, it is just much, much more rare compared to back end ones.
 
 ## Career ceiling
 
@@ -85,12 +85,12 @@ This is an unspoken thing and a very impolite conversation. And [there are excep
 
 Part of the ceiling comes from some traditional baggage:
 
-- modern front end development is fairly new compared to the back end counterpart. I have seen some bias in the industry that front end is not real engineering compared to the back end and that needs absolutely to be combated.
-- power structure persists for a very long time and that's partially why most of VP Eng and CTOs out there are back end/infra developers.
+- modern front end development is fairly new compared to the back end counterpart. I have seen some bias in the industry that front end is not real engineering compared to the back end and that absolutely needs to be combated.
+- Power structures persist for a very long time and that's partially why most VPs of Eng and CTOs out there are back end/infra developers.
 
 ## Economic reasoning
 
-I had this realization that when I was going through the back end system design interviews vs. the front end system design interviews - the technical topics those interviews tend to cover let me think about some economic reasoning leading to the perception of a "Front end ceiling" as well. Your value to the company really depends on how many machines/compute/storage run through you. As a developer/engineer, that means much money you control and front end-only developers just don't take as much. Of course front end is just as hard and as important especially for consumer facing products but at the end of the day your compute is being run on someone else's machine or device and the company just don't value that as much as the compute that they themselves need to pay for and to scale.
+I had this realization when I was going through the back end system design interviews vs. the front end system design interviews — the technical topics those interviews tend to cover led me to think about some economic reasoning leading to the perception of a "Front end ceiling" as well. Your value to the company really depends on how many machines/compute/storage run through you. As a developer/engineer, that means how much money you control and front end-only developers just don't take as much. Of course front end is just as hard and as important especially for consumer facing products but at the end of the day your compute is being run on someone else's machine or device and the company just doesn't value that as much as the compute that they themselves need to pay for and to scale.
 
 ## Short-lived vs. long-running
 
