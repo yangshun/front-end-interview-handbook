@@ -215,7 +215,7 @@ function Slider({ className, value }) {
 
 In the example above, both `.gfe-slider` and `.my-custom-slider` classes specify the `color` and because these two selectors have the same specificity, the winning style is actually the class that appears later on the HTML page.
 
-If the loading order of the stylesheet is not guaranteed (e.g. if stylesheets are lazily loaded), the visual result will not be deterministic. The results is that developers start using hacks like `!important` or `.my-custom-slider.my-custom-slider` to let their selectors win the specificity war. With all these hacks, the CSS code starts becoming unmaintainable.
+If the loading order of the stylesheet is not guaranteed (e.g. if stylesheets are lazily loaded), the visual result will not be deterministic. The result is that developers start using hacks like `!important` or `.my-custom-slider.my-custom-slider` to let their selectors win the specificity war. With all these hacks, the CSS code starts becoming unmaintainable.
 
 > [!WARNING] Class injection leads to non-deterministic styling
 >
@@ -334,7 +334,7 @@ However, since no classes with conflicting styles are used, and inline styles ha
 >
 > A theme object rendered as inline styles repeats every declared property on every rendered component. For hot components rendered hundreds or thousands of times, this adds up in both payload and memory — something to raise in system design discussions.
 
-The theme object is just a way to restrict the styling to certain properties and optionally, an accepted set of values, the values do not need be used as inline styles and instead can be combined with other styling approaches.
+The theme object is just a way to restrict the styling to certain properties and optionally, an accepted set of values, the values do not need to be used as inline styles and instead can be combined with other styling approaches.
 
 ### CSS preprocessor compilation
 
@@ -344,7 +344,7 @@ This approach is great because it doesn't rely on overriding CSS selectors to ac
 
 ### CSS variables / custom properties
 
-[CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) (or more formally known as CSS custom properties) are entities defined by CSS authors that contain specific values to be reused throughout a document. The `var()` function, it accepts fallback values if the given variable is not set.
+[CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) (or more formally known as CSS custom properties) are entities defined by CSS authors that contain specific values to be reused throughout a document. The `var()` function accepts fallback values if the given variable is not set.
 
 ```jsx
 function Slider({ value, label }) {

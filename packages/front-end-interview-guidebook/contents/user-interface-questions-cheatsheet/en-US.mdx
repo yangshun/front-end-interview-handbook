@@ -40,7 +40,7 @@ Most UI questions in interviews will require state and designing the state well 
 - **Separate rendering code vs data management code**: Make the UI a function of your data and separate your code into two parts (rendering code vs data management code) for better readability. If you use JavaScript frameworks such as React, you will more or less be forced to do so.
 - **Use the state-reducer pattern for complex state interactions**: If the question requires many state fields and certain actions require changing multiple fields at once, use a [reducer to consolidate state update logic](https://react.dev/learn/extracting-state-logic-into-a-reducer). First popularized by Redux, the state-reducer pattern encourages you to determine the state of your UI, actions that can be taken, and how to combine actions with state to derive the next state. If you are using React, you can achieve this pattern via the [`useReducer` React hook](https://react.dev/reference/react/useReducer). Redux is usually overkill for interviews and `useReducer` should be sufficient.
 
-[React's](https://react.dev/) docs on ["Managing State"](https://react.dev/learn/managing-state) is an excellent resource on how to design and use component state correctly. Some of the ideas mentioned aren't specific to React and can be applied to any UI frameworks.
+[React's](https://react.dev/) docs on ["Managing State"](https://react.dev/learn/managing-state) is an excellent resource on how to design and use component state correctly. Some of the ideas mentioned aren't specific to React and can be applied to any UI framework.
 
 ## JavaScript
 
@@ -54,7 +54,7 @@ Is your JavaScript using modern language syntax and good practices while avoidin
 Are you writing semantic HTML with the right tags and right attributes?
 
 - **Semantic tags**: Use heading tags for titles, button tags for interactive elements, list tags for sequential elements, and so on. Don't use `<div>`s for everything!
-- **Heading hierarchy**: Ensure heading tags have a hierarchy and there's not more than one `<h1>` in the DOM.
+- **Heading hierarchy**: Ensure heading tags have a hierarchy and there's no more than one `<h1>` in the DOM.
 - **Interactive elements**: Use `<button>` for elements that require interaction. Do not add click handlers to `<div>` and `<span>`s, that's a huge red flag and shows a lack of thought for accessibility.
 
 > [!WARNING] Attaching click handlers to `<div>` or `<span>` breaks accessibility
@@ -63,7 +63,7 @@ Are you writing semantic HTML with the right tags and right attributes?
 
 ### Forms
 
-Forms are complex on its own and deserves its own section.
+Forms are complex on their own and deserve their own section.
 
 - **Link labels and inputs**: `<input>`s should be linked to `<label>`s using `id` and `for`.
 - **Wrap inputs in a form**: `<input>`s should be wrapped in a `<form>` so that clicking on buttons and hitting Enter will submit the form. Remember to add `event.preventDefault()` if the network request is meant to be made using Ajax.
@@ -96,7 +96,7 @@ Does your UI provide a great user experience?
 
 Does your UI handle the unpredictable nature of network requests and conditions?
 
-- **Reflect network request states**: If the UI involves making network requests, clearly show the pending/success/failure state of the requests
+- **Reflect network request states**: If the UI involves making network requests, clearly show the pending/success/failure state of the requests.
   - **Pending**: Disable fields/buttons, show a spinner.
   - **Error**: Show an error message.
   - **Success**: Update the UI and/or show a success message.
@@ -105,6 +105,7 @@ Does your UI handle the unpredictable nature of network requests and conditions?
 > [!WARNING] Parallel network requests can finish out of order
 >
 > Autocomplete, search, and filter components are especially prone to this — a stale response can overwrite fresh results. Track the latest request ID and discard earlier responses, or serialize requests by disabling the input while one is in flight.
+
 - **Prevent duplicate requests**: Buttons should be disabled after submission to avoid making duplicate network requests.
 - **Consolidating requests**: If the UI is making too many network requests, you can:
   - **Debounce/throttle**: Rate limit the number of network requests fired.
@@ -127,7 +128,7 @@ Source: [Accessible UI Components for the web](https://medium.com/@addyosmani/ac
 - **Screen readers, ARIA roles, states, and properties**:
   - Add the right `aria-role`s for custom built elements not built using custom HTML tags.
   - Use `aria-label`s to describe elements where text is not shown (e.g. icon-only buttons).
-  - Link error messages elements with the elements responsible for them via `aria-describedby`/`aria-errormessage`.
+  - Link error message elements with the elements responsible for them via `aria-describedby`/`aria-errormessage`.
   - **Image `alt` text**: Add `alt` attribute to `<img>` elements so that screen readers can describe the image.
 - **Keyboard interactions**
   - Add the `tabindex` attribute to elements you want to be focusable via keyboard tabbing.
@@ -161,11 +162,12 @@ There's probably not enough time to handle all edge cases scenarios in your code
 
 ## Security
 
-- **Cross-site Scripting (XSS)**: Avoid assigning to [`Element.innerHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML) or React's `dangerouslySetInnerHTML` when rendering contents into the DOM if it comes from users to prevent cross-site scripting, assign to [`Node.textContent`](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent) or use the experimental[`Element.setHTML()`](https://webdocs.dev/en-us/docs/web/api/element/sethtml) method instead. Refer to [OWASP's XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+- **Cross-site Scripting (XSS)**: Avoid assigning to [`Element.innerHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML) or React's `dangerouslySetInnerHTML` when rendering contents into the DOM if it comes from users to prevent cross-site scripting, assign to [`Node.textContent`](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent) or use the experimental [`Element.setHTML()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/setHTML) method instead. Refer to [OWASP's XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
 
 > [!WARNING] Never render untrusted input with `innerHTML` or `dangerouslySetInnerHTML`
 >
 > User-supplied HTML is the most common XSS vector. Use `textContent` or React's default escaping unless you have explicitly sanitized the input with a library like DOMPurify.
+
 - **Output encoding for "URL Contexts"**: If user-supplied input can be used in URL query parameters, use `encodeURIComponent` to prevent unintended values from becoming part of the URL (e.g. extra query parameters).
 - **Cross Site Request Forgery**: Refer to [OWASP's CSRF Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html).
 
