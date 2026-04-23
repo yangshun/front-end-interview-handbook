@@ -1,6 +1,6 @@
 ---
-title: Behavorial Interviews
-sidebar_label: Behavorial interviews
+title: Behavioral Interviews
+sidebar_label: Behavioral interviews
 ---
 
 :::info Latest version on GreatFrontEnd

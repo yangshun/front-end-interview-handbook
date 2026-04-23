@@ -65,7 +65,7 @@ These tips were shared by [GreatFrontEnd](https://www.greatfrontend.com/?utm_sou
 
 **21st Oct 2024**:
 
-> just finish my third rounds interview with with TikTok. it's a design round with 50 mins deep dive on my pervious project and potential improvement. have to draw a flowchart to demo the workflow. overall it's really conversation heavy. and also asked why you want to join TikTok. don't think I am going to pass this round but Good Luck to whoever interview later! 🙏
+> just finish my third rounds interview with TikTok. it's a design round with 50 mins deep dive on my pervious project and potential improvement. have to draw a flowchart to demo the workflow. overall it's really conversation heavy. and also asked why you want to join TikTok. don't think I am going to pass this round but Good Luck to whoever interview later! 🙏
 
 **8th Aug 2024**:
 

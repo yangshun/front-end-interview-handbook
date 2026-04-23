@@ -16,7 +16,7 @@ These tips were shared by [GreatFrontEnd](https://www.greatfrontend.com/?utm_sou
 
 **3rd Apr 2024**:
 
-> I tríed few months ago. I did the first round only for a release engineer position. The problem is called Can you win. And it is similar to that in Leetcode jump and jump II. They are medium level problems. At least you can solve 2 in 20-30 mins. They recommend that.
+> I tried a few months ago. I did the first round only for a release engineer position. The problem is called Can you win. And it is similar to that in Leetcode jump and jump II. They are medium level problems. At least you can solve 2 in 20-30 mins. They recommend that.
 
 **4th Feb 2024**:
 

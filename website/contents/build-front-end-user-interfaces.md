@@ -17,7 +17,7 @@ Companies that ask such questions usually ask candidates to code in one of these
 
 - **Online editor with preview**: You get to write HTML, CSS, JavaScript within the browser and see an instant preview of the page. Common platforms used include [CodePen](https://codepen.io) and [CodeSandbox](https://codesandbox.io/dashboard).
 - **Online editor without preview**: Similar to the above, but you don't get to see any visual output of the page. A common platform for this is [CoderPad](https://coderpad.io/). In the past, Google used Google Docs 😱.
-- **BYOE (Bring Your Own Environment)**: Candidates bring their own development environment/laptop and free to choose whether they want to do local development using their own editors or use online environments like CodePen or CodeSandbox. This is the most ideal scenario that benefits candidates, but is usually only done during on-sites. You can usually use a JavaScript framework/library and in that case you are recommended to use tools that help you scaffold a fresh app where you can start coding immediately (e.g. `create-react-app`, `vue-cli`). You don't want to be spending time during the interview doing unnecessary plumbing that doesn't give your interviewers additional useful signals.
+- **BYOE (Bring Your Own Environment)**: Candidates bring their own development environment/laptop and are free to choose whether they want to do local development using their own editors or use online environments like CodePen or CodeSandbox. This is the most ideal scenario that benefits candidates, but is usually only done during on-sites. You can usually use a JavaScript framework/library and in that case you are recommended to use tools that help you scaffold a fresh app where you can start coding immediately (e.g. `create-react-app`, `vue-cli`). You don't want to be spending time during the interview doing unnecessary plumbing that doesn't give your interviewers additional useful signals.
 - **Whiteboard**: Candidates have to write all the required HTML, JS, CSS on the whiteboard. There's no preview, no autocomplete, no online documentation to help you; you're totally on your own. So far Facebook and Google are the only companies that are known to make candidates write code on a physical whiteboard during onsite front end interviews.
 
 ## Where to practice
@@ -57,8 +57,6 @@ Here are some questions you can start with:
   - Tetris (advanced)
   - Snake (advanced)
 
-## Where to practice
-
 Each of these questions and over 200+ more can be found on [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
 
 - Each question comes with official solutions in popular frameworks such as React, Angular, Svelte and Vue
@@ -73,7 +71,7 @@ After you complete (or even before you start on) the question, think about these
 ### Front end best practices
 
 - Avoid writing global variables. Wrap your code within an [IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE) and don't pollute the global scope.
-- What if you need to have multiple instances of this components on the page?
+- What if you need to have multiple instances of this component on the page?
   - Does your code enable you to do this?
   - Did you use any global variables that will make it hard for you to do so?
   - Will having multiple components on the same page affect each other? They should be independent!
@@ -96,7 +94,7 @@ Does your component scale (latency, performance, UI, UX, etc)?
 ### Network requests
 
 - Does the component deal with race conditions in network/async requests? E.g. a new network request is fired before the response for the previous request is returned.
-- What if the request timeout or errored out? How can you recover from it gracefully?
+- What if the request times out or errors out? How can you recover from it gracefully?
 - How can you improve the performance of the component? Can you make use of caching, lazy loading, prefetching/preloading?
 - What if you need to load a lot of data/images? Can you lazily load them? Can you fetch the data in batches to reduce spamming the API endpoint?
 
@@ -108,7 +106,7 @@ Does your component scale (latency, performance, UI, UX, etc)?
 - What are some common accessibility techniques and gotchas?
   - https://medium.com/@addyosmani/accessible-ui-components-for-the-web-39e727101a67
 - What tools can you use to check for accessibility?
-- If you are unfamiliar with a11y, there's probably isn't much time for you to be an expert in a11y. The very least you can do is to acknowledge a knowledge gap in a11y and try to factor a11y into your answers. You should be at least aware of basic a11y practices like text size, color contrast, focusable elements, tab focus order, `aria-label`s. Knowledge of a11y is one of the differentiating factors between junior vs senior engineers.
+- If you are unfamiliar with a11y, there probably isn't much time for you to be an expert in a11y. The very least you can do is to acknowledge a knowledge gap in a11y and try to factor a11y into your answers. You should be at least aware of basic a11y practices like text size, color contrast, focusable elements, tab focus order, `aria-label`s. Knowledge of a11y is one of the differentiating factors between junior vs senior engineers.
 
 ### Security
 

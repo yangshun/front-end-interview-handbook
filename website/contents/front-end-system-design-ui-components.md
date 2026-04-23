@@ -40,7 +40,7 @@ You can write this structure down on the whiteboard/online editor so that you do
 
 Every system design interview (even for non-front end as well) should start with requirements gathering/clarifying requirements about the question, which is usually left underspecified on purpose. You are recommended to spend at least a few minutes clarifying the requirements. Do not start drawing the architecture before you are clear about the requirements!
 
-Thankfully, components have well-defined scope and not try to do too many things. You likely have used such a component yourself and possibly know what you need from such a component.
+Thankfully, components have well-defined scope and do not try to do too many things. You likely have used such a component yourself and possibly know what you need from such a component.
 
 Some considerations:
 
@@ -66,7 +66,7 @@ If you have a whiteboard/online drawing tool, it would also be helpful to draw d
 
 ### Data model
 
-Data model for components will refer to the component state. The concept of state should be familiar to most front end developers who have used front end UI libraries/frameworks such as React, Angular, Vue, Svelte, etc. In every of these libraries/frameworks, state is a common concept.
+Data model for components will refer to the component state. The concept of state should be familiar to most front end developers who have used front end UI libraries/frameworks such as React, Angular, Vue, Svelte, etc. In each of these libraries/frameworks, state is a common concept.
 
 Deciding what data to put in state is essential to doing well for this portion. Few factors to consider when deciding what goes into component state:
 

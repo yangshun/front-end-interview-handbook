@@ -43,7 +43,7 @@ For an in-depth explanation, do check out his [article on Medium](https://codebu
 
 #### Can you give an example of one of the ways that working with this has changed in ES6?
 
-ES6 allows you to use [arrow functions](https://2ality.com/2017/12/alternate-this.html#arrow-functions) which uses the [enclosing lexical scope](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#No_separate_this). This is usually convenient, but does prevent the caller from controlling context via `.call` or `.apply`—the consequences being that a library such as `jQuery` will not properly bind `this` in your event handler functions. Thus, it's important to keep this in mind when refactoring large legacy applications.
+ES6 allows you to use [arrow functions](https://2ality.com/2017/12/alternate-this.html#arrow-functions) which use the [enclosing lexical scope](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#No_separate_this). This is usually convenient, but does prevent the caller from controlling context via `.call` or `.apply`—the consequences being that a library such as `jQuery` will not properly bind `this` in your event handler functions. Thus, it's important to keep this in mind when refactoring large legacy applications.
 
 #### References
 
@@ -119,7 +119,7 @@ I'm glad that with ES2015 modules, that has support for both synchronous and asy
 
 IIFE stands for Immediately Invoked Function Expressions. The JavaScript parser reads `function foo(){ }();` as `function foo(){ }` and `();`, where the former is a _function declaration_ and the latter (a pair of parentheses) is an attempt at calling a function but there is no name specified, hence it throws `Uncaught SyntaxError: Unexpected token )`.
 
-Here are two ways to fix it that involves adding more parentheses: `(function foo(){ })()` and `(function foo(){ }())`. Statements that begin with `function` are considered to be _function declarations_; by wrapping this function within `()`, it becomes a _function expression_ which can then be executed with the subsequent `()`. These functions are not exposed in the global scope and you can even omit its name if you do not need to reference itself within the body.
+Here are two ways to fix it that involve adding more parentheses: `(function foo(){ })()` and `(function foo(){ }())`. Statements that begin with `function` are considered to be _function declarations_; by wrapping this function within `()`, it becomes a _function expression_ which can then be executed with the subsequent `()`. These functions are not exposed in the global scope and you can even omit its name if you do not need to reference itself within the body.
 
 You might also use `void` operator: `void function foo(){ }();`. Unfortunately, there is one issue with such approach. The evaluation of given expression is always `undefined`, so if your IIFE function returns anything, you can't use it. An example:
 
@@ -1036,7 +1036,7 @@ baz = 'qux';
 
 ### What are the differences between ES6 class and ES5 function constructors?
 
-Let's first look at example of each:
+Let's first look at an example of each:
 
 ```js
 // ES5 Function Constructor
@@ -1142,7 +1142,7 @@ A higher-order function is any function that takes one or more functions as argu
 
 **Map**
 
-Let say we have an array of names which we need to transform each string to uppercase.
+Let's say we have an array of names which we need to transform each string to uppercase.
 
 ```js
 const names = ['irish', 'daisy', 'anna'];

@@ -18,7 +18,7 @@ Find the latest version of this page on [GreatFrontEnd's LinkedIn Front End Inte
 ## User interface coding questions
 
 - Create a tooltip component.
-- Create a cross browser Linkedin top navigation bar.
+- Create a cross-browser LinkedIn top navigation bar.
 
 ## Quiz questions
 

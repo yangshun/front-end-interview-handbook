@@ -56,7 +56,7 @@ Refer to Google's official interview preparation guides for:
 
 - Explain the CSS Box Model.
   - [Read answer](https://www.greatfrontend.com/questions/quiz/explain-your-understanding-of-the-box-model-and-how-you-would-tell-the-browser-in-css-to-render-your-layout-in-different-box-models?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
-- What happens when you type a URL into the browser and hits enter?
+- What happens when you type a URL into the browser and hit enter?
 - Given some text on a web page, how many ways can you make the text disappear?
 - How do you send data from a web page to a server without a page refresh?
   - [Read answer](https://www.greatfrontend.com/questions/quiz/what-are-the-advantages-and-disadvantages-of-using-ajax?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)

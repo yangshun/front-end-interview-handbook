@@ -14,7 +14,7 @@ Amazon's Front End interviews are known for their focus on technical depth and a
 
 ## Understanding the Amazon Front End Interview Process
 
-The interview process typically involves several stages
+The interview process typically involves several stages:
 
 1.  **Online assessment (OA):** This is a timed assessment that typically includes:
     - **Technical questions:** Often coding challenges (e.g., LeetCode-style problems, UI component building). **You are likely required to use Vanilla JavaScript**.
@@ -221,7 +221,7 @@ These tips were shared by [GreatFrontEnd](https://www.greatfrontend.com/?utm_sou
 > - Feb 3 – Received an online assessment with two JavaScript questions (an accordion and another DOM-based component) and a work-style test.
 > - Feb 7 – Completed the OA and was invited to schedule my phone screen.
 > - Feb 14 (Phone Screen) – First 30 mins: Behavioral questions (no follow-ups; use the STAR method with explicit metrics). Next 30 mins: Implement an image carousel (explain logic, write basic code, no need to run it). Passed and moved to the loop.
-> - Feb 21 (Loop Rounds) – I was lucky in a way because only two rounds were scheduled with a 1-hour gap in between, as they couldn't find an interviewer for the middle slo.
+> - Feb 21 (Loop Rounds) – I was lucky in a way because only two rounds were scheduled with a 1-hour gap in between, as they couldn't find an interviewer for the middle slot.
 >   - Round 1: Rotting Oranges DSA question + extensive behavioral follow-ups. My behavioral round didn’t go well, and I was a bit nervous afterward.
 >   - Round 2: Three behavioral questions + build a To-Do app with two easy follow-ups.
 > - Feb 26 (Final Round) – The interviewer was pretty chill and asked four behavioral questions. Since I had time between my initial two interviews and this one, I was able to prepare my behavioral responses well. For the technical part, I was given a verbose array-based DSA question, where I provided both the brute force and optimized solutions.

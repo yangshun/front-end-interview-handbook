@@ -51,7 +51,7 @@ I would choose resetting when I have a very customized or unconventional site de
 
 Float is a CSS positioning property. Floated elements remain a part of the flow of the page, and will affect the positioning of other elements (e.g. text will flow around floated elements), unlike `position: absolute` elements, which are removed from the flow of the page.
 
-The CSS `clear` property can be used to be positioned below `left`/`right`/`both` floated elements.
+The CSS `clear` property can be used to position an element below `left`/`right`/`both` floated elements.
 
 If a parent element contains nothing but floated elements, its height will be collapsed to nothing. It can be fixed by clearing the float after the floated elements in the container but before the close of the container.
 
@@ -81,7 +81,7 @@ Without any `z-index` value, elements stack in the order that they appear in the
 
 A stacking context is an element that contains a set of layers. Within a local stacking context, the `z-index` values of its children are set relative to that element rather than to the document root. Layers outside of that context — i.e. sibling elements of a local stacking context — can't sit between layers within it. If an element B sits on top of element A, a child element of element A, element C, can never be higher than element B even if element C has a higher `z-index` than element B.
 
-Each stacking context is self-contained - after the element's contents are stacked, the whole element is considered in the stacking order of the parent stacking context. A handful of CSS properties trigger a new stacking context, such as `opacity` less than 1, `filter` that is not `none`, and `transform` that is not`none`.
+Each stacking context is self-contained - after the element's contents are stacked, the whole element is considered in the stacking order of the parent stacking context. A handful of CSS properties trigger a new stacking context, such as `opacity` less than 1, `filter` that is not `none`, and `transform` that is not `none`.
 
 _Note: What exactly qualifies an element to create a stacking context is listed in this long set of [rules](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_positioned_layout/Stacking_context#The_stacking_context)._
 
@@ -117,7 +117,7 @@ Vertical margins between adjacent block-level boxes in a BFC collapse. Read more
 
 - Empty `div` method - `<div style="clear:both;"></div>`.
 - Clearfix method - Refer to the `.clearfix` class above.
-- `overflow: auto` or `overflow: hidden` method - Parent will establish a new block formatting context and expand to contains its floated children.
+- `overflow: auto` or `overflow: hidden` method - Parent will establish a new block formatting context and expand to contain its floated children.
 
 In large projects, I would write a utility `.clearfix` class and use them in places where I need it. `overflow: hidden` might clip children if the children is taller than the parent and is not very ideal.
 
@@ -141,7 +141,7 @@ CSS sprites combine multiple images into one single larger image. It is a common
 ### How would you approach fixing browser-specific styling issues?
 
 - After identifying the issue and the offending browser, use a separate style sheet that only loads when that specific browser is being used. This technique requires server-side rendering though.
-- Use libraries like Bootstrap that already handles these styling issues for you.
+- Use libraries like Bootstrap that already handle these styling issues for you.
 - Use `autoprefixer` to automatically add vendor prefixes to your code.
 - Use Reset CSS or Normalize.css.
 - If you're using Postcss (or a similar transpiling library), there may be plugins which allow you to opt in for using modern CSS syntax (and even W3C proposals) that will transform those sections of your code into corresponding safe code that will work in the targets you've used.
@@ -214,7 +214,7 @@ Yes, there are four types of @media properties (including _screen_):
 
 - `all` - for all media type devices
 - `print` - for printers
-- `speech` - for screenreaders that "reads" the page out loud
+- `speech` - for screenreaders that "read" the page out loud
 - `screen` - for computer screens, tablets, smart-phones etc.
 
 Here is an example of `print` media type's usage:
@@ -270,7 +270,7 @@ Be aware of which CSS properties [trigger](https://csstriggers.com/) reflow, rep
 **Dislikes:**
 
 - I use Sass via `node-sass`, which is a binding for LibSass written in C++. I have to frequently recompile it when switching between node versions.
-- In Less, variable names are prefixed with `@`, which can be confused with native CSS keywords like `@media`, `@import` and `@font-face` rule.
+- In Less, variable names are prefixed with `@`, which can be confused with native CSS at-rules like `@media`, `@import`, and `@font-face`.
 
 ### How would you implement a web design comp that uses non-standard fonts?
 
@@ -395,7 +395,7 @@ Grid is by far the most intuitive approach for creating grid-based layouts (it b
 
 ### Can you explain the difference between coding a website to be responsive versus using a mobile-first strategy?
 
-Note that these two 2 approaches are not exclusive.
+Note that these two approaches are not exclusive.
 
 Making a website responsive means that some elements will respond by adapting its size or other functionality according to the device's screen size, typically the viewport width, through CSS media queries, for example, making the font size smaller on smaller devices.
 
@@ -440,7 +440,7 @@ Responsive design works on the principle of flexibility - a single fluid website
 
 Adaptive design is more like the modern definition of progressive enhancement. Instead of one flexible design, adaptive design detects the device and other features and then provides the appropriate feature and layout based on a predefined set of viewport sizes and other characteristics. The site detects the type of device used and delivers the pre-set layout for that device. Instead of a single ball going through several different-sized hoops, you'd have several different balls to use depending on the hoop size.
 
-Both have these methods have some issues that need to be weighed:
+Both of these methods have some issues that need to be weighed:
 
 - Responsive design can be quite challenging, as you're essentially using a single albeit responsive layout to fit all situations. How to set the media query breakpoints is one such challenge. Do you use standardized breakpoint values? Or, do you use breakpoints that make sense to your particular layout? What if that layout changes?
 - Adaptive design generally requires user agent sniffing, or DPI detection, etc., all of which can prove unreliable.

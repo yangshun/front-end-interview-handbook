@@ -105,7 +105,7 @@ Describe and discuss how you would build a UI component/app/game and its archite
 
 [**Practice front end system design questions on GreatFrontEnd**](https://www.greatfrontend.com/questions/system-design?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
 
-You can also try out the above mentioned question types at [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook). It has [over 500+ practice questions](https://www.greatfrontend.com/questions?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) and all of them are provided with comprehensive answers written by ex-FAANG senior engineers.
+You can also try out the above mentioned question types at [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook). It has [500+ practice questions](https://www.greatfrontend.com/questions?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) and all of them are provided with comprehensive answers written by ex-FAANG senior engineers.
 
 ## Company interview formats
 
