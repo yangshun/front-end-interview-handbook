@@ -13,7 +13,124 @@ These JavaScript coding questions tend to be practical in nature and can come in
 1. Implement standard built-in classes or methods in the JavaScript language
 1. Implement a utility function/class commonly found in popular libraries
 
-## Examples
+## Start here: top practice questions
+
+If you'd like to begin practising straight away, the questions below are among the most valuable to work through — they appear most frequently in real interviews and cover the concepts that interviewers examine most thoroughly:
+
+- [Debounce](/questions/javascript/debounce)
+- [Throttle](/questions/javascript/throttle)
+- [Array.prototype.filter](/questions/javascript/array-filter)
+- [Promise.all](/questions/javascript/promise-all)
+- [Curry](/questions/javascript/curry)
+- [Flatten](/questions/javascript/flatten)
+- [getElementsByTagName](/questions/javascript/get-elements-by-class-name)
+- [Deep Clone](/questions/javascript/deep-clone)
+- [Data Selection](/questions/javascript/data-selection)
+
+> **Looking to practice more JavaScript interview questions?** This guide covers how to approach JavaScript interviews. If you're ready to start practicing, head straight to our [JavaScript practice questions](/questions/formats/javascript-functions) — 160+ problems with solutions, organised by topic.
+
+## Time-budgeted study plans
+
+Realistic preparation plans depending on how much time you have before your interviews. Each plan below also has a dedicated, fully curated version on GreatFrontEnd with a recommended question sequence — the [1-week study plan](/interviews/study-plans/one-week), [1-month study plan](/interviews/study-plans/one-month), and [3-month study plan](/interviews/study-plans/three-months).
+
+### 1 week (short timeline, assumes existing frontend experience)
+
+Prioritise pattern recognition over deep mastery. For a fully guided day-by-day version, see the [1-week study plan](/interviews/study-plans/one-week).
+
+1. **Day 1–2**: [Debounce](/questions/javascript/debounce) and [Throttle](/questions/javascript/throttle). Understand `leading`/`trailing` edges and how `this` is preserved.
+1. **Day 3**: [Promise.all](/questions/javascript/promise-all) and [Promise.any](/questions/javascript/promise-any). Make sure you are confident with the resolve and reject semantics.
+1. **Day 4**: [Curry](/questions/javascript/curry) and [Flatten](/questions/javascript/flatten) — recursion patterns.
+1. **Day 5**: [Deep Clone](/questions/javascript/deep-clone) — circular refs, Date, Map, Set handling.
+1. **Day 6**: [EventEmitter](/questions/javascript/event-emitter) — OOP + chaining.
+1. **Day 7**: Timed retry of your weakest problem from above (35 minutes, without referring to the solution). Then review the solution carefully.
+
+Skip array method polyfills beyond `filter`/`map`, and more obscure utilities.
+
+### 1 month (standard preparation timeline)
+
+A week-by-week progression from fundamentals through to polish. For a fully structured version, see the [1-month study plan](/interviews/study-plans/one-month).
+
+1. **Week 1 — foundations**: Closures, `this`, prototypes, `Promise` internals. Work through [`Array.prototype.map`](/questions/javascript/array-map), [`filter`](/questions/javascript/array-filter), and [`reduce`](/questions/javascript/array-reduce) polyfills.
+1. **Week 2 — async**: [Debounce](/questions/javascript/debounce), [Throttle](/questions/javascript/throttle), [Promise.all](/questions/javascript/promise-all), [Promise.allSettled](/questions/javascript/promise-all-settled), promise retry with backoff.
+1. **Week 3 — data structures and utilities**: [Curry](/questions/javascript/curry), [Flatten](/questions/javascript/flatten), [Deep Clone](/questions/javascript/deep-clone), [classnames](/questions/javascript/classnames), [`EventEmitter`](/questions/javascript/event-emitter).
+1. **Week 4 — DOM and polish**: [`getElementsByClassName`](/questions/javascript/get-elements-by-class-name), [`getElementsByTagName`](/questions/javascript/get-elements-by-tag-name), event delegation. Complete 3 timed rehearsals (35 minutes each, without referring to solutions, explaining your approach out loud).
+
+### 3 months (comprehensive preparation, for juniors or career switchers)
+
+Build depth alongside practice. For a fully structured version, see the [3-month study plan](/interviews/study-plans/three-months).
+
+1. **Month 1**: JavaScript language fundamentals — closures, `this`, prototypes, scopes, `Promise`, event loop — plus the [Quiz section](/front-end-interview-playbook/quiz). Practice `Array` method polyfills as you go.
+1. **Month 2**: Full pass through the [JavaScript coding questions](/questions/formats/javascript-functions) — aim for 2–3 problems a day. Attempt each without looking first, then compare against the solution.
+1. **Month 3**: Revisit weak areas. Complete six or more timed mock interviews (with a peer or through self-rehearsal) and practise explaining tradeoffs out loud. Start reading real library source code such as lodash's `debounce` — recognising production patterns is a strong senior signal.
+
+## JavaScript interview study checklist
+
+A topic-by-topic checklist to guide your preparation, with realistic time estimates so you can plan your study sessions. The first table covers the core topics to study first; the second covers additional topics that commonly appear in senior and FAANG rounds.
+
+### Core topics
+
+| Topic | Realistic time to master |
+| --- | --- |
+| Closures + lexical scope | 2–3 hours |
+| `this` binding rules (+ `call`/`apply`/`bind`) | 2 hours |
+| `Promise` internals + `async`/`await` | 3–4 hours |
+| `Array.prototype.map`/`filter`/`reduce` | 2 hours |
+| Debounce and Throttle | 2 hours |
+| `Promise.all` (+ `allSettled`, `any`, `race`) | 2 hours |
+| Deep clone + circular references | 2 hours |
+| Event delegation + DOM traversal | 2 hours |
+
+### Additional topics for senior and FAANG rounds
+
+| Topic | Realistic time to master |
+| --- | --- |
+| Curry (fixed + variadic arity) | 1–2 hours |
+| Flatten (recursive, iterative, generator) | 1–2 hours |
+| `EventEmitter` / pub-sub | 2 hours |
+| `classnames`/`clsx` implementation | 1 hour |
+| Promise retry with exponential backoff | 1–2 hours |
+| [Memoization](/questions/javascript/memoize) with custom cache keys | 2 hours |
+| Event loop ordering (micro vs macrotasks) | 2–3 hours |
+| JSON stringify/parse edge cases | 1 hour |
+
+## Common pitfalls to avoid
+
+Common mistakes that can weaken your performance in JavaScript coding interviews, grouped by the question type where they tend to appear:
+
+### Debounce / Throttle
+
+- Using an arrow function for the timer callback and losing `this` — suggests unfamiliarity with the difference between regular and arrow-function binding.
+- Not clearing the previous timeout on subsequent calls, which actually implements a throttle rather than a debounce.
+- Forgetting to forward arguments using rest and spread.
+- Not asking clarifying questions about `leading` or `trailing` edge behaviour.
+
+### `Promise.all` and friends
+
+- Pushing into a results array as each promise resolves, which makes the output order non-deterministic rather than matching the input order.
+- Not handling empty input correctly — the specification requires resolving with `[]` rather than leaving the promise pending indefinitely.
+- Confusing `Promise.all` (fail-fast) with `Promise.allSettled` (never rejects) when explaining the behaviour.
+- Not using `Promise.resolve(value)` to normalise non-promise inputs.
+
+### Deep clone
+
+- Using `JSON.parse(JSON.stringify(obj))` without acknowledging the limitations: `Date` is converted to a string, `undefined` is dropped, `NaN` becomes `null`, and it throws on circular references.
+- Not handling circular references with a `WeakMap` visited set.
+- Forgetting to preserve the prototype chain and class identity.
+- Cloning `Map` or `Set` through shallow iteration while overlooking that the values themselves may also be `Map` or `Set` instances that require recursive cloning.
+
+### Closures and `this`
+
+- Being surprised by the classic `3, 3, 3` output when using `var` inside a `for` loop with `setTimeout` — candidates are generally expected to recognise this closure pitfall immediately and explain the fix.
+- Using `this` inside a callback passed to `map` or `forEach` without noting that it will not refer to the outer context.
+- Claiming classes are not hoisted — they are hoisted, but remain in the temporal dead zone until the declaration is evaluated.
+
+### DOM
+
+- Calling `document.querySelectorAll` inside a loop rather than caching the NodeList — suggests unfamiliarity with DOM performance considerations.
+- Re-attaching event listeners after mutating `innerHTML` without explaining why the previous listeners were lost.
+- Overlooking that live `HTMLCollection` objects (such as those returned by `getElementsByTagName`) update as the DOM changes, while static `NodeList` objects do not — a distinction that affects iteration correctness.
+
+## Examples of JavaScript coding questions
 
 ### JavaScript standard built-in classes/methods
 
@@ -63,7 +180,7 @@ JavaScript coding interviews share a lot of similarities with algorithmic coding
    - Can you use newer JavaScript syntax (ES2016 and beyond)?
    - Whether the code is meant to run in the browser or on the server (e.g. Node.js)
    - Browser support, as this will affect the browser APIs you can use
-
+   
 > [!IMPORTANT] Clarify the runtime and syntax constraints before coding
 >
 > Runtime (browser vs Node.js), supported syntax, and browser compatibility directly affect which APIs are on the table. Locking these down early prevents rewriting your solution halfway when the interviewer says "this needs to work in IE11" or "no ES2020 features."
@@ -104,27 +221,14 @@ JavaScript coding interviews are similar to algorithmic coding interviews and th
 ## Useful tips
 
 - **Wishful thinking**: JavaScript's standard library doesn't have some useful data structures and algorithms like queue, heap, binary search, which can make your life easier during JavaScript coding interviews. However, you can ask the interviewer if you can pretend such a data structure/algorithm exists and use it directly in your solution without implementing it.
-- **Pure functions**: Aim to write pure functions which have the benefit of reusability and modularity, aka functions which don't rely on state outside of the function and don't cause side effects.
-- **Choose data structures wisely.** Pay attention to your choice of data structures and be aware of the time complexities of the code. Be familiar with the time/space complexities of the basic JavaScript Array, Object, Set, Map operations should you want to use them in your solution. Some of these time/space complexities differ across languages. Don't write code that runs in O(n<sup>2</sup>) if it can be accomplished in O(n) runtime with the use of hash maps.
+- **Pure functions**: Aim to write pure functions which have the benefit of reusability and modularity, aka functions which don't rely on state outside of the function and doesn't cause side effects.
+- **Choose data structures wisely.** Pay attention to your choice of data structures and be aware of the time complexities of the code. Be familiar with the time/space complexities of the basic JavaScript Array, Object, Set, Map operations should you want to use them in your solution. Some of these time/space complexities differ across languages. Don't write code that runs in O(n<sup>2</sup>) if it can accomplished in O(n) runtime with the use of hash maps.
 - **`this` matters**: If a function accepts a callback function as a parameter, consider how the `this` variable should behave. For many built-in functions, `this` is provided as one of the arguments the callback function is invoked with.
 - **Mutations within callback functions.** Beware of callback functions mutating the data structure it is operating on. You probably do not need to handle this case during interviews but you should explicitly mention such cases if it's relevant.
 - **Recursion edge cases**:
   - **Clarifying input size**: If you have identified that solving the question requires recursion, ask about the input size and how to handle the case of recursion stack overflow. Usually you won't have to handle it but raising this issue demonstrates thoughtfulness.
   - **Cyclic structures**: Nested deep data structures can have recursive references to itself, which makes certain operations like serialization and traversal more tricky. Ask the interviewer if you have to handle such cases. Usually you won't have to handle it but raising this issue demonstrates thoughtfulness.
 
-## Best practice questions
-
-From experience, the best JavaScript coding interview questions to practice, as determined by frequency and important concepts covered are:
-
-- [Debounce](/questions/javascript/debounce)
-- [Throttle](/questions/javascript/throttle)
-- [Array.prototype.filter](/questions/javascript/array-filter)
-- [Promise.all](/questions/javascript/promise-all)
-- [Curry](/questions/javascript/curry)
-- [Flatten](/questions/javascript/flatten)
-- [getElementsByTagName](/questions/javascript/get-elements-by-class-name)
-- [Deep Clone](/questions/javascript/deep-clone)
-- [Data Selection](/questions/javascript/data-selection)
 
 GreatFrontEnd has a [comprehensive list of JavaScript coding questions](/questions/formats/javascript-functions) that you can practice. There are also automated test cases you can run your code against to verify the correctness and solutions written by ex-FAANG Senior Engineers.
 
