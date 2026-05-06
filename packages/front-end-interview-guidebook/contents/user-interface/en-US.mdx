@@ -8,11 +8,15 @@ social_title: Cracking User Interface Questions | Front End Interview Playbook
 
 User interface coding interviews will involve candidates writing HTML, CSS and JavaScript to complete. In our opinion this is essential for evaluating the skills of Front End Engineers and more companies are moving towards asking candidates to code user interfaces during interviews.
 
+Some examples of common UI coding questions are [Accordion](/questions/user-interface/accordion), [Tabs](/questions/user-interface/tabs), [Star Rating](/questions/user-interface/star-rating), [Analog Clock](/questions/user-interface/analog-clock), [Signup Form](/questions/user-interface/signup-form), [Holy Grail](/questions/user-interface/holy-grail), [Todo List](/questions/user-interface/todo-list) and [Tic-tac-toe](/questions/user-interface/tic-tac-toe). See the [full list of categories](#types-of-user-interface-questions) below, or skip to our [recommended practice questions](#best-practice-questions).
+
 ## Types of user interface questions
 
-The user interfaces that candidates are asked to code can range from really small UI components to more complex client-facing products like small apps and games.
+The user interfaces that candidates are asked to code can range from small UI components to more complex client-facing products such as apps and games.
 
 ### User interface components/widgets/layouts
+
+When grading components, interviewers focus on API design and accessibility more than visuals. Prop shape, ARIA roles, and keyboard support count more than pixel-perfect styling.
 
 - Components: [Accordion](/questions/user-interface/accordion), [Tabs](/questions/user-interface/tabs), [Star Rating Widget](/questions/user-interface/star-rating), [Tweet](/questions/user-interface/tweet), Image Carousel
 - Widgets: [Digital Clock](/questions/user-interface/digital-clock), [Analog Clock](/questions/user-interface/analog-clock)
@@ -22,10 +26,12 @@ The user interfaces that candidates are asked to code can range from really smal
 
 The time allowed for apps/games questions is usually longer than components/widgets. Depending on how complex the question is, you may spend up to half an hour or even an hour to complete the question, especially if you are asked to build games.
 
+Since these questions take longer, managing your time well is essential. Break the work into milestones (basic UI, then core interactions, then edge cases, then polish), and tell the interviewer what you are choosing to skip or revisit, rather than running out of time at the end.
+
 - Apps: [Todo List](/questions/user-interface/todo-list), [Stopwatch](/questions/user-interface/stopwatch), [Temperature Converter](/questions/user-interface/temperature-converter)
 - Games: [Tic-tac-toe](/questions/user-interface/tic-tac-toe), [Whack-a-mole](/questions/user-interface/whack-a-mole), Snake, Tetris, Minesweeper, Connect 4
 
-Observe that most games will be 2D grid-based games. Make sure you know how to create grid layouts in HTML and CSS!
+Observe that most games will be 2D grid-based games. Make sure you know how to create grid layouts in HTML and CSS.
 
 ## What to do during user interface coding interviews
 
@@ -43,7 +49,7 @@ User interface coding interviews share a fair bit of similarity with non-front e
    - Can you use the newest JavaScript syntax?
    - Browser support, as this will affect the browser APIs you can use
 1. **Manage complexity**: Break down the problem into stages/milestones that build on top of each other. Communicate this breakdown to your interviewer. Unlike coding interviews, the focus of User Interface coding interviews is usually around the component states and APIs as opposed to complex data structures and algorithms.
-1. **Start coding**: Code out your solution and explain your code to your interviewer while you are coding.
+1. **Start coding**: Write your solution and explain your code to the interviewer as you work.
    - Where possible, test your code in the browser after every milestone/feature added, instead of only at the end
    - Refer to the [User Interface Questions Cheatsheet](/front-end-interview-playbook/user-interface-questions-cheatsheet) for a list of things to take note of during User Interface coding interviews
 
@@ -65,7 +71,7 @@ User interface coding interviews share a fair bit of similarity with non-front e
 >
 > Do not pick up a new framework right before an interview. Use what you are most productive in, even if the role uses a different stack — interviewers care about how you think, not which framework you chose.
 
-- **Vanilla JavaScript**: Learn the DOM manipulation APIs. At the very least you should know how to create new DOM elements, add classes/attributes to them, and add child elements. If you come from a [jQuery](https://jquery.com/) background, check out [You might not need jQuery](https://youmightnotneedjquery.com), a website showing you how to accomplish the common jQuery operations in Vanilla JavaScript. You will be pleasantly surprised to find out that with modern browser APIs there isn't really much need for jQuery anymore.
+- **Vanilla JavaScript**: Learn the DOM manipulation APIs. At the very least you should know how to create new DOM elements, add classes/attributes to them, and add child elements. If you come from a [jQuery](https://jquery.com/) background, refer to [You might not need jQuery](https://youmightnotneedjquery.com), a website that shows how to accomplish common jQuery operations in Vanilla JavaScript. With modern browser APIs, there is rarely a need for jQuery.
 - **JavaScript UI framework**: Be familiar with a UI framework of choice. Stick with the framework that you are most familiar with. There's no need and also probably not enough time to learn a new framework. If you are new to JavaScript UI frameworks, [React](https://react.dev/) will be our recommendation as it is the most popular library/framework to build UI right now and what most companies look for when hiring front end engineers.
 
 1. **CSS**: Be familiar with writing CSS under interview conditions (small questions which won't require writing that much CSS):
@@ -75,7 +81,7 @@ User interface coding interviews share a fair bit of similarity with non-front e
    - [User Interface Questions Cheatsheet](/front-end-interview-playbook/user-interface-questions-cheatsheet)
    - [User Interface Components API Design Principles](/front-end-interview-playbook/user-interface-components-api-design-principles)
 1. **More practice**: Try out [GFE 75](/interviews/gfe75) or pick a [study plan](/interviews/study-plans) and practice the [User Interface coding questions](/questions/formats/ui-coding) recommended for the selected study plan.
-   - Spend roughly equal amount of time practicing building both UI components and building apps/games. Both are equally important.
+   - Spend an equal amount of time practicing both UI components and apps/games. Both are equally important.
 
 ## Important concepts
 
@@ -94,32 +100,44 @@ Be familiar with these web development concepts:
 
 ## Evaluation axes
 
-User interface coding interviews have similar rubrics as JavaScript coding interviews as both involve coding in the front end domain. However, user interface coding questions will have even more emphasis on domain expertise and the various front end topics.
+User interface coding interviews have similar rubrics as JavaScript coding interviews as both involve coding in the front end domain. However, user interface coding questions will have even more emphasis on domain expertise and the various front end topics. Here is what an interviewer typically looks for on each axis, along with what counts against you.
 
-- **Problem solving**: Use a systematic and logical approach to understanding and addressing a problem. Break down the problem into smaller independent problems. Evaluate different approaches and their tradeoffs
-- **Software engineering foundation**: Familiarity with data structures, algorithms, runtime complexity analysis, use of design patterns, design solution with clean abstractions
-- **Domain expertise**: Understanding of the front end domain and the relevant languages: Browser (DOM and DOM APIs), HTML, CSS, JavaScript, User Experience, Accessibility, i18n, Networks, Performance
-- **Communication**: Ask questions to clarify details and clearly explaining one's approach and considerations
-- **Verification**: Identify various scenarios to test the code against, including edge cases. Be able to diagnose and fix any issues that arise
+| Axis | Positive signals | Negative signals |
+| --- | --- | --- |
+| **Problem solving** | Breaks the problem into smaller steps, talks through tradeoffs, asks clarifying questions, picks a simple approach that works | Starts coding without thinking through the problem, treats the basic feature as the finish line, adds more code instead of restructuring when stuck |
+| **Software engineering foundation** | Picks a fitting data structure (Map for lookups, Set for membership), explains the assumptions the code relies on, refactors when the same logic appears in three or more places | Skips over harder parts ("it works, moving on"), reaches for a library before trying the basics, leaves code that runs but is hard to explain |
+| **Domain expertise** | Uses native HTML before custom JS (`<details>`, `<dialog>`, form validation), knows when CSS can replace JS, considers accessibility (ARIA, keyboard) and performance (re-renders, layout thrashing) on their own | Rebuilds native elements from scratch, ignores keyboard and screen-reader support until asked, treats accessibility as a finishing touch, misses obvious CSS solutions |
+| **Communication** | Talks through what they are doing, asks specific clarifying questions, checks shared assumptions before coding, takes feedback into account | Goes silent for long stretches, hedges with "I think this should work," gets defensive when questioned, does not restate the question before starting |
+| **Verification** | Tests after each step (not only at the end), runs through edge cases (empty state, double click, slow network, error response), catches bugs early, prioritizes when time is short | Only tests at the end, misses common cases, guesses at fixes instead of debugging, insists "it works on my machine" |
+
+What sets senior candidates apart is often what they don't do. Most candidates show some positive signals; the gap between a passing answer and a senior-level one comes from consistently avoiding the negatives.
 
 ## Best practice questions
 
-From experience, the best UI interview questions to practice, as determined by frequency and important concepts covered are:
+From experience, the best UI interview questions to practice, as determined by frequency and important concepts covered, are listed below by difficulty so you can work through them in order:
+
+**Foundations** (start here, covering the fundamentals of state, forms, and rendering):
 
 - [Todo List](/questions/user-interface/todo-list)
 - [Signup Form](/questions/user-interface/signup-form)
 - [Temperature Converter](/questions/user-interface/temperature-converter)
-- [Progress Bar](/questions/user-interface/progress-bar)
-- [Analog Clock](/questions/user-interface/analog-clock)
-- [Job Board](/questions/user-interface/job-board)
-- [Data Table](/questions/user-interface/data-table)
-- [Whack-a-mole](/questions/user-interface/whack-a-mole)
-- [Tic-tac-toe](/questions/user-interface/tic-tac-toe)
 - [Tabs](/questions/user-interface/tabs)
-- [Image Carousel](/questions/user-interface/image-carousel)
 - [Modal Dialog](/questions/user-interface/modal-dialog)
-- Autocomplete
+
+**Intermediate** (async data, dynamic content, more complex state):
+
+- [Progress Bar](/questions/user-interface/progress-bar)
+- [Job Board](/questions/user-interface/job-board)
+- [Image Carousel](/questions/user-interface/image-carousel)
 - Dropdown Menu
+- Autocomplete
+
+**Advanced** (timing, complex interactivity, accessibility depth):
+
+- [Analog Clock](/questions/user-interface/analog-clock)
+- [Tic-tac-toe](/questions/user-interface/tic-tac-toe)
+- [Whack-a-mole](/questions/user-interface/whack-a-mole)
+- [Data Table](/questions/user-interface/data-table)
 
 GreatFrontEnd has a [comprehensive list of user interface coding questions](/questions/formats/ui-coding) that you can practice in your framework of choice (currently supports Vanilla JavaScript and [React](https://react.dev/)). We also provide manual test cases you can test your code against to verify the correctness and solutions written in the various JavaScript UI frameworks by ex-FAANG Senior Engineers. Automated test cases are not provided for UI questions because they tend to be coupled to implementation and hard for automated tests to test accurately. Moreover, during interviews you likely have to test your UI yourself.
 
@@ -129,10 +147,10 @@ Many of GreatFrontEnd's coding questions are also broken down into stages, which
 2. [Accordion II](/questions/user-interface/accordion-ii): Build an accordion with improved accessibility that has the right ARIA roles, states, and properties
 3. [Accordion III](/questions/user-interface/accordion-iii): Build a fully-accessible accordion that has keyboard support according to ARIA specifications
 
-Building the basic accordion component might let you pass the interview, but nailing the accessibility aspects will help you score more points and possibly put you at senior level.
+Building the basic accordion component may be enough to pass the interview, but handling the accessibility requirements properly will earn additional credit and demonstrate a senior-level skill set.
 
 > [!TIP] Layer in accessibility after the basic UI works
 >
 > ARIA roles, proper focus order, and keyboard interactions are what separate a passing answer from a senior-level one. Finish the core functionality first, then upgrade the component with accessibility improvements in remaining time.
 
-Note that we are intentionally vague in some of the questions and don't present the full requirements upfront in the question description. However, we'll cover as much ground as possible in the solution. It may be frustrating while reading the solutions to see that you've missed out on some things, but this trains you to think ahead and consider what are the possible areas you have to take note of when working on the solution. Better to find out during practice than during actual interviews.
+Note that we are intentionally vague in some of the questions and do not present the full requirements upfront in the question description. However, we cover as much ground as possible in the solution. It may be frustrating while reading the solutions to find that you missed certain details, but this trains you to think ahead and consider what to watch for when working on a solution. It is better to discover these gaps during practice than during an actual interview.
