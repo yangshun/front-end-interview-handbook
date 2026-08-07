@@ -77,7 +77,7 @@ function UncontrolledForm() {
 
 In uncontrolled components, the input value is not stored in React state. To access the form data upon submission, we can either:
 
-1. **Use `FormData`**: Access the form element directly from `event.target`, create a `FormData` instance from the form, and retrieve values using `formData.get('name)` (corresponds to the `name` attribute on `<input>`)
+1. **Use `FormData`**: Access the form element directly from `event.target`, create a `FormData` instance from the form, and retrieve values using `formData.get('name')` (corresponds to the `name` attribute on `<input>`)
 2. **Use refs**: Use `useRef()` to reference the `<input>` field directly. The input value can be accessed via `nameRef.current.value`
 
 ### When to use which?
@@ -390,13 +390,16 @@ function ComplexFormWithReducer() {
 When a form allows users to **add or remove fields dynamically** (e.g., multiple email inputs), state should be an array
 
 ```jsx
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 function DynamicForm() {
   const [fields, setFields] = useState([{ id: 1, value: '' }]);
+  const nextId = useRef(2);
 
   function addField() {
-    setFields([...fields, { id: fields.length + 1, value: '' }]);
+    const id = nextId.current;
+    nextId.current += 1;
+    setFields((currentFields) => [...currentFields, { id, value: '' }]);
   }
 
   function removeField(id) {
@@ -672,10 +675,10 @@ function HTML5ValidationForm() {
 
 ### React Hook Form for efficient validation
 
-For complex forms, \*_React Hook Form_ provides optimized validation with minimal re-renders.
+For complex forms, _React Hook Form_ provides optimized validation with minimal re-renders.
 
 ```jsx
-import { useForm } from 'React Hook Form;
+import { useForm } from 'react-hook-form';
 
 function HookFormValidation() {
   const {

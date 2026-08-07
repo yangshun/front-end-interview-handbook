@@ -378,13 +378,16 @@ function ComplexFormWithReducer() {
 当表单允许用户**动态添加或删除字段**（例如，多个电子邮件输入）时，状态应该是一个数组
 
 ```jsx
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 function DynamicForm() {
   const [fields, setFields] = useState([{ id: 1, value: '' }]);
+  const nextId = useRef(2);
 
   function addField() {
-    setFields([...fields, { id: fields.length + 1, value: '' }]);
+    const id = nextId.current;
+    nextId.current += 1;
+    setFields((currentFields) => [...currentFields, { id, value: '' }]);
   }
 
   function removeField(id) {
