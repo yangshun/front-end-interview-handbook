@@ -169,22 +169,22 @@ Common free drawing tools that you might be asked to use include [diagrams.net](
 
 **Recommended duration**: Roughly 10% of the session.
 
-We now have to think about what data fields are present in the client. There are two kinds of data on client applications:
+We now have to think about what data fields are present in the client. The data in a client application generally has one of two origins:
 
 ### Server-originated data
 
 Data that originates from the server, usually from a database and meant to be seen by multiple people or accessed from multiple different devices. Common examples include user data (name, profile picture) and user-generated data (feed posts, comments).
 
-### Client-only data
+### Client-originated data
 
-Client-only data, also commonly known as UI state, is data that only needs to live on the client and does not have to be sent to the server to be persisted into a database.
+Client-originated data is created or modified on the client. Some of it needs to be sent to the server for persistence, while the rest only needs to live temporarily on the client as UI state.
 
-Client data can be further broken down into:
+Client-originated data can be further broken down into:
 
 - **Data to be persisted**: Data that usually has to be sent to the server and saved into a database for it to be useful. Examples include data the user enters into forms, profile settings, etc.
 - **Ephemeral data**: Temporary data that is acceptable to be lost forever when the browser tab is closed. Common examples include form validation state, current navigation tab, whether a section is expanded, etc.
 
-When listing the data fields, it'd be useful to identify what data type that field represents (string/array/number/date/etc.), and whether it's server-originated data or client-only data.
+When listing the data fields, it'd be useful to identify each field's data type (string/array/number/date/etc.) and whether it is server-originated or client-originated. For client-originated data, also note whether it needs to be persisted or can remain ephemeral.
 
 **Example using News Feed**
 

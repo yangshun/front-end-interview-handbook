@@ -121,20 +121,22 @@ Algumas ferramentas de desenho gratuitas comuns que você pode ser solicitado a 
 
 **Duração Recomendada**: Aproximadamente 10% da sessão.
 
-Agora precisamos pensar nos campos de dados presentes no cliente. Existem dois tipos de dados em aplicativos cliente:
+Agora precisamos pensar nos campos de dados presentes no cliente. Os dados em aplicativos cliente geralmente têm uma de duas origens:
 
 ### Dados originados no servidor
 
 Dados que se originam no servidor, geralmente de um banco de dados, e são destinados a serem vistos por várias pessoas ou acessados a partir de diferentes dispositivos. Exemplos comuns incluem dados do usuário (nome, foto de perfil) e dados gerados pelo usuário (publicações no feed, comentários).
 
-### Dados somente do cliente
+### Dados originados no cliente
 
-Dados exclusivos do cliente, também comumente conhecidos como estado, são dados que apenas precisam estar no cliente e não precisam ser enviados para o servidor para serem gravados no banco de dados. Os dados do cliente podem ser subdivididos em dois:
+Dados originados no cliente são criados ou modificados no cliente. Alguns precisam ser enviados ao servidor para persistência, enquanto outros só precisam existir temporariamente no cliente como estado da interface.
+
+Os dados originados no cliente podem ser subdivididos em dois:
 
 - **Dados a serem persistidos**: Normalmente, entrada do usuário, como dados inseridos em campos de formulário. Esses dados geralmente precisam ser enviados para o servidor e salvos em um banco de dados para que sejam úteis.
 - Dados efêmeros: Estado temporário que dura por um curto período de tempo. Exemplos comuns incluem o estado de validação de um formulário, a aba atual, se uma seção está expandida, etc. Normalmente, é aceitável perder esses dados quando a guia do navegador é fechada.
 
-Ao listar os campos de dados, seria útil identificar que tipo de dados esse campo é, se é um dado originado pelo servidor ou apenas pelo cliente.
+Ao listar os campos de dados, é útil identificar o tipo de cada campo e se ele é originado no servidor ou no cliente. Para dados originados no cliente, indique também se precisam ser persistidos ou se podem permanecer efêmeros.
 
 ### Exemplo de Modelo de Dados
 
