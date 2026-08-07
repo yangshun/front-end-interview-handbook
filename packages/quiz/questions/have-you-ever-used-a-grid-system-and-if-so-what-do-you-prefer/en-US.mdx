@@ -2,8 +2,8 @@
 title: Have you ever used a grid system, and if so, what do you prefer?
 ---
 
-Before Flex became popular (around 2014), the `float`-based grid system was the most reliable because it had the most browser support among the alternative existing systems (flex, grid). Bootstrap was using the `float` approach until Bootstrap 4, which switched to the `flex`-based approach.
+Before Flexbox became widely used, `float`-based grid systems were common because they offered the most reliable browser support. Bootstrap used floats through Bootstrap 3 before switching to Flexbox in Bootstrap 4.
 
-Today, `flex` is the recommended approach for building grid systems and has [excellent browser support](https://caniuse.com/#search=flex).
+Today, I prefer native [CSS Grid Layout](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout) for two-dimensional layouts that need to control both rows and columns, and [Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout) for one-dimensional layouts along a row or column. They complement each other, so a page might use Grid for its overall structure and Flexbox to align items within individual components.
 
-For the adventurous, look into [CSS Grid Layout](https://css-tricks.com/snippets/css/complete-guide-grid/), which uses the `grid` property. Grid is a two-dimensional grid-based layout system, compared to Flexbox, which is one-dimensional.
+When a project already uses a framework or design system, I may use its grid utilities for consistency. Otherwise, native Grid and Flexbox usually provide the layout capabilities without requiring a framework-specific grid system.
