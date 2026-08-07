@@ -22,7 +22,7 @@ Pode parecer redundante implementar classes/métodos padrão quando eles já faz
 
 Há mais nessas funções do que aparenta à primeira vista. Vamos pegar o inocente `Array.prototype.map`, por exemplo. Você está ciente de que:
 
-1.  Ele passa 4 argumentos para o retorno de chamada, incluindo o `índice` e o `this`?
+1.  Ele passa 3 argumentos para a função de callback: o elemento atual, seu índice e o array. O `thisArg` opcional define o valor de `this` do callback; ele não é um quarto argumento.
 2.  Ele mantém os "buracos" em matrizes esparsas, como `[1, 2, , 4].map(val => val * val) === [1, 4, , 16]`.
 3.  A faixa de elementos processados pelo `map` é definida antes da primeira chamada a `_callbackfn_`. Elementos que são adicionados ao array após o início da chamada para `map` não serão visitados por `_callbackfn_`. Se os elementos existentes do array forem alterados, o valor passado para `_callbackfn_` será o valor no momento em que `map` os visitar; elementos que forem excluídos após o início da chamada para `map` e antes de serem visitados não serão visitados. Fonte: [`Array.prototype.map` Especificação do ECMAScript](https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.map)
 

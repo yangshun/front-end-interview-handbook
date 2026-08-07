@@ -142,7 +142,7 @@ It may seem redundant to implement standard classes/methods when they are alread
 
 There's more to these functions than meets the eye. Let's take the innocent `Array.prototype.map` for example. Are you aware that:
 
-1. It passes 4 arguments to the callback, including the `index` and `this`?
+1. It passes 3 arguments to the callback: the current element, its index, and the array. The optional `thisArg` sets the callback's `this` value; it is not a fourth argument.
 1. It keeps the "holes" in sparse arrays, aka `[1, 2, , 4].map(val => val * val) === [1, 4, , 16]`
 1. The range of elements processed by `map` is set before the first call to _callbackfn_. Elements which are appended to the array after the call to `map` begins will not be visited by _callbackfn_. If existing elements of the array are changed, their value as passed to _callbackfn_ will be the value at the time `map` visits them; elements that are deleted after the call to `map` begins and before being visited are not visited. Source: [`Array.prototype.map` ECMAScript specification](https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.map)
 

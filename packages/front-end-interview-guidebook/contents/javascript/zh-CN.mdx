@@ -25,7 +25,7 @@ social_title: 破解 JavaScript 编码面试 | 前端面试手册
 
 这些函数比看起来的要多。 让我们以无辜的 `Array.prototype.map` 为例。 你知道吗：
 
-1. 它向回调函数传递 4 个参数，包括 `index` 和 `this`?
+1. `map` 向回调函数传递 3 个参数：当前元素、其索引和数组本身。可选的 `thisArg` 用于设置回调函数的 `this` 值；它不是第四个参数。
 2. 它保留稀疏数组中的“空洞”，即 `[1, 2, , 4].map(val => val * val) === [1, 4, , 16]`
 3. `map` 处理的元素范围在首次调用 _callbackfn_ 之前设置。在调用 `map` 开始后添加到数组中的元素将不会被 _callbackfn_ 访问。如果更改了数组的现有元素，则它们作为 _callbackfn_ 传递的值将是 `map` 访问它们时的值；在调用 `map` 开始后但在访问之前删除的元素不会被访问。 来源：[`Array.prototype.map` ECMAScript 规范](https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.map)
 
