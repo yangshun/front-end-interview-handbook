@@ -575,11 +575,16 @@ console.log(a == undefined); // true
 
 ### Explain the same-origin policy with regards to JavaScript.
 
-The same-origin policy prevents JavaScript from making requests across domain boundaries. An origin is defined as a combination of URI scheme, hostname, and port number. This policy prevents a malicious script on one page from obtaining access to sensitive data on another web page through that page's Document Object Model.
+The same-origin policy restricts how a document or script from one origin can interact with resources from another origin. Two URLs have the same origin when their URI scheme, hostname, and port number match.
+
+Browsers generally allow some cross-origin writes and resource embedding, but prevent scripts from reading cross-origin responses or accessing another origin's DOM. A server can selectively allow a script to read a cross-origin response through Cross-Origin Resource Sharing (CORS).
+
+The same-origin policy does not prevent Cross-Site Request Forgery (CSRF), because a browser can still send cross-origin requests with ambient credentials such as cookies. CSRF defenses include `SameSite` cookies, CSRF tokens, and origin checks.
 
 #### References
 
-- https://en.wikipedia.org/wiki/Same-origin_policy
+- https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy
+- https://owasp.org/www-community/attacks/csrf
 
 ### Make this work:
 
