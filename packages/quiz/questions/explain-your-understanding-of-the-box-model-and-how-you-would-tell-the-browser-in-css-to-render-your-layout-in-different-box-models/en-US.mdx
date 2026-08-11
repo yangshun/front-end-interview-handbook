@@ -2,68 +2,70 @@
 title: Explain your understanding of the box model and how you would tell the browser in CSS to render your layout in different box models.
 ---
 
-The CSS box model describes the rectangular boxes that are generated for elements in the document tree and laid out according to the visual formatting model. Each box has a content area (e.g. text, an image, etc.) and optional surrounding `padding`, `border`, and `margin` areas.
+## TL;DR
 
-The CSS box model is responsible for calculating:
+Every rendered CSS box has a content area surrounded by padding, a border, and margins. With the default `box-sizing: content-box`, a declared `width` applies only to the content. With `box-sizing: border-box`, it includes the content, padding, and border; margins are excluded in both cases. `border-box` usually makes component sizing easier to reason about.
 
-- How much space a block element takes up.
-- Whether or not borders and/or margins overlap, or collapse.
-- A box's dimensions.
+---
 
-## Box model rules
+## Explain your understanding of the box model and how you would tell the browser in CSS to render your layout in different box models.
 
-- The dimensions of a block element are calculated by `width`, `height`, `padding`, and `border`.
-- If no `height` is specified, a block element will be as high as the content it contains, plus `padding` (unless there are floats — see [describe floats and how they work](/questions/quiz/describe-floats-and-how-they-work)).
-- If no `width` is specified, a non-floated block element will expand to fit the width of its parent minus the `padding`, unless it has a `max-width` property set, in which case it will be no wider than the specified maximum width.
-  - Some block-level elements (e.g. `table`, `figure`, and `input`) have inherent or default width values and may not expand to fill the full width of their parent container.
-  - `span` is an inline-level element and does not have a default width, so it will not expand to fit.
-- The `height` of an element is calculated by the content's `height`.
-- The `width` of an element is calculated by the content's `width`.
-- By default (`box-sizing: content-box`), `padding` and `border` are not part of the `width` and `height` of an element.
+### The four areas
 
-> [!NOTE] Margins are not part of the box itself
->
-> `margin`s are not counted towards the actual size of the box. They affect the total space the box takes up on the page, but only the space outside the box. The box's area stops at the `border` — it does not extend into the `margin`.
+From the inside out, the box model consists of:
 
-## Extra
+1. **Content**: Text, images, or child elements.
+2. **Padding**: Space between the content and border; the element's background extends through it.
+3. **Border**: The line surrounding the padding and content.
+4. **Margin**: Transparent space outside the border that separates the element from others.
 
-Look up the `box-sizing` property, which affects how the total heights and widths of elements are calculated.
+The `width` and `height` properties control different areas depending on `box-sizing`.
 
-- `box-sizing: content-box`: This is the default value of `box-sizing` and adheres to the rules above.
+### `content-box` and `border-box`
 
-  For example:
+Both boxes below declare `width: 100px`, `padding: 10px`, and a `5px` border:
 
-  ```css
-  .example {
-    box-sizing: content-box;
-    width: 100px;
-    padding: 10px;
-    border: 5px solid black;
-  }
-  ```
+```css
+.content-box {
+  box-sizing: content-box; /* Initial value. */
+  width: 100px;
+  padding: 10px;
+  border: 5px solid;
+}
 
-  The actual space taken by the `.example` element will be 130px wide (100px width + 10px left padding + 10px right padding + 5px left border + 5px right border).
+.border-box {
+  box-sizing: border-box;
+  width: 100px;
+  padding: 10px;
+  border: 5px solid;
+}
+```
 
-- `box-sizing: border-box`: The `width` and `height` will include the content, padding and border (but not the margin). This is a much more intuitive way to think about boxes and hence many CSS frameworks (e.g. Bootstrap, Tailwind, Bulma) set `* { box-sizing: border-box; }` globally, so that all elements use such a box model by default. See the [question on `box-sizing: border-box`](/questions/quiz/what-does-box-sizing-border-box-do-what-are-its-advantages) for more information.
+| Box sizing    |                Content width |              Border-box width |
+| ------------- | ---------------------------: | ----------------------------: |
+| `content-box` |                      `100px` | `100px + 20px + 10px = 130px` |
+| `border-box`  | `100px - 20px - 10px = 70px` |                       `100px` |
 
-  For example:
+Neither calculation includes margins. A common project-wide default is:
 
-  ```css
-  .example {
-    box-sizing: border-box;
-    width: 100px;
-    padding: 10px;
-    border: 5px solid black;
-  }
-  ```
+```css
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+```
 
-  The element will still take up 100px on the page, but the content area will be 70px wide (100px - 10px left padding - 10px right padding - 5px left border - 5px right border).
+This is a sizing convention, not a complete layout system. Intrinsic sizes, `min-width`, `max-width`, overflow, and the formatting context can still affect the final used size. For example, `width` and `height` normally do not apply to a non-replaced inline element such as a `span`.
 
-### Border and margin behavior
+### Margins and debugging
 
-- **Borders do not collapse or overlap** with those of adjacent elements. Each element's border is rendered individually.
-- **Margins can collapse**, but only vertically and only between block-level elements. Horizontal margins do not collapse. This means that if one block element has a bottom margin and the next has a top margin, only the larger of the two will be used. This behavior is independent of `box-sizing` and is the default in CSS.
+Adjacent vertical margins of block boxes in normal flow can collapse into one margin. Margins do not collapse in Flexbox or Grid layout, and `box-sizing` does not change margin-collapsing behavior.
 
-## References
+When a component is unexpectedly too wide, inspect its box-model diagram and computed `box-sizing` in browser DevTools. This quickly reveals whether padding or borders were added outside a `content-box` width, or whether a minimum size or overflowing child is the real cause.
 
-- [The box model | MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model#the_standard_css_box_model)
+## Further reading
+
+- [Introduction to the CSS box model (MDN)](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
+- [`box-sizing` (MDN)](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing)
+- [Mastering margin collapsing (MDN)](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing)

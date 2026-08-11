@@ -3,11 +3,71 @@ title: How do you serve your pages for feature-constrained browsers?
 subtitle: What techniques/processes do you use?
 ---
 
-## Techniques
+## TL;DR
 
-- Graceful degradation: The practice of building an application for modern browsers while ensuring it remains functional in older browsers.
-- Progressive enhancement: The practice of building an application for a base level of user experience, but adding functional enhancements when a browser supports it.
-- Use [caniuse.com](https://caniuse.com/) to check for feature support.
-- Autoprefixer for automatic vendor prefix insertion.
-- Feature detection using [Modernizr](https://modernizr.com/).
-- Use CSS feature queries via [`@supports`](https://developer.mozilla.org/en-US/docs/Web/CSS/@supports).
+Define the browsers and capabilities the product must support, provide a semantic and functional baseline, and enhance it when features are available. Use CSS `@supports` and JavaScript feature detection instead of user-agent sniffing, automate compatible prefixes and transformations from the declared support policy, and test the fallback in real target browsers.
+
+---
+
+## How do you serve your pages for feature-constrained browsers?
+
+### Start with a support policy
+
+“Feature-constrained” can mean an older engine, disabled JavaScript, a slow connection, limited memory, an assistive technology, or a missing input capability. First turn product and usage requirements into an explicit support matrix. A tool such as Browserslist can share browser targets with build tools, but analytics should not silently exclude users who cannot load the current application.
+
+Then decide the required baseline. Semantic HTML, ordinary links, native form controls, readable content, and server-side validation often provide useful behavior before optional CSS or JavaScript runs.
+
+### Enhance through feature detection
+
+Progressive enhancement adds richer presentation or behavior when the browser supports it. For example, a list can remain readable before Grid is enabled:
+
+```css
+.cards {
+  display: block;
+}
+
+.card + .card {
+  margin-block-start: 1rem;
+}
+
+@supports (display: grid) {
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1rem;
+  }
+
+  .card + .card {
+    margin-block-start: 0;
+  }
+}
+```
+
+For JavaScript, detect the capability itself:
+
+```js
+if ('IntersectionObserver' in window) {
+  enableVisibilityTracking();
+} else {
+  showAllContent();
+}
+```
+
+An `@supports` result means the browser parses a declaration; it does not prove that an implementation is bug-free, accessible, or fast enough for the use case. Complex interactions still need testing.
+
+### Build tools and fallbacks
+
+Autoprefixer can add prefixes required by configured browser targets, and a transpiler can transform some newer JavaScript syntax. Neither automatically polyfills every missing web API or reproduces a newer CSS layout model. Load a focused polyfill only when the feature and fallback requirements justify its cost.
+
+Graceful degradation starts with the enhanced experience and makes sure failure remains usable. It is useful when a true baseline implementation is impractical, but critical actions should not depend on an optional effect or animation. Libraries such as Modernizr can centralize many feature tests in legacy applications; small modern applications often need only direct checks and `@supports`.
+
+### Verify the fallback
+
+Compatibility tables help choose a strategy, but verify the actual workflow in target browsers and devices. Test content access, forms, keyboard use, error handling, slow or failed resources, and unsupported features—not merely whether the first screen resembles the design.
+
+## Further reading
+
+- [`@supports` (MDN)](https://developer.mozilla.org/en-US/docs/Web/CSS/@supports)
+- [Implementing feature detection (MDN)](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Testing/Feature_detection)
+- [Progressive enhancement (MDN)](https://developer.mozilla.org/en-US/docs/Glossary/Progressive_Enhancement)
+- [Browserslist](https://github.com/browserslist/browserslist)

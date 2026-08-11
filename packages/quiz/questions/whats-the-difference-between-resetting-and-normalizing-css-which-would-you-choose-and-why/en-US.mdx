@@ -3,11 +3,68 @@ title: What's the difference between "resetting" and "normalizing" CSS?
 subtitle: Which would you choose, and why?
 ---
 
-| Term | Definition |
-| --- | --- |
-| **Resetting** | Resetting is meant to strip all default browser styling from elements. For example, `margin`s, `padding`s, and `font-size`s of all elements are reset to be the same. You will have to redeclare styling for common typographic elements. |
-| **Normalizing** | Normalizing preserves useful default styles rather than "unstyling" everything. It also corrects bugs for common browser dependencies. |
+## TL;DR
 
-## Which to choose and why?
+A reset deliberately removes selected browser defaults so the application rebuilds them; normalization preserves useful defaults while reducing targeted inconsistencies. Neither is automatically required. Choose a maintained normalization stylesheet when broad native consistency is valuable, or a small documented reset when a design system intentionally owns those styles. Do not erase focus indicators, control affordances, headings, or list semantics without accessible replacements.
 
-Choose resetting when you need to have a very customized or unconventional site design such that you need to do a lot of your own styling and do not need any default styling to be preserved.
+---
+
+## What's the difference between "resetting" and "normalizing" CSS?
+
+### Resetting and normalizing
+
+| Approach | Intent | Tradeoff |
+| --- | --- | --- |
+| Reset | Remove a chosen set of user-agent styles and establish a blank or project-specific baseline | The project must restore useful typography, spacing, controls, focus states, and other affordances |
+| Normalize | Preserve useful user-agent behavior while correcting selected inconsistencies and documented browser bugs | The project accepts more native defaults and depends on the normalization stylesheet's scope and version |
+
+“Reset” describes a strategy, not one standard file. A reset can range from a destructive `* { margin: 0 }` rule to a careful design-system baseline. Normalize.css is a particular open-source implementation of the normalization approach; inspect its current rules rather than treating its name as a platform guarantee.
+
+### A minimal application reset
+
+Many applications need only a few intentional defaults:
+
+```css
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+img,
+video {
+  max-inline-size: 100%;
+  block-size: auto;
+}
+```
+
+Each declaration should solve an understood project problem. For example, inheriting form fonts improves typographic consistency, but native controls still need testing in each target browser and operating system.
+
+### Choosing and maintaining the baseline
+
+Use normalization when content-heavy pages benefit from sensible native typography and the project wants targeted cross-browser corrections. Use a custom reset when a component library defines all relevant tokens and states and the team can maintain that baseline. Some teams combine a small reset with selected normalization rules.
+
+Review the final cascade rather than stacking several resets. Avoid `outline: none` without an equally visible focus indicator, avoid `all: unset` on controls unless every lost behavior is rebuilt, and be careful when removing list styles because visual changes can affect how some browser and assistive-technology combinations expose list semantics.
+
+After changing the baseline, test headings, lists, links, forms, validation states, dialogs, keyboard focus, forced colors, zoom, print output, and right-to-left content. The reset is shared infrastructure: a small mistake propagates to every page.
+
+## Further reading
+
+- [Normalize.css](https://necolas.github.io/normalize.css/)
+- [User-agent stylesheets in the cascade (MDN)](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascade/Cascade#user-agent_stylesheets)
+- [Understanding Success Criterion 2.4.7: Focus Visible (W3C WAI)](https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html)

@@ -2,33 +2,80 @@
 title: What is CSS selector specificity and how does it work?
 ---
 
-When multiple CSS rules could apply to the same HTML element, the browser needs a way to decide which rule takes precedence. This is determined by the **CSS cascade**, which considers importance, inline styles, selector specificity, and source order. **Selector specificity** is a key part of this process, calculating a weight for each selector.
+## TL;DR
 
-The browser determines what styles to show on an element depending on the **specificity** of the CSS rules that match it. Specificity is calculated for each rule to decide which one takes precedence.
+Specificity is the selector weight the cascade compares when competing declarations are in the same relevant origin, importance level, encapsulation context, and cascade layer. Count IDs, then classes/attributes/pseudo-classes, then type selectors/pseudo-elements, and compare those columns from left to right. If specificity is equal, scoping proximity and then source order can decide. `!important` and cascade layers change an earlier cascade stage; they do not add specificity.
 
-## How is specificity computed?
+---
 
-The specificity algorithm is basically a three-column value of three categories or weights — ID, CLASS, and TYPE — corresponding to the three types of selectors. The value represents the count of selector components in each weight category and is written as `ID - CLASS - TYPE`. The three columns are created by counting the number of selector components for each selector weight category in the selectors that match the element.
+## What is CSS selector specificity and how does it work?
 
-1.  **ID**: This is the count of ID selectors (e.g., `#example`).
-2.  **CLASS**: This is the count of class selectors (e.g., `.my-class`), attribute selectors (e.g., `[type="radio"]`), and pseudo-classes (e.g., `:hover`).
-3.  **TYPE**: This is the count of type selectors (element names, e.g., `h1`, `div`) and pseudo-elements (e.g., `::before`).
+### Specificity is one part of the cascade
 
-When comparing selectors to determine which has the highest specificity, look from left to right (ID, then CLASS, then TYPE) and compare the highest value in each column.
+The browser does not simply choose the selector with the largest score. It first discards irrelevant rules, then considers cascade origin and importance, encapsulation context, and cascade layer. Only declarations still competing at the same level are compared by specificity. Active animations and transitions also have defined positions in the cascade.
 
-> [!IMPORTANT] Higher columns always beat lower columns
->
-> A value in the ID column will override values in the CLASS and TYPE columns, no matter how large they are. Similarly, a value in the CLASS column overrides any value in the TYPE column. For example, a specificity of `1,0,0` (one ID) is greater than `0,10,10` (ten classes and ten types).
+This matters because a low-specificity selector in a later normal layer can beat a high-specificity selector in an earlier layer:
 
-It's important to remember that specificity is part of the broader **CSS cascade**. Declarations marked `!important` have the highest precedence, followed by inline styles (using the `style` attribute). Selector specificity comes next.
+```css
+@layer base, components;
 
-In cases of **equal specificity** among competing rules (that aren't inline or `!important`), the rule that appears **last** in the CSS source order is the one that counts and will be applied.
+@layer base {
+  #checkout .button {
+    color: red; /* 1-1-0 */
+  }
+}
 
-> [!TIP] Prefer low specificity
->
-> It's a better practice to write CSS rules with low specificity so that they can be easily overridden if necessary. When writing CSS for UI component libraries, it is important that styles have low specificities so that users of the library can customize them without needing overly complex selectors or resorting to `!important`.
+@layer components {
+  .button.primary {
+    color: green; /* 0-2-0, but the later normal layer wins. */
+  }
+}
+```
 
-## References
+Normal declarations outside a layer take precedence over normal layered declarations. For important declarations, layer and origin order are intentionally reversed; for example, important user styles can override important author styles. `!important` should therefore be understood as a change in cascade importance, not an infinitely large specificity score.
 
-- [Specificity | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascade/Specificity)
-- [Specificity | web.dev](https://web.dev/learn/css/specificity)
+### Calculating selector weight
+
+Specificity is commonly written as `ID-CLASS-TYPE`:
+
+1. **ID**: ID selectors such as `#checkout`.
+2. **CLASS**: Class selectors, attribute selectors, and pseudo-classes such as `.button`, `[aria-current]`, and `:hover`.
+3. **TYPE**: Type selectors and pseudo-elements such as `button` and `::before`.
+
+Combinators and the universal selector `*` add no weight. The columns are compared lexicographically, so `1-0-0` beats `0-20-20`; do not treat the value as a base-ten number.
+
+| Selector                      | Specificity |
+| ----------------------------- | ----------- |
+| `button`                      | `0-0-1`     |
+| `.dialog button`              | `0-1-1`     |
+| `#checkout .dialog button`    | `1-1-1`     |
+| `button[aria-pressed='true']` | `0-1-1`     |
+
+Inline style declarations participate specially in the author cascade and take precedence over normal declarations in author stylesheets. An important author rule can override a normal inline declaration.
+
+### Functional pseudo-classes
+
+Some pseudo-classes need special treatment:
+
+- `:where()` and its arguments always contribute `0-0-0`.
+- `:is()`, `:not()`, and `:has()` contribute the specificity of their most specific selector argument; the pseudo-class itself adds nothing.
+- CSS nesting follows similar specificity behavior to `:is()` for a nested selector list.
+
+This makes `:where()` useful for defaults that consumers should be able to override easily:
+
+```css
+:where(.prose) :where(h2, h3) {
+  margin-block-start: 1.5em;
+}
+```
+
+### Keeping overrides manageable
+
+Prefer classes and intentionally low specificity for reusable components, and use cascade layers to define relationships between resets, components, and utilities. Avoid IDs in reusable selectors and repeated `!important` escalation. When a declaration loses unexpectedly, browser DevTools can show the winning rule and whether origin, a layer, specificity, or source order caused the result.
+
+## Further reading
+
+- [CSS cascade (MDN)](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascade/Cascade)
+- [Specificity (MDN)](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascade/Specificity)
+- [Cascade layers (MDN)](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Cascade_layers)
+- [Specificity (web.dev)](https://web.dev/learn/css/specificity)

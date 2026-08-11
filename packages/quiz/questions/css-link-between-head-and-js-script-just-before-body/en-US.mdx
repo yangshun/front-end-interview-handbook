@@ -3,26 +3,55 @@ title: Why is it generally a good idea to position CSS `<link>`s between `<head>
 subtitle: Do you know any exceptions?
 ---
 
-In a nutshell, such a placement of CSS `<link>`s and JavaScript `<script>`s allows for faster rendering of the page and better overall performance.
+## TL;DR
 
-## Placing `<link>`s in `<head>`
+Put render-blocking stylesheets in `<head>` so the browser discovers them early and can render styled content without a flash of unstyled content. The old advice to put every script just before `</body>` avoids parser blocking, but modern pages usually put application scripts in `<head>` with `defer` or `type="module"`; they download while HTML is parsed and execute after parsing. Use `async` only for independent scripts whose execution order does not matter.
 
-Putting `<link>`s in `<head>` is part of the proper specification in building an optimized website. When a page first loads, HTML and CSS are being parsed simultaneously; HTML creates the DOM (Document Object Model) and CSS creates the CSSOM (CSS Object Model). Both are needed to create the visuals in a website, allowing for a quick "first meaningful paint" timing. Placing CSS `<link>`s in the `<head>` ensures that the stylesheets are loaded and ready for use when the browser starts rendering the page.
+```html
+<head>
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="/app.js" defer></script>
+  <script type="module" src="/features.js"></script>
+</head>
+```
 
-This progressive rendering is a metric that sites are measured on in their performance scores. Putting stylesheets near the bottom of the document is what prohibits progressive rendering in many browsers. Some browsers block rendering to avoid having to repaint elements of the page if their styles change. The user is then stuck viewing a blank white page. Other times there can be flashes of unstyled content (FOUC), which show a webpage with no styling applied.
+---
 
-## Placing `<script>`s just before `</body>`
+## Why is it generally a good idea to position CSS `<link>`s between `<head></head>` and JS `<script>`s just before `</body>`?
 
-`<script>` tags block HTML parsing while they are being downloaded and executed, which can slow down the display of your page. Placing the `<script>`s at the bottom will allow the HTML to be parsed and displayed to the user first.
+The placement controls when the browser discovers a resource and whether fetching or executing it delays HTML parsing or rendering.
 
-An exception to positioning `<script>`s at the bottom is when your script contains `document.write()`, but these days it's not good practice to use `document.write()`. Also, placing `<script>`s at the bottom means that the browser cannot start downloading the scripts until the entire document is parsed. This ensures that code which needs to manipulate DOM elements will not throw an error and halt the entire script.
+### Put required stylesheets in `<head>`
 
-> [!TIP] Prefer `defer` over placing `<script>` at the bottom
->
-> If you need to put `<script>`s in the `<head>`, use the `defer` attribute. It achieves the same effect of running the script only after the HTML is parsed, but the browser can kick off the network request earlier to download the script.
+The browser can parse HTML and fetch external CSS concurrently, but it normally waits for required stylesheets before painting content that depends on them. Discovering CSS in `<head>` starts that request early and reduces the chance of rendering unstyled content and repainting it later.
 
-Keep in mind that putting scripts just before the closing `</body>` tag creates the illusion that the page loads faster on an empty cache (since the scripts won't block downloading the rest of the document). However, if you have code you want to run during page load, it will only start executing after the entire page has loaded. If you put those scripts in the `<head>` tag, they would start executing earlier — so on a primed cache, the page would actually appear to load faster.
+CSS that is not needed for the initial view can be loaded conditionally, split by route, or guarded by an appropriate `media` attribute. Inline only genuinely critical CSS: inlining too much prevents caching and makes the HTML larger.
 
-## `<head>` and `<body>` tags are now optional
+### Choose the script behavior explicitly
 
-As per the HTML5 specification, certain HTML tags like `<head>` and `<body>` are optional. Google's style guide even recommends removing them to save bytes. However, this practice is still not widely adopted, and the performance gain is likely minimal — for most sites, it's not going to matter.
+The important distinction is not simply “head versus body”; it is the script's loading mode.
+
+| Script | Fetching and execution behavior | Appropriate use |
+| --- | --- | --- |
+| Classic `<script src>` | Fetches and executes immediately, blocking the HTML parser | Rare scripts that must run at that exact parser position |
+| `<script defer>` | Fetches in parallel, executes in document order after parsing, before `DOMContentLoaded` | Most classic application scripts |
+| `<script type="module">` | Fetches the module graph and defers execution by default | Modern module-based applications |
+| `<script async>` | Fetches in parallel and executes as soon as ready; order is not guaranteed | Independent analytics or advertising scripts |
+| Script before `</body>` | Is discovered late but does not block most document parsing | Legacy pages that cannot use `defer` |
+
+A deferred script can safely query elements parsed from the document without waiting for `load`. The `load` event waits for additional resources such as images and is usually later than necessary.
+
+### Exceptions and tradeoffs
+
+- A tiny inline bootstrap may need to run early, for example to set a theme class before the first paint. Keep it small and compatible with the site's Content Security Policy.
+- A third-party script that is independent of application code can use `async`, but its cost should still be measured.
+- A script whose output must appear at a particular parser position is inherently parser-blocking. Prefer DOM APIs and templates over `document.write()`.
+- Omitting optional `<head>` or `<body>` tags does not create a meaningful performance optimization and usually makes source markup harder to inspect.
+
+Use the Network and Performance panels to verify discovery time, parser blocking, render-blocking resources, and actual paint timings rather than assuming one placement is fastest for every page.
+
+## Further reading
+
+- [`<script>` element | MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script)
+- [`<link>` element | MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/link)
+- [Critical rendering path (MDN)](https://developer.mozilla.org/en-US/docs/Web/Performance/Guides/Critical_rendering_path)

@@ -2,19 +2,65 @@
 title: Can you give an example of an `@media` property other than `screen`?
 ---
 
-There are four types of `@media` properties (including `screen`):
+## TL;DR
 
-- `all`: for all media type devices
-- `print`: for printers
-- `speech`: for screen readers that "read" the page out loud
-- `screen`: for computer screens, tablets, smartphones, etc.
-
-Here is an example of the `print` media type's usage:
+`screen` is a media **type**, not a property. A common alternative is `print`, which lets a page remove interactive chrome, expand useful URLs, and avoid layouts that waste paper. Most responsive CSS uses media **features** such as `width`, `hover`, or `prefers-reduced-motion` rather than relying on a media type.
 
 ```css
 @media print {
-  body {
-    color: black;
+  nav,
+  .advertisement {
+    display: none;
+  }
+
+  main {
+    max-width: none;
   }
 }
 ```
+
+---
+
+## Can you give an example of an `@media` property other than `screen`?
+
+The current general-purpose media types are:
+
+- `all`, which matches every device.
+- `print`, which represents paged output and print preview.
+- `screen`, which represents screens that do not match `print`.
+
+Older types such as `handheld`, `projection`, `tty`, and `speech` are deprecated. In particular, `speech` should not be treated as a reliable way to target screen readers. Accessible markup must work independently of whether assistive technology exposes a media type.
+
+### Practical print styles
+
+Print CSS can remove controls that have no printed function, prevent awkward page breaks, and expose destinations that would otherwise be hidden behind links:
+
+```css
+@media print {
+  a[href^='http']::after {
+    content: ' (' attr(href) ')';
+  }
+
+  article {
+    break-inside: avoid;
+  }
+}
+```
+
+Test in the browser's print preview. Do not remove content users may need, and remember that users can choose whether to print backgrounds and colors.
+
+Media features are usually more useful for application behavior:
+
+```css
+@media (prefers-reduced-motion: reduce) {
+  .animated-panel {
+    animation: none;
+  }
+}
+```
+
+## Further reading
+
+- [`@media` | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/@media)
+- [Using media queries | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Media_queries/Using)
+- [Printing | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Media_queries/Printing)

@@ -2,6 +2,61 @@
 title: Is there any reason you'd want to use `translate()` instead of `absolute` positioning, or vice-versa? And why?
 ---
 
-`translate()` is a possible value of the CSS `transform` property. When using `translate()`, the element still occupies its original space (sort of like `position: relative`). But when changing the absolute positioning of an element, the element is removed from the flow of the page and the positioning of surrounding elements will be affected. Hence, the page layout will have to be recalculated.
+## TL;DR
 
-Changing `transform` or `opacity` does not trigger browser reflows or repaints — only compositing. On the other hand, changing absolute positioning triggers a reflow. `transform` causes the browser to create a GPU layer for the element, but changing absolute positioning properties uses the CPU. Hence, `translate()` is more efficient and will result in shorter paint times for smoother animations.
+Use absolute positioning when an element should be taken out of normal flow and anchored to a containing block, such as a badge or popover. Use `translate()` when the element should keep its layout position but be moved visually, especially for an animation or a percentage-based adjustment. Transforms are often composited efficiently, but they do not guarantee a GPU layer or eliminate painting in every case—measure the actual interaction.
+
+---
+
+## Is there any reason you'd want to use `translate()` instead of `absolute` positioning, or vice-versa? And why?
+
+### They solve different layout problems
+
+`position: absolute` removes a box from normal flow and positions it relative to its containing block. Its former position does not reserve space. This is appropriate for an overlay whose location is defined by an anchor:
+
+```css
+.button {
+  position: relative;
+}
+
+.button__badge {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  transform: translate(50%, -50%);
+}
+```
+
+The example intentionally combines the techniques: positioning chooses the logical corner, while `translate` offsets the badge by half of its own size. Percentage translations are relative to the transformed element's reference box, whereas percentage insets are generally relative to the containing block.
+
+A transform changes where an existing box is drawn without changing the normal-flow space allocated to it. Siblings therefore lay out as if the transformed box were still in its original position, and the transformed box can visually overlap them.
+
+### Animation and rendering cost
+
+Animating `inset-inline-start`, `top`, or `left` can require layout and subsequent painting. Animating `transform` can often be handled in the compositing stage once the content has been painted, which makes it a good candidate for smooth motion. That is not an absolute guarantee: large layers, filters, changing content, memory pressure, and browser heuristics can still cause painting or expensive compositing.
+
+Do not add `will-change: transform` broadly. It can consume extra memory and should be a temporary, measured optimization. Use the browser's Performance and Layers tooling to check layout, paint, and compositing behavior on representative devices.
+
+### Other side effects
+
+A non-`none` transform creates a stacking context and can establish a containing block for positioned descendants. It can therefore change `z-index` behavior and the positioning of descendants, even when the visual offset is zero. Hit testing follows the transformed visual position, but surrounding layout does not.
+
+For motion, also provide a reduced-motion treatment when the movement is not essential:
+
+```css
+.panel {
+  transition: transform 200ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel {
+    transition: none;
+  }
+}
+```
+
+## Further reading
+
+- [`transform` (MDN)](https://developer.mozilla.org/en-US/docs/Web/CSS/transform)
+- [`position` (MDN)](https://developer.mozilla.org/en-US/docs/Web/CSS/position)
+- [How to create high-performance CSS animations (web.dev)](https://web.dev/articles/animations-guide)

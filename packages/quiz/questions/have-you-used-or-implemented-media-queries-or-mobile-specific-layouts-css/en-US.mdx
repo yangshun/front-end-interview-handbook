@@ -2,122 +2,90 @@
 title: Have you used or implemented media queries or mobile-specific layouts/CSS?
 ---
 
-Media queries are a CSS feature that applies styles conditionally based on characteristics of the user's device or viewport, such as width, height, orientation, resolution, or user preferences. They are the foundation of [responsive design](/questions/quiz/can-you-explain-the-difference-between-coding-a-website-to-be-responsive-versus-using-a-mobile-first-strategy) and let a single CSS file adapt a layout across phones, tablets, and desktops.
+## TL;DR
 
-## Syntax
+Media queries conditionally apply CSS using viewport, output, capability, or user-preference features. Use content-driven breakpoints for page-level changes, preference queries such as `prefers-reduced-motion` for accessibility, and capability queries such as `hover` without assuming they identify a particular device. Container queries are often better when a reusable component should respond to its own available space.
 
-A media query consists of a media type (e.g. `screen`, `print` — see [media types](/questions/quiz/can-you-give-an-example-of-an-media-property-other-than-screen)) and one or more expressions that evaluate to true or false. When the expressions match, the styles inside the block are applied.
+---
+
+## Have you used or implemented media queries or mobile-specific layouts/CSS?
+
+### Responsive layout
+
+A mobile-first stylesheet can start with a single-column layout and add columns when the content has enough room:
 
 ```css
-@media (min-width: 768px) {
-  .card {
-    display: flex;
-  }
+.cards {
+  display: grid;
+  gap: 1rem;
 }
 
-@media (min-width: 768px) and (orientation: landscape) {
-  .hero {
-    height: 80vh;
+@media (width >= 48rem) {
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 ```
 
-Common features queried include:
+The breakpoint should be chosen where the design becomes cramped, not because it matches a named phone or tablet. A desktop-first `max-width` approach can still be reasonable when adapting an existing wide-screen design; mobile-first is a strategy, not a browser requirement.
 
-- `min-width` / `max-width`: viewport width thresholds for breakpoints.
-- `orientation`: `portrait` or `landscape`.
-- `prefers-color-scheme`: `light` or `dark` for theming.
-- `prefers-reduced-motion`: whether the user has requested reduced animations.
-- `hover` and `pointer`: whether the primary input has hover capability and how precise it is (e.g. `coarse` for touch).
+Flexbox and Grid can also make a layout fluid with fewer explicit breakpoints. Images need their own resource-selection mechanism: use `srcset` and `sizes` rather than relying on CSS media queries to hide a large image after it has downloaded.
 
-## Mobile-first vs desktop-first
+### Preferences and input capabilities
 
-There are two common approaches to structuring breakpoints:
-
-- **Mobile-first** uses `min-width` queries to layer styles on top of a mobile baseline. This is generally preferred — mobile styles are the default, and larger screens receive progressive enhancements.
-- **Desktop-first** uses `max-width` queries to scale a desktop design down. This is easier when retrofitting an existing desktop site but tends to produce more override-heavy CSS.
+Media queries can reflect user settings and input characteristics:
 
 ```css
-/* Mobile-first (recommended) */
-.nav {
-  flex-direction: column;
-}
-
-@media (min-width: 768px) {
-  .nav {
-    flex-direction: row;
-  }
-}
-```
-
-See [responsive vs mobile-first](/questions/quiz/can-you-explain-the-difference-between-coding-a-website-to-be-responsive-versus-using-a-mobile-first-strategy) for the trade-offs.
-
-## Practical example
-
-Transforming a stacked pill navigation into a fixed-bottom tab bar on smaller screens:
-
-```css
-.nav {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-@media (max-width: 640px) {
-  .nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    justify-content: space-around;
-    border-top: 1px solid #e5e7eb;
-    background: #fff;
-  }
-}
-```
-
-## Beyond viewport width
-
-Media queries aren't only about screen size. They also let you respect user preferences and device capabilities, which is important for accessibility and UX:
-
-```css
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #111;
-    --fg: #eee;
-  }
+.carousel {
+  scroll-behavior: smooth;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
+  .carousel {
+    scroll-behavior: auto;
+  }
+
+  .decorative-spinner {
+    animation: none;
   }
 }
 
-@media (hover: none) and (pointer: coarse) {
-  .tooltip {
-    display: none; /* No hover on touch devices */
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    box-shadow: 0 0.25rem 1rem rgb(0 0 0 / 15%);
   }
 }
 ```
 
-> [!TIP] Pair media queries with responsive images
->
-> Media queries handle layout, but images need their own responsive story. Use the `srcset` and `sizes` attributes (see [`srcset`](/questions/quiz/why-you-would-use-a-srcset-attribute-in-an-image-tag) and [retina graphics](/questions/quiz/have-you-ever-worked-with-retina-graphics-if-so-when-and-what-techniques-did-you-use)) so the browser picks an appropriately-sized file for the current viewport and pixel density.
+Removing nonessential motion deliberately is safer than globally forcing every animation and transition to an almost-zero duration, which can break state changes that depend on transition events. A hover query should enhance an already usable interface; content and controls still need keyboard and touch-accessible paths. Hybrid devices make “touch device” assumptions unreliable; `pointer` describes the primary pointing device, while `any-pointer` considers any available one.
 
-## Alternatives and newer features
+### Component-level adaptation
 
-- **Container queries** (`@container`): style a component based on the size of its container rather than the viewport. This is useful for reusable components whose layout should adapt regardless of where they are placed on the page.
-- **CSS Flexbox and Grid**: often reduce the number of breakpoints needed. `flex-wrap`, `minmax()`, and `auto-fit`/`auto-fill` can produce fluid layouts that adapt without explicit media queries.
-- **Viewport units** (`vw`, `vh`, `svh`, `dvh`): scale sizing with the viewport directly.
+When the same card can appear in a narrow sidebar or a wide main column, its container is more relevant than the viewport:
 
-> [!NOTE] Don't design around specific devices
->
-> Pick breakpoints based on where your content starts to break, not based on specific device widths (e.g. "iPhone width"). The device landscape changes constantly; content-driven breakpoints age much better.
+```css
+.card-shell {
+  container-type: inline-size;
+}
 
-## References
+@container (width >= 30rem) {
+  .card {
+    display: grid;
+    grid-template-columns: 10rem 1fr;
+    gap: 1rem;
+  }
+}
+```
 
-- [Using media queries | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries)
-- [Responsive design | web.dev](https://web.dev/learn/design/)
-- [CSS container queries | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries)
+Media and container queries complement each other: media queries describe the browsing environment, while container queries describe the space allocated to a component.
+
+### Testing the result
+
+Resize emulation is useful, but also test zoom, long translated text, landscape and portrait orientations, keyboard navigation, real touch input where relevant, and the operating system's motion and color preferences. A layout that fits at one viewport width can still fail when text grows or a scrollbar changes the available inline size.
+
+## Further reading
+
+- [Using media queries (MDN)](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- [Using media queries for accessibility (MDN)](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries_for_accessibility)
+- [CSS container queries (MDN)](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries)
+- [Responsive design (web.dev)](https://web.dev/learn/design/)

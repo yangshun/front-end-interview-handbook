@@ -2,77 +2,61 @@
 title: What are the different ways to visually hide content (and make it available only for screen readers)?
 ---
 
-These techniques are related to accessibility (a11y).
+## TL;DR
 
-## Small/zero size
+Use a tested visually-hidden utility that clips an element to a tiny, absolutely positioned box while leaving it in the accessibility tree. Do not use `display: none`, `visibility: hidden`, or the `hidden` attribute for screen-reader-only text because they normally hide it from assistive technology too. If the hidden element is focusable, reveal it on `:focus` or `:focus-within` so sighted keyboard users can see it.
 
-`width: 1px; height: 1px` combined with CSS `clip` to make the element take up (barely) any space on the screen at all.
+---
 
-> [!CAUTION] Don't use `width: 0; height: 0`
->
-> Using `width: 0; height: 0` is not recommended because search engines might penalize this as malicious intent, such as keyword stuffing.
+## What are the different ways to visually hide content (and make it available only for screen readers)?
 
-## Absolute positioning
+### A visually-hidden utility
 
-`position: absolute; left: -99999px` will position an element way outside the screen. However, as per [WebAIM's article](https://webaim.org/techniques/css/invisiblecontent/):
-
-> [!WARNING] Don't hide interactive elements off-screen
->
-> Navigable elements, such as links and form controls, should not be hidden off-screen. They would still be navigable by sighted keyboard users, but would not be visible to them, unless they are styled to become visible when they receive keyboard focus.
-
-Use this only when your content contains only text.
-
-## Text indentation
-
-`text-indent: -9999px`. This only works on text within block elements. Similar to the absolute positioning technique above, focusable elements given this style will still be focusable, causing confusion for sighted users who use keyboard navigation.
-
-## Incorrect ways
-
-The following ways are incorrect because they hide content from the user **AND** screen readers, which is the wrong behavior if the purpose is to expose the content to screen readers only.
-
-- `display: none`
-- `visibility: hidden`
-- `hidden` attribute
-
-## Techniques in the wild
-
-> [!TIP] Use a battle-tested utility class
->
-> Combine the approaches above to make sure it works properly in all browsers. Instead of implementing your own way to remove an element from the rendering tree and the a11y tree, use one of the following utilities from mature CSS frameworks, which have been battle-tested on many websites.
-
-### Tailwind CSS
+A robust utility combines several declarations instead of moving content thousands of pixels off-screen:
 
 ```css
-.sr-only {
+.visually-hidden:not(:focus, :focus-within, :active) {
   position: absolute;
   width: 1px;
   height: 1px;
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
   white-space: nowrap;
-  border-width: 0;
+  border: 0;
 }
 ```
 
-### Bootstrap CSS
+The `:not(:focus, :focus-within, :active)` exception makes a focusable element such as a “Skip to main content” link—or a container with a focused descendant—visible when a keyboard user reaches it. A project can instead use the maintained `visually-hidden` or `sr-only` utility from its existing framework, but should verify the exact version and focus behavior.
 
-```css
-.visually-hidden,
-.visually-hidden-focusable:not(:focus):not(:focus-within) {
-  position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
-  padding: 0 !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  clip: rect(0, 0, 0, 0) !important;
-  white-space: nowrap !important;
-  border: 0 !important;
-}
+Typical uses include supplying a text label for an icon-only control or adding context to a terse link. Prefer an ordinary visible label whenever the information helps everyone.
+
+```html
+<button type="button">
+  <svg aria-hidden="true" focusable="false"><!-- Icon paths. --></svg>
+  <span class="visually-hidden">Close dialog</span>
+</button>
 ```
 
-## References
+### Techniques with different semantics
 
-- [CSS in Action - Invisible Content Just for Screen Reader Users](https://webaim.org/techniques/css/invisiblecontent/)
+Choose a technique based on who should receive the content:
+
+| Technique | Visible | Usually exposed to assistive technology | Appropriate use |
+| --- | --- | --- | --- |
+| Visually-hidden utility | No | Yes | Supplemental accessible text |
+| `display: none`, `visibility: hidden`, or `hidden` | No | No | Content unavailable to everyone in the current state |
+| `aria-hidden="true"` | Yes | No | Redundant or decorative content, never a focusable control |
+
+`opacity: 0`, off-screen positioning, and large negative `text-indent` values can leave an invisible element interactive or create confusing scroll and focus behavior. A zero-sized element can also be omitted or handled inconsistently by assistive technology. These are poor substitutes for a tested utility.
+
+### Test the accessible result
+
+Inspect the accessibility tree and accessible name in browser DevTools, navigate with only the keyboard, and test representative screen-reader and browser combinations. Confirm that hidden text does not duplicate a visible label and that every focusable element becomes visually apparent when focused.
+
+## Further reading
+
+- [Hiding content (WebAIM)](https://webaim.org/techniques/css/invisiblecontent/)
+- [Skip link tutorial (W3C WAI)](https://www.w3.org/WAI/WCAG21/Techniques/general/G1)
+- [`aria-hidden` (MDN)](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-hidden)

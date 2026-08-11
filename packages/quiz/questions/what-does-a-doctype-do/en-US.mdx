@@ -2,26 +2,50 @@
 title: What does a doctype do?
 ---
 
-**doctype** is an abbreviation for **Document Type**. A doctype is always associated with a **DTD** — short for **Document Type Definition**.
+## TL;DR
 
-A DTD defines how documents of a certain type should be structured (i.e. a `button` can contain a `span` but not a `div`), whereas a doctype declares what DTD a document _supposedly_ follows (i.e. this document follows the HTML DTD).
+`<!doctype html>` is the required preamble for an HTML document. Its practical purpose in modern browsers is to select no-quirks mode so layout follows current web standards. It is not an HTML element, does not select an “HTML5 feature set,” and—unlike historical doctypes—does not reference a DTD.
 
-For webpages, the doctype declaration is required. It is used to tell user agents what version of the HTML specification your document follows. Once a user agent has recognized a correct doctype, it will trigger the **no-quirks mode** matching that doctype for reading the document. If a user agent doesn't recognize a correct doctype, it will trigger **quirks mode**.
+```html
+<!doctype html>
+<html lang="en">
+  <!-- Document content -->
+</html>
+```
 
-The doctype declaration for the HTML5 standard is `<!doctype html>`.
+---
 
-## Why it matters
+## What does a doctype do?
 
-Without doctype:
+Browsers retain legacy rendering modes for compatibility with pages written around old browser behavior. A recognized modern doctype tells the browser to use no-quirks mode.
 
-- Box model calculations differ
-- CSS rendering inconsistencies
-- JavaScript behavior variations
-- Layout problems across browsers
+### Rendering modes
 
-With proper doctype:
+- **No-quirks mode** follows current HTML and CSS behavior.
+- **Quirks mode** emulates several legacy layout behaviors, including differences in the CSS box model.
+- **Limited-quirks mode** preserves a smaller set of legacy behaviors and can be triggered by certain historical doctypes.
 
-- Predictable CSS box model
-- Consistent rendering
-- Modern HTML5 features work properly
-- Better cross-browser compatibility
+The modern declaration is deliberately short and case-insensitive:
+
+```html
+<!doctype html>
+```
+
+Place it before the `<html>` element. A missing or malformed declaration can put the document into quirks mode, producing layout differences that are difficult to diagnose.
+
+### Historical DTDs
+
+Older HTML and XHTML doctypes sometimes included a public identifier and a DTD URL. The HTML Living Standard's doctype does not. Content-model rules—such as which elements may contain other elements—come from the HTML specification and are not selected at runtime by this declaration.
+
+When debugging an old page, inspect the document mode in DevTools or check it directly:
+
+```js
+console.log(document.compatMode);
+// "CSS1Compat" in no-quirks mode; "BackCompat" in quirks mode.
+```
+
+## Further reading
+
+- [The doctype | HTML Living Standard](https://html.spec.whatwg.org/multipage/syntax.html#the-doctype)
+- [Doctype | MDN](https://developer.mozilla.org/en-US/docs/Glossary/Doctype)
+- [Quirks Mode Standard | WHATWG](https://quirks.spec.whatwg.org/)

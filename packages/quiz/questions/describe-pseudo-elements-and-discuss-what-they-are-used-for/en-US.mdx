@@ -2,20 +2,48 @@
 title: Describe pseudo-elements and discuss what they are used for.
 ---
 
-A CSS [pseudo-element](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements) is a keyword added to a selector that lets you style a specific part of the selected element(s). They can be used for decoration (`::first-line`, `::first-letter`) or for adding elements to the markup (combined with `content: ...`) without having to modify the markup itself (`::before`, `::after`).
+## TL;DR
 
-- `::first-line` and `::first-letter` can be used to decorate text.
-- Used in the [`.clearfix` hack](/questions/quiz/describe-floats-and-how-they-work) to add a zero-space element with `clear: both`.
-- Triangular arrows in tooltips use `::before` and `::after`. This encourages separation of concerns because the triangle is considered part of styling and not really the DOM.
+A pseudo-element selects a part of an element or a generated box that is not represented by a separate HTML element, such as `::first-letter`, `::marker`, `::selection`, `::before`, or `::after`. Use pseudo-elements for presentation and generated decoration, not for essential content or controls. Pseudo-classes such as `:hover` and `:focus-visible` instead select an existing element in a particular state.
 
-## Notes
+---
 
-- Pseudo-elements are different from [pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes), which are used to style an element based on its _state_ (such as `:hover`, `:focus`, etc.).
+## Describe pseudo-elements and discuss what they are used for.
 
-> [!TIP] Prefer double colons for pseudo-elements
->
-> Double colons (`::before`) should be used instead of a single colon (`:before`) to distinguish pseudo-classes from pseudo-elements. Most browsers support both syntaxes since this distinction was not clear in legacy W3C specs.
+Pseudo-elements extend a selector with `::name` and let CSS address content that ordinary element selectors cannot target directly.
 
-## References
+### Common uses
 
-- [Pseudo-elements - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements)
+- `::before` and `::after` generate child-like boxes for decoration.
+- `::first-letter` and `::first-line` style typographic fragments.
+- `::marker` styles a list item's marker.
+- `::selection` styles user-selected text.
+- Form-control pseudo-elements expose browser-defined parts where supported.
+
+```css
+.external-link::after {
+  content: '';
+  display: inline-block;
+  width: 0.75em;
+  height: 0.75em;
+  margin-inline-start: 0.25em;
+  background: currentColor;
+  mask: url('/icons/external-link.svg') center / contain no-repeat;
+}
+
+li::marker {
+  color: rebeccapurple;
+}
+```
+
+### Generated content is not semantic HTML
+
+`::before` and `::after` do not create DOM elements, cannot replace a real button or link, and have inconsistent exposure to accessibility APIs. Keep important labels, instructions, and status messages in HTML. Decorative generated content should not be the only way meaning is conveyed.
+
+Use the double-colon syntax for pseudo-elements. Browsers retain the old single-colon form for the original `:before`, `:after`, `:first-line`, and `:first-letter` names for compatibility, but new pseudo-elements use `::`.
+
+## Further reading
+
+- [Pseudo-elements | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Pseudo-elements)
+- [Pseudo-classes | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Pseudo-classes)
+- [CSS Pseudo-Elements Module | CSSWG](https://drafts.csswg.org/css-pseudo/)

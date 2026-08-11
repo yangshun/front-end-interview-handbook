@@ -2,18 +2,53 @@
 title: What are `data-` attributes good for?
 ---
 
-Before JavaScript frameworks became popular, developers used `data-` attributes to store extra data within the DOM itself, without resorting to hacks like non-standard attributes or extra properties on the DOM. They are intended to store custom data private to the page or application, for when there are no more appropriate attributes or elements.
+## TL;DR
 
-Another common use case for `data-` attributes is to store information used by third-party libraries or frameworks. For example, the Bootstrap library uses data attributes to cause `<button>`s to trigger actions on a modal elsewhere on the page ([example](https://getbootstrap.com/docs/5.2/components/modal/#via-data-attributes)).
+`data-*` attributes attach small pieces of application-specific metadata to an element when no standard HTML attribute expresses the meaning. JavaScript reads and writes them through `element.dataset`. They are useful for component configuration, stable testing hooks, analytics labels, and IDs needed by event delegation, but they are strings in user-editable markup—not secrets, authorization state, or a replacement for a large application data model.
+
+---
+
+## What are `data-` attributes good for?
+
+Custom data attributes provide a standards-compliant bridge between HTML and code without inventing non-standard attributes.
+
+### Reading and writing values
+
+A hyphenated attribute name maps to a camel-cased property on `dataset`:
 
 ```html
-<button type="button" data-bs-toggle="modal" data-bs-target="#myModal">
-  Launch modal
+<button type="button" data-product-id="sku-42" data-action="add-to-cart">
+  Add to cart
 </button>
-...
-<div class="modal fade" id="myModal">Modal contents</div>
 ```
 
-These days, using `data-` attributes is generally not encouraged. One reason is that users can easily modify the data attribute by using "inspect element" in the browser. The data model is better stored within the JavaScript environment and kept in sync with the DOM via virtual DOM reconciliation or two-way data binding, possibly through a library or a framework.
+```js
+const button = document.querySelector('[data-action="add-to-cart"]');
 
-However, one perfectly valid use of data attributes is to add an identifier for **end-to-end** testing frameworks (e.g. Playwright, Puppeteer, Selenium), without adding classes or ID attributes just for tests when those attributes are primarily used for other purposes. The element needs a way to be selected, and something like `data-test-id="my-element"` is a valid way to do so without convoluting the semantic markup.
+console.log(button.dataset.productId); // "sku-42"
+button.dataset.state = 'pending'; // Adds data-state="pending".
+```
+
+Values are exposed as strings. Parse numbers, booleans, or JSON explicitly and handle invalid input rather than relying on coercion.
+
+### Appropriate uses
+
+- Configure a reusable behavior directly from server-rendered markup.
+- Associate an element with an application identifier for event delegation.
+- Provide a stable `data-testid` when a test cannot locate an element by accessible role, label, or visible text.
+- Attach analytics metadata without reusing styling classes.
+- Integrate a library that defines a documented `data-*` convention.
+
+### When another mechanism is better
+
+Use semantic elements and standard attributes first. For example, use `disabled` for an unavailable button and ARIA only when native HTML cannot express the accessibility semantics. Keep large or rapidly changing state in JavaScript or an external store rather than serializing it repeatedly into the DOM.
+
+Anyone can inspect and modify the DOM, so never trust `data-*` values for permissions, prices, account identity, or security decisions. The server must validate any value that crosses a trust boundary. User editability is not a reason to avoid `data-*`; it is a reminder that client-side state is never authoritative.
+
+Avoid using data attributes purely as styling hooks when a class communicates the styling role more clearly. Tests should prefer user-facing queries and use test IDs as a deliberate fallback.
+
+## Further reading
+
+- [Embedding custom non-visible data with `data-*` | HTML Living Standard](https://html.spec.whatwg.org/multipage/dom.html#embedding-custom-non-visible-data-with-the-data-*-attributes)
+- [`HTMLElement.dataset` | MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset)
+- [Queries about test IDs | Testing Library](https://testing-library.com/docs/queries/bytestid/)

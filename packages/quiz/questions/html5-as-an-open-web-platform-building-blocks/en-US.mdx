@@ -2,11 +2,33 @@
 title: Consider HTML5 as an open web platform. What are the building blocks of HTML5?
 ---
 
-- **Semantics**: HTML tags describe the content.
-- **Styling**: Customizing the appearance of HTML tags.
-- **Connectivity**: Communicating with the server in new and innovative ways.
-- **Offline and storage**: Allows webpages to store data locally on the client and operate offline more efficiently.
-- **Multimedia**: Makes video and audio first-class citizens on the Open Web.
-- **2D/3D graphics and effects**: Allows a much more diverse range of presentation options.
-- **Performance and integration**: Provides greater speed optimization and better usage of computer hardware.
-- **Device access**: Allows for the usage of various input and output devices.
+## TL;DR
+
+“HTML5 as an open web platform” is a historical umbrella for semantic HTML plus related browser technologies: CSS styling, audio and video, graphics, networking, storage and offline support, performance, and device integration. These features are now maintained in separate living standards, so HTML5 should not be treated as one versioned API bundle.
+
+---
+
+## Consider HTML5 as an open web platform. What are the building blocks of HTML5?
+
+The phrase became popular when the modern web platform was being introduced. An interview-ready answer can name the traditional categories while clarifying that many of their APIs are not defined by the HTML specification itself.
+
+### Traditional building blocks
+
+- **Semantics**: Elements such as `<main>`, `<nav>`, `<article>`, and native form controls describe document structure and behavior.
+- **Styling**: CSS controls presentation, responsive layout, animation, and visual effects.
+- **Multimedia**: `<audio>`, `<video>`, and timed text provide native media playback.
+- **Graphics**: Canvas, SVG, and WebGL support raster, vector, and 2D or 3D graphics.
+- **Connectivity**: Fetch, server-sent events, and WebSocket connect pages to servers.
+- **Storage and offline behavior**: Web Storage, IndexedDB, Cache Storage, and service workers store data and support offline experiences. The old Application Cache feature is obsolete.
+- **Performance and integration**: Workers, performance APIs, and asynchronous loading help applications stay responsive and measurable.
+- **Device access**: Platform APIs can expose capabilities such as media capture, geolocation, sensors, and input devices, generally subject to permissions and secure-context rules.
+
+### How to discuss it today
+
+HTML is now a Living Standard rather than a sequence of marketing versions. Browser APIs evolve independently and differ in compatibility, permissions, privacy impact, and failure modes. For a real feature, check the API's current specification and browser support instead of assuming “HTML5 support” is a single capability.
+
+## Further reading
+
+- [HTML Living Standard | WHATWG](https://html.spec.whatwg.org/)
+- [HTML5 | MDN glossary](https://developer.mozilla.org/en-US/docs/Glossary/HTML5)
+- [Web API reference | MDN](https://developer.mozilla.org/en-US/docs/Web/API)

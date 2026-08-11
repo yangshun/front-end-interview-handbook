@@ -2,12 +2,38 @@
 title: Describe what you like and dislike about the CSS preprocessors you have used.
 ---
 
-## Likes
+## TL;DR
 
-- Mostly the advantages mentioned in ["What are the advantages/disadvantages of using CSS preprocessors?"](/questions/quiz/what-are-the-advantages-disadvantages-of-using-css-preprocessors).
-- Less is written in JavaScript, which plays well with Node.
+A strong answer should name a preprocessor actually used and connect its features to a concrete codebase. Sass or Less can provide modules, functions, mixins, loops, and build-time validation, which remain useful for generated design systems and mature projects. The tradeoffs are an extra build dependency, source-map debugging, possible output bloat, and abstractions that can obscure the resulting CSS. Native custom properties, nesting, cascade layers, and modern color functions now cover many simpler use cases.
 
-## Dislikes
+---
 
-- Sass relies on `node-sass`, which is a binding for LibSass written in C++. The library has to be recompiled frequently when switching between Node.js versions.
-- In Less, variable names are prefixed with `@`, which can be confused with native CSS at-rules like `@media`, `@import`, and `@font-face`.
+## Describe what you like and dislike about the CSS preprocessors you have used.
+
+This is an experience question, so the best response describes decisions and outcomes rather than listing syntax. Sass is a useful example.
+
+### Useful capabilities
+
+- **Modules and organization**: Sass's module system can expose a deliberate public API for tokens and utilities instead of relying on global imports.
+- **Functions, mixins, and loops**: Build-time logic can generate a controlled family of themes, spacing utilities, or compatibility rules.
+- **Validation**: A compiler can catch invalid variables and function calls before deployment.
+- **Existing ecosystem**: A mature codebase may already encode important design-system logic in Sass or Less.
+
+### Costs and failure modes
+
+- The project needs a compiler, configuration, CI integration, and accurate source maps.
+- Indirection can make it difficult to identify which source produced a declaration in DevTools.
+- Deep nesting mirrors the DOM, increases specificity, and produces fragile selectors.
+- Loops and mixins can silently generate much more CSS than authors expect.
+- Preprocessor variables exist only at build time and cannot respond to runtime cascade or DOM context like CSS custom properties can.
+
+The old `node-sass` package was based on LibSass and is end-of-life. Current Sass projects should use Dart Sass. Less is implemented in JavaScript and remains supported, but choosing a tool should depend on the existing stack and the capabilities the project actually needs.
+
+For a new project with straightforward styling, native CSS may be sufficient. A preprocessor is still reasonable when it removes meaningful repetition or supports an established design-system pipeline; it should not be added merely to use nesting or variables.
+
+## Further reading
+
+- [Sass documentation](https://sass-lang.com/documentation/)
+- [LibSass is deprecated | Sass](https://sass-lang.com/blog/libsass-is-deprecated/)
+- [CSS nesting | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting)
+- [CSS custom properties | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties)

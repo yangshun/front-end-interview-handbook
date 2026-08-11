@@ -2,56 +2,70 @@
 title: What kind of things must you be wary of when designing or developing for multilingual sites?
 ---
 
-Designing and developing for multilingual sites is part of internationalization (i18n).
+## TL;DR
 
-## Search Engine Optimization
+Multilingual design is more than translating strings. Use valid BCP 47 language tags, declare `lang` and `dir` in HTML, give users a persistent language switcher, keep whole messages translatable, format locale-sensitive values with `Intl`, and design for text expansion and different writing directions. Use stable locale-specific URLs and reciprocal `hreflang` links when localized pages should be indexed.
 
-- Use the `lang` attribute on the `<html>` tag.
-- Include the locale in the URL (e.g. `en_US`, `zh_CN`, etc.).
-- Webpages should use `<link rel="alternate" hreflang="other_locale" href="url_for_other_locale">` to tell search engines that there is another page at the specified `href` with the same content but for another language/locale.
-- Use a fallback page for unmatched languages. Use the `x-default` value: `<link rel="alternate" href="url_for_fallback" hreflang="x-default" />`.
+---
 
-## Understanding the difference between locale vs language
+## What kind of things must you be wary of when designing or developing for multilingual sites?
 
-Locale settings control how numbers, dates, and times display for your region, which may be a country, a portion of a country, or may not even honor country boundaries.
+Internationalization prepares an application for multiple languages, scripts, regions, and cultural conventions. Localization supplies the content and rules for a particular audience.
 
-## Language can differ between countries
+### Declare language and direction in markup
 
-Certain languages, especially the widely-spoken languages have different "flavors" in different countries (grammar rules, spelling, characters). It's important to differentiate languages for the target country and not assume/force one country's version of a language for all countries which speak the language. Examples:
+Set the document's default language on `<html>` and mark passages that switch languages. Screen readers, spellcheckers, search engines, and font selection can use this information.
 
-- `en`: `en-US` (American English), `en-GB` (British English)
-- `zh`: `zh-CN` (Chinese (Simplified)), `zh-TW` (Chinese (Traditional))
+```html
+<html lang="ar" dir="rtl">
+  <p>مرحبا</p>
+  <p lang="en" dir="ltr">Welcome</p>
+</html>
+```
 
-## Predict locale but don't restrict
+Use BCP 47 tags such as `en`, `en-GB`, or `zh-Hant`. Language and direction are separate: `lang` does not automatically set `dir`. Use `dir="auto"` for user-generated text whose direction is unknown, and prefer CSS logical properties such as `margin-inline-start` over physical `left` and `right` properties.
 
-Servers can determine the locale/language of visitors via a combination of HTTP `Accept-Language` headers and IPs. With these, servers can automatically select the best locale for the visitor. However, predictions are not foolproof (especially if visitors are using VPNs) and visitors should still be allowed to change their country/language easily without hassle.
+### Let users control the locale
 
-## Consider differences in the length of text in different languages
+`Accept-Language` can provide an initial hint, but it may reflect a shared device, proxy, or browser setting rather than the user's choice. IP geolocation is an even weaker language signal. Offer an obvious language switcher, preserve the selection, and avoid repeatedly forcing redirects.
 
-Some content can be longer when written in another language. Be wary of layout or overflow issues in the design. It's best to avoid designing where the amount of text would make or break a design. Character counts come into play with things like headlines, labels, and buttons. They are less of an issue with free-flowing text such as body text or comments. For example, some languages, such as German and French, tend to use longer words and sentences than English, which can cause layout issues if you do not take this into account.
+Do not treat language, region, currency, and country as interchangeable. For example, a user may choose English while living in Japan and paying in Japanese yen.
 
-## Language reading direction
+### Translate complete messages
 
-Languages like English and French are written from left to right, top to bottom. However, some languages, such as Hebrew and Arabic, are written from right to left. This can affect the layout of your site and the placement of elements on the page, so you must be careful to design your site in a way that accommodates different text directions.
+Do not assemble sentences from translated fragments such as `"The date is " + date`. Word order, plural forms, grammatical gender, and surrounding punctuation differ between languages. Give translators complete messages with named placeholders and use the message-formatting features of the chosen localization system.
 
-## Do not concatenate translated strings
+Format values with locale-aware APIs rather than handwritten patterns:
 
-> [!WARNING] Concatenation breaks in languages with different word order
->
-> Do not do anything like `"The date today is " + date`. It will break in languages with different word order. Use a template string with parameter substitution for each language instead. For example, compare the following two sentences in English and Chinese: `I will travel on {% date %}` and `我会在{% date %}出发`. Note that the position of the variable is different due to the grammar rules of each language.
+```js
+const price = new Intl.NumberFormat('de-DE', {
+  style: 'currency',
+  currency: 'EUR',
+}).format(1234.5);
 
-## Formatting dates and currencies
+console.log(price); // Formatting and spacing are locale-dependent.
+```
 
-Calendar dates are sometimes presented in different ways. E.g. "May 31, 2012" in the U.S. vs. "31 May 2012" in parts of Europe.
+Tests should assert the meaningful value or selected locale, not brittle punctuation that can vary between runtime data versions.
 
-## Do not put text in images
+### Design flexible layouts
 
-Putting text in raster-based images (e.g. PNG, GIF, JPG) is not a scalable approach. Placing text in an image is still a popular way to get good-looking, non-system fonts to display on any computer. However, to support image text translation in other languages, a separate image must be created for each language, which is not a scalable workflow for designers.
+- Expect translated labels and headings to expand or wrap.
+- Avoid fixed heights for text containers and test long words, narrow viewports, and browser zoom.
+- Keep text as text instead of baking it into images.
+- Use fonts that cover the required scripts and verify fallback rendering.
+- Check focus order, keyboard interaction, form errors, accessible names, and truncation in every supported direction.
+- Do not communicate meaning through color, icons, or cultural metaphors alone.
 
-## Be mindful of how colors are perceived
+### Give localized pages stable URLs
 
-Colors are perceived differently across languages and cultures. The design should use color appropriately.
+Locale-specific paths such as `/en/products` and `/fr/products` are easier to share, cache, index, and debug than a single URL whose language changes silently. If pages are equivalent localized versions, add reciprocal `rel="alternate"` links with `hreflang` and optionally an `x-default` fallback. Use hyphenated BCP 47 values such as `en-US`, not locale-library identifiers such as `en_US`, in HTML.
 
-## References
+Localization should be tested with actual target-language content and native or professional review; machine translation and pseudolocalization are useful checks but not final linguistic validation.
 
-- [The Differences between Locales and Languages](https://devblogs.microsoft.com/setup/the-differences-between-locales-and-languages)
+## Further reading
+
+- [Declaring language in HTML | W3C Internationalization](https://www.w3.org/International/questions/qa-html-language-declarations)
+- [Structural markup and right-to-left text | W3C Internationalization](https://www.w3.org/International/questions/qa-html-dir)
+- [Localized versions of pages | Google Search Central](https://developers.google.com/search/docs/specialty/international/localized-versions)
+- [`Intl` | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl)

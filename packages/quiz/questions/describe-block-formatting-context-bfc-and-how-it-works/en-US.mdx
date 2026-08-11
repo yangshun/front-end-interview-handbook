@@ -2,19 +2,57 @@
 title: Describe Block Formatting Context (BFC) and how it works.
 ---
 
-A Block Formatting Context (BFC) is part of the visual CSS rendering of a web page in which block boxes are laid out. Floats, absolutely positioned elements, `inline-blocks`, `table-cells`, `table-caption`s, and elements with `overflow` other than `visible` (except when that value has been propagated to the viewport) establish new block formatting contexts.
+## TL;DR
 
-> [!IMPORTANT] Why establishing a BFC matters
->
-> Without a BFC, the containing box will not [contain floated children](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_display/Block_formatting_context#Make_float_content_and_alongside_content_the_same_height). This is similar to collapsing margins, but more insidious — you will find entire boxes collapsing in odd ways.
+A block formatting context (BFC) is an independent region for normal-flow block layout and float interaction. A new BFC contains its internal floats, prevents external floats from intruding into it, and stops certain vertical margins from collapsing across its boundary. When the goal is to create a BFC intentionally, `display: flow-root` communicates that intent without clipping content or creating scrollbars.
 
-A BFC is an HTML box that satisfies at least one of the following conditions:
+```css
+.media-object {
+  display: flow-root;
+}
 
-- The value of `float` is not `none`.
-- The value of `position` is neither `static` nor `relative`.
-- The value of `display` is `table-cell`, `table-caption`, `inline-block`, `flex`, `inline-flex`, `grid`, or `inline-grid`.
-- The value of `overflow` is not `visible`.
+.media-object > img {
+  float: inline-start;
+  margin-inline-end: 1rem;
+}
+```
 
-In a BFC, each box's left outer edge touches the left edge of the containing block (for right-to-left formatting, right edges touch).
+---
 
-Vertical margins between adjacent block-level boxes within the same BFC can collapse, but a BFC prevents margin collapsing with elements outside of it. Read more on [collapsing margins](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing).
+## Describe Block Formatting Context (BFC) and how it works.
+
+A BFC defines where block boxes participate in flow layout and how floats affect nearby content. It is a layout boundary, not a visible element or a new DOM subtree.
+
+### Why a BFC matters
+
+Creating a BFC can:
+
+- Make a container's height include floated descendants.
+- Keep a normal-flow box from wrapping around a neighboring float.
+- Prevent a descendant's vertical margin from collapsing through the container boundary.
+
+### Common ways a BFC is created
+
+The full list is longer, but common triggers include:
+
+- The root `<html>` element.
+- A floated element.
+- An absolutely or fixed-positioned element.
+- `display: inline-block`, `table-cell`, or `table-caption`.
+- `display: flow-root`.
+- A block with `overflow` other than `visible` or `clip`.
+- Certain containment and container-query settings.
+
+Flex and Grid containers establish their own flex and grid formatting contexts. They have some similar boundary effects, but describing them simply as BFCs hides important differences, such as how their children are laid out.
+
+### Prefer an intentional trigger
+
+Older code often uses `overflow: hidden` or `overflow: auto` solely to contain floats. That creates a BFC, but it may clip shadows or produce unwanted scrolling. `display: flow-root` states the layout intention directly and avoids those overflow side effects.
+
+In DevTools, inspect the computed `display`, `float`, `position`, `overflow`, `contain`, and `container-type` values when a float escapes a parent or margins collapse unexpectedly.
+
+## Further reading
+
+- [Block formatting context | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Display/Block_formatting_context)
+- [In flow and out of flow | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Display/In_flow_and_out_of_flow)
+- [Mastering margin collapsing | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Box_model/Margin_collapsing)

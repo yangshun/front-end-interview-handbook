@@ -2,47 +2,53 @@
 title: Explain CSS sprites, and how you would implement them on a page or site.
 ---
 
-CSS sprites combine multiple images into one larger image file and use a combination of CSS `background-image`, `background-position`, and `background-size` to select a specific part of the larger image as the desired image.
+## TL;DR
 
-It used to be a commonly-used technique for icons (e.g. Gmail uses sprites for all their images).
+A CSS sprite packs several raster images into one file and reveals one region with `background-position`, fixed dimensions, and sometimes `background-size`. It historically reduced request overhead, but HTTP/2 and HTTP/3, caching, SVG symbols, and ordinary image files often make sprites a poor default today. Sprites can still be useful for tightly coupled small assets or frame-based game animation when one decoded sheet is operationally convenient.
 
-## Advantages
+---
 
-- Reduces the number of HTTP requests for multiple images (only a single request is required per spritesheet). With HTTP/2, however, loading multiple images is no longer much of an issue.
-- Allows assets to be downloaded in advance before they are needed, such as images that only appear on `:hover` pseudo-states. No flicker would be seen.
+## Explain CSS sprites, and how you would implement them on a page or site.
 
-## How to implement
-
-1. Use a sprite generator that packs multiple images into one and generates the appropriate CSS for it.
-1. Each image would have a corresponding CSS class with `background-image` and `background-position` properties defined.
-1. To use that image, add the corresponding class to your element.
-
-The generated stylesheet might look something like:
+A build tool usually packs the source images and records each region's coordinates. Every displayed sprite uses the same background image but shifts it so only the intended region appears.
 
 ```css
 .icon {
-  background-image: url('https://example.com/images/spritesheet.png');
+  display: inline-block;
   width: 24px;
   height: 24px;
+  background-image: url('/images/icons.png');
+  background-repeat: no-repeat;
 }
 
-.icon-cart {
+.icon--cart {
   background-position: 0 0;
 }
 
-.icon-arrow {
+.icon--arrow {
   background-position: -24px 0;
 }
 ```
 
-And can be used in the HTML as such:
-
 ```html
-<span class="icon icon-cart"></span>
-
-<span class="icon icon-arrow"></span>
+<button type="button">
+  <span class="icon icon--cart" aria-hidden="true"></span>
+  Add to cart
+</button>
 ```
 
-## References
+The element's dimensions must match the sprite cell. A high-density sheet also needs a deliberate `background-size` so its device pixels map to the intended CSS-pixel grid.
 
-- [Implementing image sprites in CSS - CSS: Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Images/Implementing_image_sprites_in_CSS)
+### Tradeoffs
+
+Sprites reduce the number of independently requested files and ensure all regions arrive together. They also couple unrelated assets: changing one icon invalidates the whole sheet, unused regions are downloaded, coordinates are brittle, and responsive or differently colored icons are awkward.
+
+Use backgrounds only for decorative imagery. A meaningful icon needs an accessible name from visible text or the containing control; the background itself cannot provide alternative text. SVG sprites or inline SVG are usually more flexible for single-color interface icons, while ordinary `<img>` elements are better for content images with `alt`, responsive candidates, and independent caching.
+
+Measure request overhead, transfer size, decode cost, cache invalidation, and maintenance complexity before retaining a sprite pipeline solely for historical performance reasons.
+
+## Further reading
+
+- [Implementing image sprites in CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Images/Implementing_image_sprites)
+- [SVG `<use>` | MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element/use)
+- [Image performance | web.dev](https://web.dev/learn/performance/image-performance)

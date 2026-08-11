@@ -2,20 +2,70 @@
 title: Are you familiar with styling SVG?
 ---
 
-SVG stands for Scalable Vector Graphics, an XML-based format for two-dimensional vector images. There are several ways to color SVG shapes (including specifying attributes on the element) using inline CSS, an embedded CSS section, or an external CSS file. Each approach has advantages and disadvantages.
+## TL;DR
 
-Basic coloring can be done by setting two attributes on the node: `fill` and `stroke`. `fill` sets the color inside the object and `stroke` sets the color of the line drawn around the object. You can use the same CSS color naming schemes that you use in HTML, whether that's color names (e.g. `red`), RGB values (e.g. `rgb(255, 0, 0)`), hex values, RGBA values, etc.
+Inline SVG participates in the document's CSS cascade, so shapes can be styled with properties such as `fill`, `stroke`, and `color`, including states like `:hover`. Presentation attributes such as `fill="red"` have low cascade priority and can be overridden by CSS, while a `style` attribute has inline-style priority. An SVG loaded through `<img>` is a separate document and cannot normally be styled from the page's stylesheet.
 
 ```html
-<rect
-  x="10"
-  y="10"
-  width="100"
-  height="100"
-  stroke="blue"
-  fill="purple"
-  fill-opacity="0.5"
-  stroke-opacity="0.8" />
+<button class="icon-button" type="button">
+  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M5 12h14M12 5l7 7-7 7" />
+  </svg>
+  Continue
+</button>
 ```
 
-The above `fill="purple"` is an example of a _presentational attribute_. Interestingly, and unlike inline styles like `style="fill: purple"` which also happens to be an attribute, presentational attributes can be [overridden by CSS](https://css-tricks.com/presentation-attributes-vs-inline-styles/) styles defined in a stylesheet. Hence if you did something like `svg { fill: blue; }` it will override the purple fill that has been defined.
+```css
+.icon {
+  width: 1.25em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+```
+
+---
+
+## Are you familiar with styling SVG?
+
+SVG is an XML-based vector format. How it can be styled depends on how it is embedded.
+
+### Inline SVG
+
+An inline `<svg>` is part of the page's DOM. CSS can target its elements, inherit values, use custom properties, and react to states on the SVG or its ancestors. `currentColor` is especially useful for icons because it makes SVG paint follow the surrounding text color.
+
+SVG presentation attributes such as `fill`, `stroke`, `stroke-width`, and `opacity` behave like low-priority author declarations. A stylesheet rule can override them:
+
+```html
+<svg
+  class="status-icon"
+  viewBox="0 0 20 20"
+  role="img"
+  aria-labelledby="status-title">
+  <title id="status-title">Payment approved</title>
+  <circle cx="10" cy="10" r="8" fill="green" />
+</svg>
+```
+
+```css
+.status-icon circle {
+  fill: var(--status-color, seagreen);
+}
+```
+
+Avoid broad selectors such as `svg { fill: ... }`, which can accidentally fill paths intended to use strokes or their own colors.
+
+### External SVG
+
+- `<img src="icon.svg" alt="...">` treats the SVG as an image. Page CSS cannot reach its internal shapes, but the image is cacheable and easy to use.
+- A CSS `background-image` is appropriate for decoration, not meaningful content, because it has no HTML alternative text.
+- `<object>` or `<iframe>` creates a separate document with additional loading, security, and scripting considerations.
+- An external `<use>` symbol sprite can share icons, but styling behavior depends on how the symbol is authored; prefer `currentColor` and test the target browsers.
+
+For decorative inline icons, use `aria-hidden="true"` and ensure the adjacent control has an accessible name. For a standalone informative SVG, provide an accessible name using surrounding HTML or an SVG `<title>` relationship. Do not put essential text only in generated or decorative graphics.
+
+## Further reading
+
+- [SVG styling | MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorials/SVG_from_scratch/SVG_and_CSS)
+- [`fill` | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/fill)
+- [Accessible SVGs | W3C WAI](https://www.w3.org/WAI/GL/wiki/Using_aria-labelledby_to_provide_a_name_for_user_interface_controls)

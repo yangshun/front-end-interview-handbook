@@ -3,6 +3,49 @@ title: What existing CSS frameworks have you used locally, or in production?
 subtitle: How would you change/improve them?
 ---
 
-- **Bootstrap**: Slow release cycle. Bootstrap 4 was in alpha for almost two years. Future versions of Bootstrap should include a spinner button component, as it is widely used.
-- **Semantic UI**: Source code structure makes theme customization extremely hard to understand. Its unconventional theming system is a pain to customize. Hardcoded config paths within the vendor library. Not well-designed for overriding variables, unlike Bootstrap.
-- **Bulma**: A lot of non-semantic and superfluous classes and markup required. Not backward-compatible — upgrading versions breaks the app in subtle ways.
+## TL;DR
+
+This is an experience question: name the framework, version or era, product context, and the tradeoff you observed. A useful answer explains whether the framework is component-based or utility-first, how it affected consistency, accessibility, bundle size, customization, and upgrades, and one concrete improvement. Do not present a personal preference or an old release problem as a timeless property of the framework.
+
+---
+
+## What existing CSS frameworks have you used locally, or in production?
+
+### Compare the layer each framework provides
+
+Frameworks solve different problems, so compare them against the project's needs rather than ranking them generically:
+
+| Example | What it provides | Questions to ask |
+| --- | --- | --- |
+| Bootstrap | Layout utilities and prebuilt interactive component styles | Can its Sass variables or CSS custom properties express the product's design without extensive overrides? |
+| Bulma | Sass-based layout and component classes | Does the class and markup convention fit the application, and is the team prepared to test upgrades? |
+| Semantic UI | A themed component vocabulary and JavaScript integrations | Is the theming and integration model maintainable for the versions already in the product? |
+| Tailwind CSS | Low-level utility classes generated from a configured design system | Are repeated component patterns extracted appropriately, and is generated CSS limited to what the product uses? |
+
+The named products illustrate different approaches; their capabilities and release behavior change, so an interview answer should identify the version or time period behind any specific criticism.
+
+### A practical answer shape
+
+A strong answer might say:
+
+> I used Bootstrap in an internal application where predictable form and layout conventions helped a small team deliver quickly. The main cost was overriding component styles to match a distinct brand. I would first customize framework tokens and wrap repeated application patterns instead of adding more-specific selectors throughout the codebase. I would also test the exact component states we use—keyboard focus, validation errors, zoom, and long translated labels—rather than assuming the framework makes them accessible automatically.
+
+That answer connects the tool to a real constraint, acknowledges both value and cost, and proposes a change at the correct abstraction layer.
+
+### Improving framework use
+
+- Configure documented tokens, themes, and build-time options before overriding generated selectors.
+- Keep application components behind a small wrapper API so framework upgrades do not require editing every call site.
+- Import or generate only the CSS the product uses, then verify the result with Network and Coverage tooling.
+- Add regression tests for the application's supported component states and target browsers.
+- Follow the framework's migration guides and review generated markup and accessibility behavior after an upgrade.
+- Avoid maintaining a private fork unless the project can sustain merging upstream fixes; contribute a generally useful fix upstream when practical.
+
+A framework accelerates common work but does not replace semantic HTML, product-specific usability testing, or knowledge of the underlying cascade and layout systems.
+
+## Further reading
+
+- [Customize Bootstrap](https://getbootstrap.com/docs/5.3/customize/overview/)
+- [Bulma documentation](https://bulma.io/documentation/)
+- [Semantic UI theming](https://semantic-ui.com/usage/theming.html)
+- [Tailwind CSS utility-first fundamentals](https://tailwindcss.com/docs/styling-with-utility-classes)

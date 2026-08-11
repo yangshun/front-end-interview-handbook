@@ -2,10 +2,67 @@
 title: What are the various clearing techniques and which is appropriate for what context?
 ---
 
-- Empty `div` method: `<div style="clear:both;"></div>`.
-- Clearfix method: refer to the [`.clearfix` class](/questions/quiz/describe-floats-and-how-they-work).
-- `overflow: auto` or `overflow: hidden` method: the parent will establish a new block formatting context and expand to contain its floated children.
+## TL;DR
 
-> [!TIP] Prefer `.clearfix` in larger projects
->
-> In large projects, having a utility `.clearfix` class is very helpful. `overflow: hidden` might clip children if they are taller than the parent, which is not ideal.
+For a container that must contain floated children, use `display: flow-root`; it creates a new block formatting context without pretending that overflow should be clipped or scrolled. Use `clear` on an element that must move below preceding floats. Clearfix pseudo-elements remain useful in legacy code, while empty clearing elements and `overflow: hidden` are usually avoidable.
+
+---
+
+## What are the various clearing techniques and which is appropriate for what context?
+
+### `clear` moves a following box
+
+The `clear` property moves a block box below relevant earlier floats in the same block formatting context:
+
+```html
+<img class="thumbnail" src="avatar.jpg" alt="" />
+<p>Text wraps beside the floated image.</p>
+<h2 class="next-section">Account activity</h2>
+```
+
+```css
+.thumbnail {
+  float: inline-start;
+  margin-inline-end: 1rem;
+}
+
+.next-section {
+  clear: both;
+}
+```
+
+Use this when the following element—not the parent—must start below floats.
+
+### `flow-root` contains floats
+
+A float is taken out of normal flow, so a parent containing only floated children can appear to have zero height. `display: flow-root` creates a new block formatting context whose height contains those floats:
+
+```css
+.media-object {
+  display: flow-root;
+}
+```
+
+This states the layout intent directly. `overflow: auto` or `overflow: hidden` also establishes a block formatting context in common cases, but it can add scrollbars or clip overflowing content. Use an overflow value because overflow behavior is desired, not merely as a clearing trick.
+
+### Legacy techniques
+
+A traditional clearfix inserts a generated block after the contents:
+
+```css
+.clearfix::after {
+  display: block;
+  clear: both;
+  content: '';
+}
+```
+
+It remains reasonable when maintaining a legacy float-based grid or supporting a target without `flow-root`. An empty `<div style="clear: both"></div>` changes the document structure only for presentation and is harder to maintain.
+
+For new multi-column component or page layout, use Grid or Flexbox rather than floats and clearing. Floats still have a valid role when content should wrap around an image or other editorial element.
+
+## Further reading
+
+- [`clear` (MDN)](https://developer.mozilla.org/en-US/docs/Web/CSS/clear)
+- [Block formatting context (MDN)](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_display/Block_formatting_context)
+- [`flow-root` (CSS Display specification)](https://drafts.csswg.org/css-display/#valdef-display-flow-root)

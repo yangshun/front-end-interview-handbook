@@ -2,13 +2,41 @@
 title: How is responsive design different from adaptive design?
 ---
 
-Both responsive and adaptive design attempt to optimize the user experience across different devices, adjusting for different viewport sizes, resolutions, usage contexts, control mechanisms, and so on.
+## TL;DR
 
-Responsive design works on the principle of flexibility — a single fluid website that can look good on any device. Responsive websites use media queries, flexible grids, and responsive images to create a user experience that flexes and changes based on a multitude of factors: like a single ball growing or shrinking to fit through several different hoops.
+Responsive design usually means one fluid layout that continuously adapts using flexible sizing, media or container queries, and responsive media. Adaptive design usually means choosing among a smaller set of deliberately different layouts or experiences. The terms are informal and real products often combine both; adaptive design does not inherently require user-agent sniffing.
 
-Adaptive design is more like the modern definition of progressive enhancement. Instead of one flexible design, adaptive design detects the device and other features, and then provides the appropriate features and layout based on a predefined set of viewport sizes and other characteristics. The site detects the type of device used and delivers the pre-set layout for that device. Instead of a single ball going through several different-sized hoops, you'd have several different balls to use depending on the hoop size.
+---
 
-Both of these methods have some issues that need to be weighed:
+## How is responsive design different from adaptive design?
 
-- Responsive design can be quite challenging, as you're essentially using a single albeit responsive layout to fit all situations. How to set the media query breakpoints is one such challenge. Do you use standardized breakpoint values? Or, do you use breakpoints that make sense to your particular layout? What if that layout changes?
-- Adaptive design generally requires user agent sniffing, or DPI detection, etc., all of which can prove unreliable.
+### Conventional distinction
+
+Both approaches aim to make an experience work in different contexts, but they emphasize different forms of adaptation:
+
+| Dimension | Responsive design | Adaptive design |
+| --- | --- | --- |
+| Layout | Fluidly grows, shrinks, and reflows | Switches among predefined arrangements |
+| Common inputs | Available inline size, aspect ratio, user preferences | Breakpoint ranges, capabilities, or product-defined contexts |
+| Typical implementation | Flexible units, Grid, Flexbox, media and container queries | Distinct templates, component variants, or server/client-selected experiences |
+| Main risk | A single fluid composition becomes hard to control at extremes | Variants drift apart or make unreliable assumptions about users |
+
+This is industry terminology, not a strict browser-platform classification. A layout that uses fluid tracks between two major breakpoint-specific compositions could reasonably be described as both.
+
+### Practical choices
+
+Responsive techniques are a strong default for content that is fundamentally the same at every size. For example, a product grid can let tracks grow and wrap while responsive images provide suitable resources.
+
+Adaptive variants are useful when a context needs a materially different composition or interaction—for example, a dense editing workspace may expose persistent panels on a wide screen but use an explicit panel switcher in a narrow container. The alternative must preserve access to the same important actions and content rather than hiding them solely because a screen is small.
+
+### Avoid device assumptions
+
+Adaptive design does not require detecting an iPhone, tablet, or desktop user agent. CSS media and container queries can select predefined layouts by available space, while feature detection can select behavior by capability. Server-selected variants can be justified for device-specific delivery constraints, but user-agent detection is brittle and caching must account for any request-dependent response.
+
+In either approach, choose breakpoints from content, test text zoom and translations, and avoid equating viewport width with input method. A wide touch device and a narrow desktop window are both normal cases.
+
+## Further reading
+
+- [Responsive design (MDN)](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design)
+- [Responsive web design basics (web.dev)](https://web.dev/articles/responsive-web-design-basics)
+- [CSS container queries (MDN)](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries)

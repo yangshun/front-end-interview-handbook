@@ -2,10 +2,63 @@
 title: What are some of the "gotchas" for writing efficient CSS?
 ---
 
-Firstly, understand that browsers match selectors from rightmost (the key selector) to left. Browsers filter out elements in the DOM according to the key selector, then traverse up their parent elements to determine matches. The shorter the length of the selector chain, the faster the browser can determine if that element matches the selector. Hence, avoid using tag and universal selectors as key selectors — they match a large number of elements, and browsers will have to do more work determining if the parents match.
+## TL;DR
 
-> [!TIP] BEM naturally produces efficient selectors
->
-> The [BEM (Block Element Modifier)](https://en.bem.info/) methodology recommends that everything has a single class, and that any needed hierarchy is baked into the name of the class. This naturally makes selectors efficient and easy to override.
+Efficient CSS starts with measurement. Check unused and render-blocking CSS, style recalculation, layout, paint, and compositing in browser DevTools before optimizing selectors. Keep the cascade predictable, avoid unnecessary invalidation and layout work, animate suitable properties, and use containment or `will-change` only when profiling shows that their tradeoffs help.
 
-Be aware of which CSS properties [trigger](https://csstriggers.com/) reflow, repaint, and compositing. Avoid writing styles that change the layout (trigger reflow) where possible.
+---
+
+## What are some of the "gotchas" for writing efficient CSS?
+
+### Delivery and unused CSS
+
+CSS can delay rendering because the browser needs style information before it can paint. Common high-impact issues include a large framework bundle used by only a few components, route-specific styles loaded everywhere, duplicate rules, and fonts or background images referenced by CSS but downloaded too early.
+
+Use the Network panel to inspect transfer and blocking time and the Coverage panel to find candidates for removal or splitting. Minification and compression help transfer size, but deleting unused declarations and loading critical route styles intentionally usually has more leverage.
+
+### Selector matching and the cascade
+
+Engines commonly use the rightmost compound selector to find candidate elements, then verify the rest of the selector relationship. However, browsers optimize matching heavily, so “shorter selectors are always faster” is not a useful universal rule. A selector becomes a performance problem only when measurements show expensive style recalculation for the actual DOM and mutation pattern.
+
+Write selectors primarily for maintainability and controlled invalidation:
+
+```css
+/* A component class with deliberately low-specificity defaults. */
+:where(.card) {
+  padding: 1rem;
+}
+
+/* A narrow state change rather than a broad descendant override. */
+.card[data-state='selected'] {
+  outline: 2px solid Highlight;
+}
+```
+
+Classes, BEM, cascade layers, and low-specificity selectors can make overrides predictable, but none of them guarantees faster rendering. Deeply coupled selectors and repeated `!important` rules are primarily architecture and debugging problems.
+
+### Layout, paint, and compositing
+
+Changing geometry can cause layout; changing visual properties can require painting; and composited layers then need to be assembled. Avoid JavaScript that repeatedly alternates layout reads and style writes across many elements, because it can force synchronous layout. Batch reads and writes and update only the elements that changed.
+
+For animations, `transform` and `opacity` are often good candidates because they can avoid layout and paint, but layer promotion is browser-dependent and large layers still cost memory and compositing time. Expensive shadows, filters, clipping, and large painted areas should be judged with paint flashing and a performance recording, not forbidden categorically.
+
+Containment and `content-visibility` can let the browser skip work outside a component or off-screen subtree. They also affect layout and sizing and need deliberate focus and accessibility testing. Likewise, `will-change` should be applied sparingly and removed when no longer needed.
+
+### What to measure
+
+Record the slow interaction in the target browser and representative hardware. Look for:
+
+- Long “Recalculate Style” or layout events and the number of affected elements.
+- Large or frequent paint regions.
+- Excessive layer count or memory use.
+- Unused CSS and render-blocking resources.
+- Layout shifts and interaction latency caused by late styles or content.
+
+Optimize the dominant cost, repeat the trace, and keep the change only if the measured result improves without harming correctness.
+
+## Further reading
+
+- [Reduce the scope and complexity of style calculations (web.dev)](https://web.dev/articles/reduce-the-scope-and-complexity-of-style-calculations)
+- [Rendering performance (web.dev)](https://web.dev/articles/rendering-performance)
+- [CSS containment (MDN)](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment)
+- [`will-change` (MDN)](https://developer.mozilla.org/en-US/docs/Web/CSS/will-change)
