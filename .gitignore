@@ -48,6 +48,3 @@ crowdin.yml
 
 # env
 .env
-
-# langnostic
-.langnostic

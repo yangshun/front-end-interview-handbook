@@ -1,9 +1,0 @@
----
-title: Quais são as várias técnicas de limpeza e qual é apropriada para qual contexto?
----
-
-- Método do `div` vazio: `<div style="clear:both;"></div>`.
-- Método de Clearfix: Consulte a classe `.clearfix` mencionada anteriormente.
-- Método `overflow: auto` ou `overflow: hidden`: O pai estabelecerá um novo contexto de formatação em bloco e se expandirá para conter seus filhos flutuantes.
-
-Em projetos grandes, ter uma classe utilitária `.clearfix` será muito útil. `overflow: hidden` pode cortar os filhos se eles forem mais altos que o pai, e isso não é muito ideal.

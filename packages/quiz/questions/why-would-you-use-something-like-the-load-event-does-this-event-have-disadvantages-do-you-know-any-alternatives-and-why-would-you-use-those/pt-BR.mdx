@@ -1,8 +1,0 @@
----
-title: Por que você usaria algo como o evento `load`?
-subtitle: Este evento tem desvantagens? Você conhece alguma alternativa, e por que as usaria?
----
-
-O evento `load` dispara no final do processo de carregamento de documentos. Neste ponto, todos os objetos no documento estão no DOM, e todas as imagens, scripts, links e sub-frames terminaram de carregar.
-
-O evento DOM `DOMContentLoaded` será acionado após o DOM para a página ser construído, mas não espere outros recursos terminarem de carregar. Isso é preferível em certos casos quando você não precisa que a página inteira seja carregada antes de inicializar.

@@ -1,9 +1,0 @@
----
-title: Quais são algumas das "armadilhas" para escrever CSS eficiente?
----
-
-Primeiramente, entenda que os navegadores combinam seletores da direita (seletor-chave) para a esquerda. Os navegadores filtram elementos no DOM de acordo com o seletor-chave e percorrem seus elementos pais para determinar correspondências. Quanto menor o comprimento da cadeia de seletores, mais rápido o navegador pode determinar se aquele elemento corresponde ao seletor. Portanto, evite seletores-chave que sejam seletores de tag ou universais. Eles correspondem a um grande número de elementos e os navegadores terão que fazer mais trabalho para determinar se os pais correspondem.
-
-A metodologia [BEM (Block Element Modifier)](https://bem.info/) recomenda que tudo tenha uma única classe e, quando você precisa de hierarquia, que isso seja incorporado ao nome da classe também, o que naturalmente torna o seletor eficiente e fácil de substituir.
-
-Esteja ciente de quais propriedades CSS [trigger](https://csstriggers.com/) reflow, repaint, e compositing. Evite escrever estilos que alteram o layout (fator reflow) quando possível.

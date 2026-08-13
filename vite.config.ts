@@ -3,7 +3,6 @@ import { defineConfig } from 'vite-plus';
 const generatedIgnores = [
   'website/.docusaurus/**',
   'website/build/**',
-  '.langnostic/**',
   'dist/**',
   'coverage/**',
 ];
@@ -47,10 +46,6 @@ export default defineConfig({
       deploy: {
         command: 'vp run website#deploy',
         dependsOn: ['build'],
-        cache: false,
-      },
-      i18n: {
-        command: 'vp exec langnostic translate',
         cache: false,
       },
     },

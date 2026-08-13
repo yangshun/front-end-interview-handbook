@@ -1,7 +1,0 @@
----
-title: Explique como um navegador determina quais elementos correspondem a um seletor CSS.
----
-
-Esta pergunta está relacionada com a pergunta sobre [escrever um CSS eficiente](/questions/quiz/what-are-some-of-the-gotchas-for-writing-efficient-css). Os navegadores combinam seletores da direita (seletor-chave) para a esquerda. Os navegadores filtram elementos no DOM de acordo com o seletor-chave e percorrem seus elementos pais para determinar correspondências. Quanto menor o comprimento da cadeia de seletores, mais rápido o navegador pode determinar se aquele elemento corresponde ao seletor.
-
-Por exemplo, com um seletor `p span`, os navegadores primeiro encontram todos os elementos `<span>` e percorrem seus pais até a raiz para encontrar o elemento `<p>`. Para um determinado `<span>`, assim que ele encontrar um `<p>`, ele sabe que o `<span>` corresponde ao seletor e pode parar de atravessar seus pais.

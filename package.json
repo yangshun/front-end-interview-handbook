@@ -5,8 +5,6 @@
     "prepare": "vp config"
   },
   "devDependencies": {
-    "@langnostic/plugin-mdx": "^0.0.9",
-    "langnostic": "^0.0.9",
     "typescript": "^5.8.2",
     "vite-plus": "catalog:"
   }
