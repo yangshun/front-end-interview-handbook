@@ -33,19 +33,19 @@ Coinbase's front-end loop uses real test suites — your code is graded by wheth
 
 These tips were shared by [GreatFrontEnd](https://www.greatfrontend.com/?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) users who have completed interviews with Coinbase.
 
-**23rd Oct 2025**:
+**October 2025**:
 
 > Everything in my Coinbase loop was set up in TypeScript, but they aren't strict about correct types — you can write `any` to speed things up. Google was not allowed during the interview, so don't rely on looking up HTML event types or similar — practice from memory. The interviewers were nice about you describing what you'd do in practice rather than implementing every piece end-to-end.
 
-**18th Oct 2025**:
+**October 2025**:
 
 > No system design in my Coinbase loop (might depend on level). My domain question was building a search input that displays and searches a given data structure. The tech execution round gave me a partially-implemented app with missing pieces — utility functions, UI components, data fetching, JS fundamentals — and a test suite to pass for each part. Pretty comprehensive coverage of fundamentals.
 
-**9th Oct 2025**:
+**October 2025**:
 
 > Recent Coinbase loop: two coding assessments and one behavioral round. The OA / coding portion is similar in flavor to the Job Board question on GFE — small app with data fetching.
 
-**1st Aug 2024**:
+**August 2024**:
 
 > The Coinbase CodeSignal assessment is very simple if you've done Job Board on GFE plus a couple of other UI questions. It's an app with data fetching.
 

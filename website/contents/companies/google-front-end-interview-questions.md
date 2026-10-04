@@ -4,38 +4,33 @@ sidebar_label: Google interview questions
 description: 'Complete Google front end interview guide: JavaScript coding, UI components, system design & DSA. Practice questions for L4-L6 roles.'
 ---
 
-:::info Latest version on GreatFrontEnd
+:::info Full guide on GreatFrontEnd
 
-Find the latest version of this page on [GreatFrontEnd's Google Front End Interview Guide](https://www.greatfrontend.com/interviews/company/google/questions-guides?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
+Explore round details, preparation advice, and related practice in [GreatFrontEnd's Google Front End Interview Guide](https://www.greatfrontend.com/interviews/company/google/questions-guides?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
 
 :::
 
-Since it's Google, candidates can expect to be tested on fundamental Computer Science concepts as well as their front end knowledge/skills.
+Google candidates have encountered both algorithm-heavy loops and rounds dedicated to browser implementation. Rehearse general problem solving in JavaScript alongside UI work, and use the current invitation to decide the balance.
 
-> Web Front End: ​You should be ready to cover topics like front end latency and implementation of standard CS algorithms using idiomatic JavaScript. You should be able to articulate Javascript strengths and shortcomings and ready to cover any of the following: Web security issues (XSS, XSRF), Prototypal inheritance, DOM API & manipulation, CSS manipulation, Browser / DOM events & event handling, XHR requests & HTTP headers, JavaScript closures
+The saved preparation documents below are historical references. They discuss JavaScript, DOM behavior, web security, and browser performance, but their tooling and round details may be outdated. Google's former interview-preparation URL now redirects to its [careers resources page](https://www.google.com/about/careers/applications/buildyourfuture/resources/); request role-specific instructions from your recruiter.
 
-Refer to Google's official interview preparation guides for:
-
-- [Official Interview Prep](https://techdevguide.withgoogle.com/paths/interview/)
-- [Front End or Mobile Software Engineers](/guides/google-front-end-guide.pdf)
-- [Front End/Mobile Software Engineers (Old)](/guides/google-front-end-guide-old.pdf)
-- [Non-technical interviews](/guides/google-non-technical-guide.pdf)
+- [Front End or Mobile Software Engineers (saved PDF)](/guides/google-front-end-guide.pdf)
+- [Front End/Mobile Software Engineers (older saved PDF)](/guides/google-front-end-guide-old.pdf)
+- [Non-technical interviews (saved PDF)](/guides/google-non-technical-guide.pdf)
 
 ## JavaScript coding questions
 
 - How do you make a function that takes a callback function `fn` and returns a function that calls `fn` on a timeout?
-  - [Practice question](https://www.greatfrontend.com/questions/javascript/debounce?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
+  - Related practice: [Debounce](https://www.greatfrontend.com/questions/javascript/debounce?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) resets the delay when called again. Add that behavior after implementing the basic delayed callback. (Free)
 - Implement the outline view for a Google doc.
   - [Practice question](https://www.greatfrontend.com/questions/javascript/table-of-contents?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
 - DFS on HTML nodes.
   - [Practice question](https://www.greatfrontend.com/questions/javascript/get-elements-by-tag-name?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
-- Implement `throttle`.
-  - [Practice question](https://www.greatfrontend.com/questions/javascript/throttle?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
-- How do you make a function that only calls input function f every 50 milliseconds?
+- Implement `throttle`, for example allowing an input function to run at most once every 50 milliseconds.
   - [Practice question](https://www.greatfrontend.com/questions/javascript/throttle?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
 - Given a timeline write the JavaScript to select all nodes within selection of timeline.
 - File System API question paired with a streaming API problem implemented with generators (DSA round).
-- Build a feature like a button in vanilla JavaScript inside a Google Doc (no ability to execute code — live coding in a doc).
+- Implement a small feature such as a button in vanilla JavaScript. An earlier interview used a document without code execution; confirm the environment for your own session.
 
 ## User interface coding questions
 
@@ -45,7 +40,7 @@ Refer to Google's official interview preparation guides for:
 - Implement a color swatch component. Follow-up: add a slider control.
 - Implement nested checkboxes (when the parent is checked, children are checked and vice versa. Use `<input type="checkbox">`). Similar to [Indeterminate checkboxes](https://css-tricks.com/indeterminate-checkboxes/).
 - Design a webpage which can auto load new posts when you reach the bottom of the page by using JavaScript. You may use AJAX and JavaScript event listeners.
-- Write a UI using HTML, CSS, JavaScript that allows uses to enter the number of rows and columns in text input fields within a form and renders a table.
+- Write a UI using HTML, CSS, JavaScript that allows users to enter the number of rows and columns in text input fields within a form and renders a table.
   - [Practice question](https://www.greatfrontend.com/questions/user-interface/generate-table?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
   - Example: Number of rows: 4, Number of columns: 5, "Submit" button. Clicking on the "Submit" button will show the following table (ignore the styling):
 
@@ -73,7 +68,7 @@ Refer to Google's official interview preparation guides for:
 
 ## Algorithm
 
-- Minesweeper problem. Write a function `reveal()` that outputs the number of tiles shown when a user clicks on a tile. Each tile shows the number of bombs as its neighbor. If the user click on a tile that is a bomb, the game is over. If that tile is 0, reveal all its neighbors.
+- Minesweeper problem. Write a function `reveal()` that outputs the number of tiles shown when a user clicks on a tile. Each tile shows the number of bombs as its neighbor. If the user clicks on a tile that is a bomb, the game is over. If that tile is 0, reveal all its neighbors.
 - You are given four numbers (type int), and have four basic math operators at your disposal (+, -, x, /). Given arbitrary ways to group the numbers and using any of the operators, determine if you can make the number 24 from the four numbers. The numbers must be processed in the order they appear.
 - Find k-nearest points.
 
@@ -83,11 +78,11 @@ _Source: [Glassdoor Google Front End Software Engineer Interview Questions](http
 
 These tips were shared by [GreatFrontEnd](https://www.greatfrontend.com/?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) users who have completed interviews with Google.
 
-**24th Oct 2025**:
+**October 2025**:
 
 > Just signed my offer from Google. None of my interview questions were tagged — you'll hear from lots of people that Google has a huge test bank, so just prepare yourself with NeetCode 150 and really deeply understand the solutions. Don't just memorize; if you can't solve LC problems you haven't seen before, you'll get caught. I had 2 interviews with regular LC-style problems at around medium difficulty.
 
-**5th Apr 2025**:
+**April 2025**:
 
 > Interview experience at Google L4 frontend role - Offer Accepted
 >
@@ -98,15 +93,15 @@ These tips were shared by [GreatFrontEnd](https://www.greatfrontend.com/?utm_sou
 >
 > Team match round, then HC review, Offer
 
-**9th Mar 2025**:
+**March 2025**:
 
 > I have a google senior frontend engineer loop coming up. The recruiter shared material suggests 2 dsa + 1 frontend + 1 system design (guideline suggests it can be anything frontend or backend) + 1 behavioural.
 
-**20th Dec 2024**:
+**December 2024**:
 
 > Hello, folks! Previously, I had an interview with Google for a Front-End role. The problem I got was DSA-style, just like you guys mentioned, thanks to this channel, so I did prep for DSA.
 
-**20th Dec 2024**:
+**December 2024**:
 
 > DSA is fair game throughout the entire google experience easy, medium, hard, all fair game
 

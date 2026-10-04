@@ -47,21 +47,21 @@ The onsite system design round commonly asks you to design a Slack-like or messa
 
 These tips were shared by [GreatFrontEnd](https://www.greatfrontend.com/?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) users who have completed interviews with DoorDash.
 
-**2nd Nov 2025**:
+**November 2025**:
 
 > Heads-up on the DoorDash Senior FE (E5) system design round: they give you the client part of the architecture diagram on Excalidraw (frontend boxes plus an arrow pointing to nothing) and you fill in the rest. There's a small library of icons (servers, DBs, etc.) you can drag in. Be ready to justify REST vs GraphQL and whether a Backend-For-Frontend (BFF) layer makes sense. The round leans heavily on backend knowledge — they essentially expect FE engineers to also be full-stack.
 
-**17th Oct 2025**:
+**October 2025**:
 
 > Current DoorDash process: recruiter → technical screen → virtual onsite. The virtual onsite is 4 rounds: hiring manager chat (behavioral), system design, an "onsite feature" round (add a feature to existing code), and a domain knowledge round (project deep dive plus some trivia).
 
-**11th Oct 2025**:
+**October 2025**:
 
 > Just passed the DoorDash phone screen. The trick on the fetch part: the provided `dogsApi` function looked correct but didn't actually `return` the result of `fetch(...)` — you have to spot that and add `return` so the promise propagates. Spent 5 minutes debugging it thinking I was calling it wrong.
 >
 > On the React side you don't need any data manipulation, just `.map` over the JSON result to access the fields you need. The GFE Image Slider question covers what they want — also brush up on responsive CSS.
 
-**8th Mar 2024**:
+**March 2024**:
 
 > DoorDash doesn't have a question pool for FE — it's almost always the same:
 >

@@ -23,7 +23,7 @@ Mozilla typically asks practical build-up style coding rather than LeetCode. Pas
 
 These tips were shared by [GreatFrontEnd](https://www.greatfrontend.com/?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) users who have completed interviews with Mozilla.
 
-**10th Sep 2025**:
+**September 2025**:
 
 > I did the full loop at Mozilla. Mine was mostly HTML, CSS, JS — just two build-up coding questions. More practical coding rather than LeetCode. I've heard from others that the format is a bit different now, including a CSS challenge for the online assessment, so confirm with your recruiter what to expect.
 

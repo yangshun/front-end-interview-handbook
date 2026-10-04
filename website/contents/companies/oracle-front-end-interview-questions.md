@@ -31,9 +31,9 @@ Find more company guides on [GreatFrontEnd](https://www.greatfrontend.com/interv
 
 These tips were shared by [GreatFrontEnd](https://www.greatfrontend.com/?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) users who have completed interviews with Oracle.
 
-**11th Jun 2025**:
+**June 2025**:
 
-> Interview experience for Oracle OCI India SDE-3 role
+> Interview experience for Oracle OCI ... SDE-3 role
 >
 > 1. Round 1 (DSA): Given a string "1+3-2", print the output "2". Handle all edge cases. No need to follow BODMAS rule
 > 1. Round 2 (JavaScript): Squash Object question on the GreatFrontend (https://www.greatfrontend.com/questions/javascript/squash-object?practice=practice&tab=coding)

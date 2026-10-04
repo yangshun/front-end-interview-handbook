@@ -41,9 +41,9 @@ _Source: [Glassdoor Twitter Front End Developer Interview Questions](https://www
 
 ## Insider tips from the GreatFrontEnd community
 
-These tips were shared by [GreatFrontEnd](https://www.greatfrontend.com/?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) users who have completed interviews with Twitter.
+These tips were shared by [GreatFrontEnd](https://www.greatfrontend.com/?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) users who have completed interviews with X/Twitter.
 
-**5th Sep 2025**:
+**September 2025**:
 
 > Got asked to "Design Twitter feed" as a progressive UI coding question. The levels were:
 >
@@ -52,11 +52,11 @@ These tips were shared by [GreatFrontEnd](https://www.greatfrontend.com/?utm_sou
 > 3. Fetch post details via API; also fetch the author of each post — if the author is the user themselves, display "You" instead of the name.
 > 4. Show the likes count. Liking should increment the count, and the feed should sort by likes. There was one more case I don't remember.
 
-**5th Jan 2025**:
+**January 2025**:
 
 > Study for tic tac toe and autocomplete questions
 
-**6th Nov 2024**:
+**November 2024**:
 
 > I had one last month for their product web engineer role. They don't have recruiters at xai. It's the engineers in the team that filter resumes, call candidates.The first round was a short 15 mnts google meets call, the engineer went over what they are building - they are basically upgrading a legacy app built by twitter engineers years ago into react and looking for someone who has both react as well as react native skills. Received a rejection after the initial chat.
 

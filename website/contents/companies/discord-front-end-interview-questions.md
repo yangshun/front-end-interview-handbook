@@ -31,15 +31,15 @@ Discord's tech screen and onsite coding rounds are unusual: you are typically ex
 
 These tips were shared by [GreatFrontEnd](https://www.greatfrontend.com/?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) users who have completed interviews with Discord.
 
-**21st May 2026**:
+**May 2026**:
 
 > I talked to 2 people who got Discord offers. Both of them got a chat app in the tech screen and Google Sheets in the onsite coding round. For the chat app, the full-stack version is React + Node.js with WebSockets, but Discord also has a front-end-only variant — clarify which one you'll get. The formula logic in the Sheets question is the most important part to nail.
 
-**21st May 2026**:
+**May 2026**:
 
 > Heads up for the Discord initial tech screen: I was told to scaffold a simple front-end project with whatever UI framework I wanted in my own IDE — no shared editor, no scaffolding from them, and AI was not allowed for my round (other candidates have reported it being allowed). Be ready to set up your dev environment fast.
 
-**18th May 2026**:
+**May 2026**:
 
 > A common Discord tech-screen question is essentially "build a chat server like Discord" — yes, the actual product. There's a UI version of this question for FE candidates that doesn't require backend sockets. Search around for "design a React component that functions like an Excel cell" too, which has shown up in their loop.
 

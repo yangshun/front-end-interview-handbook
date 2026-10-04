@@ -21,7 +21,7 @@ Robinhood's frontend phone screen has a recurring question and a level-based gra
 
 These tips were shared by [GreatFrontEnd](https://www.greatfrontend.com/?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) users who have completed interviews with Robinhood.
 
-**24th Mar 2026**:
+**March 2026**:
 
 > Robinhood's phone screen uses their common question — implement event emitter in 3 stages. They expect you to clear all 3 if you're senior/staff. I got to 2.5 (very close to completing the last level) and didn't pass. Don't underestimate it: I went in thinking it wouldn't be a big deal and wasn't seriously trying hard. Treat all 3 stages as required.
 

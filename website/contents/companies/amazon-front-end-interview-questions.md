@@ -178,7 +178,7 @@ Questions sourced from the web and the [GreatFrontEnd](https://www.greatfrontend
 
 These tips were shared by [GreatFrontEnd](https://www.greatfrontend.com/?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) users who have completed interviews with Amazon.
 
-**8th Nov 2025**:
+**November 2025**:
 
 > Sharing my Amazon FE onsite loop (online):
 >
@@ -189,11 +189,11 @@ These tips were shared by [GreatFrontEnd](https://www.greatfrontend.com/?utm_sou
 >
 > Yes, Amazon onsite does include a DSA round for frontend — either I had bad luck or it's standard now.
 
-**20th May 2025**:
+**May 2025**:
 
 > The code editor for Amazon is like a plain editor (developed internally), where you just write your code (can’t execute code) and explain your completed code solution with some test cases. They will paste a single line of comment or if your interviewer is generous enough they will give more context to the problem. Mostly for FEE interviews they expect you to (that means they want you to) write Vanilla JS because internally Amazon uses multiple frameworks/libraries so to test the basics they mandate candidates to write in Vanilla JS and also, yes it cannot be executed. So you just write it as your interviewer likes it. Focus on the most common FEE Amazon questions from GreatFrontEnd, that list is enough, understand the problem, practice and then try to write it on a plain editor since there is no autocomplete or syntax highlighting. Also, once you’re confident in your practice, sit in front of your camera and explain the problem as if you’re in front of an interviewer.
 
-**5th May 2025**:
+**May 2025**:
 
 > I wrapped up my 2 tech rounds with amazon for FE-2.
 >
@@ -205,7 +205,7 @@ These tips were shared by [GreatFrontEnd](https://www.greatfrontend.com/?utm_sou
 >
 > Implement a component similar to autocomplete. This was easy as i just showed it using diagram and wrote code for the same.
 
-**30th May 2025**:
+**May 2025**:
 
 > Amazon FEE II Interview
 >
@@ -214,11 +214,11 @@ These tips were shared by [GreatFrontEnd](https://www.greatfrontend.com/?utm_sou
 > - #1: Accordion by default allows one section to be open at a time. Theres a checkbox to switch behavior enabling multiple sections to expanded
 > - #2: Address book form validation (name, email, phone number) that appends valid entries to table below. Along with an input field that filters the table based on phone number.
 
-**13th Apr 2025**:
+**April 2025**:
 
 > Well I bombed the front end code challenge with amazon and what makes it worse, it wasn't even hard. I got nervous and forgot how to write a json object, something I've done a million times in the last 15 years. It was simple, write a json object and parse through it recursively, having it mirror a file system. I think there's a file system traversal program in GreatFrontEnd which I've already solved.
 
-**17th Mar 2025**:
+**March 2025**:
 
 > Went through 4 rounds excluding Screening. got ghosted after the 4th round.
 >

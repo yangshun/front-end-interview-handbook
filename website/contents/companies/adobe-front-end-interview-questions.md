@@ -34,25 +34,23 @@ Find the latest version of this page on [GreatFrontEnd's Adobe Front End Intervi
 
 These tips were shared by [GreatFrontEnd](https://www.greatfrontend.com/?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) users who have completed interviews with Adobe.
 
-**25th Sep 2025**:
+**September 2025**:
 
-> I did the Adobe FE loop (Firefly team — half the interviewers were from that team and half were helpers from other teams). 5 rounds total:
+> ... 5 rounds total:
 >
 > 1. Pre-onsite — rapid fire questions across different tech stacks they find important, plus debugging an app and discussing performance improvements.
-> 2. Architecture round. In the last 10 minutes the interviewer asked a gotcha question to code a recursive API call. I'd been using SSR GraphQL for the last 3 years and blanked on how to handle the return value in the setTimeout without a side-effect variable, so I didn't finish (he said I got 95% done).
+> 2. Architecture round. In the last 10 minutes the interviewer asked a gotcha question to code a recursive API call.
 > 3. Behavioral / tech discussion — no coding.
-> 4. Chat plus a custom React hook that required setInterval. Interviewer thought the code was functional but the interval wouldn't clear properly and randomly ran twice in the editor — turns out the React fix is to use `useRef` instead of `useState` for setInterval.
+> 4. Chat plus a custom React hook that required setInterval.
 > 5. Manager chat.
->
-> Feedback: everyone liked me but they said I had gaps on React and REST APIs based on the two issues above. Overall simpler than leetcode-obsessed companies — prep React quirks and you should be fine.
 
-**19th Jun 2025**:
+**June 2025**:
 
 > Attended Adobe system design, it was non frontend system design. I was asked to design LRU cache and design the classes and interfaces for a chess game. Also had the hiring manager round, was asked to implement the flood fill algorithm. i.e. there is a m\*n grid which has outlines of some shapes. If clicked inside any shape, then the shape should be flood filled. If clicked outside the shape, then the whole grid should be flood filled except the shapes.
 >
 > Had to implement the pseudo code only though.
 
-**16th Jun 2025**:
+**June 2025**:
 
 > Attended Adobe interview. In the language and web fundamentals round, a question similar to https://www.geeksforgeeks.org/problems/leaders-in-an-array-1587115620/1 was asked.
 >
@@ -60,14 +58,14 @@ These tips were shared by [GreatFrontEnd](https://www.greatfrontend.com/?utm_sou
 >
 > One thing to note was that I had to handrun the code as the test cases were not setup and the interviewer actually typed out the test cases instead of copy pasting.
 
-**26th Oct 2023**:
+**October 2023**:
 
-> I had my Adobe onsite last week for FE mid-level role. It was following a HackerRank + quick QnA with HM
+> ... Adobe onsite ... FE mid-level role. It was following a HackerRank + quick QnA with HM
 >
 > It was five rounds each consisting of 30min tech and 10min behavior 5min QnA These were some technical questions asked
 >
 > LC medium - find total number of islands in a nested arr of 0 and 1 LC easy - covert Oct 1 23 to 10-01-23 UI - build an accordion using JS or react create polyfill of .reduce
 >
-> It was on the easier side but only for one headcount so I didn't get an offer
+> It was on the easier side.
 
 For more insider tips, visit [GreatFrontEnd](https://www.greatfrontend.com/?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)!

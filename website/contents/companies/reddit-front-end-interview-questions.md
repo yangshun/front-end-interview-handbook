@@ -1,51 +1,62 @@
 ---
 title: Reddit Front End Interview Questions
 sidebar_label: Reddit interview questions
-description: Reddit front end interview guide with real candidate experiences. JavaScript fundamentals, HTML forms, array problems, and system design tips
+description: Reddit frontend interview experiences with JavaScript fundamentals, React timers, graph coding, forms, and trivia-app system design.
 ---
 
-:::info Latest version on GreatFrontEnd
+:::info Full guide on GreatFrontEnd
 
-Find more company guides on [GreatFrontEnd](https://www.greatfrontend.com/interviews/company?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
+Explore round details, preparation advice, and related practice in [GreatFrontEnd's Reddit Front End Interview Guide](https://www.greatfrontend.com/interviews/company/reddit/questions-guides?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
 
 :::
 
-Reddit focuses on JavaScript fundamentals and building UIs with HTML + JS. React is not used — prep vanilla JavaScript and HTML.
+Reddit interviews have included both vanilla JavaScript and React. Earlier experiences centered on HTML forms and array operations; an August 2026 loop added React timers, graph construction, and trivia-app design. Prepare the browser fundamentals and confirm the framework for your own rounds.
 
 ## JavaScript coding questions
 
-- Given a list of messages, dedupe them **without** using an object or a `Set`.
-- Simple coding round with arrays and filters (20-minute phone-screen portion).
-- Manipulate arrays (onsite coding round).
-- Tech screen: question involving HTML forms — read the form data and construct a JSON object from it.
+- Deduplicate a list of messages without using an object or a `Set`.
+- Manipulate arrays with filtering and other transformations.
+- Read HTML form data and construct a JSON object.
+- Explain web concepts, including GET versus POST, as if discussing them with a junior engineer.
+
+Deduplication practice can start with [Unique Array](https://www.greatfrontend.com/questions/javascript/unique-array?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook). Its base exercise does not impose the interview's object/`Set` restriction; repeat it under that constraint and discuss the time and space costs.
 
 ## User interface coding questions
 
-- Build a form-related UI (onsite UI coding round).
+- Build a form-related interface using HTML and JavaScript.
+- Use React with `setInterval` and `setTimeout` to animate or visualize data.
+
+The elapsed-time state in [Stopwatch](https://www.greatfrontend.com/questions/user-interface/stopwatch?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) provides related timer practice. Animation or data visualization would be an extension, rather than part of the base stopwatch exercise. Check cleanup when the component unmounts and when an interaction restarts.
+
+## Algorithm questions
+
+- Construct a graph from input data, then traverse it in a second part of the task.
+
+Clarify how records become nodes and edges before choosing breadth-first or depth-first traversal. Check disconnected nodes and cycles.
 
 ## System design questions
 
-- "Talk through" a feed (phone-screen discussion-only, no implementation).
-  - [Read answer](https://www.greatfrontend.com/questions/system-design/news-feed-facebook?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
-- Design a quiz-like game app.
+- Talk through a feed without implementing it.
+  - A related worked design is [News Feed](https://www.greatfrontend.com/questions/system-design/news-feed-facebook?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free).
+- Design a quiz or trivia application, discussing client architecture, APIs, and performance.
 
 ## Insider tips from the GreatFrontEnd community
 
 These tips were shared by [GreatFrontEnd](https://www.greatfrontend.com/?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) users who have completed interviews with Reddit.
 
-**21st Apr 2026**:
+**April 2026**:
 
 > Some insights from my Reddit tech screen: it started with trivia — how would you talk to a junior engineer about something? Why would you use a POST vs GET call, plus a couple of other scenarios. Then the coding portion: given a list of messages, figure out a way to dedupe them without using an object or a Set.
 
-**14th May 2025**:
+**May 2025**:
 
 > You should prepare JavaScript fundamental and building UI problems with html, and JavaScript
 
-**20th Feb 2025**:
+**February 2025**:
 
 > Reddit tech screen: question involving HTML forms and using the form data to construct a JSON object
 
-**27th Oct 2024**:
+**October 2024**:
 
 > I just had Reddit interview.
 >

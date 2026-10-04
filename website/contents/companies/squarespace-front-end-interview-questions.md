@@ -26,7 +26,7 @@ Squarespace's front-end loop has recently moved away from a take-home and toward
 
 These tips were shared by [GreatFrontEnd](https://www.greatfrontend.com/?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) users who have completed interviews with Squarespace.
 
-**8th Jan 2026**:
+**January 2026**:
 
 > Squarespace FE tech screen update — they've changed the format, so older threads / Glassdoor posts about take-homes may not match anymore. The interview is in vanilla JS. They give you a buggy JS file with a bunch of classes (mine was a shopping cart with review comments and a 5-star widget). One by one, they tell you what the bug is (e.g. "the 5-star widget lets you review more than once") and you fix it. Some fixes are about manipulating state and arrays.
 >
@@ -34,7 +34,7 @@ These tips were shared by [GreatFrontEnd](https://www.greatfrontend.com/?utm_sou
 >
 > Heads-up: the classes have intentionally generic names which makes it harder to track what does what.
 
-**8th Jan 2026**:
+**January 2026**:
 
 > The recruiter told me the system design round (onsite) at Squarespace will be implementing a Kanban board. Good to know what to prep ahead of time.
 
